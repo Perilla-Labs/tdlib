@@ -129,19 +129,18 @@ final class PersonalDetails extends TdObject {
     String? gender,
     String? countryCode,
     String? residenceCountryCode,
-  }) =>
-      PersonalDetails(
-        firstName: firstName ?? this.firstName,
-        middleName: middleName ?? this.middleName,
-        lastName: lastName ?? this.lastName,
-        nativeFirstName: nativeFirstName ?? this.nativeFirstName,
-        nativeMiddleName: nativeMiddleName ?? this.nativeMiddleName,
-        nativeLastName: nativeLastName ?? this.nativeLastName,
-        birthdate: birthdate ?? this.birthdate,
-        gender: gender ?? this.gender,
-        countryCode: countryCode ?? this.countryCode,
-        residenceCountryCode: residenceCountryCode ?? this.residenceCountryCode,
-      );
+  }) => PersonalDetails(
+    firstName: firstName ?? this.firstName,
+    middleName: middleName ?? this.middleName,
+    lastName: lastName ?? this.lastName,
+    nativeFirstName: nativeFirstName ?? this.nativeFirstName,
+    nativeMiddleName: nativeMiddleName ?? this.nativeMiddleName,
+    nativeLastName: nativeLastName ?? this.nativeLastName,
+    birthdate: birthdate ?? this.birthdate,
+    gender: gender ?? this.gender,
+    countryCode: countryCode ?? this.countryCode,
+    residenceCountryCode: residenceCountryCode ?? this.residenceCountryCode,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'personalDetails';

@@ -13,10 +13,7 @@ final class SavedCredentials extends TdObject {
   ///
   /// * [id]: Unique identifier of the saved credentials.
   /// * [title]: Title of the saved credentials.
-  const SavedCredentials({
-    required this.id,
-    required this.title,
-  });
+  const SavedCredentials({required this.id, required this.title});
 
   /// Unique identifier of the saved credentials
   final String id;
@@ -26,19 +23,12 @@ final class SavedCredentials extends TdObject {
 
   /// Parse from a json
   factory SavedCredentials.fromJson(Map<String, dynamic> json) =>
-      SavedCredentials(
-        id: json['id'],
-        title: json['title'],
-      );
+      SavedCredentials(id: json['id'], title: json['title']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "id": id,
-      "title": title,
-    };
+    return {"@type": defaultObjectId, "id": id, "title": title};
   }
 
   /// Copy model with modified properties.
@@ -46,14 +36,8 @@ final class SavedCredentials extends TdObject {
   /// Properties:
   /// * [id]: Unique identifier of the saved credentials
   /// * [title]: Title of the saved credentials
-  SavedCredentials copyWith({
-    String? id,
-    String? title,
-  }) =>
-      SavedCredentials(
-        id: id ?? this.id,
-        title: title ?? this.title,
-      );
+  SavedCredentials copyWith({String? id, String? title}) =>
+      SavedCredentials(id: id ?? this.id, title: title ?? this.title);
 
   /// TDLib object type
   static const String defaultObjectId = 'savedCredentials';

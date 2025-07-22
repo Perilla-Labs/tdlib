@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **EndGroupCallRecording** *(endGroupCallRecording)* - TDLib function
 ///
-/// Ends recording of an active group call. Requires groupCall.can_be_managed group call flag.
+/// Ends recording of an active group call; for video chats only. Requires groupCall.can_be_managed right.
 ///
 /// * [groupCallId]: Group call identifier.
 ///
@@ -10,14 +10,12 @@ part of '../tdapi.dart';
 final class EndGroupCallRecording extends TdFunction {
   /// **EndGroupCallRecording** *(endGroupCallRecording)* - TDLib function
   ///
-  /// Ends recording of an active group call. Requires groupCall.can_be_managed group call flag.
+  /// Ends recording of an active group call; for video chats only. Requires groupCall.can_be_managed right.
   ///
   /// * [groupCallId]: Group call identifier.
   ///
   /// [Ok] is returned on completion.
-  const EndGroupCallRecording({
-    required this.groupCallId,
-  });
+  const EndGroupCallRecording({required this.groupCallId});
 
   /// Group call identifier
   final int groupCallId;
@@ -36,12 +34,8 @@ final class EndGroupCallRecording extends TdFunction {
   ///
   /// Properties:
   /// * [group_call_id]: Group call identifier
-  EndGroupCallRecording copyWith({
-    int? groupCallId,
-  }) =>
-      EndGroupCallRecording(
-        groupCallId: groupCallId ?? this.groupCallId,
-      );
+  EndGroupCallRecording copyWith({int? groupCallId}) =>
+      EndGroupCallRecording(groupCallId: groupCallId ?? this.groupCallId);
 
   /// TDLib object type
   static const String defaultObjectId = 'endGroupCallRecording';

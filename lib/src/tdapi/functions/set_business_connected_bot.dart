@@ -15,9 +15,7 @@ final class SetBusinessConnectedBot extends TdFunction {
   /// * [bot]: Connection settings for the bot.
   ///
   /// [Ok] is returned on completion.
-  const SetBusinessConnectedBot({
-    required this.bot,
-  });
+  const SetBusinessConnectedBot({required this.bot});
 
   /// Connection settings for the bot
   final BusinessConnectedBot bot;
@@ -25,23 +23,15 @@ final class SetBusinessConnectedBot extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "bot": bot.toJson(),
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "bot": bot.toJson(), "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [bot]: Connection settings for the bot
-  SetBusinessConnectedBot copyWith({
-    BusinessConnectedBot? bot,
-  }) =>
-      SetBusinessConnectedBot(
-        bot: bot ?? this.bot,
-      );
+  SetBusinessConnectedBot copyWith({BusinessConnectedBot? bot}) =>
+      SetBusinessConnectedBot(bot: bot ?? this.bot);
 
   /// TDLib object type
   static const String defaultObjectId = 'setBusinessConnectedBot';

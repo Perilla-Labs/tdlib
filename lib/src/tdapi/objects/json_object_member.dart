@@ -13,10 +13,7 @@ final class JsonObjectMember extends TdObject {
   ///
   /// * [key]: Member's key.
   /// * [value]: Member's value.
-  const JsonObjectMember({
-    required this.key,
-    required this.value,
-  });
+  const JsonObjectMember({required this.key, required this.value});
 
   /// Member's key
   final String key;
@@ -34,11 +31,7 @@ final class JsonObjectMember extends TdObject {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "key": key,
-      "value": value.toJson(),
-    };
+    return {"@type": defaultObjectId, "key": key, "value": value.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -46,14 +39,8 @@ final class JsonObjectMember extends TdObject {
   /// Properties:
   /// * [key]: Member's key
   /// * [value]: Member's value
-  JsonObjectMember copyWith({
-    String? key,
-    JsonValue? value,
-  }) =>
-      JsonObjectMember(
-        key: key ?? this.key,
-        value: value ?? this.value,
-      );
+  JsonObjectMember copyWith({String? key, JsonValue? value}) =>
+      JsonObjectMember(key: key ?? this.key, value: value ?? this.value);
 
   /// TDLib object type
   static const String defaultObjectId = 'jsonObjectMember';

@@ -65,13 +65,12 @@ final class StopBusinessPoll extends TdFunction {
     int? chatId,
     int? messageId,
     ReplyMarkup? replyMarkup,
-  }) =>
-      StopBusinessPoll(
-        businessConnectionId: businessConnectionId ?? this.businessConnectionId,
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        replyMarkup: replyMarkup ?? this.replyMarkup,
-      );
+  }) => StopBusinessPoll(
+    businessConnectionId: businessConnectionId ?? this.businessConnectionId,
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    replyMarkup: replyMarkup ?? this.replyMarkup,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'stopBusinessPoll';

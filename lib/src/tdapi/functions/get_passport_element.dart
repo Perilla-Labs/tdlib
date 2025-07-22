@@ -17,10 +17,7 @@ final class GetPassportElement extends TdFunction {
   /// * [password]: The 2-step verification password of the current user.
   ///
   /// [PassportElement] is returned on completion.
-  const GetPassportElement({
-    required this.type,
-    required this.password,
-  });
+  const GetPassportElement({required this.type, required this.password});
 
   /// Telegram Passport element type
   final PassportElementType type;
@@ -44,10 +41,7 @@ final class GetPassportElement extends TdFunction {
   /// Properties:
   /// * [type]: Telegram Passport element type
   /// * [password]: The 2-step verification password of the current user
-  GetPassportElement copyWith({
-    PassportElementType? type,
-    String? password,
-  }) =>
+  GetPassportElement copyWith({PassportElementType? type, String? password}) =>
       GetPassportElement(
         type: type ?? this.type,
         password: password ?? this.password,

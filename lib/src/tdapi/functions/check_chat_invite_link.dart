@@ -15,9 +15,7 @@ final class CheckChatInviteLink extends TdFunction {
   /// * [inviteLink]: Invite link to be checked.
   ///
   /// [ChatInviteLinkInfo] is returned on completion.
-  const CheckChatInviteLink({
-    required this.inviteLink,
-  });
+  const CheckChatInviteLink({required this.inviteLink});
 
   /// Invite link to be checked
   final String inviteLink;
@@ -36,12 +34,8 @@ final class CheckChatInviteLink extends TdFunction {
   ///
   /// Properties:
   /// * [invite_link]: Invite link to be checked
-  CheckChatInviteLink copyWith({
-    String? inviteLink,
-  }) =>
-      CheckChatInviteLink(
-        inviteLink: inviteLink ?? this.inviteLink,
-      );
+  CheckChatInviteLink copyWith({String? inviteLink}) =>
+      CheckChatInviteLink(inviteLink: inviteLink ?? this.inviteLink);
 
   /// TDLib object type
   static const String defaultObjectId = 'checkChatInviteLink';

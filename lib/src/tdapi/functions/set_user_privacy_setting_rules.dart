@@ -47,11 +47,10 @@ final class SetUserPrivacySettingRules extends TdFunction {
   SetUserPrivacySettingRules copyWith({
     UserPrivacySetting? setting,
     UserPrivacySettingRules? rules,
-  }) =>
-      SetUserPrivacySettingRules(
-        setting: setting ?? this.setting,
-        rules: rules ?? this.rules,
-      );
+  }) => SetUserPrivacySettingRules(
+    setting: setting ?? this.setting,
+    rules: rules ?? this.rules,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setUserPrivacySettingRules';

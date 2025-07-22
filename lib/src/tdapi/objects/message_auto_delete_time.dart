@@ -11,11 +11,7 @@ final class MessageAutoDeleteTime extends TdObject {
   /// Contains default auto-delete timer setting for new chats.
   ///
   /// * [time]: Message auto-delete time, in seconds. If 0, then messages aren't deleted automatically.
-  const MessageAutoDeleteTime({
-    required this.time,
-    this.extra,
-    this.clientId,
-  });
+  const MessageAutoDeleteTime({required this.time, this.extra, this.clientId});
 
   /// Message auto-delete time, in seconds. If 0, then messages aren't deleted automatically
   final int time;
@@ -39,21 +35,14 @@ final class MessageAutoDeleteTime extends TdObject {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "time": time,
-    };
+    return {"@type": defaultObjectId, "time": time};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [time]: Message auto-delete time, in seconds. If 0, then messages aren't deleted automatically
-  MessageAutoDeleteTime copyWith({
-    int? time,
-    dynamic extra,
-    int? clientId,
-  }) =>
+  MessageAutoDeleteTime copyWith({int? time, dynamic extra, int? clientId}) =>
       MessageAutoDeleteTime(
         time: time ?? this.time,
         extra: extra ?? this.extra,

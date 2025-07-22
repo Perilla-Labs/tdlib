@@ -61,9 +61,7 @@ final class InputPaidMediaTypePhoto extends InputPaidMediaType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -86,29 +84,43 @@ final class InputPaidMediaTypePhoto extends InputPaidMediaType {
 ///
 /// The media is a video.
 ///
+/// * [cover]: Cover of the video; pass null to skip cover uploading *(optional)*.
+/// * [startTimestamp]: Timestamp from which the video playing must start, in seconds.
 /// * [duration]: Duration of the video, in seconds.
-/// * [supportsStreaming]: True, if the video is supposed to be streamed.
+/// * [supportsStreaming]: True, if the video is expected to be streamed.
 final class InputPaidMediaTypeVideo extends InputPaidMediaType {
   /// **InputPaidMediaTypeVideo** *(inputPaidMediaTypeVideo)* - child of InputPaidMediaType
   ///
   /// The media is a video.
   ///
+  /// * [cover]: Cover of the video; pass null to skip cover uploading *(optional)*.
+  /// * [startTimestamp]: Timestamp from which the video playing must start, in seconds.
   /// * [duration]: Duration of the video, in seconds.
-  /// * [supportsStreaming]: True, if the video is supposed to be streamed.
+  /// * [supportsStreaming]: True, if the video is expected to be streamed.
   const InputPaidMediaTypeVideo({
+    this.cover,
+    required this.startTimestamp,
     required this.duration,
     required this.supportsStreaming,
   });
 
+  /// Cover of the video; pass null to skip cover uploading
+  final InputFile? cover;
+
+  /// Timestamp from which the video playing must start, in seconds
+  final int startTimestamp;
+
   /// Duration of the video, in seconds
   final int duration;
 
-  /// True, if the video is supposed to be streamed
+  /// True, if the video is expected to be streamed
   final bool supportsStreaming;
 
   /// Parse from a json
   factory InputPaidMediaTypeVideo.fromJson(Map<String, dynamic> json) =>
       InputPaidMediaTypeVideo(
+        cover: json['cover'] == null ? null : InputFile.fromJson(json['cover']),
+        startTimestamp: json['start_timestamp'],
         duration: json['duration'],
         supportsStreaming: json['supports_streaming'],
       );
@@ -118,6 +130,8 @@ final class InputPaidMediaTypeVideo extends InputPaidMediaType {
   Map<String, dynamic> toJson() {
     return {
       "@type": defaultObjectId,
+      "cover": cover?.toJson(),
+      "start_timestamp": startTimestamp,
       "duration": duration,
       "supports_streaming": supportsStreaming,
     };
@@ -126,17 +140,22 @@ final class InputPaidMediaTypeVideo extends InputPaidMediaType {
   /// Copy model with modified properties.
   ///
   /// Properties:
+  /// * [cover]: Cover of the video; pass null to skip cover uploading
+  /// * [start_timestamp]: Timestamp from which the video playing must start, in seconds
   /// * [duration]: Duration of the video, in seconds
-  /// * [supports_streaming]: True, if the video is supposed to be streamed
+  /// * [supports_streaming]: True, if the video is expected to be streamed
   @override
   InputPaidMediaTypeVideo copyWith({
+    InputFile? cover,
+    int? startTimestamp,
     int? duration,
     bool? supportsStreaming,
-  }) =>
-      InputPaidMediaTypeVideo(
-        duration: duration ?? this.duration,
-        supportsStreaming: supportsStreaming ?? this.supportsStreaming,
-      );
+  }) => InputPaidMediaTypeVideo(
+    cover: cover ?? this.cover,
+    startTimestamp: startTimestamp ?? this.startTimestamp,
+    duration: duration ?? this.duration,
+    supportsStreaming: supportsStreaming ?? this.supportsStreaming,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputPaidMediaTypeVideo';

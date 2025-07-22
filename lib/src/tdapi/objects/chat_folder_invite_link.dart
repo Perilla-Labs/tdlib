@@ -46,7 +46,8 @@ final class ChatFolderInviteLink extends TdObject {
         inviteLink: json['invite_link'],
         name: json['name'],
         chatIds: List<int>.from(
-            (json['chat_ids'] ?? []).map((item) => item).toList()),
+          (json['chat_ids'] ?? []).map((item) => item).toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -74,14 +75,13 @@ final class ChatFolderInviteLink extends TdObject {
     List<int>? chatIds,
     dynamic extra,
     int? clientId,
-  }) =>
-      ChatFolderInviteLink(
-        inviteLink: inviteLink ?? this.inviteLink,
-        name: name ?? this.name,
-        chatIds: chatIds ?? this.chatIds,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => ChatFolderInviteLink(
+    inviteLink: inviteLink ?? this.inviteLink,
+    name: name ?? this.name,
+    chatIds: chatIds ?? this.chatIds,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatFolderInviteLink';

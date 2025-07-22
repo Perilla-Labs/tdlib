@@ -16,7 +16,8 @@ sealed class ReactionUnavailabilityReason extends TdObject {
     switch (json["@type"]) {
       case ReactionUnavailabilityReasonAnonymousAdministrator.defaultObjectId:
         return ReactionUnavailabilityReasonAnonymousAdministrator.fromJson(
-            json);
+          json,
+        );
       case ReactionUnavailabilityReasonGuest.defaultObjectId:
         return ReactionUnavailabilityReasonGuest.fromJson(json);
       default:
@@ -58,15 +59,13 @@ final class ReactionUnavailabilityReasonAnonymousAdministrator
 
   /// Parse from a json
   factory ReactionUnavailabilityReasonAnonymousAdministrator.fromJson(
-          Map<String, dynamic> json) =>
-      const ReactionUnavailabilityReasonAnonymousAdministrator();
+    Map<String, dynamic> json,
+  ) => const ReactionUnavailabilityReasonAnonymousAdministrator();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -99,15 +98,13 @@ final class ReactionUnavailabilityReasonGuest
 
   /// Parse from a json
   factory ReactionUnavailabilityReasonGuest.fromJson(
-          Map<String, dynamic> json) =>
-      const ReactionUnavailabilityReasonGuest();
+    Map<String, dynamic> json,
+  ) => const ReactionUnavailabilityReasonGuest();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.

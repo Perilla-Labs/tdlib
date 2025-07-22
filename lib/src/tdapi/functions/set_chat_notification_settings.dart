@@ -47,11 +47,10 @@ final class SetChatNotificationSettings extends TdFunction {
   SetChatNotificationSettings copyWith({
     int? chatId,
     ChatNotificationSettings? notificationSettings,
-  }) =>
-      SetChatNotificationSettings(
-        chatId: chatId ?? this.chatId,
-        notificationSettings: notificationSettings ?? this.notificationSettings,
-      );
+  }) => SetChatNotificationSettings(
+    chatId: chatId ?? this.chatId,
+    notificationSettings: notificationSettings ?? this.notificationSettings,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setChatNotificationSettings';

@@ -48,13 +48,13 @@ final class PaymentForm extends TdObject {
 
   /// Parse from a json
   factory PaymentForm.fromJson(Map<String, dynamic> json) => PaymentForm(
-        id: json['id'] is int ? json['id'] : int.parse(json['id']),
-        type: PaymentFormType.fromJson(json['type']),
-        sellerBotUserId: json['seller_bot_user_id'],
-        productInfo: ProductInfo.fromJson(json['product_info']),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    id: json['id'] is int ? json['id'] : int.parse(json['id']),
+    type: PaymentFormType.fromJson(json['type']),
+    sellerBotUserId: json['seller_bot_user_id'],
+    productInfo: ProductInfo.fromJson(json['product_info']),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -82,15 +82,14 @@ final class PaymentForm extends TdObject {
     ProductInfo? productInfo,
     dynamic extra,
     int? clientId,
-  }) =>
-      PaymentForm(
-        id: id ?? this.id,
-        type: type ?? this.type,
-        sellerBotUserId: sellerBotUserId ?? this.sellerBotUserId,
-        productInfo: productInfo ?? this.productInfo,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => PaymentForm(
+    id: id ?? this.id,
+    type: type ?? this.type,
+    sellerBotUserId: sellerBotUserId ?? this.sellerBotUserId,
+    productInfo: productInfo ?? this.productInfo,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'paymentForm';

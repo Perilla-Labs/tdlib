@@ -15,9 +15,7 @@ final class GetChatFolderNewChats extends TdFunction {
   /// * [chatFolderId]: Chat folder identifier.
   ///
   /// [Chats] is returned on completion.
-  const GetChatFolderNewChats({
-    required this.chatFolderId,
-  });
+  const GetChatFolderNewChats({required this.chatFolderId});
 
   /// Chat folder identifier
   final int chatFolderId;
@@ -36,12 +34,8 @@ final class GetChatFolderNewChats extends TdFunction {
   ///
   /// Properties:
   /// * [chat_folder_id]: Chat folder identifier
-  GetChatFolderNewChats copyWith({
-    int? chatFolderId,
-  }) =>
-      GetChatFolderNewChats(
-        chatFolderId: chatFolderId ?? this.chatFolderId,
-      );
+  GetChatFolderNewChats copyWith({int? chatFolderId}) =>
+      GetChatFolderNewChats(chatFolderId: chatFolderId ?? this.chatFolderId);
 
   /// TDLib object type
   static const String defaultObjectId = 'getChatFolderNewChats';

@@ -60,15 +60,13 @@ final class NotificationSettingsScopePrivateChats
 
   /// Parse from a json
   factory NotificationSettingsScopePrivateChats.fromJson(
-          Map<String, dynamic> json) =>
-      const NotificationSettingsScopePrivateChats();
+    Map<String, dynamic> json,
+  ) => const NotificationSettingsScopePrivateChats();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -100,15 +98,13 @@ final class NotificationSettingsScopeGroupChats
 
   /// Parse from a json
   factory NotificationSettingsScopeGroupChats.fromJson(
-          Map<String, dynamic> json) =>
-      const NotificationSettingsScopeGroupChats();
+    Map<String, dynamic> json,
+  ) => const NotificationSettingsScopeGroupChats();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -140,15 +136,13 @@ final class NotificationSettingsScopeChannelChats
 
   /// Parse from a json
   factory NotificationSettingsScopeChannelChats.fromJson(
-          Map<String, dynamic> json) =>
-      const NotificationSettingsScopeChannelChats();
+    Map<String, dynamic> json,
+  ) => const NotificationSettingsScopeChannelChats();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.

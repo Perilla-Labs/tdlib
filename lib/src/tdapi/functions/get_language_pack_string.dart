@@ -65,14 +65,13 @@ final class GetLanguagePackString extends TdFunction {
     String? localizationTarget,
     String? languagePackId,
     String? key,
-  }) =>
-      GetLanguagePackString(
-        languagePackDatabasePath:
-            languagePackDatabasePath ?? this.languagePackDatabasePath,
-        localizationTarget: localizationTarget ?? this.localizationTarget,
-        languagePackId: languagePackId ?? this.languagePackId,
-        key: key ?? this.key,
-      );
+  }) => GetLanguagePackString(
+    languagePackDatabasePath:
+        languagePackDatabasePath ?? this.languagePackDatabasePath,
+    localizationTarget: localizationTarget ?? this.localizationTarget,
+    languagePackId: languagePackId ?? this.languagePackId,
+    key: key ?? this.key,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getLanguagePackString';

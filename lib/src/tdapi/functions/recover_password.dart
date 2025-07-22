@@ -56,12 +56,11 @@ final class RecoverPassword extends TdFunction {
     String? recoveryCode,
     String? newPassword,
     String? newHint,
-  }) =>
-      RecoverPassword(
-        recoveryCode: recoveryCode ?? this.recoveryCode,
-        newPassword: newPassword ?? this.newPassword,
-        newHint: newHint ?? this.newHint,
-      );
+  }) => RecoverPassword(
+    recoveryCode: recoveryCode ?? this.recoveryCode,
+    newPassword: newPassword ?? this.newPassword,
+    newHint: newHint ?? this.newHint,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'recoverPassword';

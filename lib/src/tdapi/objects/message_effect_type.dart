@@ -95,11 +95,10 @@ final class MessageEffectTypeEmojiReaction extends MessageEffectType {
   MessageEffectTypeEmojiReaction copyWith({
     Sticker? selectAnimation,
     Sticker? effectAnimation,
-  }) =>
-      MessageEffectTypeEmojiReaction(
-        selectAnimation: selectAnimation ?? this.selectAnimation,
-        effectAnimation: effectAnimation ?? this.effectAnimation,
-      );
+  }) => MessageEffectTypeEmojiReaction(
+    selectAnimation: selectAnimation ?? this.selectAnimation,
+    effectAnimation: effectAnimation ?? this.effectAnimation,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageEffectTypeEmojiReaction';
@@ -124,9 +123,7 @@ final class MessageEffectTypePremiumSticker extends MessageEffectType {
   /// An effect from a premium sticker.
   ///
   /// * [sticker]: The premium sticker. The effect can be found at sticker.full_type.premium_animation.
-  const MessageEffectTypePremiumSticker({
-    required this.sticker,
-  });
+  const MessageEffectTypePremiumSticker({required this.sticker});
 
   /// The premium sticker. The effect can be found at sticker.full_type.premium_animation
   final Sticker sticker;
@@ -140,10 +137,7 @@ final class MessageEffectTypePremiumSticker extends MessageEffectType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "sticker": sticker.toJson(),
-    };
+    return {"@type": defaultObjectId, "sticker": sticker.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -151,12 +145,8 @@ final class MessageEffectTypePremiumSticker extends MessageEffectType {
   /// Properties:
   /// * [sticker]: The premium sticker. The effect can be found at sticker.full_type.premium_animation
   @override
-  MessageEffectTypePremiumSticker copyWith({
-    Sticker? sticker,
-  }) =>
-      MessageEffectTypePremiumSticker(
-        sticker: sticker ?? this.sticker,
-      );
+  MessageEffectTypePremiumSticker copyWith({Sticker? sticker}) =>
+      MessageEffectTypePremiumSticker(sticker: sticker ?? this.sticker);
 
   /// TDLib object type
   static const String defaultObjectId = 'messageEffectTypePremiumSticker';

@@ -15,9 +15,7 @@ final class CloseWebApp extends TdFunction {
   /// * [webAppLaunchId]: Identifier of Web App launch, received from openWebApp.
   ///
   /// [Ok] is returned on completion.
-  const CloseWebApp({
-    required this.webAppLaunchId,
-  });
+  const CloseWebApp({required this.webAppLaunchId});
 
   /// Identifier of Web App launch, received from openWebApp
   final int webAppLaunchId;
@@ -36,12 +34,8 @@ final class CloseWebApp extends TdFunction {
   ///
   /// Properties:
   /// * [web_app_launch_id]: Identifier of Web App launch, received from openWebApp
-  CloseWebApp copyWith({
-    int? webAppLaunchId,
-  }) =>
-      CloseWebApp(
-        webAppLaunchId: webAppLaunchId ?? this.webAppLaunchId,
-      );
+  CloseWebApp copyWith({int? webAppLaunchId}) =>
+      CloseWebApp(webAppLaunchId: webAppLaunchId ?? this.webAppLaunchId);
 
   /// TDLib object type
   static const String defaultObjectId = 'closeWebApp';

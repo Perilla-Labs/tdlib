@@ -15,9 +15,7 @@ final class ClearAllDraftMessages extends TdFunction {
   /// * [excludeSecretChats]: Pass true to keep local message drafts in secret chats.
   ///
   /// [Ok] is returned on completion.
-  const ClearAllDraftMessages({
-    required this.excludeSecretChats,
-  });
+  const ClearAllDraftMessages({required this.excludeSecretChats});
 
   /// Pass true to keep local message drafts in secret chats
   final bool excludeSecretChats;
@@ -36,9 +34,7 @@ final class ClearAllDraftMessages extends TdFunction {
   ///
   /// Properties:
   /// * [exclude_secret_chats]: Pass true to keep local message drafts in secret chats
-  ClearAllDraftMessages copyWith({
-    bool? excludeSecretChats,
-  }) =>
+  ClearAllDraftMessages copyWith({bool? excludeSecretChats}) =>
       ClearAllDraftMessages(
         excludeSecretChats: excludeSecretChats ?? this.excludeSecretChats,
       );

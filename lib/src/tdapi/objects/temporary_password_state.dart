@@ -63,13 +63,12 @@ final class TemporaryPasswordState extends TdObject {
     int? validFor,
     dynamic extra,
     int? clientId,
-  }) =>
-      TemporaryPasswordState(
-        hasPassword: hasPassword ?? this.hasPassword,
-        validFor: validFor ?? this.validFor,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => TemporaryPasswordState(
+    hasPassword: hasPassword ?? this.hasPassword,
+    validFor: validFor ?? this.validFor,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'temporaryPasswordState';

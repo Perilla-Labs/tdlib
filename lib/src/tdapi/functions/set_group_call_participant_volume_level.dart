@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **SetGroupCallParticipantVolumeLevel** *(setGroupCallParticipantVolumeLevel)* - TDLib function
 ///
-/// Changes volume level of a participant of an active group call. If the current user can manage the group call, then the participant's volume level will be changed for all users with the default volume level.
+/// Changes volume level of a participant of an active group call. If the current user can manage the group call or is the owner of the group call,. then the participant's volume level will be changed for all users with the default volume level.
 ///
 /// * [groupCallId]: Group call identifier.
 /// * [participantId]: Participant identifier.
@@ -12,7 +12,7 @@ part of '../tdapi.dart';
 final class SetGroupCallParticipantVolumeLevel extends TdFunction {
   /// **SetGroupCallParticipantVolumeLevel** *(setGroupCallParticipantVolumeLevel)* - TDLib function
   ///
-  /// Changes volume level of a participant of an active group call. If the current user can manage the group call, then the participant's volume level will be changed for all users with the default volume level.
+  /// Changes volume level of a participant of an active group call. If the current user can manage the group call or is the owner of the group call,. then the participant's volume level will be changed for all users with the default volume level.
   ///
   /// * [groupCallId]: Group call identifier.
   /// * [participantId]: Participant identifier.
@@ -56,12 +56,11 @@ final class SetGroupCallParticipantVolumeLevel extends TdFunction {
     int? groupCallId,
     MessageSender? participantId,
     int? volumeLevel,
-  }) =>
-      SetGroupCallParticipantVolumeLevel(
-        groupCallId: groupCallId ?? this.groupCallId,
-        participantId: participantId ?? this.participantId,
-        volumeLevel: volumeLevel ?? this.volumeLevel,
-      );
+  }) => SetGroupCallParticipantVolumeLevel(
+    groupCallId: groupCallId ?? this.groupCallId,
+    participantId: participantId ?? this.participantId,
+    volumeLevel: volumeLevel ?? this.volumeLevel,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setGroupCallParticipantVolumeLevel';

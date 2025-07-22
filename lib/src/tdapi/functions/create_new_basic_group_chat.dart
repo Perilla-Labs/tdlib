@@ -56,13 +56,11 @@ final class CreateNewBasicGroupChat extends TdFunction {
     List<int>? userIds,
     String? title,
     int? messageAutoDeleteTime,
-  }) =>
-      CreateNewBasicGroupChat(
-        userIds: userIds ?? this.userIds,
-        title: title ?? this.title,
-        messageAutoDeleteTime:
-            messageAutoDeleteTime ?? this.messageAutoDeleteTime,
-      );
+  }) => CreateNewBasicGroupChat(
+    userIds: userIds ?? this.userIds,
+    title: title ?? this.title,
+    messageAutoDeleteTime: messageAutoDeleteTime ?? this.messageAutoDeleteTime,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'createNewBasicGroupChat';

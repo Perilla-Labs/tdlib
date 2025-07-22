@@ -74,14 +74,13 @@ final class GetChatSparseMessagePositions extends TdFunction {
     int? fromMessageId,
     int? limit,
     int? savedMessagesTopicId,
-  }) =>
-      GetChatSparseMessagePositions(
-        chatId: chatId ?? this.chatId,
-        filter: filter ?? this.filter,
-        fromMessageId: fromMessageId ?? this.fromMessageId,
-        limit: limit ?? this.limit,
-        savedMessagesTopicId: savedMessagesTopicId ?? this.savedMessagesTopicId,
-      );
+  }) => GetChatSparseMessagePositions(
+    chatId: chatId ?? this.chatId,
+    filter: filter ?? this.filter,
+    fromMessageId: fromMessageId ?? this.fromMessageId,
+    limit: limit ?? this.limit,
+    savedMessagesTopicId: savedMessagesTopicId ?? this.savedMessagesTopicId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getChatSparseMessagePositions';

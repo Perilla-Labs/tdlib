@@ -17,10 +17,7 @@ final class GetChatMember extends TdFunction {
   /// * [memberId]: Member identifier.
   ///
   /// [ChatMember] is returned on completion.
-  const GetChatMember({
-    required this.chatId,
-    required this.memberId,
-  });
+  const GetChatMember({required this.chatId, required this.memberId});
 
   /// Chat identifier
   final int chatId;
@@ -44,10 +41,7 @@ final class GetChatMember extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [member_id]: Member identifier
-  GetChatMember copyWith({
-    int? chatId,
-    MessageSender? memberId,
-  }) =>
+  GetChatMember copyWith({int? chatId, MessageSender? memberId}) =>
       GetChatMember(
         chatId: chatId ?? this.chatId,
         memberId: memberId ?? this.memberId,

@@ -65,13 +65,12 @@ final class GetPassportAuthorizationForm extends TdFunction {
     String? scope,
     String? publicKey,
     String? nonce,
-  }) =>
-      GetPassportAuthorizationForm(
-        botUserId: botUserId ?? this.botUserId,
-        scope: scope ?? this.scope,
-        publicKey: publicKey ?? this.publicKey,
-        nonce: nonce ?? this.nonce,
-      );
+  }) => GetPassportAuthorizationForm(
+    botUserId: botUserId ?? this.botUserId,
+    scope: scope ?? this.scope,
+    publicKey: publicKey ?? this.publicKey,
+    nonce: nonce ?? this.nonce,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getPassportAuthorizationForm';

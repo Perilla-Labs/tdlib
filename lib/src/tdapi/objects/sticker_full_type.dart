@@ -59,9 +59,7 @@ final class StickerFullTypeRegular extends StickerFullType {
   /// The sticker is a regular sticker.
   ///
   /// * [premiumAnimation]: Premium animation of the sticker; may be null. If present, only Telegram Premium users can use the sticker *(optional)*.
-  const StickerFullTypeRegular({
-    this.premiumAnimation,
-  });
+  const StickerFullTypeRegular({this.premiumAnimation});
 
   /// Premium animation of the sticker; may be null. If present, only Telegram Premium users can use the sticker
   final File? premiumAnimation;
@@ -88,9 +86,7 @@ final class StickerFullTypeRegular extends StickerFullType {
   /// Properties:
   /// * [premium_animation]: Premium animation of the sticker; may be null. If present, only Telegram Premium users can use the sticker
   @override
-  StickerFullTypeRegular copyWith({
-    File? premiumAnimation,
-  }) =>
+  StickerFullTypeRegular copyWith({File? premiumAnimation}) =>
       StickerFullTypeRegular(
         premiumAnimation: premiumAnimation ?? this.premiumAnimation,
       );
@@ -118,9 +114,7 @@ final class StickerFullTypeMask extends StickerFullType {
   /// The sticker is a mask in WEBP format to be placed on photos or videos.
   ///
   /// * [maskPosition]: Position where the mask is placed; may be null *(optional)*.
-  const StickerFullTypeMask({
-    this.maskPosition,
-  });
+  const StickerFullTypeMask({this.maskPosition});
 
   /// Position where the mask is placed; may be null
   final MaskPosition? maskPosition;
@@ -136,10 +130,7 @@ final class StickerFullTypeMask extends StickerFullType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "mask_position": maskPosition?.toJson(),
-    };
+    return {"@type": defaultObjectId, "mask_position": maskPosition?.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -147,12 +138,8 @@ final class StickerFullTypeMask extends StickerFullType {
   /// Properties:
   /// * [mask_position]: Position where the mask is placed; may be null
   @override
-  StickerFullTypeMask copyWith({
-    MaskPosition? maskPosition,
-  }) =>
-      StickerFullTypeMask(
-        maskPosition: maskPosition ?? this.maskPosition,
-      );
+  StickerFullTypeMask copyWith({MaskPosition? maskPosition}) =>
+      StickerFullTypeMask(maskPosition: maskPosition ?? this.maskPosition);
 
   /// TDLib object type
   static const String defaultObjectId = 'stickerFullTypeMask';
@@ -218,11 +205,10 @@ final class StickerFullTypeCustomEmoji extends StickerFullType {
   StickerFullTypeCustomEmoji copyWith({
     int? customEmojiId,
     bool? needsRepainting,
-  }) =>
-      StickerFullTypeCustomEmoji(
-        customEmojiId: customEmojiId ?? this.customEmojiId,
-        needsRepainting: needsRepainting ?? this.needsRepainting,
-      );
+  }) => StickerFullTypeCustomEmoji(
+    customEmojiId: customEmojiId ?? this.customEmojiId,
+    needsRepainting: needsRepainting ?? this.needsRepainting,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'stickerFullTypeCustomEmoji';

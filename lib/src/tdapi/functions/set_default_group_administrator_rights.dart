@@ -27,8 +27,8 @@ final class SetDefaultGroupAdministratorRights extends TdFunction {
   Map<String, dynamic> toJson([dynamic extra]) {
     return {
       "@type": defaultObjectId,
-      "default_group_administrator_rights":
-          defaultGroupAdministratorRights?.toJson(),
+      "default_group_administrator_rights": defaultGroupAdministratorRights
+          ?.toJson(),
       "@extra": extra,
     };
   }
@@ -39,11 +39,10 @@ final class SetDefaultGroupAdministratorRights extends TdFunction {
   /// * [default_group_administrator_rights]: Default administrator rights for adding the bot to basic group and supergroup chats; pass null to remove default rights
   SetDefaultGroupAdministratorRights copyWith({
     ChatAdministratorRights? defaultGroupAdministratorRights,
-  }) =>
-      SetDefaultGroupAdministratorRights(
-        defaultGroupAdministratorRights: defaultGroupAdministratorRights ??
-            this.defaultGroupAdministratorRights,
-      );
+  }) => SetDefaultGroupAdministratorRights(
+    defaultGroupAdministratorRights:
+        defaultGroupAdministratorRights ?? this.defaultGroupAdministratorRights,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setDefaultGroupAdministratorRights';

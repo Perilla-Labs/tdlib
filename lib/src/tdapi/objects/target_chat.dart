@@ -50,11 +50,11 @@ sealed class TargetChat extends TdObject {
 
 /// **TargetChatCurrent** *(targetChatCurrent)* - child of TargetChat
 ///
-/// The currently opened chat needs to be kept.
+/// The currently opened chat and forum topic must be kept.
 final class TargetChatCurrent extends TargetChat {
   /// **TargetChatCurrent** *(targetChatCurrent)* - child of TargetChat
   ///
-  /// The currently opened chat needs to be kept.
+  /// The currently opened chat and forum topic must be kept.
   const TargetChatCurrent();
 
   /// Parse from a json
@@ -87,78 +87,35 @@ final class TargetChatCurrent extends TargetChat {
 ///
 /// The chat needs to be chosen by the user among chats of the specified types.
 ///
-/// * [allowUserChats]: True, if private chats with ordinary users are allowed.
-/// * [allowBotChats]: True, if private chats with other bots are allowed.
-/// * [allowGroupChats]: True, if basic group and supergroup chats are allowed.
-/// * [allowChannelChats]: True, if channel chats are allowed.
+/// * [types]: Allowed types for the chat.
 final class TargetChatChosen extends TargetChat {
   /// **TargetChatChosen** *(targetChatChosen)* - child of TargetChat
   ///
   /// The chat needs to be chosen by the user among chats of the specified types.
   ///
-  /// * [allowUserChats]: True, if private chats with ordinary users are allowed.
-  /// * [allowBotChats]: True, if private chats with other bots are allowed.
-  /// * [allowGroupChats]: True, if basic group and supergroup chats are allowed.
-  /// * [allowChannelChats]: True, if channel chats are allowed.
-  const TargetChatChosen({
-    required this.allowUserChats,
-    required this.allowBotChats,
-    required this.allowGroupChats,
-    required this.allowChannelChats,
-  });
+  /// * [types]: Allowed types for the chat.
+  const TargetChatChosen({required this.types});
 
-  /// True, if private chats with ordinary users are allowed
-  final bool allowUserChats;
-
-  /// True, if private chats with other bots are allowed
-  final bool allowBotChats;
-
-  /// True, if basic group and supergroup chats are allowed
-  final bool allowGroupChats;
-
-  /// True, if channel chats are allowed
-  final bool allowChannelChats;
+  /// Allowed types for the chat
+  final TargetChatTypes types;
 
   /// Parse from a json
   factory TargetChatChosen.fromJson(Map<String, dynamic> json) =>
-      TargetChatChosen(
-        allowUserChats: json['allow_user_chats'] ?? true,
-        allowBotChats: json['allow_bot_chats'] ?? true,
-        allowGroupChats: json['allow_group_chats'] ?? true,
-        allowChannelChats: json['allow_channel_chats'] ?? true,
-      );
+      TargetChatChosen(types: TargetChatTypes.fromJson(json['types']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "allow_user_chats": allowUserChats,
-      "allow_bot_chats": allowBotChats,
-      "allow_group_chats": allowGroupChats,
-      "allow_channel_chats": allowChannelChats,
-    };
+    return {"@type": defaultObjectId, "types": types.toJson()};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [allow_user_chats]: True, if private chats with ordinary users are allowed
-  /// * [allow_bot_chats]: True, if private chats with other bots are allowed
-  /// * [allow_group_chats]: True, if basic group and supergroup chats are allowed
-  /// * [allow_channel_chats]: True, if channel chats are allowed
+  /// * [types]: Allowed types for the chat
   @override
-  TargetChatChosen copyWith({
-    bool? allowUserChats,
-    bool? allowBotChats,
-    bool? allowGroupChats,
-    bool? allowChannelChats,
-  }) => TargetChatChosen(
-    allowUserChats: allowUserChats ?? this.allowUserChats,
-    allowBotChats: allowBotChats ?? this.allowBotChats,
-    allowGroupChats: allowGroupChats ?? this.allowGroupChats,
-    allowChannelChats: allowChannelChats ?? this.allowChannelChats,
-  );
+  TargetChatChosen copyWith({TargetChatTypes? types}) =>
+      TargetChatChosen(types: types ?? this.types);
 
   /// TDLib object type
   static const String defaultObjectId = 'targetChatChosen';

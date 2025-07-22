@@ -75,18 +75,17 @@ final class ArchiveChatListSettings extends TdObject {
     bool? keepChatsFromFoldersArchived,
     dynamic extra,
     int? clientId,
-  }) =>
-      ArchiveChatListSettings(
-        archiveAndMuteNewChatsFromUnknownUsers:
-            archiveAndMuteNewChatsFromUnknownUsers ??
-                this.archiveAndMuteNewChatsFromUnknownUsers,
-        keepUnmutedChatsArchived:
-            keepUnmutedChatsArchived ?? this.keepUnmutedChatsArchived,
-        keepChatsFromFoldersArchived:
-            keepChatsFromFoldersArchived ?? this.keepChatsFromFoldersArchived,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => ArchiveChatListSettings(
+    archiveAndMuteNewChatsFromUnknownUsers:
+        archiveAndMuteNewChatsFromUnknownUsers ??
+        this.archiveAndMuteNewChatsFromUnknownUsers,
+    keepUnmutedChatsArchived:
+        keepUnmutedChatsArchived ?? this.keepUnmutedChatsArchived,
+    keepChatsFromFoldersArchived:
+        keepChatsFromFoldersArchived ?? this.keepChatsFromFoldersArchived,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'archiveChatListSettings';

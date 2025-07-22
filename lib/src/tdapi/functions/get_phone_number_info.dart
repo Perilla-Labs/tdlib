@@ -15,9 +15,7 @@ final class GetPhoneNumberInfo extends TdFunction {
   /// * [phoneNumberPrefix]: The phone number prefix.
   ///
   /// [PhoneNumberInfo] is returned on completion.
-  const GetPhoneNumberInfo({
-    required this.phoneNumberPrefix,
-  });
+  const GetPhoneNumberInfo({required this.phoneNumberPrefix});
 
   /// The phone number prefix
   final String phoneNumberPrefix;
@@ -36,9 +34,7 @@ final class GetPhoneNumberInfo extends TdFunction {
   ///
   /// Properties:
   /// * [phone_number_prefix]: The phone number prefix
-  GetPhoneNumberInfo copyWith({
-    String? phoneNumberPrefix,
-  }) =>
+  GetPhoneNumberInfo copyWith({String? phoneNumberPrefix}) =>
       GetPhoneNumberInfo(
         phoneNumberPrefix: phoneNumberPrefix ?? this.phoneNumberPrefix,
       );

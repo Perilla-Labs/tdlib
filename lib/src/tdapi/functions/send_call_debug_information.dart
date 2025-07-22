@@ -44,10 +44,7 @@ final class SendCallDebugInformation extends TdFunction {
   /// Properties:
   /// * [call_id]: Call identifier
   /// * [debug_information]: Debug information in application-specific format
-  SendCallDebugInformation copyWith({
-    int? callId,
-    String? debugInformation,
-  }) =>
+  SendCallDebugInformation copyWith({int? callId, String? debugInformation}) =>
       SendCallDebugInformation(
         callId: callId ?? this.callId,
         debugInformation: debugInformation ?? this.debugInformation,

@@ -15,9 +15,7 @@ final class CheckPhoneNumberCode extends TdFunction {
   /// * [code]: Authentication code to check.
   ///
   /// [Ok] is returned on completion.
-  const CheckPhoneNumberCode({
-    required this.code,
-  });
+  const CheckPhoneNumberCode({required this.code});
 
   /// Authentication code to check
   final String code;
@@ -25,23 +23,15 @@ final class CheckPhoneNumberCode extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "code": code,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "code": code, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [code]: Authentication code to check
-  CheckPhoneNumberCode copyWith({
-    String? code,
-  }) =>
-      CheckPhoneNumberCode(
-        code: code ?? this.code,
-      );
+  CheckPhoneNumberCode copyWith({String? code}) =>
+      CheckPhoneNumberCode(code: code ?? this.code);
 
   /// TDLib object type
   static const String defaultObjectId = 'checkPhoneNumberCode';

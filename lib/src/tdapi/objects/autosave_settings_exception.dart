@@ -49,11 +49,10 @@ final class AutosaveSettingsException extends TdObject {
   AutosaveSettingsException copyWith({
     int? chatId,
     ScopeAutosaveSettings? settings,
-  }) =>
-      AutosaveSettingsException(
-        chatId: chatId ?? this.chatId,
-        settings: settings ?? this.settings,
-      );
+  }) => AutosaveSettingsException(
+    chatId: chatId ?? this.chatId,
+    settings: settings ?? this.settings,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'autosaveSettingsException';

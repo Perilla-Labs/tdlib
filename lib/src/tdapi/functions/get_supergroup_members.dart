@@ -65,13 +65,12 @@ final class GetSupergroupMembers extends TdFunction {
     SupergroupMembersFilter? filter,
     int? offset,
     int? limit,
-  }) =>
-      GetSupergroupMembers(
-        supergroupId: supergroupId ?? this.supergroupId,
-        filter: filter ?? this.filter,
-        offset: offset ?? this.offset,
-        limit: limit ?? this.limit,
-      );
+  }) => GetSupergroupMembers(
+    supergroupId: supergroupId ?? this.supergroupId,
+    filter: filter ?? this.filter,
+    offset: offset ?? this.offset,
+    limit: limit ?? this.limit,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getSupergroupMembers';

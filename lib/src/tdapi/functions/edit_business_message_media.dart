@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **EditBusinessMessageMedia** *(editBusinessMessageMedia)* - TDLib function
 ///
-/// Edits the content of a message with an animation, an audio, a document, a photo or a video in a message sent on behalf of a business account; for bots only.
+/// Edits the media content of a message with a text, an animation, an audio, a document, a photo or a video in a message sent on behalf of a business account; for bots only.
 ///
 /// * [businessConnectionId]: Unique identifier of business connection on behalf of which the message was sent.
 /// * [chatId]: The chat the message belongs to.
@@ -14,7 +14,7 @@ part of '../tdapi.dart';
 final class EditBusinessMessageMedia extends TdFunction {
   /// **EditBusinessMessageMedia** *(editBusinessMessageMedia)* - TDLib function
   ///
-  /// Edits the content of a message with an animation, an audio, a document, a photo or a video in a message sent on behalf of a business account; for bots only.
+  /// Edits the media content of a message with a text, an animation, an audio, a document, a photo or a video in a message sent on behalf of a business account; for bots only.
   ///
   /// * [businessConnectionId]: Unique identifier of business connection on behalf of which the message was sent.
   /// * [chatId]: The chat the message belongs to.
@@ -74,14 +74,13 @@ final class EditBusinessMessageMedia extends TdFunction {
     int? messageId,
     ReplyMarkup? replyMarkup,
     InputMessageContent? inputMessageContent,
-  }) =>
-      EditBusinessMessageMedia(
-        businessConnectionId: businessConnectionId ?? this.businessConnectionId,
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        replyMarkup: replyMarkup ?? this.replyMarkup,
-        inputMessageContent: inputMessageContent ?? this.inputMessageContent,
-      );
+  }) => EditBusinessMessageMedia(
+    businessConnectionId: businessConnectionId ?? this.businessConnectionId,
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    replyMarkup: replyMarkup ?? this.replyMarkup,
+    inputMessageContent: inputMessageContent ?? this.inputMessageContent,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'editBusinessMessageMedia';

@@ -59,12 +59,11 @@ final class DownloadedFileCounts extends TdObject {
     int? activeCount,
     int? pausedCount,
     int? completedCount,
-  }) =>
-      DownloadedFileCounts(
-        activeCount: activeCount ?? this.activeCount,
-        pausedCount: pausedCount ?? this.pausedCount,
-        completedCount: completedCount ?? this.completedCount,
-      );
+  }) => DownloadedFileCounts(
+    activeCount: activeCount ?? this.activeCount,
+    pausedCount: pausedCount ?? this.pausedCount,
+    completedCount: completedCount ?? this.completedCount,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'downloadedFileCounts';

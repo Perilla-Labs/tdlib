@@ -83,15 +83,14 @@ final class AnswerInlineQuery extends TdFunction {
     List<InputInlineQueryResult>? results,
     int? cacheTime,
     String? nextOffset,
-  }) =>
-      AnswerInlineQuery(
-        inlineQueryId: inlineQueryId ?? this.inlineQueryId,
-        isPersonal: isPersonal ?? this.isPersonal,
-        button: button ?? this.button,
-        results: results ?? this.results,
-        cacheTime: cacheTime ?? this.cacheTime,
-        nextOffset: nextOffset ?? this.nextOffset,
-      );
+  }) => AnswerInlineQuery(
+    inlineQueryId: inlineQueryId ?? this.inlineQueryId,
+    isPersonal: isPersonal ?? this.isPersonal,
+    button: button ?? this.button,
+    results: results ?? this.results,
+    cacheTime: cacheTime ?? this.cacheTime,
+    nextOffset: nextOffset ?? this.nextOffset,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'answerInlineQuery';

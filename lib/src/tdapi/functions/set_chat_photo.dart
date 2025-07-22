@@ -17,10 +17,7 @@ final class SetChatPhoto extends TdFunction {
   /// * [photo]: New chat photo; pass null to delete the chat photo *(optional)*.
   ///
   /// [Ok] is returned on completion.
-  const SetChatPhoto({
-    required this.chatId,
-    this.photo,
-  });
+  const SetChatPhoto({required this.chatId, this.photo});
 
   /// Chat identifier
   final int chatId;
@@ -44,14 +41,8 @@ final class SetChatPhoto extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [photo]: New chat photo; pass null to delete the chat photo
-  SetChatPhoto copyWith({
-    int? chatId,
-    InputChatPhoto? photo,
-  }) =>
-      SetChatPhoto(
-        chatId: chatId ?? this.chatId,
-        photo: photo ?? this.photo,
-      );
+  SetChatPhoto copyWith({int? chatId, InputChatPhoto? photo}) =>
+      SetChatPhoto(chatId: chatId ?? this.chatId, photo: photo ?? this.photo);
 
   /// TDLib object type
   static const String defaultObjectId = 'setChatPhoto';

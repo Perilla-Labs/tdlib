@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **SearchSavedMessages** *(searchSavedMessages)* - TDLib function
 ///
-/// Searches for messages tagged by the given reaction and with the given words in the Saved Messages chat; for Telegram Premium users only.. Returns the results in reverse chronological order, i.e. in order of decreasing message_id. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit.
+/// Searches for messages tagged by the given reaction and with the given words in the Saved Messages chat; for Telegram Premium users only.. Returns the results in reverse chronological order, i.e. in order of decreasing message_id.. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit.
 ///
 /// * [savedMessagesTopicId]: If not 0, only messages in the specified Saved Messages topic will be considered; pass 0 to consider all messages.
 /// * [tag]: Tag to search for; pass null to return all suitable messages *(optional)*.
@@ -15,7 +15,7 @@ part of '../tdapi.dart';
 final class SearchSavedMessages extends TdFunction {
   /// **SearchSavedMessages** *(searchSavedMessages)* - TDLib function
   ///
-  /// Searches for messages tagged by the given reaction and with the given words in the Saved Messages chat; for Telegram Premium users only.. Returns the results in reverse chronological order, i.e. in order of decreasing message_id. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit.
+  /// Searches for messages tagged by the given reaction and with the given words in the Saved Messages chat; for Telegram Premium users only.. Returns the results in reverse chronological order, i.e. in order of decreasing message_id.. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit.
   ///
   /// * [savedMessagesTopicId]: If not 0, only messages in the specified Saved Messages topic will be considered; pass 0 to consider all messages.
   /// * [tag]: Tag to search for; pass null to return all suitable messages *(optional)*.
@@ -83,15 +83,14 @@ final class SearchSavedMessages extends TdFunction {
     int? fromMessageId,
     int? offset,
     int? limit,
-  }) =>
-      SearchSavedMessages(
-        savedMessagesTopicId: savedMessagesTopicId ?? this.savedMessagesTopicId,
-        tag: tag ?? this.tag,
-        query: query ?? this.query,
-        fromMessageId: fromMessageId ?? this.fromMessageId,
-        offset: offset ?? this.offset,
-        limit: limit ?? this.limit,
-      );
+  }) => SearchSavedMessages(
+    savedMessagesTopicId: savedMessagesTopicId ?? this.savedMessagesTopicId,
+    tag: tag ?? this.tag,
+    query: query ?? this.query,
+    fromMessageId: fromMessageId ?? this.fromMessageId,
+    offset: offset ?? this.offset,
+    limit: limit ?? this.limit,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'searchSavedMessages';

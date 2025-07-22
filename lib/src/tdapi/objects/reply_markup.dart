@@ -62,26 +62,19 @@ final class ReplyMarkupRemoveKeyboard extends ReplyMarkup {
   /// Instructs application to remove the keyboard once this message has been received. This kind of keyboard can't be received in an incoming message; instead, updateChatReplyMarkup with message_id == 0 will be sent.
   ///
   /// * [isPersonal]: True, if the keyboard is removed only for the mentioned users or the target user of a reply.
-  const ReplyMarkupRemoveKeyboard({
-    required this.isPersonal,
-  });
+  const ReplyMarkupRemoveKeyboard({required this.isPersonal});
 
   /// True, if the keyboard is removed only for the mentioned users or the target user of a reply
   final bool isPersonal;
 
   /// Parse from a json
   factory ReplyMarkupRemoveKeyboard.fromJson(Map<String, dynamic> json) =>
-      ReplyMarkupRemoveKeyboard(
-        isPersonal: json['is_personal'],
-      );
+      ReplyMarkupRemoveKeyboard(isPersonal: json['is_personal']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "is_personal": isPersonal,
-    };
+    return {"@type": defaultObjectId, "is_personal": isPersonal};
   }
 
   /// Copy model with modified properties.
@@ -89,12 +82,8 @@ final class ReplyMarkupRemoveKeyboard extends ReplyMarkup {
   /// Properties:
   /// * [is_personal]: True, if the keyboard is removed only for the mentioned users or the target user of a reply
   @override
-  ReplyMarkupRemoveKeyboard copyWith({
-    bool? isPersonal,
-  }) =>
-      ReplyMarkupRemoveKeyboard(
-        isPersonal: isPersonal ?? this.isPersonal,
-      );
+  ReplyMarkupRemoveKeyboard copyWith({bool? isPersonal}) =>
+      ReplyMarkupRemoveKeyboard(isPersonal: isPersonal ?? this.isPersonal);
 
   /// TDLib object type
   static const String defaultObjectId = 'replyMarkupRemoveKeyboard';
@@ -158,12 +147,10 @@ final class ReplyMarkupForceReply extends ReplyMarkup {
   ReplyMarkupForceReply copyWith({
     bool? isPersonal,
     String? inputFieldPlaceholder,
-  }) =>
-      ReplyMarkupForceReply(
-        isPersonal: isPersonal ?? this.isPersonal,
-        inputFieldPlaceholder:
-            inputFieldPlaceholder ?? this.inputFieldPlaceholder,
-      );
+  }) => ReplyMarkupForceReply(
+    isPersonal: isPersonal ?? this.isPersonal,
+    inputFieldPlaceholder: inputFieldPlaceholder ?? this.inputFieldPlaceholder,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'replyMarkupForceReply';
@@ -182,7 +169,7 @@ final class ReplyMarkupForceReply extends ReplyMarkup {
 /// Contains a custom keyboard layout to quickly reply to bots.
 ///
 /// * [rows]: A list of rows of bot keyboard buttons.
-/// * [isPersistent]: True, if the keyboard is supposed to always be shown when the ordinary keyboard is hidden.
+/// * [isPersistent]: True, if the keyboard is expected to always be shown when the ordinary keyboard is hidden.
 /// * [resizeKeyboard]: True, if the application needs to resize the keyboard vertically.
 /// * [oneTime]: True, if the application needs to hide the keyboard after use.
 /// * [isPersonal]: True, if the keyboard must automatically be shown to the current user. For outgoing messages, specify true to show the keyboard only for the mentioned users and for the target user of a reply.
@@ -193,7 +180,7 @@ final class ReplyMarkupShowKeyboard extends ReplyMarkup {
   /// Contains a custom keyboard layout to quickly reply to bots.
   ///
   /// * [rows]: A list of rows of bot keyboard buttons.
-  /// * [isPersistent]: True, if the keyboard is supposed to always be shown when the ordinary keyboard is hidden.
+  /// * [isPersistent]: True, if the keyboard is expected to always be shown when the ordinary keyboard is hidden.
   /// * [resizeKeyboard]: True, if the application needs to resize the keyboard vertically.
   /// * [oneTime]: True, if the application needs to hide the keyboard after use.
   /// * [isPersonal]: True, if the keyboard must automatically be shown to the current user. For outgoing messages, specify true to show the keyboard only for the mentioned users and for the target user of a reply.
@@ -210,7 +197,7 @@ final class ReplyMarkupShowKeyboard extends ReplyMarkup {
   /// A list of rows of bot keyboard buttons
   final List<List<KeyboardButton>> rows;
 
-  /// True, if the keyboard is supposed to always be shown when the ordinary keyboard is hidden
+  /// True, if the keyboard is expected to always be shown when the ordinary keyboard is hidden
   final bool isPersistent;
 
   /// True, if the application needs to resize the keyboard vertically
@@ -228,11 +215,17 @@ final class ReplyMarkupShowKeyboard extends ReplyMarkup {
   /// Parse from a json
   factory ReplyMarkupShowKeyboard.fromJson(Map<String, dynamic> json) =>
       ReplyMarkupShowKeyboard(
-        rows: List<List<KeyboardButton>>.from((json['rows'] ?? [])
-            .map((item) => List<KeyboardButton>.from((item ?? [])
-                .map((innerItem) => KeyboardButton.fromJson(innerItem))
-                .toList()))
-            .toList()),
+        rows: List<List<KeyboardButton>>.from(
+          (json['rows'] ?? [])
+              .map(
+                (item) => List<KeyboardButton>.from(
+                  (item ?? [])
+                      .map((innerItem) => KeyboardButton.fromJson(innerItem))
+                      .toList(),
+                ),
+              )
+              .toList(),
+        ),
         isPersistent: json['is_persistent'],
         resizeKeyboard: json['resize_keyboard'],
         oneTime: json['one_time'],
@@ -258,7 +251,7 @@ final class ReplyMarkupShowKeyboard extends ReplyMarkup {
   ///
   /// Properties:
   /// * [rows]: A list of rows of bot keyboard buttons
-  /// * [is_persistent]: True, if the keyboard is supposed to always be shown when the ordinary keyboard is hidden
+  /// * [is_persistent]: True, if the keyboard is expected to always be shown when the ordinary keyboard is hidden
   /// * [resize_keyboard]: True, if the application needs to resize the keyboard vertically
   /// * [one_time]: True, if the application needs to hide the keyboard after use
   /// * [is_personal]: True, if the keyboard must automatically be shown to the current user. For outgoing messages, specify true to show the keyboard only for the mentioned users and for the target user of a reply
@@ -271,16 +264,14 @@ final class ReplyMarkupShowKeyboard extends ReplyMarkup {
     bool? oneTime,
     bool? isPersonal,
     String? inputFieldPlaceholder,
-  }) =>
-      ReplyMarkupShowKeyboard(
-        rows: rows ?? this.rows,
-        isPersistent: isPersistent ?? this.isPersistent,
-        resizeKeyboard: resizeKeyboard ?? this.resizeKeyboard,
-        oneTime: oneTime ?? this.oneTime,
-        isPersonal: isPersonal ?? this.isPersonal,
-        inputFieldPlaceholder:
-            inputFieldPlaceholder ?? this.inputFieldPlaceholder,
-      );
+  }) => ReplyMarkupShowKeyboard(
+    rows: rows ?? this.rows,
+    isPersistent: isPersistent ?? this.isPersistent,
+    resizeKeyboard: resizeKeyboard ?? this.resizeKeyboard,
+    oneTime: oneTime ?? this.oneTime,
+    isPersonal: isPersonal ?? this.isPersonal,
+    inputFieldPlaceholder: inputFieldPlaceholder ?? this.inputFieldPlaceholder,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'replyMarkupShowKeyboard';
@@ -305,9 +296,7 @@ final class ReplyMarkupInlineKeyboard extends ReplyMarkup {
   /// Contains an inline keyboard layout.
   ///
   /// * [rows]: A list of rows of inline keyboard buttons.
-  const ReplyMarkupInlineKeyboard({
-    required this.rows,
-  });
+  const ReplyMarkupInlineKeyboard({required this.rows});
 
   /// A list of rows of inline keyboard buttons
   final List<List<InlineKeyboardButton>> rows;
@@ -315,11 +304,19 @@ final class ReplyMarkupInlineKeyboard extends ReplyMarkup {
   /// Parse from a json
   factory ReplyMarkupInlineKeyboard.fromJson(Map<String, dynamic> json) =>
       ReplyMarkupInlineKeyboard(
-        rows: List<List<InlineKeyboardButton>>.from((json['rows'] ?? [])
-            .map((item) => List<InlineKeyboardButton>.from((item ?? [])
-                .map((innerItem) => InlineKeyboardButton.fromJson(innerItem))
-                .toList()))
-            .toList()),
+        rows: List<List<InlineKeyboardButton>>.from(
+          (json['rows'] ?? [])
+              .map(
+                (item) => List<InlineKeyboardButton>.from(
+                  (item ?? [])
+                      .map(
+                        (innerItem) => InlineKeyboardButton.fromJson(innerItem),
+                      )
+                      .toList(),
+                ),
+              )
+              .toList(),
+        ),
       );
 
   /// Convert model to TDLib JSON format
@@ -338,10 +335,7 @@ final class ReplyMarkupInlineKeyboard extends ReplyMarkup {
   @override
   ReplyMarkupInlineKeyboard copyWith({
     List<List<InlineKeyboardButton>>? rows,
-  }) =>
-      ReplyMarkupInlineKeyboard(
-        rows: rows ?? this.rows,
-      );
+  }) => ReplyMarkupInlineKeyboard(rows: rows ?? this.rows);
 
   /// TDLib object type
   static const String defaultObjectId = 'replyMarkupInlineKeyboard';

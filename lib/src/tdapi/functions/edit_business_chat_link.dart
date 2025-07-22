@@ -17,10 +17,7 @@ final class EditBusinessChatLink extends TdFunction {
   /// * [linkInfo]: New description of the link.
   ///
   /// [BusinessChatLink] is returned on completion.
-  const EditBusinessChatLink({
-    required this.link,
-    required this.linkInfo,
-  });
+  const EditBusinessChatLink({required this.link, required this.linkInfo});
 
   /// The link to edit
   final String link;
@@ -47,11 +44,10 @@ final class EditBusinessChatLink extends TdFunction {
   EditBusinessChatLink copyWith({
     String? link,
     InputBusinessChatLink? linkInfo,
-  }) =>
-      EditBusinessChatLink(
-        link: link ?? this.link,
-        linkInfo: linkInfo ?? this.linkInfo,
-      );
+  }) => EditBusinessChatLink(
+    link: link ?? this.link,
+    linkInfo: linkInfo ?? this.linkInfo,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'editBusinessChatLink';

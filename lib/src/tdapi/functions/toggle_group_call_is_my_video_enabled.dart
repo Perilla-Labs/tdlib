@@ -47,11 +47,10 @@ final class ToggleGroupCallIsMyVideoEnabled extends TdFunction {
   ToggleGroupCallIsMyVideoEnabled copyWith({
     int? groupCallId,
     bool? isMyVideoEnabled,
-  }) =>
-      ToggleGroupCallIsMyVideoEnabled(
-        groupCallId: groupCallId ?? this.groupCallId,
-        isMyVideoEnabled: isMyVideoEnabled ?? this.isMyVideoEnabled,
-      );
+  }) => ToggleGroupCallIsMyVideoEnabled(
+    groupCallId: groupCallId ?? this.groupCallId,
+    isMyVideoEnabled: isMyVideoEnabled ?? this.isMyVideoEnabled,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'toggleGroupCallIsMyVideoEnabled';

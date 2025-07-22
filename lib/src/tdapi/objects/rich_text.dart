@@ -101,25 +101,19 @@ final class RichTextPlain extends RichText {
   /// A plain text.
   ///
   /// * [text]: Text.
-  const RichTextPlain({
-    required this.text,
-  });
+  const RichTextPlain({required this.text});
 
   /// Text
   final String text;
 
   /// Parse from a json
-  factory RichTextPlain.fromJson(Map<String, dynamic> json) => RichTextPlain(
-        text: json['text'],
-      );
+  factory RichTextPlain.fromJson(Map<String, dynamic> json) =>
+      RichTextPlain(text: json['text']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "text": text,
-    };
+    return {"@type": defaultObjectId, "text": text};
   }
 
   /// Copy model with modified properties.
@@ -127,12 +121,8 @@ final class RichTextPlain extends RichText {
   /// Properties:
   /// * [text]: Text
   @override
-  RichTextPlain copyWith({
-    String? text,
-  }) =>
-      RichTextPlain(
-        text: text ?? this.text,
-      );
+  RichTextPlain copyWith({String? text}) =>
+      RichTextPlain(text: text ?? this.text);
 
   /// TDLib object type
   static const String defaultObjectId = 'richTextPlain';
@@ -157,25 +147,19 @@ final class RichTextBold extends RichText {
   /// A bold rich text.
   ///
   /// * [text]: Text.
-  const RichTextBold({
-    required this.text,
-  });
+  const RichTextBold({required this.text});
 
   /// Text
   final RichText text;
 
   /// Parse from a json
-  factory RichTextBold.fromJson(Map<String, dynamic> json) => RichTextBold(
-        text: RichText.fromJson(json['text']),
-      );
+  factory RichTextBold.fromJson(Map<String, dynamic> json) =>
+      RichTextBold(text: RichText.fromJson(json['text']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "text": text.toJson(),
-    };
+    return {"@type": defaultObjectId, "text": text.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -183,12 +167,8 @@ final class RichTextBold extends RichText {
   /// Properties:
   /// * [text]: Text
   @override
-  RichTextBold copyWith({
-    RichText? text,
-  }) =>
-      RichTextBold(
-        text: text ?? this.text,
-      );
+  RichTextBold copyWith({RichText? text}) =>
+      RichTextBold(text: text ?? this.text);
 
   /// TDLib object type
   static const String defaultObjectId = 'richTextBold';
@@ -213,25 +193,19 @@ final class RichTextItalic extends RichText {
   /// An italicized rich text.
   ///
   /// * [text]: Text.
-  const RichTextItalic({
-    required this.text,
-  });
+  const RichTextItalic({required this.text});
 
   /// Text
   final RichText text;
 
   /// Parse from a json
-  factory RichTextItalic.fromJson(Map<String, dynamic> json) => RichTextItalic(
-        text: RichText.fromJson(json['text']),
-      );
+  factory RichTextItalic.fromJson(Map<String, dynamic> json) =>
+      RichTextItalic(text: RichText.fromJson(json['text']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "text": text.toJson(),
-    };
+    return {"@type": defaultObjectId, "text": text.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -239,12 +213,8 @@ final class RichTextItalic extends RichText {
   /// Properties:
   /// * [text]: Text
   @override
-  RichTextItalic copyWith({
-    RichText? text,
-  }) =>
-      RichTextItalic(
-        text: text ?? this.text,
-      );
+  RichTextItalic copyWith({RichText? text}) =>
+      RichTextItalic(text: text ?? this.text);
 
   /// TDLib object type
   static const String defaultObjectId = 'richTextItalic';
@@ -269,26 +239,19 @@ final class RichTextUnderline extends RichText {
   /// An underlined rich text.
   ///
   /// * [text]: Text.
-  const RichTextUnderline({
-    required this.text,
-  });
+  const RichTextUnderline({required this.text});
 
   /// Text
   final RichText text;
 
   /// Parse from a json
   factory RichTextUnderline.fromJson(Map<String, dynamic> json) =>
-      RichTextUnderline(
-        text: RichText.fromJson(json['text']),
-      );
+      RichTextUnderline(text: RichText.fromJson(json['text']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "text": text.toJson(),
-    };
+    return {"@type": defaultObjectId, "text": text.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -296,12 +259,8 @@ final class RichTextUnderline extends RichText {
   /// Properties:
   /// * [text]: Text
   @override
-  RichTextUnderline copyWith({
-    RichText? text,
-  }) =>
-      RichTextUnderline(
-        text: text ?? this.text,
-      );
+  RichTextUnderline copyWith({RichText? text}) =>
+      RichTextUnderline(text: text ?? this.text);
 
   /// TDLib object type
   static const String defaultObjectId = 'richTextUnderline';
@@ -326,26 +285,19 @@ final class RichTextStrikethrough extends RichText {
   /// A strikethrough rich text.
   ///
   /// * [text]: Text.
-  const RichTextStrikethrough({
-    required this.text,
-  });
+  const RichTextStrikethrough({required this.text});
 
   /// Text
   final RichText text;
 
   /// Parse from a json
   factory RichTextStrikethrough.fromJson(Map<String, dynamic> json) =>
-      RichTextStrikethrough(
-        text: RichText.fromJson(json['text']),
-      );
+      RichTextStrikethrough(text: RichText.fromJson(json['text']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "text": text.toJson(),
-    };
+    return {"@type": defaultObjectId, "text": text.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -353,12 +305,8 @@ final class RichTextStrikethrough extends RichText {
   /// Properties:
   /// * [text]: Text
   @override
-  RichTextStrikethrough copyWith({
-    RichText? text,
-  }) =>
-      RichTextStrikethrough(
-        text: text ?? this.text,
-      );
+  RichTextStrikethrough copyWith({RichText? text}) =>
+      RichTextStrikethrough(text: text ?? this.text);
 
   /// TDLib object type
   static const String defaultObjectId = 'richTextStrikethrough';
@@ -383,25 +331,19 @@ final class RichTextFixed extends RichText {
   /// A fixed-width rich text.
   ///
   /// * [text]: Text.
-  const RichTextFixed({
-    required this.text,
-  });
+  const RichTextFixed({required this.text});
 
   /// Text
   final RichText text;
 
   /// Parse from a json
-  factory RichTextFixed.fromJson(Map<String, dynamic> json) => RichTextFixed(
-        text: RichText.fromJson(json['text']),
-      );
+  factory RichTextFixed.fromJson(Map<String, dynamic> json) =>
+      RichTextFixed(text: RichText.fromJson(json['text']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "text": text.toJson(),
-    };
+    return {"@type": defaultObjectId, "text": text.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -409,12 +351,8 @@ final class RichTextFixed extends RichText {
   /// Properties:
   /// * [text]: Text
   @override
-  RichTextFixed copyWith({
-    RichText? text,
-  }) =>
-      RichTextFixed(
-        text: text ?? this.text,
-      );
+  RichTextFixed copyWith({RichText? text}) =>
+      RichTextFixed(text: text ?? this.text);
 
   /// TDLib object type
   static const String defaultObjectId = 'richTextFixed';
@@ -460,10 +398,10 @@ final class RichTextUrl extends RichText {
 
   /// Parse from a json
   factory RichTextUrl.fromJson(Map<String, dynamic> json) => RichTextUrl(
-        text: RichText.fromJson(json['text']),
-        url: json['url'],
-        isCached: json['is_cached'],
-      );
+    text: RichText.fromJson(json['text']),
+    url: json['url'],
+    isCached: json['is_cached'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -483,11 +421,7 @@ final class RichTextUrl extends RichText {
   /// * [url]: URL
   /// * [is_cached]: True, if the URL has cached instant view server-side
   @override
-  RichTextUrl copyWith({
-    RichText? text,
-    String? url,
-    bool? isCached,
-  }) =>
+  RichTextUrl copyWith({RichText? text, String? url, bool? isCached}) =>
       RichTextUrl(
         text: text ?? this.text,
         url: url ?? this.url,
@@ -519,10 +453,7 @@ final class RichTextEmailAddress extends RichText {
   ///
   /// * [text]: Text.
   /// * [emailAddress]: Email address.
-  const RichTextEmailAddress({
-    required this.text,
-    required this.emailAddress,
-  });
+  const RichTextEmailAddress({required this.text, required this.emailAddress});
 
   /// Text
   final RichText text;
@@ -553,10 +484,7 @@ final class RichTextEmailAddress extends RichText {
   /// * [text]: Text
   /// * [email_address]: Email address
   @override
-  RichTextEmailAddress copyWith({
-    RichText? text,
-    String? emailAddress,
-  }) =>
+  RichTextEmailAddress copyWith({RichText? text, String? emailAddress}) =>
       RichTextEmailAddress(
         text: text ?? this.text,
         emailAddress: emailAddress ?? this.emailAddress,
@@ -585,26 +513,19 @@ final class RichTextSubscript extends RichText {
   /// A subscript rich text.
   ///
   /// * [text]: Text.
-  const RichTextSubscript({
-    required this.text,
-  });
+  const RichTextSubscript({required this.text});
 
   /// Text
   final RichText text;
 
   /// Parse from a json
   factory RichTextSubscript.fromJson(Map<String, dynamic> json) =>
-      RichTextSubscript(
-        text: RichText.fromJson(json['text']),
-      );
+      RichTextSubscript(text: RichText.fromJson(json['text']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "text": text.toJson(),
-    };
+    return {"@type": defaultObjectId, "text": text.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -612,12 +533,8 @@ final class RichTextSubscript extends RichText {
   /// Properties:
   /// * [text]: Text
   @override
-  RichTextSubscript copyWith({
-    RichText? text,
-  }) =>
-      RichTextSubscript(
-        text: text ?? this.text,
-      );
+  RichTextSubscript copyWith({RichText? text}) =>
+      RichTextSubscript(text: text ?? this.text);
 
   /// TDLib object type
   static const String defaultObjectId = 'richTextSubscript';
@@ -642,26 +559,19 @@ final class RichTextSuperscript extends RichText {
   /// A superscript rich text.
   ///
   /// * [text]: Text.
-  const RichTextSuperscript({
-    required this.text,
-  });
+  const RichTextSuperscript({required this.text});
 
   /// Text
   final RichText text;
 
   /// Parse from a json
   factory RichTextSuperscript.fromJson(Map<String, dynamic> json) =>
-      RichTextSuperscript(
-        text: RichText.fromJson(json['text']),
-      );
+      RichTextSuperscript(text: RichText.fromJson(json['text']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "text": text.toJson(),
-    };
+    return {"@type": defaultObjectId, "text": text.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -669,12 +579,8 @@ final class RichTextSuperscript extends RichText {
   /// Properties:
   /// * [text]: Text
   @override
-  RichTextSuperscript copyWith({
-    RichText? text,
-  }) =>
-      RichTextSuperscript(
-        text: text ?? this.text,
-      );
+  RichTextSuperscript copyWith({RichText? text}) =>
+      RichTextSuperscript(text: text ?? this.text);
 
   /// TDLib object type
   static const String defaultObjectId = 'richTextSuperscript';
@@ -699,25 +605,19 @@ final class RichTextMarked extends RichText {
   /// A marked rich text.
   ///
   /// * [text]: Text.
-  const RichTextMarked({
-    required this.text,
-  });
+  const RichTextMarked({required this.text});
 
   /// Text
   final RichText text;
 
   /// Parse from a json
-  factory RichTextMarked.fromJson(Map<String, dynamic> json) => RichTextMarked(
-        text: RichText.fromJson(json['text']),
-      );
+  factory RichTextMarked.fromJson(Map<String, dynamic> json) =>
+      RichTextMarked(text: RichText.fromJson(json['text']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "text": text.toJson(),
-    };
+    return {"@type": defaultObjectId, "text": text.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -725,12 +625,8 @@ final class RichTextMarked extends RichText {
   /// Properties:
   /// * [text]: Text
   @override
-  RichTextMarked copyWith({
-    RichText? text,
-  }) =>
-      RichTextMarked(
-        text: text ?? this.text,
-      );
+  RichTextMarked copyWith({RichText? text}) =>
+      RichTextMarked(text: text ?? this.text);
 
   /// TDLib object type
   static const String defaultObjectId = 'richTextMarked';
@@ -757,10 +653,7 @@ final class RichTextPhoneNumber extends RichText {
   ///
   /// * [text]: Text.
   /// * [phoneNumber]: Phone number.
-  const RichTextPhoneNumber({
-    required this.text,
-    required this.phoneNumber,
-  });
+  const RichTextPhoneNumber({required this.text, required this.phoneNumber});
 
   /// Text
   final RichText text;
@@ -791,10 +684,7 @@ final class RichTextPhoneNumber extends RichText {
   /// * [text]: Text
   /// * [phone_number]: Phone number
   @override
-  RichTextPhoneNumber copyWith({
-    RichText? text,
-    String? phoneNumber,
-  }) =>
+  RichTextPhoneNumber copyWith({RichText? text, String? phoneNumber}) =>
       RichTextPhoneNumber(
         text: text ?? this.text,
         phoneNumber: phoneNumber ?? this.phoneNumber,
@@ -844,10 +734,10 @@ final class RichTextIcon extends RichText {
 
   /// Parse from a json
   factory RichTextIcon.fromJson(Map<String, dynamic> json) => RichTextIcon(
-        document: Document.fromJson(json['document']),
-        width: json['width'],
-        height: json['height'],
-      );
+    document: Document.fromJson(json['document']),
+    width: json['width'],
+    height: json['height'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -867,11 +757,7 @@ final class RichTextIcon extends RichText {
   /// * [width]: Width of a bounding box in which the image must be shown; 0 if unknown
   /// * [height]: Height of a bounding box in which the image must be shown; 0 if unknown
   @override
-  RichTextIcon copyWith({
-    Document? document,
-    int? width,
-    int? height,
-  }) =>
+  RichTextIcon copyWith({Document? document, int? width, int? height}) =>
       RichTextIcon(
         document: document ?? this.document,
         width: width ?? this.width,
@@ -950,12 +836,11 @@ final class RichTextReference extends RichText {
     RichText? text,
     String? anchorName,
     String? url,
-  }) =>
-      RichTextReference(
-        text: text ?? this.text,
-        anchorName: anchorName ?? this.anchorName,
-        url: url ?? this.url,
-      );
+  }) => RichTextReference(
+    text: text ?? this.text,
+    anchorName: anchorName ?? this.anchorName,
+    url: url ?? this.url,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'richTextReference';
@@ -980,25 +865,19 @@ final class RichTextAnchor extends RichText {
   /// An anchor.
   ///
   /// * [name]: Anchor name.
-  const RichTextAnchor({
-    required this.name,
-  });
+  const RichTextAnchor({required this.name});
 
   /// Anchor name
   final String name;
 
   /// Parse from a json
-  factory RichTextAnchor.fromJson(Map<String, dynamic> json) => RichTextAnchor(
-        name: json['name'],
-      );
+  factory RichTextAnchor.fromJson(Map<String, dynamic> json) =>
+      RichTextAnchor(name: json['name']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "name": name,
-    };
+    return {"@type": defaultObjectId, "name": name};
   }
 
   /// Copy model with modified properties.
@@ -1006,12 +885,8 @@ final class RichTextAnchor extends RichText {
   /// Properties:
   /// * [name]: Anchor name
   @override
-  RichTextAnchor copyWith({
-    String? name,
-  }) =>
-      RichTextAnchor(
-        name: name ?? this.name,
-      );
+  RichTextAnchor copyWith({String? name}) =>
+      RichTextAnchor(name: name ?? this.name);
 
   /// TDLib object type
   static const String defaultObjectId = 'richTextAnchor';
@@ -1085,12 +960,11 @@ final class RichTextAnchorLink extends RichText {
     RichText? text,
     String? anchorName,
     String? url,
-  }) =>
-      RichTextAnchorLink(
-        text: text ?? this.text,
-        anchorName: anchorName ?? this.anchorName,
-        url: url ?? this.url,
-      );
+  }) => RichTextAnchorLink(
+    text: text ?? this.text,
+    anchorName: anchorName ?? this.anchorName,
+    url: url ?? this.url,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'richTextAnchorLink';
@@ -1115,19 +989,17 @@ final class RichTexts extends RichText {
   /// A concatenation of rich texts.
   ///
   /// * [texts]: Texts.
-  const RichTexts({
-    required this.texts,
-  });
+  const RichTexts({required this.texts});
 
   /// Texts
   final List<RichText> texts;
 
   /// Parse from a json
   factory RichTexts.fromJson(Map<String, dynamic> json) => RichTexts(
-        texts: List<RichText>.from((json['texts'] ?? [])
-            .map((item) => RichText.fromJson(item))
-            .toList()),
-      );
+    texts: List<RichText>.from(
+      (json['texts'] ?? []).map((item) => RichText.fromJson(item)).toList(),
+    ),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -1143,12 +1015,8 @@ final class RichTexts extends RichText {
   /// Properties:
   /// * [texts]: Texts
   @override
-  RichTexts copyWith({
-    List<RichText>? texts,
-  }) =>
-      RichTexts(
-        texts: texts ?? this.texts,
-      );
+  RichTexts copyWith({List<RichText>? texts}) =>
+      RichTexts(texts: texts ?? this.texts);
 
   /// TDLib object type
   static const String defaultObjectId = 'richTexts';

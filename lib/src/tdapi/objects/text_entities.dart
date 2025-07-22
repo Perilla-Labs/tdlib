@@ -11,11 +11,7 @@ final class TextEntities extends TdObject {
   /// Contains a list of text entities.
   ///
   /// * [entities]: List of text entities.
-  const TextEntities({
-    required this.entities,
-    this.extra,
-    this.clientId,
-  });
+  const TextEntities({required this.entities, this.extra, this.clientId});
 
   /// List of text entities
   final List<TextEntity> entities;
@@ -30,12 +26,14 @@ final class TextEntities extends TdObject {
 
   /// Parse from a json
   factory TextEntities.fromJson(Map<String, dynamic> json) => TextEntities(
-        entities: List<TextEntity>.from((json['entities'] ?? [])
-            .map((item) => TextEntity.fromJson(item))
-            .toList()),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    entities: List<TextEntity>.from(
+      (json['entities'] ?? [])
+          .map((item) => TextEntity.fromJson(item))
+          .toList(),
+    ),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -54,12 +52,11 @@ final class TextEntities extends TdObject {
     List<TextEntity>? entities,
     dynamic extra,
     int? clientId,
-  }) =>
-      TextEntities(
-        entities: entities ?? this.entities,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => TextEntities(
+    entities: entities ?? this.entities,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'textEntities';

@@ -47,11 +47,10 @@ final class SetChatMessageSender extends TdFunction {
   SetChatMessageSender copyWith({
     int? chatId,
     MessageSender? messageSenderId,
-  }) =>
-      SetChatMessageSender(
-        chatId: chatId ?? this.chatId,
-        messageSenderId: messageSenderId ?? this.messageSenderId,
-      );
+  }) => SetChatMessageSender(
+    chatId: chatId ?? this.chatId,
+    messageSenderId: messageSenderId ?? this.messageSenderId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setChatMessageSender';

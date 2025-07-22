@@ -11,11 +11,7 @@ final class LanguagePackStrings extends TdObject {
   /// Contains a list of language pack strings.
   ///
   /// * [strings]: A list of language pack strings.
-  const LanguagePackStrings({
-    required this.strings,
-    this.extra,
-    this.clientId,
-  });
+  const LanguagePackStrings({required this.strings, this.extra, this.clientId});
 
   /// A list of language pack strings
   final List<LanguagePackString> strings;
@@ -31,9 +27,11 @@ final class LanguagePackStrings extends TdObject {
   /// Parse from a json
   factory LanguagePackStrings.fromJson(Map<String, dynamic> json) =>
       LanguagePackStrings(
-        strings: List<LanguagePackString>.from((json['strings'] ?? [])
-            .map((item) => LanguagePackString.fromJson(item))
-            .toList()),
+        strings: List<LanguagePackString>.from(
+          (json['strings'] ?? [])
+              .map((item) => LanguagePackString.fromJson(item))
+              .toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -55,12 +53,11 @@ final class LanguagePackStrings extends TdObject {
     List<LanguagePackString>? strings,
     dynamic extra,
     int? clientId,
-  }) =>
-      LanguagePackStrings(
-        strings: strings ?? this.strings,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => LanguagePackStrings(
+    strings: strings ?? this.strings,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'languagePackStrings';

@@ -44,12 +44,12 @@ final class FileDownload extends TdObject {
 
   /// Parse from a json
   factory FileDownload.fromJson(Map<String, dynamic> json) => FileDownload(
-        fileId: json['file_id'],
-        message: Message.fromJson(json['message']),
-        addDate: json['add_date'],
-        completeDate: json['complete_date'],
-        isPaused: json['is_paused'],
-      );
+    fileId: json['file_id'],
+    message: Message.fromJson(json['message']),
+    addDate: json['add_date'],
+    completeDate: json['complete_date'],
+    isPaused: json['is_paused'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -78,14 +78,13 @@ final class FileDownload extends TdObject {
     int? addDate,
     int? completeDate,
     bool? isPaused,
-  }) =>
-      FileDownload(
-        fileId: fileId ?? this.fileId,
-        message: message ?? this.message,
-        addDate: addDate ?? this.addDate,
-        completeDate: completeDate ?? this.completeDate,
-        isPaused: isPaused ?? this.isPaused,
-      );
+  }) => FileDownload(
+    fileId: fileId ?? this.fileId,
+    message: message ?? this.message,
+    addDate: addDate ?? this.addDate,
+    completeDate: completeDate ?? this.completeDate,
+    isPaused: isPaused ?? this.isPaused,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'fileDownload';

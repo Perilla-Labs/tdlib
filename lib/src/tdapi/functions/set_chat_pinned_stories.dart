@@ -17,10 +17,7 @@ final class SetChatPinnedStories extends TdFunction {
   /// * [storyIds]: New list of pinned stories. All stories must be posted to the chat page first. There can be up to getOption("pinned_story_count_max") pinned stories on a chat page.
   ///
   /// [Ok] is returned on completion.
-  const SetChatPinnedStories({
-    required this.chatId,
-    required this.storyIds,
-  });
+  const SetChatPinnedStories({required this.chatId, required this.storyIds});
 
   /// Identifier of the chat that posted the stories
   final int chatId;
@@ -44,10 +41,7 @@ final class SetChatPinnedStories extends TdFunction {
   /// Properties:
   /// * [chat_id]: Identifier of the chat that posted the stories
   /// * [story_ids]: New list of pinned stories. All stories must be posted to the chat page first. There can be up to getOption("pinned_story_count_max") pinned stories on a chat page
-  SetChatPinnedStories copyWith({
-    int? chatId,
-    List<int>? storyIds,
-  }) =>
+  SetChatPinnedStories copyWith({int? chatId, List<int>? storyIds}) =>
       SetChatPinnedStories(
         chatId: chatId ?? this.chatId,
         storyIds: storyIds ?? this.storyIds,

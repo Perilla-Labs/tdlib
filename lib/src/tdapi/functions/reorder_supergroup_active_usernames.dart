@@ -47,11 +47,10 @@ final class ReorderSupergroupActiveUsernames extends TdFunction {
   ReorderSupergroupActiveUsernames copyWith({
     int? supergroupId,
     List<String>? usernames,
-  }) =>
-      ReorderSupergroupActiveUsernames(
-        supergroupId: supergroupId ?? this.supergroupId,
-        usernames: usernames ?? this.usernames,
-      );
+  }) => ReorderSupergroupActiveUsernames(
+    supergroupId: supergroupId ?? this.supergroupId,
+    usernames: usernames ?? this.usernames,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'reorderSupergroupActiveUsernames';

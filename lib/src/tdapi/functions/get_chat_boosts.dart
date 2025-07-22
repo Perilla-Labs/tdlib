@@ -65,13 +65,12 @@ final class GetChatBoosts extends TdFunction {
     bool? onlyGiftCodes,
     String? offset,
     int? limit,
-  }) =>
-      GetChatBoosts(
-        chatId: chatId ?? this.chatId,
-        onlyGiftCodes: onlyGiftCodes ?? this.onlyGiftCodes,
-        offset: offset ?? this.offset,
-        limit: limit ?? this.limit,
-      );
+  }) => GetChatBoosts(
+    chatId: chatId ?? this.chatId,
+    onlyGiftCodes: onlyGiftCodes ?? this.onlyGiftCodes,
+    offset: offset ?? this.offset,
+    limit: limit ?? this.limit,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getChatBoosts';

@@ -25,14 +25,20 @@ sealed class PushMessageContent extends TdObject {
   /// * [PushMessageContentPoll]
   /// * [PushMessageContentPremiumGiftCode]
   /// * [PushMessageContentGiveaway]
+  /// * [PushMessageContentGift]
+  /// * [PushMessageContentUpgradedGift]
   /// * [PushMessageContentScreenshotTaken]
   /// * [PushMessageContentSticker]
   /// * [PushMessageContentStory]
   /// * [PushMessageContentText]
+  /// * [PushMessageContentChecklist]
   /// * [PushMessageContentVideo]
   /// * [PushMessageContentVideoNote]
   /// * [PushMessageContentVoiceNote]
   /// * [PushMessageContentBasicGroupChatCreate]
+  /// * [PushMessageContentVideoChatStarted]
+  /// * [PushMessageContentVideoChatEnded]
+  /// * [PushMessageContentInviteVideoChatParticipants]
   /// * [PushMessageContentChatAddMembers]
   /// * [PushMessageContentChatChangePhoto]
   /// * [PushMessageContentChatChangeTitle]
@@ -43,6 +49,9 @@ sealed class PushMessageContent extends TdObject {
   /// * [PushMessageContentChatJoinByRequest]
   /// * [PushMessageContentRecurringPayment]
   /// * [PushMessageContentSuggestProfilePhoto]
+  /// * [PushMessageContentProximityAlertTriggered]
+  /// * [PushMessageContentChecklistTasksAdded]
+  /// * [PushMessageContentChecklistTasksDone]
   /// * [PushMessageContentMessageForwards]
   /// * [PushMessageContentMediaAlbum]
   factory PushMessageContent.fromJson(Map<String, dynamic> json) {
@@ -77,6 +86,10 @@ sealed class PushMessageContent extends TdObject {
         return PushMessageContentPremiumGiftCode.fromJson(json);
       case PushMessageContentGiveaway.defaultObjectId:
         return PushMessageContentGiveaway.fromJson(json);
+      case PushMessageContentGift.defaultObjectId:
+        return PushMessageContentGift.fromJson(json);
+      case PushMessageContentUpgradedGift.defaultObjectId:
+        return PushMessageContentUpgradedGift.fromJson(json);
       case PushMessageContentScreenshotTaken.defaultObjectId:
         return PushMessageContentScreenshotTaken.fromJson(json);
       case PushMessageContentSticker.defaultObjectId:
@@ -85,6 +98,8 @@ sealed class PushMessageContent extends TdObject {
         return PushMessageContentStory.fromJson(json);
       case PushMessageContentText.defaultObjectId:
         return PushMessageContentText.fromJson(json);
+      case PushMessageContentChecklist.defaultObjectId:
+        return PushMessageContentChecklist.fromJson(json);
       case PushMessageContentVideo.defaultObjectId:
         return PushMessageContentVideo.fromJson(json);
       case PushMessageContentVideoNote.defaultObjectId:
@@ -93,6 +108,12 @@ sealed class PushMessageContent extends TdObject {
         return PushMessageContentVoiceNote.fromJson(json);
       case PushMessageContentBasicGroupChatCreate.defaultObjectId:
         return PushMessageContentBasicGroupChatCreate.fromJson(json);
+      case PushMessageContentVideoChatStarted.defaultObjectId:
+        return PushMessageContentVideoChatStarted.fromJson(json);
+      case PushMessageContentVideoChatEnded.defaultObjectId:
+        return PushMessageContentVideoChatEnded.fromJson(json);
+      case PushMessageContentInviteVideoChatParticipants.defaultObjectId:
+        return PushMessageContentInviteVideoChatParticipants.fromJson(json);
       case PushMessageContentChatAddMembers.defaultObjectId:
         return PushMessageContentChatAddMembers.fromJson(json);
       case PushMessageContentChatChangePhoto.defaultObjectId:
@@ -113,6 +134,12 @@ sealed class PushMessageContent extends TdObject {
         return PushMessageContentRecurringPayment.fromJson(json);
       case PushMessageContentSuggestProfilePhoto.defaultObjectId:
         return PushMessageContentSuggestProfilePhoto.fromJson(json);
+      case PushMessageContentProximityAlertTriggered.defaultObjectId:
+        return PushMessageContentProximityAlertTriggered.fromJson(json);
+      case PushMessageContentChecklistTasksAdded.defaultObjectId:
+        return PushMessageContentChecklistTasksAdded.fromJson(json);
+      case PushMessageContentChecklistTasksDone.defaultObjectId:
+        return PushMessageContentChecklistTasksDone.fromJson(json);
       case PushMessageContentMessageForwards.defaultObjectId:
         return PushMessageContentMessageForwards.fromJson(json);
       case PushMessageContentMediaAlbum.defaultObjectId:
@@ -155,26 +182,19 @@ final class PushMessageContentHidden extends PushMessageContent {
   /// A general message with hidden content.
   ///
   /// * [isPinned]: True, if the message is a pinned message with the specified content.
-  const PushMessageContentHidden({
-    required this.isPinned,
-  });
+  const PushMessageContentHidden({required this.isPinned});
 
   /// True, if the message is a pinned message with the specified content
   final bool isPinned;
 
   /// Parse from a json
   factory PushMessageContentHidden.fromJson(Map<String, dynamic> json) =>
-      PushMessageContentHidden(
-        isPinned: json['is_pinned'],
-      );
+      PushMessageContentHidden(isPinned: json['is_pinned']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "is_pinned": isPinned,
-    };
+    return {"@type": defaultObjectId, "is_pinned": isPinned};
   }
 
   /// Copy model with modified properties.
@@ -182,12 +202,8 @@ final class PushMessageContentHidden extends PushMessageContent {
   /// Properties:
   /// * [is_pinned]: True, if the message is a pinned message with the specified content
   @override
-  PushMessageContentHidden copyWith({
-    bool? isPinned,
-  }) =>
-      PushMessageContentHidden(
-        isPinned: isPinned ?? this.isPinned,
-      );
+  PushMessageContentHidden copyWith({bool? isPinned}) =>
+      PushMessageContentHidden(isPinned: isPinned ?? this.isPinned);
 
   /// TDLib object type
   static const String defaultObjectId = 'pushMessageContentHidden';
@@ -263,12 +279,11 @@ final class PushMessageContentAnimation extends PushMessageContent {
     Animation? animation,
     String? caption,
     bool? isPinned,
-  }) =>
-      PushMessageContentAnimation(
-        animation: animation ?? this.animation,
-        caption: caption ?? this.caption,
-        isPinned: isPinned ?? this.isPinned,
-      );
+  }) => PushMessageContentAnimation(
+    animation: animation ?? this.animation,
+    caption: caption ?? this.caption,
+    isPinned: isPinned ?? this.isPinned,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'pushMessageContentAnimation';
@@ -295,10 +310,7 @@ final class PushMessageContentAudio extends PushMessageContent {
   ///
   /// * [audio]: Message content; may be null *(optional)*.
   /// * [isPinned]: True, if the message is a pinned message with the specified content.
-  const PushMessageContentAudio({
-    this.audio,
-    required this.isPinned,
-  });
+  const PushMessageContentAudio({this.audio, required this.isPinned});
 
   /// Message content; may be null
   final Audio? audio;
@@ -329,10 +341,7 @@ final class PushMessageContentAudio extends PushMessageContent {
   /// * [audio]: Message content; may be null
   /// * [is_pinned]: True, if the message is a pinned message with the specified content
   @override
-  PushMessageContentAudio copyWith({
-    Audio? audio,
-    bool? isPinned,
-  }) =>
+  PushMessageContentAudio copyWith({Audio? audio, bool? isPinned}) =>
       PushMessageContentAudio(
         audio: audio ?? this.audio,
         isPinned: isPinned ?? this.isPinned,
@@ -363,10 +372,7 @@ final class PushMessageContentContact extends PushMessageContent {
   ///
   /// * [name]: Contact's name.
   /// * [isPinned]: True, if the message is a pinned message with the specified content.
-  const PushMessageContentContact({
-    required this.name,
-    required this.isPinned,
-  });
+  const PushMessageContentContact({required this.name, required this.isPinned});
 
   /// Contact's name
   final String name;
@@ -384,11 +390,7 @@ final class PushMessageContentContact extends PushMessageContent {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "name": name,
-      "is_pinned": isPinned,
-    };
+    return {"@type": defaultObjectId, "name": name, "is_pinned": isPinned};
   }
 
   /// Copy model with modified properties.
@@ -397,10 +399,7 @@ final class PushMessageContentContact extends PushMessageContent {
   /// * [name]: Contact's name
   /// * [is_pinned]: True, if the message is a pinned message with the specified content
   @override
-  PushMessageContentContact copyWith({
-    String? name,
-    bool? isPinned,
-  }) =>
+  PushMessageContentContact copyWith({String? name, bool? isPinned}) =>
       PushMessageContentContact(
         name: name ?? this.name,
         isPinned: isPinned ?? this.isPinned,
@@ -429,15 +428,13 @@ final class PushMessageContentContactRegistered extends PushMessageContent {
 
   /// Parse from a json
   factory PushMessageContentContactRegistered.fromJson(
-          Map<String, dynamic> json) =>
-      const PushMessageContentContactRegistered();
+    Map<String, dynamic> json,
+  ) => const PushMessageContentContactRegistered();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -470,10 +467,7 @@ final class PushMessageContentDocument extends PushMessageContent {
   ///
   /// * [document]: Message content; may be null *(optional)*.
   /// * [isPinned]: True, if the message is a pinned message with the specified content.
-  const PushMessageContentDocument({
-    this.document,
-    required this.isPinned,
-  });
+  const PushMessageContentDocument({this.document, required this.isPinned});
 
   /// Message content; may be null
   final Document? document;
@@ -506,10 +500,7 @@ final class PushMessageContentDocument extends PushMessageContent {
   /// * [document]: Message content; may be null
   /// * [is_pinned]: True, if the message is a pinned message with the specified content
   @override
-  PushMessageContentDocument copyWith({
-    Document? document,
-    bool? isPinned,
-  }) =>
+  PushMessageContentDocument copyWith({Document? document, bool? isPinned}) =>
       PushMessageContentDocument(
         document: document ?? this.document,
         isPinned: isPinned ?? this.isPinned,
@@ -540,10 +531,7 @@ final class PushMessageContentGame extends PushMessageContent {
   ///
   /// * [title]: Game title, empty for pinned game message.
   /// * [isPinned]: True, if the message is a pinned message with the specified content.
-  const PushMessageContentGame({
-    required this.title,
-    required this.isPinned,
-  });
+  const PushMessageContentGame({required this.title, required this.isPinned});
 
   /// Game title, empty for pinned game message
   final String title;
@@ -553,19 +541,12 @@ final class PushMessageContentGame extends PushMessageContent {
 
   /// Parse from a json
   factory PushMessageContentGame.fromJson(Map<String, dynamic> json) =>
-      PushMessageContentGame(
-        title: json['title'],
-        isPinned: json['is_pinned'],
-      );
+      PushMessageContentGame(title: json['title'], isPinned: json['is_pinned']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "title": title,
-      "is_pinned": isPinned,
-    };
+    return {"@type": defaultObjectId, "title": title, "is_pinned": isPinned};
   }
 
   /// Copy model with modified properties.
@@ -574,10 +555,7 @@ final class PushMessageContentGame extends PushMessageContent {
   /// * [title]: Game title, empty for pinned game message
   /// * [is_pinned]: True, if the message is a pinned message with the specified content
   @override
-  PushMessageContentGame copyWith({
-    String? title,
-    bool? isPinned,
-  }) =>
+  PushMessageContentGame copyWith({String? title, bool? isPinned}) =>
       PushMessageContentGame(
         title: title ?? this.title,
         isPinned: isPinned ?? this.isPinned,
@@ -655,12 +633,11 @@ final class PushMessageContentGameScore extends PushMessageContent {
     String? title,
     int? score,
     bool? isPinned,
-  }) =>
-      PushMessageContentGameScore(
-        title: title ?? this.title,
-        score: score ?? this.score,
-        isPinned: isPinned ?? this.isPinned,
-      );
+  }) => PushMessageContentGameScore(
+    title: title ?? this.title,
+    score: score ?? this.score,
+    isPinned: isPinned ?? this.isPinned,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'pushMessageContentGameScore';
@@ -708,11 +685,7 @@ final class PushMessageContentInvoice extends PushMessageContent {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "price": price,
-      "is_pinned": isPinned,
-    };
+    return {"@type": defaultObjectId, "price": price, "is_pinned": isPinned};
   }
 
   /// Copy model with modified properties.
@@ -721,10 +694,7 @@ final class PushMessageContentInvoice extends PushMessageContent {
   /// * [price]: Product price
   /// * [is_pinned]: True, if the message is a pinned message with the specified content
   @override
-  PushMessageContentInvoice copyWith({
-    String? price,
-    bool? isPinned,
-  }) =>
+  PushMessageContentInvoice copyWith({String? price, bool? isPinned}) =>
       PushMessageContentInvoice(
         price: price ?? this.price,
         isPinned: isPinned ?? this.isPinned,
@@ -776,11 +746,7 @@ final class PushMessageContentLocation extends PushMessageContent {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "is_live": isLive,
-      "is_pinned": isPinned,
-    };
+    return {"@type": defaultObjectId, "is_live": isLive, "is_pinned": isPinned};
   }
 
   /// Copy model with modified properties.
@@ -789,10 +755,7 @@ final class PushMessageContentLocation extends PushMessageContent {
   /// * [is_live]: True, if the location is live
   /// * [is_pinned]: True, if the message is a pinned message with the specified content
   @override
-  PushMessageContentLocation copyWith({
-    bool? isLive,
-    bool? isPinned,
-  }) =>
+  PushMessageContentLocation copyWith({bool? isLive, bool? isPinned}) =>
       PushMessageContentLocation(
         isLive: isLive ?? this.isLive,
         isPinned: isPinned ?? this.isPinned,
@@ -857,10 +820,7 @@ final class PushMessageContentPaidMedia extends PushMessageContent {
   /// * [star_count]: Number of Telegram Stars needed to buy access to the media in the message; 0 for pinned message
   /// * [is_pinned]: True, if the message is a pinned message with the specified content
   @override
-  PushMessageContentPaidMedia copyWith({
-    int? starCount,
-    bool? isPinned,
-  }) =>
+  PushMessageContentPaidMedia copyWith({int? starCount, bool? isPinned}) =>
       PushMessageContentPaidMedia(
         starCount: starCount ?? this.starCount,
         isPinned: isPinned ?? this.isPinned,
@@ -948,13 +908,12 @@ final class PushMessageContentPhoto extends PushMessageContent {
     String? caption,
     bool? isSecret,
     bool? isPinned,
-  }) =>
-      PushMessageContentPhoto(
-        photo: photo ?? this.photo,
-        caption: caption ?? this.caption,
-        isSecret: isSecret ?? this.isSecret,
-        isPinned: isPinned ?? this.isPinned,
-      );
+  }) => PushMessageContentPhoto(
+    photo: photo ?? this.photo,
+    caption: caption ?? this.caption,
+    isSecret: isSecret ?? this.isSecret,
+    isPinned: isPinned ?? this.isPinned,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'pushMessageContentPhoto';
@@ -1028,12 +987,11 @@ final class PushMessageContentPoll extends PushMessageContent {
     String? question,
     bool? isRegular,
     bool? isPinned,
-  }) =>
-      PushMessageContentPoll(
-        question: question ?? this.question,
-        isRegular: isRegular ?? this.isRegular,
-        isPinned: isPinned ?? this.isPinned,
-      );
+  }) => PushMessageContentPoll(
+    question: question ?? this.question,
+    isRegular: isRegular ?? this.isRegular,
+    isPinned: isPinned ?? this.isPinned,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'pushMessageContentPoll';
@@ -1058,27 +1016,20 @@ final class PushMessageContentPremiumGiftCode extends PushMessageContent {
   /// A message with a Telegram Premium gift code created for the user.
   ///
   /// * [monthCount]: Number of months the Telegram Premium subscription will be active after code activation.
-  const PushMessageContentPremiumGiftCode({
-    required this.monthCount,
-  });
+  const PushMessageContentPremiumGiftCode({required this.monthCount});
 
   /// Number of months the Telegram Premium subscription will be active after code activation
   final int monthCount;
 
   /// Parse from a json
   factory PushMessageContentPremiumGiftCode.fromJson(
-          Map<String, dynamic> json) =>
-      PushMessageContentPremiumGiftCode(
-        monthCount: json['month_count'],
-      );
+    Map<String, dynamic> json,
+  ) => PushMessageContentPremiumGiftCode(monthCount: json['month_count']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "month_count": monthCount,
-    };
+    return {"@type": defaultObjectId, "month_count": monthCount};
   }
 
   /// Copy model with modified properties.
@@ -1086,9 +1037,7 @@ final class PushMessageContentPremiumGiftCode extends PushMessageContent {
   /// Properties:
   /// * [month_count]: Number of months the Telegram Premium subscription will be active after code activation
   @override
-  PushMessageContentPremiumGiftCode copyWith({
-    int? monthCount,
-  }) =>
+  PushMessageContentPremiumGiftCode copyWith({int? monthCount}) =>
       PushMessageContentPremiumGiftCode(
         monthCount: monthCount ?? this.monthCount,
       );
@@ -1167,15 +1116,106 @@ final class PushMessageContentGiveaway extends PushMessageContent {
     int? winnerCount,
     GiveawayPrize? prize,
     bool? isPinned,
-  }) =>
-      PushMessageContentGiveaway(
-        winnerCount: winnerCount ?? this.winnerCount,
-        prize: prize ?? this.prize,
-        isPinned: isPinned ?? this.isPinned,
-      );
+  }) => PushMessageContentGiveaway(
+    winnerCount: winnerCount ?? this.winnerCount,
+    prize: prize ?? this.prize,
+    isPinned: isPinned ?? this.isPinned,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'pushMessageContentGiveaway';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **PushMessageContentGift** *(pushMessageContentGift)* - child of PushMessageContent
+///
+/// A message with a gift.
+///
+/// * [starCount]: Number of Telegram Stars that sender paid for the gift.
+final class PushMessageContentGift extends PushMessageContent {
+  /// **PushMessageContentGift** *(pushMessageContentGift)* - child of PushMessageContent
+  ///
+  /// A message with a gift.
+  ///
+  /// * [starCount]: Number of Telegram Stars that sender paid for the gift.
+  const PushMessageContentGift({required this.starCount});
+
+  /// Number of Telegram Stars that sender paid for the gift
+  final int starCount;
+
+  /// Parse from a json
+  factory PushMessageContentGift.fromJson(Map<String, dynamic> json) =>
+      PushMessageContentGift(starCount: json['star_count']);
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {"@type": defaultObjectId, "star_count": starCount};
+  }
+
+  /// Copy model with modified properties.
+  ///
+  /// Properties:
+  /// * [star_count]: Number of Telegram Stars that sender paid for the gift
+  @override
+  PushMessageContentGift copyWith({int? starCount}) =>
+      PushMessageContentGift(starCount: starCount ?? this.starCount);
+
+  /// TDLib object type
+  static const String defaultObjectId = 'pushMessageContentGift';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **PushMessageContentUpgradedGift** *(pushMessageContentUpgradedGift)* - child of PushMessageContent
+///
+/// A message with an upgraded gift.
+///
+/// * [isUpgrade]: True, if the gift was obtained by upgrading of a previously received gift; otherwise, this is a transferred or resold gift.
+final class PushMessageContentUpgradedGift extends PushMessageContent {
+  /// **PushMessageContentUpgradedGift** *(pushMessageContentUpgradedGift)* - child of PushMessageContent
+  ///
+  /// A message with an upgraded gift.
+  ///
+  /// * [isUpgrade]: True, if the gift was obtained by upgrading of a previously received gift; otherwise, this is a transferred or resold gift.
+  const PushMessageContentUpgradedGift({required this.isUpgrade});
+
+  /// True, if the gift was obtained by upgrading of a previously received gift; otherwise, this is a transferred or resold gift
+  final bool isUpgrade;
+
+  /// Parse from a json
+  factory PushMessageContentUpgradedGift.fromJson(Map<String, dynamic> json) =>
+      PushMessageContentUpgradedGift(isUpgrade: json['is_upgrade']);
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {"@type": defaultObjectId, "is_upgrade": isUpgrade};
+  }
+
+  /// Copy model with modified properties.
+  ///
+  /// Properties:
+  /// * [is_upgrade]: True, if the gift was obtained by upgrading of a previously received gift; otherwise, this is a transferred or resold gift
+  @override
+  PushMessageContentUpgradedGift copyWith({bool? isUpgrade}) =>
+      PushMessageContentUpgradedGift(isUpgrade: isUpgrade ?? this.isUpgrade);
+
+  /// TDLib object type
+  static const String defaultObjectId = 'pushMessageContentUpgradedGift';
 
   /// Convert model to TDLib JSON format, encoded into String.
   @override
@@ -1197,15 +1237,13 @@ final class PushMessageContentScreenshotTaken extends PushMessageContent {
 
   /// Parse from a json
   factory PushMessageContentScreenshotTaken.fromJson(
-          Map<String, dynamic> json) =>
-      const PushMessageContentScreenshotTaken();
+    Map<String, dynamic> json,
+  ) => const PushMessageContentScreenshotTaken();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -1258,8 +1296,9 @@ final class PushMessageContentSticker extends PushMessageContent {
   /// Parse from a json
   factory PushMessageContentSticker.fromJson(Map<String, dynamic> json) =>
       PushMessageContentSticker(
-        sticker:
-            json['sticker'] == null ? null : Sticker.fromJson(json['sticker']),
+        sticker: json['sticker'] == null
+            ? null
+            : Sticker.fromJson(json['sticker']),
         emoji: json['emoji'],
         isPinned: json['is_pinned'],
       );
@@ -1286,12 +1325,11 @@ final class PushMessageContentSticker extends PushMessageContent {
     Sticker? sticker,
     String? emoji,
     bool? isPinned,
-  }) =>
-      PushMessageContentSticker(
-        sticker: sticker ?? this.sticker,
-        emoji: emoji ?? this.emoji,
-        isPinned: isPinned ?? this.isPinned,
-      );
+  }) => PushMessageContentSticker(
+    sticker: sticker ?? this.sticker,
+    emoji: emoji ?? this.emoji,
+    isPinned: isPinned ?? this.isPinned,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'pushMessageContentSticker';
@@ -1309,16 +1347,22 @@ final class PushMessageContentSticker extends PushMessageContent {
 ///
 /// A message with a story.
 ///
+/// * [isMention]: True, if the user was mentioned in the story.
 /// * [isPinned]: True, if the message is a pinned message with the specified content.
 final class PushMessageContentStory extends PushMessageContent {
   /// **PushMessageContentStory** *(pushMessageContentStory)* - child of PushMessageContent
   ///
   /// A message with a story.
   ///
+  /// * [isMention]: True, if the user was mentioned in the story.
   /// * [isPinned]: True, if the message is a pinned message with the specified content.
   const PushMessageContentStory({
+    required this.isMention,
     required this.isPinned,
   });
+
+  /// True, if the user was mentioned in the story
+  final bool isMention;
 
   /// True, if the message is a pinned message with the specified content
   final bool isPinned;
@@ -1326,6 +1370,7 @@ final class PushMessageContentStory extends PushMessageContent {
   /// Parse from a json
   factory PushMessageContentStory.fromJson(Map<String, dynamic> json) =>
       PushMessageContentStory(
+        isMention: json['is_mention'],
         isPinned: json['is_pinned'],
       );
 
@@ -1334,6 +1379,7 @@ final class PushMessageContentStory extends PushMessageContent {
   Map<String, dynamic> toJson() {
     return {
       "@type": defaultObjectId,
+      "is_mention": isMention,
       "is_pinned": isPinned,
     };
   }
@@ -1341,12 +1387,12 @@ final class PushMessageContentStory extends PushMessageContent {
   /// Copy model with modified properties.
   ///
   /// Properties:
+  /// * [is_mention]: True, if the user was mentioned in the story
   /// * [is_pinned]: True, if the message is a pinned message with the specified content
   @override
-  PushMessageContentStory copyWith({
-    bool? isPinned,
-  }) =>
+  PushMessageContentStory copyWith({bool? isMention, bool? isPinned}) =>
       PushMessageContentStory(
+        isMention: isMention ?? this.isMention,
         isPinned: isPinned ?? this.isPinned,
       );
 
@@ -1375,10 +1421,7 @@ final class PushMessageContentText extends PushMessageContent {
   ///
   /// * [text]: Message text.
   /// * [isPinned]: True, if the message is a pinned message with the specified content.
-  const PushMessageContentText({
-    required this.text,
-    required this.isPinned,
-  });
+  const PushMessageContentText({required this.text, required this.isPinned});
 
   /// Message text
   final String text;
@@ -1388,19 +1431,12 @@ final class PushMessageContentText extends PushMessageContent {
 
   /// Parse from a json
   factory PushMessageContentText.fromJson(Map<String, dynamic> json) =>
-      PushMessageContentText(
-        text: json['text'],
-        isPinned: json['is_pinned'],
-      );
+      PushMessageContentText(text: json['text'], isPinned: json['is_pinned']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "text": text,
-      "is_pinned": isPinned,
-    };
+    return {"@type": defaultObjectId, "text": text, "is_pinned": isPinned};
   }
 
   /// Copy model with modified properties.
@@ -1409,10 +1445,7 @@ final class PushMessageContentText extends PushMessageContent {
   /// * [text]: Message text
   /// * [is_pinned]: True, if the message is a pinned message with the specified content
   @override
-  PushMessageContentText copyWith({
-    String? text,
-    bool? isPinned,
-  }) =>
+  PushMessageContentText copyWith({String? text, bool? isPinned}) =>
       PushMessageContentText(
         text: text ?? this.text,
         isPinned: isPinned ?? this.isPinned,
@@ -1420,6 +1453,67 @@ final class PushMessageContentText extends PushMessageContent {
 
   /// TDLib object type
   static const String defaultObjectId = 'pushMessageContentText';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **PushMessageContentChecklist** *(pushMessageContentChecklist)* - child of PushMessageContent
+///
+/// A message with a checklist.
+///
+/// * [title]: Checklist title.
+/// * [isPinned]: True, if the message is a pinned message with the specified content.
+final class PushMessageContentChecklist extends PushMessageContent {
+  /// **PushMessageContentChecklist** *(pushMessageContentChecklist)* - child of PushMessageContent
+  ///
+  /// A message with a checklist.
+  ///
+  /// * [title]: Checklist title.
+  /// * [isPinned]: True, if the message is a pinned message with the specified content.
+  const PushMessageContentChecklist({
+    required this.title,
+    required this.isPinned,
+  });
+
+  /// Checklist title
+  final String title;
+
+  /// True, if the message is a pinned message with the specified content
+  final bool isPinned;
+
+  /// Parse from a json
+  factory PushMessageContentChecklist.fromJson(Map<String, dynamic> json) =>
+      PushMessageContentChecklist(
+        title: json['title'],
+        isPinned: json['is_pinned'],
+      );
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {"@type": defaultObjectId, "title": title, "is_pinned": isPinned};
+  }
+
+  /// Copy model with modified properties.
+  ///
+  /// Properties:
+  /// * [title]: Checklist title
+  /// * [is_pinned]: True, if the message is a pinned message with the specified content
+  @override
+  PushMessageContentChecklist copyWith({String? title, bool? isPinned}) =>
+      PushMessageContentChecklist(
+        title: title ?? this.title,
+        isPinned: isPinned ?? this.isPinned,
+      );
+
+  /// TDLib object type
+  static const String defaultObjectId = 'pushMessageContentChecklist';
 
   /// Convert model to TDLib JSON format, encoded into String.
   @override
@@ -1500,13 +1594,12 @@ final class PushMessageContentVideo extends PushMessageContent {
     String? caption,
     bool? isSecret,
     bool? isPinned,
-  }) =>
-      PushMessageContentVideo(
-        video: video ?? this.video,
-        caption: caption ?? this.caption,
-        isSecret: isSecret ?? this.isSecret,
-        isPinned: isPinned ?? this.isPinned,
-      );
+  }) => PushMessageContentVideo(
+    video: video ?? this.video,
+    caption: caption ?? this.caption,
+    isSecret: isSecret ?? this.isSecret,
+    isPinned: isPinned ?? this.isPinned,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'pushMessageContentVideo';
@@ -1533,10 +1626,7 @@ final class PushMessageContentVideoNote extends PushMessageContent {
   ///
   /// * [videoNote]: Message content; may be null *(optional)*.
   /// * [isPinned]: True, if the message is a pinned message with the specified content.
-  const PushMessageContentVideoNote({
-    this.videoNote,
-    required this.isPinned,
-  });
+  const PushMessageContentVideoNote({this.videoNote, required this.isPinned});
 
   /// Message content; may be null
   final VideoNote? videoNote;
@@ -1572,11 +1662,10 @@ final class PushMessageContentVideoNote extends PushMessageContent {
   PushMessageContentVideoNote copyWith({
     VideoNote? videoNote,
     bool? isPinned,
-  }) =>
-      PushMessageContentVideoNote(
-        videoNote: videoNote ?? this.videoNote,
-        isPinned: isPinned ?? this.isPinned,
-      );
+  }) => PushMessageContentVideoNote(
+    videoNote: videoNote ?? this.videoNote,
+    isPinned: isPinned ?? this.isPinned,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'pushMessageContentVideoNote';
@@ -1603,10 +1692,7 @@ final class PushMessageContentVoiceNote extends PushMessageContent {
   ///
   /// * [voiceNote]: Message content; may be null *(optional)*.
   /// * [isPinned]: True, if the message is a pinned message with the specified content.
-  const PushMessageContentVoiceNote({
-    this.voiceNote,
-    required this.isPinned,
-  });
+  const PushMessageContentVoiceNote({this.voiceNote, required this.isPinned});
 
   /// Message content; may be null
   final VoiceNote? voiceNote;
@@ -1642,11 +1728,10 @@ final class PushMessageContentVoiceNote extends PushMessageContent {
   PushMessageContentVoiceNote copyWith({
     VoiceNote? voiceNote,
     bool? isPinned,
-  }) =>
-      PushMessageContentVoiceNote(
-        voiceNote: voiceNote ?? this.voiceNote,
-        isPinned: isPinned ?? this.isPinned,
-      );
+  }) => PushMessageContentVoiceNote(
+    voiceNote: voiceNote ?? this.voiceNote,
+    isPinned: isPinned ?? this.isPinned,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'pushMessageContentVoiceNote';
@@ -1671,15 +1756,13 @@ final class PushMessageContentBasicGroupChatCreate extends PushMessageContent {
 
   /// Parse from a json
   factory PushMessageContentBasicGroupChatCreate.fromJson(
-          Map<String, dynamic> json) =>
-      const PushMessageContentBasicGroupChatCreate();
+    Map<String, dynamic> json,
+  ) => const PushMessageContentBasicGroupChatCreate();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -1690,6 +1773,136 @@ final class PushMessageContentBasicGroupChatCreate extends PushMessageContent {
   /// TDLib object type
   static const String defaultObjectId =
       'pushMessageContentBasicGroupChatCreate';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **PushMessageContentVideoChatStarted** *(pushMessageContentVideoChatStarted)* - child of PushMessageContent
+///
+/// A video chat or live stream was started.
+final class PushMessageContentVideoChatStarted extends PushMessageContent {
+  /// **PushMessageContentVideoChatStarted** *(pushMessageContentVideoChatStarted)* - child of PushMessageContent
+  ///
+  /// A video chat or live stream was started.
+  const PushMessageContentVideoChatStarted();
+
+  /// Parse from a json
+  factory PushMessageContentVideoChatStarted.fromJson(
+    Map<String, dynamic> json,
+  ) => const PushMessageContentVideoChatStarted();
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {"@type": defaultObjectId};
+  }
+
+  /// Copy instance with no modifications.
+  @override
+  PushMessageContentVideoChatStarted copyWith() =>
+      const PushMessageContentVideoChatStarted();
+
+  /// TDLib object type
+  static const String defaultObjectId = 'pushMessageContentVideoChatStarted';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **PushMessageContentVideoChatEnded** *(pushMessageContentVideoChatEnded)* - child of PushMessageContent
+///
+/// A video chat or live stream has ended.
+final class PushMessageContentVideoChatEnded extends PushMessageContent {
+  /// **PushMessageContentVideoChatEnded** *(pushMessageContentVideoChatEnded)* - child of PushMessageContent
+  ///
+  /// A video chat or live stream has ended.
+  const PushMessageContentVideoChatEnded();
+
+  /// Parse from a json
+  factory PushMessageContentVideoChatEnded.fromJson(
+    Map<String, dynamic> json,
+  ) => const PushMessageContentVideoChatEnded();
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {"@type": defaultObjectId};
+  }
+
+  /// Copy instance with no modifications.
+  @override
+  PushMessageContentVideoChatEnded copyWith() =>
+      const PushMessageContentVideoChatEnded();
+
+  /// TDLib object type
+  static const String defaultObjectId = 'pushMessageContentVideoChatEnded';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **PushMessageContentInviteVideoChatParticipants** *(pushMessageContentInviteVideoChatParticipants)* - child of PushMessageContent
+///
+/// An invitation of participants to a video chat or live stream.
+///
+/// * [isCurrentUser]: True, if the current user was invited to the video chat or the live stream.
+final class PushMessageContentInviteVideoChatParticipants
+    extends PushMessageContent {
+  /// **PushMessageContentInviteVideoChatParticipants** *(pushMessageContentInviteVideoChatParticipants)* - child of PushMessageContent
+  ///
+  /// An invitation of participants to a video chat or live stream.
+  ///
+  /// * [isCurrentUser]: True, if the current user was invited to the video chat or the live stream.
+  const PushMessageContentInviteVideoChatParticipants({
+    required this.isCurrentUser,
+  });
+
+  /// True, if the current user was invited to the video chat or the live stream
+  final bool isCurrentUser;
+
+  /// Parse from a json
+  factory PushMessageContentInviteVideoChatParticipants.fromJson(
+    Map<String, dynamic> json,
+  ) => PushMessageContentInviteVideoChatParticipants(
+    isCurrentUser: json['is_current_user'],
+  );
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {"@type": defaultObjectId, "is_current_user": isCurrentUser};
+  }
+
+  /// Copy model with modified properties.
+  ///
+  /// Properties:
+  /// * [is_current_user]: True, if the current user was invited to the video chat or the live stream
+  @override
+  PushMessageContentInviteVideoChatParticipants copyWith({
+    bool? isCurrentUser,
+  }) => PushMessageContentInviteVideoChatParticipants(
+    isCurrentUser: isCurrentUser ?? this.isCurrentUser,
+  );
+
+  /// TDLib object type
+  static const String defaultObjectId =
+      'pushMessageContentInviteVideoChatParticipants';
 
   /// Convert model to TDLib JSON format, encoded into String.
   @override
@@ -1732,12 +1945,12 @@ final class PushMessageContentChatAddMembers extends PushMessageContent {
 
   /// Parse from a json
   factory PushMessageContentChatAddMembers.fromJson(
-          Map<String, dynamic> json) =>
-      PushMessageContentChatAddMembers(
-        memberName: json['member_name'],
-        isCurrentUser: json['is_current_user'],
-        isReturned: json['is_returned'],
-      );
+    Map<String, dynamic> json,
+  ) => PushMessageContentChatAddMembers(
+    memberName: json['member_name'],
+    isCurrentUser: json['is_current_user'],
+    isReturned: json['is_returned'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -1761,12 +1974,11 @@ final class PushMessageContentChatAddMembers extends PushMessageContent {
     String? memberName,
     bool? isCurrentUser,
     bool? isReturned,
-  }) =>
-      PushMessageContentChatAddMembers(
-        memberName: memberName ?? this.memberName,
-        isCurrentUser: isCurrentUser ?? this.isCurrentUser,
-        isReturned: isReturned ?? this.isReturned,
-      );
+  }) => PushMessageContentChatAddMembers(
+    memberName: memberName ?? this.memberName,
+    isCurrentUser: isCurrentUser ?? this.isCurrentUser,
+    isReturned: isReturned ?? this.isReturned,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'pushMessageContentChatAddMembers';
@@ -1791,15 +2003,13 @@ final class PushMessageContentChatChangePhoto extends PushMessageContent {
 
   /// Parse from a json
   factory PushMessageContentChatChangePhoto.fromJson(
-          Map<String, dynamic> json) =>
-      const PushMessageContentChatChangePhoto();
+    Map<String, dynamic> json,
+  ) => const PushMessageContentChatChangePhoto();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -1830,27 +2040,20 @@ final class PushMessageContentChatChangeTitle extends PushMessageContent {
   /// A chat title was edited.
   ///
   /// * [title]: New chat title.
-  const PushMessageContentChatChangeTitle({
-    required this.title,
-  });
+  const PushMessageContentChatChangeTitle({required this.title});
 
   /// New chat title
   final String title;
 
   /// Parse from a json
   factory PushMessageContentChatChangeTitle.fromJson(
-          Map<String, dynamic> json) =>
-      PushMessageContentChatChangeTitle(
-        title: json['title'],
-      );
+    Map<String, dynamic> json,
+  ) => PushMessageContentChatChangeTitle(title: json['title']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "title": title,
-    };
+    return {"@type": defaultObjectId, "title": title};
   }
 
   /// Copy model with modified properties.
@@ -1858,12 +2061,8 @@ final class PushMessageContentChatChangeTitle extends PushMessageContent {
   /// Properties:
   /// * [title]: New chat title
   @override
-  PushMessageContentChatChangeTitle copyWith({
-    String? title,
-  }) =>
-      PushMessageContentChatChangeTitle(
-        title: title ?? this.title,
-      );
+  PushMessageContentChatChangeTitle copyWith({String? title}) =>
+      PushMessageContentChatChangeTitle(title: title ?? this.title);
 
   /// TDLib object type
   static const String defaultObjectId = 'pushMessageContentChatChangeTitle';
@@ -1888,27 +2087,20 @@ final class PushMessageContentChatSetBackground extends PushMessageContent {
   /// A chat background was edited.
   ///
   /// * [isSame]: True, if the set background is the same as the background of the current user.
-  const PushMessageContentChatSetBackground({
-    required this.isSame,
-  });
+  const PushMessageContentChatSetBackground({required this.isSame});
 
   /// True, if the set background is the same as the background of the current user
   final bool isSame;
 
   /// Parse from a json
   factory PushMessageContentChatSetBackground.fromJson(
-          Map<String, dynamic> json) =>
-      PushMessageContentChatSetBackground(
-        isSame: json['is_same'],
-      );
+    Map<String, dynamic> json,
+  ) => PushMessageContentChatSetBackground(isSame: json['is_same']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "is_same": isSame,
-    };
+    return {"@type": defaultObjectId, "is_same": isSame};
   }
 
   /// Copy model with modified properties.
@@ -1916,12 +2108,8 @@ final class PushMessageContentChatSetBackground extends PushMessageContent {
   /// Properties:
   /// * [is_same]: True, if the set background is the same as the background of the current user
   @override
-  PushMessageContentChatSetBackground copyWith({
-    bool? isSame,
-  }) =>
-      PushMessageContentChatSetBackground(
-        isSame: isSame ?? this.isSame,
-      );
+  PushMessageContentChatSetBackground copyWith({bool? isSame}) =>
+      PushMessageContentChatSetBackground(isSame: isSame ?? this.isSame);
 
   /// TDLib object type
   static const String defaultObjectId = 'pushMessageContentChatSetBackground';
@@ -1946,26 +2134,19 @@ final class PushMessageContentChatSetTheme extends PushMessageContent {
   /// A chat theme was edited.
   ///
   /// * [themeName]: If non-empty, name of a new theme, set for the chat. Otherwise, the chat theme was reset to the default one.
-  const PushMessageContentChatSetTheme({
-    required this.themeName,
-  });
+  const PushMessageContentChatSetTheme({required this.themeName});
 
   /// If non-empty, name of a new theme, set for the chat. Otherwise, the chat theme was reset to the default one
   final String themeName;
 
   /// Parse from a json
   factory PushMessageContentChatSetTheme.fromJson(Map<String, dynamic> json) =>
-      PushMessageContentChatSetTheme(
-        themeName: json['theme_name'],
-      );
+      PushMessageContentChatSetTheme(themeName: json['theme_name']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "theme_name": themeName,
-    };
+    return {"@type": defaultObjectId, "theme_name": themeName};
   }
 
   /// Copy model with modified properties.
@@ -1973,12 +2154,8 @@ final class PushMessageContentChatSetTheme extends PushMessageContent {
   /// Properties:
   /// * [theme_name]: If non-empty, name of a new theme, set for the chat. Otherwise, the chat theme was reset to the default one
   @override
-  PushMessageContentChatSetTheme copyWith({
-    String? themeName,
-  }) =>
-      PushMessageContentChatSetTheme(
-        themeName: themeName ?? this.themeName,
-      );
+  PushMessageContentChatSetTheme copyWith({String? themeName}) =>
+      PushMessageContentChatSetTheme(themeName: themeName ?? this.themeName);
 
   /// TDLib object type
   static const String defaultObjectId = 'pushMessageContentChatSetTheme';
@@ -2024,12 +2201,12 @@ final class PushMessageContentChatDeleteMember extends PushMessageContent {
 
   /// Parse from a json
   factory PushMessageContentChatDeleteMember.fromJson(
-          Map<String, dynamic> json) =>
-      PushMessageContentChatDeleteMember(
-        memberName: json['member_name'],
-        isCurrentUser: json['is_current_user'],
-        isLeft: json['is_left'],
-      );
+    Map<String, dynamic> json,
+  ) => PushMessageContentChatDeleteMember(
+    memberName: json['member_name'],
+    isCurrentUser: json['is_current_user'],
+    isLeft: json['is_left'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -2053,12 +2230,11 @@ final class PushMessageContentChatDeleteMember extends PushMessageContent {
     String? memberName,
     bool? isCurrentUser,
     bool? isLeft,
-  }) =>
-      PushMessageContentChatDeleteMember(
-        memberName: memberName ?? this.memberName,
-        isCurrentUser: isCurrentUser ?? this.isCurrentUser,
-        isLeft: isLeft ?? this.isLeft,
-      );
+  }) => PushMessageContentChatDeleteMember(
+    memberName: memberName ?? this.memberName,
+    isCurrentUser: isCurrentUser ?? this.isCurrentUser,
+    isLeft: isLeft ?? this.isLeft,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'pushMessageContentChatDeleteMember';
@@ -2083,15 +2259,13 @@ final class PushMessageContentChatJoinByLink extends PushMessageContent {
 
   /// Parse from a json
   factory PushMessageContentChatJoinByLink.fromJson(
-          Map<String, dynamic> json) =>
-      const PushMessageContentChatJoinByLink();
+    Map<String, dynamic> json,
+  ) => const PushMessageContentChatJoinByLink();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -2122,15 +2296,13 @@ final class PushMessageContentChatJoinByRequest extends PushMessageContent {
 
   /// Parse from a json
   factory PushMessageContentChatJoinByRequest.fromJson(
-          Map<String, dynamic> json) =>
-      const PushMessageContentChatJoinByRequest();
+    Map<String, dynamic> json,
+  ) => const PushMessageContentChatJoinByRequest();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -2161,27 +2333,20 @@ final class PushMessageContentRecurringPayment extends PushMessageContent {
   /// A new recurring payment was made by the current user.
   ///
   /// * [amount]: The paid amount.
-  const PushMessageContentRecurringPayment({
-    required this.amount,
-  });
+  const PushMessageContentRecurringPayment({required this.amount});
 
   /// The paid amount
   final String amount;
 
   /// Parse from a json
   factory PushMessageContentRecurringPayment.fromJson(
-          Map<String, dynamic> json) =>
-      PushMessageContentRecurringPayment(
-        amount: json['amount'],
-      );
+    Map<String, dynamic> json,
+  ) => PushMessageContentRecurringPayment(amount: json['amount']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "amount": amount,
-    };
+    return {"@type": defaultObjectId, "amount": amount};
   }
 
   /// Copy model with modified properties.
@@ -2189,12 +2354,8 @@ final class PushMessageContentRecurringPayment extends PushMessageContent {
   /// Properties:
   /// * [amount]: The paid amount
   @override
-  PushMessageContentRecurringPayment copyWith({
-    String? amount,
-  }) =>
-      PushMessageContentRecurringPayment(
-        amount: amount ?? this.amount,
-      );
+  PushMessageContentRecurringPayment copyWith({String? amount}) =>
+      PushMessageContentRecurringPayment(amount: amount ?? this.amount);
 
   /// TDLib object type
   static const String defaultObjectId = 'pushMessageContentRecurringPayment';
@@ -2219,15 +2380,13 @@ final class PushMessageContentSuggestProfilePhoto extends PushMessageContent {
 
   /// Parse from a json
   factory PushMessageContentSuggestProfilePhoto.fromJson(
-          Map<String, dynamic> json) =>
-      const PushMessageContentSuggestProfilePhoto();
+    Map<String, dynamic> json,
+  ) => const PushMessageContentSuggestProfilePhoto();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -2237,6 +2396,155 @@ final class PushMessageContentSuggestProfilePhoto extends PushMessageContent {
 
   /// TDLib object type
   static const String defaultObjectId = 'pushMessageContentSuggestProfilePhoto';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **PushMessageContentProximityAlertTriggered** *(pushMessageContentProximityAlertTriggered)* - child of PushMessageContent
+///
+/// A user in the chat came within proximity alert range from the current user.
+///
+/// * [distance]: The distance to the user.
+final class PushMessageContentProximityAlertTriggered
+    extends PushMessageContent {
+  /// **PushMessageContentProximityAlertTriggered** *(pushMessageContentProximityAlertTriggered)* - child of PushMessageContent
+  ///
+  /// A user in the chat came within proximity alert range from the current user.
+  ///
+  /// * [distance]: The distance to the user.
+  const PushMessageContentProximityAlertTriggered({required this.distance});
+
+  /// The distance to the user
+  final int distance;
+
+  /// Parse from a json
+  factory PushMessageContentProximityAlertTriggered.fromJson(
+    Map<String, dynamic> json,
+  ) => PushMessageContentProximityAlertTriggered(distance: json['distance']);
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {"@type": defaultObjectId, "distance": distance};
+  }
+
+  /// Copy model with modified properties.
+  ///
+  /// Properties:
+  /// * [distance]: The distance to the user
+  @override
+  PushMessageContentProximityAlertTriggered copyWith({int? distance}) =>
+      PushMessageContentProximityAlertTriggered(
+        distance: distance ?? this.distance,
+      );
+
+  /// TDLib object type
+  static const String defaultObjectId =
+      'pushMessageContentProximityAlertTriggered';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **PushMessageContentChecklistTasksAdded** *(pushMessageContentChecklistTasksAdded)* - child of PushMessageContent
+///
+/// Some tasks were added to a checklist.
+///
+/// * [taskCount]: Number of added tasks.
+final class PushMessageContentChecklistTasksAdded extends PushMessageContent {
+  /// **PushMessageContentChecklistTasksAdded** *(pushMessageContentChecklistTasksAdded)* - child of PushMessageContent
+  ///
+  /// Some tasks were added to a checklist.
+  ///
+  /// * [taskCount]: Number of added tasks.
+  const PushMessageContentChecklistTasksAdded({required this.taskCount});
+
+  /// Number of added tasks
+  final int taskCount;
+
+  /// Parse from a json
+  factory PushMessageContentChecklistTasksAdded.fromJson(
+    Map<String, dynamic> json,
+  ) => PushMessageContentChecklistTasksAdded(taskCount: json['task_count']);
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {"@type": defaultObjectId, "task_count": taskCount};
+  }
+
+  /// Copy model with modified properties.
+  ///
+  /// Properties:
+  /// * [task_count]: Number of added tasks
+  @override
+  PushMessageContentChecklistTasksAdded copyWith({int? taskCount}) =>
+      PushMessageContentChecklistTasksAdded(
+        taskCount: taskCount ?? this.taskCount,
+      );
+
+  /// TDLib object type
+  static const String defaultObjectId = 'pushMessageContentChecklistTasksAdded';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **PushMessageContentChecklistTasksDone** *(pushMessageContentChecklistTasksDone)* - child of PushMessageContent
+///
+/// Some tasks from a checklist were marked as done or not done.
+///
+/// * [taskCount]: Number of changed tasks.
+final class PushMessageContentChecklistTasksDone extends PushMessageContent {
+  /// **PushMessageContentChecklistTasksDone** *(pushMessageContentChecklistTasksDone)* - child of PushMessageContent
+  ///
+  /// Some tasks from a checklist were marked as done or not done.
+  ///
+  /// * [taskCount]: Number of changed tasks.
+  const PushMessageContentChecklistTasksDone({required this.taskCount});
+
+  /// Number of changed tasks
+  final int taskCount;
+
+  /// Parse from a json
+  factory PushMessageContentChecklistTasksDone.fromJson(
+    Map<String, dynamic> json,
+  ) => PushMessageContentChecklistTasksDone(taskCount: json['task_count']);
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {"@type": defaultObjectId, "task_count": taskCount};
+  }
+
+  /// Copy model with modified properties.
+  ///
+  /// Properties:
+  /// * [task_count]: Number of changed tasks
+  @override
+  PushMessageContentChecklistTasksDone copyWith({int? taskCount}) =>
+      PushMessageContentChecklistTasksDone(
+        taskCount: taskCount ?? this.taskCount,
+      );
+
+  /// TDLib object type
+  static const String defaultObjectId = 'pushMessageContentChecklistTasksDone';
 
   /// Convert model to TDLib JSON format, encoded into String.
   @override
@@ -2258,27 +2566,20 @@ final class PushMessageContentMessageForwards extends PushMessageContent {
   /// A forwarded messages.
   ///
   /// * [totalCount]: Number of forwarded messages.
-  const PushMessageContentMessageForwards({
-    required this.totalCount,
-  });
+  const PushMessageContentMessageForwards({required this.totalCount});
 
   /// Number of forwarded messages
   final int totalCount;
 
   /// Parse from a json
   factory PushMessageContentMessageForwards.fromJson(
-          Map<String, dynamic> json) =>
-      PushMessageContentMessageForwards(
-        totalCount: json['total_count'],
-      );
+    Map<String, dynamic> json,
+  ) => PushMessageContentMessageForwards(totalCount: json['total_count']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "total_count": totalCount,
-    };
+    return {"@type": defaultObjectId, "total_count": totalCount};
   }
 
   /// Copy model with modified properties.
@@ -2286,9 +2587,7 @@ final class PushMessageContentMessageForwards extends PushMessageContent {
   /// Properties:
   /// * [total_count]: Number of forwarded messages
   @override
-  PushMessageContentMessageForwards copyWith({
-    int? totalCount,
-  }) =>
+  PushMessageContentMessageForwards copyWith({int? totalCount}) =>
       PushMessageContentMessageForwards(
         totalCount: totalCount ?? this.totalCount,
       );
@@ -2385,14 +2684,13 @@ final class PushMessageContentMediaAlbum extends PushMessageContent {
     bool? hasVideos,
     bool? hasAudios,
     bool? hasDocuments,
-  }) =>
-      PushMessageContentMediaAlbum(
-        totalCount: totalCount ?? this.totalCount,
-        hasPhotos: hasPhotos ?? this.hasPhotos,
-        hasVideos: hasVideos ?? this.hasVideos,
-        hasAudios: hasAudios ?? this.hasAudios,
-        hasDocuments: hasDocuments ?? this.hasDocuments,
-      );
+  }) => PushMessageContentMediaAlbum(
+    totalCount: totalCount ?? this.totalCount,
+    hasPhotos: hasPhotos ?? this.hasPhotos,
+    hasVideos: hasVideos ?? this.hasVideos,
+    hasAudios: hasAudios ?? this.hasAudios,
+    hasDocuments: hasDocuments ?? this.hasDocuments,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'pushMessageContentMediaAlbum';

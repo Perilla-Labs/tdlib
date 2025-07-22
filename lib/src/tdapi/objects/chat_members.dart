@@ -36,13 +36,13 @@ final class ChatMembers extends TdObject {
 
   /// Parse from a json
   factory ChatMembers.fromJson(Map<String, dynamic> json) => ChatMembers(
-        totalCount: json['total_count'],
-        members: List<ChatMember>.from((json['members'] ?? [])
-            .map((item) => ChatMember.fromJson(item))
-            .toList()),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    totalCount: json['total_count'],
+    members: List<ChatMember>.from(
+      (json['members'] ?? []).map((item) => ChatMember.fromJson(item)).toList(),
+    ),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -64,13 +64,12 @@ final class ChatMembers extends TdObject {
     List<ChatMember>? members,
     dynamic extra,
     int? clientId,
-  }) =>
-      ChatMembers(
-        totalCount: totalCount ?? this.totalCount,
-        members: members ?? this.members,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => ChatMembers(
+    totalCount: totalCount ?? this.totalCount,
+    members: members ?? this.members,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatMembers';

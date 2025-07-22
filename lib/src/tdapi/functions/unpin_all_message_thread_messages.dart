@@ -44,10 +44,7 @@ final class UnpinAllMessageThreadMessages extends TdFunction {
   /// Properties:
   /// * [chat_id]: Identifier of the chat
   /// * [message_thread_id]: Message thread identifier in which messages will be unpinned
-  UnpinAllMessageThreadMessages copyWith({
-    int? chatId,
-    int? messageThreadId,
-  }) =>
+  UnpinAllMessageThreadMessages copyWith({int? chatId, int? messageThreadId}) =>
       UnpinAllMessageThreadMessages(
         chatId: chatId ?? this.chatId,
         messageThreadId: messageThreadId ?? this.messageThreadId,

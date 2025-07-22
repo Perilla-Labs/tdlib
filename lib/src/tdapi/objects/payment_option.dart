@@ -13,10 +13,7 @@ final class PaymentOption extends TdObject {
   ///
   /// * [title]: Title for the payment option.
   /// * [url]: Payment form URL to be opened in a web view.
-  const PaymentOption({
-    required this.title,
-    required this.url,
-  });
+  const PaymentOption({required this.title, required this.url});
 
   /// Title for the payment option
   final String title;
@@ -25,19 +22,13 @@ final class PaymentOption extends TdObject {
   final String url;
 
   /// Parse from a json
-  factory PaymentOption.fromJson(Map<String, dynamic> json) => PaymentOption(
-        title: json['title'],
-        url: json['url'],
-      );
+  factory PaymentOption.fromJson(Map<String, dynamic> json) =>
+      PaymentOption(title: json['title'], url: json['url']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "title": title,
-      "url": url,
-    };
+    return {"@type": defaultObjectId, "title": title, "url": url};
   }
 
   /// Copy model with modified properties.
@@ -45,14 +36,8 @@ final class PaymentOption extends TdObject {
   /// Properties:
   /// * [title]: Title for the payment option
   /// * [url]: Payment form URL to be opened in a web view
-  PaymentOption copyWith({
-    String? title,
-    String? url,
-  }) =>
-      PaymentOption(
-        title: title ?? this.title,
-        url: url ?? this.url,
-      );
+  PaymentOption copyWith({String? title, String? url}) =>
+      PaymentOption(title: title ?? this.title, url: url ?? this.url);
 
   /// TDLib object type
   static const String defaultObjectId = 'paymentOption';

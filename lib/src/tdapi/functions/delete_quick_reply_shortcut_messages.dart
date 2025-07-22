@@ -47,11 +47,10 @@ final class DeleteQuickReplyShortcutMessages extends TdFunction {
   DeleteQuickReplyShortcutMessages copyWith({
     int? shortcutId,
     List<int>? messageIds,
-  }) =>
-      DeleteQuickReplyShortcutMessages(
-        shortcutId: shortcutId ?? this.shortcutId,
-        messageIds: messageIds ?? this.messageIds,
-      );
+  }) => DeleteQuickReplyShortcutMessages(
+    shortcutId: shortcutId ?? this.shortcutId,
+    messageIds: messageIds ?? this.messageIds,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'deleteQuickReplyShortcutMessages';

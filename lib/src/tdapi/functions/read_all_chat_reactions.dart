@@ -15,9 +15,7 @@ final class ReadAllChatReactions extends TdFunction {
   /// * [chatId]: Chat identifier.
   ///
   /// [Ok] is returned on completion.
-  const ReadAllChatReactions({
-    required this.chatId,
-  });
+  const ReadAllChatReactions({required this.chatId});
 
   /// Chat identifier
   final int chatId;
@@ -25,23 +23,15 @@ final class ReadAllChatReactions extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "chat_id": chatId,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "chat_id": chatId, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [chat_id]: Chat identifier
-  ReadAllChatReactions copyWith({
-    int? chatId,
-  }) =>
-      ReadAllChatReactions(
-        chatId: chatId ?? this.chatId,
-      );
+  ReadAllChatReactions copyWith({int? chatId}) =>
+      ReadAllChatReactions(chatId: chatId ?? this.chatId);
 
   /// TDLib object type
   static const String defaultObjectId = 'readAllChatReactions';

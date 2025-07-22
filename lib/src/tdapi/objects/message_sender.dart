@@ -56,26 +56,31 @@ final class MessageSenderUser extends MessageSender {
   /// The message was sent by a known user.
   ///
   /// * [userId]: Identifier of the user that sent the message.
-  const MessageSenderUser({
-    required this.userId,
-  });
+  const MessageSenderUser({required this.userId, this.extra, this.clientId});
 
   /// Identifier of the user that sent the message
   final int userId;
+
+  /// [extra] callback sign
+  @override
+  final dynamic extra;
+
+  /// [clientId] client identifier
+  @override
+  final int? clientId;
 
   /// Parse from a json
   factory MessageSenderUser.fromJson(Map<String, dynamic> json) =>
       MessageSenderUser(
         userId: json['user_id'],
+        extra: json['@extra'],
+        clientId: json['@client_id'],
       );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "user_id": userId,
-    };
+    return {"@type": defaultObjectId, "user_id": userId};
   }
 
   /// Copy model with modified properties.
@@ -83,11 +88,11 @@ final class MessageSenderUser extends MessageSender {
   /// Properties:
   /// * [user_id]: Identifier of the user that sent the message
   @override
-  MessageSenderUser copyWith({
-    int? userId,
-  }) =>
+  MessageSenderUser copyWith({int? userId, dynamic extra, int? clientId}) =>
       MessageSenderUser(
         userId: userId ?? this.userId,
+        extra: extra ?? this.extra,
+        clientId: clientId ?? this.clientId,
       );
 
   /// TDLib object type
@@ -113,26 +118,31 @@ final class MessageSenderChat extends MessageSender {
   /// The message was sent on behalf of a chat.
   ///
   /// * [chatId]: Identifier of the chat that sent the message.
-  const MessageSenderChat({
-    required this.chatId,
-  });
+  const MessageSenderChat({required this.chatId, this.extra, this.clientId});
 
   /// Identifier of the chat that sent the message
   final int chatId;
+
+  /// [extra] callback sign
+  @override
+  final dynamic extra;
+
+  /// [clientId] client identifier
+  @override
+  final int? clientId;
 
   /// Parse from a json
   factory MessageSenderChat.fromJson(Map<String, dynamic> json) =>
       MessageSenderChat(
         chatId: json['chat_id'],
+        extra: json['@extra'],
+        clientId: json['@client_id'],
       );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "chat_id": chatId,
-    };
+    return {"@type": defaultObjectId, "chat_id": chatId};
   }
 
   /// Copy model with modified properties.
@@ -140,11 +150,11 @@ final class MessageSenderChat extends MessageSender {
   /// Properties:
   /// * [chat_id]: Identifier of the chat that sent the message
   @override
-  MessageSenderChat copyWith({
-    int? chatId,
-  }) =>
+  MessageSenderChat copyWith({int? chatId, dynamic extra, int? clientId}) =>
       MessageSenderChat(
         chatId: chatId ?? this.chatId,
+        extra: extra ?? this.extra,
+        clientId: clientId ?? this.clientId,
       );
 
   /// TDLib object type

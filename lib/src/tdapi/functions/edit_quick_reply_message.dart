@@ -2,21 +2,21 @@ part of '../tdapi.dart';
 
 /// **EditQuickReplyMessage** *(editQuickReplyMessage)* - TDLib function
 ///
-/// Asynchronously edits the text, media or caption of a quick reply message. Use quickReplyMessage.can_be_edited to check whether a message can be edited.. Text message can be edited only to a text message. The type of message content in an album can't be changed with exception of replacing a photo with a video or vice versa.
+/// Asynchronously edits the text, media or caption of a quick reply message. Use quickReplyMessage.can_be_edited to check whether a message can be edited.. Media message can be edited only to a media message. Checklist messages can be edited only to a checklist message.. The type of message content in an album can't be changed with exception of replacing a photo with a video or vice versa.
 ///
 /// * [shortcutId]: Unique identifier of the quick reply shortcut with the message.
 /// * [messageId]: Identifier of the message.
-/// * [inputMessageContent]: New content of the message. Must be one of the following types: inputMessageText, inputMessageAnimation, inputMessageAudio, inputMessageDocument, inputMessagePhoto or inputMessageVideo.
+/// * [inputMessageContent]: New content of the message. Must be one of the following types: inputMessageAnimation, inputMessageAudio, inputMessageChecklist, inputMessageDocument, inputMessagePhoto, inputMessageText, or inputMessageVideo.
 ///
 /// [Ok] is returned on completion.
 final class EditQuickReplyMessage extends TdFunction {
   /// **EditQuickReplyMessage** *(editQuickReplyMessage)* - TDLib function
   ///
-  /// Asynchronously edits the text, media or caption of a quick reply message. Use quickReplyMessage.can_be_edited to check whether a message can be edited.. Text message can be edited only to a text message. The type of message content in an album can't be changed with exception of replacing a photo with a video or vice versa.
+  /// Asynchronously edits the text, media or caption of a quick reply message. Use quickReplyMessage.can_be_edited to check whether a message can be edited.. Media message can be edited only to a media message. Checklist messages can be edited only to a checklist message.. The type of message content in an album can't be changed with exception of replacing a photo with a video or vice versa.
   ///
   /// * [shortcutId]: Unique identifier of the quick reply shortcut with the message.
   /// * [messageId]: Identifier of the message.
-  /// * [inputMessageContent]: New content of the message. Must be one of the following types: inputMessageText, inputMessageAnimation, inputMessageAudio, inputMessageDocument, inputMessagePhoto or inputMessageVideo.
+  /// * [inputMessageContent]: New content of the message. Must be one of the following types: inputMessageAnimation, inputMessageAudio, inputMessageChecklist, inputMessageDocument, inputMessagePhoto, inputMessageText, or inputMessageVideo.
   ///
   /// [Ok] is returned on completion.
   const EditQuickReplyMessage({
@@ -31,7 +31,7 @@ final class EditQuickReplyMessage extends TdFunction {
   /// Identifier of the message
   final int messageId;
 
-  /// New content of the message. Must be one of the following types: inputMessageText, inputMessageAnimation, inputMessageAudio, inputMessageDocument, inputMessagePhoto or inputMessageVideo
+  /// New content of the message. Must be one of the following types: inputMessageAnimation, inputMessageAudio, inputMessageChecklist, inputMessageDocument, inputMessagePhoto, inputMessageText, or inputMessageVideo
   final InputMessageContent inputMessageContent;
 
   /// Convert model to TDLib JSON format
@@ -51,17 +51,16 @@ final class EditQuickReplyMessage extends TdFunction {
   /// Properties:
   /// * [shortcut_id]: Unique identifier of the quick reply shortcut with the message
   /// * [message_id]: Identifier of the message
-  /// * [input_message_content]: New content of the message. Must be one of the following types: inputMessageText, inputMessageAnimation, inputMessageAudio, inputMessageDocument, inputMessagePhoto or inputMessageVideo
+  /// * [input_message_content]: New content of the message. Must be one of the following types: inputMessageAnimation, inputMessageAudio, inputMessageChecklist, inputMessageDocument, inputMessagePhoto, inputMessageText, or inputMessageVideo
   EditQuickReplyMessage copyWith({
     int? shortcutId,
     int? messageId,
     InputMessageContent? inputMessageContent,
-  }) =>
-      EditQuickReplyMessage(
-        shortcutId: shortcutId ?? this.shortcutId,
-        messageId: messageId ?? this.messageId,
-        inputMessageContent: inputMessageContent ?? this.inputMessageContent,
-      );
+  }) => EditQuickReplyMessage(
+    shortcutId: shortcutId ?? this.shortcutId,
+    messageId: messageId ?? this.messageId,
+    inputMessageContent: inputMessageContent ?? this.inputMessageContent,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'editQuickReplyMessage';

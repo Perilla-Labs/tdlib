@@ -15,9 +15,7 @@ final class GetChatBoostLinkInfo extends TdFunction {
   /// * [url]: The link to boost a chat.
   ///
   /// [ChatBoostLinkInfo] is returned on completion.
-  const GetChatBoostLinkInfo({
-    required this.url,
-  });
+  const GetChatBoostLinkInfo({required this.url});
 
   /// The link to boost a chat
   final String url;
@@ -25,23 +23,15 @@ final class GetChatBoostLinkInfo extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "url": url,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "url": url, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [url]: The link to boost a chat
-  GetChatBoostLinkInfo copyWith({
-    String? url,
-  }) =>
-      GetChatBoostLinkInfo(
-        url: url ?? this.url,
-      );
+  GetChatBoostLinkInfo copyWith({String? url}) =>
+      GetChatBoostLinkInfo(url: url ?? this.url);
 
   /// TDLib object type
   static const String defaultObjectId = 'getChatBoostLinkInfo';

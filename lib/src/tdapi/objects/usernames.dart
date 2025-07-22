@@ -32,12 +32,14 @@ final class Usernames extends TdObject {
 
   /// Parse from a json
   factory Usernames.fromJson(Map<String, dynamic> json) => Usernames(
-        activeUsernames: List<String>.from(
-            (json['active_usernames'] ?? []).map((item) => item).toList()),
-        disabledUsernames: List<String>.from(
-            (json['disabled_usernames'] ?? []).map((item) => item).toList()),
-        editableUsername: json['editable_username'],
-      );
+    activeUsernames: List<String>.from(
+      (json['active_usernames'] ?? []).map((item) => item).toList(),
+    ),
+    disabledUsernames: List<String>.from(
+      (json['disabled_usernames'] ?? []).map((item) => item).toList(),
+    ),
+    editableUsername: json['editable_username'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -60,12 +62,11 @@ final class Usernames extends TdObject {
     List<String>? activeUsernames,
     List<String>? disabledUsernames,
     String? editableUsername,
-  }) =>
-      Usernames(
-        activeUsernames: activeUsernames ?? this.activeUsernames,
-        disabledUsernames: disabledUsernames ?? this.disabledUsernames,
-        editableUsername: editableUsername ?? this.editableUsername,
-      );
+  }) => Usernames(
+    activeUsernames: activeUsernames ?? this.activeUsernames,
+    disabledUsernames: disabledUsernames ?? this.disabledUsernames,
+    editableUsername: editableUsername ?? this.editableUsername,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'usernames';

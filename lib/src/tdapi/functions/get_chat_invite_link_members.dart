@@ -74,15 +74,14 @@ final class GetChatInviteLinkMembers extends TdFunction {
     bool? onlyWithExpiredSubscription,
     ChatInviteLinkMember? offsetMember,
     int? limit,
-  }) =>
-      GetChatInviteLinkMembers(
-        chatId: chatId ?? this.chatId,
-        inviteLink: inviteLink ?? this.inviteLink,
-        onlyWithExpiredSubscription:
-            onlyWithExpiredSubscription ?? this.onlyWithExpiredSubscription,
-        offsetMember: offsetMember ?? this.offsetMember,
-        limit: limit ?? this.limit,
-      );
+  }) => GetChatInviteLinkMembers(
+    chatId: chatId ?? this.chatId,
+    inviteLink: inviteLink ?? this.inviteLink,
+    onlyWithExpiredSubscription:
+        onlyWithExpiredSubscription ?? this.onlyWithExpiredSubscription,
+    offsetMember: offsetMember ?? this.offsetMember,
+    limit: limit ?? this.limit,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getChatInviteLinkMembers';

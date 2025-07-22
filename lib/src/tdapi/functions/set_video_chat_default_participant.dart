@@ -47,11 +47,10 @@ final class SetVideoChatDefaultParticipant extends TdFunction {
   SetVideoChatDefaultParticipant copyWith({
     int? chatId,
     MessageSender? defaultParticipantId,
-  }) =>
-      SetVideoChatDefaultParticipant(
-        chatId: chatId ?? this.chatId,
-        defaultParticipantId: defaultParticipantId ?? this.defaultParticipantId,
-      );
+  }) => SetVideoChatDefaultParticipant(
+    chatId: chatId ?? this.chatId,
+    defaultParticipantId: defaultParticipantId ?? this.defaultParticipantId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setVideoChatDefaultParticipant';

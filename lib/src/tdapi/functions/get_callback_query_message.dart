@@ -56,12 +56,11 @@ final class GetCallbackQueryMessage extends TdFunction {
     int? chatId,
     int? messageId,
     int? callbackQueryId,
-  }) =>
-      GetCallbackQueryMessage(
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        callbackQueryId: callbackQueryId ?? this.callbackQueryId,
-      );
+  }) => GetCallbackQueryMessage(
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    callbackQueryId: callbackQueryId ?? this.callbackQueryId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getCallbackQueryMessage';

@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **ChatStatisticsInteractionInfo** *(chatStatisticsInteractionInfo)* - basic class
 ///
-/// Contains statistics about interactions with a message sent in the chat or a story sent by the chat.
+/// Contains statistics about interactions with a message sent in the chat or a story posted on behalf of the chat.
 ///
 /// * [objectType]: Type of the object.
 /// * [viewCount]: Number of times the object was viewed.
@@ -11,7 +11,7 @@ part of '../tdapi.dart';
 final class ChatStatisticsInteractionInfo extends TdObject {
   /// **ChatStatisticsInteractionInfo** *(chatStatisticsInteractionInfo)* - basic class
   ///
-  /// Contains statistics about interactions with a message sent in the chat or a story sent by the chat.
+  /// Contains statistics about interactions with a message sent in the chat or a story posted on behalf of the chat.
   ///
   /// * [objectType]: Type of the object.
   /// * [viewCount]: Number of times the object was viewed.
@@ -69,13 +69,12 @@ final class ChatStatisticsInteractionInfo extends TdObject {
     int? viewCount,
     int? forwardCount,
     int? reactionCount,
-  }) =>
-      ChatStatisticsInteractionInfo(
-        objectType: objectType ?? this.objectType,
-        viewCount: viewCount ?? this.viewCount,
-        forwardCount: forwardCount ?? this.forwardCount,
-        reactionCount: reactionCount ?? this.reactionCount,
-      );
+  }) => ChatStatisticsInteractionInfo(
+    objectType: objectType ?? this.objectType,
+    viewCount: viewCount ?? this.viewCount,
+    forwardCount: forwardCount ?? this.forwardCount,
+    reactionCount: reactionCount ?? this.reactionCount,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatStatisticsInteractionInfo';

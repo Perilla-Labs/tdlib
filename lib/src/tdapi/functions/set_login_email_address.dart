@@ -15,9 +15,7 @@ final class SetLoginEmailAddress extends TdFunction {
   /// * [newLoginEmailAddress]: New login email address.
   ///
   /// [EmailAddressAuthenticationCodeInfo] is returned on completion.
-  const SetLoginEmailAddress({
-    required this.newLoginEmailAddress,
-  });
+  const SetLoginEmailAddress({required this.newLoginEmailAddress});
 
   /// New login email address
   final String newLoginEmailAddress;
@@ -36,9 +34,7 @@ final class SetLoginEmailAddress extends TdFunction {
   ///
   /// Properties:
   /// * [new_login_email_address]: New login email address
-  SetLoginEmailAddress copyWith({
-    String? newLoginEmailAddress,
-  }) =>
+  SetLoginEmailAddress copyWith({String? newLoginEmailAddress}) =>
       SetLoginEmailAddress(
         newLoginEmailAddress: newLoginEmailAddress ?? this.newLoginEmailAddress,
       );

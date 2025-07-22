@@ -62,29 +62,29 @@ final class BusinessInfo extends TdObject {
 
   /// Parse from a json
   factory BusinessInfo.fromJson(Map<String, dynamic> json) => BusinessInfo(
-        location: json['location'] == null
-            ? null
-            : BusinessLocation.fromJson(json['location']),
-        openingHours: json['opening_hours'] == null
-            ? null
-            : BusinessOpeningHours.fromJson(json['opening_hours']),
-        localOpeningHours: json['local_opening_hours'] == null
-            ? null
-            : BusinessOpeningHours.fromJson(json['local_opening_hours']),
-        nextOpenIn: json['next_open_in'],
-        nextCloseIn: json['next_close_in'],
-        greetingMessageSettings: json['greeting_message_settings'] == null
-            ? null
-            : BusinessGreetingMessageSettings.fromJson(
-                json['greeting_message_settings']),
-        awayMessageSettings: json['away_message_settings'] == null
-            ? null
-            : BusinessAwayMessageSettings.fromJson(
-                json['away_message_settings']),
-        startPage: json['start_page'] == null
-            ? null
-            : BusinessStartPage.fromJson(json['start_page']),
-      );
+    location: json['location'] == null
+        ? null
+        : BusinessLocation.fromJson(json['location']),
+    openingHours: json['opening_hours'] == null
+        ? null
+        : BusinessOpeningHours.fromJson(json['opening_hours']),
+    localOpeningHours: json['local_opening_hours'] == null
+        ? null
+        : BusinessOpeningHours.fromJson(json['local_opening_hours']),
+    nextOpenIn: json['next_open_in'],
+    nextCloseIn: json['next_close_in'],
+    greetingMessageSettings: json['greeting_message_settings'] == null
+        ? null
+        : BusinessGreetingMessageSettings.fromJson(
+            json['greeting_message_settings'],
+          ),
+    awayMessageSettings: json['away_message_settings'] == null
+        ? null
+        : BusinessAwayMessageSettings.fromJson(json['away_message_settings']),
+    startPage: json['start_page'] == null
+        ? null
+        : BusinessStartPage.fromJson(json['start_page']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -122,18 +122,17 @@ final class BusinessInfo extends TdObject {
     BusinessGreetingMessageSettings? greetingMessageSettings,
     BusinessAwayMessageSettings? awayMessageSettings,
     BusinessStartPage? startPage,
-  }) =>
-      BusinessInfo(
-        location: location ?? this.location,
-        openingHours: openingHours ?? this.openingHours,
-        localOpeningHours: localOpeningHours ?? this.localOpeningHours,
-        nextOpenIn: nextOpenIn ?? this.nextOpenIn,
-        nextCloseIn: nextCloseIn ?? this.nextCloseIn,
-        greetingMessageSettings:
-            greetingMessageSettings ?? this.greetingMessageSettings,
-        awayMessageSettings: awayMessageSettings ?? this.awayMessageSettings,
-        startPage: startPage ?? this.startPage,
-      );
+  }) => BusinessInfo(
+    location: location ?? this.location,
+    openingHours: openingHours ?? this.openingHours,
+    localOpeningHours: localOpeningHours ?? this.localOpeningHours,
+    nextOpenIn: nextOpenIn ?? this.nextOpenIn,
+    nextCloseIn: nextCloseIn ?? this.nextCloseIn,
+    greetingMessageSettings:
+        greetingMessageSettings ?? this.greetingMessageSettings,
+    awayMessageSettings: awayMessageSettings ?? this.awayMessageSettings,
+    startPage: startPage ?? this.startPage,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'businessInfo';

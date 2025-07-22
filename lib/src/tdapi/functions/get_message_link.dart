@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **GetMessageLink** *(getMessageLink)* - TDLib function
 ///
-/// Returns an HTTPS link to a message in a chat. Available only if messageProperties.can_get_link, or if messageProperties.can_get_media_timestamp_links and a media timestamp link is generated. This is an offline request.
+/// Returns an HTTPS link to a message in a chat. Available only if messageProperties.can_get_link, or if messageProperties.can_get_media_timestamp_links and a media timestamp link is generated. This is an offline method.
 ///
 /// * [chatId]: Identifier of the chat to which the message belongs.
 /// * [messageId]: Identifier of the message.
@@ -14,7 +14,7 @@ part of '../tdapi.dart';
 final class GetMessageLink extends TdFunction {
   /// **GetMessageLink** *(getMessageLink)* - TDLib function
   ///
-  /// Returns an HTTPS link to a message in a chat. Available only if messageProperties.can_get_link, or if messageProperties.can_get_media_timestamp_links and a media timestamp link is generated. This is an offline request.
+  /// Returns an HTTPS link to a message in a chat. Available only if messageProperties.can_get_link, or if messageProperties.can_get_media_timestamp_links and a media timestamp link is generated. This is an offline method.
   ///
   /// * [chatId]: Identifier of the chat to which the message belongs.
   /// * [messageId]: Identifier of the message.
@@ -74,14 +74,13 @@ final class GetMessageLink extends TdFunction {
     int? mediaTimestamp,
     bool? forAlbum,
     bool? inMessageThread,
-  }) =>
-      GetMessageLink(
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        mediaTimestamp: mediaTimestamp ?? this.mediaTimestamp,
-        forAlbum: forAlbum ?? this.forAlbum,
-        inMessageThread: inMessageThread ?? this.inMessageThread,
-      );
+  }) => GetMessageLink(
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    mediaTimestamp: mediaTimestamp ?? this.mediaTimestamp,
+    forAlbum: forAlbum ?? this.forAlbum,
+    inMessageThread: inMessageThread ?? this.inMessageThread,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getMessageLink';

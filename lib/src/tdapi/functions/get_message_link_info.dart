@@ -15,9 +15,7 @@ final class GetMessageLinkInfo extends TdFunction {
   /// * [url]: The message link.
   ///
   /// [MessageLinkInfo] is returned on completion.
-  const GetMessageLinkInfo({
-    required this.url,
-  });
+  const GetMessageLinkInfo({required this.url});
 
   /// The message link
   final String url;
@@ -25,23 +23,15 @@ final class GetMessageLinkInfo extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "url": url,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "url": url, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [url]: The message link
-  GetMessageLinkInfo copyWith({
-    String? url,
-  }) =>
-      GetMessageLinkInfo(
-        url: url ?? this.url,
-      );
+  GetMessageLinkInfo copyWith({String? url}) =>
+      GetMessageLinkInfo(url: url ?? this.url);
 
   /// TDLib object type
   static const String defaultObjectId = 'getMessageLinkInfo';

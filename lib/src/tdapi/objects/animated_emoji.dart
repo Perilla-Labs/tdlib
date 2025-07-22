@@ -54,15 +54,14 @@ final class AnimatedEmoji extends TdObject {
 
   /// Parse from a json
   factory AnimatedEmoji.fromJson(Map<String, dynamic> json) => AnimatedEmoji(
-        sticker:
-            json['sticker'] == null ? null : Sticker.fromJson(json['sticker']),
-        stickerWidth: json['sticker_width'],
-        stickerHeight: json['sticker_height'],
-        fitzpatrickType: json['fitzpatrick_type'] ?? 0,
-        sound: json['sound'] == null ? null : File.fromJson(json['sound']),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    sticker: json['sticker'] == null ? null : Sticker.fromJson(json['sticker']),
+    stickerWidth: json['sticker_width'],
+    stickerHeight: json['sticker_height'],
+    fitzpatrickType: json['fitzpatrick_type'] ?? 0,
+    sound: json['sound'] == null ? null : File.fromJson(json['sound']),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -93,16 +92,15 @@ final class AnimatedEmoji extends TdObject {
     File? sound,
     dynamic extra,
     int? clientId,
-  }) =>
-      AnimatedEmoji(
-        sticker: sticker ?? this.sticker,
-        stickerWidth: stickerWidth ?? this.stickerWidth,
-        stickerHeight: stickerHeight ?? this.stickerHeight,
-        fitzpatrickType: fitzpatrickType ?? this.fitzpatrickType,
-        sound: sound ?? this.sound,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => AnimatedEmoji(
+    sticker: sticker ?? this.sticker,
+    stickerWidth: stickerWidth ?? this.stickerWidth,
+    stickerHeight: stickerHeight ?? this.stickerHeight,
+    fitzpatrickType: fitzpatrickType ?? this.fitzpatrickType,
+    sound: sound ?? this.sound,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'animatedEmoji';

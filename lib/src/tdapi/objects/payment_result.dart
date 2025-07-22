@@ -36,11 +36,11 @@ final class PaymentResult extends TdObject {
 
   /// Parse from a json
   factory PaymentResult.fromJson(Map<String, dynamic> json) => PaymentResult(
-        success: json['success'],
-        verificationUrl: json['verification_url'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    success: json['success'],
+    verificationUrl: json['verification_url'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -62,13 +62,12 @@ final class PaymentResult extends TdObject {
     String? verificationUrl,
     dynamic extra,
     int? clientId,
-  }) =>
-      PaymentResult(
-        success: success ?? this.success,
-        verificationUrl: verificationUrl ?? this.verificationUrl,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => PaymentResult(
+    success: success ?? this.success,
+    verificationUrl: verificationUrl ?? this.verificationUrl,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'paymentResult';

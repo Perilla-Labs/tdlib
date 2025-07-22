@@ -56,12 +56,11 @@ final class ImportMessages extends TdFunction {
     int? chatId,
     InputFile? messageFile,
     List<InputFile>? attachedFiles,
-  }) =>
-      ImportMessages(
-        chatId: chatId ?? this.chatId,
-        messageFile: messageFile ?? this.messageFile,
-        attachedFiles: attachedFiles ?? this.attachedFiles,
-      );
+  }) => ImportMessages(
+    chatId: chatId ?? this.chatId,
+    messageFile: messageFile ?? this.messageFile,
+    attachedFiles: attachedFiles ?? this.attachedFiles,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'importMessages';

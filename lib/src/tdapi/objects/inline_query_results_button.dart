@@ -13,10 +13,7 @@ final class InlineQueryResultsButton extends TdObject {
   ///
   /// * [text]: The text of the button.
   /// * [type]: Type of the button.
-  const InlineQueryResultsButton({
-    required this.text,
-    required this.type,
-  });
+  const InlineQueryResultsButton({required this.text, required this.type});
 
   /// The text of the button
   final String text;
@@ -34,11 +31,7 @@ final class InlineQueryResultsButton extends TdObject {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "text": text,
-      "type": type.toJson(),
-    };
+    return {"@type": defaultObjectId, "text": text, "type": type.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -49,11 +42,10 @@ final class InlineQueryResultsButton extends TdObject {
   InlineQueryResultsButton copyWith({
     String? text,
     InlineQueryResultsButtonType? type,
-  }) =>
-      InlineQueryResultsButton(
-        text: text ?? this.text,
-        type: type ?? this.type,
-      );
+  }) => InlineQueryResultsButton(
+    text: text ?? this.text,
+    type: type ?? this.type,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inlineQueryResultsButton';

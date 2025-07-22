@@ -15,9 +15,7 @@ final class DeleteDefaultBackground extends TdFunction {
   /// * [forDarkTheme]: Pass true if the background is deleted for a dark theme.
   ///
   /// [Ok] is returned on completion.
-  const DeleteDefaultBackground({
-    required this.forDarkTheme,
-  });
+  const DeleteDefaultBackground({required this.forDarkTheme});
 
   /// Pass true if the background is deleted for a dark theme
   final bool forDarkTheme;
@@ -36,12 +34,8 @@ final class DeleteDefaultBackground extends TdFunction {
   ///
   /// Properties:
   /// * [for_dark_theme]: Pass true if the background is deleted for a dark theme
-  DeleteDefaultBackground copyWith({
-    bool? forDarkTheme,
-  }) =>
-      DeleteDefaultBackground(
-        forDarkTheme: forDarkTheme ?? this.forDarkTheme,
-      );
+  DeleteDefaultBackground copyWith({bool? forDarkTheme}) =>
+      DeleteDefaultBackground(forDarkTheme: forDarkTheme ?? this.forDarkTheme);
 
   /// TDLib object type
   static const String defaultObjectId = 'deleteDefaultBackground';

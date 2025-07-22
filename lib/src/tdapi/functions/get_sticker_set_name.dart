@@ -15,9 +15,7 @@ final class GetStickerSetName extends TdFunction {
   /// * [setId]: Identifier of the sticker set.
   ///
   /// [Text] is returned on completion.
-  const GetStickerSetName({
-    required this.setId,
-  });
+  const GetStickerSetName({required this.setId});
 
   /// Identifier of the sticker set
   final int setId;
@@ -25,23 +23,15 @@ final class GetStickerSetName extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "set_id": setId,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "set_id": setId, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [set_id]: Identifier of the sticker set
-  GetStickerSetName copyWith({
-    int? setId,
-  }) =>
-      GetStickerSetName(
-        setId: setId ?? this.setId,
-      );
+  GetStickerSetName copyWith({int? setId}) =>
+      GetStickerSetName(setId: setId ?? this.setId);
 
   /// TDLib object type
   static const String defaultObjectId = 'getStickerSetName';

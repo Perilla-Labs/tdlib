@@ -56,26 +56,19 @@ final class ChatAvailableReactionsAll extends ChatAvailableReactions {
   /// All reactions are available in the chat, excluding the paid reaction and custom reactions in channel chats.
   ///
   /// * [maxReactionCount]: The maximum allowed number of reactions per message; 1-11.
-  const ChatAvailableReactionsAll({
-    required this.maxReactionCount,
-  });
+  const ChatAvailableReactionsAll({required this.maxReactionCount});
 
   /// The maximum allowed number of reactions per message; 1-11
   final int maxReactionCount;
 
   /// Parse from a json
   factory ChatAvailableReactionsAll.fromJson(Map<String, dynamic> json) =>
-      ChatAvailableReactionsAll(
-        maxReactionCount: json['max_reaction_count'],
-      );
+      ChatAvailableReactionsAll(maxReactionCount: json['max_reaction_count']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "max_reaction_count": maxReactionCount,
-    };
+    return {"@type": defaultObjectId, "max_reaction_count": maxReactionCount};
   }
 
   /// Copy model with modified properties.
@@ -83,9 +76,7 @@ final class ChatAvailableReactionsAll extends ChatAvailableReactions {
   /// Properties:
   /// * [max_reaction_count]: The maximum allowed number of reactions per message; 1-11
   @override
-  ChatAvailableReactionsAll copyWith({
-    int? maxReactionCount,
-  }) =>
+  ChatAvailableReactionsAll copyWith({int? maxReactionCount}) =>
       ChatAvailableReactionsAll(
         maxReactionCount: maxReactionCount ?? this.maxReactionCount,
       );
@@ -129,9 +120,11 @@ final class ChatAvailableReactionsSome extends ChatAvailableReactions {
   /// Parse from a json
   factory ChatAvailableReactionsSome.fromJson(Map<String, dynamic> json) =>
       ChatAvailableReactionsSome(
-        reactions: List<ReactionType>.from((json['reactions'] ?? [])
-            .map((item) => ReactionType.fromJson(item))
-            .toList()),
+        reactions: List<ReactionType>.from(
+          (json['reactions'] ?? [])
+              .map((item) => ReactionType.fromJson(item))
+              .toList(),
+        ),
         maxReactionCount: json['max_reaction_count'],
       );
 
@@ -154,11 +147,10 @@ final class ChatAvailableReactionsSome extends ChatAvailableReactions {
   ChatAvailableReactionsSome copyWith({
     List<ReactionType>? reactions,
     int? maxReactionCount,
-  }) =>
-      ChatAvailableReactionsSome(
-        reactions: reactions ?? this.reactions,
-        maxReactionCount: maxReactionCount ?? this.maxReactionCount,
-      );
+  }) => ChatAvailableReactionsSome(
+    reactions: reactions ?? this.reactions,
+    maxReactionCount: maxReactionCount ?? this.maxReactionCount,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatAvailableReactionsSome';

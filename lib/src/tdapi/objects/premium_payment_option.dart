@@ -7,7 +7,7 @@ part of '../tdapi.dart';
 /// * [currency]: ISO 4217 currency code for Telegram Premium subscription payment.
 /// * [amount]: The amount to pay, in the smallest units of the currency.
 /// * [discountPercentage]: The discount associated with this option, as a percentage.
-/// * [monthCount]: Number of months the Telegram Premium subscription will be active.
+/// * [monthCount]: Number of months the Telegram Premium subscription will be active. Use getPremiumInfoSticker to get the sticker to be used as representation of the Telegram Premium subscription.
 /// * [storeProductId]: Identifier of the store product associated with the option.
 /// * [paymentLink]: An internal link to be opened for buying Telegram Premium to the user if store payment isn't possible; may be null if direct payment isn't available *(optional)*.
 final class PremiumPaymentOption extends TdObject {
@@ -18,7 +18,7 @@ final class PremiumPaymentOption extends TdObject {
   /// * [currency]: ISO 4217 currency code for Telegram Premium subscription payment.
   /// * [amount]: The amount to pay, in the smallest units of the currency.
   /// * [discountPercentage]: The discount associated with this option, as a percentage.
-  /// * [monthCount]: Number of months the Telegram Premium subscription will be active.
+  /// * [monthCount]: Number of months the Telegram Premium subscription will be active. Use getPremiumInfoSticker to get the sticker to be used as representation of the Telegram Premium subscription.
   /// * [storeProductId]: Identifier of the store product associated with the option.
   /// * [paymentLink]: An internal link to be opened for buying Telegram Premium to the user if store payment isn't possible; may be null if direct payment isn't available *(optional)*.
   const PremiumPaymentOption({
@@ -39,7 +39,7 @@ final class PremiumPaymentOption extends TdObject {
   /// The discount associated with this option, as a percentage
   final int discountPercentage;
 
-  /// Number of months the Telegram Premium subscription will be active
+  /// Number of months the Telegram Premium subscription will be active. Use getPremiumInfoSticker to get the sticker to be used as representation of the Telegram Premium subscription
   final int monthCount;
 
   /// Identifier of the store product associated with the option
@@ -81,7 +81,7 @@ final class PremiumPaymentOption extends TdObject {
   /// * [currency]: ISO 4217 currency code for Telegram Premium subscription payment
   /// * [amount]: The amount to pay, in the smallest units of the currency
   /// * [discount_percentage]: The discount associated with this option, as a percentage
-  /// * [month_count]: Number of months the Telegram Premium subscription will be active
+  /// * [month_count]: Number of months the Telegram Premium subscription will be active. Use getPremiumInfoSticker to get the sticker to be used as representation of the Telegram Premium subscription
   /// * [store_product_id]: Identifier of the store product associated with the option
   /// * [payment_link]: An internal link to be opened for buying Telegram Premium to the user if store payment isn't possible; may be null if direct payment isn't available
   PremiumPaymentOption copyWith({
@@ -91,15 +91,14 @@ final class PremiumPaymentOption extends TdObject {
     int? monthCount,
     String? storeProductId,
     InternalLinkType? paymentLink,
-  }) =>
-      PremiumPaymentOption(
-        currency: currency ?? this.currency,
-        amount: amount ?? this.amount,
-        discountPercentage: discountPercentage ?? this.discountPercentage,
-        monthCount: monthCount ?? this.monthCount,
-        storeProductId: storeProductId ?? this.storeProductId,
-        paymentLink: paymentLink ?? this.paymentLink,
-      );
+  }) => PremiumPaymentOption(
+    currency: currency ?? this.currency,
+    amount: amount ?? this.amount,
+    discountPercentage: discountPercentage ?? this.discountPercentage,
+    monthCount: monthCount ?? this.monthCount,
+    storeProductId: storeProductId ?? this.storeProductId,
+    paymentLink: paymentLink ?? this.paymentLink,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'premiumPaymentOption';

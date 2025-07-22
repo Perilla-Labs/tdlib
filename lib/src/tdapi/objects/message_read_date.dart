@@ -93,10 +93,7 @@ final class MessageReadDateRead extends MessageReadDate {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "read_date": readDate,
-    };
+    return {"@type": defaultObjectId, "read_date": readDate};
   }
 
   /// Copy model with modified properties.
@@ -104,11 +101,7 @@ final class MessageReadDateRead extends MessageReadDate {
   /// Properties:
   /// * [read_date]: Point in time (Unix timestamp) when the message was read by the other user
   @override
-  MessageReadDateRead copyWith({
-    int? readDate,
-    dynamic extra,
-    int? clientId,
-  }) =>
+  MessageReadDateRead copyWith({int? readDate, dynamic extra, int? clientId}) =>
       MessageReadDateRead(
         readDate: readDate ?? this.readDate,
         extra: extra ?? this.extra,
@@ -134,10 +127,7 @@ final class MessageReadDateUnread extends MessageReadDate {
   /// **MessageReadDateUnread** *(messageReadDateUnread)* - child of MessageReadDate
   ///
   /// The message is unread yet.
-  const MessageReadDateUnread({
-    this.extra,
-    this.clientId,
-  });
+  const MessageReadDateUnread({this.extra, this.clientId});
 
   /// [extra] callback sign
   @override
@@ -157,17 +147,12 @@ final class MessageReadDateUnread extends MessageReadDate {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
   @override
-  MessageReadDateUnread copyWith({
-    dynamic extra,
-    int? clientId,
-  }) =>
+  MessageReadDateUnread copyWith({dynamic extra, int? clientId}) =>
       MessageReadDateUnread(
         extra: extra ?? this.extra,
         clientId: clientId ?? this.clientId,
@@ -192,10 +177,7 @@ final class MessageReadDateTooOld extends MessageReadDate {
   /// **MessageReadDateTooOld** *(messageReadDateTooOld)* - child of MessageReadDate
   ///
   /// The message is too old to get read date.
-  const MessageReadDateTooOld({
-    this.extra,
-    this.clientId,
-  });
+  const MessageReadDateTooOld({this.extra, this.clientId});
 
   /// [extra] callback sign
   @override
@@ -215,17 +197,12 @@ final class MessageReadDateTooOld extends MessageReadDate {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
   @override
-  MessageReadDateTooOld copyWith({
-    dynamic extra,
-    int? clientId,
-  }) =>
+  MessageReadDateTooOld copyWith({dynamic extra, int? clientId}) =>
       MessageReadDateTooOld(
         extra: extra ?? this.extra,
         clientId: clientId ?? this.clientId,
@@ -250,10 +227,7 @@ final class MessageReadDateUserPrivacyRestricted extends MessageReadDate {
   /// **MessageReadDateUserPrivacyRestricted** *(messageReadDateUserPrivacyRestricted)* - child of MessageReadDate
   ///
   /// The read date is unknown due to privacy settings of the other user.
-  const MessageReadDateUserPrivacyRestricted({
-    this.extra,
-    this.clientId,
-  });
+  const MessageReadDateUserPrivacyRestricted({this.extra, this.clientId});
 
   /// [extra] callback sign
   @override
@@ -265,18 +239,16 @@ final class MessageReadDateUserPrivacyRestricted extends MessageReadDate {
 
   /// Parse from a json
   factory MessageReadDateUserPrivacyRestricted.fromJson(
-          Map<String, dynamic> json) =>
-      MessageReadDateUserPrivacyRestricted(
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    Map<String, dynamic> json,
+  ) => MessageReadDateUserPrivacyRestricted(
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -284,11 +256,10 @@ final class MessageReadDateUserPrivacyRestricted extends MessageReadDate {
   MessageReadDateUserPrivacyRestricted copyWith({
     dynamic extra,
     int? clientId,
-  }) =>
-      MessageReadDateUserPrivacyRestricted(
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => MessageReadDateUserPrivacyRestricted(
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageReadDateUserPrivacyRestricted';
@@ -309,10 +280,7 @@ final class MessageReadDateMyPrivacyRestricted extends MessageReadDate {
   /// **MessageReadDateMyPrivacyRestricted** *(messageReadDateMyPrivacyRestricted)* - child of MessageReadDate
   ///
   /// The read date is unknown due to privacy settings of the current user, but will be known if the user subscribes to Telegram Premium.
-  const MessageReadDateMyPrivacyRestricted({
-    this.extra,
-    this.clientId,
-  });
+  const MessageReadDateMyPrivacyRestricted({this.extra, this.clientId});
 
   /// [extra] callback sign
   @override
@@ -324,26 +292,21 @@ final class MessageReadDateMyPrivacyRestricted extends MessageReadDate {
 
   /// Parse from a json
   factory MessageReadDateMyPrivacyRestricted.fromJson(
-          Map<String, dynamic> json) =>
-      MessageReadDateMyPrivacyRestricted(
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    Map<String, dynamic> json,
+  ) => MessageReadDateMyPrivacyRestricted(
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
   @override
-  MessageReadDateMyPrivacyRestricted copyWith({
-    dynamic extra,
-    int? clientId,
-  }) =>
+  MessageReadDateMyPrivacyRestricted copyWith({dynamic extra, int? clientId}) =>
       MessageReadDateMyPrivacyRestricted(
         extra: extra ?? this.extra,
         clientId: clientId ?? this.clientId,

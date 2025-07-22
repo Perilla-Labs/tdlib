@@ -17,10 +17,7 @@ final class SetAutoDownloadSettings extends TdFunction {
   /// * [type]: Type of the network for which the new settings are relevant.
   ///
   /// [Ok] is returned on completion.
-  const SetAutoDownloadSettings({
-    required this.settings,
-    required this.type,
-  });
+  const SetAutoDownloadSettings({required this.settings, required this.type});
 
   /// New user auto-download settings
   final AutoDownloadSettings settings;
@@ -47,11 +44,10 @@ final class SetAutoDownloadSettings extends TdFunction {
   SetAutoDownloadSettings copyWith({
     AutoDownloadSettings? settings,
     NetworkType? type,
-  }) =>
-      SetAutoDownloadSettings(
-        settings: settings ?? this.settings,
-        type: type ?? this.type,
-      );
+  }) => SetAutoDownloadSettings(
+    settings: settings ?? this.settings,
+    type: type ?? this.type,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setAutoDownloadSettings';

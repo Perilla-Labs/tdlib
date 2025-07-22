@@ -11,11 +11,7 @@ final class BusinessFeatures extends TdObject {
   /// Contains information about features, available to Business user accounts.
   ///
   /// * [features]: The list of available business features.
-  const BusinessFeatures({
-    required this.features,
-    this.extra,
-    this.clientId,
-  });
+  const BusinessFeatures({required this.features, this.extra, this.clientId});
 
   /// The list of available business features
   final List<BusinessFeature> features;
@@ -31,9 +27,11 @@ final class BusinessFeatures extends TdObject {
   /// Parse from a json
   factory BusinessFeatures.fromJson(Map<String, dynamic> json) =>
       BusinessFeatures(
-        features: List<BusinessFeature>.from((json['features'] ?? [])
-            .map((item) => BusinessFeature.fromJson(item))
-            .toList()),
+        features: List<BusinessFeature>.from(
+          (json['features'] ?? [])
+              .map((item) => BusinessFeature.fromJson(item))
+              .toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -55,12 +53,11 @@ final class BusinessFeatures extends TdObject {
     List<BusinessFeature>? features,
     dynamic extra,
     int? clientId,
-  }) =>
-      BusinessFeatures(
-        features: features ?? this.features,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => BusinessFeatures(
+    features: features ?? this.features,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'businessFeatures';

@@ -15,9 +15,7 @@ final class ReportAuthenticationCodeMissing extends TdFunction {
   /// * [mobileNetworkCode]: Current mobile network code.
   ///
   /// [Ok] is returned on completion.
-  const ReportAuthenticationCodeMissing({
-    required this.mobileNetworkCode,
-  });
+  const ReportAuthenticationCodeMissing({required this.mobileNetworkCode});
 
   /// Current mobile network code
   final String mobileNetworkCode;
@@ -36,9 +34,7 @@ final class ReportAuthenticationCodeMissing extends TdFunction {
   ///
   /// Properties:
   /// * [mobile_network_code]: Current mobile network code
-  ReportAuthenticationCodeMissing copyWith({
-    String? mobileNetworkCode,
-  }) =>
+  ReportAuthenticationCodeMissing copyWith({String? mobileNetworkCode}) =>
       ReportAuthenticationCodeMissing(
         mobileNetworkCode: mobileNetworkCode ?? this.mobileNetworkCode,
       );

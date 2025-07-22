@@ -11,7 +11,7 @@ part of '../tdapi.dart';
 /// * [canSendVideos]: True, if the user can send videos.
 /// * [canSendVideoNotes]: True, if the user can send video notes.
 /// * [canSendVoiceNotes]: True, if the user can send voice notes.
-/// * [canSendPolls]: True, if the user can send polls.
+/// * [canSendPolls]: True, if the user can send polls and checklists.
 /// * [canSendOtherMessages]: True, if the user can send animations, games, stickers, and dice and use inline bots.
 /// * [canAddLinkPreviews]: True, if the user may add a link preview to their messages.
 /// * [canChangeInfo]: True, if the user can change the chat title, photo, and other settings.
@@ -30,7 +30,7 @@ final class ChatPermissions extends TdObject {
   /// * [canSendVideos]: True, if the user can send videos.
   /// * [canSendVideoNotes]: True, if the user can send video notes.
   /// * [canSendVoiceNotes]: True, if the user can send voice notes.
-  /// * [canSendPolls]: True, if the user can send polls.
+  /// * [canSendPolls]: True, if the user can send polls and checklists.
   /// * [canSendOtherMessages]: True, if the user can send animations, games, stickers, and dice and use inline bots.
   /// * [canAddLinkPreviews]: True, if the user may add a link preview to their messages.
   /// * [canChangeInfo]: True, if the user can change the chat title, photo, and other settings.
@@ -75,7 +75,7 @@ final class ChatPermissions extends TdObject {
   /// True, if the user can send voice notes
   final bool canSendVoiceNotes;
 
-  /// True, if the user can send polls
+  /// True, if the user can send polls and checklists
   final bool canSendPolls;
 
   /// True, if the user can send animations, games, stickers, and dice and use inline bots
@@ -147,7 +147,7 @@ final class ChatPermissions extends TdObject {
   /// * [can_send_videos]: True, if the user can send videos
   /// * [can_send_video_notes]: True, if the user can send video notes
   /// * [can_send_voice_notes]: True, if the user can send voice notes
-  /// * [can_send_polls]: True, if the user can send polls
+  /// * [can_send_polls]: True, if the user can send polls and checklists
   /// * [can_send_other_messages]: True, if the user can send animations, games, stickers, and dice and use inline bots
   /// * [can_add_link_previews]: True, if the user may add a link preview to their messages
   /// * [can_change_info]: True, if the user can change the chat title, photo, and other settings
@@ -169,23 +169,22 @@ final class ChatPermissions extends TdObject {
     bool? canInviteUsers,
     bool? canPinMessages,
     bool? canCreateTopics,
-  }) =>
-      ChatPermissions(
-        canSendBasicMessages: canSendBasicMessages ?? this.canSendBasicMessages,
-        canSendAudios: canSendAudios ?? this.canSendAudios,
-        canSendDocuments: canSendDocuments ?? this.canSendDocuments,
-        canSendPhotos: canSendPhotos ?? this.canSendPhotos,
-        canSendVideos: canSendVideos ?? this.canSendVideos,
-        canSendVideoNotes: canSendVideoNotes ?? this.canSendVideoNotes,
-        canSendVoiceNotes: canSendVoiceNotes ?? this.canSendVoiceNotes,
-        canSendPolls: canSendPolls ?? this.canSendPolls,
-        canSendOtherMessages: canSendOtherMessages ?? this.canSendOtherMessages,
-        canAddLinkPreviews: canAddLinkPreviews ?? this.canAddLinkPreviews,
-        canChangeInfo: canChangeInfo ?? this.canChangeInfo,
-        canInviteUsers: canInviteUsers ?? this.canInviteUsers,
-        canPinMessages: canPinMessages ?? this.canPinMessages,
-        canCreateTopics: canCreateTopics ?? this.canCreateTopics,
-      );
+  }) => ChatPermissions(
+    canSendBasicMessages: canSendBasicMessages ?? this.canSendBasicMessages,
+    canSendAudios: canSendAudios ?? this.canSendAudios,
+    canSendDocuments: canSendDocuments ?? this.canSendDocuments,
+    canSendPhotos: canSendPhotos ?? this.canSendPhotos,
+    canSendVideos: canSendVideos ?? this.canSendVideos,
+    canSendVideoNotes: canSendVideoNotes ?? this.canSendVideoNotes,
+    canSendVoiceNotes: canSendVoiceNotes ?? this.canSendVoiceNotes,
+    canSendPolls: canSendPolls ?? this.canSendPolls,
+    canSendOtherMessages: canSendOtherMessages ?? this.canSendOtherMessages,
+    canAddLinkPreviews: canAddLinkPreviews ?? this.canAddLinkPreviews,
+    canChangeInfo: canChangeInfo ?? this.canChangeInfo,
+    canInviteUsers: canInviteUsers ?? this.canInviteUsers,
+    canPinMessages: canPinMessages ?? this.canPinMessages,
+    canCreateTopics: canCreateTopics ?? this.canCreateTopics,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatPermissions';

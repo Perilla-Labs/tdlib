@@ -15,9 +15,7 @@ final class ResendPhoneNumberCode extends TdFunction {
   /// * [reason]: Reason of code resending; pass null if unknown *(optional)*.
   ///
   /// [AuthenticationCodeInfo] is returned on completion.
-  const ResendPhoneNumberCode({
-    this.reason,
-  });
+  const ResendPhoneNumberCode({this.reason});
 
   /// Reason of code resending; pass null if unknown
   final ResendCodeReason? reason;
@@ -36,12 +34,8 @@ final class ResendPhoneNumberCode extends TdFunction {
   ///
   /// Properties:
   /// * [reason]: Reason of code resending; pass null if unknown
-  ResendPhoneNumberCode copyWith({
-    ResendCodeReason? reason,
-  }) =>
-      ResendPhoneNumberCode(
-        reason: reason ?? this.reason,
-      );
+  ResendPhoneNumberCode copyWith({ResendCodeReason? reason}) =>
+      ResendPhoneNumberCode(reason: reason ?? this.reason);
 
   /// TDLib object type
   static const String defaultObjectId = 'resendPhoneNumberCode';

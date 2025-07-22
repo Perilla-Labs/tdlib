@@ -65,13 +65,12 @@ final class GetSavedMessagesTopicHistory extends TdFunction {
     int? fromMessageId,
     int? offset,
     int? limit,
-  }) =>
-      GetSavedMessagesTopicHistory(
-        savedMessagesTopicId: savedMessagesTopicId ?? this.savedMessagesTopicId,
-        fromMessageId: fromMessageId ?? this.fromMessageId,
-        offset: offset ?? this.offset,
-        limit: limit ?? this.limit,
-      );
+  }) => GetSavedMessagesTopicHistory(
+    savedMessagesTopicId: savedMessagesTopicId ?? this.savedMessagesTopicId,
+    fromMessageId: fromMessageId ?? this.fromMessageId,
+    offset: offset ?? this.offset,
+    limit: limit ?? this.limit,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getSavedMessagesTopicHistory';

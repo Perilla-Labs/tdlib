@@ -74,14 +74,13 @@ final class SearchSecretMessages extends TdFunction {
     String? offset,
     int? limit,
     SearchMessagesFilter? filter,
-  }) =>
-      SearchSecretMessages(
-        chatId: chatId ?? this.chatId,
-        query: query ?? this.query,
-        offset: offset ?? this.offset,
-        limit: limit ?? this.limit,
-        filter: filter ?? this.filter,
-      );
+  }) => SearchSecretMessages(
+    chatId: chatId ?? this.chatId,
+    query: query ?? this.query,
+    offset: offset ?? this.offset,
+    limit: limit ?? this.limit,
+    filter: filter ?? this.filter,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'searchSecretMessages';

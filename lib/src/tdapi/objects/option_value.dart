@@ -62,11 +62,7 @@ final class OptionValueBoolean extends OptionValue {
   /// Represents a boolean option.
   ///
   /// * [value]: The value of the option.
-  const OptionValueBoolean({
-    required this.value,
-    this.extra,
-    this.clientId,
-  });
+  const OptionValueBoolean({required this.value, this.extra, this.clientId});
 
   /// The value of the option
   final bool value;
@@ -90,10 +86,7 @@ final class OptionValueBoolean extends OptionValue {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "value": value,
-    };
+    return {"@type": defaultObjectId, "value": value};
   }
 
   /// Copy model with modified properties.
@@ -101,11 +94,7 @@ final class OptionValueBoolean extends OptionValue {
   /// Properties:
   /// * [value]: The value of the option
   @override
-  OptionValueBoolean copyWith({
-    bool? value,
-    dynamic extra,
-    int? clientId,
-  }) =>
+  OptionValueBoolean copyWith({bool? value, dynamic extra, int? clientId}) =>
       OptionValueBoolean(
         value: value ?? this.value,
         extra: extra ?? this.extra,
@@ -131,10 +120,7 @@ final class OptionValueEmpty extends OptionValue {
   /// **OptionValueEmpty** *(optionValueEmpty)* - child of OptionValue
   ///
   /// Represents an unknown option or an option which has a default value.
-  const OptionValueEmpty({
-    this.extra,
-    this.clientId,
-  });
+  const OptionValueEmpty({this.extra, this.clientId});
 
   /// [extra] callback sign
   @override
@@ -146,29 +132,20 @@ final class OptionValueEmpty extends OptionValue {
 
   /// Parse from a json
   factory OptionValueEmpty.fromJson(Map<String, dynamic> json) =>
-      OptionValueEmpty(
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+      OptionValueEmpty(extra: json['@extra'], clientId: json['@client_id']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
   @override
-  OptionValueEmpty copyWith({
-    dynamic extra,
-    int? clientId,
-  }) =>
-      OptionValueEmpty(
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  OptionValueEmpty copyWith({dynamic extra, int? clientId}) => OptionValueEmpty(
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'optionValueEmpty';
@@ -193,11 +170,7 @@ final class OptionValueInteger extends OptionValue {
   /// Represents an integer option.
   ///
   /// * [value]: The value of the option.
-  const OptionValueInteger({
-    required this.value,
-    this.extra,
-    this.clientId,
-  });
+  const OptionValueInteger({required this.value, this.extra, this.clientId});
 
   /// The value of the option
   final int value;
@@ -221,10 +194,7 @@ final class OptionValueInteger extends OptionValue {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "value": value,
-    };
+    return {"@type": defaultObjectId, "value": value};
   }
 
   /// Copy model with modified properties.
@@ -232,11 +202,7 @@ final class OptionValueInteger extends OptionValue {
   /// Properties:
   /// * [value]: The value of the option
   @override
-  OptionValueInteger copyWith({
-    int? value,
-    dynamic extra,
-    int? clientId,
-  }) =>
+  OptionValueInteger copyWith({int? value, dynamic extra, int? clientId}) =>
       OptionValueInteger(
         value: value ?? this.value,
         extra: extra ?? this.extra,
@@ -266,11 +232,7 @@ final class OptionValueString extends OptionValue {
   /// Represents a string option.
   ///
   /// * [value]: The value of the option.
-  const OptionValueString({
-    required this.value,
-    this.extra,
-    this.clientId,
-  });
+  const OptionValueString({required this.value, this.extra, this.clientId});
 
   /// The value of the option
   final String value;
@@ -294,10 +256,7 @@ final class OptionValueString extends OptionValue {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "value": value,
-    };
+    return {"@type": defaultObjectId, "value": value};
   }
 
   /// Copy model with modified properties.
@@ -305,11 +264,7 @@ final class OptionValueString extends OptionValue {
   /// Properties:
   /// * [value]: The value of the option
   @override
-  OptionValueString copyWith({
-    String? value,
-    dynamic extra,
-    int? clientId,
-  }) =>
+  OptionValueString copyWith({String? value, dynamic extra, int? clientId}) =>
       OptionValueString(
         value: value ?? this.value,
         extra: extra ?? this.extra,

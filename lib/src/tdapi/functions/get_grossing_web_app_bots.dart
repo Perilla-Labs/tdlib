@@ -17,10 +17,7 @@ final class GetGrossingWebAppBots extends TdFunction {
   /// * [limit]: The maximum number of bots to be returned; up to 100.
   ///
   /// [FoundUsers] is returned on completion.
-  const GetGrossingWebAppBots({
-    required this.offset,
-    required this.limit,
-  });
+  const GetGrossingWebAppBots({required this.offset, required this.limit});
 
   /// Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results
   final String offset;
@@ -44,10 +41,7 @@ final class GetGrossingWebAppBots extends TdFunction {
   /// Properties:
   /// * [offset]: Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results
   /// * [limit]: The maximum number of bots to be returned; up to 100
-  GetGrossingWebAppBots copyWith({
-    String? offset,
-    int? limit,
-  }) =>
+  GetGrossingWebAppBots copyWith({String? offset, int? limit}) =>
       GetGrossingWebAppBots(
         offset: offset ?? this.offset,
         limit: limit ?? this.limit,

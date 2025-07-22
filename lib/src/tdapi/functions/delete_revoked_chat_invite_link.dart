@@ -44,10 +44,7 @@ final class DeleteRevokedChatInviteLink extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [invite_link]: Invite link to revoke
-  DeleteRevokedChatInviteLink copyWith({
-    int? chatId,
-    String? inviteLink,
-  }) =>
+  DeleteRevokedChatInviteLink copyWith({int? chatId, String? inviteLink}) =>
       DeleteRevokedChatInviteLink(
         chatId: chatId ?? this.chatId,
         inviteLink: inviteLink ?? this.inviteLink,

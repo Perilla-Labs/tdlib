@@ -66,15 +66,13 @@ final class GiveawayParticipantStatusEligible
 
   /// Parse from a json
   factory GiveawayParticipantStatusEligible.fromJson(
-          Map<String, dynamic> json) =>
-      const GiveawayParticipantStatusEligible();
+    Map<String, dynamic> json,
+  ) => const GiveawayParticipantStatusEligible();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -106,15 +104,13 @@ final class GiveawayParticipantStatusParticipating
 
   /// Parse from a json
   factory GiveawayParticipantStatusParticipating.fromJson(
-          Map<String, dynamic> json) =>
-      const GiveawayParticipantStatusParticipating();
+    Map<String, dynamic> json,
+  ) => const GiveawayParticipantStatusParticipating();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -156,18 +152,15 @@ final class GiveawayParticipantStatusAlreadyWasMember
 
   /// Parse from a json
   factory GiveawayParticipantStatusAlreadyWasMember.fromJson(
-          Map<String, dynamic> json) =>
-      GiveawayParticipantStatusAlreadyWasMember(
-        joinedChatDate: json['joined_chat_date'],
-      );
+    Map<String, dynamic> json,
+  ) => GiveawayParticipantStatusAlreadyWasMember(
+    joinedChatDate: json['joined_chat_date'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "joined_chat_date": joinedChatDate,
-    };
+    return {"@type": defaultObjectId, "joined_chat_date": joinedChatDate};
   }
 
   /// Copy model with modified properties.
@@ -175,9 +168,7 @@ final class GiveawayParticipantStatusAlreadyWasMember
   /// Properties:
   /// * [joined_chat_date]: Point in time (Unix timestamp) when the user joined the chat
   @override
-  GiveawayParticipantStatusAlreadyWasMember copyWith({
-    int? joinedChatDate,
-  }) =>
+  GiveawayParticipantStatusAlreadyWasMember copyWith({int? joinedChatDate}) =>
       GiveawayParticipantStatusAlreadyWasMember(
         joinedChatDate: joinedChatDate ?? this.joinedChatDate,
       );
@@ -207,27 +198,20 @@ final class GiveawayParticipantStatusAdministrator
   /// The user can't participate in the giveaway, because they are an administrator in one of the chats that created the giveaway.
   ///
   /// * [chatId]: Identifier of the chat administered by the user.
-  const GiveawayParticipantStatusAdministrator({
-    required this.chatId,
-  });
+  const GiveawayParticipantStatusAdministrator({required this.chatId});
 
   /// Identifier of the chat administered by the user
   final int chatId;
 
   /// Parse from a json
   factory GiveawayParticipantStatusAdministrator.fromJson(
-          Map<String, dynamic> json) =>
-      GiveawayParticipantStatusAdministrator(
-        chatId: json['chat_id'],
-      );
+    Map<String, dynamic> json,
+  ) => GiveawayParticipantStatusAdministrator(chatId: json['chat_id']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "chat_id": chatId,
-    };
+    return {"@type": defaultObjectId, "chat_id": chatId};
   }
 
   /// Copy model with modified properties.
@@ -235,12 +219,8 @@ final class GiveawayParticipantStatusAdministrator
   /// Properties:
   /// * [chat_id]: Identifier of the chat administered by the user
   @override
-  GiveawayParticipantStatusAdministrator copyWith({
-    int? chatId,
-  }) =>
-      GiveawayParticipantStatusAdministrator(
-        chatId: chatId ?? this.chatId,
-      );
+  GiveawayParticipantStatusAdministrator copyWith({int? chatId}) =>
+      GiveawayParticipantStatusAdministrator(chatId: chatId ?? this.chatId);
 
   /// TDLib object type
   static const String defaultObjectId =
@@ -276,18 +256,15 @@ final class GiveawayParticipantStatusDisallowedCountry
 
   /// Parse from a json
   factory GiveawayParticipantStatusDisallowedCountry.fromJson(
-          Map<String, dynamic> json) =>
-      GiveawayParticipantStatusDisallowedCountry(
-        userCountryCode: json['user_country_code'],
-      );
+    Map<String, dynamic> json,
+  ) => GiveawayParticipantStatusDisallowedCountry(
+    userCountryCode: json['user_country_code'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "user_country_code": userCountryCode,
-    };
+    return {"@type": defaultObjectId, "user_country_code": userCountryCode};
   }
 
   /// Copy model with modified properties.
@@ -297,10 +274,9 @@ final class GiveawayParticipantStatusDisallowedCountry
   @override
   GiveawayParticipantStatusDisallowedCountry copyWith({
     String? userCountryCode,
-  }) =>
-      GiveawayParticipantStatusDisallowedCountry(
-        userCountryCode: userCountryCode ?? this.userCountryCode,
-      );
+  }) => GiveawayParticipantStatusDisallowedCountry(
+    userCountryCode: userCountryCode ?? this.userCountryCode,
+  );
 
   /// TDLib object type
   static const String defaultObjectId =

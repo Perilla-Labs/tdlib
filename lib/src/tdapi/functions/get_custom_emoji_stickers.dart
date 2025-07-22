@@ -15,9 +15,7 @@ final class GetCustomEmojiStickers extends TdFunction {
   /// * [customEmojiIds]: Identifiers of custom emoji stickers. At most 200 custom emoji stickers can be received simultaneously.
   ///
   /// [Stickers] is returned on completion.
-  const GetCustomEmojiStickers({
-    required this.customEmojiIds,
-  });
+  const GetCustomEmojiStickers({required this.customEmojiIds});
 
   /// Identifiers of custom emoji stickers. At most 200 custom emoji stickers can be received simultaneously
   final List<int> customEmojiIds;
@@ -36,9 +34,7 @@ final class GetCustomEmojiStickers extends TdFunction {
   ///
   /// Properties:
   /// * [custom_emoji_ids]: Identifiers of custom emoji stickers. At most 200 custom emoji stickers can be received simultaneously
-  GetCustomEmojiStickers copyWith({
-    List<int>? customEmojiIds,
-  }) =>
+  GetCustomEmojiStickers copyWith({List<int>? customEmojiIds}) =>
       GetCustomEmojiStickers(
         customEmojiIds: customEmojiIds ?? this.customEmojiIds,
       );

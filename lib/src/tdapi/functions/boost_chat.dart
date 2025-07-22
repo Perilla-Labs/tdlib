@@ -17,10 +17,7 @@ final class BoostChat extends TdFunction {
   /// * [slotIds]: Identifiers of boost slots of the current user from which to apply boosts to the chat.
   ///
   /// [ChatBoostSlots] is returned on completion.
-  const BoostChat({
-    required this.chatId,
-    required this.slotIds,
-  });
+  const BoostChat({required this.chatId, required this.slotIds});
 
   /// Identifier of the chat
   final int chatId;
@@ -44,14 +41,10 @@ final class BoostChat extends TdFunction {
   /// Properties:
   /// * [chat_id]: Identifier of the chat
   /// * [slot_ids]: Identifiers of boost slots of the current user from which to apply boosts to the chat
-  BoostChat copyWith({
-    int? chatId,
-    List<int>? slotIds,
-  }) =>
-      BoostChat(
-        chatId: chatId ?? this.chatId,
-        slotIds: slotIds ?? this.slotIds,
-      );
+  BoostChat copyWith({int? chatId, List<int>? slotIds}) => BoostChat(
+    chatId: chatId ?? this.chatId,
+    slotIds: slotIds ?? this.slotIds,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'boostChat';

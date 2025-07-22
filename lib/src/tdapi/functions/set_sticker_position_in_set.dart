@@ -44,10 +44,7 @@ final class SetStickerPositionInSet extends TdFunction {
   /// Properties:
   /// * [sticker]: Sticker
   /// * [position]: New position of the sticker in the set, 0-based
-  SetStickerPositionInSet copyWith({
-    InputFile? sticker,
-    int? position,
-  }) =>
+  SetStickerPositionInSet copyWith({InputFile? sticker, int? position}) =>
       SetStickerPositionInSet(
         sticker: sticker ?? this.sticker,
         position: position ?? this.position,

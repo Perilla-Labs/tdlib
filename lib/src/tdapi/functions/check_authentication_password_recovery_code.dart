@@ -15,9 +15,7 @@ final class CheckAuthenticationPasswordRecoveryCode extends TdFunction {
   /// * [recoveryCode]: Recovery code to check.
   ///
   /// [Ok] is returned on completion.
-  const CheckAuthenticationPasswordRecoveryCode({
-    required this.recoveryCode,
-  });
+  const CheckAuthenticationPasswordRecoveryCode({required this.recoveryCode});
 
   /// Recovery code to check
   final String recoveryCode;
@@ -36,9 +34,7 @@ final class CheckAuthenticationPasswordRecoveryCode extends TdFunction {
   ///
   /// Properties:
   /// * [recovery_code]: Recovery code to check
-  CheckAuthenticationPasswordRecoveryCode copyWith({
-    String? recoveryCode,
-  }) =>
+  CheckAuthenticationPasswordRecoveryCode copyWith({String? recoveryCode}) =>
       CheckAuthenticationPasswordRecoveryCode(
         recoveryCode: recoveryCode ?? this.recoveryCode,
       );

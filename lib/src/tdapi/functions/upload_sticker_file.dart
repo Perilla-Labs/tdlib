@@ -56,12 +56,11 @@ final class UploadStickerFile extends TdFunction {
     int? userId,
     StickerFormat? stickerFormat,
     InputFile? sticker,
-  }) =>
-      UploadStickerFile(
-        userId: userId ?? this.userId,
-        stickerFormat: stickerFormat ?? this.stickerFormat,
-        sticker: sticker ?? this.sticker,
-      );
+  }) => UploadStickerFile(
+    userId: userId ?? this.userId,
+    stickerFormat: stickerFormat ?? this.stickerFormat,
+    sticker: sticker ?? this.sticker,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'uploadStickerFile';

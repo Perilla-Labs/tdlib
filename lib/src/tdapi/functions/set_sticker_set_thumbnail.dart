@@ -65,13 +65,12 @@ final class SetStickerSetThumbnail extends TdFunction {
     String? name,
     InputFile? thumbnail,
     StickerFormat? format,
-  }) =>
-      SetStickerSetThumbnail(
-        userId: userId ?? this.userId,
-        name: name ?? this.name,
-        thumbnail: thumbnail ?? this.thumbnail,
-        format: format ?? this.format,
-      );
+  }) => SetStickerSetThumbnail(
+    userId: userId ?? this.userId,
+    name: name ?? this.name,
+    thumbnail: thumbnail ?? this.thumbnail,
+    format: format ?? this.format,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setStickerSetThumbnail';

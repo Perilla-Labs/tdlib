@@ -17,10 +17,7 @@ final class SetPassportElement extends TdFunction {
   /// * [password]: The 2-step verification password of the current user.
   ///
   /// [PassportElement] is returned on completion.
-  const SetPassportElement({
-    required this.element,
-    required this.password,
-  });
+  const SetPassportElement({required this.element, required this.password});
 
   /// Input Telegram Passport element
   final InputPassportElement element;
@@ -47,11 +44,10 @@ final class SetPassportElement extends TdFunction {
   SetPassportElement copyWith({
     InputPassportElement? element,
     String? password,
-  }) =>
-      SetPassportElement(
-        element: element ?? this.element,
-        password: password ?? this.password,
-      );
+  }) => SetPassportElement(
+    element: element ?? this.element,
+    password: password ?? this.password,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setPassportElement';

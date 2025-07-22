@@ -74,14 +74,13 @@ final class EditForumTopic extends TdFunction {
     String? name,
     bool? editIconCustomEmoji,
     int? iconCustomEmojiId,
-  }) =>
-      EditForumTopic(
-        chatId: chatId ?? this.chatId,
-        messageThreadId: messageThreadId ?? this.messageThreadId,
-        name: name ?? this.name,
-        editIconCustomEmoji: editIconCustomEmoji ?? this.editIconCustomEmoji,
-        iconCustomEmojiId: iconCustomEmojiId ?? this.iconCustomEmojiId,
-      );
+  }) => EditForumTopic(
+    chatId: chatId ?? this.chatId,
+    messageThreadId: messageThreadId ?? this.messageThreadId,
+    name: name ?? this.name,
+    editIconCustomEmoji: editIconCustomEmoji ?? this.editIconCustomEmoji,
+    iconCustomEmojiId: iconCustomEmojiId ?? this.iconCustomEmojiId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'editForumTopic';

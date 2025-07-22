@@ -15,9 +15,7 @@ final class DeleteProfilePhoto extends TdFunction {
   /// * [profilePhotoId]: Identifier of the profile photo to delete.
   ///
   /// [Ok] is returned on completion.
-  const DeleteProfilePhoto({
-    required this.profilePhotoId,
-  });
+  const DeleteProfilePhoto({required this.profilePhotoId});
 
   /// Identifier of the profile photo to delete
   final int profilePhotoId;
@@ -36,12 +34,8 @@ final class DeleteProfilePhoto extends TdFunction {
   ///
   /// Properties:
   /// * [profile_photo_id]: Identifier of the profile photo to delete
-  DeleteProfilePhoto copyWith({
-    int? profilePhotoId,
-  }) =>
-      DeleteProfilePhoto(
-        profilePhotoId: profilePhotoId ?? this.profilePhotoId,
-      );
+  DeleteProfilePhoto copyWith({int? profilePhotoId}) =>
+      DeleteProfilePhoto(profilePhotoId: profilePhotoId ?? this.profilePhotoId);
 
   /// TDLib object type
   static const String defaultObjectId = 'deleteProfilePhoto';

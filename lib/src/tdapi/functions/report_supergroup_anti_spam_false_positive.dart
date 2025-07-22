@@ -47,11 +47,10 @@ final class ReportSupergroupAntiSpamFalsePositive extends TdFunction {
   ReportSupergroupAntiSpamFalsePositive copyWith({
     int? supergroupId,
     int? messageId,
-  }) =>
-      ReportSupergroupAntiSpamFalsePositive(
-        supergroupId: supergroupId ?? this.supergroupId,
-        messageId: messageId ?? this.messageId,
-      );
+  }) => ReportSupergroupAntiSpamFalsePositive(
+    supergroupId: supergroupId ?? this.supergroupId,
+    messageId: messageId ?? this.messageId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'reportSupergroupAntiSpamFalsePositive';

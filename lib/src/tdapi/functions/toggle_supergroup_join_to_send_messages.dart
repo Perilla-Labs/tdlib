@@ -47,11 +47,10 @@ final class ToggleSupergroupJoinToSendMessages extends TdFunction {
   ToggleSupergroupJoinToSendMessages copyWith({
     int? supergroupId,
     bool? joinToSendMessages,
-  }) =>
-      ToggleSupergroupJoinToSendMessages(
-        supergroupId: supergroupId ?? this.supergroupId,
-        joinToSendMessages: joinToSendMessages ?? this.joinToSendMessages,
-      );
+  }) => ToggleSupergroupJoinToSendMessages(
+    supergroupId: supergroupId ?? this.supergroupId,
+    joinToSendMessages: joinToSendMessages ?? this.joinToSendMessages,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'toggleSupergroupJoinToSendMessages';

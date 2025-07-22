@@ -15,9 +15,7 @@ final class GetLogTagVerbosityLevel extends TdFunction {
   /// * [tag]: Logging tag to change verbosity level.
   ///
   /// [LogVerbosityLevel] is returned on completion.
-  const GetLogTagVerbosityLevel({
-    required this.tag,
-  });
+  const GetLogTagVerbosityLevel({required this.tag});
 
   /// Logging tag to change verbosity level
   final String tag;
@@ -25,23 +23,15 @@ final class GetLogTagVerbosityLevel extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "tag": tag,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "tag": tag, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [tag]: Logging tag to change verbosity level
-  GetLogTagVerbosityLevel copyWith({
-    String? tag,
-  }) =>
-      GetLogTagVerbosityLevel(
-        tag: tag ?? this.tag,
-      );
+  GetLogTagVerbosityLevel copyWith({String? tag}) =>
+      GetLogTagVerbosityLevel(tag: tag ?? this.tag);
 
   /// TDLib object type
   static const String defaultObjectId = 'getLogTagVerbosityLevel';

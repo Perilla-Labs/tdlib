@@ -63,27 +63,22 @@ final class BotWriteAccessAllowReasonConnectedWebsite
   /// The user connected a website by logging in using Telegram Login Widget on it.
   ///
   /// * [domainName]: Domain name of the connected website.
-  const BotWriteAccessAllowReasonConnectedWebsite({
-    required this.domainName,
-  });
+  const BotWriteAccessAllowReasonConnectedWebsite({required this.domainName});
 
   /// Domain name of the connected website
   final String domainName;
 
   /// Parse from a json
   factory BotWriteAccessAllowReasonConnectedWebsite.fromJson(
-          Map<String, dynamic> json) =>
-      BotWriteAccessAllowReasonConnectedWebsite(
-        domainName: json['domain_name'],
-      );
+    Map<String, dynamic> json,
+  ) => BotWriteAccessAllowReasonConnectedWebsite(
+    domainName: json['domain_name'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "domain_name": domainName,
-    };
+    return {"@type": defaultObjectId, "domain_name": domainName};
   }
 
   /// Copy model with modified properties.
@@ -91,9 +86,7 @@ final class BotWriteAccessAllowReasonConnectedWebsite
   /// Properties:
   /// * [domain_name]: Domain name of the connected website
   @override
-  BotWriteAccessAllowReasonConnectedWebsite copyWith({
-    String? domainName,
-  }) =>
+  BotWriteAccessAllowReasonConnectedWebsite copyWith({String? domainName}) =>
       BotWriteAccessAllowReasonConnectedWebsite(
         domainName: domainName ?? this.domainName,
       );
@@ -123,15 +116,13 @@ final class BotWriteAccessAllowReasonAddedToAttachmentMenu
 
   /// Parse from a json
   factory BotWriteAccessAllowReasonAddedToAttachmentMenu.fromJson(
-          Map<String, dynamic> json) =>
-      const BotWriteAccessAllowReasonAddedToAttachmentMenu();
+    Map<String, dynamic> json,
+  ) => const BotWriteAccessAllowReasonAddedToAttachmentMenu();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -164,27 +155,22 @@ final class BotWriteAccessAllowReasonLaunchedWebApp
   /// The user launched a Web App using getWebAppLinkUrl.
   ///
   /// * [webApp]: Information about the Web App.
-  const BotWriteAccessAllowReasonLaunchedWebApp({
-    required this.webApp,
-  });
+  const BotWriteAccessAllowReasonLaunchedWebApp({required this.webApp});
 
   /// Information about the Web App
   final WebApp webApp;
 
   /// Parse from a json
   factory BotWriteAccessAllowReasonLaunchedWebApp.fromJson(
-          Map<String, dynamic> json) =>
-      BotWriteAccessAllowReasonLaunchedWebApp(
-        webApp: WebApp.fromJson(json['web_app']),
-      );
+    Map<String, dynamic> json,
+  ) => BotWriteAccessAllowReasonLaunchedWebApp(
+    webApp: WebApp.fromJson(json['web_app']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "web_app": webApp.toJson(),
-    };
+    return {"@type": defaultObjectId, "web_app": webApp.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -192,12 +178,8 @@ final class BotWriteAccessAllowReasonLaunchedWebApp
   /// Properties:
   /// * [web_app]: Information about the Web App
   @override
-  BotWriteAccessAllowReasonLaunchedWebApp copyWith({
-    WebApp? webApp,
-  }) =>
-      BotWriteAccessAllowReasonLaunchedWebApp(
-        webApp: webApp ?? this.webApp,
-      );
+  BotWriteAccessAllowReasonLaunchedWebApp copyWith({WebApp? webApp}) =>
+      BotWriteAccessAllowReasonLaunchedWebApp(webApp: webApp ?? this.webApp);
 
   /// TDLib object type
   static const String defaultObjectId =
@@ -224,15 +206,13 @@ final class BotWriteAccessAllowReasonAcceptedRequest
 
   /// Parse from a json
   factory BotWriteAccessAllowReasonAcceptedRequest.fromJson(
-          Map<String, dynamic> json) =>
-      const BotWriteAccessAllowReasonAcceptedRequest();
+    Map<String, dynamic> json,
+  ) => const BotWriteAccessAllowReasonAcceptedRequest();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.

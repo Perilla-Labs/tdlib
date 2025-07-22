@@ -62,18 +62,14 @@ final class InputCredentialsSaved extends InputCredentials {
   /// Applies if a user chooses some previously saved payment credentials. To use their previously saved credentials, the user must have a valid temporary password.
   ///
   /// * [savedCredentialsId]: Identifier of the saved credentials.
-  const InputCredentialsSaved({
-    required this.savedCredentialsId,
-  });
+  const InputCredentialsSaved({required this.savedCredentialsId});
 
   /// Identifier of the saved credentials
   final String savedCredentialsId;
 
   /// Parse from a json
   factory InputCredentialsSaved.fromJson(Map<String, dynamic> json) =>
-      InputCredentialsSaved(
-        savedCredentialsId: json['saved_credentials_id'],
-      );
+      InputCredentialsSaved(savedCredentialsId: json['saved_credentials_id']);
 
   /// Convert model to TDLib JSON format
   @override
@@ -89,9 +85,7 @@ final class InputCredentialsSaved extends InputCredentials {
   /// Properties:
   /// * [saved_credentials_id]: Identifier of the saved credentials
   @override
-  InputCredentialsSaved copyWith({
-    String? savedCredentialsId,
-  }) =>
+  InputCredentialsSaved copyWith({String? savedCredentialsId}) =>
       InputCredentialsSaved(
         savedCredentialsId: savedCredentialsId ?? this.savedCredentialsId,
       );
@@ -121,10 +115,7 @@ final class InputCredentialsNew extends InputCredentials {
   ///
   /// * [data]: JSON-encoded data with the credential identifier from the payment provider.
   /// * [allowSave]: True, if the credential identifier can be saved on the server side.
-  const InputCredentialsNew({
-    required this.data,
-    required this.allowSave,
-  });
+  const InputCredentialsNew({required this.data, required this.allowSave});
 
   /// JSON-encoded data with the credential identifier from the payment provider
   final String data;
@@ -134,19 +125,12 @@ final class InputCredentialsNew extends InputCredentials {
 
   /// Parse from a json
   factory InputCredentialsNew.fromJson(Map<String, dynamic> json) =>
-      InputCredentialsNew(
-        data: json['data'],
-        allowSave: json['allow_save'],
-      );
+      InputCredentialsNew(data: json['data'], allowSave: json['allow_save']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "data": data,
-      "allow_save": allowSave,
-    };
+    return {"@type": defaultObjectId, "data": data, "allow_save": allowSave};
   }
 
   /// Copy model with modified properties.
@@ -155,10 +139,7 @@ final class InputCredentialsNew extends InputCredentials {
   /// * [data]: JSON-encoded data with the credential identifier from the payment provider
   /// * [allow_save]: True, if the credential identifier can be saved on the server side
   @override
-  InputCredentialsNew copyWith({
-    String? data,
-    bool? allowSave,
-  }) =>
+  InputCredentialsNew copyWith({String? data, bool? allowSave}) =>
       InputCredentialsNew(
         data: data ?? this.data,
         allowSave: allowSave ?? this.allowSave,
@@ -187,26 +168,19 @@ final class InputCredentialsApplePay extends InputCredentials {
   /// Applies if a user enters new credentials using Apple Pay.
   ///
   /// * [data]: JSON-encoded data with the credential identifier.
-  const InputCredentialsApplePay({
-    required this.data,
-  });
+  const InputCredentialsApplePay({required this.data});
 
   /// JSON-encoded data with the credential identifier
   final String data;
 
   /// Parse from a json
   factory InputCredentialsApplePay.fromJson(Map<String, dynamic> json) =>
-      InputCredentialsApplePay(
-        data: json['data'],
-      );
+      InputCredentialsApplePay(data: json['data']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "data": data,
-    };
+    return {"@type": defaultObjectId, "data": data};
   }
 
   /// Copy model with modified properties.
@@ -214,12 +188,8 @@ final class InputCredentialsApplePay extends InputCredentials {
   /// Properties:
   /// * [data]: JSON-encoded data with the credential identifier
   @override
-  InputCredentialsApplePay copyWith({
-    String? data,
-  }) =>
-      InputCredentialsApplePay(
-        data: data ?? this.data,
-      );
+  InputCredentialsApplePay copyWith({String? data}) =>
+      InputCredentialsApplePay(data: data ?? this.data);
 
   /// TDLib object type
   static const String defaultObjectId = 'inputCredentialsApplePay';
@@ -244,26 +214,19 @@ final class InputCredentialsGooglePay extends InputCredentials {
   /// Applies if a user enters new credentials using Google Pay.
   ///
   /// * [data]: JSON-encoded data with the credential identifier.
-  const InputCredentialsGooglePay({
-    required this.data,
-  });
+  const InputCredentialsGooglePay({required this.data});
 
   /// JSON-encoded data with the credential identifier
   final String data;
 
   /// Parse from a json
   factory InputCredentialsGooglePay.fromJson(Map<String, dynamic> json) =>
-      InputCredentialsGooglePay(
-        data: json['data'],
-      );
+      InputCredentialsGooglePay(data: json['data']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "data": data,
-    };
+    return {"@type": defaultObjectId, "data": data};
   }
 
   /// Copy model with modified properties.
@@ -271,12 +234,8 @@ final class InputCredentialsGooglePay extends InputCredentials {
   /// Properties:
   /// * [data]: JSON-encoded data with the credential identifier
   @override
-  InputCredentialsGooglePay copyWith({
-    String? data,
-  }) =>
-      InputCredentialsGooglePay(
-        data: data ?? this.data,
-      );
+  InputCredentialsGooglePay copyWith({String? data}) =>
+      InputCredentialsGooglePay(data: data ?? this.data);
 
   /// TDLib object type
   static const String defaultObjectId = 'inputCredentialsGooglePay';

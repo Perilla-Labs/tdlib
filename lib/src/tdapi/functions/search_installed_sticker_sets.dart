@@ -56,12 +56,11 @@ final class SearchInstalledStickerSets extends TdFunction {
     StickerType? stickerType,
     String? query,
     int? limit,
-  }) =>
-      SearchInstalledStickerSets(
-        stickerType: stickerType ?? this.stickerType,
-        query: query ?? this.query,
-        limit: limit ?? this.limit,
-      );
+  }) => SearchInstalledStickerSets(
+    stickerType: stickerType ?? this.stickerType,
+    query: query ?? this.query,
+    limit: limit ?? this.limit,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'searchInstalledStickerSets';

@@ -58,9 +58,11 @@ final class StoryInteractions extends TdObject {
         totalCount: json['total_count'],
         totalForwardCount: json['total_forward_count'],
         totalReactionCount: json['total_reaction_count'],
-        interactions: List<StoryInteraction>.from((json['interactions'] ?? [])
-            .map((item) => StoryInteraction.fromJson(item))
-            .toList()),
+        interactions: List<StoryInteraction>.from(
+          (json['interactions'] ?? [])
+              .map((item) => StoryInteraction.fromJson(item))
+              .toList(),
+        ),
         nextOffset: json['next_offset'],
         extra: json['@extra'],
         clientId: json['@client_id'],
@@ -95,16 +97,15 @@ final class StoryInteractions extends TdObject {
     String? nextOffset,
     dynamic extra,
     int? clientId,
-  }) =>
-      StoryInteractions(
-        totalCount: totalCount ?? this.totalCount,
-        totalForwardCount: totalForwardCount ?? this.totalForwardCount,
-        totalReactionCount: totalReactionCount ?? this.totalReactionCount,
-        interactions: interactions ?? this.interactions,
-        nextOffset: nextOffset ?? this.nextOffset,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => StoryInteractions(
+    totalCount: totalCount ?? this.totalCount,
+    totalForwardCount: totalForwardCount ?? this.totalForwardCount,
+    totalReactionCount: totalReactionCount ?? this.totalReactionCount,
+    interactions: interactions ?? this.interactions,
+    nextOffset: nextOffset ?? this.nextOffset,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'storyInteractions';

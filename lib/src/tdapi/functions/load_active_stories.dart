@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **LoadActiveStories** *(loadActiveStories)* - TDLib function
 ///
-/// Loads more active stories from a story list. The loaded stories will be sent through updates. Active stories are sorted by. the pair (active_stories.order, active_stories.story_sender_chat_id) in descending order. Returns a 404 error if all active stories have been loaded.
+/// Loads more active stories from a story list. The loaded stories will be sent through updates. Active stories are sorted by. the pair (active_stories.order, active_stories.story_poster_chat_id) in descending order. Returns a 404 error if all active stories have been loaded.
 ///
 /// * [storyList]: The story list in which to load active stories.
 ///
@@ -10,14 +10,12 @@ part of '../tdapi.dart';
 final class LoadActiveStories extends TdFunction {
   /// **LoadActiveStories** *(loadActiveStories)* - TDLib function
   ///
-  /// Loads more active stories from a story list. The loaded stories will be sent through updates. Active stories are sorted by. the pair (active_stories.order, active_stories.story_sender_chat_id) in descending order. Returns a 404 error if all active stories have been loaded.
+  /// Loads more active stories from a story list. The loaded stories will be sent through updates. Active stories are sorted by. the pair (active_stories.order, active_stories.story_poster_chat_id) in descending order. Returns a 404 error if all active stories have been loaded.
   ///
   /// * [storyList]: The story list in which to load active stories.
   ///
   /// [Ok] is returned on completion.
-  const LoadActiveStories({
-    required this.storyList,
-  });
+  const LoadActiveStories({required this.storyList});
 
   /// The story list in which to load active stories
   final StoryList storyList;
@@ -36,12 +34,8 @@ final class LoadActiveStories extends TdFunction {
   ///
   /// Properties:
   /// * [story_list]: The story list in which to load active stories
-  LoadActiveStories copyWith({
-    StoryList? storyList,
-  }) =>
-      LoadActiveStories(
-        storyList: storyList ?? this.storyList,
-      );
+  LoadActiveStories copyWith({StoryList? storyList}) =>
+      LoadActiveStories(storyList: storyList ?? this.storyList);
 
   /// TDLib object type
   static const String defaultObjectId = 'loadActiveStories';

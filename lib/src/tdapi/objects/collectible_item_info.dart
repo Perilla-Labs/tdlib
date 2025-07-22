@@ -105,17 +105,16 @@ final class CollectibleItemInfo extends TdObject {
     String? url,
     dynamic extra,
     int? clientId,
-  }) =>
-      CollectibleItemInfo(
-        purchaseDate: purchaseDate ?? this.purchaseDate,
-        currency: currency ?? this.currency,
-        amount: amount ?? this.amount,
-        cryptocurrency: cryptocurrency ?? this.cryptocurrency,
-        cryptocurrencyAmount: cryptocurrencyAmount ?? this.cryptocurrencyAmount,
-        url: url ?? this.url,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => CollectibleItemInfo(
+    purchaseDate: purchaseDate ?? this.purchaseDate,
+    currency: currency ?? this.currency,
+    amount: amount ?? this.amount,
+    cryptocurrency: cryptocurrency ?? this.cryptocurrency,
+    cryptocurrencyAmount: cryptocurrencyAmount ?? this.cryptocurrencyAmount,
+    url: url ?? this.url,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'collectibleItemInfo';

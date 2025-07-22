@@ -74,14 +74,13 @@ final class AnswerCallbackQuery extends TdFunction {
     bool? showAlert,
     String? url,
     int? cacheTime,
-  }) =>
-      AnswerCallbackQuery(
-        callbackQueryId: callbackQueryId ?? this.callbackQueryId,
-        text: text ?? this.text,
-        showAlert: showAlert ?? this.showAlert,
-        url: url ?? this.url,
-        cacheTime: cacheTime ?? this.cacheTime,
-      );
+  }) => AnswerCallbackQuery(
+    callbackQueryId: callbackQueryId ?? this.callbackQueryId,
+    text: text ?? this.text,
+    showAlert: showAlert ?? this.showAlert,
+    url: url ?? this.url,
+    cacheTime: cacheTime ?? this.cacheTime,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'answerCallbackQuery';

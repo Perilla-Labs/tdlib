@@ -15,9 +15,7 @@ final class GetLanguagePackInfo extends TdFunction {
   /// * [languagePackId]: Language pack identifier.
   ///
   /// [LanguagePackInfo] is returned on completion.
-  const GetLanguagePackInfo({
-    required this.languagePackId,
-  });
+  const GetLanguagePackInfo({required this.languagePackId});
 
   /// Language pack identifier
   final String languagePackId;
@@ -36,12 +34,9 @@ final class GetLanguagePackInfo extends TdFunction {
   ///
   /// Properties:
   /// * [language_pack_id]: Language pack identifier
-  GetLanguagePackInfo copyWith({
-    String? languagePackId,
-  }) =>
-      GetLanguagePackInfo(
-        languagePackId: languagePackId ?? this.languagePackId,
-      );
+  GetLanguagePackInfo copyWith({String? languagePackId}) => GetLanguagePackInfo(
+    languagePackId: languagePackId ?? this.languagePackId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getLanguagePackInfo';

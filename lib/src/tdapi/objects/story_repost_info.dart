@@ -46,10 +46,7 @@ final class StoryRepostInfo extends TdObject {
   /// Properties:
   /// * [origin]: Origin of the story that was reposted
   /// * [is_content_modified]: True, if story content was modified during reposting; otherwise, story wasn't modified
-  StoryRepostInfo copyWith({
-    StoryOrigin? origin,
-    bool? isContentModified,
-  }) =>
+  StoryRepostInfo copyWith({StoryOrigin? origin, bool? isContentModified}) =>
       StoryRepostInfo(
         origin: origin ?? this.origin,
         isContentModified: isContentModified ?? this.isContentModified,

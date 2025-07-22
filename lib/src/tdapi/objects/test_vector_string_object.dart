@@ -31,9 +31,11 @@ final class TestVectorStringObject extends TdObject {
   /// Parse from a json
   factory TestVectorStringObject.fromJson(Map<String, dynamic> json) =>
       TestVectorStringObject(
-        value: List<TestString>.from((json['value'] ?? [])
-            .map((item) => TestString.fromJson(item))
-            .toList()),
+        value: List<TestString>.from(
+          (json['value'] ?? [])
+              .map((item) => TestString.fromJson(item))
+              .toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -55,12 +57,11 @@ final class TestVectorStringObject extends TdObject {
     List<TestString>? value,
     dynamic extra,
     int? clientId,
-  }) =>
-      TestVectorStringObject(
-        value: value ?? this.value,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => TestVectorStringObject(
+    value: value ?? this.value,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'testVectorStringObject';

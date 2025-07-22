@@ -56,12 +56,11 @@ final class SetCommands extends TdFunction {
     BotCommandScope? scope,
     String? languageCode,
     List<BotCommand>? commands,
-  }) =>
-      SetCommands(
-        scope: scope ?? this.scope,
-        languageCode: languageCode ?? this.languageCode,
-        commands: commands ?? this.commands,
-      );
+  }) => SetCommands(
+    scope: scope ?? this.scope,
+    languageCode: languageCode ?? this.languageCode,
+    commands: commands ?? this.commands,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setCommands';

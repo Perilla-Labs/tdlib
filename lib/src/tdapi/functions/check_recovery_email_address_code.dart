@@ -15,9 +15,7 @@ final class CheckRecoveryEmailAddressCode extends TdFunction {
   /// * [code]: Verification code to check.
   ///
   /// [PasswordState] is returned on completion.
-  const CheckRecoveryEmailAddressCode({
-    required this.code,
-  });
+  const CheckRecoveryEmailAddressCode({required this.code});
 
   /// Verification code to check
   final String code;
@@ -25,23 +23,15 @@ final class CheckRecoveryEmailAddressCode extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "code": code,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "code": code, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [code]: Verification code to check
-  CheckRecoveryEmailAddressCode copyWith({
-    String? code,
-  }) =>
-      CheckRecoveryEmailAddressCode(
-        code: code ?? this.code,
-      );
+  CheckRecoveryEmailAddressCode copyWith({String? code}) =>
+      CheckRecoveryEmailAddressCode(code: code ?? this.code);
 
   /// TDLib object type
   static const String defaultObjectId = 'checkRecoveryEmailAddressCode';

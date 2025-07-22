@@ -69,14 +69,13 @@ final class ChatInviteLinkMember extends TdObject {
     int? joinedChatDate,
     bool? viaChatFolderInviteLink,
     int? approverUserId,
-  }) =>
-      ChatInviteLinkMember(
-        userId: userId ?? this.userId,
-        joinedChatDate: joinedChatDate ?? this.joinedChatDate,
-        viaChatFolderInviteLink:
-            viaChatFolderInviteLink ?? this.viaChatFolderInviteLink,
-        approverUserId: approverUserId ?? this.approverUserId,
-      );
+  }) => ChatInviteLinkMember(
+    userId: userId ?? this.userId,
+    joinedChatDate: joinedChatDate ?? this.joinedChatDate,
+    viaChatFolderInviteLink:
+        viaChatFolderInviteLink ?? this.viaChatFolderInviteLink,
+    approverUserId: approverUserId ?? this.approverUserId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatInviteLinkMember';

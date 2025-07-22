@@ -10,6 +10,7 @@ sealed class TelegramPaymentPurpose extends TdObject {
   const TelegramPaymentPurpose();
 
   /// a TelegramPaymentPurpose return type can be :
+  /// * [TelegramPaymentPurposePremiumGift]
   /// * [TelegramPaymentPurposePremiumGiftCodes]
   /// * [TelegramPaymentPurposePremiumGiveaway]
   /// * [TelegramPaymentPurposeStars]
@@ -18,6 +19,8 @@ sealed class TelegramPaymentPurpose extends TdObject {
   /// * [TelegramPaymentPurposeJoinChat]
   factory TelegramPaymentPurpose.fromJson(Map<String, dynamic> json) {
     switch (json["@type"]) {
+      case TelegramPaymentPurposePremiumGift.defaultObjectId:
+        return TelegramPaymentPurposePremiumGift.fromJson(json);
       case TelegramPaymentPurposePremiumGiftCodes.defaultObjectId:
         return TelegramPaymentPurposePremiumGiftCodes.fromJson(json);
       case TelegramPaymentPurposePremiumGiveaway.defaultObjectId:
@@ -57,35 +60,139 @@ sealed class TelegramPaymentPurpose extends TdObject {
   String get currentObjectId => defaultObjectId;
 }
 
+/// **TelegramPaymentPurposePremiumGift** *(telegramPaymentPurposePremiumGift)* - child of TelegramPaymentPurpose
+///
+/// The user gifting Telegram Premium to another user.
+///
+/// * [currency]: ISO 4217 currency code of the payment currency, or "XTR" for payments in Telegram Stars.
+/// * [amount]: Paid amount, in the smallest units of the currency.
+/// * [userId]: Identifier of the user which will receive Telegram Premium.
+/// * [monthCount]: Number of months the Telegram Premium subscription will be active for the user.
+/// * [text]: Text to show to the user receiving Telegram Premium; 0-getOption("gift_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, and CustomEmoji entities are allowed.
+final class TelegramPaymentPurposePremiumGift extends TelegramPaymentPurpose {
+  /// **TelegramPaymentPurposePremiumGift** *(telegramPaymentPurposePremiumGift)* - child of TelegramPaymentPurpose
+  ///
+  /// The user gifting Telegram Premium to another user.
+  ///
+  /// * [currency]: ISO 4217 currency code of the payment currency, or "XTR" for payments in Telegram Stars.
+  /// * [amount]: Paid amount, in the smallest units of the currency.
+  /// * [userId]: Identifier of the user which will receive Telegram Premium.
+  /// * [monthCount]: Number of months the Telegram Premium subscription will be active for the user.
+  /// * [text]: Text to show to the user receiving Telegram Premium; 0-getOption("gift_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, and CustomEmoji entities are allowed.
+  const TelegramPaymentPurposePremiumGift({
+    required this.currency,
+    required this.amount,
+    required this.userId,
+    required this.monthCount,
+    required this.text,
+  });
+
+  /// ISO 4217 currency code of the payment currency, or "XTR" for payments in Telegram Stars
+  final String currency;
+
+  /// Paid amount, in the smallest units of the currency
+  final int amount;
+
+  /// Identifier of the user which will receive Telegram Premium
+  final int userId;
+
+  /// Number of months the Telegram Premium subscription will be active for the user
+  final int monthCount;
+
+  /// Text to show to the user receiving Telegram Premium; 0-getOption("gift_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, and CustomEmoji entities are allowed
+  final FormattedText text;
+
+  /// Parse from a json
+  factory TelegramPaymentPurposePremiumGift.fromJson(
+    Map<String, dynamic> json,
+  ) => TelegramPaymentPurposePremiumGift(
+    currency: json['currency'],
+    amount: json['amount'],
+    userId: json['user_id'],
+    monthCount: json['month_count'],
+    text: FormattedText.fromJson(json['text']),
+  );
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      "@type": defaultObjectId,
+      "currency": currency,
+      "amount": amount,
+      "user_id": userId,
+      "month_count": monthCount,
+      "text": text.toJson(),
+    };
+  }
+
+  /// Copy model with modified properties.
+  ///
+  /// Properties:
+  /// * [currency]: ISO 4217 currency code of the payment currency, or "XTR" for payments in Telegram Stars
+  /// * [amount]: Paid amount, in the smallest units of the currency
+  /// * [user_id]: Identifier of the user which will receive Telegram Premium
+  /// * [month_count]: Number of months the Telegram Premium subscription will be active for the user
+  /// * [text]: Text to show to the user receiving Telegram Premium; 0-getOption("gift_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, and CustomEmoji entities are allowed
+  @override
+  TelegramPaymentPurposePremiumGift copyWith({
+    String? currency,
+    int? amount,
+    int? userId,
+    int? monthCount,
+    FormattedText? text,
+  }) => TelegramPaymentPurposePremiumGift(
+    currency: currency ?? this.currency,
+    amount: amount ?? this.amount,
+    userId: userId ?? this.userId,
+    monthCount: monthCount ?? this.monthCount,
+    text: text ?? this.text,
+  );
+
+  /// TDLib object type
+  static const String defaultObjectId = 'telegramPaymentPurposePremiumGift';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
 /// **TelegramPaymentPurposePremiumGiftCodes** *(telegramPaymentPurposePremiumGiftCodes)* - child of TelegramPaymentPurpose
 ///
-/// The user creating Telegram Premium gift codes for other users.
+/// The user boosting a chat by creating Telegram Premium gift codes for other users.
 ///
-/// * [boostedChatId]: Identifier of the supergroup or channel chat, which will be automatically boosted by the users for duration of the Premium subscription and which is administered by the user; 0 if none.
+/// * [boostedChatId]: Identifier of the supergroup or channel chat, which will be automatically boosted by the users for duration of the Premium subscription and which is administered by the user.
 /// * [currency]: ISO 4217 currency code of the payment currency.
 /// * [amount]: Paid amount, in the smallest units of the currency.
 /// * [userIds]: Identifiers of the users which can activate the gift codes.
 /// * [monthCount]: Number of months the Telegram Premium subscription will be active for the users.
+/// * [text]: Text to show along with the gift codes; 0-getOption("gift_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, and CustomEmoji entities are allowed.
 final class TelegramPaymentPurposePremiumGiftCodes
     extends TelegramPaymentPurpose {
   /// **TelegramPaymentPurposePremiumGiftCodes** *(telegramPaymentPurposePremiumGiftCodes)* - child of TelegramPaymentPurpose
   ///
-  /// The user creating Telegram Premium gift codes for other users.
+  /// The user boosting a chat by creating Telegram Premium gift codes for other users.
   ///
-  /// * [boostedChatId]: Identifier of the supergroup or channel chat, which will be automatically boosted by the users for duration of the Premium subscription and which is administered by the user; 0 if none.
+  /// * [boostedChatId]: Identifier of the supergroup or channel chat, which will be automatically boosted by the users for duration of the Premium subscription and which is administered by the user.
   /// * [currency]: ISO 4217 currency code of the payment currency.
   /// * [amount]: Paid amount, in the smallest units of the currency.
   /// * [userIds]: Identifiers of the users which can activate the gift codes.
   /// * [monthCount]: Number of months the Telegram Premium subscription will be active for the users.
+  /// * [text]: Text to show along with the gift codes; 0-getOption("gift_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, and CustomEmoji entities are allowed.
   const TelegramPaymentPurposePremiumGiftCodes({
     required this.boostedChatId,
     required this.currency,
     required this.amount,
     required this.userIds,
     required this.monthCount,
+    required this.text,
   });
 
-  /// Identifier of the supergroup or channel chat, which will be automatically boosted by the users for duration of the Premium subscription and which is administered by the user; 0 if none
+  /// Identifier of the supergroup or channel chat, which will be automatically boosted by the users for duration of the Premium subscription and which is administered by the user
   final int boostedChatId;
 
   /// ISO 4217 currency code of the payment currency
@@ -100,17 +207,22 @@ final class TelegramPaymentPurposePremiumGiftCodes
   /// Number of months the Telegram Premium subscription will be active for the users
   final int monthCount;
 
+  /// Text to show along with the gift codes; 0-getOption("gift_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, and CustomEmoji entities are allowed
+  final FormattedText text;
+
   /// Parse from a json
   factory TelegramPaymentPurposePremiumGiftCodes.fromJson(
-          Map<String, dynamic> json) =>
-      TelegramPaymentPurposePremiumGiftCodes(
-        boostedChatId: json['boosted_chat_id'] ?? 0,
-        currency: json['currency'],
-        amount: json['amount'],
-        userIds: List<int>.from(
-            (json['user_ids'] ?? []).map((item) => item).toList()),
-        monthCount: json['month_count'],
-      );
+    Map<String, dynamic> json,
+  ) => TelegramPaymentPurposePremiumGiftCodes(
+    boostedChatId: json['boosted_chat_id'],
+    currency: json['currency'],
+    amount: json['amount'],
+    userIds: List<int>.from(
+      (json['user_ids'] ?? []).map((item) => item).toList(),
+    ),
+    monthCount: json['month_count'],
+    text: FormattedText.fromJson(json['text']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -122,17 +234,19 @@ final class TelegramPaymentPurposePremiumGiftCodes
       "amount": amount,
       "user_ids": userIds.map((i) => i).toList(),
       "month_count": monthCount,
+      "text": text.toJson(),
     };
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [boosted_chat_id]: Identifier of the supergroup or channel chat, which will be automatically boosted by the users for duration of the Premium subscription and which is administered by the user; 0 if none
+  /// * [boosted_chat_id]: Identifier of the supergroup or channel chat, which will be automatically boosted by the users for duration of the Premium subscription and which is administered by the user
   /// * [currency]: ISO 4217 currency code of the payment currency
   /// * [amount]: Paid amount, in the smallest units of the currency
   /// * [user_ids]: Identifiers of the users which can activate the gift codes
   /// * [month_count]: Number of months the Telegram Premium subscription will be active for the users
+  /// * [text]: Text to show along with the gift codes; 0-getOption("gift_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, and CustomEmoji entities are allowed
   @override
   TelegramPaymentPurposePremiumGiftCodes copyWith({
     int? boostedChatId,
@@ -140,14 +254,15 @@ final class TelegramPaymentPurposePremiumGiftCodes
     int? amount,
     List<int>? userIds,
     int? monthCount,
-  }) =>
-      TelegramPaymentPurposePremiumGiftCodes(
-        boostedChatId: boostedChatId ?? this.boostedChatId,
-        currency: currency ?? this.currency,
-        amount: amount ?? this.amount,
-        userIds: userIds ?? this.userIds,
-        monthCount: monthCount ?? this.monthCount,
-      );
+    FormattedText? text,
+  }) => TelegramPaymentPurposePremiumGiftCodes(
+    boostedChatId: boostedChatId ?? this.boostedChatId,
+    currency: currency ?? this.currency,
+    amount: amount ?? this.amount,
+    userIds: userIds ?? this.userIds,
+    monthCount: monthCount ?? this.monthCount,
+    text: text ?? this.text,
+  );
 
   /// TDLib object type
   static const String defaultObjectId =
@@ -207,14 +322,14 @@ final class TelegramPaymentPurposePremiumGiveaway
 
   /// Parse from a json
   factory TelegramPaymentPurposePremiumGiveaway.fromJson(
-          Map<String, dynamic> json) =>
-      TelegramPaymentPurposePremiumGiveaway(
-        parameters: GiveawayParameters.fromJson(json['parameters']),
-        currency: json['currency'],
-        amount: json['amount'],
-        winnerCount: json['winner_count'],
-        monthCount: json['month_count'],
-      );
+    Map<String, dynamic> json,
+  ) => TelegramPaymentPurposePremiumGiveaway(
+    parameters: GiveawayParameters.fromJson(json['parameters']),
+    currency: json['currency'],
+    amount: json['amount'],
+    winnerCount: json['winner_count'],
+    monthCount: json['month_count'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -244,14 +359,13 @@ final class TelegramPaymentPurposePremiumGiveaway
     int? amount,
     int? winnerCount,
     int? monthCount,
-  }) =>
-      TelegramPaymentPurposePremiumGiveaway(
-        parameters: parameters ?? this.parameters,
-        currency: currency ?? this.currency,
-        amount: amount ?? this.amount,
-        winnerCount: winnerCount ?? this.winnerCount,
-        monthCount: monthCount ?? this.monthCount,
-      );
+  }) => TelegramPaymentPurposePremiumGiveaway(
+    parameters: parameters ?? this.parameters,
+    currency: currency ?? this.currency,
+    amount: amount ?? this.amount,
+    winnerCount: winnerCount ?? this.winnerCount,
+    monthCount: monthCount ?? this.monthCount,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'telegramPaymentPurposePremiumGiveaway';
@@ -325,12 +439,11 @@ final class TelegramPaymentPurposeStars extends TelegramPaymentPurpose {
     String? currency,
     int? amount,
     int? starCount,
-  }) =>
-      TelegramPaymentPurposeStars(
-        currency: currency ?? this.currency,
-        amount: amount ?? this.amount,
-        starCount: starCount ?? this.starCount,
-      );
+  }) => TelegramPaymentPurposeStars(
+    currency: currency ?? this.currency,
+    amount: amount ?? this.amount,
+    starCount: starCount ?? this.starCount,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'telegramPaymentPurposeStars';
@@ -382,13 +495,13 @@ final class TelegramPaymentPurposeGiftedStars extends TelegramPaymentPurpose {
 
   /// Parse from a json
   factory TelegramPaymentPurposeGiftedStars.fromJson(
-          Map<String, dynamic> json) =>
-      TelegramPaymentPurposeGiftedStars(
-        userId: json['user_id'],
-        currency: json['currency'],
-        amount: json['amount'],
-        starCount: json['star_count'],
-      );
+    Map<String, dynamic> json,
+  ) => TelegramPaymentPurposeGiftedStars(
+    userId: json['user_id'],
+    currency: json['currency'],
+    amount: json['amount'],
+    starCount: json['star_count'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -415,13 +528,12 @@ final class TelegramPaymentPurposeGiftedStars extends TelegramPaymentPurpose {
     String? currency,
     int? amount,
     int? starCount,
-  }) =>
-      TelegramPaymentPurposeGiftedStars(
-        userId: userId ?? this.userId,
-        currency: currency ?? this.currency,
-        amount: amount ?? this.amount,
-        starCount: starCount ?? this.starCount,
-      );
+  }) => TelegramPaymentPurposeGiftedStars(
+    userId: userId ?? this.userId,
+    currency: currency ?? this.currency,
+    amount: amount ?? this.amount,
+    starCount: starCount ?? this.starCount,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'telegramPaymentPurposeGiftedStars';
@@ -479,14 +591,14 @@ final class TelegramPaymentPurposeStarGiveaway extends TelegramPaymentPurpose {
 
   /// Parse from a json
   factory TelegramPaymentPurposeStarGiveaway.fromJson(
-          Map<String, dynamic> json) =>
-      TelegramPaymentPurposeStarGiveaway(
-        parameters: GiveawayParameters.fromJson(json['parameters']),
-        currency: json['currency'],
-        amount: json['amount'],
-        winnerCount: json['winner_count'],
-        starCount: json['star_count'],
-      );
+    Map<String, dynamic> json,
+  ) => TelegramPaymentPurposeStarGiveaway(
+    parameters: GiveawayParameters.fromJson(json['parameters']),
+    currency: json['currency'],
+    amount: json['amount'],
+    winnerCount: json['winner_count'],
+    starCount: json['star_count'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -516,14 +628,13 @@ final class TelegramPaymentPurposeStarGiveaway extends TelegramPaymentPurpose {
     int? amount,
     int? winnerCount,
     int? starCount,
-  }) =>
-      TelegramPaymentPurposeStarGiveaway(
-        parameters: parameters ?? this.parameters,
-        currency: currency ?? this.currency,
-        amount: amount ?? this.amount,
-        winnerCount: winnerCount ?? this.winnerCount,
-        starCount: starCount ?? this.starCount,
-      );
+  }) => TelegramPaymentPurposeStarGiveaway(
+    parameters: parameters ?? this.parameters,
+    currency: currency ?? this.currency,
+    amount: amount ?? this.amount,
+    winnerCount: winnerCount ?? this.winnerCount,
+    starCount: starCount ?? this.starCount,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'telegramPaymentPurposeStarGiveaway';
@@ -548,26 +659,19 @@ final class TelegramPaymentPurposeJoinChat extends TelegramPaymentPurpose {
   /// The user joins a chat and subscribes to regular payments in Telegram Stars.
   ///
   /// * [inviteLink]: Invite link to use.
-  const TelegramPaymentPurposeJoinChat({
-    required this.inviteLink,
-  });
+  const TelegramPaymentPurposeJoinChat({required this.inviteLink});
 
   /// Invite link to use
   final String inviteLink;
 
   /// Parse from a json
   factory TelegramPaymentPurposeJoinChat.fromJson(Map<String, dynamic> json) =>
-      TelegramPaymentPurposeJoinChat(
-        inviteLink: json['invite_link'],
-      );
+      TelegramPaymentPurposeJoinChat(inviteLink: json['invite_link']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "invite_link": inviteLink,
-    };
+    return {"@type": defaultObjectId, "invite_link": inviteLink};
   }
 
   /// Copy model with modified properties.
@@ -575,12 +679,8 @@ final class TelegramPaymentPurposeJoinChat extends TelegramPaymentPurpose {
   /// Properties:
   /// * [invite_link]: Invite link to use
   @override
-  TelegramPaymentPurposeJoinChat copyWith({
-    String? inviteLink,
-  }) =>
-      TelegramPaymentPurposeJoinChat(
-        inviteLink: inviteLink ?? this.inviteLink,
-      );
+  TelegramPaymentPurposeJoinChat copyWith({String? inviteLink}) =>
+      TelegramPaymentPurposeJoinChat(inviteLink: inviteLink ?? this.inviteLink);
 
   /// TDLib object type
   static const String defaultObjectId = 'telegramPaymentPurposeJoinChat';

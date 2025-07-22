@@ -74,14 +74,13 @@ final class AddQuickReplyShortcutInlineQueryResultMessage extends TdFunction {
     int? queryId,
     String? resultId,
     bool? hideViaBot,
-  }) =>
-      AddQuickReplyShortcutInlineQueryResultMessage(
-        shortcutName: shortcutName ?? this.shortcutName,
-        replyToMessageId: replyToMessageId ?? this.replyToMessageId,
-        queryId: queryId ?? this.queryId,
-        resultId: resultId ?? this.resultId,
-        hideViaBot: hideViaBot ?? this.hideViaBot,
-      );
+  }) => AddQuickReplyShortcutInlineQueryResultMessage(
+    shortcutName: shortcutName ?? this.shortcutName,
+    replyToMessageId: replyToMessageId ?? this.replyToMessageId,
+    queryId: queryId ?? this.queryId,
+    resultId: resultId ?? this.resultId,
+    hideViaBot: hideViaBot ?? this.hideViaBot,
+  );
 
   /// TDLib object type
   static const String defaultObjectId =

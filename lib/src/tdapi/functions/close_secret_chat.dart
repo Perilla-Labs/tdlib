@@ -15,9 +15,7 @@ final class CloseSecretChat extends TdFunction {
   /// * [secretChatId]: Secret chat identifier.
   ///
   /// [Ok] is returned on completion.
-  const CloseSecretChat({
-    required this.secretChatId,
-  });
+  const CloseSecretChat({required this.secretChatId});
 
   /// Secret chat identifier
   final int secretChatId;
@@ -36,12 +34,8 @@ final class CloseSecretChat extends TdFunction {
   ///
   /// Properties:
   /// * [secret_chat_id]: Secret chat identifier
-  CloseSecretChat copyWith({
-    int? secretChatId,
-  }) =>
-      CloseSecretChat(
-        secretChatId: secretChatId ?? this.secretChatId,
-      );
+  CloseSecretChat copyWith({int? secretChatId}) =>
+      CloseSecretChat(secretChatId: secretChatId ?? this.secretChatId);
 
   /// TDLib object type
   static const String defaultObjectId = 'closeSecretChat';

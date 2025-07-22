@@ -64,9 +64,7 @@ final class SavedMessagesTopicTypeMyNotes extends SavedMessagesTopicType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -97,15 +95,13 @@ final class SavedMessagesTopicTypeAuthorHidden extends SavedMessagesTopicType {
 
   /// Parse from a json
   factory SavedMessagesTopicTypeAuthorHidden.fromJson(
-          Map<String, dynamic> json) =>
-      const SavedMessagesTopicTypeAuthorHidden();
+    Map<String, dynamic> json,
+  ) => const SavedMessagesTopicTypeAuthorHidden();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -136,27 +132,20 @@ final class SavedMessagesTopicTypeSavedFromChat extends SavedMessagesTopicType {
   /// Topic containing messages forwarded from a specific chat.
   ///
   /// * [chatId]: Identifier of the chat.
-  const SavedMessagesTopicTypeSavedFromChat({
-    required this.chatId,
-  });
+  const SavedMessagesTopicTypeSavedFromChat({required this.chatId});
 
   /// Identifier of the chat
   final int chatId;
 
   /// Parse from a json
   factory SavedMessagesTopicTypeSavedFromChat.fromJson(
-          Map<String, dynamic> json) =>
-      SavedMessagesTopicTypeSavedFromChat(
-        chatId: json['chat_id'],
-      );
+    Map<String, dynamic> json,
+  ) => SavedMessagesTopicTypeSavedFromChat(chatId: json['chat_id']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "chat_id": chatId,
-    };
+    return {"@type": defaultObjectId, "chat_id": chatId};
   }
 
   /// Copy model with modified properties.
@@ -164,12 +153,8 @@ final class SavedMessagesTopicTypeSavedFromChat extends SavedMessagesTopicType {
   /// Properties:
   /// * [chat_id]: Identifier of the chat
   @override
-  SavedMessagesTopicTypeSavedFromChat copyWith({
-    int? chatId,
-  }) =>
-      SavedMessagesTopicTypeSavedFromChat(
-        chatId: chatId ?? this.chatId,
-      );
+  SavedMessagesTopicTypeSavedFromChat copyWith({int? chatId}) =>
+      SavedMessagesTopicTypeSavedFromChat(chatId: chatId ?? this.chatId);
 
   /// TDLib object type
   static const String defaultObjectId = 'savedMessagesTopicTypeSavedFromChat';

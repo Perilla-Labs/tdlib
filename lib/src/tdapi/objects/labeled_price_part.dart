@@ -13,10 +13,7 @@ final class LabeledPricePart extends TdObject {
   ///
   /// * [label]: Label for this portion of the product price.
   /// * [amount]: Currency amount in the smallest units of the currency.
-  const LabeledPricePart({
-    required this.label,
-    required this.amount,
-  });
+  const LabeledPricePart({required this.label, required this.amount});
 
   /// Label for this portion of the product price
   final String label;
@@ -26,19 +23,12 @@ final class LabeledPricePart extends TdObject {
 
   /// Parse from a json
   factory LabeledPricePart.fromJson(Map<String, dynamic> json) =>
-      LabeledPricePart(
-        label: json['label'],
-        amount: json['amount'],
-      );
+      LabeledPricePart(label: json['label'], amount: json['amount']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "label": label,
-      "amount": amount,
-    };
+    return {"@type": defaultObjectId, "label": label, "amount": amount};
   }
 
   /// Copy model with modified properties.
@@ -46,14 +36,10 @@ final class LabeledPricePart extends TdObject {
   /// Properties:
   /// * [label]: Label for this portion of the product price
   /// * [amount]: Currency amount in the smallest units of the currency
-  LabeledPricePart copyWith({
-    String? label,
-    int? amount,
-  }) =>
-      LabeledPricePart(
-        label: label ?? this.label,
-        amount: amount ?? this.amount,
-      );
+  LabeledPricePart copyWith({String? label, int? amount}) => LabeledPricePart(
+    label: label ?? this.label,
+    amount: amount ?? this.amount,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'labeledPricePart';

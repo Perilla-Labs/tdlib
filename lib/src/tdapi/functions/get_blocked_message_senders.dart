@@ -56,12 +56,11 @@ final class GetBlockedMessageSenders extends TdFunction {
     BlockList? blockList,
     int? offset,
     int? limit,
-  }) =>
-      GetBlockedMessageSenders(
-        blockList: blockList ?? this.blockList,
-        offset: offset ?? this.offset,
-        limit: limit ?? this.limit,
-      );
+  }) => GetBlockedMessageSenders(
+    blockList: blockList ?? this.blockList,
+    offset: offset ?? this.offset,
+    limit: limit ?? this.limit,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getBlockedMessageSenders';

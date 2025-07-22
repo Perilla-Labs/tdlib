@@ -38,11 +38,10 @@ final class ToggleHasSponsoredMessagesEnabled extends TdFunction {
   /// * [has_sponsored_messages_enabled]: Pass true to enable sponsored messages for the current user; false to disable them
   ToggleHasSponsoredMessagesEnabled copyWith({
     bool? hasSponsoredMessagesEnabled,
-  }) =>
-      ToggleHasSponsoredMessagesEnabled(
-        hasSponsoredMessagesEnabled:
-            hasSponsoredMessagesEnabled ?? this.hasSponsoredMessagesEnabled,
-      );
+  }) => ToggleHasSponsoredMessagesEnabled(
+    hasSponsoredMessagesEnabled:
+        hasSponsoredMessagesEnabled ?? this.hasSponsoredMessagesEnabled,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'toggleHasSponsoredMessagesEnabled';

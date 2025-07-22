@@ -15,9 +15,7 @@ final class GetMessageFileType extends TdFunction {
   /// * [messageFileHead]: Beginning of the message file; up to 100 first lines.
   ///
   /// [MessageFileType] is returned on completion.
-  const GetMessageFileType({
-    required this.messageFileHead,
-  });
+  const GetMessageFileType({required this.messageFileHead});
 
   /// Beginning of the message file; up to 100 first lines
   final String messageFileHead;
@@ -36,12 +34,9 @@ final class GetMessageFileType extends TdFunction {
   ///
   /// Properties:
   /// * [message_file_head]: Beginning of the message file; up to 100 first lines
-  GetMessageFileType copyWith({
-    String? messageFileHead,
-  }) =>
-      GetMessageFileType(
-        messageFileHead: messageFileHead ?? this.messageFileHead,
-      );
+  GetMessageFileType copyWith({String? messageFileHead}) => GetMessageFileType(
+    messageFileHead: messageFileHead ?? this.messageFileHead,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getMessageFileType';

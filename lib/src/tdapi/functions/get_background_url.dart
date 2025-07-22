@@ -17,10 +17,7 @@ final class GetBackgroundUrl extends TdFunction {
   /// * [type]: Background type; backgroundTypeChatTheme isn't supported.
   ///
   /// [HttpUrl] is returned on completion.
-  const GetBackgroundUrl({
-    required this.name,
-    required this.type,
-  });
+  const GetBackgroundUrl({required this.name, required this.type});
 
   /// Background name
   final String name;
@@ -44,14 +41,8 @@ final class GetBackgroundUrl extends TdFunction {
   /// Properties:
   /// * [name]: Background name
   /// * [type]: Background type; backgroundTypeChatTheme isn't supported
-  GetBackgroundUrl copyWith({
-    String? name,
-    BackgroundType? type,
-  }) =>
-      GetBackgroundUrl(
-        name: name ?? this.name,
-        type: type ?? this.type,
-      );
+  GetBackgroundUrl copyWith({String? name, BackgroundType? type}) =>
+      GetBackgroundUrl(name: name ?? this.name, type: type ?? this.type);
 
   /// TDLib object type
   static const String defaultObjectId = 'getBackgroundUrl';

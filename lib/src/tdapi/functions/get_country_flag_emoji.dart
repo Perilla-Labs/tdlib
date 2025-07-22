@@ -15,9 +15,7 @@ final class GetCountryFlagEmoji extends TdFunction {
   /// * [countryCode]: A two-letter ISO 3166-1 alpha-2 country code as received from getCountries.
   ///
   /// [Text] is returned on completion.
-  const GetCountryFlagEmoji({
-    required this.countryCode,
-  });
+  const GetCountryFlagEmoji({required this.countryCode});
 
   /// A two-letter ISO 3166-1 alpha-2 country code as received from getCountries
   final String countryCode;
@@ -36,12 +34,8 @@ final class GetCountryFlagEmoji extends TdFunction {
   ///
   /// Properties:
   /// * [country_code]: A two-letter ISO 3166-1 alpha-2 country code as received from getCountries
-  GetCountryFlagEmoji copyWith({
-    String? countryCode,
-  }) =>
-      GetCountryFlagEmoji(
-        countryCode: countryCode ?? this.countryCode,
-      );
+  GetCountryFlagEmoji copyWith({String? countryCode}) =>
+      GetCountryFlagEmoji(countryCode: countryCode ?? this.countryCode);
 
   /// TDLib object type
   static const String defaultObjectId = 'getCountryFlagEmoji';

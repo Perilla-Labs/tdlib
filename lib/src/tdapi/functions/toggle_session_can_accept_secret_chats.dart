@@ -47,11 +47,10 @@ final class ToggleSessionCanAcceptSecretChats extends TdFunction {
   ToggleSessionCanAcceptSecretChats copyWith({
     int? sessionId,
     bool? canAcceptSecretChats,
-  }) =>
-      ToggleSessionCanAcceptSecretChats(
-        sessionId: sessionId ?? this.sessionId,
-        canAcceptSecretChats: canAcceptSecretChats ?? this.canAcceptSecretChats,
-      );
+  }) => ToggleSessionCanAcceptSecretChats(
+    sessionId: sessionId ?? this.sessionId,
+    canAcceptSecretChats: canAcceptSecretChats ?? this.canAcceptSecretChats,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'toggleSessionCanAcceptSecretChats';

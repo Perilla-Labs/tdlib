@@ -43,9 +43,10 @@ final class StorageStatisticsByChat extends TdObject {
         size: json['size'],
         count: json['count'],
         byFileType: List<StorageStatisticsByFileType>.from(
-            (json['by_file_type'] ?? [])
-                .map((item) => StorageStatisticsByFileType.fromJson(item))
-                .toList()),
+          (json['by_file_type'] ?? [])
+              .map((item) => StorageStatisticsByFileType.fromJson(item))
+              .toList(),
+        ),
       );
 
   /// Convert model to TDLib JSON format
@@ -72,13 +73,12 @@ final class StorageStatisticsByChat extends TdObject {
     int? size,
     int? count,
     List<StorageStatisticsByFileType>? byFileType,
-  }) =>
-      StorageStatisticsByChat(
-        chatId: chatId ?? this.chatId,
-        size: size ?? this.size,
-        count: count ?? this.count,
-        byFileType: byFileType ?? this.byFileType,
-      );
+  }) => StorageStatisticsByChat(
+    chatId: chatId ?? this.chatId,
+    size: size ?? this.size,
+    count: count ?? this.count,
+    byFileType: byFileType ?? this.byFileType,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'storageStatisticsByChat';

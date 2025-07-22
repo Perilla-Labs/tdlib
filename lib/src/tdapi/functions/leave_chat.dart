@@ -15,9 +15,7 @@ final class LeaveChat extends TdFunction {
   /// * [chatId]: Chat identifier.
   ///
   /// [Ok] is returned on completion.
-  const LeaveChat({
-    required this.chatId,
-  });
+  const LeaveChat({required this.chatId});
 
   /// Chat identifier
   final int chatId;
@@ -25,23 +23,14 @@ final class LeaveChat extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "chat_id": chatId,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "chat_id": chatId, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [chat_id]: Chat identifier
-  LeaveChat copyWith({
-    int? chatId,
-  }) =>
-      LeaveChat(
-        chatId: chatId ?? this.chatId,
-      );
+  LeaveChat copyWith({int? chatId}) => LeaveChat(chatId: chatId ?? this.chatId);
 
   /// TDLib object type
   static const String defaultObjectId = 'leaveChat';

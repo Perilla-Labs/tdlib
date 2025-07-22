@@ -11,11 +11,7 @@ final class TestInt extends TdObject {
   /// A simple object containing a number; for testing only.
   ///
   /// * [value]: Number.
-  const TestInt({
-    required this.value,
-    this.extra,
-    this.clientId,
-  });
+  const TestInt({required this.value, this.extra, this.clientId});
 
   /// Number
   final int value;
@@ -30,34 +26,26 @@ final class TestInt extends TdObject {
 
   /// Parse from a json
   factory TestInt.fromJson(Map<String, dynamic> json) => TestInt(
-        value: json['value'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    value: json['value'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "value": value,
-    };
+    return {"@type": defaultObjectId, "value": value};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [value]: Number
-  TestInt copyWith({
-    int? value,
-    dynamic extra,
-    int? clientId,
-  }) =>
-      TestInt(
-        value: value ?? this.value,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  TestInt copyWith({int? value, dynamic extra, int? clientId}) => TestInt(
+    value: value ?? this.value,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'testInt';

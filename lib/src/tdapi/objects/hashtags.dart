@@ -11,11 +11,7 @@ final class Hashtags extends TdObject {
   /// Contains a list of hashtags.
   ///
   /// * [hashtags]: A list of hashtags.
-  const Hashtags({
-    required this.hashtags,
-    this.extra,
-    this.clientId,
-  });
+  const Hashtags({required this.hashtags, this.extra, this.clientId});
 
   /// A list of hashtags
   final List<String> hashtags;
@@ -30,11 +26,12 @@ final class Hashtags extends TdObject {
 
   /// Parse from a json
   factory Hashtags.fromJson(Map<String, dynamic> json) => Hashtags(
-        hashtags: List<String>.from(
-            (json['hashtags'] ?? []).map((item) => item).toList()),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    hashtags: List<String>.from(
+      (json['hashtags'] ?? []).map((item) => item).toList(),
+    ),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -49,11 +46,7 @@ final class Hashtags extends TdObject {
   ///
   /// Properties:
   /// * [hashtags]: A list of hashtags
-  Hashtags copyWith({
-    List<String>? hashtags,
-    dynamic extra,
-    int? clientId,
-  }) =>
+  Hashtags copyWith({List<String>? hashtags, dynamic extra, int? clientId}) =>
       Hashtags(
         hashtags: hashtags ?? this.hashtags,
         extra: extra ?? this.extra,

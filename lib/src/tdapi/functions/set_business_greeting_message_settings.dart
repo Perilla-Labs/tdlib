@@ -15,9 +15,7 @@ final class SetBusinessGreetingMessageSettings extends TdFunction {
   /// * [greetingMessageSettings]: The new settings for the greeting message of the business; pass null to disable the greeting message *(optional)*.
   ///
   /// [Ok] is returned on completion.
-  const SetBusinessGreetingMessageSettings({
-    this.greetingMessageSettings,
-  });
+  const SetBusinessGreetingMessageSettings({this.greetingMessageSettings});
 
   /// The new settings for the greeting message of the business; pass null to disable the greeting message
   final BusinessGreetingMessageSettings? greetingMessageSettings;
@@ -38,11 +36,10 @@ final class SetBusinessGreetingMessageSettings extends TdFunction {
   /// * [greeting_message_settings]: The new settings for the greeting message of the business; pass null to disable the greeting message
   SetBusinessGreetingMessageSettings copyWith({
     BusinessGreetingMessageSettings? greetingMessageSettings,
-  }) =>
-      SetBusinessGreetingMessageSettings(
-        greetingMessageSettings:
-            greetingMessageSettings ?? this.greetingMessageSettings,
-      );
+  }) => SetBusinessGreetingMessageSettings(
+    greetingMessageSettings:
+        greetingMessageSettings ?? this.greetingMessageSettings,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setBusinessGreetingMessageSettings';

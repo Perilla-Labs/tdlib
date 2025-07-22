@@ -59,26 +59,19 @@ final class StoryContentPhoto extends StoryContent {
   /// A photo story.
   ///
   /// * [photo]: The photo.
-  const StoryContentPhoto({
-    required this.photo,
-  });
+  const StoryContentPhoto({required this.photo});
 
   /// The photo
   final Photo photo;
 
   /// Parse from a json
   factory StoryContentPhoto.fromJson(Map<String, dynamic> json) =>
-      StoryContentPhoto(
-        photo: Photo.fromJson(json['photo']),
-      );
+      StoryContentPhoto(photo: Photo.fromJson(json['photo']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "photo": photo.toJson(),
-    };
+    return {"@type": defaultObjectId, "photo": photo.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -86,12 +79,8 @@ final class StoryContentPhoto extends StoryContent {
   /// Properties:
   /// * [photo]: The photo
   @override
-  StoryContentPhoto copyWith({
-    Photo? photo,
-  }) =>
-      StoryContentPhoto(
-        photo: photo ?? this.photo,
-      );
+  StoryContentPhoto copyWith({Photo? photo}) =>
+      StoryContentPhoto(photo: photo ?? this.photo);
 
   /// TDLib object type
   static const String defaultObjectId = 'storyContentPhoto';
@@ -110,23 +99,20 @@ final class StoryContentPhoto extends StoryContent {
 /// A video story.
 ///
 /// * [video]: The video in MPEG4 format.
-/// * [alternativeVideo]: Alternative version of the video in MPEG4 format, encoded by x264 codec; may be null *(optional)*.
+/// * [alternativeVideo]: Alternative version of the video in MPEG4 format, encoded with H.264 codec; may be null *(optional)*.
 final class StoryContentVideo extends StoryContent {
   /// **StoryContentVideo** *(storyContentVideo)* - child of StoryContent
   ///
   /// A video story.
   ///
   /// * [video]: The video in MPEG4 format.
-  /// * [alternativeVideo]: Alternative version of the video in MPEG4 format, encoded by x264 codec; may be null *(optional)*.
-  const StoryContentVideo({
-    required this.video,
-    this.alternativeVideo,
-  });
+  /// * [alternativeVideo]: Alternative version of the video in MPEG4 format, encoded with H.264 codec; may be null *(optional)*.
+  const StoryContentVideo({required this.video, this.alternativeVideo});
 
   /// The video in MPEG4 format
   final StoryVideo video;
 
-  /// Alternative version of the video in MPEG4 format, encoded by x264 codec; may be null
+  /// Alternative version of the video in MPEG4 format, encoded with H.264 codec; may be null
   final StoryVideo? alternativeVideo;
 
   /// Parse from a json
@@ -152,16 +138,15 @@ final class StoryContentVideo extends StoryContent {
   ///
   /// Properties:
   /// * [video]: The video in MPEG4 format
-  /// * [alternative_video]: Alternative version of the video in MPEG4 format, encoded by x264 codec; may be null
+  /// * [alternative_video]: Alternative version of the video in MPEG4 format, encoded with H.264 codec; may be null
   @override
   StoryContentVideo copyWith({
     StoryVideo? video,
     StoryVideo? alternativeVideo,
-  }) =>
-      StoryContentVideo(
-        video: video ?? this.video,
-        alternativeVideo: alternativeVideo ?? this.alternativeVideo,
-      );
+  }) => StoryContentVideo(
+    video: video ?? this.video,
+    alternativeVideo: alternativeVideo ?? this.alternativeVideo,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'storyContentVideo';
@@ -191,9 +176,7 @@ final class StoryContentUnsupported extends StoryContent {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.

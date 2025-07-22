@@ -7,7 +7,7 @@ part of '../tdapi.dart';
 /// * [chatId]: Chat identifier.
 /// * [messageIds]: The identifiers of the messages being viewed.
 /// * [source]: Source of the message view; pass null to guess the source based on chat open state *(optional)*.
-/// * [forceRead]: Pass true to mark as read the specified messages even the chat is closed.
+/// * [forceRead]: Pass true to mark as read the specified messages even if the chat is closed.
 ///
 /// [Ok] is returned on completion.
 final class ViewMessages extends TdFunction {
@@ -18,7 +18,7 @@ final class ViewMessages extends TdFunction {
   /// * [chatId]: Chat identifier.
   /// * [messageIds]: The identifiers of the messages being viewed.
   /// * [source]: Source of the message view; pass null to guess the source based on chat open state *(optional)*.
-  /// * [forceRead]: Pass true to mark as read the specified messages even the chat is closed.
+  /// * [forceRead]: Pass true to mark as read the specified messages even if the chat is closed.
   ///
   /// [Ok] is returned on completion.
   const ViewMessages({
@@ -37,7 +37,7 @@ final class ViewMessages extends TdFunction {
   /// Source of the message view; pass null to guess the source based on chat open state
   final MessageSource? source;
 
-  /// Pass true to mark as read the specified messages even the chat is closed
+  /// Pass true to mark as read the specified messages even if the chat is closed
   final bool forceRead;
 
   /// Convert model to TDLib JSON format
@@ -59,19 +59,18 @@ final class ViewMessages extends TdFunction {
   /// * [chat_id]: Chat identifier
   /// * [message_ids]: The identifiers of the messages being viewed
   /// * [source]: Source of the message view; pass null to guess the source based on chat open state
-  /// * [force_read]: Pass true to mark as read the specified messages even the chat is closed
+  /// * [force_read]: Pass true to mark as read the specified messages even if the chat is closed
   ViewMessages copyWith({
     int? chatId,
     List<int>? messageIds,
     MessageSource? source,
     bool? forceRead,
-  }) =>
-      ViewMessages(
-        chatId: chatId ?? this.chatId,
-        messageIds: messageIds ?? this.messageIds,
-        source: source ?? this.source,
-        forceRead: forceRead ?? this.forceRead,
-      );
+  }) => ViewMessages(
+    chatId: chatId ?? this.chatId,
+    messageIds: messageIds ?? this.messageIds,
+    source: source ?? this.source,
+    forceRead: forceRead ?? this.forceRead,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'viewMessages';

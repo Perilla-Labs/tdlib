@@ -56,12 +56,11 @@ final class SearchPublicStoriesByLocation extends TdFunction {
     LocationAddress? address,
     String? offset,
     int? limit,
-  }) =>
-      SearchPublicStoriesByLocation(
-        address: address ?? this.address,
-        offset: offset ?? this.offset,
-        limit: limit ?? this.limit,
-      );
+  }) => SearchPublicStoriesByLocation(
+    address: address ?? this.address,
+    offset: offset ?? this.offset,
+    limit: limit ?? this.limit,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'searchPublicStoriesByLocation';

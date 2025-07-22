@@ -15,9 +15,7 @@ final class UnpinAllChatMessages extends TdFunction {
   /// * [chatId]: Identifier of the chat.
   ///
   /// [Ok] is returned on completion.
-  const UnpinAllChatMessages({
-    required this.chatId,
-  });
+  const UnpinAllChatMessages({required this.chatId});
 
   /// Identifier of the chat
   final int chatId;
@@ -25,23 +23,15 @@ final class UnpinAllChatMessages extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "chat_id": chatId,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "chat_id": chatId, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [chat_id]: Identifier of the chat
-  UnpinAllChatMessages copyWith({
-    int? chatId,
-  }) =>
-      UnpinAllChatMessages(
-        chatId: chatId ?? this.chatId,
-      );
+  UnpinAllChatMessages copyWith({int? chatId}) =>
+      UnpinAllChatMessages(chatId: chatId ?? this.chatId);
 
   /// TDLib object type
   static const String defaultObjectId = 'unpinAllChatMessages';

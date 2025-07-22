@@ -6,7 +6,7 @@ part of '../tdapi.dart';
 ///
 /// * [chatId]: Chat identifier.
 /// * [fromStoryId]: Identifier of the story starting from which stories must be returned; use 0 to get results from the last story.
-/// * [limit]: The maximum number of stories to be returned. For optimal performance, the number of returned stories is chosen by TDLib and can be smaller than the specified limit.
+/// * [limit]: The maximum number of stories to be returned.. For optimal performance, the number of returned stories is chosen by TDLib and can be smaller than the specified limit.
 ///
 /// [Stories] is returned on completion.
 final class GetChatArchivedStories extends TdFunction {
@@ -16,7 +16,7 @@ final class GetChatArchivedStories extends TdFunction {
   ///
   /// * [chatId]: Chat identifier.
   /// * [fromStoryId]: Identifier of the story starting from which stories must be returned; use 0 to get results from the last story.
-  /// * [limit]: The maximum number of stories to be returned. For optimal performance, the number of returned stories is chosen by TDLib and can be smaller than the specified limit.
+  /// * [limit]: The maximum number of stories to be returned.. For optimal performance, the number of returned stories is chosen by TDLib and can be smaller than the specified limit.
   ///
   /// [Stories] is returned on completion.
   const GetChatArchivedStories({
@@ -31,7 +31,7 @@ final class GetChatArchivedStories extends TdFunction {
   /// Identifier of the story starting from which stories must be returned; use 0 to get results from the last story
   final int fromStoryId;
 
-  /// The maximum number of stories to be returned. For optimal performance, the number of returned stories is chosen by TDLib and can be smaller than the specified limit
+  /// The maximum number of stories to be returned.. For optimal performance, the number of returned stories is chosen by TDLib and can be smaller than the specified limit
   final int limit;
 
   /// Convert model to TDLib JSON format
@@ -51,17 +51,16 @@ final class GetChatArchivedStories extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [from_story_id]: Identifier of the story starting from which stories must be returned; use 0 to get results from the last story
-  /// * [limit]: The maximum number of stories to be returned. For optimal performance, the number of returned stories is chosen by TDLib and can be smaller than the specified limit
+  /// * [limit]: The maximum number of stories to be returned.. For optimal performance, the number of returned stories is chosen by TDLib and can be smaller than the specified limit
   GetChatArchivedStories copyWith({
     int? chatId,
     int? fromStoryId,
     int? limit,
-  }) =>
-      GetChatArchivedStories(
-        chatId: chatId ?? this.chatId,
-        fromStoryId: fromStoryId ?? this.fromStoryId,
-        limit: limit ?? this.limit,
-      );
+  }) => GetChatArchivedStories(
+    chatId: chatId ?? this.chatId,
+    fromStoryId: fromStoryId ?? this.fromStoryId,
+    limit: limit ?? this.limit,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getChatArchivedStories';

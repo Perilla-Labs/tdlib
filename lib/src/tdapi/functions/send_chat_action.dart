@@ -65,13 +65,12 @@ final class SendChatAction extends TdFunction {
     int? messageThreadId,
     String? businessConnectionId,
     ChatAction? action,
-  }) =>
-      SendChatAction(
-        chatId: chatId ?? this.chatId,
-        messageThreadId: messageThreadId ?? this.messageThreadId,
-        businessConnectionId: businessConnectionId ?? this.businessConnectionId,
-        action: action ?? this.action,
-      );
+  }) => SendChatAction(
+    chatId: chatId ?? this.chatId,
+    messageThreadId: messageThreadId ?? this.messageThreadId,
+    businessConnectionId: businessConnectionId ?? this.businessConnectionId,
+    action: action ?? this.action,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'sendChatAction';

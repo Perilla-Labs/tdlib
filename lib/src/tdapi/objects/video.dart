@@ -10,7 +10,7 @@ part of '../tdapi.dart';
 /// * [fileName]: Original name of the file; as defined by the sender.
 /// * [mimeType]: MIME type of the file; as defined by the sender.
 /// * [hasStickers]: True, if stickers were added to the video. The list of corresponding sticker sets can be received using getAttachedStickerSets.
-/// * [supportsStreaming]: True, if the video is supposed to be streamed.
+/// * [supportsStreaming]: True, if the video is expected to be streamed.
 /// * [minithumbnail]: Video minithumbnail; may be null *(optional)*.
 /// * [thumbnail]: Video thumbnail in JPEG or MPEG4 format; as defined by the sender; may be null *(optional)*.
 /// * [video]: File containing the video.
@@ -25,7 +25,7 @@ final class Video extends TdObject {
   /// * [fileName]: Original name of the file; as defined by the sender.
   /// * [mimeType]: MIME type of the file; as defined by the sender.
   /// * [hasStickers]: True, if stickers were added to the video. The list of corresponding sticker sets can be received using getAttachedStickerSets.
-  /// * [supportsStreaming]: True, if the video is supposed to be streamed.
+  /// * [supportsStreaming]: True, if the video is expected to be streamed.
   /// * [minithumbnail]: Video minithumbnail; may be null *(optional)*.
   /// * [thumbnail]: Video thumbnail in JPEG or MPEG4 format; as defined by the sender; may be null *(optional)*.
   /// * [video]: File containing the video.
@@ -60,7 +60,7 @@ final class Video extends TdObject {
   /// True, if stickers were added to the video. The list of corresponding sticker sets can be received using getAttachedStickerSets
   final bool hasStickers;
 
-  /// True, if the video is supposed to be streamed
+  /// True, if the video is expected to be streamed
   final bool supportsStreaming;
 
   /// Video minithumbnail; may be null
@@ -74,21 +74,21 @@ final class Video extends TdObject {
 
   /// Parse from a json
   factory Video.fromJson(Map<String, dynamic> json) => Video(
-        duration: json['duration'],
-        width: json['width'],
-        height: json['height'],
-        fileName: json['file_name'],
-        mimeType: json['mime_type'],
-        hasStickers: json['has_stickers'],
-        supportsStreaming: json['supports_streaming'],
-        minithumbnail: json['minithumbnail'] == null
-            ? null
-            : Minithumbnail.fromJson(json['minithumbnail']),
-        thumbnail: json['thumbnail'] == null
-            ? null
-            : Thumbnail.fromJson(json['thumbnail']),
-        video: File.fromJson(json['video']),
-      );
+    duration: json['duration'],
+    width: json['width'],
+    height: json['height'],
+    fileName: json['file_name'],
+    mimeType: json['mime_type'],
+    hasStickers: json['has_stickers'],
+    supportsStreaming: json['supports_streaming'],
+    minithumbnail: json['minithumbnail'] == null
+        ? null
+        : Minithumbnail.fromJson(json['minithumbnail']),
+    thumbnail: json['thumbnail'] == null
+        ? null
+        : Thumbnail.fromJson(json['thumbnail']),
+    video: File.fromJson(json['video']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -117,7 +117,7 @@ final class Video extends TdObject {
   /// * [file_name]: Original name of the file; as defined by the sender
   /// * [mime_type]: MIME type of the file; as defined by the sender
   /// * [has_stickers]: True, if stickers were added to the video. The list of corresponding sticker sets can be received using getAttachedStickerSets
-  /// * [supports_streaming]: True, if the video is supposed to be streamed
+  /// * [supports_streaming]: True, if the video is expected to be streamed
   /// * [minithumbnail]: Video minithumbnail; may be null
   /// * [thumbnail]: Video thumbnail in JPEG or MPEG4 format; as defined by the sender; may be null
   /// * [video]: File containing the video
@@ -132,19 +132,18 @@ final class Video extends TdObject {
     Minithumbnail? minithumbnail,
     Thumbnail? thumbnail,
     File? video,
-  }) =>
-      Video(
-        duration: duration ?? this.duration,
-        width: width ?? this.width,
-        height: height ?? this.height,
-        fileName: fileName ?? this.fileName,
-        mimeType: mimeType ?? this.mimeType,
-        hasStickers: hasStickers ?? this.hasStickers,
-        supportsStreaming: supportsStreaming ?? this.supportsStreaming,
-        minithumbnail: minithumbnail ?? this.minithumbnail,
-        thumbnail: thumbnail ?? this.thumbnail,
-        video: video ?? this.video,
-      );
+  }) => Video(
+    duration: duration ?? this.duration,
+    width: width ?? this.width,
+    height: height ?? this.height,
+    fileName: fileName ?? this.fileName,
+    mimeType: mimeType ?? this.mimeType,
+    hasStickers: hasStickers ?? this.hasStickers,
+    supportsStreaming: supportsStreaming ?? this.supportsStreaming,
+    minithumbnail: minithumbnail ?? this.minithumbnail,
+    thumbnail: thumbnail ?? this.thumbnail,
+    video: video ?? this.video,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'video';

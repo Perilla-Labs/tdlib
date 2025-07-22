@@ -15,9 +15,7 @@ final class SetBusinessStartPage extends TdFunction {
   /// * [startPage]: The new start page of the business; pass null to remove custom start page *(optional)*.
   ///
   /// [Ok] is returned on completion.
-  const SetBusinessStartPage({
-    this.startPage,
-  });
+  const SetBusinessStartPage({this.startPage});
 
   /// The new start page of the business; pass null to remove custom start page
   final InputBusinessStartPage? startPage;
@@ -36,12 +34,8 @@ final class SetBusinessStartPage extends TdFunction {
   ///
   /// Properties:
   /// * [start_page]: The new start page of the business; pass null to remove custom start page
-  SetBusinessStartPage copyWith({
-    InputBusinessStartPage? startPage,
-  }) =>
-      SetBusinessStartPage(
-        startPage: startPage ?? this.startPage,
-      );
+  SetBusinessStartPage copyWith({InputBusinessStartPage? startPage}) =>
+      SetBusinessStartPage(startPage: startPage ?? this.startPage);
 
   /// TDLib object type
   static const String defaultObjectId = 'setBusinessStartPage';

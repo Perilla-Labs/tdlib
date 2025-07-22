@@ -56,12 +56,11 @@ final class GetTrendingStickerSets extends TdFunction {
     StickerType? stickerType,
     int? offset,
     int? limit,
-  }) =>
-      GetTrendingStickerSets(
-        stickerType: stickerType ?? this.stickerType,
-        offset: offset ?? this.offset,
-        limit: limit ?? this.limit,
-      );
+  }) => GetTrendingStickerSets(
+    stickerType: stickerType ?? this.stickerType,
+    offset: offset ?? this.offset,
+    limit: limit ?? this.limit,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getTrendingStickerSets';

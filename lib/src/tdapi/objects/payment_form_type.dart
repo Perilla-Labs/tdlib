@@ -12,12 +12,15 @@ sealed class PaymentFormType extends TdObject {
   /// a PaymentFormType return type can be :
   /// * [PaymentFormTypeRegular]
   /// * [PaymentFormTypeStars]
+  /// * [PaymentFormTypeStarSubscription]
   factory PaymentFormType.fromJson(Map<String, dynamic> json) {
     switch (json["@type"]) {
       case PaymentFormTypeRegular.defaultObjectId:
         return PaymentFormTypeRegular.fromJson(json);
       case PaymentFormTypeStars.defaultObjectId:
         return PaymentFormTypeStars.fromJson(json);
+      case PaymentFormTypeStarSubscription.defaultObjectId:
+        return PaymentFormTypeStarSubscription.fromJson(json);
       default:
         throw FormatException(
           "Unknown object ${json["@type"]} (expected child of PaymentFormType)",
@@ -112,16 +115,18 @@ final class PaymentFormTypeRegular extends PaymentFormType {
         paymentProviderUserId: json['payment_provider_user_id'],
         paymentProvider: PaymentProvider.fromJson(json['payment_provider']),
         additionalPaymentOptions: List<PaymentOption>.from(
-            (json['additional_payment_options'] ?? [])
-                .map((item) => PaymentOption.fromJson(item))
-                .toList()),
+          (json['additional_payment_options'] ?? [])
+              .map((item) => PaymentOption.fromJson(item))
+              .toList(),
+        ),
         savedOrderInfo: json['saved_order_info'] == null
             ? null
             : OrderInfo.fromJson(json['saved_order_info']),
         savedCredentials: List<SavedCredentials>.from(
-            (json['saved_credentials'] ?? [])
-                .map((item) => SavedCredentials.fromJson(item))
-                .toList()),
+          (json['saved_credentials'] ?? [])
+              .map((item) => SavedCredentials.fromJson(item))
+              .toList(),
+        ),
         canSaveCredentials: json['can_save_credentials'],
         needPassword: json['need_password'],
       );
@@ -134,8 +139,9 @@ final class PaymentFormTypeRegular extends PaymentFormType {
       "invoice": invoice.toJson(),
       "payment_provider_user_id": paymentProviderUserId,
       "payment_provider": paymentProvider.toJson(),
-      "additional_payment_options":
-          additionalPaymentOptions.map((i) => i.toJson()).toList(),
+      "additional_payment_options": additionalPaymentOptions
+          .map((i) => i.toJson())
+          .toList(),
       "saved_order_info": savedOrderInfo?.toJson(),
       "saved_credentials": savedCredentials.map((i) => i.toJson()).toList(),
       "can_save_credentials": canSaveCredentials,
@@ -164,19 +170,17 @@ final class PaymentFormTypeRegular extends PaymentFormType {
     List<SavedCredentials>? savedCredentials,
     bool? canSaveCredentials,
     bool? needPassword,
-  }) =>
-      PaymentFormTypeRegular(
-        invoice: invoice ?? this.invoice,
-        paymentProviderUserId:
-            paymentProviderUserId ?? this.paymentProviderUserId,
-        paymentProvider: paymentProvider ?? this.paymentProvider,
-        additionalPaymentOptions:
-            additionalPaymentOptions ?? this.additionalPaymentOptions,
-        savedOrderInfo: savedOrderInfo ?? this.savedOrderInfo,
-        savedCredentials: savedCredentials ?? this.savedCredentials,
-        canSaveCredentials: canSaveCredentials ?? this.canSaveCredentials,
-        needPassword: needPassword ?? this.needPassword,
-      );
+  }) => PaymentFormTypeRegular(
+    invoice: invoice ?? this.invoice,
+    paymentProviderUserId: paymentProviderUserId ?? this.paymentProviderUserId,
+    paymentProvider: paymentProvider ?? this.paymentProvider,
+    additionalPaymentOptions:
+        additionalPaymentOptions ?? this.additionalPaymentOptions,
+    savedOrderInfo: savedOrderInfo ?? this.savedOrderInfo,
+    savedCredentials: savedCredentials ?? this.savedCredentials,
+    canSaveCredentials: canSaveCredentials ?? this.canSaveCredentials,
+    needPassword: needPassword ?? this.needPassword,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'paymentFormTypeRegular';
@@ -201,26 +205,19 @@ final class PaymentFormTypeStars extends PaymentFormType {
   /// The payment form is for a payment in Telegram Stars.
   ///
   /// * [starCount]: Number of Telegram Stars that will be paid.
-  const PaymentFormTypeStars({
-    required this.starCount,
-  });
+  const PaymentFormTypeStars({required this.starCount});
 
   /// Number of Telegram Stars that will be paid
   final int starCount;
 
   /// Parse from a json
   factory PaymentFormTypeStars.fromJson(Map<String, dynamic> json) =>
-      PaymentFormTypeStars(
-        starCount: json['star_count'],
-      );
+      PaymentFormTypeStars(starCount: json['star_count']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "star_count": starCount,
-    };
+    return {"@type": defaultObjectId, "star_count": starCount};
   }
 
   /// Copy model with modified properties.
@@ -228,15 +225,60 @@ final class PaymentFormTypeStars extends PaymentFormType {
   /// Properties:
   /// * [star_count]: Number of Telegram Stars that will be paid
   @override
-  PaymentFormTypeStars copyWith({
-    int? starCount,
-  }) =>
-      PaymentFormTypeStars(
-        starCount: starCount ?? this.starCount,
-      );
+  PaymentFormTypeStars copyWith({int? starCount}) =>
+      PaymentFormTypeStars(starCount: starCount ?? this.starCount);
 
   /// TDLib object type
   static const String defaultObjectId = 'paymentFormTypeStars';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **PaymentFormTypeStarSubscription** *(paymentFormTypeStarSubscription)* - child of PaymentFormType
+///
+/// The payment form is for a payment in Telegram Stars for subscription.
+///
+/// * [pricing]: Information about subscription plan.
+final class PaymentFormTypeStarSubscription extends PaymentFormType {
+  /// **PaymentFormTypeStarSubscription** *(paymentFormTypeStarSubscription)* - child of PaymentFormType
+  ///
+  /// The payment form is for a payment in Telegram Stars for subscription.
+  ///
+  /// * [pricing]: Information about subscription plan.
+  const PaymentFormTypeStarSubscription({required this.pricing});
+
+  /// Information about subscription plan
+  final StarSubscriptionPricing pricing;
+
+  /// Parse from a json
+  factory PaymentFormTypeStarSubscription.fromJson(Map<String, dynamic> json) =>
+      PaymentFormTypeStarSubscription(
+        pricing: StarSubscriptionPricing.fromJson(json['pricing']),
+      );
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {"@type": defaultObjectId, "pricing": pricing.toJson()};
+  }
+
+  /// Copy model with modified properties.
+  ///
+  /// Properties:
+  /// * [pricing]: Information about subscription plan
+  @override
+  PaymentFormTypeStarSubscription copyWith({
+    StarSubscriptionPricing? pricing,
+  }) => PaymentFormTypeStarSubscription(pricing: pricing ?? this.pricing);
+
+  /// TDLib object type
+  static const String defaultObjectId = 'paymentFormTypeStarSubscription';
 
   /// Convert model to TDLib JSON format, encoded into String.
   @override

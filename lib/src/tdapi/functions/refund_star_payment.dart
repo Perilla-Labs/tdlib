@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **RefundStarPayment** *(refundStarPayment)* - TDLib function
 ///
-/// Refunds a previously done payment in Telegram Stars.
+/// Refunds a previously done payment in Telegram Stars; for bots only.
 ///
 /// * [userId]: Identifier of the user that did the payment.
 /// * [telegramPaymentChargeId]: Telegram payment identifier.
@@ -11,7 +11,7 @@ part of '../tdapi.dart';
 final class RefundStarPayment extends TdFunction {
   /// **RefundStarPayment** *(refundStarPayment)* - TDLib function
   ///
-  /// Refunds a previously done payment in Telegram Stars.
+  /// Refunds a previously done payment in Telegram Stars; for bots only.
   ///
   /// * [userId]: Identifier of the user that did the payment.
   /// * [telegramPaymentChargeId]: Telegram payment identifier.
@@ -44,10 +44,7 @@ final class RefundStarPayment extends TdFunction {
   /// Properties:
   /// * [user_id]: Identifier of the user that did the payment
   /// * [telegram_payment_charge_id]: Telegram payment identifier
-  RefundStarPayment copyWith({
-    int? userId,
-    String? telegramPaymentChargeId,
-  }) =>
+  RefundStarPayment copyWith({int? userId, String? telegramPaymentChargeId}) =>
       RefundStarPayment(
         userId: userId ?? this.userId,
         telegramPaymentChargeId:

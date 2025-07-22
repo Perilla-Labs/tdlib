@@ -42,14 +42,14 @@ final class FoundMessages extends TdObject {
 
   /// Parse from a json
   factory FoundMessages.fromJson(Map<String, dynamic> json) => FoundMessages(
-        totalCount: json['total_count'],
-        messages: List<Message>.from((json['messages'] ?? [])
-            .map((item) => Message.fromJson(item))
-            .toList()),
-        nextOffset: json['next_offset'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    totalCount: json['total_count'],
+    messages: List<Message>.from(
+      (json['messages'] ?? []).map((item) => Message.fromJson(item)).toList(),
+    ),
+    nextOffset: json['next_offset'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -74,14 +74,13 @@ final class FoundMessages extends TdObject {
     String? nextOffset,
     dynamic extra,
     int? clientId,
-  }) =>
-      FoundMessages(
-        totalCount: totalCount ?? this.totalCount,
-        messages: messages ?? this.messages,
-        nextOffset: nextOffset ?? this.nextOffset,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => FoundMessages(
+    totalCount: totalCount ?? this.totalCount,
+    messages: messages ?? this.messages,
+    nextOffset: nextOffset ?? this.nextOffset,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'foundMessages';

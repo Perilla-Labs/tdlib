@@ -56,12 +56,11 @@ final class ToggleSupergroupSignMessages extends TdFunction {
     int? supergroupId,
     bool? signMessages,
     bool? showMessageSender,
-  }) =>
-      ToggleSupergroupSignMessages(
-        supergroupId: supergroupId ?? this.supergroupId,
-        signMessages: signMessages ?? this.signMessages,
-        showMessageSender: showMessageSender ?? this.showMessageSender,
-      );
+  }) => ToggleSupergroupSignMessages(
+    supergroupId: supergroupId ?? this.supergroupId,
+    signMessages: signMessages ?? this.signMessages,
+    showMessageSender: showMessageSender ?? this.showMessageSender,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'toggleSupergroupSignMessages';

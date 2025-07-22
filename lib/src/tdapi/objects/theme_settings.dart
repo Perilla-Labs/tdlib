@@ -44,15 +44,14 @@ final class ThemeSettings extends TdObject {
 
   /// Parse from a json
   factory ThemeSettings.fromJson(Map<String, dynamic> json) => ThemeSettings(
-        accentColor: json['accent_color'],
-        background: json['background'] == null
-            ? null
-            : Background.fromJson(json['background']),
-        outgoingMessageFill:
-            BackgroundFill.fromJson(json['outgoing_message_fill']),
-        animateOutgoingMessageFill: json['animate_outgoing_message_fill'],
-        outgoingMessageAccentColor: json['outgoing_message_accent_color'],
-      );
+    accentColor: json['accent_color'],
+    background: json['background'] == null
+        ? null
+        : Background.fromJson(json['background']),
+    outgoingMessageFill: BackgroundFill.fromJson(json['outgoing_message_fill']),
+    animateOutgoingMessageFill: json['animate_outgoing_message_fill'],
+    outgoingMessageAccentColor: json['outgoing_message_accent_color'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -81,16 +80,15 @@ final class ThemeSettings extends TdObject {
     BackgroundFill? outgoingMessageFill,
     bool? animateOutgoingMessageFill,
     int? outgoingMessageAccentColor,
-  }) =>
-      ThemeSettings(
-        accentColor: accentColor ?? this.accentColor,
-        background: background ?? this.background,
-        outgoingMessageFill: outgoingMessageFill ?? this.outgoingMessageFill,
-        animateOutgoingMessageFill:
-            animateOutgoingMessageFill ?? this.animateOutgoingMessageFill,
-        outgoingMessageAccentColor:
-            outgoingMessageAccentColor ?? this.outgoingMessageAccentColor,
-      );
+  }) => ThemeSettings(
+    accentColor: accentColor ?? this.accentColor,
+    background: background ?? this.background,
+    outgoingMessageFill: outgoingMessageFill ?? this.outgoingMessageFill,
+    animateOutgoingMessageFill:
+        animateOutgoingMessageFill ?? this.animateOutgoingMessageFill,
+    outgoingMessageAccentColor:
+        outgoingMessageAccentColor ?? this.outgoingMessageAccentColor,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'themeSettings';

@@ -56,12 +56,11 @@ final class SetDefaultBackground extends TdFunction {
     InputBackground? background,
     BackgroundType? type,
     bool? forDarkTheme,
-  }) =>
-      SetDefaultBackground(
-        background: background ?? this.background,
-        type: type ?? this.type,
-        forDarkTheme: forDarkTheme ?? this.forDarkTheme,
-      );
+  }) => SetDefaultBackground(
+    background: background ?? this.background,
+    type: type ?? this.type,
+    forDarkTheme: forDarkTheme ?? this.forDarkTheme,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setDefaultBackground';

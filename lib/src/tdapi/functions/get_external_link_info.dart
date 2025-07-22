@@ -15,9 +15,7 @@ final class GetExternalLinkInfo extends TdFunction {
   /// * [link]: The link.
   ///
   /// [LoginUrlInfo] is returned on completion.
-  const GetExternalLinkInfo({
-    required this.link,
-  });
+  const GetExternalLinkInfo({required this.link});
 
   /// The link
   final String link;
@@ -25,23 +23,15 @@ final class GetExternalLinkInfo extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "link": link,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "link": link, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [link]: The link
-  GetExternalLinkInfo copyWith({
-    String? link,
-  }) =>
-      GetExternalLinkInfo(
-        link: link ?? this.link,
-      );
+  GetExternalLinkInfo copyWith({String? link}) =>
+      GetExternalLinkInfo(link: link ?? this.link);
 
   /// TDLib object type
   static const String defaultObjectId = 'getExternalLinkInfo';

@@ -8,7 +8,7 @@ part of '../tdapi.dart';
 /// * [title]: Title of the sticker set.
 /// * [name]: Name of the sticker set.
 /// * [thumbnail]: Sticker set thumbnail in WEBP, TGS, or WEBM format with width and height 100; may be null. The file can be downloaded only before the thumbnail is changed *(optional)*.
-/// * [thumbnailOutline]: Sticker set thumbnail's outline represented as a list of closed vector paths; may be empty. The coordinate system origin is in the upper-left corner.
+/// * [thumbnailOutline]: Sticker set thumbnail's outline; may be null if unknown *(optional)*.
 /// * [isOwned]: True, if the sticker set is owned by the current user.
 /// * [isInstalled]: True, if the sticker set has been installed by the current user.
 /// * [isArchived]: True, if the sticker set has been archived. A sticker set can't be installed and archived simultaneously.
@@ -28,7 +28,7 @@ final class StickerSet extends TdObject {
   /// * [title]: Title of the sticker set.
   /// * [name]: Name of the sticker set.
   /// * [thumbnail]: Sticker set thumbnail in WEBP, TGS, or WEBM format with width and height 100; may be null. The file can be downloaded only before the thumbnail is changed *(optional)*.
-  /// * [thumbnailOutline]: Sticker set thumbnail's outline represented as a list of closed vector paths; may be empty. The coordinate system origin is in the upper-left corner.
+  /// * [thumbnailOutline]: Sticker set thumbnail's outline; may be null if unknown *(optional)*.
   /// * [isOwned]: True, if the sticker set is owned by the current user.
   /// * [isInstalled]: True, if the sticker set has been installed by the current user.
   /// * [isArchived]: True, if the sticker set has been archived. A sticker set can't be installed and archived simultaneously.
@@ -44,7 +44,7 @@ final class StickerSet extends TdObject {
     required this.title,
     required this.name,
     this.thumbnail,
-    required this.thumbnailOutline,
+    this.thumbnailOutline,
     required this.isOwned,
     required this.isInstalled,
     required this.isArchived,
@@ -71,8 +71,8 @@ final class StickerSet extends TdObject {
   /// Sticker set thumbnail in WEBP, TGS, or WEBM format with width and height 100; may be null. The file can be downloaded only before the thumbnail is changed
   final Thumbnail? thumbnail;
 
-  /// Sticker set thumbnail's outline represented as a list of closed vector paths; may be empty. The coordinate system origin is in the upper-left corner
-  final List<ClosedVectorPath> thumbnailOutline;
+  /// Sticker set thumbnail's outline; may be null if unknown
+  final Outline? thumbnailOutline;
 
   /// True, if the sticker set is owned by the current user
   final bool isOwned;
@@ -114,33 +114,32 @@ final class StickerSet extends TdObject {
 
   /// Parse from a json
   factory StickerSet.fromJson(Map<String, dynamic> json) => StickerSet(
-        id: json['id'] is int ? json['id'] : int.parse(json['id']),
-        title: json['title'],
-        name: json['name'],
-        thumbnail: json['thumbnail'] == null
-            ? null
-            : Thumbnail.fromJson(json['thumbnail']),
-        thumbnailOutline: List<ClosedVectorPath>.from(
-            (json['thumbnail_outline'] ?? [])
-                .map((item) => ClosedVectorPath.fromJson(item))
-                .toList()),
-        isOwned: json['is_owned'],
-        isInstalled: json['is_installed'],
-        isArchived: json['is_archived'],
-        isOfficial: json['is_official'],
-        stickerType: StickerType.fromJson(json['sticker_type']),
-        needsRepainting: json['needs_repainting'],
-        isAllowedAsChatEmojiStatus: json['is_allowed_as_chat_emoji_status'],
-        isViewed: json['is_viewed'],
-        stickers: List<Sticker>.from((json['stickers'] ?? [])
-            .map((item) => Sticker.fromJson(item))
-            .toList()),
-        emojis: List<Emojis>.from((json['emojis'] ?? [])
-            .map((item) => Emojis.fromJson(item))
-            .toList()),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    id: json['id'] is int ? json['id'] : int.parse(json['id']),
+    title: json['title'],
+    name: json['name'],
+    thumbnail: json['thumbnail'] == null
+        ? null
+        : Thumbnail.fromJson(json['thumbnail']),
+    thumbnailOutline: json['thumbnail_outline'] == null
+        ? null
+        : Outline.fromJson(json['thumbnail_outline']),
+    isOwned: json['is_owned'],
+    isInstalled: json['is_installed'],
+    isArchived: json['is_archived'],
+    isOfficial: json['is_official'],
+    stickerType: StickerType.fromJson(json['sticker_type']),
+    needsRepainting: json['needs_repainting'],
+    isAllowedAsChatEmojiStatus: json['is_allowed_as_chat_emoji_status'],
+    isViewed: json['is_viewed'],
+    stickers: List<Sticker>.from(
+      (json['stickers'] ?? []).map((item) => Sticker.fromJson(item)).toList(),
+    ),
+    emojis: List<Emojis>.from(
+      (json['emojis'] ?? []).map((item) => Emojis.fromJson(item)).toList(),
+    ),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -151,7 +150,7 @@ final class StickerSet extends TdObject {
       "title": title,
       "name": name,
       "thumbnail": thumbnail?.toJson(),
-      "thumbnail_outline": thumbnailOutline.map((i) => i.toJson()).toList(),
+      "thumbnail_outline": thumbnailOutline?.toJson(),
       "is_owned": isOwned,
       "is_installed": isInstalled,
       "is_archived": isArchived,
@@ -172,7 +171,7 @@ final class StickerSet extends TdObject {
   /// * [title]: Title of the sticker set
   /// * [name]: Name of the sticker set
   /// * [thumbnail]: Sticker set thumbnail in WEBP, TGS, or WEBM format with width and height 100; may be null. The file can be downloaded only before the thumbnail is changed
-  /// * [thumbnail_outline]: Sticker set thumbnail's outline represented as a list of closed vector paths; may be empty. The coordinate system origin is in the upper-left corner
+  /// * [thumbnail_outline]: Sticker set thumbnail's outline; may be null if unknown
   /// * [is_owned]: True, if the sticker set is owned by the current user
   /// * [is_installed]: True, if the sticker set has been installed by the current user
   /// * [is_archived]: True, if the sticker set has been archived. A sticker set can't be installed and archived simultaneously
@@ -188,7 +187,7 @@ final class StickerSet extends TdObject {
     String? title,
     String? name,
     Thumbnail? thumbnail,
-    List<ClosedVectorPath>? thumbnailOutline,
+    Outline? thumbnailOutline,
     bool? isOwned,
     bool? isInstalled,
     bool? isArchived,
@@ -201,27 +200,26 @@ final class StickerSet extends TdObject {
     List<Emojis>? emojis,
     dynamic extra,
     int? clientId,
-  }) =>
-      StickerSet(
-        id: id ?? this.id,
-        title: title ?? this.title,
-        name: name ?? this.name,
-        thumbnail: thumbnail ?? this.thumbnail,
-        thumbnailOutline: thumbnailOutline ?? this.thumbnailOutline,
-        isOwned: isOwned ?? this.isOwned,
-        isInstalled: isInstalled ?? this.isInstalled,
-        isArchived: isArchived ?? this.isArchived,
-        isOfficial: isOfficial ?? this.isOfficial,
-        stickerType: stickerType ?? this.stickerType,
-        needsRepainting: needsRepainting ?? this.needsRepainting,
-        isAllowedAsChatEmojiStatus:
-            isAllowedAsChatEmojiStatus ?? this.isAllowedAsChatEmojiStatus,
-        isViewed: isViewed ?? this.isViewed,
-        stickers: stickers ?? this.stickers,
-        emojis: emojis ?? this.emojis,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => StickerSet(
+    id: id ?? this.id,
+    title: title ?? this.title,
+    name: name ?? this.name,
+    thumbnail: thumbnail ?? this.thumbnail,
+    thumbnailOutline: thumbnailOutline ?? this.thumbnailOutline,
+    isOwned: isOwned ?? this.isOwned,
+    isInstalled: isInstalled ?? this.isInstalled,
+    isArchived: isArchived ?? this.isArchived,
+    isOfficial: isOfficial ?? this.isOfficial,
+    stickerType: stickerType ?? this.stickerType,
+    needsRepainting: needsRepainting ?? this.needsRepainting,
+    isAllowedAsChatEmojiStatus:
+        isAllowedAsChatEmojiStatus ?? this.isAllowedAsChatEmojiStatus,
+    isViewed: isViewed ?? this.isViewed,
+    stickers: stickers ?? this.stickers,
+    emojis: emojis ?? this.emojis,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'stickerSet';

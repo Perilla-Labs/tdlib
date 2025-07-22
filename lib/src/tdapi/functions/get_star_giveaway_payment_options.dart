@@ -16,10 +16,7 @@ final class GetStarGiveawayPaymentOptions extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "@extra": extra};
   }
 
   /// Copy instance with no modifications.

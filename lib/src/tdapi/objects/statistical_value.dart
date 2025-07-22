@@ -59,12 +59,11 @@ final class StatisticalValue extends TdObject {
     double? value,
     double? previousValue,
     double? growthRatePercentage,
-  }) =>
-      StatisticalValue(
-        value: value ?? this.value,
-        previousValue: previousValue ?? this.previousValue,
-        growthRatePercentage: growthRatePercentage ?? this.growthRatePercentage,
-      );
+  }) => StatisticalValue(
+    value: value ?? this.value,
+    previousValue: previousValue ?? this.previousValue,
+    growthRatePercentage: growthRatePercentage ?? this.growthRatePercentage,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'statisticalValue';

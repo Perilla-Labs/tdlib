@@ -44,14 +44,16 @@ final class AccentColor extends TdObject {
 
   /// Parse from a json
   factory AccentColor.fromJson(Map<String, dynamic> json) => AccentColor(
-        id: json['id'],
-        builtInAccentColorId: json['built_in_accent_color_id'],
-        lightThemeColors: List<int>.from(
-            (json['light_theme_colors'] ?? []).map((item) => item).toList()),
-        darkThemeColors: List<int>.from(
-            (json['dark_theme_colors'] ?? []).map((item) => item).toList()),
-        minChannelChatBoostLevel: json['min_channel_chat_boost_level'],
-      );
+    id: json['id'],
+    builtInAccentColorId: json['built_in_accent_color_id'],
+    lightThemeColors: List<int>.from(
+      (json['light_theme_colors'] ?? []).map((item) => item).toList(),
+    ),
+    darkThemeColors: List<int>.from(
+      (json['dark_theme_colors'] ?? []).map((item) => item).toList(),
+    ),
+    minChannelChatBoostLevel: json['min_channel_chat_boost_level'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -80,15 +82,14 @@ final class AccentColor extends TdObject {
     List<int>? lightThemeColors,
     List<int>? darkThemeColors,
     int? minChannelChatBoostLevel,
-  }) =>
-      AccentColor(
-        id: id ?? this.id,
-        builtInAccentColorId: builtInAccentColorId ?? this.builtInAccentColorId,
-        lightThemeColors: lightThemeColors ?? this.lightThemeColors,
-        darkThemeColors: darkThemeColors ?? this.darkThemeColors,
-        minChannelChatBoostLevel:
-            minChannelChatBoostLevel ?? this.minChannelChatBoostLevel,
-      );
+  }) => AccentColor(
+    id: id ?? this.id,
+    builtInAccentColorId: builtInAccentColorId ?? this.builtInAccentColorId,
+    lightThemeColors: lightThemeColors ?? this.lightThemeColors,
+    darkThemeColors: darkThemeColors ?? this.darkThemeColors,
+    minChannelChatBoostLevel:
+        minChannelChatBoostLevel ?? this.minChannelChatBoostLevel,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'accentColor';

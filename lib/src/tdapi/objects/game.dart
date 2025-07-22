@@ -56,16 +56,16 @@ final class Game extends TdObject {
 
   /// Parse from a json
   factory Game.fromJson(Map<String, dynamic> json) => Game(
-        id: json['id'] is int ? json['id'] : int.parse(json['id']),
-        shortName: json['short_name'],
-        title: json['title'],
-        text: FormattedText.fromJson(json['text']),
-        description: json['description'],
-        photo: Photo.fromJson(json['photo']),
-        animation: json['animation'] == null
-            ? null
-            : Animation.fromJson(json['animation']),
-      );
+    id: json['id'] is int ? json['id'] : int.parse(json['id']),
+    shortName: json['short_name'],
+    title: json['title'],
+    text: FormattedText.fromJson(json['text']),
+    description: json['description'],
+    photo: Photo.fromJson(json['photo']),
+    animation: json['animation'] == null
+        ? null
+        : Animation.fromJson(json['animation']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -100,16 +100,15 @@ final class Game extends TdObject {
     String? description,
     Photo? photo,
     Animation? animation,
-  }) =>
-      Game(
-        id: id ?? this.id,
-        shortName: shortName ?? this.shortName,
-        title: title ?? this.title,
-        text: text ?? this.text,
-        description: description ?? this.description,
-        photo: photo ?? this.photo,
-        animation: animation ?? this.animation,
-      );
+  }) => Game(
+    id: id ?? this.id,
+    shortName: shortName ?? this.shortName,
+    title: title ?? this.title,
+    text: text ?? this.text,
+    description: description ?? this.description,
+    photo: photo ?? this.photo,
+    animation: animation ?? this.animation,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'game';

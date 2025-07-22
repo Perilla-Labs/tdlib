@@ -58,9 +58,11 @@ final class BusinessRecipients extends TdObject {
   factory BusinessRecipients.fromJson(Map<String, dynamic> json) =>
       BusinessRecipients(
         chatIds: List<int>.from(
-            (json['chat_ids'] ?? []).map((item) => item).toList()),
+          (json['chat_ids'] ?? []).map((item) => item).toList(),
+        ),
         excludedChatIds: List<int>.from(
-            (json['excluded_chat_ids'] ?? []).map((item) => item).toList()),
+          (json['excluded_chat_ids'] ?? []).map((item) => item).toList(),
+        ),
         selectExistingChats: json['select_existing_chats'],
         selectNewChats: json['select_new_chats'],
         selectContacts: json['select_contacts'],
@@ -101,16 +103,15 @@ final class BusinessRecipients extends TdObject {
     bool? selectContacts,
     bool? selectNonContacts,
     bool? excludeSelected,
-  }) =>
-      BusinessRecipients(
-        chatIds: chatIds ?? this.chatIds,
-        excludedChatIds: excludedChatIds ?? this.excludedChatIds,
-        selectExistingChats: selectExistingChats ?? this.selectExistingChats,
-        selectNewChats: selectNewChats ?? this.selectNewChats,
-        selectContacts: selectContacts ?? this.selectContacts,
-        selectNonContacts: selectNonContacts ?? this.selectNonContacts,
-        excludeSelected: excludeSelected ?? this.excludeSelected,
-      );
+  }) => BusinessRecipients(
+    chatIds: chatIds ?? this.chatIds,
+    excludedChatIds: excludedChatIds ?? this.excludedChatIds,
+    selectExistingChats: selectExistingChats ?? this.selectExistingChats,
+    selectNewChats: selectNewChats ?? this.selectNewChats,
+    selectContacts: selectContacts ?? this.selectContacts,
+    selectNonContacts: selectNonContacts ?? this.selectNonContacts,
+    excludeSelected: excludeSelected ?? this.excludeSelected,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'businessRecipients';

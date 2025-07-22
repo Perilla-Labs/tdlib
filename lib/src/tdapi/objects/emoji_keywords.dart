@@ -11,11 +11,7 @@ final class EmojiKeywords extends TdObject {
   /// Represents a list of emojis with their keywords.
   ///
   /// * [emojiKeywords]: List of emojis with their keywords.
-  const EmojiKeywords({
-    required this.emojiKeywords,
-    this.extra,
-    this.clientId,
-  });
+  const EmojiKeywords({required this.emojiKeywords, this.extra, this.clientId});
 
   /// List of emojis with their keywords
   final List<EmojiKeyword> emojiKeywords;
@@ -30,12 +26,14 @@ final class EmojiKeywords extends TdObject {
 
   /// Parse from a json
   factory EmojiKeywords.fromJson(Map<String, dynamic> json) => EmojiKeywords(
-        emojiKeywords: List<EmojiKeyword>.from((json['emoji_keywords'] ?? [])
-            .map((item) => EmojiKeyword.fromJson(item))
-            .toList()),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    emojiKeywords: List<EmojiKeyword>.from(
+      (json['emoji_keywords'] ?? [])
+          .map((item) => EmojiKeyword.fromJson(item))
+          .toList(),
+    ),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -54,12 +52,11 @@ final class EmojiKeywords extends TdObject {
     List<EmojiKeyword>? emojiKeywords,
     dynamic extra,
     int? clientId,
-  }) =>
-      EmojiKeywords(
-        emojiKeywords: emojiKeywords ?? this.emojiKeywords,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => EmojiKeywords(
+    emojiKeywords: emojiKeywords ?? this.emojiKeywords,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'emojiKeywords';

@@ -15,9 +15,7 @@ final class GetThemeParametersJsonString extends TdFunction {
   /// * [theme]: Theme parameters to convert to JSON.
   ///
   /// [Text] is returned on completion.
-  const GetThemeParametersJsonString({
-    required this.theme,
-  });
+  const GetThemeParametersJsonString({required this.theme});
 
   /// Theme parameters to convert to JSON
   final ThemeParameters theme;
@@ -25,23 +23,15 @@ final class GetThemeParametersJsonString extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "theme": theme.toJson(),
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "theme": theme.toJson(), "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [theme]: Theme parameters to convert to JSON
-  GetThemeParametersJsonString copyWith({
-    ThemeParameters? theme,
-  }) =>
-      GetThemeParametersJsonString(
-        theme: theme ?? this.theme,
-      );
+  GetThemeParametersJsonString copyWith({ThemeParameters? theme}) =>
+      GetThemeParametersJsonString(theme: theme ?? this.theme);
 
   /// TDLib object type
   static const String defaultObjectId = 'getThemeParametersJsonString';

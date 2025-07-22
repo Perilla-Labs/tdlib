@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **GetChatPinnedMessage** *(getChatPinnedMessage)* - TDLib function
 ///
-/// Returns information about a newest pinned message in the chat.
+/// Returns information about a newest pinned message in the chat. Returns a 404 error if the message doesn't exist.
 ///
 /// * [chatId]: Identifier of the chat the message belongs to.
 ///
@@ -10,14 +10,12 @@ part of '../tdapi.dart';
 final class GetChatPinnedMessage extends TdFunction {
   /// **GetChatPinnedMessage** *(getChatPinnedMessage)* - TDLib function
   ///
-  /// Returns information about a newest pinned message in the chat.
+  /// Returns information about a newest pinned message in the chat. Returns a 404 error if the message doesn't exist.
   ///
   /// * [chatId]: Identifier of the chat the message belongs to.
   ///
   /// [Message] is returned on completion.
-  const GetChatPinnedMessage({
-    required this.chatId,
-  });
+  const GetChatPinnedMessage({required this.chatId});
 
   /// Identifier of the chat the message belongs to
   final int chatId;
@@ -25,23 +23,15 @@ final class GetChatPinnedMessage extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "chat_id": chatId,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "chat_id": chatId, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [chat_id]: Identifier of the chat the message belongs to
-  GetChatPinnedMessage copyWith({
-    int? chatId,
-  }) =>
-      GetChatPinnedMessage(
-        chatId: chatId ?? this.chatId,
-      );
+  GetChatPinnedMessage copyWith({int? chatId}) =>
+      GetChatPinnedMessage(chatId: chatId ?? this.chatId);
 
   /// TDLib object type
   static const String defaultObjectId = 'getChatPinnedMessage';

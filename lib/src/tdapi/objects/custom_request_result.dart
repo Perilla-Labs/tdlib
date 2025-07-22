@@ -11,11 +11,7 @@ final class CustomRequestResult extends TdObject {
   /// Contains the result of a custom request.
   ///
   /// * [result]: A JSON-serialized result.
-  const CustomRequestResult({
-    required this.result,
-    this.extra,
-    this.clientId,
-  });
+  const CustomRequestResult({required this.result, this.extra, this.clientId});
 
   /// A JSON-serialized result
   final String result;
@@ -39,10 +35,7 @@ final class CustomRequestResult extends TdObject {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "result": result,
-    };
+    return {"@type": defaultObjectId, "result": result};
   }
 
   /// Copy model with modified properties.
@@ -53,12 +46,11 @@ final class CustomRequestResult extends TdObject {
     String? result,
     dynamic extra,
     int? clientId,
-  }) =>
-      CustomRequestResult(
-        result: result ?? this.result,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => CustomRequestResult(
+    result: result ?? this.result,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'customRequestResult';

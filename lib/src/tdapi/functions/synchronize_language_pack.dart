@@ -15,9 +15,7 @@ final class SynchronizeLanguagePack extends TdFunction {
   /// * [languagePackId]: Language pack identifier.
   ///
   /// [Ok] is returned on completion.
-  const SynchronizeLanguagePack({
-    required this.languagePackId,
-  });
+  const SynchronizeLanguagePack({required this.languagePackId});
 
   /// Language pack identifier
   final String languagePackId;
@@ -36,9 +34,7 @@ final class SynchronizeLanguagePack extends TdFunction {
   ///
   /// Properties:
   /// * [language_pack_id]: Language pack identifier
-  SynchronizeLanguagePack copyWith({
-    String? languagePackId,
-  }) =>
+  SynchronizeLanguagePack copyWith({String? languagePackId}) =>
       SynchronizeLanguagePack(
         languagePackId: languagePackId ?? this.languagePackId,
       );

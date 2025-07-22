@@ -2,23 +2,23 @@ part of '../tdapi.dart';
 
 /// **SetGroupCallParticipantIsSpeaking** *(setGroupCallParticipantIsSpeaking)* - TDLib function
 ///
-/// Informs TDLib that speaking state of a participant of an active group has changed.
+/// Informs TDLib that speaking state of a participant of an active group call has changed. Returns identifier of the participant if it is found.
 ///
 /// * [groupCallId]: Group call identifier.
 /// * [audioSource]: Group call participant's synchronization audio source identifier, or 0 for the current user.
 /// * [isSpeaking]: Pass true if the user is speaking.
 ///
-/// [Ok] is returned on completion.
+/// [MessageSender] is returned on completion.
 final class SetGroupCallParticipantIsSpeaking extends TdFunction {
   /// **SetGroupCallParticipantIsSpeaking** *(setGroupCallParticipantIsSpeaking)* - TDLib function
   ///
-  /// Informs TDLib that speaking state of a participant of an active group has changed.
+  /// Informs TDLib that speaking state of a participant of an active group call has changed. Returns identifier of the participant if it is found.
   ///
   /// * [groupCallId]: Group call identifier.
   /// * [audioSource]: Group call participant's synchronization audio source identifier, or 0 for the current user.
   /// * [isSpeaking]: Pass true if the user is speaking.
   ///
-  /// [Ok] is returned on completion.
+  /// [MessageSender] is returned on completion.
   const SetGroupCallParticipantIsSpeaking({
     required this.groupCallId,
     required this.audioSource,
@@ -56,12 +56,11 @@ final class SetGroupCallParticipantIsSpeaking extends TdFunction {
     int? groupCallId,
     int? audioSource,
     bool? isSpeaking,
-  }) =>
-      SetGroupCallParticipantIsSpeaking(
-        groupCallId: groupCallId ?? this.groupCallId,
-        audioSource: audioSource ?? this.audioSource,
-        isSpeaking: isSpeaking ?? this.isSpeaking,
-      );
+  }) => SetGroupCallParticipantIsSpeaking(
+    groupCallId: groupCallId ?? this.groupCallId,
+    audioSource: audioSource ?? this.audioSource,
+    isSpeaking: isSpeaking ?? this.isSpeaking,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setGroupCallParticipantIsSpeaking';

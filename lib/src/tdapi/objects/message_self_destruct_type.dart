@@ -56,9 +56,7 @@ final class MessageSelfDestructTypeTimer extends MessageSelfDestructType {
   /// The message will be self-destructed in the specified time after its content was opened.
   ///
   /// * [selfDestructTime]: The message's self-destruct time, in seconds; must be between 0 and 60 in private chats.
-  const MessageSelfDestructTypeTimer({
-    required this.selfDestructTime,
-  });
+  const MessageSelfDestructTypeTimer({required this.selfDestructTime});
 
   /// The message's self-destruct time, in seconds; must be between 0 and 60 in private chats
   final int selfDestructTime;
@@ -72,10 +70,7 @@ final class MessageSelfDestructTypeTimer extends MessageSelfDestructType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "self_destruct_time": selfDestructTime,
-    };
+    return {"@type": defaultObjectId, "self_destruct_time": selfDestructTime};
   }
 
   /// Copy model with modified properties.
@@ -83,9 +78,7 @@ final class MessageSelfDestructTypeTimer extends MessageSelfDestructType {
   /// Properties:
   /// * [self_destruct_time]: The message's self-destruct time, in seconds; must be between 0 and 60 in private chats
   @override
-  MessageSelfDestructTypeTimer copyWith({
-    int? selfDestructTime,
-  }) =>
+  MessageSelfDestructTypeTimer copyWith({int? selfDestructTime}) =>
       MessageSelfDestructTypeTimer(
         selfDestructTime: selfDestructTime ?? this.selfDestructTime,
       );
@@ -113,15 +106,13 @@ final class MessageSelfDestructTypeImmediately extends MessageSelfDestructType {
 
   /// Parse from a json
   factory MessageSelfDestructTypeImmediately.fromJson(
-          Map<String, dynamic> json) =>
-      const MessageSelfDestructTypeImmediately();
+    Map<String, dynamic> json,
+  ) => const MessageSelfDestructTypeImmediately();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.

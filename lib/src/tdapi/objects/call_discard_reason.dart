@@ -15,6 +15,7 @@ sealed class CallDiscardReason extends TdObject {
   /// * [CallDiscardReasonDeclined]
   /// * [CallDiscardReasonDisconnected]
   /// * [CallDiscardReasonHungUp]
+  /// * [CallDiscardReasonUpgradeToGroupCall]
   factory CallDiscardReason.fromJson(Map<String, dynamic> json) {
     switch (json["@type"]) {
       case CallDiscardReasonEmpty.defaultObjectId:
@@ -27,6 +28,8 @@ sealed class CallDiscardReason extends TdObject {
         return CallDiscardReasonDisconnected.fromJson(json);
       case CallDiscardReasonHungUp.defaultObjectId:
         return CallDiscardReasonHungUp.fromJson(json);
+      case CallDiscardReasonUpgradeToGroupCall.defaultObjectId:
+        return CallDiscardReasonUpgradeToGroupCall.fromJson(json);
       default:
         throw FormatException(
           "Unknown object ${json["@type"]} (expected child of CallDiscardReason)",
@@ -70,9 +73,7 @@ final class CallDiscardReasonEmpty extends CallDiscardReason {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -107,9 +108,7 @@ final class CallDiscardReasonMissed extends CallDiscardReason {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -144,9 +143,7 @@ final class CallDiscardReasonDeclined extends CallDiscardReason {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -181,9 +178,7 @@ final class CallDiscardReasonDisconnected extends CallDiscardReason {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -219,9 +214,7 @@ final class CallDiscardReasonHungUp extends CallDiscardReason {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -230,6 +223,55 @@ final class CallDiscardReasonHungUp extends CallDiscardReason {
 
   /// TDLib object type
   static const String defaultObjectId = 'callDiscardReasonHungUp';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **CallDiscardReasonUpgradeToGroupCall** *(callDiscardReasonUpgradeToGroupCall)* - child of CallDiscardReason
+///
+/// The call was ended because it has been upgraded to a group call.
+///
+/// * [inviteLink]: Invite link for the group call.
+final class CallDiscardReasonUpgradeToGroupCall extends CallDiscardReason {
+  /// **CallDiscardReasonUpgradeToGroupCall** *(callDiscardReasonUpgradeToGroupCall)* - child of CallDiscardReason
+  ///
+  /// The call was ended because it has been upgraded to a group call.
+  ///
+  /// * [inviteLink]: Invite link for the group call.
+  const CallDiscardReasonUpgradeToGroupCall({required this.inviteLink});
+
+  /// Invite link for the group call
+  final String inviteLink;
+
+  /// Parse from a json
+  factory CallDiscardReasonUpgradeToGroupCall.fromJson(
+    Map<String, dynamic> json,
+  ) => CallDiscardReasonUpgradeToGroupCall(inviteLink: json['invite_link']);
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {"@type": defaultObjectId, "invite_link": inviteLink};
+  }
+
+  /// Copy model with modified properties.
+  ///
+  /// Properties:
+  /// * [invite_link]: Invite link for the group call
+  @override
+  CallDiscardReasonUpgradeToGroupCall copyWith({String? inviteLink}) =>
+      CallDiscardReasonUpgradeToGroupCall(
+        inviteLink: inviteLink ?? this.inviteLink,
+      );
+
+  /// TDLib object type
+  static const String defaultObjectId = 'callDiscardReasonUpgradeToGroupCall';
 
   /// Convert model to TDLib JSON format, encoded into String.
   @override

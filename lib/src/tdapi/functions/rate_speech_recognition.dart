@@ -52,11 +52,7 @@ final class RateSpeechRecognition extends TdFunction {
   /// * [chat_id]: Identifier of the chat to which the message belongs
   /// * [message_id]: Identifier of the message
   /// * [is_good]: Pass true if the speech recognition is good
-  RateSpeechRecognition copyWith({
-    int? chatId,
-    int? messageId,
-    bool? isGood,
-  }) =>
+  RateSpeechRecognition copyWith({int? chatId, int? messageId, bool? isGood}) =>
       RateSpeechRecognition(
         chatId: chatId ?? this.chatId,
         messageId: messageId ?? this.messageId,

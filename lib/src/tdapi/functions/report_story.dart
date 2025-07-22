@@ -4,40 +4,40 @@ part of '../tdapi.dart';
 ///
 /// Reports a story to the Telegram moderators.
 ///
-/// * [storySenderChatId]: The identifier of the sender of the story to report.
+/// * [storyPosterChatId]: The identifier of the poster of the story to report.
 /// * [storyId]: The identifier of the story to report.
-/// * [reason]: The reason for reporting the story.
-/// * [text]: Additional report details; 0-1024 characters.
+/// * [optionId]: Option identifier chosen by the user; leave empty for the initial request.
+/// * [text]: Additional report details; 0-1024 characters; leave empty for the initial request.
 ///
-/// [Ok] is returned on completion.
+/// [ReportStoryResult] is returned on completion.
 final class ReportStory extends TdFunction {
   /// **ReportStory** *(reportStory)* - TDLib function
   ///
   /// Reports a story to the Telegram moderators.
   ///
-  /// * [storySenderChatId]: The identifier of the sender of the story to report.
+  /// * [storyPosterChatId]: The identifier of the poster of the story to report.
   /// * [storyId]: The identifier of the story to report.
-  /// * [reason]: The reason for reporting the story.
-  /// * [text]: Additional report details; 0-1024 characters.
+  /// * [optionId]: Option identifier chosen by the user; leave empty for the initial request.
+  /// * [text]: Additional report details; 0-1024 characters; leave empty for the initial request.
   ///
-  /// [Ok] is returned on completion.
+  /// [ReportStoryResult] is returned on completion.
   const ReportStory({
-    required this.storySenderChatId,
+    required this.storyPosterChatId,
     required this.storyId,
-    required this.reason,
+    required this.optionId,
     required this.text,
   });
 
-  /// The identifier of the sender of the story to report
-  final int storySenderChatId;
+  /// The identifier of the poster of the story to report
+  final int storyPosterChatId;
 
   /// The identifier of the story to report
   final int storyId;
 
-  /// The reason for reporting the story
-  final ReportReason reason;
+  /// Option identifier chosen by the user; leave empty for the initial request
+  final String optionId;
 
-  /// Additional report details; 0-1024 characters
+  /// Additional report details; 0-1024 characters; leave empty for the initial request
   final String text;
 
   /// Convert model to TDLib JSON format
@@ -45,9 +45,9 @@ final class ReportStory extends TdFunction {
   Map<String, dynamic> toJson([dynamic extra]) {
     return {
       "@type": defaultObjectId,
-      "story_sender_chat_id": storySenderChatId,
+      "story_poster_chat_id": storyPosterChatId,
       "story_id": storyId,
-      "reason": reason.toJson(),
+      "option_id": optionId,
       "text": text,
       "@extra": extra,
     };
@@ -56,22 +56,21 @@ final class ReportStory extends TdFunction {
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [story_sender_chat_id]: The identifier of the sender of the story to report
+  /// * [story_poster_chat_id]: The identifier of the poster of the story to report
   /// * [story_id]: The identifier of the story to report
-  /// * [reason]: The reason for reporting the story
-  /// * [text]: Additional report details; 0-1024 characters
+  /// * [option_id]: Option identifier chosen by the user; leave empty for the initial request
+  /// * [text]: Additional report details; 0-1024 characters; leave empty for the initial request
   ReportStory copyWith({
-    int? storySenderChatId,
+    int? storyPosterChatId,
     int? storyId,
-    ReportReason? reason,
+    String? optionId,
     String? text,
-  }) =>
-      ReportStory(
-        storySenderChatId: storySenderChatId ?? this.storySenderChatId,
-        storyId: storyId ?? this.storyId,
-        reason: reason ?? this.reason,
-        text: text ?? this.text,
-      );
+  }) => ReportStory(
+    storyPosterChatId: storyPosterChatId ?? this.storyPosterChatId,
+    storyId: storyId ?? this.storyId,
+    optionId: optionId ?? this.optionId,
+    text: text ?? this.text,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'reportStory';

@@ -46,10 +46,7 @@ final class StarSubscriptionPricing extends TdObject {
   /// Properties:
   /// * [period]: The number of seconds between consecutive Telegram Star debiting
   /// * [star_count]: The amount of Telegram Stars that must be paid for each period
-  StarSubscriptionPricing copyWith({
-    int? period,
-    int? starCount,
-  }) =>
+  StarSubscriptionPricing copyWith({int? period, int? starCount}) =>
       StarSubscriptionPricing(
         period: period ?? this.period,
         starCount: starCount ?? this.starCount,

@@ -15,9 +15,7 @@ final class GetEmojiSuggestionsUrl extends TdFunction {
   /// * [languageCode]: Language code for which the emoji replacements will be suggested.
   ///
   /// [HttpUrl] is returned on completion.
-  const GetEmojiSuggestionsUrl({
-    required this.languageCode,
-  });
+  const GetEmojiSuggestionsUrl({required this.languageCode});
 
   /// Language code for which the emoji replacements will be suggested
   final String languageCode;
@@ -36,12 +34,8 @@ final class GetEmojiSuggestionsUrl extends TdFunction {
   ///
   /// Properties:
   /// * [language_code]: Language code for which the emoji replacements will be suggested
-  GetEmojiSuggestionsUrl copyWith({
-    String? languageCode,
-  }) =>
-      GetEmojiSuggestionsUrl(
-        languageCode: languageCode ?? this.languageCode,
-      );
+  GetEmojiSuggestionsUrl copyWith({String? languageCode}) =>
+      GetEmojiSuggestionsUrl(languageCode: languageCode ?? this.languageCode);
 
   /// TDLib object type
   static const String defaultObjectId = 'getEmojiSuggestionsUrl';

@@ -15,9 +15,7 @@ final class TestReturnError extends TdFunction {
   /// * [error]: The error to be returned.
   ///
   /// [Error] is returned on completion.
-  const TestReturnError({
-    required this.error,
-  });
+  const TestReturnError({required this.error});
 
   /// The error to be returned
   final TdError error;
@@ -25,23 +23,15 @@ final class TestReturnError extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "error": error.toJson(),
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "error": error.toJson(), "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [error]: The error to be returned
-  TestReturnError copyWith({
-    TdError? error,
-  }) =>
-      TestReturnError(
-        error: error ?? this.error,
-      );
+  TestReturnError copyWith({TdError? error}) =>
+      TestReturnError(error: error ?? this.error);
 
   /// TDLib object type
   static const String defaultObjectId = 'testReturnError';

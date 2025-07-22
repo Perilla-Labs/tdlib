@@ -56,26 +56,19 @@ final class EmailAddressResetStateAvailable extends EmailAddressResetState {
   /// Email address can be reset after the given period. Call resetAuthenticationEmailAddress to reset it and allow the user to authorize with a code sent to the user's phone number.
   ///
   /// * [waitPeriod]: Time required to wait before the email address can be reset; 0 if the user is subscribed to Telegram Premium.
-  const EmailAddressResetStateAvailable({
-    required this.waitPeriod,
-  });
+  const EmailAddressResetStateAvailable({required this.waitPeriod});
 
   /// Time required to wait before the email address can be reset; 0 if the user is subscribed to Telegram Premium
   final int waitPeriod;
 
   /// Parse from a json
   factory EmailAddressResetStateAvailable.fromJson(Map<String, dynamic> json) =>
-      EmailAddressResetStateAvailable(
-        waitPeriod: json['wait_period'],
-      );
+      EmailAddressResetStateAvailable(waitPeriod: json['wait_period']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "wait_period": waitPeriod,
-    };
+    return {"@type": defaultObjectId, "wait_period": waitPeriod};
   }
 
   /// Copy model with modified properties.
@@ -83,9 +76,7 @@ final class EmailAddressResetStateAvailable extends EmailAddressResetState {
   /// Properties:
   /// * [wait_period]: Time required to wait before the email address can be reset; 0 if the user is subscribed to Telegram Premium
   @override
-  EmailAddressResetStateAvailable copyWith({
-    int? waitPeriod,
-  }) =>
+  EmailAddressResetStateAvailable copyWith({int? waitPeriod}) =>
       EmailAddressResetStateAvailable(
         waitPeriod: waitPeriod ?? this.waitPeriod,
       );
@@ -113,26 +104,19 @@ final class EmailAddressResetStatePending extends EmailAddressResetState {
   /// Email address reset has already been requested. Call resetAuthenticationEmailAddress to check whether immediate reset is possible.
   ///
   /// * [resetIn]: Left time before the email address will be reset, in seconds. updateAuthorizationState is not sent when this field changes.
-  const EmailAddressResetStatePending({
-    required this.resetIn,
-  });
+  const EmailAddressResetStatePending({required this.resetIn});
 
   /// Left time before the email address will be reset, in seconds. updateAuthorizationState is not sent when this field changes
   final int resetIn;
 
   /// Parse from a json
   factory EmailAddressResetStatePending.fromJson(Map<String, dynamic> json) =>
-      EmailAddressResetStatePending(
-        resetIn: json['reset_in'],
-      );
+      EmailAddressResetStatePending(resetIn: json['reset_in']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "reset_in": resetIn,
-    };
+    return {"@type": defaultObjectId, "reset_in": resetIn};
   }
 
   /// Copy model with modified properties.
@@ -140,12 +124,8 @@ final class EmailAddressResetStatePending extends EmailAddressResetState {
   /// Properties:
   /// * [reset_in]: Left time before the email address will be reset, in seconds. updateAuthorizationState is not sent when this field changes
   @override
-  EmailAddressResetStatePending copyWith({
-    int? resetIn,
-  }) =>
-      EmailAddressResetStatePending(
-        resetIn: resetIn ?? this.resetIn,
-      );
+  EmailAddressResetStatePending copyWith({int? resetIn}) =>
+      EmailAddressResetStatePending(resetIn: resetIn ?? this.resetIn);
 
   /// TDLib object type
   static const String defaultObjectId = 'emailAddressResetStatePending';

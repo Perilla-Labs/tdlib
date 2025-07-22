@@ -46,10 +46,7 @@ final class RecommendedChatFolder extends TdObject {
   /// Properties:
   /// * [folder]: The chat folder
   /// * [description]: Chat folder description
-  RecommendedChatFolder copyWith({
-    ChatFolder? folder,
-    String? description,
-  }) =>
+  RecommendedChatFolder copyWith({ChatFolder? folder, String? description}) =>
       RecommendedChatFolder(
         folder: folder ?? this.folder,
         description: description ?? this.description,

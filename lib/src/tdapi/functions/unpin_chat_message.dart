@@ -17,10 +17,7 @@ final class UnpinChatMessage extends TdFunction {
   /// * [messageId]: Identifier of the removed pinned message.
   ///
   /// [Ok] is returned on completion.
-  const UnpinChatMessage({
-    required this.chatId,
-    required this.messageId,
-  });
+  const UnpinChatMessage({required this.chatId, required this.messageId});
 
   /// Identifier of the chat
   final int chatId;
@@ -44,14 +41,10 @@ final class UnpinChatMessage extends TdFunction {
   /// Properties:
   /// * [chat_id]: Identifier of the chat
   /// * [message_id]: Identifier of the removed pinned message
-  UnpinChatMessage copyWith({
-    int? chatId,
-    int? messageId,
-  }) =>
-      UnpinChatMessage(
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-      );
+  UnpinChatMessage copyWith({int? chatId, int? messageId}) => UnpinChatMessage(
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'unpinChatMessage';

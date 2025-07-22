@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **GetChatHistory** *(getChatHistory)* - TDLib function
 ///
-/// Returns messages in a chat. The messages are returned in reverse chronological order (i.e., in order of decreasing message_id).. For optimal performance, the number of returned messages is chosen by TDLib. This is an offline request if only_local is true.
+/// Returns messages in a chat. The messages are returned in reverse chronological order (i.e., in order of decreasing message_id).. For optimal performance, the number of returned messages is chosen by TDLib. This is an offline method if only_local is true.
 ///
 /// * [chatId]: Chat identifier.
 /// * [fromMessageId]: Identifier of the message starting from which history must be fetched; use 0 to get results from the last message.
@@ -14,7 +14,7 @@ part of '../tdapi.dart';
 final class GetChatHistory extends TdFunction {
   /// **GetChatHistory** *(getChatHistory)* - TDLib function
   ///
-  /// Returns messages in a chat. The messages are returned in reverse chronological order (i.e., in order of decreasing message_id).. For optimal performance, the number of returned messages is chosen by TDLib. This is an offline request if only_local is true.
+  /// Returns messages in a chat. The messages are returned in reverse chronological order (i.e., in order of decreasing message_id).. For optimal performance, the number of returned messages is chosen by TDLib. This is an offline method if only_local is true.
   ///
   /// * [chatId]: Chat identifier.
   /// * [fromMessageId]: Identifier of the message starting from which history must be fetched; use 0 to get results from the last message.
@@ -74,14 +74,13 @@ final class GetChatHistory extends TdFunction {
     int? offset,
     int? limit,
     bool? onlyLocal,
-  }) =>
-      GetChatHistory(
-        chatId: chatId ?? this.chatId,
-        fromMessageId: fromMessageId ?? this.fromMessageId,
-        offset: offset ?? this.offset,
-        limit: limit ?? this.limit,
-        onlyLocal: onlyLocal ?? this.onlyLocal,
-      );
+  }) => GetChatHistory(
+    chatId: chatId ?? this.chatId,
+    fromMessageId: fromMessageId ?? this.fromMessageId,
+    offset: offset ?? this.offset,
+    limit: limit ?? this.limit,
+    onlyLocal: onlyLocal ?? this.onlyLocal,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getChatHistory';

@@ -15,9 +15,7 @@ final class GetAnimatedEmoji extends TdFunction {
   /// * [emoji]: The emoji.
   ///
   /// [AnimatedEmoji] is returned on completion.
-  const GetAnimatedEmoji({
-    required this.emoji,
-  });
+  const GetAnimatedEmoji({required this.emoji});
 
   /// The emoji
   final String emoji;
@@ -25,23 +23,15 @@ final class GetAnimatedEmoji extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "emoji": emoji,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "emoji": emoji, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [emoji]: The emoji
-  GetAnimatedEmoji copyWith({
-    String? emoji,
-  }) =>
-      GetAnimatedEmoji(
-        emoji: emoji ?? this.emoji,
-      );
+  GetAnimatedEmoji copyWith({String? emoji}) =>
+      GetAnimatedEmoji(emoji: emoji ?? this.emoji);
 
   /// TDLib object type
   static const String defaultObjectId = 'getAnimatedEmoji';

@@ -44,12 +44,12 @@ final class SharedUser extends TdObject {
 
   /// Parse from a json
   factory SharedUser.fromJson(Map<String, dynamic> json) => SharedUser(
-        userId: json['user_id'],
-        firstName: json['first_name'],
-        lastName: json['last_name'],
-        username: json['username'],
-        photo: json['photo'] == null ? null : Photo.fromJson(json['photo']),
-      );
+    userId: json['user_id'],
+    firstName: json['first_name'],
+    lastName: json['last_name'],
+    username: json['username'],
+    photo: json['photo'] == null ? null : Photo.fromJson(json['photo']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -78,14 +78,13 @@ final class SharedUser extends TdObject {
     String? lastName,
     String? username,
     Photo? photo,
-  }) =>
-      SharedUser(
-        userId: userId ?? this.userId,
-        firstName: firstName ?? this.firstName,
-        lastName: lastName ?? this.lastName,
-        username: username ?? this.username,
-        photo: photo ?? this.photo,
-      );
+  }) => SharedUser(
+    userId: userId ?? this.userId,
+    firstName: firstName ?? this.firstName,
+    lastName: lastName ?? this.lastName,
+    username: username ?? this.username,
+    photo: photo ?? this.photo,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'sharedUser';

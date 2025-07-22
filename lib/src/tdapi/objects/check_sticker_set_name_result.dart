@@ -55,10 +55,7 @@ final class CheckStickerSetNameResultOk extends CheckStickerSetNameResult {
   /// **CheckStickerSetNameResultOk** *(checkStickerSetNameResultOk)* - child of CheckStickerSetNameResult
   ///
   /// The name can be set.
-  const CheckStickerSetNameResultOk({
-    this.extra,
-    this.clientId,
-  });
+  const CheckStickerSetNameResultOk({this.extra, this.clientId});
 
   /// [extra] callback sign
   @override
@@ -78,17 +75,12 @@ final class CheckStickerSetNameResultOk extends CheckStickerSetNameResult {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
   @override
-  CheckStickerSetNameResultOk copyWith({
-    dynamic extra,
-    int? clientId,
-  }) =>
+  CheckStickerSetNameResultOk copyWith({dynamic extra, int? clientId}) =>
       CheckStickerSetNameResultOk(
         extra: extra ?? this.extra,
         clientId: clientId ?? this.clientId,
@@ -114,10 +106,7 @@ final class CheckStickerSetNameResultNameInvalid
   /// **CheckStickerSetNameResultNameInvalid** *(checkStickerSetNameResultNameInvalid)* - child of CheckStickerSetNameResult
   ///
   /// The name is invalid.
-  const CheckStickerSetNameResultNameInvalid({
-    this.extra,
-    this.clientId,
-  });
+  const CheckStickerSetNameResultNameInvalid({this.extra, this.clientId});
 
   /// [extra] callback sign
   @override
@@ -129,18 +118,16 @@ final class CheckStickerSetNameResultNameInvalid
 
   /// Parse from a json
   factory CheckStickerSetNameResultNameInvalid.fromJson(
-          Map<String, dynamic> json) =>
-      CheckStickerSetNameResultNameInvalid(
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    Map<String, dynamic> json,
+  ) => CheckStickerSetNameResultNameInvalid(
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -148,11 +135,10 @@ final class CheckStickerSetNameResultNameInvalid
   CheckStickerSetNameResultNameInvalid copyWith({
     dynamic extra,
     int? clientId,
-  }) =>
-      CheckStickerSetNameResultNameInvalid(
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => CheckStickerSetNameResultNameInvalid(
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'checkStickerSetNameResultNameInvalid';
@@ -174,10 +160,7 @@ final class CheckStickerSetNameResultNameOccupied
   /// **CheckStickerSetNameResultNameOccupied** *(checkStickerSetNameResultNameOccupied)* - child of CheckStickerSetNameResult
   ///
   /// The name is occupied.
-  const CheckStickerSetNameResultNameOccupied({
-    this.extra,
-    this.clientId,
-  });
+  const CheckStickerSetNameResultNameOccupied({this.extra, this.clientId});
 
   /// [extra] callback sign
   @override
@@ -189,18 +172,16 @@ final class CheckStickerSetNameResultNameOccupied
 
   /// Parse from a json
   factory CheckStickerSetNameResultNameOccupied.fromJson(
-          Map<String, dynamic> json) =>
-      CheckStickerSetNameResultNameOccupied(
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    Map<String, dynamic> json,
+  ) => CheckStickerSetNameResultNameOccupied(
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -208,11 +189,10 @@ final class CheckStickerSetNameResultNameOccupied
   CheckStickerSetNameResultNameOccupied copyWith({
     dynamic extra,
     int? clientId,
-  }) =>
-      CheckStickerSetNameResultNameOccupied(
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => CheckStickerSetNameResultNameOccupied(
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'checkStickerSetNameResultNameOccupied';

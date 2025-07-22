@@ -11,11 +11,7 @@ final class TimeZones extends TdObject {
   /// Contains a list of time zones.
   ///
   /// * [timeZones]: A list of time zones.
-  const TimeZones({
-    required this.timeZones,
-    this.extra,
-    this.clientId,
-  });
+  const TimeZones({required this.timeZones, this.extra, this.clientId});
 
   /// A list of time zones
   final List<TimeZone> timeZones;
@@ -30,12 +26,14 @@ final class TimeZones extends TdObject {
 
   /// Parse from a json
   factory TimeZones.fromJson(Map<String, dynamic> json) => TimeZones(
-        timeZones: List<TimeZone>.from((json['time_zones'] ?? [])
-            .map((item) => TimeZone.fromJson(item))
-            .toList()),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    timeZones: List<TimeZone>.from(
+      (json['time_zones'] ?? [])
+          .map((item) => TimeZone.fromJson(item))
+          .toList(),
+    ),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -54,12 +52,11 @@ final class TimeZones extends TdObject {
     List<TimeZone>? timeZones,
     dynamic extra,
     int? clientId,
-  }) =>
-      TimeZones(
-        timeZones: timeZones ?? this.timeZones,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => TimeZones(
+    timeZones: timeZones ?? this.timeZones,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'timeZones';

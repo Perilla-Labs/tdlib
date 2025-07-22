@@ -42,12 +42,12 @@ final class FoundWebApp extends TdObject {
 
   /// Parse from a json
   factory FoundWebApp.fromJson(Map<String, dynamic> json) => FoundWebApp(
-        webApp: WebApp.fromJson(json['web_app']),
-        requestWriteAccess: json['request_write_access'],
-        skipConfirmation: json['skip_confirmation'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    webApp: WebApp.fromJson(json['web_app']),
+    requestWriteAccess: json['request_write_access'],
+    skipConfirmation: json['skip_confirmation'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -72,14 +72,13 @@ final class FoundWebApp extends TdObject {
     bool? skipConfirmation,
     dynamic extra,
     int? clientId,
-  }) =>
-      FoundWebApp(
-        webApp: webApp ?? this.webApp,
-        requestWriteAccess: requestWriteAccess ?? this.requestWriteAccess,
-        skipConfirmation: skipConfirmation ?? this.skipConfirmation,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => FoundWebApp(
+    webApp: webApp ?? this.webApp,
+    requestWriteAccess: requestWriteAccess ?? this.requestWriteAccess,
+    skipConfirmation: skipConfirmation ?? this.skipConfirmation,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'foundWebApp';

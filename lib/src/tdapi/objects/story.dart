@@ -4,19 +4,19 @@ part of '../tdapi.dart';
 ///
 /// Represents a story.
 ///
-/// * [id]: Unique story identifier among stories of the given sender.
-/// * [senderChatId]: Identifier of the chat that posted the story.
-/// * [senderId]: Identifier of the sender of the story; may be null if the story is posted on behalf of the sender_chat_id *(optional)*.
+/// * [id]: Unique story identifier among stories posted by the given chat.
+/// * [posterChatId]: Identifier of the chat that posted the story.
+/// * [posterId]: Identifier of the user or chat that posted the story; may be null if the story is posted on behalf of the poster_chat_id *(optional)*.
 /// * [date]: Point in time (Unix timestamp) when the story was published.
-/// * [isBeingSent]: True, if the story is being sent by the current user.
+/// * [isBeingPosted]: True, if the story is being posted by the current user.
 /// * [isBeingEdited]: True, if the story is being edited by the current user.
 /// * [isEdited]: True, if the story was edited.
-/// * [isPostedToChatPage]: True, if the story is saved in the sender's profile and will be available there after expiration.
+/// * [isPostedToChatPage]: True, if the story is saved in the profile of the chat that posted it and will be available there after expiration.
 /// * [isVisibleOnlyForSelf]: True, if the story is visible only for the current user.
 /// * [canBeDeleted]: True, if the story can be deleted.
 /// * [canBeEdited]: True, if the story can be edited.
 /// * [canBeForwarded]: True, if the story can be forwarded as a message. Otherwise, screenshots and saving of the story content must be also forbidden.
-/// * [canBeReplied]: True, if the story can be replied in the chat with the story sender.
+/// * [canBeReplied]: True, if the story can be replied in the chat with the user that posted the story.
 /// * [canToggleIsPostedToChatPage]: True, if the story's is_posted_to_chat_page value can be changed.
 /// * [canGetStatistics]: True, if the story statistics are available through getStoryStatistics.
 /// * [canGetInteractions]: True, if interactions with the story can be received through getStoryInteractions.
@@ -33,19 +33,19 @@ final class Story extends TdObject {
   ///
   /// Represents a story.
   ///
-  /// * [id]: Unique story identifier among stories of the given sender.
-  /// * [senderChatId]: Identifier of the chat that posted the story.
-  /// * [senderId]: Identifier of the sender of the story; may be null if the story is posted on behalf of the sender_chat_id *(optional)*.
+  /// * [id]: Unique story identifier among stories posted by the given chat.
+  /// * [posterChatId]: Identifier of the chat that posted the story.
+  /// * [posterId]: Identifier of the user or chat that posted the story; may be null if the story is posted on behalf of the poster_chat_id *(optional)*.
   /// * [date]: Point in time (Unix timestamp) when the story was published.
-  /// * [isBeingSent]: True, if the story is being sent by the current user.
+  /// * [isBeingPosted]: True, if the story is being posted by the current user.
   /// * [isBeingEdited]: True, if the story is being edited by the current user.
   /// * [isEdited]: True, if the story was edited.
-  /// * [isPostedToChatPage]: True, if the story is saved in the sender's profile and will be available there after expiration.
+  /// * [isPostedToChatPage]: True, if the story is saved in the profile of the chat that posted it and will be available there after expiration.
   /// * [isVisibleOnlyForSelf]: True, if the story is visible only for the current user.
   /// * [canBeDeleted]: True, if the story can be deleted.
   /// * [canBeEdited]: True, if the story can be edited.
   /// * [canBeForwarded]: True, if the story can be forwarded as a message. Otherwise, screenshots and saving of the story content must be also forbidden.
-  /// * [canBeReplied]: True, if the story can be replied in the chat with the story sender.
+  /// * [canBeReplied]: True, if the story can be replied in the chat with the user that posted the story.
   /// * [canToggleIsPostedToChatPage]: True, if the story's is_posted_to_chat_page value can be changed.
   /// * [canGetStatistics]: True, if the story statistics are available through getStoryStatistics.
   /// * [canGetInteractions]: True, if interactions with the story can be received through getStoryInteractions.
@@ -59,10 +59,10 @@ final class Story extends TdObject {
   /// * [caption]: Caption of the story.
   const Story({
     required this.id,
-    required this.senderChatId,
-    this.senderId,
+    required this.posterChatId,
+    this.posterId,
     required this.date,
-    required this.isBeingSent,
+    required this.isBeingPosted,
     required this.isBeingEdited,
     required this.isEdited,
     required this.isPostedToChatPage,
@@ -86,20 +86,20 @@ final class Story extends TdObject {
     this.clientId,
   });
 
-  /// Unique story identifier among stories of the given sender
+  /// Unique story identifier among stories posted by the given chat
   final int id;
 
   /// Identifier of the chat that posted the story
-  final int senderChatId;
+  final int posterChatId;
 
-  /// Identifier of the sender of the story; may be null if the story is posted on behalf of the sender_chat_id
-  final MessageSender? senderId;
+  /// Identifier of the user or chat that posted the story; may be null if the story is posted on behalf of the poster_chat_id
+  final MessageSender? posterId;
 
   /// Point in time (Unix timestamp) when the story was published
   final int date;
 
-  /// True, if the story is being sent by the current user
-  final bool isBeingSent;
+  /// True, if the story is being posted by the current user
+  final bool isBeingPosted;
 
   /// True, if the story is being edited by the current user
   final bool isBeingEdited;
@@ -107,7 +107,7 @@ final class Story extends TdObject {
   /// True, if the story was edited
   final bool isEdited;
 
-  /// True, if the story is saved in the sender's profile and will be available there after expiration
+  /// True, if the story is saved in the profile of the chat that posted it and will be available there after expiration
   final bool isPostedToChatPage;
 
   /// True, if the story is visible only for the current user
@@ -122,7 +122,7 @@ final class Story extends TdObject {
   /// True, if the story can be forwarded as a message. Otherwise, screenshots and saving of the story content must be also forbidden
   final bool canBeForwarded;
 
-  /// True, if the story can be replied in the chat with the story sender
+  /// True, if the story can be replied in the chat with the user that posted the story
   final bool canBeReplied;
 
   /// True, if the story's is_posted_to_chat_page value can be changed
@@ -168,44 +168,43 @@ final class Story extends TdObject {
 
   /// Parse from a json
   factory Story.fromJson(Map<String, dynamic> json) => Story(
-        id: json['id'],
-        senderChatId: json['sender_chat_id'],
-        senderId: json['sender_id'] == null
-            ? null
-            : MessageSender.fromJson(json['sender_id']),
-        date: json['date'],
-        isBeingSent: json['is_being_sent'],
-        isBeingEdited: json['is_being_edited'],
-        isEdited: json['is_edited'],
-        isPostedToChatPage: json['is_posted_to_chat_page'],
-        isVisibleOnlyForSelf: json['is_visible_only_for_self'],
-        canBeDeleted: json['can_be_deleted'],
-        canBeEdited: json['can_be_edited'],
-        canBeForwarded: json['can_be_forwarded'],
-        canBeReplied: json['can_be_replied'],
-        canToggleIsPostedToChatPage: json['can_toggle_is_posted_to_chat_page'],
-        canGetStatistics: json['can_get_statistics'],
-        canGetInteractions: json['can_get_interactions'],
-        hasExpiredViewers: json['has_expired_viewers'],
-        repostInfo: json['repost_info'] == null
-            ? null
-            : StoryRepostInfo.fromJson(json['repost_info']),
-        interactionInfo: json['interaction_info'] == null
-            ? null
-            : StoryInteractionInfo.fromJson(json['interaction_info']),
-        chosenReactionType: json['chosen_reaction_type'] == null
-            ? null
-            : ReactionType.fromJson(json['chosen_reaction_type']),
-        privacySettings:
-            StoryPrivacySettings.fromJson(json['privacy_settings']),
-        content: StoryContent.fromJson(json['content']),
-        areas: List<StoryArea>.from((json['areas'] ?? [])
-            .map((item) => StoryArea.fromJson(item))
-            .toList()),
-        caption: FormattedText.fromJson(json['caption']),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    id: json['id'],
+    posterChatId: json['poster_chat_id'],
+    posterId: json['poster_id'] == null
+        ? null
+        : MessageSender.fromJson(json['poster_id']),
+    date: json['date'],
+    isBeingPosted: json['is_being_posted'],
+    isBeingEdited: json['is_being_edited'],
+    isEdited: json['is_edited'],
+    isPostedToChatPage: json['is_posted_to_chat_page'],
+    isVisibleOnlyForSelf: json['is_visible_only_for_self'],
+    canBeDeleted: json['can_be_deleted'],
+    canBeEdited: json['can_be_edited'],
+    canBeForwarded: json['can_be_forwarded'],
+    canBeReplied: json['can_be_replied'],
+    canToggleIsPostedToChatPage: json['can_toggle_is_posted_to_chat_page'],
+    canGetStatistics: json['can_get_statistics'],
+    canGetInteractions: json['can_get_interactions'],
+    hasExpiredViewers: json['has_expired_viewers'],
+    repostInfo: json['repost_info'] == null
+        ? null
+        : StoryRepostInfo.fromJson(json['repost_info']),
+    interactionInfo: json['interaction_info'] == null
+        ? null
+        : StoryInteractionInfo.fromJson(json['interaction_info']),
+    chosenReactionType: json['chosen_reaction_type'] == null
+        ? null
+        : ReactionType.fromJson(json['chosen_reaction_type']),
+    privacySettings: StoryPrivacySettings.fromJson(json['privacy_settings']),
+    content: StoryContent.fromJson(json['content']),
+    areas: List<StoryArea>.from(
+      (json['areas'] ?? []).map((item) => StoryArea.fromJson(item)).toList(),
+    ),
+    caption: FormattedText.fromJson(json['caption']),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -213,10 +212,10 @@ final class Story extends TdObject {
     return {
       "@type": defaultObjectId,
       "id": id,
-      "sender_chat_id": senderChatId,
-      "sender_id": senderId?.toJson(),
+      "poster_chat_id": posterChatId,
+      "poster_id": posterId?.toJson(),
       "date": date,
-      "is_being_sent": isBeingSent,
+      "is_being_posted": isBeingPosted,
       "is_being_edited": isBeingEdited,
       "is_edited": isEdited,
       "is_posted_to_chat_page": isPostedToChatPage,
@@ -242,19 +241,19 @@ final class Story extends TdObject {
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [id]: Unique story identifier among stories of the given sender
-  /// * [sender_chat_id]: Identifier of the chat that posted the story
-  /// * [sender_id]: Identifier of the sender of the story; may be null if the story is posted on behalf of the sender_chat_id
+  /// * [id]: Unique story identifier among stories posted by the given chat
+  /// * [poster_chat_id]: Identifier of the chat that posted the story
+  /// * [poster_id]: Identifier of the user or chat that posted the story; may be null if the story is posted on behalf of the poster_chat_id
   /// * [date]: Point in time (Unix timestamp) when the story was published
-  /// * [is_being_sent]: True, if the story is being sent by the current user
+  /// * [is_being_posted]: True, if the story is being posted by the current user
   /// * [is_being_edited]: True, if the story is being edited by the current user
   /// * [is_edited]: True, if the story was edited
-  /// * [is_posted_to_chat_page]: True, if the story is saved in the sender's profile and will be available there after expiration
+  /// * [is_posted_to_chat_page]: True, if the story is saved in the profile of the chat that posted it and will be available there after expiration
   /// * [is_visible_only_for_self]: True, if the story is visible only for the current user
   /// * [can_be_deleted]: True, if the story can be deleted
   /// * [can_be_edited]: True, if the story can be edited
   /// * [can_be_forwarded]: True, if the story can be forwarded as a message. Otherwise, screenshots and saving of the story content must be also forbidden
-  /// * [can_be_replied]: True, if the story can be replied in the chat with the story sender
+  /// * [can_be_replied]: True, if the story can be replied in the chat with the user that posted the story
   /// * [can_toggle_is_posted_to_chat_page]: True, if the story's is_posted_to_chat_page value can be changed
   /// * [can_get_statistics]: True, if the story statistics are available through getStoryStatistics
   /// * [can_get_interactions]: True, if interactions with the story can be received through getStoryInteractions
@@ -268,10 +267,10 @@ final class Story extends TdObject {
   /// * [caption]: Caption of the story
   Story copyWith({
     int? id,
-    int? senderChatId,
-    MessageSender? senderId,
+    int? posterChatId,
+    MessageSender? posterId,
     int? date,
-    bool? isBeingSent,
+    bool? isBeingPosted,
     bool? isBeingEdited,
     bool? isEdited,
     bool? isPostedToChatPage,
@@ -293,36 +292,35 @@ final class Story extends TdObject {
     FormattedText? caption,
     dynamic extra,
     int? clientId,
-  }) =>
-      Story(
-        id: id ?? this.id,
-        senderChatId: senderChatId ?? this.senderChatId,
-        senderId: senderId ?? this.senderId,
-        date: date ?? this.date,
-        isBeingSent: isBeingSent ?? this.isBeingSent,
-        isBeingEdited: isBeingEdited ?? this.isBeingEdited,
-        isEdited: isEdited ?? this.isEdited,
-        isPostedToChatPage: isPostedToChatPage ?? this.isPostedToChatPage,
-        isVisibleOnlyForSelf: isVisibleOnlyForSelf ?? this.isVisibleOnlyForSelf,
-        canBeDeleted: canBeDeleted ?? this.canBeDeleted,
-        canBeEdited: canBeEdited ?? this.canBeEdited,
-        canBeForwarded: canBeForwarded ?? this.canBeForwarded,
-        canBeReplied: canBeReplied ?? this.canBeReplied,
-        canToggleIsPostedToChatPage:
-            canToggleIsPostedToChatPage ?? this.canToggleIsPostedToChatPage,
-        canGetStatistics: canGetStatistics ?? this.canGetStatistics,
-        canGetInteractions: canGetInteractions ?? this.canGetInteractions,
-        hasExpiredViewers: hasExpiredViewers ?? this.hasExpiredViewers,
-        repostInfo: repostInfo ?? this.repostInfo,
-        interactionInfo: interactionInfo ?? this.interactionInfo,
-        chosenReactionType: chosenReactionType ?? this.chosenReactionType,
-        privacySettings: privacySettings ?? this.privacySettings,
-        content: content ?? this.content,
-        areas: areas ?? this.areas,
-        caption: caption ?? this.caption,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => Story(
+    id: id ?? this.id,
+    posterChatId: posterChatId ?? this.posterChatId,
+    posterId: posterId ?? this.posterId,
+    date: date ?? this.date,
+    isBeingPosted: isBeingPosted ?? this.isBeingPosted,
+    isBeingEdited: isBeingEdited ?? this.isBeingEdited,
+    isEdited: isEdited ?? this.isEdited,
+    isPostedToChatPage: isPostedToChatPage ?? this.isPostedToChatPage,
+    isVisibleOnlyForSelf: isVisibleOnlyForSelf ?? this.isVisibleOnlyForSelf,
+    canBeDeleted: canBeDeleted ?? this.canBeDeleted,
+    canBeEdited: canBeEdited ?? this.canBeEdited,
+    canBeForwarded: canBeForwarded ?? this.canBeForwarded,
+    canBeReplied: canBeReplied ?? this.canBeReplied,
+    canToggleIsPostedToChatPage:
+        canToggleIsPostedToChatPage ?? this.canToggleIsPostedToChatPage,
+    canGetStatistics: canGetStatistics ?? this.canGetStatistics,
+    canGetInteractions: canGetInteractions ?? this.canGetInteractions,
+    hasExpiredViewers: hasExpiredViewers ?? this.hasExpiredViewers,
+    repostInfo: repostInfo ?? this.repostInfo,
+    interactionInfo: interactionInfo ?? this.interactionInfo,
+    chosenReactionType: chosenReactionType ?? this.chosenReactionType,
+    privacySettings: privacySettings ?? this.privacySettings,
+    content: content ?? this.content,
+    areas: areas ?? this.areas,
+    caption: caption ?? this.caption,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'story';

@@ -17,10 +17,7 @@ final class SetStickerSetTitle extends TdFunction {
   /// * [title]: New sticker set title.
   ///
   /// [Ok] is returned on completion.
-  const SetStickerSetTitle({
-    required this.name,
-    required this.title,
-  });
+  const SetStickerSetTitle({required this.name, required this.title});
 
   /// Sticker set name. The sticker set must be owned by the current user
   final String name;
@@ -44,14 +41,8 @@ final class SetStickerSetTitle extends TdFunction {
   /// Properties:
   /// * [name]: Sticker set name. The sticker set must be owned by the current user
   /// * [title]: New sticker set title
-  SetStickerSetTitle copyWith({
-    String? name,
-    String? title,
-  }) =>
-      SetStickerSetTitle(
-        name: name ?? this.name,
-        title: title ?? this.title,
-      );
+  SetStickerSetTitle copyWith({String? name, String? title}) =>
+      SetStickerSetTitle(name: name ?? this.name, title: title ?? this.title);
 
   /// TDLib object type
   static const String defaultObjectId = 'setStickerSetTitle';

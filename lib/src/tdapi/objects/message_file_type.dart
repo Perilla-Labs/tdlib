@@ -59,11 +59,7 @@ final class MessageFileTypePrivate extends MessageFileType {
   /// The messages were exported from a private chat.
   ///
   /// * [name]: Name of the other party; may be empty if unrecognized.
-  const MessageFileTypePrivate({
-    required this.name,
-    this.extra,
-    this.clientId,
-  });
+  const MessageFileTypePrivate({required this.name, this.extra, this.clientId});
 
   /// Name of the other party; may be empty if unrecognized
   final String name;
@@ -87,10 +83,7 @@ final class MessageFileTypePrivate extends MessageFileType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "name": name,
-    };
+    return {"@type": defaultObjectId, "name": name};
   }
 
   /// Copy model with modified properties.
@@ -102,12 +95,11 @@ final class MessageFileTypePrivate extends MessageFileType {
     String? name,
     dynamic extra,
     int? clientId,
-  }) =>
-      MessageFileTypePrivate(
-        name: name ?? this.name,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => MessageFileTypePrivate(
+    name: name ?? this.name,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageFileTypePrivate';
@@ -132,11 +124,7 @@ final class MessageFileTypeGroup extends MessageFileType {
   /// The messages were exported from a group chat.
   ///
   /// * [title]: Title of the group chat; may be empty if unrecognized.
-  const MessageFileTypeGroup({
-    required this.title,
-    this.extra,
-    this.clientId,
-  });
+  const MessageFileTypeGroup({required this.title, this.extra, this.clientId});
 
   /// Title of the group chat; may be empty if unrecognized
   final String title;
@@ -160,10 +148,7 @@ final class MessageFileTypeGroup extends MessageFileType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "title": title,
-    };
+    return {"@type": defaultObjectId, "title": title};
   }
 
   /// Copy model with modified properties.
@@ -175,12 +160,11 @@ final class MessageFileTypeGroup extends MessageFileType {
     String? title,
     dynamic extra,
     int? clientId,
-  }) =>
-      MessageFileTypeGroup(
-        title: title ?? this.title,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => MessageFileTypeGroup(
+    title: title ?? this.title,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageFileTypeGroup';
@@ -201,10 +185,7 @@ final class MessageFileTypeUnknown extends MessageFileType {
   /// **MessageFileTypeUnknown** *(messageFileTypeUnknown)* - child of MessageFileType
   ///
   /// The messages were exported from a chat of unknown type.
-  const MessageFileTypeUnknown({
-    this.extra,
-    this.clientId,
-  });
+  const MessageFileTypeUnknown({this.extra, this.clientId});
 
   /// [extra] callback sign
   @override
@@ -224,17 +205,12 @@ final class MessageFileTypeUnknown extends MessageFileType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
   @override
-  MessageFileTypeUnknown copyWith({
-    dynamic extra,
-    int? clientId,
-  }) =>
+  MessageFileTypeUnknown copyWith({dynamic extra, int? clientId}) =>
       MessageFileTypeUnknown(
         extra: extra ?? this.extra,
         clientId: clientId ?? this.clientId,

@@ -15,9 +15,7 @@ final class GetBusinessConnection extends TdFunction {
   /// * [connectionId]: Identifier of the business connection to return.
   ///
   /// [BusinessConnection] is returned on completion.
-  const GetBusinessConnection({
-    required this.connectionId,
-  });
+  const GetBusinessConnection({required this.connectionId});
 
   /// Identifier of the business connection to return
   final String connectionId;
@@ -36,12 +34,8 @@ final class GetBusinessConnection extends TdFunction {
   ///
   /// Properties:
   /// * [connection_id]: Identifier of the business connection to return
-  GetBusinessConnection copyWith({
-    String? connectionId,
-  }) =>
-      GetBusinessConnection(
-        connectionId: connectionId ?? this.connectionId,
-      );
+  GetBusinessConnection copyWith({String? connectionId}) =>
+      GetBusinessConnection(connectionId: connectionId ?? this.connectionId);
 
   /// TDLib object type
   static const String defaultObjectId = 'getBusinessConnection';

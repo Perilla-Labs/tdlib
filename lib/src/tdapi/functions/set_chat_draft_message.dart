@@ -56,12 +56,11 @@ final class SetChatDraftMessage extends TdFunction {
     int? chatId,
     int? messageThreadId,
     DraftMessage? draftMessage,
-  }) =>
-      SetChatDraftMessage(
-        chatId: chatId ?? this.chatId,
-        messageThreadId: messageThreadId ?? this.messageThreadId,
-        draftMessage: draftMessage ?? this.draftMessage,
-      );
+  }) => SetChatDraftMessage(
+    chatId: chatId ?? this.chatId,
+    messageThreadId: messageThreadId ?? this.messageThreadId,
+    draftMessage: draftMessage ?? this.draftMessage,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setChatDraftMessage';

@@ -119,14 +119,13 @@ final class GiveawayInfoOngoing extends GiveawayInfo {
     bool? isEnded,
     dynamic extra,
     int? clientId,
-  }) =>
-      GiveawayInfoOngoing(
-        creationDate: creationDate ?? this.creationDate,
-        status: status ?? this.status,
-        isEnded: isEnded ?? this.isEnded,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => GiveawayInfoOngoing(
+    creationDate: creationDate ?? this.creationDate,
+    status: status ?? this.status,
+    isEnded: isEnded ?? this.isEnded,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'giveawayInfoOngoing';
@@ -147,7 +146,7 @@ final class GiveawayInfoOngoing extends GiveawayInfo {
 /// * [creationDate]: Point in time (Unix timestamp) when the giveaway was created.
 /// * [actualWinnersSelectionDate]: Point in time (Unix timestamp) when the winners were selected. May be bigger than winners selection date specified in parameters of the giveaway.
 /// * [wasRefunded]: True, if the giveaway was canceled and was fully refunded.
-/// * [isWinner]: True, if the cuurent user is a winner of the giveaway.
+/// * [isWinner]: True, if the current user is a winner of the giveaway.
 /// * [winnerCount]: Number of winners in the giveaway.
 /// * [activationCount]: Number of winners, which activated their gift codes; for Telegram Premium giveaways only.
 /// * [giftCode]: Telegram Premium gift code that was received by the current user; empty if the user isn't a winner in the giveaway or the giveaway isn't a Telegram Premium giveaway.
@@ -160,7 +159,7 @@ final class GiveawayInfoCompleted extends GiveawayInfo {
   /// * [creationDate]: Point in time (Unix timestamp) when the giveaway was created.
   /// * [actualWinnersSelectionDate]: Point in time (Unix timestamp) when the winners were selected. May be bigger than winners selection date specified in parameters of the giveaway.
   /// * [wasRefunded]: True, if the giveaway was canceled and was fully refunded.
-  /// * [isWinner]: True, if the cuurent user is a winner of the giveaway.
+  /// * [isWinner]: True, if the current user is a winner of the giveaway.
   /// * [winnerCount]: Number of winners in the giveaway.
   /// * [activationCount]: Number of winners, which activated their gift codes; for Telegram Premium giveaways only.
   /// * [giftCode]: Telegram Premium gift code that was received by the current user; empty if the user isn't a winner in the giveaway or the giveaway isn't a Telegram Premium giveaway.
@@ -187,7 +186,7 @@ final class GiveawayInfoCompleted extends GiveawayInfo {
   /// True, if the giveaway was canceled and was fully refunded
   final bool wasRefunded;
 
-  /// True, if the cuurent user is a winner of the giveaway
+  /// True, if the current user is a winner of the giveaway
   final bool isWinner;
 
   /// Number of winners in the giveaway
@@ -247,7 +246,7 @@ final class GiveawayInfoCompleted extends GiveawayInfo {
   /// * [creation_date]: Point in time (Unix timestamp) when the giveaway was created
   /// * [actual_winners_selection_date]: Point in time (Unix timestamp) when the winners were selected. May be bigger than winners selection date specified in parameters of the giveaway
   /// * [was_refunded]: True, if the giveaway was canceled and was fully refunded
-  /// * [is_winner]: True, if the cuurent user is a winner of the giveaway
+  /// * [is_winner]: True, if the current user is a winner of the giveaway
   /// * [winner_count]: Number of winners in the giveaway
   /// * [activation_count]: Number of winners, which activated their gift codes; for Telegram Premium giveaways only
   /// * [gift_code]: Telegram Premium gift code that was received by the current user; empty if the user isn't a winner in the giveaway or the giveaway isn't a Telegram Premium giveaway
@@ -264,20 +263,19 @@ final class GiveawayInfoCompleted extends GiveawayInfo {
     int? wonStarCount,
     dynamic extra,
     int? clientId,
-  }) =>
-      GiveawayInfoCompleted(
-        creationDate: creationDate ?? this.creationDate,
-        actualWinnersSelectionDate:
-            actualWinnersSelectionDate ?? this.actualWinnersSelectionDate,
-        wasRefunded: wasRefunded ?? this.wasRefunded,
-        isWinner: isWinner ?? this.isWinner,
-        winnerCount: winnerCount ?? this.winnerCount,
-        activationCount: activationCount ?? this.activationCount,
-        giftCode: giftCode ?? this.giftCode,
-        wonStarCount: wonStarCount ?? this.wonStarCount,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => GiveawayInfoCompleted(
+    creationDate: creationDate ?? this.creationDate,
+    actualWinnersSelectionDate:
+        actualWinnersSelectionDate ?? this.actualWinnersSelectionDate,
+    wasRefunded: wasRefunded ?? this.wasRefunded,
+    isWinner: isWinner ?? this.isWinner,
+    winnerCount: winnerCount ?? this.winnerCount,
+    activationCount: activationCount ?? this.activationCount,
+    giftCode: giftCode ?? this.giftCode,
+    wonStarCount: wonStarCount ?? this.wonStarCount,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'giveawayInfoCompleted';

@@ -100,9 +100,7 @@ final class ChatActionTyping extends ChatAction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -137,9 +135,7 @@ final class ChatActionRecordingVideo extends ChatAction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -169,26 +165,19 @@ final class ChatActionUploadingVideo extends ChatAction {
   /// The user is uploading a video.
   ///
   /// * [progress]: Upload progress, as a percentage.
-  const ChatActionUploadingVideo({
-    required this.progress,
-  });
+  const ChatActionUploadingVideo({required this.progress});
 
   /// Upload progress, as a percentage
   final int progress;
 
   /// Parse from a json
   factory ChatActionUploadingVideo.fromJson(Map<String, dynamic> json) =>
-      ChatActionUploadingVideo(
-        progress: json['progress'],
-      );
+      ChatActionUploadingVideo(progress: json['progress']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "progress": progress,
-    };
+    return {"@type": defaultObjectId, "progress": progress};
   }
 
   /// Copy model with modified properties.
@@ -196,12 +185,8 @@ final class ChatActionUploadingVideo extends ChatAction {
   /// Properties:
   /// * [progress]: Upload progress, as a percentage
   @override
-  ChatActionUploadingVideo copyWith({
-    int? progress,
-  }) =>
-      ChatActionUploadingVideo(
-        progress: progress ?? this.progress,
-      );
+  ChatActionUploadingVideo copyWith({int? progress}) =>
+      ChatActionUploadingVideo(progress: progress ?? this.progress);
 
   /// TDLib object type
   static const String defaultObjectId = 'chatActionUploadingVideo';
@@ -231,9 +216,7 @@ final class ChatActionRecordingVoiceNote extends ChatAction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -264,26 +247,19 @@ final class ChatActionUploadingVoiceNote extends ChatAction {
   /// The user is uploading a voice note.
   ///
   /// * [progress]: Upload progress, as a percentage.
-  const ChatActionUploadingVoiceNote({
-    required this.progress,
-  });
+  const ChatActionUploadingVoiceNote({required this.progress});
 
   /// Upload progress, as a percentage
   final int progress;
 
   /// Parse from a json
   factory ChatActionUploadingVoiceNote.fromJson(Map<String, dynamic> json) =>
-      ChatActionUploadingVoiceNote(
-        progress: json['progress'],
-      );
+      ChatActionUploadingVoiceNote(progress: json['progress']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "progress": progress,
-    };
+    return {"@type": defaultObjectId, "progress": progress};
   }
 
   /// Copy model with modified properties.
@@ -291,12 +267,8 @@ final class ChatActionUploadingVoiceNote extends ChatAction {
   /// Properties:
   /// * [progress]: Upload progress, as a percentage
   @override
-  ChatActionUploadingVoiceNote copyWith({
-    int? progress,
-  }) =>
-      ChatActionUploadingVoiceNote(
-        progress: progress ?? this.progress,
-      );
+  ChatActionUploadingVoiceNote copyWith({int? progress}) =>
+      ChatActionUploadingVoiceNote(progress: progress ?? this.progress);
 
   /// TDLib object type
   static const String defaultObjectId = 'chatActionUploadingVoiceNote';
@@ -321,26 +293,19 @@ final class ChatActionUploadingPhoto extends ChatAction {
   /// The user is uploading a photo.
   ///
   /// * [progress]: Upload progress, as a percentage.
-  const ChatActionUploadingPhoto({
-    required this.progress,
-  });
+  const ChatActionUploadingPhoto({required this.progress});
 
   /// Upload progress, as a percentage
   final int progress;
 
   /// Parse from a json
   factory ChatActionUploadingPhoto.fromJson(Map<String, dynamic> json) =>
-      ChatActionUploadingPhoto(
-        progress: json['progress'],
-      );
+      ChatActionUploadingPhoto(progress: json['progress']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "progress": progress,
-    };
+    return {"@type": defaultObjectId, "progress": progress};
   }
 
   /// Copy model with modified properties.
@@ -348,12 +313,8 @@ final class ChatActionUploadingPhoto extends ChatAction {
   /// Properties:
   /// * [progress]: Upload progress, as a percentage
   @override
-  ChatActionUploadingPhoto copyWith({
-    int? progress,
-  }) =>
-      ChatActionUploadingPhoto(
-        progress: progress ?? this.progress,
-      );
+  ChatActionUploadingPhoto copyWith({int? progress}) =>
+      ChatActionUploadingPhoto(progress: progress ?? this.progress);
 
   /// TDLib object type
   static const String defaultObjectId = 'chatActionUploadingPhoto';
@@ -378,26 +339,19 @@ final class ChatActionUploadingDocument extends ChatAction {
   /// The user is uploading a document.
   ///
   /// * [progress]: Upload progress, as a percentage.
-  const ChatActionUploadingDocument({
-    required this.progress,
-  });
+  const ChatActionUploadingDocument({required this.progress});
 
   /// Upload progress, as a percentage
   final int progress;
 
   /// Parse from a json
   factory ChatActionUploadingDocument.fromJson(Map<String, dynamic> json) =>
-      ChatActionUploadingDocument(
-        progress: json['progress'],
-      );
+      ChatActionUploadingDocument(progress: json['progress']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "progress": progress,
-    };
+    return {"@type": defaultObjectId, "progress": progress};
   }
 
   /// Copy model with modified properties.
@@ -405,12 +359,8 @@ final class ChatActionUploadingDocument extends ChatAction {
   /// Properties:
   /// * [progress]: Upload progress, as a percentage
   @override
-  ChatActionUploadingDocument copyWith({
-    int? progress,
-  }) =>
-      ChatActionUploadingDocument(
-        progress: progress ?? this.progress,
-      );
+  ChatActionUploadingDocument copyWith({int? progress}) =>
+      ChatActionUploadingDocument(progress: progress ?? this.progress);
 
   /// TDLib object type
   static const String defaultObjectId = 'chatActionUploadingDocument';
@@ -440,9 +390,7 @@ final class ChatActionChoosingSticker extends ChatAction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -477,9 +425,7 @@ final class ChatActionChoosingLocation extends ChatAction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -514,9 +460,7 @@ final class ChatActionChoosingContact extends ChatAction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -551,9 +495,7 @@ final class ChatActionStartPlayingGame extends ChatAction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -588,9 +530,7 @@ final class ChatActionRecordingVideoNote extends ChatAction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -621,26 +561,19 @@ final class ChatActionUploadingVideoNote extends ChatAction {
   /// The user is uploading a video note.
   ///
   /// * [progress]: Upload progress, as a percentage.
-  const ChatActionUploadingVideoNote({
-    required this.progress,
-  });
+  const ChatActionUploadingVideoNote({required this.progress});
 
   /// Upload progress, as a percentage
   final int progress;
 
   /// Parse from a json
   factory ChatActionUploadingVideoNote.fromJson(Map<String, dynamic> json) =>
-      ChatActionUploadingVideoNote(
-        progress: json['progress'],
-      );
+      ChatActionUploadingVideoNote(progress: json['progress']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "progress": progress,
-    };
+    return {"@type": defaultObjectId, "progress": progress};
   }
 
   /// Copy model with modified properties.
@@ -648,12 +581,8 @@ final class ChatActionUploadingVideoNote extends ChatAction {
   /// Properties:
   /// * [progress]: Upload progress, as a percentage
   @override
-  ChatActionUploadingVideoNote copyWith({
-    int? progress,
-  }) =>
-      ChatActionUploadingVideoNote(
-        progress: progress ?? this.progress,
-      );
+  ChatActionUploadingVideoNote copyWith({int? progress}) =>
+      ChatActionUploadingVideoNote(progress: progress ?? this.progress);
 
   /// TDLib object type
   static const String defaultObjectId = 'chatActionUploadingVideoNote';
@@ -678,26 +607,19 @@ final class ChatActionWatchingAnimations extends ChatAction {
   /// The user is watching animations sent by the other party by clicking on an animated emoji.
   ///
   /// * [emoji]: The animated emoji.
-  const ChatActionWatchingAnimations({
-    required this.emoji,
-  });
+  const ChatActionWatchingAnimations({required this.emoji});
 
   /// The animated emoji
   final String emoji;
 
   /// Parse from a json
   factory ChatActionWatchingAnimations.fromJson(Map<String, dynamic> json) =>
-      ChatActionWatchingAnimations(
-        emoji: json['emoji'],
-      );
+      ChatActionWatchingAnimations(emoji: json['emoji']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "emoji": emoji,
-    };
+    return {"@type": defaultObjectId, "emoji": emoji};
   }
 
   /// Copy model with modified properties.
@@ -705,12 +627,8 @@ final class ChatActionWatchingAnimations extends ChatAction {
   /// Properties:
   /// * [emoji]: The animated emoji
   @override
-  ChatActionWatchingAnimations copyWith({
-    String? emoji,
-  }) =>
-      ChatActionWatchingAnimations(
-        emoji: emoji ?? this.emoji,
-      );
+  ChatActionWatchingAnimations copyWith({String? emoji}) =>
+      ChatActionWatchingAnimations(emoji: emoji ?? this.emoji);
 
   /// TDLib object type
   static const String defaultObjectId = 'chatActionWatchingAnimations';
@@ -740,9 +658,7 @@ final class ChatActionCancel extends ChatAction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.

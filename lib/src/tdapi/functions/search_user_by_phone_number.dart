@@ -44,10 +44,7 @@ final class SearchUserByPhoneNumber extends TdFunction {
   /// Properties:
   /// * [phone_number]: Phone number to search for
   /// * [only_local]: Pass true to get only locally available information without sending network requests
-  SearchUserByPhoneNumber copyWith({
-    String? phoneNumber,
-    bool? onlyLocal,
-  }) =>
+  SearchUserByPhoneNumber copyWith({String? phoneNumber, bool? onlyLocal}) =>
       SearchUserByPhoneNumber(
         phoneNumber: phoneNumber ?? this.phoneNumber,
         onlyLocal: onlyLocal ?? this.onlyLocal,

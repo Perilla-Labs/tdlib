@@ -4,22 +4,19 @@ part of '../tdapi.dart';
 ///
 /// Returns up to 8 emoji statuses, which must be shown in the emoji status list for chats.
 ///
-/// [EmojiStatuses] is returned on completion.
+/// [EmojiStatusCustomEmojis] is returned on completion.
 final class GetThemedChatEmojiStatuses extends TdFunction {
   /// **GetThemedChatEmojiStatuses** *(getThemedChatEmojiStatuses)* - TDLib function
   ///
   /// Returns up to 8 emoji statuses, which must be shown in the emoji status list for chats.
   ///
-  /// [EmojiStatuses] is returned on completion.
+  /// [EmojiStatusCustomEmojis] is returned on completion.
   const GetThemedChatEmojiStatuses();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "@extra": extra};
   }
 
   /// Copy instance with no modifications.

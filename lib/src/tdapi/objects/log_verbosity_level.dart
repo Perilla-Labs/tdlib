@@ -39,10 +39,7 @@ final class LogVerbosityLevel extends TdObject {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "verbosity_level": verbosityLevel,
-    };
+    return {"@type": defaultObjectId, "verbosity_level": verbosityLevel};
   }
 
   /// Copy model with modified properties.
@@ -53,12 +50,11 @@ final class LogVerbosityLevel extends TdObject {
     int? verbosityLevel,
     dynamic extra,
     int? clientId,
-  }) =>
-      LogVerbosityLevel(
-        verbosityLevel: verbosityLevel ?? this.verbosityLevel,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => LogVerbosityLevel(
+    verbosityLevel: verbosityLevel ?? this.verbosityLevel,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'logVerbosityLevel';

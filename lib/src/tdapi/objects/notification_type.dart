@@ -98,10 +98,7 @@ final class NotificationTypeNewMessage extends NotificationType {
   /// * [message]: The message
   /// * [show_preview]: True, if message content must be displayed in notifications
   @override
-  NotificationTypeNewMessage copyWith({
-    Message? message,
-    bool? showPreview,
-  }) =>
+  NotificationTypeNewMessage copyWith({Message? message, bool? showPreview}) =>
       NotificationTypeNewMessage(
         message: message ?? this.message,
         showPreview: showPreview ?? this.showPreview,
@@ -135,9 +132,7 @@ final class NotificationTypeNewSecretChat extends NotificationType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -168,26 +163,19 @@ final class NotificationTypeNewCall extends NotificationType {
   /// New call was received.
   ///
   /// * [callId]: Call identifier.
-  const NotificationTypeNewCall({
-    required this.callId,
-  });
+  const NotificationTypeNewCall({required this.callId});
 
   /// Call identifier
   final int callId;
 
   /// Parse from a json
   factory NotificationTypeNewCall.fromJson(Map<String, dynamic> json) =>
-      NotificationTypeNewCall(
-        callId: json['call_id'],
-      );
+      NotificationTypeNewCall(callId: json['call_id']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "call_id": callId,
-    };
+    return {"@type": defaultObjectId, "call_id": callId};
   }
 
   /// Copy model with modified properties.
@@ -195,12 +183,8 @@ final class NotificationTypeNewCall extends NotificationType {
   /// Properties:
   /// * [call_id]: Call identifier
   @override
-  NotificationTypeNewCall copyWith({
-    int? callId,
-  }) =>
-      NotificationTypeNewCall(
-        callId: callId ?? this.callId,
-      );
+  NotificationTypeNewCall copyWith({int? callId}) =>
+      NotificationTypeNewCall(callId: callId ?? this.callId);
 
   /// TDLib object type
   static const String defaultObjectId = 'notificationTypeNewCall';
@@ -294,14 +278,13 @@ final class NotificationTypeNewPushMessage extends NotificationType {
     String? senderName,
     bool? isOutgoing,
     PushMessageContent? content,
-  }) =>
-      NotificationTypeNewPushMessage(
-        messageId: messageId ?? this.messageId,
-        senderId: senderId ?? this.senderId,
-        senderName: senderName ?? this.senderName,
-        isOutgoing: isOutgoing ?? this.isOutgoing,
-        content: content ?? this.content,
-      );
+  }) => NotificationTypeNewPushMessage(
+    messageId: messageId ?? this.messageId,
+    senderId: senderId ?? this.senderId,
+    senderName: senderName ?? this.senderName,
+    isOutgoing: isOutgoing ?? this.isOutgoing,
+    content: content ?? this.content,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'notificationTypeNewPushMessage';

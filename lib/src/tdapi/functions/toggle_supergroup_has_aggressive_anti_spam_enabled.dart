@@ -47,12 +47,11 @@ final class ToggleSupergroupHasAggressiveAntiSpamEnabled extends TdFunction {
   ToggleSupergroupHasAggressiveAntiSpamEnabled copyWith({
     int? supergroupId,
     bool? hasAggressiveAntiSpamEnabled,
-  }) =>
-      ToggleSupergroupHasAggressiveAntiSpamEnabled(
-        supergroupId: supergroupId ?? this.supergroupId,
-        hasAggressiveAntiSpamEnabled:
-            hasAggressiveAntiSpamEnabled ?? this.hasAggressiveAntiSpamEnabled,
-      );
+  }) => ToggleSupergroupHasAggressiveAntiSpamEnabled(
+    supergroupId: supergroupId ?? this.supergroupId,
+    hasAggressiveAntiSpamEnabled:
+        hasAggressiveAntiSpamEnabled ?? this.hasAggressiveAntiSpamEnabled,
+  );
 
   /// TDLib object type
   static const String defaultObjectId =

@@ -47,11 +47,10 @@ final class RemoveNotification extends TdFunction {
   RemoveNotification copyWith({
     int? notificationGroupId,
     int? notificationId,
-  }) =>
-      RemoveNotification(
-        notificationGroupId: notificationGroupId ?? this.notificationGroupId,
-        notificationId: notificationId ?? this.notificationId,
-      );
+  }) => RemoveNotification(
+    notificationGroupId: notificationGroupId ?? this.notificationGroupId,
+    notificationId: notificationId ?? this.notificationId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'removeNotification';

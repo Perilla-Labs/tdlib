@@ -47,11 +47,10 @@ final class ReaddQuickReplyShortcutMessages extends TdFunction {
   ReaddQuickReplyShortcutMessages copyWith({
     String? shortcutName,
     List<int>? messageIds,
-  }) =>
-      ReaddQuickReplyShortcutMessages(
-        shortcutName: shortcutName ?? this.shortcutName,
-        messageIds: messageIds ?? this.messageIds,
-      );
+  }) => ReaddQuickReplyShortcutMessages(
+    shortcutName: shortcutName ?? this.shortcutName,
+    messageIds: messageIds ?? this.messageIds,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'readdQuickReplyShortcutMessages';

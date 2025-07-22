@@ -83,15 +83,14 @@ final class SendMessage extends TdFunction {
     MessageSendOptions? options,
     ReplyMarkup? replyMarkup,
     InputMessageContent? inputMessageContent,
-  }) =>
-      SendMessage(
-        chatId: chatId ?? this.chatId,
-        messageThreadId: messageThreadId ?? this.messageThreadId,
-        replyTo: replyTo ?? this.replyTo,
-        options: options ?? this.options,
-        replyMarkup: replyMarkup ?? this.replyMarkup,
-        inputMessageContent: inputMessageContent ?? this.inputMessageContent,
-      );
+  }) => SendMessage(
+    chatId: chatId ?? this.chatId,
+    messageThreadId: messageThreadId ?? this.messageThreadId,
+    replyTo: replyTo ?? this.replyTo,
+    options: options ?? this.options,
+    replyMarkup: replyMarkup ?? this.replyMarkup,
+    inputMessageContent: inputMessageContent ?? this.inputMessageContent,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'sendMessage';

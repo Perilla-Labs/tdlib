@@ -44,10 +44,7 @@ final class SetSupergroupStickerSet extends TdFunction {
   /// Properties:
   /// * [supergroup_id]: Identifier of the supergroup
   /// * [sticker_set_id]: New value of the supergroup sticker set identifier. Use 0 to remove the supergroup sticker set
-  SetSupergroupStickerSet copyWith({
-    int? supergroupId,
-    int? stickerSetId,
-  }) =>
+  SetSupergroupStickerSet copyWith({int? supergroupId, int? stickerSetId}) =>
       SetSupergroupStickerSet(
         supergroupId: supergroupId ?? this.supergroupId,
         stickerSetId: stickerSetId ?? this.stickerSetId,

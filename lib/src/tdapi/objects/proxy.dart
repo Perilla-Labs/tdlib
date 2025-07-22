@@ -60,15 +60,15 @@ final class Proxy extends TdObject {
 
   /// Parse from a json
   factory Proxy.fromJson(Map<String, dynamic> json) => Proxy(
-        id: json['id'],
-        server: json['server'],
-        port: json['port'],
-        lastUsedDate: json['last_used_date'],
-        isEnabled: json['is_enabled'],
-        type: ProxyType.fromJson(json['type']),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    id: json['id'],
+    server: json['server'],
+    port: json['port'],
+    lastUsedDate: json['last_used_date'],
+    isEnabled: json['is_enabled'],
+    type: ProxyType.fromJson(json['type']),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -102,17 +102,16 @@ final class Proxy extends TdObject {
     ProxyType? type,
     dynamic extra,
     int? clientId,
-  }) =>
-      Proxy(
-        id: id ?? this.id,
-        server: server ?? this.server,
-        port: port ?? this.port,
-        lastUsedDate: lastUsedDate ?? this.lastUsedDate,
-        isEnabled: isEnabled ?? this.isEnabled,
-        type: type ?? this.type,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => Proxy(
+    id: id ?? this.id,
+    server: server ?? this.server,
+    port: port ?? this.port,
+    lastUsedDate: lastUsedDate ?? this.lastUsedDate,
+    isEnabled: isEnabled ?? this.isEnabled,
+    type: type ?? this.type,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'proxy';

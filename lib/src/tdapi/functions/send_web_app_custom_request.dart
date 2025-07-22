@@ -56,12 +56,11 @@ final class SendWebAppCustomRequest extends TdFunction {
     int? botUserId,
     String? method,
     String? parameters,
-  }) =>
-      SendWebAppCustomRequest(
-        botUserId: botUserId ?? this.botUserId,
-        method: method ?? this.method,
-        parameters: parameters ?? this.parameters,
-      );
+  }) => SendWebAppCustomRequest(
+    botUserId: botUserId ?? this.botUserId,
+    method: method ?? this.method,
+    parameters: parameters ?? this.parameters,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'sendWebAppCustomRequest';

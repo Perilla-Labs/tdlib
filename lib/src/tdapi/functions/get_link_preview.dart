@@ -17,10 +17,7 @@ final class GetLinkPreview extends TdFunction {
   /// * [linkPreviewOptions]: Options to be used for generation of the link preview; pass null to use default link preview options *(optional)*.
   ///
   /// [LinkPreview] is returned on completion.
-  const GetLinkPreview({
-    required this.text,
-    this.linkPreviewOptions,
-  });
+  const GetLinkPreview({required this.text, this.linkPreviewOptions});
 
   /// Message text with formatting
   final FormattedText text;
@@ -47,11 +44,10 @@ final class GetLinkPreview extends TdFunction {
   GetLinkPreview copyWith({
     FormattedText? text,
     LinkPreviewOptions? linkPreviewOptions,
-  }) =>
-      GetLinkPreview(
-        text: text ?? this.text,
-        linkPreviewOptions: linkPreviewOptions ?? this.linkPreviewOptions,
-      );
+  }) => GetLinkPreview(
+    text: text ?? this.text,
+    linkPreviewOptions: linkPreviewOptions ?? this.linkPreviewOptions,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getLinkPreview';

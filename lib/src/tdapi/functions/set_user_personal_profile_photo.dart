@@ -17,10 +17,7 @@ final class SetUserPersonalProfilePhoto extends TdFunction {
   /// * [photo]: Profile photo to set; pass null to delete the photo; inputChatPhotoPrevious isn't supported in this function *(optional)*.
   ///
   /// [Ok] is returned on completion.
-  const SetUserPersonalProfilePhoto({
-    required this.userId,
-    this.photo,
-  });
+  const SetUserPersonalProfilePhoto({required this.userId, this.photo});
 
   /// User identifier
   final int userId;
@@ -44,10 +41,7 @@ final class SetUserPersonalProfilePhoto extends TdFunction {
   /// Properties:
   /// * [user_id]: User identifier
   /// * [photo]: Profile photo to set; pass null to delete the photo; inputChatPhotoPrevious isn't supported in this function
-  SetUserPersonalProfilePhoto copyWith({
-    int? userId,
-    InputChatPhoto? photo,
-  }) =>
+  SetUserPersonalProfilePhoto copyWith({int? userId, InputChatPhoto? photo}) =>
       SetUserPersonalProfilePhoto(
         userId: userId ?? this.userId,
         photo: photo ?? this.photo,

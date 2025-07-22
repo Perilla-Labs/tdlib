@@ -7,8 +7,7 @@ part of '../tdapi.dart';
 /// * [chatId]: Identifier of the chat to which the message belongs.
 /// * [messageId]: Identifier of the message.
 /// * [starCount]: Number of Telegram Stars to be used for the reaction. The total number of pending paid reactions must not exceed getOption("paid_reaction_star_count_max").
-/// * [useDefaultIsAnonymous]: Pass true if the user didn't choose anonymity explicitly, for example, the reaction is set from the message bubble.
-/// * [isAnonymous]: Pass true to make paid reaction of the user on the message anonymous; pass false to make the user's profile visible among top reactors. Ignored if use_default_is_anonymous == true.
+/// * [type]: Type of the paid reaction; pass null if the user didn't choose reaction type explicitly, for example, the reaction is set from the message bubble *(optional)*.
 ///
 /// [Ok] is returned on completion.
 final class AddPendingPaidMessageReaction extends TdFunction {
@@ -19,16 +18,14 @@ final class AddPendingPaidMessageReaction extends TdFunction {
   /// * [chatId]: Identifier of the chat to which the message belongs.
   /// * [messageId]: Identifier of the message.
   /// * [starCount]: Number of Telegram Stars to be used for the reaction. The total number of pending paid reactions must not exceed getOption("paid_reaction_star_count_max").
-  /// * [useDefaultIsAnonymous]: Pass true if the user didn't choose anonymity explicitly, for example, the reaction is set from the message bubble.
-  /// * [isAnonymous]: Pass true to make paid reaction of the user on the message anonymous; pass false to make the user's profile visible among top reactors. Ignored if use_default_is_anonymous == true.
+  /// * [type]: Type of the paid reaction; pass null if the user didn't choose reaction type explicitly, for example, the reaction is set from the message bubble *(optional)*.
   ///
   /// [Ok] is returned on completion.
   const AddPendingPaidMessageReaction({
     required this.chatId,
     required this.messageId,
     required this.starCount,
-    required this.useDefaultIsAnonymous,
-    required this.isAnonymous,
+    this.type,
   });
 
   /// Identifier of the chat to which the message belongs
@@ -40,11 +37,8 @@ final class AddPendingPaidMessageReaction extends TdFunction {
   /// Number of Telegram Stars to be used for the reaction. The total number of pending paid reactions must not exceed getOption("paid_reaction_star_count_max")
   final int starCount;
 
-  /// Pass true if the user didn't choose anonymity explicitly, for example, the reaction is set from the message bubble
-  final bool useDefaultIsAnonymous;
-
-  /// Pass true to make paid reaction of the user on the message anonymous; pass false to make the user's profile visible among top reactors. Ignored if use_default_is_anonymous == true
-  final bool isAnonymous;
+  /// Type of the paid reaction; pass null if the user didn't choose reaction type explicitly, for example, the reaction is set from the message bubble
+  final PaidReactionType? type;
 
   /// Convert model to TDLib JSON format
   @override
@@ -54,8 +48,7 @@ final class AddPendingPaidMessageReaction extends TdFunction {
       "chat_id": chatId,
       "message_id": messageId,
       "star_count": starCount,
-      "use_default_is_anonymous": useDefaultIsAnonymous,
-      "is_anonymous": isAnonymous,
+      "type": type?.toJson(),
       "@extra": extra,
     };
   }
@@ -66,23 +59,18 @@ final class AddPendingPaidMessageReaction extends TdFunction {
   /// * [chat_id]: Identifier of the chat to which the message belongs
   /// * [message_id]: Identifier of the message
   /// * [star_count]: Number of Telegram Stars to be used for the reaction. The total number of pending paid reactions must not exceed getOption("paid_reaction_star_count_max")
-  /// * [use_default_is_anonymous]: Pass true if the user didn't choose anonymity explicitly, for example, the reaction is set from the message bubble
-  /// * [is_anonymous]: Pass true to make paid reaction of the user on the message anonymous; pass false to make the user's profile visible among top reactors. Ignored if use_default_is_anonymous == true
+  /// * [type]: Type of the paid reaction; pass null if the user didn't choose reaction type explicitly, for example, the reaction is set from the message bubble
   AddPendingPaidMessageReaction copyWith({
     int? chatId,
     int? messageId,
     int? starCount,
-    bool? useDefaultIsAnonymous,
-    bool? isAnonymous,
-  }) =>
-      AddPendingPaidMessageReaction(
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        starCount: starCount ?? this.starCount,
-        useDefaultIsAnonymous:
-            useDefaultIsAnonymous ?? this.useDefaultIsAnonymous,
-        isAnonymous: isAnonymous ?? this.isAnonymous,
-      );
+    PaidReactionType? type,
+  }) => AddPendingPaidMessageReaction(
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    starCount: starCount ?? this.starCount,
+    type: type ?? this.type,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'addPendingPaidMessageReaction';

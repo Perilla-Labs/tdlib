@@ -44,10 +44,7 @@ final class DeleteChatBackground extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [restore_previous]: Pass true to restore previously set background. Can be used only in private and secret chats with non-deleted users if userFullInfo.set_chat_background == true.. Supposed to be used from messageChatSetBackground messages with the currently set background that was set for both sides by the other user
-  DeleteChatBackground copyWith({
-    int? chatId,
-    bool? restorePrevious,
-  }) =>
+  DeleteChatBackground copyWith({int? chatId, bool? restorePrevious}) =>
       DeleteChatBackground(
         chatId: chatId ?? this.chatId,
         restorePrevious: restorePrevious ?? this.restorePrevious,

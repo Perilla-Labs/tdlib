@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **StarGiveawayPaymentOption** *(starGiveawayPaymentOption)* - basic class
 ///
-/// Describes an option for creating Telegram Star giveaway. Use telegramPaymentPurposeStarGiveaway for out-of-store payments.
+/// Describes an option for creating of Telegram Star giveaway. Use telegramPaymentPurposeStarGiveaway for out-of-store payments.
 ///
 /// * [currency]: ISO 4217 currency code for the payment.
 /// * [amount]: The amount to pay, in the smallest units of the currency.
@@ -15,7 +15,7 @@ part of '../tdapi.dart';
 final class StarGiveawayPaymentOption extends TdObject {
   /// **StarGiveawayPaymentOption** *(starGiveawayPaymentOption)* - basic class
   ///
-  /// Describes an option for creating Telegram Star giveaway. Use telegramPaymentPurposeStarGiveaway for out-of-store payments.
+  /// Describes an option for creating of Telegram Star giveaway. Use telegramPaymentPurposeStarGiveaway for out-of-store payments.
   ///
   /// * [currency]: ISO 4217 currency code for the payment.
   /// * [amount]: The amount to pay, in the smallest units of the currency.
@@ -69,9 +69,10 @@ final class StarGiveawayPaymentOption extends TdObject {
         storeProductId: json['store_product_id'],
         yearlyBoostCount: json['yearly_boost_count'],
         winnerOptions: List<StarGiveawayWinnerOption>.from(
-            (json['winner_options'] ?? [])
-                .map((item) => StarGiveawayWinnerOption.fromJson(item))
-                .toList()),
+          (json['winner_options'] ?? [])
+              .map((item) => StarGiveawayWinnerOption.fromJson(item))
+              .toList(),
+        ),
         isDefault: json['is_default'],
         isAdditional: json['is_additional'],
       );
@@ -112,17 +113,16 @@ final class StarGiveawayPaymentOption extends TdObject {
     List<StarGiveawayWinnerOption>? winnerOptions,
     bool? isDefault,
     bool? isAdditional,
-  }) =>
-      StarGiveawayPaymentOption(
-        currency: currency ?? this.currency,
-        amount: amount ?? this.amount,
-        starCount: starCount ?? this.starCount,
-        storeProductId: storeProductId ?? this.storeProductId,
-        yearlyBoostCount: yearlyBoostCount ?? this.yearlyBoostCount,
-        winnerOptions: winnerOptions ?? this.winnerOptions,
-        isDefault: isDefault ?? this.isDefault,
-        isAdditional: isAdditional ?? this.isAdditional,
-      );
+  }) => StarGiveawayPaymentOption(
+    currency: currency ?? this.currency,
+    amount: amount ?? this.amount,
+    starCount: starCount ?? this.starCount,
+    storeProductId: storeProductId ?? this.storeProductId,
+    yearlyBoostCount: yearlyBoostCount ?? this.yearlyBoostCount,
+    winnerOptions: winnerOptions ?? this.winnerOptions,
+    isDefault: isDefault ?? this.isDefault,
+    isAdditional: isAdditional ?? this.isAdditional,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'starGiveawayPaymentOption';

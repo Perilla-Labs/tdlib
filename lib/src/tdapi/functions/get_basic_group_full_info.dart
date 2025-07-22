@@ -15,9 +15,7 @@ final class GetBasicGroupFullInfo extends TdFunction {
   /// * [basicGroupId]: Basic group identifier.
   ///
   /// [BasicGroupFullInfo] is returned on completion.
-  const GetBasicGroupFullInfo({
-    required this.basicGroupId,
-  });
+  const GetBasicGroupFullInfo({required this.basicGroupId});
 
   /// Basic group identifier
   final int basicGroupId;
@@ -36,12 +34,8 @@ final class GetBasicGroupFullInfo extends TdFunction {
   ///
   /// Properties:
   /// * [basic_group_id]: Basic group identifier
-  GetBasicGroupFullInfo copyWith({
-    int? basicGroupId,
-  }) =>
-      GetBasicGroupFullInfo(
-        basicGroupId: basicGroupId ?? this.basicGroupId,
-      );
+  GetBasicGroupFullInfo copyWith({int? basicGroupId}) =>
+      GetBasicGroupFullInfo(basicGroupId: basicGroupId ?? this.basicGroupId);
 
   /// TDLib object type
   static const String defaultObjectId = 'getBasicGroupFullInfo';

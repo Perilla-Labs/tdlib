@@ -59,26 +59,19 @@ final class SpeechRecognitionResultPending extends SpeechRecognitionResult {
   /// The speech recognition is ongoing.
   ///
   /// * [partialText]: Partially recognized text.
-  const SpeechRecognitionResultPending({
-    required this.partialText,
-  });
+  const SpeechRecognitionResultPending({required this.partialText});
 
   /// Partially recognized text
   final String partialText;
 
   /// Parse from a json
   factory SpeechRecognitionResultPending.fromJson(Map<String, dynamic> json) =>
-      SpeechRecognitionResultPending(
-        partialText: json['partial_text'],
-      );
+      SpeechRecognitionResultPending(partialText: json['partial_text']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "partial_text": partialText,
-    };
+    return {"@type": defaultObjectId, "partial_text": partialText};
   }
 
   /// Copy model with modified properties.
@@ -86,9 +79,7 @@ final class SpeechRecognitionResultPending extends SpeechRecognitionResult {
   /// Properties:
   /// * [partial_text]: Partially recognized text
   @override
-  SpeechRecognitionResultPending copyWith({
-    String? partialText,
-  }) =>
+  SpeechRecognitionResultPending copyWith({String? partialText}) =>
       SpeechRecognitionResultPending(
         partialText: partialText ?? this.partialText,
       );
@@ -116,26 +107,19 @@ final class SpeechRecognitionResultText extends SpeechRecognitionResult {
   /// The speech recognition successfully finished.
   ///
   /// * [text]: Recognized text.
-  const SpeechRecognitionResultText({
-    required this.text,
-  });
+  const SpeechRecognitionResultText({required this.text});
 
   /// Recognized text
   final String text;
 
   /// Parse from a json
   factory SpeechRecognitionResultText.fromJson(Map<String, dynamic> json) =>
-      SpeechRecognitionResultText(
-        text: json['text'],
-      );
+      SpeechRecognitionResultText(text: json['text']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "text": text,
-    };
+    return {"@type": defaultObjectId, "text": text};
   }
 
   /// Copy model with modified properties.
@@ -143,12 +127,8 @@ final class SpeechRecognitionResultText extends SpeechRecognitionResult {
   /// Properties:
   /// * [text]: Recognized text
   @override
-  SpeechRecognitionResultText copyWith({
-    String? text,
-  }) =>
-      SpeechRecognitionResultText(
-        text: text ?? this.text,
-      );
+  SpeechRecognitionResultText copyWith({String? text}) =>
+      SpeechRecognitionResultText(text: text ?? this.text);
 
   /// TDLib object type
   static const String defaultObjectId = 'speechRecognitionResultText';
@@ -173,26 +153,19 @@ final class SpeechRecognitionResultError extends SpeechRecognitionResult {
   /// The speech recognition failed.
   ///
   /// * [error]: Recognition error. An error with a message "MSG_VOICE_TOO_LONG" is returned when media duration is too big to be recognized.
-  const SpeechRecognitionResultError({
-    required this.error,
-  });
+  const SpeechRecognitionResultError({required this.error});
 
   /// Recognition error. An error with a message "MSG_VOICE_TOO_LONG" is returned when media duration is too big to be recognized
   final TdError error;
 
   /// Parse from a json
   factory SpeechRecognitionResultError.fromJson(Map<String, dynamic> json) =>
-      SpeechRecognitionResultError(
-        error: TdError.fromJson(json['error']),
-      );
+      SpeechRecognitionResultError(error: TdError.fromJson(json['error']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "error": error.toJson(),
-    };
+    return {"@type": defaultObjectId, "error": error.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -200,12 +173,8 @@ final class SpeechRecognitionResultError extends SpeechRecognitionResult {
   /// Properties:
   /// * [error]: Recognition error. An error with a message "MSG_VOICE_TOO_LONG" is returned when media duration is too big to be recognized
   @override
-  SpeechRecognitionResultError copyWith({
-    TdError? error,
-  }) =>
-      SpeechRecognitionResultError(
-        error: error ?? this.error,
-      );
+  SpeechRecognitionResultError copyWith({TdError? error}) =>
+      SpeechRecognitionResultError(error: error ?? this.error);
 
   /// TDLib object type
   static const String defaultObjectId = 'speechRecognitionResultError';

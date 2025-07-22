@@ -15,9 +15,7 @@ final class DeleteAllCallMessages extends TdFunction {
   /// * [revoke]: Pass true to delete the messages for all users.
   ///
   /// [Ok] is returned on completion.
-  const DeleteAllCallMessages({
-    required this.revoke,
-  });
+  const DeleteAllCallMessages({required this.revoke});
 
   /// Pass true to delete the messages for all users
   final bool revoke;
@@ -25,23 +23,15 @@ final class DeleteAllCallMessages extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "revoke": revoke,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "revoke": revoke, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [revoke]: Pass true to delete the messages for all users
-  DeleteAllCallMessages copyWith({
-    bool? revoke,
-  }) =>
-      DeleteAllCallMessages(
-        revoke: revoke ?? this.revoke,
-      );
+  DeleteAllCallMessages copyWith({bool? revoke}) =>
+      DeleteAllCallMessages(revoke: revoke ?? this.revoke);
 
   /// TDLib object type
   static const String defaultObjectId = 'deleteAllCallMessages';

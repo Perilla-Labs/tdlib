@@ -11,11 +11,7 @@ final class TMeUrls extends TdObject {
   /// Contains a list of t.me URLs.
   ///
   /// * [urls]: List of URLs.
-  const TMeUrls({
-    required this.urls,
-    this.extra,
-    this.clientId,
-  });
+  const TMeUrls({required this.urls, this.extra, this.clientId});
 
   /// List of URLs
   final List<TMeUrl> urls;
@@ -30,11 +26,12 @@ final class TMeUrls extends TdObject {
 
   /// Parse from a json
   factory TMeUrls.fromJson(Map<String, dynamic> json) => TMeUrls(
-        urls: List<TMeUrl>.from(
-            (json['urls'] ?? []).map((item) => TMeUrl.fromJson(item)).toList()),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    urls: List<TMeUrl>.from(
+      (json['urls'] ?? []).map((item) => TMeUrl.fromJson(item)).toList(),
+    ),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -49,11 +46,7 @@ final class TMeUrls extends TdObject {
   ///
   /// Properties:
   /// * [urls]: List of URLs
-  TMeUrls copyWith({
-    List<TMeUrl>? urls,
-    dynamic extra,
-    int? clientId,
-  }) =>
+  TMeUrls copyWith({List<TMeUrl>? urls, dynamic extra, int? clientId}) =>
       TMeUrls(
         urls: urls ?? this.urls,
         extra: extra ?? this.extra,

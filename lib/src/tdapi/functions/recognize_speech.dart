@@ -17,10 +17,7 @@ final class RecognizeSpeech extends TdFunction {
   /// * [messageId]: Identifier of the message. Use messageProperties.can_recognize_speech to check whether the message is suitable.
   ///
   /// [Ok] is returned on completion.
-  const RecognizeSpeech({
-    required this.chatId,
-    required this.messageId,
-  });
+  const RecognizeSpeech({required this.chatId, required this.messageId});
 
   /// Identifier of the chat to which the message belongs
   final int chatId;
@@ -44,14 +41,10 @@ final class RecognizeSpeech extends TdFunction {
   /// Properties:
   /// * [chat_id]: Identifier of the chat to which the message belongs
   /// * [message_id]: Identifier of the message. Use messageProperties.can_recognize_speech to check whether the message is suitable
-  RecognizeSpeech copyWith({
-    int? chatId,
-    int? messageId,
-  }) =>
-      RecognizeSpeech(
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-      );
+  RecognizeSpeech copyWith({int? chatId, int? messageId}) => RecognizeSpeech(
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'recognizeSpeech';

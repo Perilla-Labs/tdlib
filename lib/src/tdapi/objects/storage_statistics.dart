@@ -45,9 +45,11 @@ final class StorageStatistics extends TdObject {
       StorageStatistics(
         size: json['size'],
         count: json['count'],
-        byChat: List<StorageStatisticsByChat>.from((json['by_chat'] ?? [])
-            .map((item) => StorageStatisticsByChat.fromJson(item))
-            .toList()),
+        byChat: List<StorageStatisticsByChat>.from(
+          (json['by_chat'] ?? [])
+              .map((item) => StorageStatisticsByChat.fromJson(item))
+              .toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -75,14 +77,13 @@ final class StorageStatistics extends TdObject {
     List<StorageStatisticsByChat>? byChat,
     dynamic extra,
     int? clientId,
-  }) =>
-      StorageStatistics(
-        size: size ?? this.size,
-        count: count ?? this.count,
-        byChat: byChat ?? this.byChat,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => StorageStatistics(
+    size: size ?? this.size,
+    count: count ?? this.count,
+    byChat: byChat ?? this.byChat,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'storageStatistics';

@@ -44,12 +44,12 @@ final class ChatBoostSlot extends TdObject {
 
   /// Parse from a json
   factory ChatBoostSlot.fromJson(Map<String, dynamic> json) => ChatBoostSlot(
-        slotId: json['slot_id'],
-        currentlyBoostedChatId: json['currently_boosted_chat_id'] ?? 0,
-        startDate: json['start_date'] ?? 0,
-        expirationDate: json['expiration_date'],
-        cooldownUntilDate: json['cooldown_until_date'],
-      );
+    slotId: json['slot_id'],
+    currentlyBoostedChatId: json['currently_boosted_chat_id'] ?? 0,
+    startDate: json['start_date'] ?? 0,
+    expirationDate: json['expiration_date'],
+    cooldownUntilDate: json['cooldown_until_date'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -78,15 +78,14 @@ final class ChatBoostSlot extends TdObject {
     int? startDate,
     int? expirationDate,
     int? cooldownUntilDate,
-  }) =>
-      ChatBoostSlot(
-        slotId: slotId ?? this.slotId,
-        currentlyBoostedChatId:
-            currentlyBoostedChatId ?? this.currentlyBoostedChatId,
-        startDate: startDate ?? this.startDate,
-        expirationDate: expirationDate ?? this.expirationDate,
-        cooldownUntilDate: cooldownUntilDate ?? this.cooldownUntilDate,
-      );
+  }) => ChatBoostSlot(
+    slotId: slotId ?? this.slotId,
+    currentlyBoostedChatId:
+        currentlyBoostedChatId ?? this.currentlyBoostedChatId,
+    startDate: startDate ?? this.startDate,
+    expirationDate: expirationDate ?? this.expirationDate,
+    cooldownUntilDate: cooldownUntilDate ?? this.cooldownUntilDate,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatBoostSlot';

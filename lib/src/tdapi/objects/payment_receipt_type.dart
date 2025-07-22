@@ -139,16 +139,14 @@ final class PaymentReceiptTypeRegular extends PaymentReceiptType {
     ShippingOption? shippingOption,
     String? credentialsTitle,
     int? tipAmount,
-  }) =>
-      PaymentReceiptTypeRegular(
-        paymentProviderUserId:
-            paymentProviderUserId ?? this.paymentProviderUserId,
-        invoice: invoice ?? this.invoice,
-        orderInfo: orderInfo ?? this.orderInfo,
-        shippingOption: shippingOption ?? this.shippingOption,
-        credentialsTitle: credentialsTitle ?? this.credentialsTitle,
-        tipAmount: tipAmount ?? this.tipAmount,
-      );
+  }) => PaymentReceiptTypeRegular(
+    paymentProviderUserId: paymentProviderUserId ?? this.paymentProviderUserId,
+    invoice: invoice ?? this.invoice,
+    orderInfo: orderInfo ?? this.orderInfo,
+    shippingOption: shippingOption ?? this.shippingOption,
+    credentialsTitle: credentialsTitle ?? this.credentialsTitle,
+    tipAmount: tipAmount ?? this.tipAmount,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'paymentReceiptTypeRegular';
@@ -209,10 +207,7 @@ final class PaymentReceiptTypeStars extends PaymentReceiptType {
   /// * [star_count]: Number of Telegram Stars that were paid
   /// * [transaction_id]: Unique identifier of the transaction that can be used to dispute it
   @override
-  PaymentReceiptTypeStars copyWith({
-    int? starCount,
-    String? transactionId,
-  }) =>
+  PaymentReceiptTypeStars copyWith({int? starCount, String? transactionId}) =>
       PaymentReceiptTypeStars(
         starCount: starCount ?? this.starCount,
         transactionId: transactionId ?? this.transactionId,

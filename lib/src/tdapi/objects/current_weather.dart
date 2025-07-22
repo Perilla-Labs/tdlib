@@ -36,11 +36,11 @@ final class CurrentWeather extends TdObject {
 
   /// Parse from a json
   factory CurrentWeather.fromJson(Map<String, dynamic> json) => CurrentWeather(
-        temperature: json['temperature'],
-        emoji: json['emoji'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    temperature: json['temperature'],
+    emoji: json['emoji'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -62,13 +62,12 @@ final class CurrentWeather extends TdObject {
     String? emoji,
     dynamic extra,
     int? clientId,
-  }) =>
-      CurrentWeather(
-        temperature: temperature ?? this.temperature,
-        emoji: emoji ?? this.emoji,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => CurrentWeather(
+    temperature: temperature ?? this.temperature,
+    emoji: emoji ?? this.emoji,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'currentWeather';

@@ -8,7 +8,7 @@ part of '../tdapi.dart';
 /// * [offset]: The offset from which to read the file.
 /// * [count]: Number of bytes to read. An error will be returned if there are not enough bytes available in the file from the specified position. Pass 0 to read all available data from the specified position.
 ///
-/// [FilePart] is returned on completion.
+/// [Data] is returned on completion.
 final class ReadFilePart extends TdFunction {
   /// **ReadFilePart** *(readFilePart)* - TDLib function
   ///
@@ -18,7 +18,7 @@ final class ReadFilePart extends TdFunction {
   /// * [offset]: The offset from which to read the file.
   /// * [count]: Number of bytes to read. An error will be returned if there are not enough bytes available in the file from the specified position. Pass 0 to read all available data from the specified position.
   ///
-  /// [FilePart] is returned on completion.
+  /// [Data] is returned on completion.
   const ReadFilePart({
     required this.fileId,
     required this.offset,
@@ -52,16 +52,11 @@ final class ReadFilePart extends TdFunction {
   /// * [file_id]: Identifier of the file. The file must be located in the TDLib file cache
   /// * [offset]: The offset from which to read the file
   /// * [count]: Number of bytes to read. An error will be returned if there are not enough bytes available in the file from the specified position. Pass 0 to read all available data from the specified position
-  ReadFilePart copyWith({
-    int? fileId,
-    int? offset,
-    int? count,
-  }) =>
-      ReadFilePart(
-        fileId: fileId ?? this.fileId,
-        offset: offset ?? this.offset,
-        count: count ?? this.count,
-      );
+  ReadFilePart copyWith({int? fileId, int? offset, int? count}) => ReadFilePart(
+    fileId: fileId ?? this.fileId,
+    offset: offset ?? this.offset,
+    count: count ?? this.count,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'readFilePart';

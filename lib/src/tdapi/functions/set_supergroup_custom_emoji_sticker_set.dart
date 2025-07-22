@@ -47,12 +47,11 @@ final class SetSupergroupCustomEmojiStickerSet extends TdFunction {
   SetSupergroupCustomEmojiStickerSet copyWith({
     int? supergroupId,
     int? customEmojiStickerSetId,
-  }) =>
-      SetSupergroupCustomEmojiStickerSet(
-        supergroupId: supergroupId ?? this.supergroupId,
-        customEmojiStickerSetId:
-            customEmojiStickerSetId ?? this.customEmojiStickerSetId,
-      );
+  }) => SetSupergroupCustomEmojiStickerSet(
+    supergroupId: supergroupId ?? this.supergroupId,
+    customEmojiStickerSetId:
+        customEmojiStickerSetId ?? this.customEmojiStickerSetId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setSupergroupCustomEmojiStickerSet';

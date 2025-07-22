@@ -40,9 +40,11 @@ final class ReactionNotificationSettings extends TdObject {
   factory ReactionNotificationSettings.fromJson(Map<String, dynamic> json) =>
       ReactionNotificationSettings(
         messageReactionSource: ReactionNotificationSource.fromJson(
-            json['message_reaction_source']),
-        storyReactionSource:
-            ReactionNotificationSource.fromJson(json['story_reaction_source']),
+          json['message_reaction_source'],
+        ),
+        storyReactionSource: ReactionNotificationSource.fromJson(
+          json['story_reaction_source'],
+        ),
         soundId: json['sound_id'] is int
             ? json['sound_id']
             : int.parse(json['sound_id']),
@@ -73,14 +75,12 @@ final class ReactionNotificationSettings extends TdObject {
     ReactionNotificationSource? storyReactionSource,
     int? soundId,
     bool? showPreview,
-  }) =>
-      ReactionNotificationSettings(
-        messageReactionSource:
-            messageReactionSource ?? this.messageReactionSource,
-        storyReactionSource: storyReactionSource ?? this.storyReactionSource,
-        soundId: soundId ?? this.soundId,
-        showPreview: showPreview ?? this.showPreview,
-      );
+  }) => ReactionNotificationSettings(
+    messageReactionSource: messageReactionSource ?? this.messageReactionSource,
+    storyReactionSource: storyReactionSource ?? this.storyReactionSource,
+    soundId: soundId ?? this.soundId,
+    showPreview: showPreview ?? this.showPreview,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'reactionNotificationSettings';

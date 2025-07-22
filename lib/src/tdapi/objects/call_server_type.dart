@@ -79,11 +79,7 @@ final class CallServerTypeTelegramReflector extends CallServerType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "peer_tag": peerTag,
-      "is_tcp": isTcp,
-    };
+    return {"@type": defaultObjectId, "peer_tag": peerTag, "is_tcp": isTcp};
   }
 
   /// Copy model with modified properties.
@@ -92,10 +88,7 @@ final class CallServerTypeTelegramReflector extends CallServerType {
   /// * [peer_tag]: A peer tag to be used with the reflector
   /// * [is_tcp]: True, if the server uses TCP instead of UDP
   @override
-  CallServerTypeTelegramReflector copyWith({
-    String? peerTag,
-    bool? isTcp,
-  }) =>
+  CallServerTypeTelegramReflector copyWith({String? peerTag, bool? isTcp}) =>
       CallServerTypeTelegramReflector(
         peerTag: peerTag ?? this.peerTag,
         isTcp: isTcp ?? this.isTcp,
@@ -183,13 +176,12 @@ final class CallServerTypeWebrtc extends CallServerType {
     String? password,
     bool? supportsTurn,
     bool? supportsStun,
-  }) =>
-      CallServerTypeWebrtc(
-        username: username ?? this.username,
-        password: password ?? this.password,
-        supportsTurn: supportsTurn ?? this.supportsTurn,
-        supportsStun: supportsStun ?? this.supportsStun,
-      );
+  }) => CallServerTypeWebrtc(
+    username: username ?? this.username,
+    password: password ?? this.password,
+    supportsTurn: supportsTurn ?? this.supportsTurn,
+    supportsStun: supportsStun ?? this.supportsStun,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'callServerTypeWebrtc';

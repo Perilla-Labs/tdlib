@@ -56,12 +56,11 @@ final class GetMessageAvailableReactions extends TdFunction {
     int? chatId,
     int? messageId,
     int? rowSize,
-  }) =>
-      GetMessageAvailableReactions(
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        rowSize: rowSize ?? this.rowSize,
-      );
+  }) => GetMessageAvailableReactions(
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    rowSize: rowSize ?? this.rowSize,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getMessageAvailableReactions';

@@ -17,10 +17,7 @@ final class LoadChats extends TdFunction {
   /// * [limit]: The maximum number of chats to be loaded. For optimal performance, the number of loaded chats is chosen by TDLib and can be smaller than the specified limit, even if the end of the list is not reached.
   ///
   /// [Ok] is returned on completion.
-  const LoadChats({
-    this.chatList,
-    required this.limit,
-  });
+  const LoadChats({this.chatList, required this.limit});
 
   /// The chat list in which to load chats; pass null to load chats from the main chat list
   final ChatList? chatList;
@@ -44,14 +41,10 @@ final class LoadChats extends TdFunction {
   /// Properties:
   /// * [chat_list]: The chat list in which to load chats; pass null to load chats from the main chat list
   /// * [limit]: The maximum number of chats to be loaded. For optimal performance, the number of loaded chats is chosen by TDLib and can be smaller than the specified limit, even if the end of the list is not reached
-  LoadChats copyWith({
-    ChatList? chatList,
-    int? limit,
-  }) =>
-      LoadChats(
-        chatList: chatList ?? this.chatList,
-        limit: limit ?? this.limit,
-      );
+  LoadChats copyWith({ChatList? chatList, int? limit}) => LoadChats(
+    chatList: chatList ?? this.chatList,
+    limit: limit ?? this.limit,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'loadChats';

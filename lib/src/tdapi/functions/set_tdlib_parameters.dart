@@ -155,24 +155,22 @@ final class SetTdlibParameters extends TdFunction {
     String? deviceModel,
     String? systemVersion,
     String? applicationVersion,
-  }) =>
-      SetTdlibParameters(
-        useTestDc: useTestDc ?? this.useTestDc,
-        databaseDirectory: databaseDirectory ?? this.databaseDirectory,
-        filesDirectory: filesDirectory ?? this.filesDirectory,
-        databaseEncryptionKey:
-            databaseEncryptionKey ?? this.databaseEncryptionKey,
-        useFileDatabase: useFileDatabase ?? this.useFileDatabase,
-        useChatInfoDatabase: useChatInfoDatabase ?? this.useChatInfoDatabase,
-        useMessageDatabase: useMessageDatabase ?? this.useMessageDatabase,
-        useSecretChats: useSecretChats ?? this.useSecretChats,
-        apiId: apiId ?? this.apiId,
-        apiHash: apiHash ?? this.apiHash,
-        systemLanguageCode: systemLanguageCode ?? this.systemLanguageCode,
-        deviceModel: deviceModel ?? this.deviceModel,
-        systemVersion: systemVersion ?? this.systemVersion,
-        applicationVersion: applicationVersion ?? this.applicationVersion,
-      );
+  }) => SetTdlibParameters(
+    useTestDc: useTestDc ?? this.useTestDc,
+    databaseDirectory: databaseDirectory ?? this.databaseDirectory,
+    filesDirectory: filesDirectory ?? this.filesDirectory,
+    databaseEncryptionKey: databaseEncryptionKey ?? this.databaseEncryptionKey,
+    useFileDatabase: useFileDatabase ?? this.useFileDatabase,
+    useChatInfoDatabase: useChatInfoDatabase ?? this.useChatInfoDatabase,
+    useMessageDatabase: useMessageDatabase ?? this.useMessageDatabase,
+    useSecretChats: useSecretChats ?? this.useSecretChats,
+    apiId: apiId ?? this.apiId,
+    apiHash: apiHash ?? this.apiHash,
+    systemLanguageCode: systemLanguageCode ?? this.systemLanguageCode,
+    deviceModel: deviceModel ?? this.deviceModel,
+    systemVersion: systemVersion ?? this.systemVersion,
+    applicationVersion: applicationVersion ?? this.applicationVersion,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setTdlibParameters';

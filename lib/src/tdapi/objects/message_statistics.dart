@@ -37,10 +37,12 @@ final class MessageStatistics extends TdObject {
   /// Parse from a json
   factory MessageStatistics.fromJson(Map<String, dynamic> json) =>
       MessageStatistics(
-        messageInteractionGraph:
-            StatisticalGraph.fromJson(json['message_interaction_graph']),
-        messageReactionGraph:
-            StatisticalGraph.fromJson(json['message_reaction_graph']),
+        messageInteractionGraph: StatisticalGraph.fromJson(
+          json['message_interaction_graph'],
+        ),
+        messageReactionGraph: StatisticalGraph.fromJson(
+          json['message_reaction_graph'],
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -65,14 +67,13 @@ final class MessageStatistics extends TdObject {
     StatisticalGraph? messageReactionGraph,
     dynamic extra,
     int? clientId,
-  }) =>
-      MessageStatistics(
-        messageInteractionGraph:
-            messageInteractionGraph ?? this.messageInteractionGraph,
-        messageReactionGraph: messageReactionGraph ?? this.messageReactionGraph,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => MessageStatistics(
+    messageInteractionGraph:
+        messageInteractionGraph ?? this.messageInteractionGraph,
+    messageReactionGraph: messageReactionGraph ?? this.messageReactionGraph,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageStatistics';

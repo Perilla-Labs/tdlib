@@ -54,16 +54,16 @@ final class ForumTopics extends TdObject {
 
   /// Parse from a json
   factory ForumTopics.fromJson(Map<String, dynamic> json) => ForumTopics(
-        totalCount: json['total_count'],
-        topics: List<ForumTopic>.from((json['topics'] ?? [])
-            .map((item) => ForumTopic.fromJson(item))
-            .toList()),
-        nextOffsetDate: json['next_offset_date'],
-        nextOffsetMessageId: json['next_offset_message_id'],
-        nextOffsetMessageThreadId: json['next_offset_message_thread_id'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    totalCount: json['total_count'],
+    topics: List<ForumTopic>.from(
+      (json['topics'] ?? []).map((item) => ForumTopic.fromJson(item)).toList(),
+    ),
+    nextOffsetDate: json['next_offset_date'],
+    nextOffsetMessageId: json['next_offset_message_id'],
+    nextOffsetMessageThreadId: json['next_offset_message_thread_id'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -94,17 +94,16 @@ final class ForumTopics extends TdObject {
     int? nextOffsetMessageThreadId,
     dynamic extra,
     int? clientId,
-  }) =>
-      ForumTopics(
-        totalCount: totalCount ?? this.totalCount,
-        topics: topics ?? this.topics,
-        nextOffsetDate: nextOffsetDate ?? this.nextOffsetDate,
-        nextOffsetMessageId: nextOffsetMessageId ?? this.nextOffsetMessageId,
-        nextOffsetMessageThreadId:
-            nextOffsetMessageThreadId ?? this.nextOffsetMessageThreadId,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => ForumTopics(
+    totalCount: totalCount ?? this.totalCount,
+    topics: topics ?? this.topics,
+    nextOffsetDate: nextOffsetDate ?? this.nextOffsetDate,
+    nextOffsetMessageId: nextOffsetMessageId ?? this.nextOffsetMessageId,
+    nextOffsetMessageThreadId:
+        nextOffsetMessageThreadId ?? this.nextOffsetMessageThreadId,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'forumTopics';

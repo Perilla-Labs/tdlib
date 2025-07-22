@@ -56,12 +56,11 @@ final class SetFileGenerationProgress extends TdFunction {
     int? generationId,
     int? expectedSize,
     int? localPrefixSize,
-  }) =>
-      SetFileGenerationProgress(
-        generationId: generationId ?? this.generationId,
-        expectedSize: expectedSize ?? this.expectedSize,
-        localPrefixSize: localPrefixSize ?? this.localPrefixSize,
-      );
+  }) => SetFileGenerationProgress(
+    generationId: generationId ?? this.generationId,
+    expectedSize: expectedSize ?? this.expectedSize,
+    localPrefixSize: localPrefixSize ?? this.localPrefixSize,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setFileGenerationProgress';

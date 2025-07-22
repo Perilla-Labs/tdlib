@@ -56,12 +56,11 @@ final class SearchQuote extends TdFunction {
     FormattedText? text,
     FormattedText? quote,
     int? quotePosition,
-  }) =>
-      SearchQuote(
-        text: text ?? this.text,
-        quote: quote ?? this.quote,
-        quotePosition: quotePosition ?? this.quotePosition,
-      );
+  }) => SearchQuote(
+    text: text ?? this.text,
+    quote: quote ?? this.quote,
+    quotePosition: quotePosition ?? this.quotePosition,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'searchQuote';

@@ -15,9 +15,7 @@ final class GetChatFolderChatsToLeave extends TdFunction {
   /// * [chatFolderId]: Chat folder identifier.
   ///
   /// [Chats] is returned on completion.
-  const GetChatFolderChatsToLeave({
-    required this.chatFolderId,
-  });
+  const GetChatFolderChatsToLeave({required this.chatFolderId});
 
   /// Chat folder identifier
   final int chatFolderId;
@@ -36,9 +34,7 @@ final class GetChatFolderChatsToLeave extends TdFunction {
   ///
   /// Properties:
   /// * [chat_folder_id]: Chat folder identifier
-  GetChatFolderChatsToLeave copyWith({
-    int? chatFolderId,
-  }) =>
+  GetChatFolderChatsToLeave copyWith({int? chatFolderId}) =>
       GetChatFolderChatsToLeave(
         chatFolderId: chatFolderId ?? this.chatFolderId,
       );

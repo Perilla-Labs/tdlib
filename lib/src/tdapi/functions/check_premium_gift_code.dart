@@ -15,9 +15,7 @@ final class CheckPremiumGiftCode extends TdFunction {
   /// * [code]: The code to check.
   ///
   /// [PremiumGiftCodeInfo] is returned on completion.
-  const CheckPremiumGiftCode({
-    required this.code,
-  });
+  const CheckPremiumGiftCode({required this.code});
 
   /// The code to check
   final String code;
@@ -25,23 +23,15 @@ final class CheckPremiumGiftCode extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "code": code,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "code": code, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [code]: The code to check
-  CheckPremiumGiftCode copyWith({
-    String? code,
-  }) =>
-      CheckPremiumGiftCode(
-        code: code ?? this.code,
-      );
+  CheckPremiumGiftCode copyWith({String? code}) =>
+      CheckPremiumGiftCode(code: code ?? this.code);
 
   /// TDLib object type
   static const String defaultObjectId = 'checkPremiumGiftCode';

@@ -32,10 +32,10 @@ final class TextQuote extends TdObject {
 
   /// Parse from a json
   factory TextQuote.fromJson(Map<String, dynamic> json) => TextQuote(
-        text: FormattedText.fromJson(json['text']),
-        position: json['position'],
-        isManual: json['is_manual'],
-      );
+    text: FormattedText.fromJson(json['text']),
+    position: json['position'],
+    isManual: json['is_manual'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -54,11 +54,7 @@ final class TextQuote extends TdObject {
   /// * [text]: Text of the quote. Only Bold, Italic, Underline, Strikethrough, Spoiler, and CustomEmoji entities can be present in the text
   /// * [position]: Approximate quote position in the original message in UTF-16 code units as specified by the message sender
   /// * [is_manual]: True, if the quote was manually chosen by the message sender
-  TextQuote copyWith({
-    FormattedText? text,
-    int? position,
-    bool? isManual,
-  }) =>
+  TextQuote copyWith({FormattedText? text, int? position, bool? isManual}) =>
       TextQuote(
         text: text ?? this.text,
         position: position ?? this.position,

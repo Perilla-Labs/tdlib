@@ -11,23 +11,22 @@ part of '../tdapi.dart';
 /// * [phoneNumber]: Phone number of the user.
 /// * [status]: Current online status of the user.
 /// * [profilePhoto]: Profile photo of the user; may be null *(optional)*.
-/// * [accentColorId]: Identifier of the accent color for name, and backgrounds of profile photo, reply header, and link preview. For Telegram Premium users only.
-/// * [backgroundCustomEmojiId]: Identifier of a custom emoji to be shown on the reply header and link preview background; 0 if none. For Telegram Premium users only.
-/// * [profileAccentColorId]: Identifier of the accent color for the user's profile; -1 if none. For Telegram Premium users only.
-/// * [profileBackgroundCustomEmojiId]: Identifier of a custom emoji to be shown on the background of the user's profile; 0 if none. For Telegram Premium users only.
-/// * [emojiStatus]: Emoji status to be shown instead of the default Telegram Premium badge; may be null. For Telegram Premium users only *(optional)*.
+/// * [accentColorId]: Identifier of the accent color for name, and backgrounds of profile photo, reply header, and link preview.
+/// * [backgroundCustomEmojiId]: Identifier of a custom emoji to be shown on the reply header and link preview background; 0 if none.
+/// * [profileAccentColorId]: Identifier of the accent color for the user's profile; -1 if none.
+/// * [profileBackgroundCustomEmojiId]: Identifier of a custom emoji to be shown on the background of the user's profile; 0 if none.
+/// * [emojiStatus]: Emoji status to be shown instead of the default Telegram Premium badge; may be null *(optional)*.
 /// * [isContact]: The user is a contact of the current user.
 /// * [isMutualContact]: The user is a contact of the current user and the current user is a contact of the user.
 /// * [isCloseFriend]: The user is a close friend of the current user; implies that the user is a contact.
-/// * [isVerified]: True, if the user is verified.
+/// * [verificationStatus]: Information about verification status of the user; may be null if none *(optional)*.
 /// * [isPremium]: True, if the user is a Telegram Premium user.
 /// * [isSupport]: True, if the user is Telegram support account.
 /// * [restrictionReason]: If non-empty, it contains a human-readable description of the reason why access to this user must be restricted.
-/// * [isScam]: True, if many users reported this user as a scam.
-/// * [isFake]: True, if many users reported this user as a fake account.
 /// * [hasActiveStories]: True, if the user has non-expired stories available to the current user.
 /// * [hasUnreadActiveStories]: True, if the user has unread non-expired stories available to the current user.
 /// * [restrictsNewChats]: True, if the user may restrict new chats with non-contacts. Use canSendMessageToUser to check whether the current user can message the user or try to create a chat with them.
+/// * [paidMessageStarCount]: Number of Telegram Stars that must be paid by general user for each sent message to the user. If positive and userFullInfo is unknown, use canSendMessageToUser to check whether the current user must pay.
 /// * [haveAccess]: If false, the user is inaccessible, and the only information known about the user is inside this class. Identifier of the user can't be passed to any method.
 /// * [type]: Type of the user.
 /// * [languageCode]: IETF language tag of the user's language; only available to bots.
@@ -44,23 +43,22 @@ final class User extends TdObject {
   /// * [phoneNumber]: Phone number of the user.
   /// * [status]: Current online status of the user.
   /// * [profilePhoto]: Profile photo of the user; may be null *(optional)*.
-  /// * [accentColorId]: Identifier of the accent color for name, and backgrounds of profile photo, reply header, and link preview. For Telegram Premium users only.
-  /// * [backgroundCustomEmojiId]: Identifier of a custom emoji to be shown on the reply header and link preview background; 0 if none. For Telegram Premium users only.
-  /// * [profileAccentColorId]: Identifier of the accent color for the user's profile; -1 if none. For Telegram Premium users only.
-  /// * [profileBackgroundCustomEmojiId]: Identifier of a custom emoji to be shown on the background of the user's profile; 0 if none. For Telegram Premium users only.
-  /// * [emojiStatus]: Emoji status to be shown instead of the default Telegram Premium badge; may be null. For Telegram Premium users only *(optional)*.
+  /// * [accentColorId]: Identifier of the accent color for name, and backgrounds of profile photo, reply header, and link preview.
+  /// * [backgroundCustomEmojiId]: Identifier of a custom emoji to be shown on the reply header and link preview background; 0 if none.
+  /// * [profileAccentColorId]: Identifier of the accent color for the user's profile; -1 if none.
+  /// * [profileBackgroundCustomEmojiId]: Identifier of a custom emoji to be shown on the background of the user's profile; 0 if none.
+  /// * [emojiStatus]: Emoji status to be shown instead of the default Telegram Premium badge; may be null *(optional)*.
   /// * [isContact]: The user is a contact of the current user.
   /// * [isMutualContact]: The user is a contact of the current user and the current user is a contact of the user.
   /// * [isCloseFriend]: The user is a close friend of the current user; implies that the user is a contact.
-  /// * [isVerified]: True, if the user is verified.
+  /// * [verificationStatus]: Information about verification status of the user; may be null if none *(optional)*.
   /// * [isPremium]: True, if the user is a Telegram Premium user.
   /// * [isSupport]: True, if the user is Telegram support account.
   /// * [restrictionReason]: If non-empty, it contains a human-readable description of the reason why access to this user must be restricted.
-  /// * [isScam]: True, if many users reported this user as a scam.
-  /// * [isFake]: True, if many users reported this user as a fake account.
   /// * [hasActiveStories]: True, if the user has non-expired stories available to the current user.
   /// * [hasUnreadActiveStories]: True, if the user has unread non-expired stories available to the current user.
   /// * [restrictsNewChats]: True, if the user may restrict new chats with non-contacts. Use canSendMessageToUser to check whether the current user can message the user or try to create a chat with them.
+  /// * [paidMessageStarCount]: Number of Telegram Stars that must be paid by general user for each sent message to the user. If positive and userFullInfo is unknown, use canSendMessageToUser to check whether the current user must pay.
   /// * [haveAccess]: If false, the user is inaccessible, and the only information known about the user is inside this class. Identifier of the user can't be passed to any method.
   /// * [type]: Type of the user.
   /// * [languageCode]: IETF language tag of the user's language; only available to bots.
@@ -81,15 +79,14 @@ final class User extends TdObject {
     required this.isContact,
     required this.isMutualContact,
     required this.isCloseFriend,
-    required this.isVerified,
+    this.verificationStatus,
     required this.isPremium,
     required this.isSupport,
     required this.restrictionReason,
-    required this.isScam,
-    required this.isFake,
     required this.hasActiveStories,
     required this.hasUnreadActiveStories,
     required this.restrictsNewChats,
+    required this.paidMessageStarCount,
     required this.haveAccess,
     required this.type,
     required this.languageCode,
@@ -119,19 +116,19 @@ final class User extends TdObject {
   /// Profile photo of the user; may be null
   final ProfilePhoto? profilePhoto;
 
-  /// Identifier of the accent color for name, and backgrounds of profile photo, reply header, and link preview. For Telegram Premium users only
+  /// Identifier of the accent color for name, and backgrounds of profile photo, reply header, and link preview
   final int accentColorId;
 
-  /// Identifier of a custom emoji to be shown on the reply header and link preview background; 0 if none. For Telegram Premium users only
+  /// Identifier of a custom emoji to be shown on the reply header and link preview background; 0 if none
   final int backgroundCustomEmojiId;
 
-  /// Identifier of the accent color for the user's profile; -1 if none. For Telegram Premium users only
+  /// Identifier of the accent color for the user's profile; -1 if none
   final int profileAccentColorId;
 
-  /// Identifier of a custom emoji to be shown on the background of the user's profile; 0 if none. For Telegram Premium users only
+  /// Identifier of a custom emoji to be shown on the background of the user's profile; 0 if none
   final int profileBackgroundCustomEmojiId;
 
-  /// Emoji status to be shown instead of the default Telegram Premium badge; may be null. For Telegram Premium users only
+  /// Emoji status to be shown instead of the default Telegram Premium badge; may be null
   final EmojiStatus? emojiStatus;
 
   /// The user is a contact of the current user
@@ -143,8 +140,8 @@ final class User extends TdObject {
   /// The user is a close friend of the current user; implies that the user is a contact
   final bool isCloseFriend;
 
-  /// True, if the user is verified
-  final bool isVerified;
+  /// Information about verification status of the user; may be null if none
+  final VerificationStatus? verificationStatus;
 
   /// True, if the user is a Telegram Premium user
   final bool isPremium;
@@ -155,12 +152,6 @@ final class User extends TdObject {
   /// If non-empty, it contains a human-readable description of the reason why access to this user must be restricted
   final String restrictionReason;
 
-  /// True, if many users reported this user as a scam
-  final bool isScam;
-
-  /// True, if many users reported this user as a fake account
-  final bool isFake;
-
   /// True, if the user has non-expired stories available to the current user
   final bool hasActiveStories;
 
@@ -169,6 +160,9 @@ final class User extends TdObject {
 
   /// True, if the user may restrict new chats with non-contacts. Use canSendMessageToUser to check whether the current user can message the user or try to create a chat with them
   final bool restrictsNewChats;
+
+  /// Number of Telegram Stars that must be paid by general user for each sent message to the user. If positive and userFullInfo is unknown, use canSendMessageToUser to check whether the current user must pay
+  final int paidMessageStarCount;
 
   /// If false, the user is inaccessible, and the only information known about the user is inside this class. Identifier of the user can't be passed to any method
   final bool haveAccess;
@@ -218,15 +212,16 @@ final class User extends TdObject {
     isContact: json['is_contact'],
     isMutualContact: json['is_mutual_contact'],
     isCloseFriend: json['is_close_friend'],
-    isVerified: json['is_verified'] ?? false,
+    verificationStatus: json['verification_status'] == null
+        ? null
+        : VerificationStatus.fromJson(json['verification_status']),
     isPremium: json['is_premium'],
     isSupport: json['is_support'],
     restrictionReason: json['restriction_reason'],
-    isScam: json['is_scam'] ?? false,
-    isFake: json['is_fake'] ?? false,
     hasActiveStories: json['has_active_stories'],
     hasUnreadActiveStories: json['has_unread_active_stories'],
     restrictsNewChats: json['restricts_new_chats'],
+    paidMessageStarCount: json['paid_message_star_count'],
     haveAccess: json['have_access'],
     type: UserType.fromJson(json['type']),
     languageCode: json['language_code'],
@@ -255,15 +250,14 @@ final class User extends TdObject {
       "is_contact": isContact,
       "is_mutual_contact": isMutualContact,
       "is_close_friend": isCloseFriend,
-      "is_verified": isVerified,
+      "verification_status": verificationStatus?.toJson(),
       "is_premium": isPremium,
       "is_support": isSupport,
       "restriction_reason": restrictionReason,
-      "is_scam": isScam,
-      "is_fake": isFake,
       "has_active_stories": hasActiveStories,
       "has_unread_active_stories": hasUnreadActiveStories,
       "restricts_new_chats": restrictsNewChats,
+      "paid_message_star_count": paidMessageStarCount,
       "have_access": haveAccess,
       "type": type.toJson(),
       "language_code": languageCode,
@@ -281,23 +275,22 @@ final class User extends TdObject {
   /// * [phone_number]: Phone number of the user
   /// * [status]: Current online status of the user
   /// * [profile_photo]: Profile photo of the user; may be null
-  /// * [accent_color_id]: Identifier of the accent color for name, and backgrounds of profile photo, reply header, and link preview. For Telegram Premium users only
-  /// * [background_custom_emoji_id]: Identifier of a custom emoji to be shown on the reply header and link preview background; 0 if none. For Telegram Premium users only
-  /// * [profile_accent_color_id]: Identifier of the accent color for the user's profile; -1 if none. For Telegram Premium users only
-  /// * [profile_background_custom_emoji_id]: Identifier of a custom emoji to be shown on the background of the user's profile; 0 if none. For Telegram Premium users only
-  /// * [emoji_status]: Emoji status to be shown instead of the default Telegram Premium badge; may be null. For Telegram Premium users only
+  /// * [accent_color_id]: Identifier of the accent color for name, and backgrounds of profile photo, reply header, and link preview
+  /// * [background_custom_emoji_id]: Identifier of a custom emoji to be shown on the reply header and link preview background; 0 if none
+  /// * [profile_accent_color_id]: Identifier of the accent color for the user's profile; -1 if none
+  /// * [profile_background_custom_emoji_id]: Identifier of a custom emoji to be shown on the background of the user's profile; 0 if none
+  /// * [emoji_status]: Emoji status to be shown instead of the default Telegram Premium badge; may be null
   /// * [is_contact]: The user is a contact of the current user
   /// * [is_mutual_contact]: The user is a contact of the current user and the current user is a contact of the user
   /// * [is_close_friend]: The user is a close friend of the current user; implies that the user is a contact
-  /// * [is_verified]: True, if the user is verified
+  /// * [verification_status]: Information about verification status of the user; may be null if none
   /// * [is_premium]: True, if the user is a Telegram Premium user
   /// * [is_support]: True, if the user is Telegram support account
   /// * [restriction_reason]: If non-empty, it contains a human-readable description of the reason why access to this user must be restricted
-  /// * [is_scam]: True, if many users reported this user as a scam
-  /// * [is_fake]: True, if many users reported this user as a fake account
   /// * [has_active_stories]: True, if the user has non-expired stories available to the current user
   /// * [has_unread_active_stories]: True, if the user has unread non-expired stories available to the current user
   /// * [restricts_new_chats]: True, if the user may restrict new chats with non-contacts. Use canSendMessageToUser to check whether the current user can message the user or try to create a chat with them
+  /// * [paid_message_star_count]: Number of Telegram Stars that must be paid by general user for each sent message to the user. If positive and userFullInfo is unknown, use canSendMessageToUser to check whether the current user must pay
   /// * [have_access]: If false, the user is inaccessible, and the only information known about the user is inside this class. Identifier of the user can't be passed to any method
   /// * [type]: Type of the user
   /// * [language_code]: IETF language tag of the user's language; only available to bots
@@ -318,15 +311,14 @@ final class User extends TdObject {
     bool? isContact,
     bool? isMutualContact,
     bool? isCloseFriend,
-    bool? isVerified,
+    VerificationStatus? verificationStatus,
     bool? isPremium,
     bool? isSupport,
     String? restrictionReason,
-    bool? isScam,
-    bool? isFake,
     bool? hasActiveStories,
     bool? hasUnreadActiveStories,
     bool? restrictsNewChats,
+    int? paidMessageStarCount,
     bool? haveAccess,
     UserType? type,
     String? languageCode,
@@ -351,16 +343,15 @@ final class User extends TdObject {
     isContact: isContact ?? this.isContact,
     isMutualContact: isMutualContact ?? this.isMutualContact,
     isCloseFriend: isCloseFriend ?? this.isCloseFriend,
-    isVerified: isVerified ?? this.isVerified,
+    verificationStatus: verificationStatus ?? this.verificationStatus,
     isPremium: isPremium ?? this.isPremium,
     isSupport: isSupport ?? this.isSupport,
     restrictionReason: restrictionReason ?? this.restrictionReason,
-    isScam: isScam ?? this.isScam,
-    isFake: isFake ?? this.isFake,
     hasActiveStories: hasActiveStories ?? this.hasActiveStories,
     hasUnreadActiveStories:
         hasUnreadActiveStories ?? this.hasUnreadActiveStories,
     restrictsNewChats: restrictsNewChats ?? this.restrictsNewChats,
+    paidMessageStarCount: paidMessageStarCount ?? this.paidMessageStarCount,
     haveAccess: haveAccess ?? this.haveAccess,
     type: type ?? this.type,
     languageCode: languageCode ?? this.languageCode,

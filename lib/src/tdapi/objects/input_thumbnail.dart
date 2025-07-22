@@ -32,10 +32,10 @@ final class InputThumbnail extends TdObject {
 
   /// Parse from a json
   factory InputThumbnail.fromJson(Map<String, dynamic> json) => InputThumbnail(
-        thumbnail: InputFile.fromJson(json['thumbnail']),
-        width: json['width'],
-        height: json['height'],
-      );
+    thumbnail: InputFile.fromJson(json['thumbnail']),
+    width: json['width'],
+    height: json['height'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -54,11 +54,7 @@ final class InputThumbnail extends TdObject {
   /// * [thumbnail]: Thumbnail file to send. Sending thumbnails by file_id is currently not supported
   /// * [width]: Thumbnail width, usually shouldn't exceed 320. Use 0 if unknown
   /// * [height]: Thumbnail height, usually shouldn't exceed 320. Use 0 if unknown
-  InputThumbnail copyWith({
-    InputFile? thumbnail,
-    int? width,
-    int? height,
-  }) =>
+  InputThumbnail copyWith({InputFile? thumbnail, int? width, int? height}) =>
       InputThumbnail(
         thumbnail: thumbnail ?? this.thumbnail,
         width: width ?? this.width,

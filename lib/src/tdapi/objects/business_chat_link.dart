@@ -83,15 +83,14 @@ final class BusinessChatLink extends TdObject {
     int? viewCount,
     dynamic extra,
     int? clientId,
-  }) =>
-      BusinessChatLink(
-        link: link ?? this.link,
-        text: text ?? this.text,
-        title: title ?? this.title,
-        viewCount: viewCount ?? this.viewCount,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => BusinessChatLink(
+    link: link ?? this.link,
+    text: text ?? this.text,
+    title: title ?? this.title,
+    viewCount: viewCount ?? this.viewCount,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'businessChatLink';

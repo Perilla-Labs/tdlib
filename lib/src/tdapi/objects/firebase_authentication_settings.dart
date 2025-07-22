@@ -57,15 +57,13 @@ final class FirebaseAuthenticationSettingsAndroid
 
   /// Parse from a json
   factory FirebaseAuthenticationSettingsAndroid.fromJson(
-          Map<String, dynamic> json) =>
-      const FirebaseAuthenticationSettingsAndroid();
+    Map<String, dynamic> json,
+  ) => const FirebaseAuthenticationSettingsAndroid();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -112,11 +110,11 @@ final class FirebaseAuthenticationSettingsIos
 
   /// Parse from a json
   factory FirebaseAuthenticationSettingsIos.fromJson(
-          Map<String, dynamic> json) =>
-      FirebaseAuthenticationSettingsIos(
-        deviceToken: json['device_token'],
-        isAppSandbox: json['is_app_sandbox'],
-      );
+    Map<String, dynamic> json,
+  ) => FirebaseAuthenticationSettingsIos(
+    deviceToken: json['device_token'],
+    isAppSandbox: json['is_app_sandbox'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -137,11 +135,10 @@ final class FirebaseAuthenticationSettingsIos
   FirebaseAuthenticationSettingsIos copyWith({
     String? deviceToken,
     bool? isAppSandbox,
-  }) =>
-      FirebaseAuthenticationSettingsIos(
-        deviceToken: deviceToken ?? this.deviceToken,
-        isAppSandbox: isAppSandbox ?? this.isAppSandbox,
-      );
+  }) => FirebaseAuthenticationSettingsIos(
+    deviceToken: deviceToken ?? this.deviceToken,
+    isAppSandbox: isAppSandbox ?? this.isAppSandbox,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'firebaseAuthenticationSettingsIos';

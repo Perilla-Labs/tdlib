@@ -12,6 +12,7 @@ sealed class AuthorizationState extends TdObject {
   /// a AuthorizationState return type can be :
   /// * [AuthorizationStateWaitTdlibParameters]
   /// * [AuthorizationStateWaitPhoneNumber]
+  /// * [AuthorizationStateWaitPremiumPurchase]
   /// * [AuthorizationStateWaitEmailAddress]
   /// * [AuthorizationStateWaitEmailCode]
   /// * [AuthorizationStateWaitCode]
@@ -28,6 +29,8 @@ sealed class AuthorizationState extends TdObject {
         return AuthorizationStateWaitTdlibParameters.fromJson(json);
       case AuthorizationStateWaitPhoneNumber.defaultObjectId:
         return AuthorizationStateWaitPhoneNumber.fromJson(json);
+      case AuthorizationStateWaitPremiumPurchase.defaultObjectId:
+        return AuthorizationStateWaitPremiumPurchase.fromJson(json);
       case AuthorizationStateWaitEmailAddress.defaultObjectId:
         return AuthorizationStateWaitEmailAddress.fromJson(json);
       case AuthorizationStateWaitEmailCode.defaultObjectId:
@@ -82,10 +85,7 @@ final class AuthorizationStateWaitTdlibParameters extends AuthorizationState {
   /// **AuthorizationStateWaitTdlibParameters** *(authorizationStateWaitTdlibParameters)* - child of AuthorizationState
   ///
   /// Initialization parameters are needed. Call setTdlibParameters to provide them.
-  const AuthorizationStateWaitTdlibParameters({
-    this.extra,
-    this.clientId,
-  });
+  const AuthorizationStateWaitTdlibParameters({this.extra, this.clientId});
 
   /// [extra] callback sign
   @override
@@ -97,18 +97,16 @@ final class AuthorizationStateWaitTdlibParameters extends AuthorizationState {
 
   /// Parse from a json
   factory AuthorizationStateWaitTdlibParameters.fromJson(
-          Map<String, dynamic> json) =>
-      AuthorizationStateWaitTdlibParameters(
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    Map<String, dynamic> json,
+  ) => AuthorizationStateWaitTdlibParameters(
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -116,11 +114,10 @@ final class AuthorizationStateWaitTdlibParameters extends AuthorizationState {
   AuthorizationStateWaitTdlibParameters copyWith({
     dynamic extra,
     int? clientId,
-  }) =>
-      AuthorizationStateWaitTdlibParameters(
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => AuthorizationStateWaitTdlibParameters(
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'authorizationStateWaitTdlibParameters';
@@ -141,10 +138,7 @@ final class AuthorizationStateWaitPhoneNumber extends AuthorizationState {
   /// **AuthorizationStateWaitPhoneNumber** *(authorizationStateWaitPhoneNumber)* - child of AuthorizationState
   ///
   /// TDLib needs the user's phone number to authorize. Call setAuthenticationPhoneNumber to provide the phone number, or use requestQrCodeAuthentication or checkAuthenticationBotToken for other authentication options.
-  const AuthorizationStateWaitPhoneNumber({
-    this.extra,
-    this.clientId,
-  });
+  const AuthorizationStateWaitPhoneNumber({this.extra, this.clientId});
 
   /// [extra] callback sign
   @override
@@ -156,26 +150,21 @@ final class AuthorizationStateWaitPhoneNumber extends AuthorizationState {
 
   /// Parse from a json
   factory AuthorizationStateWaitPhoneNumber.fromJson(
-          Map<String, dynamic> json) =>
-      AuthorizationStateWaitPhoneNumber(
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    Map<String, dynamic> json,
+  ) => AuthorizationStateWaitPhoneNumber(
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
   @override
-  AuthorizationStateWaitPhoneNumber copyWith({
-    dynamic extra,
-    int? clientId,
-  }) =>
+  AuthorizationStateWaitPhoneNumber copyWith({dynamic extra, int? clientId}) =>
       AuthorizationStateWaitPhoneNumber(
         extra: extra ?? this.extra,
         clientId: clientId ?? this.clientId,
@@ -183,6 +172,76 @@ final class AuthorizationStateWaitPhoneNumber extends AuthorizationState {
 
   /// TDLib object type
   static const String defaultObjectId = 'authorizationStateWaitPhoneNumber';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **AuthorizationStateWaitPremiumPurchase** *(authorizationStateWaitPremiumPurchase)* - child of AuthorizationState
+///
+/// The user must buy Telegram Premium as an in-store purchase to log in. Call checkAuthenticationPremiumPurchase and then setAuthenticationPremiumPurchaseTransaction.
+///
+/// * [storeProductId]: Identifier of the store product that must be bought.
+final class AuthorizationStateWaitPremiumPurchase extends AuthorizationState {
+  /// **AuthorizationStateWaitPremiumPurchase** *(authorizationStateWaitPremiumPurchase)* - child of AuthorizationState
+  ///
+  /// The user must buy Telegram Premium as an in-store purchase to log in. Call checkAuthenticationPremiumPurchase and then setAuthenticationPremiumPurchaseTransaction.
+  ///
+  /// * [storeProductId]: Identifier of the store product that must be bought.
+  const AuthorizationStateWaitPremiumPurchase({
+    required this.storeProductId,
+    this.extra,
+    this.clientId,
+  });
+
+  /// Identifier of the store product that must be bought
+  final String storeProductId;
+
+  /// [extra] callback sign
+  @override
+  final dynamic extra;
+
+  /// [clientId] client identifier
+  @override
+  final int? clientId;
+
+  /// Parse from a json
+  factory AuthorizationStateWaitPremiumPurchase.fromJson(
+    Map<String, dynamic> json,
+  ) => AuthorizationStateWaitPremiumPurchase(
+    storeProductId: json['store_product_id'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {"@type": defaultObjectId, "store_product_id": storeProductId};
+  }
+
+  /// Copy model with modified properties.
+  ///
+  /// Properties:
+  /// * [store_product_id]: Identifier of the store product that must be bought
+  @override
+  AuthorizationStateWaitPremiumPurchase copyWith({
+    String? storeProductId,
+    dynamic extra,
+    int? clientId,
+  }) => AuthorizationStateWaitPremiumPurchase(
+    storeProductId: storeProductId ?? this.storeProductId,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
+
+  /// TDLib object type
+  static const String defaultObjectId = 'authorizationStateWaitPremiumPurchase';
 
   /// Convert model to TDLib JSON format, encoded into String.
   @override
@@ -229,13 +288,13 @@ final class AuthorizationStateWaitEmailAddress extends AuthorizationState {
 
   /// Parse from a json
   factory AuthorizationStateWaitEmailAddress.fromJson(
-          Map<String, dynamic> json) =>
-      AuthorizationStateWaitEmailAddress(
-        allowAppleId: json['allow_apple_id'],
-        allowGoogleId: json['allow_google_id'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    Map<String, dynamic> json,
+  ) => AuthorizationStateWaitEmailAddress(
+    allowAppleId: json['allow_apple_id'],
+    allowGoogleId: json['allow_google_id'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -258,13 +317,12 @@ final class AuthorizationStateWaitEmailAddress extends AuthorizationState {
     bool? allowGoogleId,
     dynamic extra,
     int? clientId,
-  }) =>
-      AuthorizationStateWaitEmailAddress(
-        allowAppleId: allowAppleId ?? this.allowAppleId,
-        allowGoogleId: allowGoogleId ?? this.allowGoogleId,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => AuthorizationStateWaitEmailAddress(
+    allowAppleId: allowAppleId ?? this.allowAppleId,
+    allowGoogleId: allowGoogleId ?? this.allowGoogleId,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'authorizationStateWaitEmailAddress';
@@ -325,19 +383,18 @@ final class AuthorizationStateWaitEmailCode extends AuthorizationState {
   final int? clientId;
 
   /// Parse from a json
-  factory AuthorizationStateWaitEmailCode.fromJson(Map<String, dynamic> json) =>
-      AuthorizationStateWaitEmailCode(
-        allowAppleId: json['allow_apple_id'],
-        allowGoogleId: json['allow_google_id'],
-        codeInfo:
-            EmailAddressAuthenticationCodeInfo.fromJson(json['code_info']),
-        emailAddressResetState: json['email_address_reset_state'] == null
-            ? null
-            : EmailAddressResetState.fromJson(
-                json['email_address_reset_state']),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+  factory AuthorizationStateWaitEmailCode.fromJson(
+    Map<String, dynamic> json,
+  ) => AuthorizationStateWaitEmailCode(
+    allowAppleId: json['allow_apple_id'],
+    allowGoogleId: json['allow_google_id'],
+    codeInfo: EmailAddressAuthenticationCodeInfo.fromJson(json['code_info']),
+    emailAddressResetState: json['email_address_reset_state'] == null
+        ? null
+        : EmailAddressResetState.fromJson(json['email_address_reset_state']),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -366,16 +423,15 @@ final class AuthorizationStateWaitEmailCode extends AuthorizationState {
     EmailAddressResetState? emailAddressResetState,
     dynamic extra,
     int? clientId,
-  }) =>
-      AuthorizationStateWaitEmailCode(
-        allowAppleId: allowAppleId ?? this.allowAppleId,
-        allowGoogleId: allowGoogleId ?? this.allowGoogleId,
-        codeInfo: codeInfo ?? this.codeInfo,
-        emailAddressResetState:
-            emailAddressResetState ?? this.emailAddressResetState,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => AuthorizationStateWaitEmailCode(
+    allowAppleId: allowAppleId ?? this.allowAppleId,
+    allowGoogleId: allowGoogleId ?? this.allowGoogleId,
+    codeInfo: codeInfo ?? this.codeInfo,
+    emailAddressResetState:
+        emailAddressResetState ?? this.emailAddressResetState,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'authorizationStateWaitEmailCode';
@@ -428,10 +484,7 @@ final class AuthorizationStateWaitCode extends AuthorizationState {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "code_info": codeInfo.toJson(),
-    };
+    return {"@type": defaultObjectId, "code_info": codeInfo.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -443,12 +496,11 @@ final class AuthorizationStateWaitCode extends AuthorizationState {
     AuthenticationCodeInfo? codeInfo,
     dynamic extra,
     int? clientId,
-  }) =>
-      AuthorizationStateWaitCode(
-        codeInfo: codeInfo ?? this.codeInfo,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => AuthorizationStateWaitCode(
+    codeInfo: codeInfo ?? this.codeInfo,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'authorizationStateWaitCode';
@@ -493,20 +545,17 @@ final class AuthorizationStateWaitOtherDeviceConfirmation
 
   /// Parse from a json
   factory AuthorizationStateWaitOtherDeviceConfirmation.fromJson(
-          Map<String, dynamic> json) =>
-      AuthorizationStateWaitOtherDeviceConfirmation(
-        link: json['link'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    Map<String, dynamic> json,
+  ) => AuthorizationStateWaitOtherDeviceConfirmation(
+    link: json['link'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "link": link,
-    };
+    return {"@type": defaultObjectId, "link": link};
   }
 
   /// Copy model with modified properties.
@@ -518,12 +567,11 @@ final class AuthorizationStateWaitOtherDeviceConfirmation
     String? link,
     dynamic extra,
     int? clientId,
-  }) =>
-      AuthorizationStateWaitOtherDeviceConfirmation(
-        link: link ?? this.link,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => AuthorizationStateWaitOtherDeviceConfirmation(
+    link: link ?? this.link,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId =
@@ -568,12 +616,12 @@ final class AuthorizationStateWaitRegistration extends AuthorizationState {
 
   /// Parse from a json
   factory AuthorizationStateWaitRegistration.fromJson(
-          Map<String, dynamic> json) =>
-      AuthorizationStateWaitRegistration(
-        termsOfService: TermsOfService.fromJson(json['terms_of_service']),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    Map<String, dynamic> json,
+  ) => AuthorizationStateWaitRegistration(
+    termsOfService: TermsOfService.fromJson(json['terms_of_service']),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -593,12 +641,11 @@ final class AuthorizationStateWaitRegistration extends AuthorizationState {
     TermsOfService? termsOfService,
     dynamic extra,
     int? clientId,
-  }) =>
-      AuthorizationStateWaitRegistration(
-        termsOfService: termsOfService ?? this.termsOfService,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => AuthorizationStateWaitRegistration(
+    termsOfService: termsOfService ?? this.termsOfService,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'authorizationStateWaitRegistration';
@@ -696,17 +743,16 @@ final class AuthorizationStateWaitPassword extends AuthorizationState {
     String? recoveryEmailAddressPattern,
     dynamic extra,
     int? clientId,
-  }) =>
-      AuthorizationStateWaitPassword(
-        passwordHint: passwordHint ?? this.passwordHint,
-        hasRecoveryEmailAddress:
-            hasRecoveryEmailAddress ?? this.hasRecoveryEmailAddress,
-        hasPassportData: hasPassportData ?? this.hasPassportData,
-        recoveryEmailAddressPattern:
-            recoveryEmailAddressPattern ?? this.recoveryEmailAddressPattern,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => AuthorizationStateWaitPassword(
+    passwordHint: passwordHint ?? this.passwordHint,
+    hasRecoveryEmailAddress:
+        hasRecoveryEmailAddress ?? this.hasRecoveryEmailAddress,
+    hasPassportData: hasPassportData ?? this.hasPassportData,
+    recoveryEmailAddressPattern:
+        recoveryEmailAddressPattern ?? this.recoveryEmailAddressPattern,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'authorizationStateWaitPassword';
@@ -727,10 +773,7 @@ final class AuthorizationStateReady extends AuthorizationState {
   /// **AuthorizationStateReady** *(authorizationStateReady)* - child of AuthorizationState
   ///
   /// The user has been successfully authorized. TDLib is now ready to answer general requests.
-  const AuthorizationStateReady({
-    this.extra,
-    this.clientId,
-  });
+  const AuthorizationStateReady({this.extra, this.clientId});
 
   /// [extra] callback sign
   @override
@@ -750,17 +793,12 @@ final class AuthorizationStateReady extends AuthorizationState {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
   @override
-  AuthorizationStateReady copyWith({
-    dynamic extra,
-    int? clientId,
-  }) =>
+  AuthorizationStateReady copyWith({dynamic extra, int? clientId}) =>
       AuthorizationStateReady(
         extra: extra ?? this.extra,
         clientId: clientId ?? this.clientId,
@@ -785,10 +823,7 @@ final class AuthorizationStateLoggingOut extends AuthorizationState {
   /// **AuthorizationStateLoggingOut** *(authorizationStateLoggingOut)* - child of AuthorizationState
   ///
   /// The user is currently logging out.
-  const AuthorizationStateLoggingOut({
-    this.extra,
-    this.clientId,
-  });
+  const AuthorizationStateLoggingOut({this.extra, this.clientId});
 
   /// [extra] callback sign
   @override
@@ -808,17 +843,12 @@ final class AuthorizationStateLoggingOut extends AuthorizationState {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
   @override
-  AuthorizationStateLoggingOut copyWith({
-    dynamic extra,
-    int? clientId,
-  }) =>
+  AuthorizationStateLoggingOut copyWith({dynamic extra, int? clientId}) =>
       AuthorizationStateLoggingOut(
         extra: extra ?? this.extra,
         clientId: clientId ?? this.clientId,
@@ -843,10 +873,7 @@ final class AuthorizationStateClosing extends AuthorizationState {
   /// **AuthorizationStateClosing** *(authorizationStateClosing)* - child of AuthorizationState
   ///
   /// TDLib is closing, all subsequent queries will be answered with the error 500. Note that closing TDLib can take a while. All resources will be freed only after authorizationStateClosed has been received.
-  const AuthorizationStateClosing({
-    this.extra,
-    this.clientId,
-  });
+  const AuthorizationStateClosing({this.extra, this.clientId});
 
   /// [extra] callback sign
   @override
@@ -866,17 +893,12 @@ final class AuthorizationStateClosing extends AuthorizationState {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
   @override
-  AuthorizationStateClosing copyWith({
-    dynamic extra,
-    int? clientId,
-  }) =>
+  AuthorizationStateClosing copyWith({dynamic extra, int? clientId}) =>
       AuthorizationStateClosing(
         extra: extra ?? this.extra,
         clientId: clientId ?? this.clientId,
@@ -901,10 +923,7 @@ final class AuthorizationStateClosed extends AuthorizationState {
   /// **AuthorizationStateClosed** *(authorizationStateClosed)* - child of AuthorizationState
   ///
   /// TDLib client is in its final state. All databases are closed and all resources are released. No other updates will be received after this. All queries will be responded to. with error code 500. To continue working, one must create a new instance of the TDLib client.
-  const AuthorizationStateClosed({
-    this.extra,
-    this.clientId,
-  });
+  const AuthorizationStateClosed({this.extra, this.clientId});
 
   /// [extra] callback sign
   @override
@@ -924,17 +943,12 @@ final class AuthorizationStateClosed extends AuthorizationState {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
   @override
-  AuthorizationStateClosed copyWith({
-    dynamic extra,
-    int? clientId,
-  }) =>
+  AuthorizationStateClosed copyWith({dynamic extra, int? clientId}) =>
       AuthorizationStateClosed(
         extra: extra ?? this.extra,
         clientId: clientId ?? this.clientId,

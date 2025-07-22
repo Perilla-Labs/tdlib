@@ -15,9 +15,7 @@ final class GetMessageEffect extends TdFunction {
   /// * [effectId]: Unique identifier of the effect.
   ///
   /// [MessageEffect] is returned on completion.
-  const GetMessageEffect({
-    required this.effectId,
-  });
+  const GetMessageEffect({required this.effectId});
 
   /// Unique identifier of the effect
   final int effectId;
@@ -25,23 +23,15 @@ final class GetMessageEffect extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "effect_id": effectId,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "effect_id": effectId, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [effect_id]: Unique identifier of the effect
-  GetMessageEffect copyWith({
-    int? effectId,
-  }) =>
-      GetMessageEffect(
-        effectId: effectId ?? this.effectId,
-      );
+  GetMessageEffect copyWith({int? effectId}) =>
+      GetMessageEffect(effectId: effectId ?? this.effectId);
 
   /// TDLib object type
   static const String defaultObjectId = 'getMessageEffect';

@@ -15,9 +15,7 @@ final class DeleteBusinessChatLink extends TdFunction {
   /// * [link]: The link to delete.
   ///
   /// [Ok] is returned on completion.
-  const DeleteBusinessChatLink({
-    required this.link,
-  });
+  const DeleteBusinessChatLink({required this.link});
 
   /// The link to delete
   final String link;
@@ -25,23 +23,15 @@ final class DeleteBusinessChatLink extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "link": link,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "link": link, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [link]: The link to delete
-  DeleteBusinessChatLink copyWith({
-    String? link,
-  }) =>
-      DeleteBusinessChatLink(
-        link: link ?? this.link,
-      );
+  DeleteBusinessChatLink copyWith({String? link}) =>
+      DeleteBusinessChatLink(link: link ?? this.link);
 
   /// TDLib object type
   static const String defaultObjectId = 'deleteBusinessChatLink';

@@ -59,12 +59,11 @@ final class InputPassportElementError extends TdObject {
     PassportElementType? type,
     String? message,
     InputPassportElementErrorSource? source,
-  }) =>
-      InputPassportElementError(
-        type: type ?? this.type,
-        message: message ?? this.message,
-        source: source ?? this.source,
-      );
+  }) => InputPassportElementError(
+    type: type ?? this.type,
+    message: message ?? this.message,
+    source: source ?? this.source,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputPassportElementError';

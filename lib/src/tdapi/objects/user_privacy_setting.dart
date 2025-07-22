@@ -21,6 +21,8 @@ sealed class UserPrivacySetting extends TdObject {
   /// * [UserPrivacySettingAllowPeerToPeerCalls]
   /// * [UserPrivacySettingAllowFindingByPhoneNumber]
   /// * [UserPrivacySettingAllowPrivateVoiceAndVideoNoteMessages]
+  /// * [UserPrivacySettingAutosaveGifts]
+  /// * [UserPrivacySettingAllowUnpaidMessages]
   factory UserPrivacySetting.fromJson(Map<String, dynamic> json) {
     switch (json["@type"]) {
       case UserPrivacySettingShowStatus.defaultObjectId:
@@ -44,9 +46,14 @@ sealed class UserPrivacySetting extends TdObject {
       case UserPrivacySettingAllowFindingByPhoneNumber.defaultObjectId:
         return UserPrivacySettingAllowFindingByPhoneNumber.fromJson(json);
       case UserPrivacySettingAllowPrivateVoiceAndVideoNoteMessages
-            .defaultObjectId:
+          .defaultObjectId:
         return UserPrivacySettingAllowPrivateVoiceAndVideoNoteMessages.fromJson(
-            json);
+          json,
+        );
+      case UserPrivacySettingAutosaveGifts.defaultObjectId:
+        return UserPrivacySettingAutosaveGifts.fromJson(json);
+      case UserPrivacySettingAllowUnpaidMessages.defaultObjectId:
+        return UserPrivacySettingAllowUnpaidMessages.fromJson(json);
       default:
         throw FormatException(
           "Unknown object ${json["@type"]} (expected child of UserPrivacySetting)",
@@ -90,9 +97,7 @@ final class UserPrivacySettingShowStatus extends UserPrivacySetting {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -123,15 +128,13 @@ final class UserPrivacySettingShowProfilePhoto extends UserPrivacySetting {
 
   /// Parse from a json
   factory UserPrivacySettingShowProfilePhoto.fromJson(
-          Map<String, dynamic> json) =>
-      const UserPrivacySettingShowProfilePhoto();
+    Map<String, dynamic> json,
+  ) => const UserPrivacySettingShowProfilePhoto();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -163,15 +166,13 @@ final class UserPrivacySettingShowLinkInForwardedMessages
 
   /// Parse from a json
   factory UserPrivacySettingShowLinkInForwardedMessages.fromJson(
-          Map<String, dynamic> json) =>
-      const UserPrivacySettingShowLinkInForwardedMessages();
+    Map<String, dynamic> json,
+  ) => const UserPrivacySettingShowLinkInForwardedMessages();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -203,15 +204,13 @@ final class UserPrivacySettingShowPhoneNumber extends UserPrivacySetting {
 
   /// Parse from a json
   factory UserPrivacySettingShowPhoneNumber.fromJson(
-          Map<String, dynamic> json) =>
-      const UserPrivacySettingShowPhoneNumber();
+    Map<String, dynamic> json,
+  ) => const UserPrivacySettingShowPhoneNumber();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -247,9 +246,7 @@ final class UserPrivacySettingShowBio extends UserPrivacySetting {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -284,9 +281,7 @@ final class UserPrivacySettingShowBirthdate extends UserPrivacySetting {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -317,15 +312,13 @@ final class UserPrivacySettingAllowChatInvites extends UserPrivacySetting {
 
   /// Parse from a json
   factory UserPrivacySettingAllowChatInvites.fromJson(
-          Map<String, dynamic> json) =>
-      const UserPrivacySettingAllowChatInvites();
+    Map<String, dynamic> json,
+  ) => const UserPrivacySettingAllowChatInvites();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -361,9 +354,7 @@ final class UserPrivacySettingAllowCalls extends UserPrivacySetting {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -394,15 +385,13 @@ final class UserPrivacySettingAllowPeerToPeerCalls extends UserPrivacySetting {
 
   /// Parse from a json
   factory UserPrivacySettingAllowPeerToPeerCalls.fromJson(
-          Map<String, dynamic> json) =>
-      const UserPrivacySettingAllowPeerToPeerCalls();
+    Map<String, dynamic> json,
+  ) => const UserPrivacySettingAllowPeerToPeerCalls();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -435,15 +424,13 @@ final class UserPrivacySettingAllowFindingByPhoneNumber
 
   /// Parse from a json
   factory UserPrivacySettingAllowFindingByPhoneNumber.fromJson(
-          Map<String, dynamic> json) =>
-      const UserPrivacySettingAllowFindingByPhoneNumber();
+    Map<String, dynamic> json,
+  ) => const UserPrivacySettingAllowFindingByPhoneNumber();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -476,15 +463,13 @@ final class UserPrivacySettingAllowPrivateVoiceAndVideoNoteMessages
 
   /// Parse from a json
   factory UserPrivacySettingAllowPrivateVoiceAndVideoNoteMessages.fromJson(
-          Map<String, dynamic> json) =>
-      const UserPrivacySettingAllowPrivateVoiceAndVideoNoteMessages();
+    Map<String, dynamic> json,
+  ) => const UserPrivacySettingAllowPrivateVoiceAndVideoNoteMessages();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -495,6 +480,79 @@ final class UserPrivacySettingAllowPrivateVoiceAndVideoNoteMessages
   /// TDLib object type
   static const String defaultObjectId =
       'userPrivacySettingAllowPrivateVoiceAndVideoNoteMessages';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **UserPrivacySettingAutosaveGifts** *(userPrivacySettingAutosaveGifts)* - child of UserPrivacySetting
+///
+/// A privacy setting for managing whether received gifts are automatically shown on the user's profile page.
+final class UserPrivacySettingAutosaveGifts extends UserPrivacySetting {
+  /// **UserPrivacySettingAutosaveGifts** *(userPrivacySettingAutosaveGifts)* - child of UserPrivacySetting
+  ///
+  /// A privacy setting for managing whether received gifts are automatically shown on the user's profile page.
+  const UserPrivacySettingAutosaveGifts();
+
+  /// Parse from a json
+  factory UserPrivacySettingAutosaveGifts.fromJson(Map<String, dynamic> json) =>
+      const UserPrivacySettingAutosaveGifts();
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {"@type": defaultObjectId};
+  }
+
+  /// Copy instance with no modifications.
+  @override
+  UserPrivacySettingAutosaveGifts copyWith() =>
+      const UserPrivacySettingAutosaveGifts();
+
+  /// TDLib object type
+  static const String defaultObjectId = 'userPrivacySettingAutosaveGifts';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **UserPrivacySettingAllowUnpaidMessages** *(userPrivacySettingAllowUnpaidMessages)* - child of UserPrivacySetting
+///
+/// A privacy setting for managing whether the user can receive messages without additional payment.
+final class UserPrivacySettingAllowUnpaidMessages extends UserPrivacySetting {
+  /// **UserPrivacySettingAllowUnpaidMessages** *(userPrivacySettingAllowUnpaidMessages)* - child of UserPrivacySetting
+  ///
+  /// A privacy setting for managing whether the user can receive messages without additional payment.
+  const UserPrivacySettingAllowUnpaidMessages();
+
+  /// Parse from a json
+  factory UserPrivacySettingAllowUnpaidMessages.fromJson(
+    Map<String, dynamic> json,
+  ) => const UserPrivacySettingAllowUnpaidMessages();
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {"@type": defaultObjectId};
+  }
+
+  /// Copy instance with no modifications.
+  @override
+  UserPrivacySettingAllowUnpaidMessages copyWith() =>
+      const UserPrivacySettingAllowUnpaidMessages();
+
+  /// TDLib object type
+  static const String defaultObjectId = 'userPrivacySettingAllowUnpaidMessages';
 
   /// Convert model to TDLib JSON format, encoded into String.
   @override

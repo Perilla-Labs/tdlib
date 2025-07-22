@@ -101,17 +101,16 @@ final class EditBusinessMessageLiveLocation extends TdFunction {
     int? livePeriod,
     int? heading,
     int? proximityAlertRadius,
-  }) =>
-      EditBusinessMessageLiveLocation(
-        businessConnectionId: businessConnectionId ?? this.businessConnectionId,
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        replyMarkup: replyMarkup ?? this.replyMarkup,
-        location: location ?? this.location,
-        livePeriod: livePeriod ?? this.livePeriod,
-        heading: heading ?? this.heading,
-        proximityAlertRadius: proximityAlertRadius ?? this.proximityAlertRadius,
-      );
+  }) => EditBusinessMessageLiveLocation(
+    businessConnectionId: businessConnectionId ?? this.businessConnectionId,
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    replyMarkup: replyMarkup ?? this.replyMarkup,
+    location: location ?? this.location,
+    livePeriod: livePeriod ?? this.livePeriod,
+    heading: heading ?? this.heading,
+    proximityAlertRadius: proximityAlertRadius ?? this.proximityAlertRadius,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'editBusinessMessageLiveLocation';

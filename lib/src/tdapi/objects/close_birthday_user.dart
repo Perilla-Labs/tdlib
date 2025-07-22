@@ -13,10 +13,7 @@ final class CloseBirthdayUser extends TdObject {
   ///
   /// * [userId]: User identifier.
   /// * [birthdate]: Birthdate of the user.
-  const CloseBirthdayUser({
-    required this.userId,
-    required this.birthdate,
-  });
+  const CloseBirthdayUser({required this.userId, required this.birthdate});
 
   /// User identifier
   final int userId;
@@ -46,10 +43,7 @@ final class CloseBirthdayUser extends TdObject {
   /// Properties:
   /// * [user_id]: User identifier
   /// * [birthdate]: Birthdate of the user
-  CloseBirthdayUser copyWith({
-    int? userId,
-    Birthdate? birthdate,
-  }) =>
+  CloseBirthdayUser copyWith({int? userId, Birthdate? birthdate}) =>
       CloseBirthdayUser(
         userId: userId ?? this.userId,
         birthdate: birthdate ?? this.birthdate,

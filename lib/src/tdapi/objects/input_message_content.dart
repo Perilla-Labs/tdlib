@@ -28,6 +28,7 @@ sealed class InputMessageContent extends TdObject {
   /// * [InputMessageInvoice]
   /// * [InputMessagePoll]
   /// * [InputMessageStory]
+  /// * [InputMessageChecklist]
   /// * [InputMessageForwarded]
   factory InputMessageContent.fromJson(Map<String, dynamic> json) {
     switch (json["@type"]) {
@@ -67,6 +68,8 @@ sealed class InputMessageContent extends TdObject {
         return InputMessagePoll.fromJson(json);
       case InputMessageStory.defaultObjectId:
         return InputMessageStory.fromJson(json);
+      case InputMessageChecklist.defaultObjectId:
+        return InputMessageChecklist.fromJson(json);
       case InputMessageForwarded.defaultObjectId:
         return InputMessageForwarded.fromJson(json);
       default:
@@ -158,12 +161,11 @@ final class InputMessageText extends InputMessageContent {
     FormattedText? text,
     LinkPreviewOptions? linkPreviewOptions,
     bool? clearDraft,
-  }) =>
-      InputMessageText(
-        text: text ?? this.text,
-        linkPreviewOptions: linkPreviewOptions ?? this.linkPreviewOptions,
-        clearDraft: clearDraft ?? this.clearDraft,
-      );
+  }) => InputMessageText(
+    text: text ?? this.text,
+    linkPreviewOptions: linkPreviewOptions ?? this.linkPreviewOptions,
+    clearDraft: clearDraft ?? this.clearDraft,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputMessageText';
@@ -251,9 +253,8 @@ final class InputMessageAnimation extends InputMessageContent {
             ? null
             : InputThumbnail.fromJson(json['thumbnail']),
         addedStickerFileIds: List<int>.from(
-            (json['added_sticker_file_ids'] ?? [])
-                .map((item) => item)
-                .toList()),
+          (json['added_sticker_file_ids'] ?? []).map((item) => item).toList(),
+        ),
         duration: json['duration'],
         width: json['width'],
         height: json['height'],
@@ -304,19 +305,17 @@ final class InputMessageAnimation extends InputMessageContent {
     FormattedText? caption,
     bool? showCaptionAboveMedia,
     bool? hasSpoiler,
-  }) =>
-      InputMessageAnimation(
-        animation: animation ?? this.animation,
-        thumbnail: thumbnail ?? this.thumbnail,
-        addedStickerFileIds: addedStickerFileIds ?? this.addedStickerFileIds,
-        duration: duration ?? this.duration,
-        width: width ?? this.width,
-        height: height ?? this.height,
-        caption: caption ?? this.caption,
-        showCaptionAboveMedia:
-            showCaptionAboveMedia ?? this.showCaptionAboveMedia,
-        hasSpoiler: hasSpoiler ?? this.hasSpoiler,
-      );
+  }) => InputMessageAnimation(
+    animation: animation ?? this.animation,
+    thumbnail: thumbnail ?? this.thumbnail,
+    addedStickerFileIds: addedStickerFileIds ?? this.addedStickerFileIds,
+    duration: duration ?? this.duration,
+    width: width ?? this.width,
+    height: height ?? this.height,
+    caption: caption ?? this.caption,
+    showCaptionAboveMedia: showCaptionAboveMedia ?? this.showCaptionAboveMedia,
+    hasSpoiler: hasSpoiler ?? this.hasSpoiler,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputMessageAnimation';
@@ -424,15 +423,14 @@ final class InputMessageAudio extends InputMessageContent {
     String? title,
     String? performer,
     FormattedText? caption,
-  }) =>
-      InputMessageAudio(
-        audio: audio ?? this.audio,
-        albumCoverThumbnail: albumCoverThumbnail ?? this.albumCoverThumbnail,
-        duration: duration ?? this.duration,
-        title: title ?? this.title,
-        performer: performer ?? this.performer,
-        caption: caption ?? this.caption,
-      );
+  }) => InputMessageAudio(
+    audio: audio ?? this.audio,
+    albumCoverThumbnail: albumCoverThumbnail ?? this.albumCoverThumbnail,
+    duration: duration ?? this.duration,
+    title: title ?? this.title,
+    performer: performer ?? this.performer,
+    caption: caption ?? this.caption,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputMessageAudio';
@@ -520,14 +518,13 @@ final class InputMessageDocument extends InputMessageContent {
     InputThumbnail? thumbnail,
     bool? disableContentTypeDetection,
     FormattedText? caption,
-  }) =>
-      InputMessageDocument(
-        document: document ?? this.document,
-        thumbnail: thumbnail ?? this.thumbnail,
-        disableContentTypeDetection:
-            disableContentTypeDetection ?? this.disableContentTypeDetection,
-        caption: caption ?? this.caption,
-      );
+  }) => InputMessageDocument(
+    document: document ?? this.document,
+    thumbnail: thumbnail ?? this.thumbnail,
+    disableContentTypeDetection:
+        disableContentTypeDetection ?? this.disableContentTypeDetection,
+    caption: caption ?? this.caption,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputMessageDocument';
@@ -548,7 +545,7 @@ final class InputMessageDocument extends InputMessageContent {
 /// * [starCount]: The number of Telegram Stars that must be paid to see the media; 1-getOption("paid_media_message_star_count_max").
 /// * [paidMedia]: The content of the paid media.
 /// * [caption]: Message caption; pass null to use an empty caption; 0-getOption("message_caption_length_max") characters *(optional)*.
-/// * [showCaptionAboveMedia]: True, if the caption must be shown above the video; otherwise, the caption must be shown below the video; not supported in secret chats.
+/// * [showCaptionAboveMedia]: True, if the caption must be shown above the media; otherwise, the caption must be shown below the media; not supported in secret chats.
 /// * [payload]: Bot-provided data for the paid media; bots only.
 final class InputMessagePaidMedia extends InputMessageContent {
   /// **InputMessagePaidMedia** *(inputMessagePaidMedia)* - child of InputMessageContent
@@ -558,7 +555,7 @@ final class InputMessagePaidMedia extends InputMessageContent {
   /// * [starCount]: The number of Telegram Stars that must be paid to see the media; 1-getOption("paid_media_message_star_count_max").
   /// * [paidMedia]: The content of the paid media.
   /// * [caption]: Message caption; pass null to use an empty caption; 0-getOption("message_caption_length_max") characters *(optional)*.
-  /// * [showCaptionAboveMedia]: True, if the caption must be shown above the video; otherwise, the caption must be shown below the video; not supported in secret chats.
+  /// * [showCaptionAboveMedia]: True, if the caption must be shown above the media; otherwise, the caption must be shown below the media; not supported in secret chats.
   /// * [payload]: Bot-provided data for the paid media; bots only.
   const InputMessagePaidMedia({
     required this.starCount,
@@ -577,7 +574,7 @@ final class InputMessagePaidMedia extends InputMessageContent {
   /// Message caption; pass null to use an empty caption; 0-getOption("message_caption_length_max") characters
   final FormattedText? caption;
 
-  /// True, if the caption must be shown above the video; otherwise, the caption must be shown below the video; not supported in secret chats
+  /// True, if the caption must be shown above the media; otherwise, the caption must be shown below the media; not supported in secret chats
   final bool showCaptionAboveMedia;
 
   /// Bot-provided data for the paid media; bots only
@@ -587,9 +584,11 @@ final class InputMessagePaidMedia extends InputMessageContent {
   factory InputMessagePaidMedia.fromJson(Map<String, dynamic> json) =>
       InputMessagePaidMedia(
         starCount: json['star_count'],
-        paidMedia: List<InputPaidMedia>.from((json['paid_media'] ?? [])
-            .map((item) => InputPaidMedia.fromJson(item))
-            .toList()),
+        paidMedia: List<InputPaidMedia>.from(
+          (json['paid_media'] ?? [])
+              .map((item) => InputPaidMedia.fromJson(item))
+              .toList(),
+        ),
         caption: json['caption'] == null
             ? null
             : FormattedText.fromJson(json['caption']),
@@ -616,7 +615,7 @@ final class InputMessagePaidMedia extends InputMessageContent {
   /// * [star_count]: The number of Telegram Stars that must be paid to see the media; 1-getOption("paid_media_message_star_count_max")
   /// * [paid_media]: The content of the paid media
   /// * [caption]: Message caption; pass null to use an empty caption; 0-getOption("message_caption_length_max") characters
-  /// * [show_caption_above_media]: True, if the caption must be shown above the video; otherwise, the caption must be shown below the video; not supported in secret chats
+  /// * [show_caption_above_media]: True, if the caption must be shown above the media; otherwise, the caption must be shown below the media; not supported in secret chats
   /// * [payload]: Bot-provided data for the paid media; bots only
   @override
   InputMessagePaidMedia copyWith({
@@ -625,15 +624,13 @@ final class InputMessagePaidMedia extends InputMessageContent {
     FormattedText? caption,
     bool? showCaptionAboveMedia,
     String? payload,
-  }) =>
-      InputMessagePaidMedia(
-        starCount: starCount ?? this.starCount,
-        paidMedia: paidMedia ?? this.paidMedia,
-        caption: caption ?? this.caption,
-        showCaptionAboveMedia:
-            showCaptionAboveMedia ?? this.showCaptionAboveMedia,
-        payload: payload ?? this.payload,
-      );
+  }) => InputMessagePaidMedia(
+    starCount: starCount ?? this.starCount,
+    paidMedia: paidMedia ?? this.paidMedia,
+    caption: caption ?? this.caption,
+    showCaptionAboveMedia: showCaptionAboveMedia ?? this.showCaptionAboveMedia,
+    payload: payload ?? this.payload,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputMessagePaidMedia';
@@ -721,9 +718,8 @@ final class InputMessagePhoto extends InputMessageContent {
             ? null
             : InputThumbnail.fromJson(json['thumbnail']),
         addedStickerFileIds: List<int>.from(
-            (json['added_sticker_file_ids'] ?? [])
-                .map((item) => item)
-                .toList()),
+          (json['added_sticker_file_ids'] ?? []).map((item) => item).toList(),
+        ),
         width: json['width'],
         height: json['height'],
         caption: json['caption'] == null
@@ -776,19 +772,17 @@ final class InputMessagePhoto extends InputMessageContent {
     bool? showCaptionAboveMedia,
     MessageSelfDestructType? selfDestructType,
     bool? hasSpoiler,
-  }) =>
-      InputMessagePhoto(
-        photo: photo ?? this.photo,
-        thumbnail: thumbnail ?? this.thumbnail,
-        addedStickerFileIds: addedStickerFileIds ?? this.addedStickerFileIds,
-        width: width ?? this.width,
-        height: height ?? this.height,
-        caption: caption ?? this.caption,
-        showCaptionAboveMedia:
-            showCaptionAboveMedia ?? this.showCaptionAboveMedia,
-        selfDestructType: selfDestructType ?? this.selfDestructType,
-        hasSpoiler: hasSpoiler ?? this.hasSpoiler,
-      );
+  }) => InputMessagePhoto(
+    photo: photo ?? this.photo,
+    thumbnail: thumbnail ?? this.thumbnail,
+    addedStickerFileIds: addedStickerFileIds ?? this.addedStickerFileIds,
+    width: width ?? this.width,
+    height: height ?? this.height,
+    caption: caption ?? this.caption,
+    showCaptionAboveMedia: showCaptionAboveMedia ?? this.showCaptionAboveMedia,
+    selfDestructType: selfDestructType ?? this.selfDestructType,
+    hasSpoiler: hasSpoiler ?? this.hasSpoiler,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputMessagePhoto';
@@ -884,14 +878,13 @@ final class InputMessageSticker extends InputMessageContent {
     int? width,
     int? height,
     String? emoji,
-  }) =>
-      InputMessageSticker(
-        sticker: sticker ?? this.sticker,
-        thumbnail: thumbnail ?? this.thumbnail,
-        width: width ?? this.width,
-        height: height ?? this.height,
-        emoji: emoji ?? this.emoji,
-      );
+  }) => InputMessageSticker(
+    sticker: sticker ?? this.sticker,
+    thumbnail: thumbnail ?? this.thumbnail,
+    width: width ?? this.width,
+    height: height ?? this.height,
+    emoji: emoji ?? this.emoji,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputMessageSticker';
@@ -909,13 +902,15 @@ final class InputMessageSticker extends InputMessageContent {
 ///
 /// A video message.
 ///
-/// * [video]: Video to be sent.
+/// * [video]: Video to be sent. The video is expected to be re-encoded to MPEG4 format with H.264 codec by the sender.
 /// * [thumbnail]: Video thumbnail; pass null to skip thumbnail uploading *(optional)*.
+/// * [cover]: Cover of the video; pass null to skip cover uploading; not supported in secret chats and for self-destructing messages *(optional)*.
+/// * [startTimestamp]: Timestamp from which the video playing must start, in seconds.
 /// * [addedStickerFileIds]: File identifiers of the stickers added to the video, if applicable.
 /// * [duration]: Duration of the video, in seconds.
 /// * [width]: Video width.
 /// * [height]: Video height.
-/// * [supportsStreaming]: True, if the video is supposed to be streamed.
+/// * [supportsStreaming]: True, if the video is expected to be streamed.
 /// * [caption]: Video caption; pass null to use an empty caption; 0-getOption("message_caption_length_max") characters *(optional)*.
 /// * [showCaptionAboveMedia]: True, if the caption must be shown above the video; otherwise, the caption must be shown below the video; not supported in secret chats.
 /// * [selfDestructType]: Video self-destruct type; pass null if none; private chats only *(optional)*.
@@ -925,13 +920,15 @@ final class InputMessageVideo extends InputMessageContent {
   ///
   /// A video message.
   ///
-  /// * [video]: Video to be sent.
+  /// * [video]: Video to be sent. The video is expected to be re-encoded to MPEG4 format with H.264 codec by the sender.
   /// * [thumbnail]: Video thumbnail; pass null to skip thumbnail uploading *(optional)*.
+  /// * [cover]: Cover of the video; pass null to skip cover uploading; not supported in secret chats and for self-destructing messages *(optional)*.
+  /// * [startTimestamp]: Timestamp from which the video playing must start, in seconds.
   /// * [addedStickerFileIds]: File identifiers of the stickers added to the video, if applicable.
   /// * [duration]: Duration of the video, in seconds.
   /// * [width]: Video width.
   /// * [height]: Video height.
-  /// * [supportsStreaming]: True, if the video is supposed to be streamed.
+  /// * [supportsStreaming]: True, if the video is expected to be streamed.
   /// * [caption]: Video caption; pass null to use an empty caption; 0-getOption("message_caption_length_max") characters *(optional)*.
   /// * [showCaptionAboveMedia]: True, if the caption must be shown above the video; otherwise, the caption must be shown below the video; not supported in secret chats.
   /// * [selfDestructType]: Video self-destruct type; pass null if none; private chats only *(optional)*.
@@ -939,6 +936,8 @@ final class InputMessageVideo extends InputMessageContent {
   const InputMessageVideo({
     required this.video,
     this.thumbnail,
+    this.cover,
+    required this.startTimestamp,
     required this.addedStickerFileIds,
     required this.duration,
     required this.width,
@@ -950,11 +949,17 @@ final class InputMessageVideo extends InputMessageContent {
     required this.hasSpoiler,
   });
 
-  /// Video to be sent
+  /// Video to be sent. The video is expected to be re-encoded to MPEG4 format with H.264 codec by the sender
   final InputFile video;
 
   /// Video thumbnail; pass null to skip thumbnail uploading
   final InputThumbnail? thumbnail;
+
+  /// Cover of the video; pass null to skip cover uploading; not supported in secret chats and for self-destructing messages
+  final InputFile? cover;
+
+  /// Timestamp from which the video playing must start, in seconds
+  final int startTimestamp;
 
   /// File identifiers of the stickers added to the video, if applicable
   final List<int> addedStickerFileIds;
@@ -968,7 +973,7 @@ final class InputMessageVideo extends InputMessageContent {
   /// Video height
   final int height;
 
-  /// True, if the video is supposed to be streamed
+  /// True, if the video is expected to be streamed
   final bool supportsStreaming;
 
   /// Video caption; pass null to use an empty caption; 0-getOption("message_caption_length_max") characters
@@ -990,10 +995,11 @@ final class InputMessageVideo extends InputMessageContent {
         thumbnail: json['thumbnail'] == null
             ? null
             : InputThumbnail.fromJson(json['thumbnail']),
+        cover: json['cover'] == null ? null : InputFile.fromJson(json['cover']),
+        startTimestamp: json['start_timestamp'],
         addedStickerFileIds: List<int>.from(
-            (json['added_sticker_file_ids'] ?? [])
-                .map((item) => item)
-                .toList()),
+          (json['added_sticker_file_ids'] ?? []).map((item) => item).toList(),
+        ),
         duration: json['duration'],
         width: json['width'],
         height: json['height'],
@@ -1015,6 +1021,8 @@ final class InputMessageVideo extends InputMessageContent {
       "@type": defaultObjectId,
       "video": video.toJson(),
       "thumbnail": thumbnail?.toJson(),
+      "cover": cover?.toJson(),
+      "start_timestamp": startTimestamp,
       "added_sticker_file_ids": addedStickerFileIds.map((i) => i).toList(),
       "duration": duration,
       "width": width,
@@ -1030,13 +1038,15 @@ final class InputMessageVideo extends InputMessageContent {
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [video]: Video to be sent
+  /// * [video]: Video to be sent. The video is expected to be re-encoded to MPEG4 format with H.264 codec by the sender
   /// * [thumbnail]: Video thumbnail; pass null to skip thumbnail uploading
+  /// * [cover]: Cover of the video; pass null to skip cover uploading; not supported in secret chats and for self-destructing messages
+  /// * [start_timestamp]: Timestamp from which the video playing must start, in seconds
   /// * [added_sticker_file_ids]: File identifiers of the stickers added to the video, if applicable
   /// * [duration]: Duration of the video, in seconds
   /// * [width]: Video width
   /// * [height]: Video height
-  /// * [supports_streaming]: True, if the video is supposed to be streamed
+  /// * [supports_streaming]: True, if the video is expected to be streamed
   /// * [caption]: Video caption; pass null to use an empty caption; 0-getOption("message_caption_length_max") characters
   /// * [show_caption_above_media]: True, if the caption must be shown above the video; otherwise, the caption must be shown below the video; not supported in secret chats
   /// * [self_destruct_type]: Video self-destruct type; pass null if none; private chats only
@@ -1045,6 +1055,8 @@ final class InputMessageVideo extends InputMessageContent {
   InputMessageVideo copyWith({
     InputFile? video,
     InputThumbnail? thumbnail,
+    InputFile? cover,
+    int? startTimestamp,
     List<int>? addedStickerFileIds,
     int? duration,
     int? width,
@@ -1054,21 +1066,21 @@ final class InputMessageVideo extends InputMessageContent {
     bool? showCaptionAboveMedia,
     MessageSelfDestructType? selfDestructType,
     bool? hasSpoiler,
-  }) =>
-      InputMessageVideo(
-        video: video ?? this.video,
-        thumbnail: thumbnail ?? this.thumbnail,
-        addedStickerFileIds: addedStickerFileIds ?? this.addedStickerFileIds,
-        duration: duration ?? this.duration,
-        width: width ?? this.width,
-        height: height ?? this.height,
-        supportsStreaming: supportsStreaming ?? this.supportsStreaming,
-        caption: caption ?? this.caption,
-        showCaptionAboveMedia:
-            showCaptionAboveMedia ?? this.showCaptionAboveMedia,
-        selfDestructType: selfDestructType ?? this.selfDestructType,
-        hasSpoiler: hasSpoiler ?? this.hasSpoiler,
-      );
+  }) => InputMessageVideo(
+    video: video ?? this.video,
+    thumbnail: thumbnail ?? this.thumbnail,
+    cover: cover ?? this.cover,
+    startTimestamp: startTimestamp ?? this.startTimestamp,
+    addedStickerFileIds: addedStickerFileIds ?? this.addedStickerFileIds,
+    duration: duration ?? this.duration,
+    width: width ?? this.width,
+    height: height ?? this.height,
+    supportsStreaming: supportsStreaming ?? this.supportsStreaming,
+    caption: caption ?? this.caption,
+    showCaptionAboveMedia: showCaptionAboveMedia ?? this.showCaptionAboveMedia,
+    selfDestructType: selfDestructType ?? this.selfDestructType,
+    hasSpoiler: hasSpoiler ?? this.hasSpoiler,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputMessageVideo';
@@ -1086,7 +1098,7 @@ final class InputMessageVideo extends InputMessageContent {
 ///
 /// A video note message.
 ///
-/// * [videoNote]: Video note to be sent.
+/// * [videoNote]: Video note to be sent. The video is expected to be encoded to MPEG4 format with H.264 codec and have no data outside of the visible circle.
 /// * [thumbnail]: Video thumbnail; may be null if empty; pass null to skip thumbnail uploading *(optional)*.
 /// * [duration]: Duration of the video, in seconds; 0-60.
 /// * [length]: Video width and height; must be positive and not greater than 640.
@@ -1096,7 +1108,7 @@ final class InputMessageVideoNote extends InputMessageContent {
   ///
   /// A video note message.
   ///
-  /// * [videoNote]: Video note to be sent.
+  /// * [videoNote]: Video note to be sent. The video is expected to be encoded to MPEG4 format with H.264 codec and have no data outside of the visible circle.
   /// * [thumbnail]: Video thumbnail; may be null if empty; pass null to skip thumbnail uploading *(optional)*.
   /// * [duration]: Duration of the video, in seconds; 0-60.
   /// * [length]: Video width and height; must be positive and not greater than 640.
@@ -1109,7 +1121,7 @@ final class InputMessageVideoNote extends InputMessageContent {
     this.selfDestructType,
   });
 
-  /// Video note to be sent
+  /// Video note to be sent. The video is expected to be encoded to MPEG4 format with H.264 codec and have no data outside of the visible circle
   final InputFile videoNote;
 
   /// Video thumbnail; may be null if empty; pass null to skip thumbnail uploading
@@ -1154,7 +1166,7 @@ final class InputMessageVideoNote extends InputMessageContent {
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [video_note]: Video note to be sent
+  /// * [video_note]: Video note to be sent. The video is expected to be encoded to MPEG4 format with H.264 codec and have no data outside of the visible circle
   /// * [thumbnail]: Video thumbnail; may be null if empty; pass null to skip thumbnail uploading
   /// * [duration]: Duration of the video, in seconds; 0-60
   /// * [length]: Video width and height; must be positive and not greater than 640
@@ -1166,14 +1178,13 @@ final class InputMessageVideoNote extends InputMessageContent {
     int? duration,
     int? length,
     MessageSelfDestructType? selfDestructType,
-  }) =>
-      InputMessageVideoNote(
-        videoNote: videoNote ?? this.videoNote,
-        thumbnail: thumbnail ?? this.thumbnail,
-        duration: duration ?? this.duration,
-        length: length ?? this.length,
-        selfDestructType: selfDestructType ?? this.selfDestructType,
-      );
+  }) => InputMessageVideoNote(
+    videoNote: videoNote ?? this.videoNote,
+    thumbnail: thumbnail ?? this.thumbnail,
+    duration: duration ?? this.duration,
+    length: length ?? this.length,
+    selfDestructType: selfDestructType ?? this.selfDestructType,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputMessageVideoNote';
@@ -1271,14 +1282,13 @@ final class InputMessageVoiceNote extends InputMessageContent {
     String? waveform,
     FormattedText? caption,
     MessageSelfDestructType? selfDestructType,
-  }) =>
-      InputMessageVoiceNote(
-        voiceNote: voiceNote ?? this.voiceNote,
-        duration: duration ?? this.duration,
-        waveform: waveform ?? this.waveform,
-        caption: caption ?? this.caption,
-        selfDestructType: selfDestructType ?? this.selfDestructType,
-      );
+  }) => InputMessageVoiceNote(
+    voiceNote: voiceNote ?? this.voiceNote,
+    duration: duration ?? this.duration,
+    waveform: waveform ?? this.waveform,
+    caption: caption ?? this.caption,
+    selfDestructType: selfDestructType ?? this.selfDestructType,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputMessageVoiceNote';
@@ -1362,13 +1372,12 @@ final class InputMessageLocation extends InputMessageContent {
     int? livePeriod,
     int? heading,
     int? proximityAlertRadius,
-  }) =>
-      InputMessageLocation(
-        location: location ?? this.location,
-        livePeriod: livePeriod ?? this.livePeriod,
-        heading: heading ?? this.heading,
-        proximityAlertRadius: proximityAlertRadius ?? this.proximityAlertRadius,
-      );
+  }) => InputMessageLocation(
+    location: location ?? this.location,
+    livePeriod: livePeriod ?? this.livePeriod,
+    heading: heading ?? this.heading,
+    proximityAlertRadius: proximityAlertRadius ?? this.proximityAlertRadius,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputMessageLocation';
@@ -1393,26 +1402,19 @@ final class InputMessageVenue extends InputMessageContent {
   /// A message with information about a venue.
   ///
   /// * [venue]: Venue to send.
-  const InputMessageVenue({
-    required this.venue,
-  });
+  const InputMessageVenue({required this.venue});
 
   /// Venue to send
   final Venue venue;
 
   /// Parse from a json
   factory InputMessageVenue.fromJson(Map<String, dynamic> json) =>
-      InputMessageVenue(
-        venue: Venue.fromJson(json['venue']),
-      );
+      InputMessageVenue(venue: Venue.fromJson(json['venue']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "venue": venue.toJson(),
-    };
+    return {"@type": defaultObjectId, "venue": venue.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -1420,12 +1422,8 @@ final class InputMessageVenue extends InputMessageContent {
   /// Properties:
   /// * [venue]: Venue to send
   @override
-  InputMessageVenue copyWith({
-    Venue? venue,
-  }) =>
-      InputMessageVenue(
-        venue: venue ?? this.venue,
-      );
+  InputMessageVenue copyWith({Venue? venue}) =>
+      InputMessageVenue(venue: venue ?? this.venue);
 
   /// TDLib object type
   static const String defaultObjectId = 'inputMessageVenue';
@@ -1450,26 +1448,19 @@ final class InputMessageContact extends InputMessageContent {
   /// A message containing a user contact.
   ///
   /// * [contact]: Contact to send.
-  const InputMessageContact({
-    required this.contact,
-  });
+  const InputMessageContact({required this.contact});
 
   /// Contact to send
   final Contact contact;
 
   /// Parse from a json
   factory InputMessageContact.fromJson(Map<String, dynamic> json) =>
-      InputMessageContact(
-        contact: Contact.fromJson(json['contact']),
-      );
+      InputMessageContact(contact: Contact.fromJson(json['contact']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "contact": contact.toJson(),
-    };
+    return {"@type": defaultObjectId, "contact": contact.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -1477,12 +1468,8 @@ final class InputMessageContact extends InputMessageContent {
   /// Properties:
   /// * [contact]: Contact to send
   @override
-  InputMessageContact copyWith({
-    Contact? contact,
-  }) =>
-      InputMessageContact(
-        contact: contact ?? this.contact,
-      );
+  InputMessageContact copyWith({Contact? contact}) =>
+      InputMessageContact(contact: contact ?? this.contact);
 
   /// TDLib object type
   static const String defaultObjectId = 'inputMessageContact';
@@ -1509,10 +1496,7 @@ final class InputMessageDice extends InputMessageContent {
   ///
   /// * [emoji]: Emoji on which the dice throw animation is based.
   /// * [clearDraft]: True, if the chat message draft must be deleted.
-  const InputMessageDice({
-    required this.emoji,
-    required this.clearDraft,
-  });
+  const InputMessageDice({required this.emoji, required this.clearDraft});
 
   /// Emoji on which the dice throw animation is based
   final String emoji;
@@ -1522,10 +1506,7 @@ final class InputMessageDice extends InputMessageContent {
 
   /// Parse from a json
   factory InputMessageDice.fromJson(Map<String, dynamic> json) =>
-      InputMessageDice(
-        emoji: json['emoji'],
-        clearDraft: json['clear_draft'],
-      );
+      InputMessageDice(emoji: json['emoji'], clearDraft: json['clear_draft']);
 
   /// Convert model to TDLib JSON format
   @override
@@ -1543,10 +1524,7 @@ final class InputMessageDice extends InputMessageContent {
   /// * [emoji]: Emoji on which the dice throw animation is based
   /// * [clear_draft]: True, if the chat message draft must be deleted
   @override
-  InputMessageDice copyWith({
-    String? emoji,
-    bool? clearDraft,
-  }) =>
+  InputMessageDice copyWith({String? emoji, bool? clearDraft}) =>
       InputMessageDice(
         emoji: emoji ?? this.emoji,
         clearDraft: clearDraft ?? this.clearDraft,
@@ -1611,10 +1589,7 @@ final class InputMessageGame extends InputMessageContent {
   /// * [bot_user_id]: User identifier of the bot that owns the game
   /// * [game_short_name]: Short name of the game
   @override
-  InputMessageGame copyWith({
-    int? botUserId,
-    String? gameShortName,
-  }) =>
+  InputMessageGame copyWith({int? botUserId, String? gameShortName}) =>
       InputMessageGame(
         botUserId: botUserId ?? this.botUserId,
         gameShortName: gameShortName ?? this.gameShortName,
@@ -1796,22 +1771,21 @@ final class InputMessageInvoice extends InputMessageContent {
     String? startParameter,
     InputPaidMedia? paidMedia,
     FormattedText? paidMediaCaption,
-  }) =>
-      InputMessageInvoice(
-        invoice: invoice ?? this.invoice,
-        title: title ?? this.title,
-        description: description ?? this.description,
-        photoUrl: photoUrl ?? this.photoUrl,
-        photoSize: photoSize ?? this.photoSize,
-        photoWidth: photoWidth ?? this.photoWidth,
-        photoHeight: photoHeight ?? this.photoHeight,
-        payload: payload ?? this.payload,
-        providerToken: providerToken ?? this.providerToken,
-        providerData: providerData ?? this.providerData,
-        startParameter: startParameter ?? this.startParameter,
-        paidMedia: paidMedia ?? this.paidMedia,
-        paidMediaCaption: paidMediaCaption ?? this.paidMediaCaption,
-      );
+  }) => InputMessageInvoice(
+    invoice: invoice ?? this.invoice,
+    title: title ?? this.title,
+    description: description ?? this.description,
+    photoUrl: photoUrl ?? this.photoUrl,
+    photoSize: photoSize ?? this.photoSize,
+    photoWidth: photoWidth ?? this.photoWidth,
+    photoHeight: photoHeight ?? this.photoHeight,
+    payload: payload ?? this.payload,
+    providerToken: providerToken ?? this.providerToken,
+    providerData: providerData ?? this.providerData,
+    startParameter: startParameter ?? this.startParameter,
+    paidMedia: paidMedia ?? this.paidMedia,
+    paidMediaCaption: paidMediaCaption ?? this.paidMediaCaption,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputMessageInvoice';
@@ -1827,10 +1801,10 @@ final class InputMessageInvoice extends InputMessageContent {
 
 /// **InputMessagePoll** *(inputMessagePoll)* - child of InputMessageContent
 ///
-/// A message with a poll. Polls can't be sent to secret chats. Polls can be sent only to a private chat with a bot.
+/// A message with a poll. Polls can't be sent to secret chats and channel direct messages chats. Polls can be sent to a private chat only if the chat is a chat with a bot or the Saved Messages chat.
 ///
 /// * [question]: Poll question; 1-255 characters (up to 300 characters for bots). Only custom emoji entities are allowed to be added and only by Premium users.
-/// * [options]: List of poll answer options, 2-10 strings 1-100 characters each. Only custom emoji entities are allowed to be added and only by Premium users.
+/// * [options]: List of poll answer options, 2-getOption("poll_answer_count_max") strings 1-100 characters each. Only custom emoji entities are allowed to be added and only by Premium users.
 /// * [isAnonymous]: True, if the poll voters are anonymous. Non-anonymous polls can't be sent or forwarded to channels.
 /// * [type]: Type of the poll.
 /// * [openPeriod]: Amount of time the poll will be active after creation, in seconds; for bots only.
@@ -1839,10 +1813,10 @@ final class InputMessageInvoice extends InputMessageContent {
 final class InputMessagePoll extends InputMessageContent {
   /// **InputMessagePoll** *(inputMessagePoll)* - child of InputMessageContent
   ///
-  /// A message with a poll. Polls can't be sent to secret chats. Polls can be sent only to a private chat with a bot.
+  /// A message with a poll. Polls can't be sent to secret chats and channel direct messages chats. Polls can be sent to a private chat only if the chat is a chat with a bot or the Saved Messages chat.
   ///
   /// * [question]: Poll question; 1-255 characters (up to 300 characters for bots). Only custom emoji entities are allowed to be added and only by Premium users.
-  /// * [options]: List of poll answer options, 2-10 strings 1-100 characters each. Only custom emoji entities are allowed to be added and only by Premium users.
+  /// * [options]: List of poll answer options, 2-getOption("poll_answer_count_max") strings 1-100 characters each. Only custom emoji entities are allowed to be added and only by Premium users.
   /// * [isAnonymous]: True, if the poll voters are anonymous. Non-anonymous polls can't be sent or forwarded to channels.
   /// * [type]: Type of the poll.
   /// * [openPeriod]: Amount of time the poll will be active after creation, in seconds; for bots only.
@@ -1861,7 +1835,7 @@ final class InputMessagePoll extends InputMessageContent {
   /// Poll question; 1-255 characters (up to 300 characters for bots). Only custom emoji entities are allowed to be added and only by Premium users
   final FormattedText question;
 
-  /// List of poll answer options, 2-10 strings 1-100 characters each. Only custom emoji entities are allowed to be added and only by Premium users
+  /// List of poll answer options, 2-getOption("poll_answer_count_max") strings 1-100 characters each. Only custom emoji entities are allowed to be added and only by Premium users
   final List<FormattedText> options;
 
   /// True, if the poll voters are anonymous. Non-anonymous polls can't be sent or forwarded to channels
@@ -1883,9 +1857,11 @@ final class InputMessagePoll extends InputMessageContent {
   factory InputMessagePoll.fromJson(Map<String, dynamic> json) =>
       InputMessagePoll(
         question: FormattedText.fromJson(json['question']),
-        options: List<FormattedText>.from((json['options'] ?? [])
-            .map((item) => FormattedText.fromJson(item))
-            .toList()),
+        options: List<FormattedText>.from(
+          (json['options'] ?? [])
+              .map((item) => FormattedText.fromJson(item))
+              .toList(),
+        ),
         isAnonymous: json['is_anonymous'],
         type: PollType.fromJson(json['type']),
         openPeriod: json['open_period'],
@@ -1912,7 +1888,7 @@ final class InputMessagePoll extends InputMessageContent {
   ///
   /// Properties:
   /// * [question]: Poll question; 1-255 characters (up to 300 characters for bots). Only custom emoji entities are allowed to be added and only by Premium users
-  /// * [options]: List of poll answer options, 2-10 strings 1-100 characters each. Only custom emoji entities are allowed to be added and only by Premium users
+  /// * [options]: List of poll answer options, 2-getOption("poll_answer_count_max") strings 1-100 characters each. Only custom emoji entities are allowed to be added and only by Premium users
   /// * [is_anonymous]: True, if the poll voters are anonymous. Non-anonymous polls can't be sent or forwarded to channels
   /// * [type]: Type of the poll
   /// * [open_period]: Amount of time the poll will be active after creation, in seconds; for bots only
@@ -1927,16 +1903,15 @@ final class InputMessagePoll extends InputMessageContent {
     int? openPeriod,
     int? closeDate,
     bool? isClosed,
-  }) =>
-      InputMessagePoll(
-        question: question ?? this.question,
-        options: options ?? this.options,
-        isAnonymous: isAnonymous ?? this.isAnonymous,
-        type: type ?? this.type,
-        openPeriod: openPeriod ?? this.openPeriod,
-        closeDate: closeDate ?? this.closeDate,
-        isClosed: isClosed ?? this.isClosed,
-      );
+  }) => InputMessagePoll(
+    question: question ?? this.question,
+    options: options ?? this.options,
+    isAnonymous: isAnonymous ?? this.isAnonymous,
+    type: type ?? this.type,
+    openPeriod: openPeriod ?? this.openPeriod,
+    closeDate: closeDate ?? this.closeDate,
+    isClosed: isClosed ?? this.isClosed,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputMessagePoll';
@@ -1952,24 +1927,24 @@ final class InputMessagePoll extends InputMessageContent {
 
 /// **InputMessageStory** *(inputMessageStory)* - child of InputMessageContent
 ///
-/// A message with a forwarded story. Stories can't be sent to secret chats. A story can be forwarded only if story.can_be_forwarded.
+/// A message with a forwarded story. Stories can't be forwarded to secret chats. A story can be forwarded only if story.can_be_forwarded.
 ///
-/// * [storySenderChatId]: Identifier of the chat that posted the story.
+/// * [storyPosterChatId]: Identifier of the chat that posted the story.
 /// * [storyId]: Story identifier.
 final class InputMessageStory extends InputMessageContent {
   /// **InputMessageStory** *(inputMessageStory)* - child of InputMessageContent
   ///
-  /// A message with a forwarded story. Stories can't be sent to secret chats. A story can be forwarded only if story.can_be_forwarded.
+  /// A message with a forwarded story. Stories can't be forwarded to secret chats. A story can be forwarded only if story.can_be_forwarded.
   ///
-  /// * [storySenderChatId]: Identifier of the chat that posted the story.
+  /// * [storyPosterChatId]: Identifier of the chat that posted the story.
   /// * [storyId]: Story identifier.
   const InputMessageStory({
-    required this.storySenderChatId,
+    required this.storyPosterChatId,
     required this.storyId,
   });
 
   /// Identifier of the chat that posted the story
-  final int storySenderChatId;
+  final int storyPosterChatId;
 
   /// Story identifier
   final int storyId;
@@ -1977,7 +1952,7 @@ final class InputMessageStory extends InputMessageContent {
   /// Parse from a json
   factory InputMessageStory.fromJson(Map<String, dynamic> json) =>
       InputMessageStory(
-        storySenderChatId: json['story_sender_chat_id'],
+        storyPosterChatId: json['story_poster_chat_id'],
         storyId: json['story_id'],
       );
 
@@ -1986,7 +1961,7 @@ final class InputMessageStory extends InputMessageContent {
   Map<String, dynamic> toJson() {
     return {
       "@type": defaultObjectId,
-      "story_sender_chat_id": storySenderChatId,
+      "story_poster_chat_id": storyPosterChatId,
       "story_id": storyId,
     };
   }
@@ -1994,20 +1969,65 @@ final class InputMessageStory extends InputMessageContent {
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [story_sender_chat_id]: Identifier of the chat that posted the story
+  /// * [story_poster_chat_id]: Identifier of the chat that posted the story
   /// * [story_id]: Story identifier
   @override
-  InputMessageStory copyWith({
-    int? storySenderChatId,
-    int? storyId,
-  }) =>
+  InputMessageStory copyWith({int? storyPosterChatId, int? storyId}) =>
       InputMessageStory(
-        storySenderChatId: storySenderChatId ?? this.storySenderChatId,
+        storyPosterChatId: storyPosterChatId ?? this.storyPosterChatId,
         storyId: storyId ?? this.storyId,
       );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputMessageStory';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **InputMessageChecklist** *(inputMessageChecklist)* - child of InputMessageContent
+///
+/// A message with a checklist. Checklists can't be sent to secret chats, channel chats and channel direct messages chats; for Telegram Premium users only.
+///
+/// * [checklist]: The checklist to send.
+final class InputMessageChecklist extends InputMessageContent {
+  /// **InputMessageChecklist** *(inputMessageChecklist)* - child of InputMessageContent
+  ///
+  /// A message with a checklist. Checklists can't be sent to secret chats, channel chats and channel direct messages chats; for Telegram Premium users only.
+  ///
+  /// * [checklist]: The checklist to send.
+  const InputMessageChecklist({required this.checklist});
+
+  /// The checklist to send
+  final InputChecklist checklist;
+
+  /// Parse from a json
+  factory InputMessageChecklist.fromJson(Map<String, dynamic> json) =>
+      InputMessageChecklist(
+        checklist: InputChecklist.fromJson(json['checklist']),
+      );
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {"@type": defaultObjectId, "checklist": checklist.toJson()};
+  }
+
+  /// Copy model with modified properties.
+  ///
+  /// Properties:
+  /// * [checklist]: The checklist to send
+  @override
+  InputMessageChecklist copyWith({InputChecklist? checklist}) =>
+      InputMessageChecklist(checklist: checklist ?? this.checklist);
+
+  /// TDLib object type
+  static const String defaultObjectId = 'inputMessageChecklist';
 
   /// Convert model to TDLib JSON format, encoded into String.
   @override
@@ -2024,7 +2044,9 @@ final class InputMessageStory extends InputMessageContent {
 ///
 /// * [fromChatId]: Identifier for the chat this forwarded message came from.
 /// * [messageId]: Identifier of the message to forward. A message can be forwarded only if messageProperties.can_be_forwarded.
-/// * [inGameShare]: True, if a game message is being shared from a launched game; applies only to game messages.
+/// * [inGameShare]: Pass true if a game message is being shared from a launched game; applies only to game messages.
+/// * [replaceVideoStartTimestamp]: Pass true to replace video start timestamp in the forwarded message.
+/// * [newVideoStartTimestamp]: The new video start timestamp; ignored if replace_video_start_timestamp == false.
 /// * [copyOptions]: Options to be used to copy content of the message without reference to the original sender; pass null to forward the message as usual *(optional)*.
 final class InputMessageForwarded extends InputMessageContent {
   /// **InputMessageForwarded** *(inputMessageForwarded)* - child of InputMessageContent
@@ -2033,12 +2055,16 @@ final class InputMessageForwarded extends InputMessageContent {
   ///
   /// * [fromChatId]: Identifier for the chat this forwarded message came from.
   /// * [messageId]: Identifier of the message to forward. A message can be forwarded only if messageProperties.can_be_forwarded.
-  /// * [inGameShare]: True, if a game message is being shared from a launched game; applies only to game messages.
+  /// * [inGameShare]: Pass true if a game message is being shared from a launched game; applies only to game messages.
+  /// * [replaceVideoStartTimestamp]: Pass true to replace video start timestamp in the forwarded message.
+  /// * [newVideoStartTimestamp]: The new video start timestamp; ignored if replace_video_start_timestamp == false.
   /// * [copyOptions]: Options to be used to copy content of the message without reference to the original sender; pass null to forward the message as usual *(optional)*.
   const InputMessageForwarded({
     required this.fromChatId,
     required this.messageId,
     required this.inGameShare,
+    required this.replaceVideoStartTimestamp,
+    required this.newVideoStartTimestamp,
     this.copyOptions,
   });
 
@@ -2048,8 +2074,14 @@ final class InputMessageForwarded extends InputMessageContent {
   /// Identifier of the message to forward. A message can be forwarded only if messageProperties.can_be_forwarded
   final int messageId;
 
-  /// True, if a game message is being shared from a launched game; applies only to game messages
+  /// Pass true if a game message is being shared from a launched game; applies only to game messages
   final bool inGameShare;
+
+  /// Pass true to replace video start timestamp in the forwarded message
+  final bool replaceVideoStartTimestamp;
+
+  /// The new video start timestamp; ignored if replace_video_start_timestamp == false
+  final int newVideoStartTimestamp;
 
   /// Options to be used to copy content of the message without reference to the original sender; pass null to forward the message as usual
   final MessageCopyOptions? copyOptions;
@@ -2060,6 +2092,8 @@ final class InputMessageForwarded extends InputMessageContent {
         fromChatId: json['from_chat_id'],
         messageId: json['message_id'],
         inGameShare: json['in_game_share'],
+        replaceVideoStartTimestamp: json['replace_video_start_timestamp'],
+        newVideoStartTimestamp: json['new_video_start_timestamp'],
         copyOptions: json['copy_options'] == null
             ? null
             : MessageCopyOptions.fromJson(json['copy_options']),
@@ -2073,6 +2107,8 @@ final class InputMessageForwarded extends InputMessageContent {
       "from_chat_id": fromChatId,
       "message_id": messageId,
       "in_game_share": inGameShare,
+      "replace_video_start_timestamp": replaceVideoStartTimestamp,
+      "new_video_start_timestamp": newVideoStartTimestamp,
       "copy_options": copyOptions?.toJson(),
     };
   }
@@ -2082,21 +2118,28 @@ final class InputMessageForwarded extends InputMessageContent {
   /// Properties:
   /// * [from_chat_id]: Identifier for the chat this forwarded message came from
   /// * [message_id]: Identifier of the message to forward. A message can be forwarded only if messageProperties.can_be_forwarded
-  /// * [in_game_share]: True, if a game message is being shared from a launched game; applies only to game messages
+  /// * [in_game_share]: Pass true if a game message is being shared from a launched game; applies only to game messages
+  /// * [replace_video_start_timestamp]: Pass true to replace video start timestamp in the forwarded message
+  /// * [new_video_start_timestamp]: The new video start timestamp; ignored if replace_video_start_timestamp == false
   /// * [copy_options]: Options to be used to copy content of the message without reference to the original sender; pass null to forward the message as usual
   @override
   InputMessageForwarded copyWith({
     int? fromChatId,
     int? messageId,
     bool? inGameShare,
+    bool? replaceVideoStartTimestamp,
+    int? newVideoStartTimestamp,
     MessageCopyOptions? copyOptions,
-  }) =>
-      InputMessageForwarded(
-        fromChatId: fromChatId ?? this.fromChatId,
-        messageId: messageId ?? this.messageId,
-        inGameShare: inGameShare ?? this.inGameShare,
-        copyOptions: copyOptions ?? this.copyOptions,
-      );
+  }) => InputMessageForwarded(
+    fromChatId: fromChatId ?? this.fromChatId,
+    messageId: messageId ?? this.messageId,
+    inGameShare: inGameShare ?? this.inGameShare,
+    replaceVideoStartTimestamp:
+        replaceVideoStartTimestamp ?? this.replaceVideoStartTimestamp,
+    newVideoStartTimestamp:
+        newVideoStartTimestamp ?? this.newVideoStartTimestamp,
+    copyOptions: copyOptions ?? this.copyOptions,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputMessageForwarded';

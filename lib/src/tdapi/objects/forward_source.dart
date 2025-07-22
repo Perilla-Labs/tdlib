@@ -50,15 +50,15 @@ final class ForwardSource extends TdObject {
 
   /// Parse from a json
   factory ForwardSource.fromJson(Map<String, dynamic> json) => ForwardSource(
-        chatId: json['chat_id'],
-        messageId: json['message_id'],
-        senderId: json['sender_id'] == null
-            ? null
-            : MessageSender.fromJson(json['sender_id']),
-        senderName: json['sender_name'],
-        date: json['date'],
-        isOutgoing: json['is_outgoing'],
-      );
+    chatId: json['chat_id'],
+    messageId: json['message_id'],
+    senderId: json['sender_id'] == null
+        ? null
+        : MessageSender.fromJson(json['sender_id']),
+    senderName: json['sender_name'],
+    date: json['date'],
+    isOutgoing: json['is_outgoing'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -90,15 +90,14 @@ final class ForwardSource extends TdObject {
     String? senderName,
     int? date,
     bool? isOutgoing,
-  }) =>
-      ForwardSource(
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        senderId: senderId ?? this.senderId,
-        senderName: senderName ?? this.senderName,
-        date: date ?? this.date,
-        isOutgoing: isOutgoing ?? this.isOutgoing,
-      );
+  }) => ForwardSource(
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    senderId: senderId ?? this.senderId,
+    senderName: senderName ?? this.senderName,
+    date: date ?? this.date,
+    isOutgoing: isOutgoing ?? this.isOutgoing,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'forwardSource';

@@ -119,18 +119,17 @@ final class ConnectedWebsite extends TdObject {
     int? lastActiveDate,
     String? ipAddress,
     String? location,
-  }) =>
-      ConnectedWebsite(
-        id: id ?? this.id,
-        domainName: domainName ?? this.domainName,
-        botUserId: botUserId ?? this.botUserId,
-        browser: browser ?? this.browser,
-        platform: platform ?? this.platform,
-        logInDate: logInDate ?? this.logInDate,
-        lastActiveDate: lastActiveDate ?? this.lastActiveDate,
-        ipAddress: ipAddress ?? this.ipAddress,
-        location: location ?? this.location,
-      );
+  }) => ConnectedWebsite(
+    id: id ?? this.id,
+    domainName: domainName ?? this.domainName,
+    botUserId: botUserId ?? this.botUserId,
+    browser: browser ?? this.browser,
+    platform: platform ?? this.platform,
+    logInDate: logInDate ?? this.logInDate,
+    lastActiveDate: lastActiveDate ?? this.lastActiveDate,
+    ipAddress: ipAddress ?? this.ipAddress,
+    location: location ?? this.location,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'connectedWebsite';

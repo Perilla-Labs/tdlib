@@ -15,9 +15,7 @@ final class GetRecentStickers extends TdFunction {
   /// * [isAttached]: Pass true to return stickers and masks that were recently attached to photos or video files; pass false to return recently sent stickers.
   ///
   /// [Stickers] is returned on completion.
-  const GetRecentStickers({
-    required this.isAttached,
-  });
+  const GetRecentStickers({required this.isAttached});
 
   /// Pass true to return stickers and masks that were recently attached to photos or video files; pass false to return recently sent stickers
   final bool isAttached;
@@ -36,12 +34,8 @@ final class GetRecentStickers extends TdFunction {
   ///
   /// Properties:
   /// * [is_attached]: Pass true to return stickers and masks that were recently attached to photos or video files; pass false to return recently sent stickers
-  GetRecentStickers copyWith({
-    bool? isAttached,
-  }) =>
-      GetRecentStickers(
-        isAttached: isAttached ?? this.isAttached,
-      );
+  GetRecentStickers copyWith({bool? isAttached}) =>
+      GetRecentStickers(isAttached: isAttached ?? this.isAttached);
 
   /// TDLib object type
   static const String defaultObjectId = 'getRecentStickers';

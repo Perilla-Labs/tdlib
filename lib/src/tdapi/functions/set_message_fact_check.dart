@@ -56,12 +56,11 @@ final class SetMessageFactCheck extends TdFunction {
     int? chatId,
     int? messageId,
     FormattedText? text,
-  }) =>
-      SetMessageFactCheck(
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        text: text ?? this.text,
-      );
+  }) => SetMessageFactCheck(
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    text: text ?? this.text,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setMessageFactCheck';

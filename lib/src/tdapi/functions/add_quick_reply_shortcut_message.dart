@@ -6,7 +6,7 @@ part of '../tdapi.dart';
 ///
 /// * [shortcutName]: Name of the target shortcut.
 /// * [replyToMessageId]: Identifier of a quick reply message in the same shortcut to be replied; pass 0 if none.
-/// * [inputMessageContent]: The content of the message to be added; inputMessagePoll, inputMessageForwarded and inputMessageLocation with live_period aren't supported.
+/// * [inputMessageContent]: The content of the message to be added; inputMessagePaidMedia, inputMessageForwarded and inputMessageLocation with live_period aren't supported.
 ///
 /// [QuickReplyMessage] is returned on completion.
 final class AddQuickReplyShortcutMessage extends TdFunction {
@@ -16,7 +16,7 @@ final class AddQuickReplyShortcutMessage extends TdFunction {
   ///
   /// * [shortcutName]: Name of the target shortcut.
   /// * [replyToMessageId]: Identifier of a quick reply message in the same shortcut to be replied; pass 0 if none.
-  /// * [inputMessageContent]: The content of the message to be added; inputMessagePoll, inputMessageForwarded and inputMessageLocation with live_period aren't supported.
+  /// * [inputMessageContent]: The content of the message to be added; inputMessagePaidMedia, inputMessageForwarded and inputMessageLocation with live_period aren't supported.
   ///
   /// [QuickReplyMessage] is returned on completion.
   const AddQuickReplyShortcutMessage({
@@ -31,7 +31,7 @@ final class AddQuickReplyShortcutMessage extends TdFunction {
   /// Identifier of a quick reply message in the same shortcut to be replied; pass 0 if none
   final int replyToMessageId;
 
-  /// The content of the message to be added; inputMessagePoll, inputMessageForwarded and inputMessageLocation with live_period aren't supported
+  /// The content of the message to be added; inputMessagePaidMedia, inputMessageForwarded and inputMessageLocation with live_period aren't supported
   final InputMessageContent inputMessageContent;
 
   /// Convert model to TDLib JSON format
@@ -51,17 +51,16 @@ final class AddQuickReplyShortcutMessage extends TdFunction {
   /// Properties:
   /// * [shortcut_name]: Name of the target shortcut
   /// * [reply_to_message_id]: Identifier of a quick reply message in the same shortcut to be replied; pass 0 if none
-  /// * [input_message_content]: The content of the message to be added; inputMessagePoll, inputMessageForwarded and inputMessageLocation with live_period aren't supported
+  /// * [input_message_content]: The content of the message to be added; inputMessagePaidMedia, inputMessageForwarded and inputMessageLocation with live_period aren't supported
   AddQuickReplyShortcutMessage copyWith({
     String? shortcutName,
     int? replyToMessageId,
     InputMessageContent? inputMessageContent,
-  }) =>
-      AddQuickReplyShortcutMessage(
-        shortcutName: shortcutName ?? this.shortcutName,
-        replyToMessageId: replyToMessageId ?? this.replyToMessageId,
-        inputMessageContent: inputMessageContent ?? this.inputMessageContent,
-      );
+  }) => AddQuickReplyShortcutMessage(
+    shortcutName: shortcutName ?? this.shortcutName,
+    replyToMessageId: replyToMessageId ?? this.replyToMessageId,
+    inputMessageContent: inputMessageContent ?? this.inputMessageContent,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'addQuickReplyShortcutMessage';

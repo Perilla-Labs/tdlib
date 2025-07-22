@@ -15,7 +15,7 @@ part of '../tdapi.dart';
 /// * [permissions]: Actions that non-administrator chat members are allowed to take in the chat.
 /// * [lastMessage]: Last message in the chat; may be null if none or unknown *(optional)*.
 /// * [positions]: Positions of the chat in chat lists.
-/// * [chatLists]: Chat lists to which the chat belongs. A chat can have a non-zero position in a chat list even it doesn't belong to the chat list and have no position in a chat list even it belongs to the chat list.
+/// * [chatLists]: Chat lists to which the chat belongs. A chat can have a non-zero position in a chat list even if it doesn't belong to the chat list and have no position in a chat list even if it belongs to the chat list.
 /// * [messageSenderId]: Identifier of a user or chat that is selected to send messages in the chat; may be null if the user can't change message sender *(optional)*.
 /// * [blockList]: Block list to which the chat is added; may be null if none *(optional)*.
 /// * [hasProtectedContent]: True, if chat content can't be saved locally, forwarded, or copied.
@@ -61,7 +61,7 @@ final class Chat extends TdObject {
   /// * [permissions]: Actions that non-administrator chat members are allowed to take in the chat.
   /// * [lastMessage]: Last message in the chat; may be null if none or unknown *(optional)*.
   /// * [positions]: Positions of the chat in chat lists.
-  /// * [chatLists]: Chat lists to which the chat belongs. A chat can have a non-zero position in a chat list even it doesn't belong to the chat list and have no position in a chat list even it belongs to the chat list.
+  /// * [chatLists]: Chat lists to which the chat belongs. A chat can have a non-zero position in a chat list even if it doesn't belong to the chat list and have no position in a chat list even if it belongs to the chat list.
   /// * [messageSenderId]: Identifier of a user or chat that is selected to send messages in the chat; may be null if the user can't change message sender *(optional)*.
   /// * [blockList]: Block list to which the chat is added; may be null if none *(optional)*.
   /// * [hasProtectedContent]: True, if chat content can't be saved locally, forwarded, or copied.
@@ -170,7 +170,7 @@ final class Chat extends TdObject {
   /// Positions of the chat in chat lists
   final List<ChatPosition> positions;
 
-  /// Chat lists to which the chat belongs. A chat can have a non-zero position in a chat list even it doesn't belong to the chat list and have no position in a chat list even it belongs to the chat list
+  /// Chat lists to which the chat belongs. A chat can have a non-zero position in a chat list even if it doesn't belong to the chat list and have no position in a chat list even if it belongs to the chat list
   final List<ChatList> chatLists;
 
   /// Identifier of a user or chat that is selected to send messages in the chat; may be null if the user can't change message sender
@@ -270,83 +270,85 @@ final class Chat extends TdObject {
 
   /// Parse from a json
   factory Chat.fromJson(Map<String, dynamic> json) => Chat(
-        id: json['id'],
-        type: ChatType.fromJson(json['type']),
-        title: json['title'],
-        photo: json['photo'] == null
-            ? null
-            : ChatPhotoInfo.fromJson(json['photo']),
-        accentColorId: json['accent_color_id'],
-        backgroundCustomEmojiId: json['background_custom_emoji_id'] is int
-            ? json['background_custom_emoji_id']
-            : int.tryParse(json['background_custom_emoji_id'] ?? "") ?? 0,
-        profileAccentColorId: json['profile_accent_color_id'],
-        profileBackgroundCustomEmojiId:
-            json['profile_background_custom_emoji_id'] is int
-                ? json['profile_background_custom_emoji_id']
-                : int.tryParse(
-                        json['profile_background_custom_emoji_id'] ?? "") ??
-                    0,
-        permissions: ChatPermissions.fromJson(json['permissions']),
-        lastMessage: json['last_message'] == null
-            ? null
-            : Message.fromJson(json['last_message']),
-        positions: List<ChatPosition>.from((json['positions'] ?? [])
-            .map((item) => ChatPosition.fromJson(item))
-            .toList()),
-        chatLists: List<ChatList>.from((json['chat_lists'] ?? [])
-            .map((item) => ChatList.fromJson(item))
-            .toList()),
-        messageSenderId: json['message_sender_id'] == null
-            ? null
-            : MessageSender.fromJson(json['message_sender_id']),
-        blockList: json['block_list'] == null
-            ? null
-            : BlockList.fromJson(json['block_list']),
-        hasProtectedContent: json['has_protected_content'],
-        isTranslatable: json['is_translatable'],
-        isMarkedAsUnread: json['is_marked_as_unread'],
-        viewAsTopics: json['view_as_topics'],
-        hasScheduledMessages: json['has_scheduled_messages'],
-        canBeDeletedOnlyForSelf: json['can_be_deleted_only_for_self'],
-        canBeDeletedForAllUsers: json['can_be_deleted_for_all_users'],
-        canBeReported: json['can_be_reported'],
-        defaultDisableNotification: json['default_disable_notification'],
-        unreadCount: json['unread_count'],
-        lastReadInboxMessageId: json['last_read_inbox_message_id'],
-        lastReadOutboxMessageId: json['last_read_outbox_message_id'],
-        unreadMentionCount: json['unread_mention_count'],
-        unreadReactionCount: json['unread_reaction_count'],
-        notificationSettings:
-            ChatNotificationSettings.fromJson(json['notification_settings']),
-        availableReactions:
-            ChatAvailableReactions.fromJson(json['available_reactions']),
-        messageAutoDeleteTime: json['message_auto_delete_time'],
-        emojiStatus: json['emoji_status'] == null
-            ? null
-            : EmojiStatus.fromJson(json['emoji_status']),
-        background: json['background'] == null
-            ? null
-            : ChatBackground.fromJson(json['background']),
-        themeName: json['theme_name'],
-        actionBar: json['action_bar'] == null
-            ? null
-            : ChatActionBar.fromJson(json['action_bar']),
-        businessBotManageBar: json['business_bot_manage_bar'] == null
-            ? null
-            : BusinessBotManageBar.fromJson(json['business_bot_manage_bar']),
-        videoChat: VideoChat.fromJson(json['video_chat']),
-        pendingJoinRequests: json['pending_join_requests'] == null
-            ? null
-            : ChatJoinRequestsInfo.fromJson(json['pending_join_requests']),
-        replyMarkupMessageId: json['reply_markup_message_id'],
-        draftMessage: json['draft_message'] == null
-            ? null
-            : DraftMessage.fromJson(json['draft_message']),
-        clientData: json['client_data'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    id: json['id'],
+    type: ChatType.fromJson(json['type']),
+    title: json['title'],
+    photo: json['photo'] == null ? null : ChatPhotoInfo.fromJson(json['photo']),
+    accentColorId: json['accent_color_id'],
+    backgroundCustomEmojiId: json['background_custom_emoji_id'] is int
+        ? json['background_custom_emoji_id']
+        : int.tryParse(json['background_custom_emoji_id'] ?? "") ?? 0,
+    profileAccentColorId: json['profile_accent_color_id'],
+    profileBackgroundCustomEmojiId:
+        json['profile_background_custom_emoji_id'] is int
+        ? json['profile_background_custom_emoji_id']
+        : int.tryParse(json['profile_background_custom_emoji_id'] ?? "") ?? 0,
+    permissions: ChatPermissions.fromJson(json['permissions']),
+    lastMessage: json['last_message'] == null
+        ? null
+        : Message.fromJson(json['last_message']),
+    positions: List<ChatPosition>.from(
+      (json['positions'] ?? [])
+          .map((item) => ChatPosition.fromJson(item))
+          .toList(),
+    ),
+    chatLists: List<ChatList>.from(
+      (json['chat_lists'] ?? [])
+          .map((item) => ChatList.fromJson(item))
+          .toList(),
+    ),
+    messageSenderId: json['message_sender_id'] == null
+        ? null
+        : MessageSender.fromJson(json['message_sender_id']),
+    blockList: json['block_list'] == null
+        ? null
+        : BlockList.fromJson(json['block_list']),
+    hasProtectedContent: json['has_protected_content'],
+    isTranslatable: json['is_translatable'],
+    isMarkedAsUnread: json['is_marked_as_unread'],
+    viewAsTopics: json['view_as_topics'],
+    hasScheduledMessages: json['has_scheduled_messages'],
+    canBeDeletedOnlyForSelf: json['can_be_deleted_only_for_self'],
+    canBeDeletedForAllUsers: json['can_be_deleted_for_all_users'],
+    canBeReported: json['can_be_reported'],
+    defaultDisableNotification: json['default_disable_notification'],
+    unreadCount: json['unread_count'],
+    lastReadInboxMessageId: json['last_read_inbox_message_id'],
+    lastReadOutboxMessageId: json['last_read_outbox_message_id'],
+    unreadMentionCount: json['unread_mention_count'],
+    unreadReactionCount: json['unread_reaction_count'],
+    notificationSettings: ChatNotificationSettings.fromJson(
+      json['notification_settings'],
+    ),
+    availableReactions: ChatAvailableReactions.fromJson(
+      json['available_reactions'],
+    ),
+    messageAutoDeleteTime: json['message_auto_delete_time'],
+    emojiStatus: json['emoji_status'] == null
+        ? null
+        : EmojiStatus.fromJson(json['emoji_status']),
+    background: json['background'] == null
+        ? null
+        : ChatBackground.fromJson(json['background']),
+    themeName: json['theme_name'],
+    actionBar: json['action_bar'] == null
+        ? null
+        : ChatActionBar.fromJson(json['action_bar']),
+    businessBotManageBar: json['business_bot_manage_bar'] == null
+        ? null
+        : BusinessBotManageBar.fromJson(json['business_bot_manage_bar']),
+    videoChat: VideoChat.fromJson(json['video_chat']),
+    pendingJoinRequests: json['pending_join_requests'] == null
+        ? null
+        : ChatJoinRequestsInfo.fromJson(json['pending_join_requests']),
+    replyMarkupMessageId: json['reply_markup_message_id'],
+    draftMessage: json['draft_message'] == null
+        ? null
+        : DraftMessage.fromJson(json['draft_message']),
+    clientData: json['client_data'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -411,7 +413,7 @@ final class Chat extends TdObject {
   /// * [permissions]: Actions that non-administrator chat members are allowed to take in the chat
   /// * [last_message]: Last message in the chat; may be null if none or unknown
   /// * [positions]: Positions of the chat in chat lists
-  /// * [chat_lists]: Chat lists to which the chat belongs. A chat can have a non-zero position in a chat list even it doesn't belong to the chat list and have no position in a chat list even it belongs to the chat list
+  /// * [chat_lists]: Chat lists to which the chat belongs. A chat can have a non-zero position in a chat list even if it doesn't belong to the chat list and have no position in a chat list even if it belongs to the chat list
   /// * [message_sender_id]: Identifier of a user or chat that is selected to send messages in the chat; may be null if the user can't change message sender
   /// * [block_list]: Block list to which the chat is added; may be null if none
   /// * [has_protected_content]: True, if chat content can't be saved locally, forwarded, or copied
@@ -485,60 +487,58 @@ final class Chat extends TdObject {
     String? clientData,
     dynamic extra,
     int? clientId,
-  }) =>
-      Chat(
-        id: id ?? this.id,
-        type: type ?? this.type,
-        title: title ?? this.title,
-        photo: photo ?? this.photo,
-        accentColorId: accentColorId ?? this.accentColorId,
-        backgroundCustomEmojiId:
-            backgroundCustomEmojiId ?? this.backgroundCustomEmojiId,
-        profileAccentColorId: profileAccentColorId ?? this.profileAccentColorId,
-        profileBackgroundCustomEmojiId: profileBackgroundCustomEmojiId ??
-            this.profileBackgroundCustomEmojiId,
-        permissions: permissions ?? this.permissions,
-        lastMessage: lastMessage ?? this.lastMessage,
-        positions: positions ?? this.positions,
-        chatLists: chatLists ?? this.chatLists,
-        messageSenderId: messageSenderId ?? this.messageSenderId,
-        blockList: blockList ?? this.blockList,
-        hasProtectedContent: hasProtectedContent ?? this.hasProtectedContent,
-        isTranslatable: isTranslatable ?? this.isTranslatable,
-        isMarkedAsUnread: isMarkedAsUnread ?? this.isMarkedAsUnread,
-        viewAsTopics: viewAsTopics ?? this.viewAsTopics,
-        hasScheduledMessages: hasScheduledMessages ?? this.hasScheduledMessages,
-        canBeDeletedOnlyForSelf:
-            canBeDeletedOnlyForSelf ?? this.canBeDeletedOnlyForSelf,
-        canBeDeletedForAllUsers:
-            canBeDeletedForAllUsers ?? this.canBeDeletedForAllUsers,
-        canBeReported: canBeReported ?? this.canBeReported,
-        defaultDisableNotification:
-            defaultDisableNotification ?? this.defaultDisableNotification,
-        unreadCount: unreadCount ?? this.unreadCount,
-        lastReadInboxMessageId:
-            lastReadInboxMessageId ?? this.lastReadInboxMessageId,
-        lastReadOutboxMessageId:
-            lastReadOutboxMessageId ?? this.lastReadOutboxMessageId,
-        unreadMentionCount: unreadMentionCount ?? this.unreadMentionCount,
-        unreadReactionCount: unreadReactionCount ?? this.unreadReactionCount,
-        notificationSettings: notificationSettings ?? this.notificationSettings,
-        availableReactions: availableReactions ?? this.availableReactions,
-        messageAutoDeleteTime:
-            messageAutoDeleteTime ?? this.messageAutoDeleteTime,
-        emojiStatus: emojiStatus ?? this.emojiStatus,
-        background: background ?? this.background,
-        themeName: themeName ?? this.themeName,
-        actionBar: actionBar ?? this.actionBar,
-        businessBotManageBar: businessBotManageBar ?? this.businessBotManageBar,
-        videoChat: videoChat ?? this.videoChat,
-        pendingJoinRequests: pendingJoinRequests ?? this.pendingJoinRequests,
-        replyMarkupMessageId: replyMarkupMessageId ?? this.replyMarkupMessageId,
-        draftMessage: draftMessage ?? this.draftMessage,
-        clientData: clientData ?? this.clientData,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => Chat(
+    id: id ?? this.id,
+    type: type ?? this.type,
+    title: title ?? this.title,
+    photo: photo ?? this.photo,
+    accentColorId: accentColorId ?? this.accentColorId,
+    backgroundCustomEmojiId:
+        backgroundCustomEmojiId ?? this.backgroundCustomEmojiId,
+    profileAccentColorId: profileAccentColorId ?? this.profileAccentColorId,
+    profileBackgroundCustomEmojiId:
+        profileBackgroundCustomEmojiId ?? this.profileBackgroundCustomEmojiId,
+    permissions: permissions ?? this.permissions,
+    lastMessage: lastMessage ?? this.lastMessage,
+    positions: positions ?? this.positions,
+    chatLists: chatLists ?? this.chatLists,
+    messageSenderId: messageSenderId ?? this.messageSenderId,
+    blockList: blockList ?? this.blockList,
+    hasProtectedContent: hasProtectedContent ?? this.hasProtectedContent,
+    isTranslatable: isTranslatable ?? this.isTranslatable,
+    isMarkedAsUnread: isMarkedAsUnread ?? this.isMarkedAsUnread,
+    viewAsTopics: viewAsTopics ?? this.viewAsTopics,
+    hasScheduledMessages: hasScheduledMessages ?? this.hasScheduledMessages,
+    canBeDeletedOnlyForSelf:
+        canBeDeletedOnlyForSelf ?? this.canBeDeletedOnlyForSelf,
+    canBeDeletedForAllUsers:
+        canBeDeletedForAllUsers ?? this.canBeDeletedForAllUsers,
+    canBeReported: canBeReported ?? this.canBeReported,
+    defaultDisableNotification:
+        defaultDisableNotification ?? this.defaultDisableNotification,
+    unreadCount: unreadCount ?? this.unreadCount,
+    lastReadInboxMessageId:
+        lastReadInboxMessageId ?? this.lastReadInboxMessageId,
+    lastReadOutboxMessageId:
+        lastReadOutboxMessageId ?? this.lastReadOutboxMessageId,
+    unreadMentionCount: unreadMentionCount ?? this.unreadMentionCount,
+    unreadReactionCount: unreadReactionCount ?? this.unreadReactionCount,
+    notificationSettings: notificationSettings ?? this.notificationSettings,
+    availableReactions: availableReactions ?? this.availableReactions,
+    messageAutoDeleteTime: messageAutoDeleteTime ?? this.messageAutoDeleteTime,
+    emojiStatus: emojiStatus ?? this.emojiStatus,
+    background: background ?? this.background,
+    themeName: themeName ?? this.themeName,
+    actionBar: actionBar ?? this.actionBar,
+    businessBotManageBar: businessBotManageBar ?? this.businessBotManageBar,
+    videoChat: videoChat ?? this.videoChat,
+    pendingJoinRequests: pendingJoinRequests ?? this.pendingJoinRequests,
+    replyMarkupMessageId: replyMarkupMessageId ?? this.replyMarkupMessageId,
+    draftMessage: draftMessage ?? this.draftMessage,
+    clientData: clientData ?? this.clientData,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chat';

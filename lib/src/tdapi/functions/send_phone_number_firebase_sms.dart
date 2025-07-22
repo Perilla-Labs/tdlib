@@ -15,9 +15,7 @@ final class SendPhoneNumberFirebaseSms extends TdFunction {
   /// * [token]: Play Integrity API or SafetyNet Attestation API token for the Android application, or secret from push notification for the iOS application.
   ///
   /// [Ok] is returned on completion.
-  const SendPhoneNumberFirebaseSms({
-    required this.token,
-  });
+  const SendPhoneNumberFirebaseSms({required this.token});
 
   /// Play Integrity API or SafetyNet Attestation API token for the Android application, or secret from push notification for the iOS application
   final String token;
@@ -25,23 +23,15 @@ final class SendPhoneNumberFirebaseSms extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "token": token,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "token": token, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [token]: Play Integrity API or SafetyNet Attestation API token for the Android application, or secret from push notification for the iOS application
-  SendPhoneNumberFirebaseSms copyWith({
-    String? token,
-  }) =>
-      SendPhoneNumberFirebaseSms(
-        token: token ?? this.token,
-      );
+  SendPhoneNumberFirebaseSms copyWith({String? token}) =>
+      SendPhoneNumberFirebaseSms(token: token ?? this.token);
 
   /// TDLib object type
   static const String defaultObjectId = 'sendPhoneNumberFirebaseSms';

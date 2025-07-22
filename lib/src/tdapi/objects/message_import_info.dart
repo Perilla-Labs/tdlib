@@ -13,10 +13,7 @@ final class MessageImportInfo extends TdObject {
   ///
   /// * [senderName]: Name of the original sender.
   /// * [date]: Point in time (Unix timestamp) when the message was originally sent.
-  const MessageImportInfo({
-    required this.senderName,
-    required this.date,
-  });
+  const MessageImportInfo({required this.senderName, required this.date});
 
   /// Name of the original sender
   final String senderName;
@@ -26,19 +23,12 @@ final class MessageImportInfo extends TdObject {
 
   /// Parse from a json
   factory MessageImportInfo.fromJson(Map<String, dynamic> json) =>
-      MessageImportInfo(
-        senderName: json['sender_name'],
-        date: json['date'],
-      );
+      MessageImportInfo(senderName: json['sender_name'], date: json['date']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "sender_name": senderName,
-      "date": date,
-    };
+    return {"@type": defaultObjectId, "sender_name": senderName, "date": date};
   }
 
   /// Copy model with modified properties.
@@ -46,10 +36,7 @@ final class MessageImportInfo extends TdObject {
   /// Properties:
   /// * [sender_name]: Name of the original sender
   /// * [date]: Point in time (Unix timestamp) when the message was originally sent
-  MessageImportInfo copyWith({
-    String? senderName,
-    int? date,
-  }) =>
+  MessageImportInfo copyWith({String? senderName, int? date}) =>
       MessageImportInfo(
         senderName: senderName ?? this.senderName,
         date: date ?? this.date,

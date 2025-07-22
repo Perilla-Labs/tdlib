@@ -11,11 +11,7 @@ final class BusinessChatLinks extends TdObject {
   /// Contains a list of business chat links created by the user.
   ///
   /// * [links]: List of links.
-  const BusinessChatLinks({
-    required this.links,
-    this.extra,
-    this.clientId,
-  });
+  const BusinessChatLinks({required this.links, this.extra, this.clientId});
 
   /// List of links
   final List<BusinessChatLink> links;
@@ -31,9 +27,11 @@ final class BusinessChatLinks extends TdObject {
   /// Parse from a json
   factory BusinessChatLinks.fromJson(Map<String, dynamic> json) =>
       BusinessChatLinks(
-        links: List<BusinessChatLink>.from((json['links'] ?? [])
-            .map((item) => BusinessChatLink.fromJson(item))
-            .toList()),
+        links: List<BusinessChatLink>.from(
+          (json['links'] ?? [])
+              .map((item) => BusinessChatLink.fromJson(item))
+              .toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -55,12 +53,11 @@ final class BusinessChatLinks extends TdObject {
     List<BusinessChatLink>? links,
     dynamic extra,
     int? clientId,
-  }) =>
-      BusinessChatLinks(
-        links: links ?? this.links,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => BusinessChatLinks(
+    links: links ?? this.links,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'businessChatLinks';

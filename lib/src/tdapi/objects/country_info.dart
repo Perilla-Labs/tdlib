@@ -44,13 +44,14 @@ final class CountryInfo extends TdObject {
 
   /// Parse from a json
   factory CountryInfo.fromJson(Map<String, dynamic> json) => CountryInfo(
-        countryCode: json['country_code'],
-        name: json['name'],
-        englishName: json['english_name'],
-        isHidden: json['is_hidden'],
-        callingCodes: List<String>.from(
-            (json['calling_codes'] ?? []).map((item) => item).toList()),
-      );
+    countryCode: json['country_code'],
+    name: json['name'],
+    englishName: json['english_name'],
+    isHidden: json['is_hidden'],
+    callingCodes: List<String>.from(
+      (json['calling_codes'] ?? []).map((item) => item).toList(),
+    ),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -79,14 +80,13 @@ final class CountryInfo extends TdObject {
     String? englishName,
     bool? isHidden,
     List<String>? callingCodes,
-  }) =>
-      CountryInfo(
-        countryCode: countryCode ?? this.countryCode,
-        name: name ?? this.name,
-        englishName: englishName ?? this.englishName,
-        isHidden: isHidden ?? this.isHidden,
-        callingCodes: callingCodes ?? this.callingCodes,
-      );
+  }) => CountryInfo(
+    countryCode: countryCode ?? this.countryCode,
+    name: name ?? this.name,
+    englishName: englishName ?? this.englishName,
+    isHidden: isHidden ?? this.isHidden,
+    callingCodes: callingCodes ?? this.callingCodes,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'countryInfo';

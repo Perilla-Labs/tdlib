@@ -56,12 +56,11 @@ final class SendBotStartMessage extends TdFunction {
     int? botUserId,
     int? chatId,
     String? parameter,
-  }) =>
-      SendBotStartMessage(
-        botUserId: botUserId ?? this.botUserId,
-        chatId: chatId ?? this.chatId,
-        parameter: parameter ?? this.parameter,
-      );
+  }) => SendBotStartMessage(
+    botUserId: botUserId ?? this.botUserId,
+    chatId: chatId ?? this.chatId,
+    parameter: parameter ?? this.parameter,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'sendBotStartMessage';

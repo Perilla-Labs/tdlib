@@ -75,11 +75,11 @@ final class ChatRevenueTransactionTypeEarnings
 
   /// Parse from a json
   factory ChatRevenueTransactionTypeEarnings.fromJson(
-          Map<String, dynamic> json) =>
-      ChatRevenueTransactionTypeEarnings(
-        startDate: json['start_date'],
-        endDate: json['end_date'],
-      );
+    Map<String, dynamic> json,
+  ) => ChatRevenueTransactionTypeEarnings(
+    startDate: json['start_date'],
+    endDate: json['end_date'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -97,10 +97,7 @@ final class ChatRevenueTransactionTypeEarnings
   /// * [start_date]: Point in time (Unix timestamp) when the earnings started
   /// * [end_date]: Point in time (Unix timestamp) when the earnings ended
   @override
-  ChatRevenueTransactionTypeEarnings copyWith({
-    int? startDate,
-    int? endDate,
-  }) =>
+  ChatRevenueTransactionTypeEarnings copyWith({int? startDate, int? endDate}) =>
       ChatRevenueTransactionTypeEarnings(
         startDate: startDate ?? this.startDate,
         endDate: endDate ?? this.endDate,
@@ -151,12 +148,12 @@ final class ChatRevenueTransactionTypeWithdrawal
 
   /// Parse from a json
   factory ChatRevenueTransactionTypeWithdrawal.fromJson(
-          Map<String, dynamic> json) =>
-      ChatRevenueTransactionTypeWithdrawal(
-        withdrawalDate: json['withdrawal_date'],
-        provider: json['provider'],
-        state: RevenueWithdrawalState.fromJson(json['state']),
-      );
+    Map<String, dynamic> json,
+  ) => ChatRevenueTransactionTypeWithdrawal(
+    withdrawalDate: json['withdrawal_date'],
+    provider: json['provider'],
+    state: RevenueWithdrawalState.fromJson(json['state']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -180,12 +177,11 @@ final class ChatRevenueTransactionTypeWithdrawal
     int? withdrawalDate,
     String? provider,
     RevenueWithdrawalState? state,
-  }) =>
-      ChatRevenueTransactionTypeWithdrawal(
-        withdrawalDate: withdrawalDate ?? this.withdrawalDate,
-        provider: provider ?? this.provider,
-        state: state ?? this.state,
-      );
+  }) => ChatRevenueTransactionTypeWithdrawal(
+    withdrawalDate: withdrawalDate ?? this.withdrawalDate,
+    provider: provider ?? this.provider,
+    state: state ?? this.state,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatRevenueTransactionTypeWithdrawal';
@@ -226,11 +222,11 @@ final class ChatRevenueTransactionTypeRefund
 
   /// Parse from a json
   factory ChatRevenueTransactionTypeRefund.fromJson(
-          Map<String, dynamic> json) =>
-      ChatRevenueTransactionTypeRefund(
-        refundDate: json['refund_date'],
-        provider: json['provider'],
-      );
+    Map<String, dynamic> json,
+  ) => ChatRevenueTransactionTypeRefund(
+    refundDate: json['refund_date'],
+    provider: json['provider'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -251,11 +247,10 @@ final class ChatRevenueTransactionTypeRefund
   ChatRevenueTransactionTypeRefund copyWith({
     int? refundDate,
     String? provider,
-  }) =>
-      ChatRevenueTransactionTypeRefund(
-        refundDate: refundDate ?? this.refundDate,
-        provider: provider ?? this.provider,
-      );
+  }) => ChatRevenueTransactionTypeRefund(
+    refundDate: refundDate ?? this.refundDate,
+    provider: provider ?? this.provider,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatRevenueTransactionTypeRefund';

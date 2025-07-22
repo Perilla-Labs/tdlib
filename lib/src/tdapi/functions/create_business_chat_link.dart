@@ -15,9 +15,7 @@ final class CreateBusinessChatLink extends TdFunction {
   /// * [linkInfo]: Information about the link to create.
   ///
   /// [BusinessChatLink] is returned on completion.
-  const CreateBusinessChatLink({
-    required this.linkInfo,
-  });
+  const CreateBusinessChatLink({required this.linkInfo});
 
   /// Information about the link to create
   final InputBusinessChatLink linkInfo;
@@ -36,12 +34,8 @@ final class CreateBusinessChatLink extends TdFunction {
   ///
   /// Properties:
   /// * [link_info]: Information about the link to create
-  CreateBusinessChatLink copyWith({
-    InputBusinessChatLink? linkInfo,
-  }) =>
-      CreateBusinessChatLink(
-        linkInfo: linkInfo ?? this.linkInfo,
-      );
+  CreateBusinessChatLink copyWith({InputBusinessChatLink? linkInfo}) =>
+      CreateBusinessChatLink(linkInfo: linkInfo ?? this.linkInfo);
 
   /// TDLib object type
   static const String defaultObjectId = 'createBusinessChatLink';

@@ -15,9 +15,7 @@ final class GetChatSimilarChats extends TdFunction {
   /// * [chatId]: Identifier of the target chat; must be an identifier of a channel chat.
   ///
   /// [Chats] is returned on completion.
-  const GetChatSimilarChats({
-    required this.chatId,
-  });
+  const GetChatSimilarChats({required this.chatId});
 
   /// Identifier of the target chat; must be an identifier of a channel chat
   final int chatId;
@@ -25,23 +23,15 @@ final class GetChatSimilarChats extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "chat_id": chatId,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "chat_id": chatId, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [chat_id]: Identifier of the target chat; must be an identifier of a channel chat
-  GetChatSimilarChats copyWith({
-    int? chatId,
-  }) =>
-      GetChatSimilarChats(
-        chatId: chatId ?? this.chatId,
-      );
+  GetChatSimilarChats copyWith({int? chatId}) =>
+      GetChatSimilarChats(chatId: chatId ?? this.chatId);
 
   /// TDLib object type
   static const String defaultObjectId = 'getChatSimilarChats';

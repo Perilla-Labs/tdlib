@@ -81,7 +81,6 @@ sealed class InlineQueryResult extends TdObject {
 ///
 /// * [id]: Unique identifier of the query result.
 /// * [url]: URL of the result, if it exists.
-/// * [hideUrl]: True, if the URL must be not shown.
 /// * [title]: Title of the result.
 /// * [description]: A short description of the result.
 /// * [thumbnail]: Result thumbnail in JPEG format; may be null *(optional)*.
@@ -92,14 +91,12 @@ final class InlineQueryResultArticle extends InlineQueryResult {
   ///
   /// * [id]: Unique identifier of the query result.
   /// * [url]: URL of the result, if it exists.
-  /// * [hideUrl]: True, if the URL must be not shown.
   /// * [title]: Title of the result.
   /// * [description]: A short description of the result.
   /// * [thumbnail]: Result thumbnail in JPEG format; may be null *(optional)*.
   const InlineQueryResultArticle({
     required this.id,
     required this.url,
-    required this.hideUrl,
     required this.title,
     required this.description,
     this.thumbnail,
@@ -110,9 +107,6 @@ final class InlineQueryResultArticle extends InlineQueryResult {
 
   /// URL of the result, if it exists
   final String url;
-
-  /// True, if the URL must be not shown
-  final bool hideUrl;
 
   /// Title of the result
   final String title;
@@ -128,7 +122,6 @@ final class InlineQueryResultArticle extends InlineQueryResult {
       InlineQueryResultArticle(
         id: json['id'],
         url: json['url'],
-        hideUrl: json['hide_url'],
         title: json['title'],
         description: json['description'],
         thumbnail: json['thumbnail'] == null
@@ -143,7 +136,6 @@ final class InlineQueryResultArticle extends InlineQueryResult {
       "@type": defaultObjectId,
       "id": id,
       "url": url,
-      "hide_url": hideUrl,
       "title": title,
       "description": description,
       "thumbnail": thumbnail?.toJson(),
@@ -155,7 +147,6 @@ final class InlineQueryResultArticle extends InlineQueryResult {
   /// Properties:
   /// * [id]: Unique identifier of the query result
   /// * [url]: URL of the result, if it exists
-  /// * [hide_url]: True, if the URL must be not shown
   /// * [title]: Title of the result
   /// * [description]: A short description of the result
   /// * [thumbnail]: Result thumbnail in JPEG format; may be null
@@ -163,19 +154,16 @@ final class InlineQueryResultArticle extends InlineQueryResult {
   InlineQueryResultArticle copyWith({
     String? id,
     String? url,
-    bool? hideUrl,
     String? title,
     String? description,
     Thumbnail? thumbnail,
-  }) =>
-      InlineQueryResultArticle(
-        id: id ?? this.id,
-        url: url ?? this.url,
-        hideUrl: hideUrl ?? this.hideUrl,
-        title: title ?? this.title,
-        description: description ?? this.description,
-        thumbnail: thumbnail ?? this.thumbnail,
-      );
+  }) => InlineQueryResultArticle(
+    id: id ?? this.id,
+    url: url ?? this.url,
+    title: title ?? this.title,
+    description: description ?? this.description,
+    thumbnail: thumbnail ?? this.thumbnail,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inlineQueryResultArticle';
@@ -251,12 +239,11 @@ final class InlineQueryResultContact extends InlineQueryResult {
     String? id,
     Contact? contact,
     Thumbnail? thumbnail,
-  }) =>
-      InlineQueryResultContact(
-        id: id ?? this.id,
-        contact: contact ?? this.contact,
-        thumbnail: thumbnail ?? this.thumbnail,
-      );
+  }) => InlineQueryResultContact(
+    id: id ?? this.id,
+    contact: contact ?? this.contact,
+    thumbnail: thumbnail ?? this.thumbnail,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inlineQueryResultContact';
@@ -342,13 +329,12 @@ final class InlineQueryResultLocation extends InlineQueryResult {
     Location? location,
     String? title,
     Thumbnail? thumbnail,
-  }) =>
-      InlineQueryResultLocation(
-        id: id ?? this.id,
-        location: location ?? this.location,
-        title: title ?? this.title,
-        thumbnail: thumbnail ?? this.thumbnail,
-      );
+  }) => InlineQueryResultLocation(
+    id: id ?? this.id,
+    location: location ?? this.location,
+    title: title ?? this.title,
+    thumbnail: thumbnail ?? this.thumbnail,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inlineQueryResultLocation';
@@ -424,12 +410,11 @@ final class InlineQueryResultVenue extends InlineQueryResult {
     String? id,
     Venue? venue,
     Thumbnail? thumbnail,
-  }) =>
-      InlineQueryResultVenue(
-        id: id ?? this.id,
-        venue: venue ?? this.venue,
-        thumbnail: thumbnail ?? this.thumbnail,
-      );
+  }) => InlineQueryResultVenue(
+    id: id ?? this.id,
+    venue: venue ?? this.venue,
+    thumbnail: thumbnail ?? this.thumbnail,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inlineQueryResultVenue';
@@ -456,10 +441,7 @@ final class InlineQueryResultGame extends InlineQueryResult {
   ///
   /// * [id]: Unique identifier of the query result.
   /// * [game]: Game result.
-  const InlineQueryResultGame({
-    required this.id,
-    required this.game,
-  });
+  const InlineQueryResultGame({required this.id, required this.game});
 
   /// Unique identifier of the query result
   final String id;
@@ -469,19 +451,12 @@ final class InlineQueryResultGame extends InlineQueryResult {
 
   /// Parse from a json
   factory InlineQueryResultGame.fromJson(Map<String, dynamic> json) =>
-      InlineQueryResultGame(
-        id: json['id'],
-        game: Game.fromJson(json['game']),
-      );
+      InlineQueryResultGame(id: json['id'], game: Game.fromJson(json['game']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "id": id,
-      "game": game.toJson(),
-    };
+    return {"@type": defaultObjectId, "id": id, "game": game.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -490,14 +465,8 @@ final class InlineQueryResultGame extends InlineQueryResult {
   /// * [id]: Unique identifier of the query result
   /// * [game]: Game result
   @override
-  InlineQueryResultGame copyWith({
-    String? id,
-    Game? game,
-  }) =>
-      InlineQueryResultGame(
-        id: id ?? this.id,
-        game: game ?? this.game,
-      );
+  InlineQueryResultGame copyWith({String? id, Game? game}) =>
+      InlineQueryResultGame(id: id ?? this.id, game: game ?? this.game);
 
   /// TDLib object type
   static const String defaultObjectId = 'inlineQueryResultGame';
@@ -571,12 +540,11 @@ final class InlineQueryResultAnimation extends InlineQueryResult {
     String? id,
     Animation? animation,
     String? title,
-  }) =>
-      InlineQueryResultAnimation(
-        id: id ?? this.id,
-        animation: animation ?? this.animation,
-        title: title ?? this.title,
-      );
+  }) => InlineQueryResultAnimation(
+    id: id ?? this.id,
+    animation: animation ?? this.animation,
+    title: title ?? this.title,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inlineQueryResultAnimation';
@@ -603,10 +571,7 @@ final class InlineQueryResultAudio extends InlineQueryResult {
   ///
   /// * [id]: Unique identifier of the query result.
   /// * [audio]: Audio file.
-  const InlineQueryResultAudio({
-    required this.id,
-    required this.audio,
-  });
+  const InlineQueryResultAudio({required this.id, required this.audio});
 
   /// Unique identifier of the query result
   final String id;
@@ -624,11 +589,7 @@ final class InlineQueryResultAudio extends InlineQueryResult {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "id": id,
-      "audio": audio.toJson(),
-    };
+    return {"@type": defaultObjectId, "id": id, "audio": audio.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -637,14 +598,8 @@ final class InlineQueryResultAudio extends InlineQueryResult {
   /// * [id]: Unique identifier of the query result
   /// * [audio]: Audio file
   @override
-  InlineQueryResultAudio copyWith({
-    String? id,
-    Audio? audio,
-  }) =>
-      InlineQueryResultAudio(
-        id: id ?? this.id,
-        audio: audio ?? this.audio,
-      );
+  InlineQueryResultAudio copyWith({String? id, Audio? audio}) =>
+      InlineQueryResultAudio(id: id ?? this.id, audio: audio ?? this.audio);
 
   /// TDLib object type
   static const String defaultObjectId = 'inlineQueryResultAudio';
@@ -728,13 +683,12 @@ final class InlineQueryResultDocument extends InlineQueryResult {
     Document? document,
     String? title,
     String? description,
-  }) =>
-      InlineQueryResultDocument(
-        id: id ?? this.id,
-        document: document ?? this.document,
-        title: title ?? this.title,
-        description: description ?? this.description,
-      );
+  }) => InlineQueryResultDocument(
+    id: id ?? this.id,
+    document: document ?? this.document,
+    title: title ?? this.title,
+    description: description ?? this.description,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inlineQueryResultDocument';
@@ -818,13 +772,12 @@ final class InlineQueryResultPhoto extends InlineQueryResult {
     Photo? photo,
     String? title,
     String? description,
-  }) =>
-      InlineQueryResultPhoto(
-        id: id ?? this.id,
-        photo: photo ?? this.photo,
-        title: title ?? this.title,
-        description: description ?? this.description,
-      );
+  }) => InlineQueryResultPhoto(
+    id: id ?? this.id,
+    photo: photo ?? this.photo,
+    title: title ?? this.title,
+    description: description ?? this.description,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inlineQueryResultPhoto';
@@ -851,10 +804,7 @@ final class InlineQueryResultSticker extends InlineQueryResult {
   ///
   /// * [id]: Unique identifier of the query result.
   /// * [sticker]: Sticker.
-  const InlineQueryResultSticker({
-    required this.id,
-    required this.sticker,
-  });
+  const InlineQueryResultSticker({required this.id, required this.sticker});
 
   /// Unique identifier of the query result
   final String id;
@@ -872,11 +822,7 @@ final class InlineQueryResultSticker extends InlineQueryResult {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "id": id,
-      "sticker": sticker.toJson(),
-    };
+    return {"@type": defaultObjectId, "id": id, "sticker": sticker.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -885,10 +831,7 @@ final class InlineQueryResultSticker extends InlineQueryResult {
   /// * [id]: Unique identifier of the query result
   /// * [sticker]: Sticker
   @override
-  InlineQueryResultSticker copyWith({
-    String? id,
-    Sticker? sticker,
-  }) =>
+  InlineQueryResultSticker copyWith({String? id, Sticker? sticker}) =>
       InlineQueryResultSticker(
         id: id ?? this.id,
         sticker: sticker ?? this.sticker,
@@ -976,13 +919,12 @@ final class InlineQueryResultVideo extends InlineQueryResult {
     Video? video,
     String? title,
     String? description,
-  }) =>
-      InlineQueryResultVideo(
-        id: id ?? this.id,
-        video: video ?? this.video,
-        title: title ?? this.title,
-        description: description ?? this.description,
-      );
+  }) => InlineQueryResultVideo(
+    id: id ?? this.id,
+    video: video ?? this.video,
+    title: title ?? this.title,
+    description: description ?? this.description,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inlineQueryResultVideo';
@@ -1056,12 +998,11 @@ final class InlineQueryResultVoiceNote extends InlineQueryResult {
     String? id,
     VoiceNote? voiceNote,
     String? title,
-  }) =>
-      InlineQueryResultVoiceNote(
-        id: id ?? this.id,
-        voiceNote: voiceNote ?? this.voiceNote,
-        title: title ?? this.title,
-      );
+  }) => InlineQueryResultVoiceNote(
+    id: id ?? this.id,
+    voiceNote: voiceNote ?? this.voiceNote,
+    title: title ?? this.title,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inlineQueryResultVoiceNote';

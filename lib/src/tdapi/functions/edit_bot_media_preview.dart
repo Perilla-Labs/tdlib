@@ -65,13 +65,12 @@ final class EditBotMediaPreview extends TdFunction {
     String? languageCode,
     int? fileId,
     InputStoryContent? content,
-  }) =>
-      EditBotMediaPreview(
-        botUserId: botUserId ?? this.botUserId,
-        languageCode: languageCode ?? this.languageCode,
-        fileId: fileId ?? this.fileId,
-        content: content ?? this.content,
-      );
+  }) => EditBotMediaPreview(
+    botUserId: botUserId ?? this.botUserId,
+    languageCode: languageCode ?? this.languageCode,
+    fileId: fileId ?? this.fileId,
+    content: content ?? this.content,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'editBotMediaPreview';

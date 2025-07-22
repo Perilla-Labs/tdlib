@@ -17,10 +17,7 @@ final class SearchHashtags extends TdFunction {
   /// * [limit]: The maximum number of hashtags to be returned.
   ///
   /// [Hashtags] is returned on completion.
-  const SearchHashtags({
-    required this.prefix,
-    required this.limit,
-  });
+  const SearchHashtags({required this.prefix, required this.limit});
 
   /// Hashtag prefix to search for
   final String prefix;
@@ -44,14 +41,8 @@ final class SearchHashtags extends TdFunction {
   /// Properties:
   /// * [prefix]: Hashtag prefix to search for
   /// * [limit]: The maximum number of hashtags to be returned
-  SearchHashtags copyWith({
-    String? prefix,
-    int? limit,
-  }) =>
-      SearchHashtags(
-        prefix: prefix ?? this.prefix,
-        limit: limit ?? this.limit,
-      );
+  SearchHashtags copyWith({String? prefix, int? limit}) =>
+      SearchHashtags(prefix: prefix ?? this.prefix, limit: limit ?? this.limit);
 
   /// TDLib object type
   static const String defaultObjectId = 'searchHashtags';

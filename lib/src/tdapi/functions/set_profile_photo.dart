@@ -5,7 +5,7 @@ part of '../tdapi.dart';
 /// Changes a profile photo for the current user.
 ///
 /// * [photo]: Profile photo to set.
-/// * [isPublic]: Pass true to set a public photo, which will be visible even the main photo is hidden by privacy settings.
+/// * [isPublic]: Pass true to set the public photo, which will be visible even if the main photo is hidden by privacy settings.
 ///
 /// [Ok] is returned on completion.
 final class SetProfilePhoto extends TdFunction {
@@ -14,18 +14,15 @@ final class SetProfilePhoto extends TdFunction {
   /// Changes a profile photo for the current user.
   ///
   /// * [photo]: Profile photo to set.
-  /// * [isPublic]: Pass true to set a public photo, which will be visible even the main photo is hidden by privacy settings.
+  /// * [isPublic]: Pass true to set the public photo, which will be visible even if the main photo is hidden by privacy settings.
   ///
   /// [Ok] is returned on completion.
-  const SetProfilePhoto({
-    required this.photo,
-    required this.isPublic,
-  });
+  const SetProfilePhoto({required this.photo, required this.isPublic});
 
   /// Profile photo to set
   final InputChatPhoto photo;
 
-  /// Pass true to set a public photo, which will be visible even the main photo is hidden by privacy settings
+  /// Pass true to set the public photo, which will be visible even if the main photo is hidden by privacy settings
   final bool isPublic;
 
   /// Convert model to TDLib JSON format
@@ -43,11 +40,8 @@ final class SetProfilePhoto extends TdFunction {
   ///
   /// Properties:
   /// * [photo]: Profile photo to set
-  /// * [is_public]: Pass true to set a public photo, which will be visible even the main photo is hidden by privacy settings
-  SetProfilePhoto copyWith({
-    InputChatPhoto? photo,
-    bool? isPublic,
-  }) =>
+  /// * [is_public]: Pass true to set the public photo, which will be visible even if the main photo is hidden by privacy settings
+  SetProfilePhoto copyWith({InputChatPhoto? photo, bool? isPublic}) =>
       SetProfilePhoto(
         photo: photo ?? this.photo,
         isPublic: isPublic ?? this.isPublic,

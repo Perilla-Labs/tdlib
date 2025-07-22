@@ -15,9 +15,7 @@ final class SetNetworkType extends TdFunction {
   /// * [type]: The new network type; pass null to set network type to networkTypeOther *(optional)*.
   ///
   /// [Ok] is returned on completion.
-  const SetNetworkType({
-    this.type,
-  });
+  const SetNetworkType({this.type});
 
   /// The new network type; pass null to set network type to networkTypeOther
   final NetworkType? type;
@@ -25,23 +23,15 @@ final class SetNetworkType extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "type": type?.toJson(),
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "type": type?.toJson(), "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [type]: The new network type; pass null to set network type to networkTypeOther
-  SetNetworkType copyWith({
-    NetworkType? type,
-  }) =>
-      SetNetworkType(
-        type: type ?? this.type,
-      );
+  SetNetworkType copyWith({NetworkType? type}) =>
+      SetNetworkType(type: type ?? this.type);
 
   /// TDLib object type
   static const String defaultObjectId = 'setNetworkType';

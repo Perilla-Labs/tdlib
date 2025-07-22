@@ -92,16 +92,15 @@ final class CreateNewStickerSet extends TdFunction {
     bool? needsRepainting,
     List<InputSticker>? stickers,
     String? source,
-  }) =>
-      CreateNewStickerSet(
-        userId: userId ?? this.userId,
-        title: title ?? this.title,
-        name: name ?? this.name,
-        stickerType: stickerType ?? this.stickerType,
-        needsRepainting: needsRepainting ?? this.needsRepainting,
-        stickers: stickers ?? this.stickers,
-        source: source ?? this.source,
-      );
+  }) => CreateNewStickerSet(
+    userId: userId ?? this.userId,
+    title: title ?? this.title,
+    name: name ?? this.name,
+    stickerType: stickerType ?? this.stickerType,
+    needsRepainting: needsRepainting ?? this.needsRepainting,
+    stickers: stickers ?? this.stickers,
+    source: source ?? this.source,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'createNewStickerSet';

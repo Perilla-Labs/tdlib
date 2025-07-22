@@ -83,15 +83,14 @@ final class EditInlineMessageLiveLocation extends TdFunction {
     int? livePeriod,
     int? heading,
     int? proximityAlertRadius,
-  }) =>
-      EditInlineMessageLiveLocation(
-        inlineMessageId: inlineMessageId ?? this.inlineMessageId,
-        replyMarkup: replyMarkup ?? this.replyMarkup,
-        location: location ?? this.location,
-        livePeriod: livePeriod ?? this.livePeriod,
-        heading: heading ?? this.heading,
-        proximityAlertRadius: proximityAlertRadius ?? this.proximityAlertRadius,
-      );
+  }) => EditInlineMessageLiveLocation(
+    inlineMessageId: inlineMessageId ?? this.inlineMessageId,
+    replyMarkup: replyMarkup ?? this.replyMarkup,
+    location: location ?? this.location,
+    livePeriod: livePeriod ?? this.livePeriod,
+    heading: heading ?? this.heading,
+    proximityAlertRadius: proximityAlertRadius ?? this.proximityAlertRadius,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'editInlineMessageLiveLocation';

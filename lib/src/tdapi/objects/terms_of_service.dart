@@ -32,10 +32,10 @@ final class TermsOfService extends TdObject {
 
   /// Parse from a json
   factory TermsOfService.fromJson(Map<String, dynamic> json) => TermsOfService(
-        text: FormattedText.fromJson(json['text']),
-        minUserAge: json['min_user_age'],
-        showPopup: json['show_popup'],
-      );
+    text: FormattedText.fromJson(json['text']),
+    minUserAge: json['min_user_age'],
+    showPopup: json['show_popup'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -58,12 +58,11 @@ final class TermsOfService extends TdObject {
     FormattedText? text,
     int? minUserAge,
     bool? showPopup,
-  }) =>
-      TermsOfService(
-        text: text ?? this.text,
-        minUserAge: minUserAge ?? this.minUserAge,
-        showPopup: showPopup ?? this.showPopup,
-      );
+  }) => TermsOfService(
+    text: text ?? this.text,
+    minUserAge: minUserAge ?? this.minUserAge,
+    showPopup: showPopup ?? this.showPopup,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'termsOfService';

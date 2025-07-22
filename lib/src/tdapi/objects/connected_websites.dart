@@ -11,11 +11,7 @@ final class ConnectedWebsites extends TdObject {
   /// Contains a list of websites the current user is logged in with Telegram.
   ///
   /// * [websites]: List of connected websites.
-  const ConnectedWebsites({
-    required this.websites,
-    this.extra,
-    this.clientId,
-  });
+  const ConnectedWebsites({required this.websites, this.extra, this.clientId});
 
   /// List of connected websites
   final List<ConnectedWebsite> websites;
@@ -31,9 +27,11 @@ final class ConnectedWebsites extends TdObject {
   /// Parse from a json
   factory ConnectedWebsites.fromJson(Map<String, dynamic> json) =>
       ConnectedWebsites(
-        websites: List<ConnectedWebsite>.from((json['websites'] ?? [])
-            .map((item) => ConnectedWebsite.fromJson(item))
-            .toList()),
+        websites: List<ConnectedWebsite>.from(
+          (json['websites'] ?? [])
+              .map((item) => ConnectedWebsite.fromJson(item))
+              .toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -55,12 +53,11 @@ final class ConnectedWebsites extends TdObject {
     List<ConnectedWebsite>? websites,
     dynamic extra,
     int? clientId,
-  }) =>
-      ConnectedWebsites(
-        websites: websites ?? this.websites,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => ConnectedWebsites(
+    websites: websites ?? this.websites,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'connectedWebsites';

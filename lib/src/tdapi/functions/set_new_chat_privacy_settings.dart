@@ -15,9 +15,7 @@ final class SetNewChatPrivacySettings extends TdFunction {
   /// * [settings]: New settings.
   ///
   /// [Ok] is returned on completion.
-  const SetNewChatPrivacySettings({
-    required this.settings,
-  });
+  const SetNewChatPrivacySettings({required this.settings});
 
   /// New settings
   final NewChatPrivacySettings settings;
@@ -36,12 +34,8 @@ final class SetNewChatPrivacySettings extends TdFunction {
   ///
   /// Properties:
   /// * [settings]: New settings
-  SetNewChatPrivacySettings copyWith({
-    NewChatPrivacySettings? settings,
-  }) =>
-      SetNewChatPrivacySettings(
-        settings: settings ?? this.settings,
-      );
+  SetNewChatPrivacySettings copyWith({NewChatPrivacySettings? settings}) =>
+      SetNewChatPrivacySettings(settings: settings ?? this.settings);
 
   /// TDLib object type
   static const String defaultObjectId = 'setNewChatPrivacySettings';

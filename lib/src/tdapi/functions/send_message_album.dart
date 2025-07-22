@@ -55,8 +55,9 @@ final class SendMessageAlbum extends TdFunction {
       "message_thread_id": messageThreadId,
       "reply_to": replyTo?.toJson(),
       "options": options?.toJson(),
-      "input_message_contents":
-          inputMessageContents.map((i) => i.toJson()).toList(),
+      "input_message_contents": inputMessageContents
+          .map((i) => i.toJson())
+          .toList(),
       "@extra": extra,
     };
   }
@@ -75,14 +76,13 @@ final class SendMessageAlbum extends TdFunction {
     InputMessageReplyTo? replyTo,
     MessageSendOptions? options,
     List<InputMessageContent>? inputMessageContents,
-  }) =>
-      SendMessageAlbum(
-        chatId: chatId ?? this.chatId,
-        messageThreadId: messageThreadId ?? this.messageThreadId,
-        replyTo: replyTo ?? this.replyTo,
-        options: options ?? this.options,
-        inputMessageContents: inputMessageContents ?? this.inputMessageContents,
-      );
+  }) => SendMessageAlbum(
+    chatId: chatId ?? this.chatId,
+    messageThreadId: messageThreadId ?? this.messageThreadId,
+    replyTo: replyTo ?? this.replyTo,
+    options: options ?? this.options,
+    inputMessageContents: inputMessageContents ?? this.inputMessageContents,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'sendMessageAlbum';

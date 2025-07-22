@@ -119,19 +119,17 @@ final class AutoDownloadSettings extends TdObject {
     bool? preloadNextAudio,
     bool? preloadStories,
     bool? useLessDataForCalls,
-  }) =>
-      AutoDownloadSettings(
-        isAutoDownloadEnabled:
-            isAutoDownloadEnabled ?? this.isAutoDownloadEnabled,
-        maxPhotoFileSize: maxPhotoFileSize ?? this.maxPhotoFileSize,
-        maxVideoFileSize: maxVideoFileSize ?? this.maxVideoFileSize,
-        maxOtherFileSize: maxOtherFileSize ?? this.maxOtherFileSize,
-        videoUploadBitrate: videoUploadBitrate ?? this.videoUploadBitrate,
-        preloadLargeVideos: preloadLargeVideos ?? this.preloadLargeVideos,
-        preloadNextAudio: preloadNextAudio ?? this.preloadNextAudio,
-        preloadStories: preloadStories ?? this.preloadStories,
-        useLessDataForCalls: useLessDataForCalls ?? this.useLessDataForCalls,
-      );
+  }) => AutoDownloadSettings(
+    isAutoDownloadEnabled: isAutoDownloadEnabled ?? this.isAutoDownloadEnabled,
+    maxPhotoFileSize: maxPhotoFileSize ?? this.maxPhotoFileSize,
+    maxVideoFileSize: maxVideoFileSize ?? this.maxVideoFileSize,
+    maxOtherFileSize: maxOtherFileSize ?? this.maxOtherFileSize,
+    videoUploadBitrate: videoUploadBitrate ?? this.videoUploadBitrate,
+    preloadLargeVideos: preloadLargeVideos ?? this.preloadLargeVideos,
+    preloadNextAudio: preloadNextAudio ?? this.preloadNextAudio,
+    preloadStories: preloadStories ?? this.preloadStories,
+    useLessDataForCalls: useLessDataForCalls ?? this.useLessDataForCalls,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'autoDownloadSettings';

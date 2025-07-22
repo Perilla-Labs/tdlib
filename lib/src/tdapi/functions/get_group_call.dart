@@ -15,9 +15,7 @@ final class GetGroupCall extends TdFunction {
   /// * [groupCallId]: Group call identifier.
   ///
   /// [GroupCall] is returned on completion.
-  const GetGroupCall({
-    required this.groupCallId,
-  });
+  const GetGroupCall({required this.groupCallId});
 
   /// Group call identifier
   final int groupCallId;
@@ -36,12 +34,8 @@ final class GetGroupCall extends TdFunction {
   ///
   /// Properties:
   /// * [group_call_id]: Group call identifier
-  GetGroupCall copyWith({
-    int? groupCallId,
-  }) =>
-      GetGroupCall(
-        groupCallId: groupCallId ?? this.groupCallId,
-      );
+  GetGroupCall copyWith({int? groupCallId}) =>
+      GetGroupCall(groupCallId: groupCallId ?? this.groupCallId);
 
   /// TDLib object type
   static const String defaultObjectId = 'getGroupCall';

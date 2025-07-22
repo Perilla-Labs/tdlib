@@ -15,9 +15,7 @@ final class SetCloseFriends extends TdFunction {
   /// * [userIds]: User identifiers of close friends; the users must be contacts of the current user.
   ///
   /// [Ok] is returned on completion.
-  const SetCloseFriends({
-    required this.userIds,
-  });
+  const SetCloseFriends({required this.userIds});
 
   /// User identifiers of close friends; the users must be contacts of the current user
   final List<int> userIds;
@@ -36,12 +34,8 @@ final class SetCloseFriends extends TdFunction {
   ///
   /// Properties:
   /// * [user_ids]: User identifiers of close friends; the users must be contacts of the current user
-  SetCloseFriends copyWith({
-    List<int>? userIds,
-  }) =>
-      SetCloseFriends(
-        userIds: userIds ?? this.userIds,
-      );
+  SetCloseFriends copyWith({List<int>? userIds}) =>
+      SetCloseFriends(userIds: userIds ?? this.userIds);
 
   /// TDLib object type
   static const String defaultObjectId = 'setCloseFriends';

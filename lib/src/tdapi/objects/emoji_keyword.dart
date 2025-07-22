@@ -13,10 +13,7 @@ final class EmojiKeyword extends TdObject {
   ///
   /// * [emoji]: The emoji.
   /// * [keyword]: The keyword.
-  const EmojiKeyword({
-    required this.emoji,
-    required this.keyword,
-  });
+  const EmojiKeyword({required this.emoji, required this.keyword});
 
   /// The emoji
   final String emoji;
@@ -25,19 +22,13 @@ final class EmojiKeyword extends TdObject {
   final String keyword;
 
   /// Parse from a json
-  factory EmojiKeyword.fromJson(Map<String, dynamic> json) => EmojiKeyword(
-        emoji: json['emoji'],
-        keyword: json['keyword'],
-      );
+  factory EmojiKeyword.fromJson(Map<String, dynamic> json) =>
+      EmojiKeyword(emoji: json['emoji'], keyword: json['keyword']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "emoji": emoji,
-      "keyword": keyword,
-    };
+    return {"@type": defaultObjectId, "emoji": emoji, "keyword": keyword};
   }
 
   /// Copy model with modified properties.
@@ -45,14 +36,10 @@ final class EmojiKeyword extends TdObject {
   /// Properties:
   /// * [emoji]: The emoji
   /// * [keyword]: The keyword
-  EmojiKeyword copyWith({
-    String? emoji,
-    String? keyword,
-  }) =>
-      EmojiKeyword(
-        emoji: emoji ?? this.emoji,
-        keyword: keyword ?? this.keyword,
-      );
+  EmojiKeyword copyWith({String? emoji, String? keyword}) => EmojiKeyword(
+    emoji: emoji ?? this.emoji,
+    keyword: keyword ?? this.keyword,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'emojiKeyword';

@@ -53,23 +53,20 @@ sealed class InputInvoice extends TdObject {
 /// An invoice from a message of the type messageInvoice or paid media purchase from messagePaidMedia.
 ///
 /// * [chatId]: Chat identifier of the message.
-/// * [messageId]: Message identifier.
+/// * [messageId]: Message identifier. Use messageProperties.can_be_paid to check whether the message can be used in the method.
 final class InputInvoiceMessage extends InputInvoice {
   /// **InputInvoiceMessage** *(inputInvoiceMessage)* - child of InputInvoice
   ///
   /// An invoice from a message of the type messageInvoice or paid media purchase from messagePaidMedia.
   ///
   /// * [chatId]: Chat identifier of the message.
-  /// * [messageId]: Message identifier.
-  const InputInvoiceMessage({
-    required this.chatId,
-    required this.messageId,
-  });
+  /// * [messageId]: Message identifier. Use messageProperties.can_be_paid to check whether the message can be used in the method.
+  const InputInvoiceMessage({required this.chatId, required this.messageId});
 
   /// Chat identifier of the message
   final int chatId;
 
-  /// Message identifier
+  /// Message identifier. Use messageProperties.can_be_paid to check whether the message can be used in the method
   final int messageId;
 
   /// Parse from a json
@@ -93,12 +90,9 @@ final class InputInvoiceMessage extends InputInvoice {
   ///
   /// Properties:
   /// * [chat_id]: Chat identifier of the message
-  /// * [message_id]: Message identifier
+  /// * [message_id]: Message identifier. Use messageProperties.can_be_paid to check whether the message can be used in the method
   @override
-  InputInvoiceMessage copyWith({
-    int? chatId,
-    int? messageId,
-  }) =>
+  InputInvoiceMessage copyWith({int? chatId, int? messageId}) =>
       InputInvoiceMessage(
         chatId: chatId ?? this.chatId,
         messageId: messageId ?? this.messageId,
@@ -127,26 +121,19 @@ final class InputInvoiceName extends InputInvoice {
   /// An invoice from a link of the type internalLinkTypeInvoice.
   ///
   /// * [name]: Name of the invoice.
-  const InputInvoiceName({
-    required this.name,
-  });
+  const InputInvoiceName({required this.name});
 
   /// Name of the invoice
   final String name;
 
   /// Parse from a json
   factory InputInvoiceName.fromJson(Map<String, dynamic> json) =>
-      InputInvoiceName(
-        name: json['name'],
-      );
+      InputInvoiceName(name: json['name']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "name": name,
-    };
+    return {"@type": defaultObjectId, "name": name};
   }
 
   /// Copy model with modified properties.
@@ -154,12 +141,8 @@ final class InputInvoiceName extends InputInvoice {
   /// Properties:
   /// * [name]: Name of the invoice
   @override
-  InputInvoiceName copyWith({
-    String? name,
-  }) =>
-      InputInvoiceName(
-        name: name ?? this.name,
-      );
+  InputInvoiceName copyWith({String? name}) =>
+      InputInvoiceName(name: name ?? this.name);
 
   /// TDLib object type
   static const String defaultObjectId = 'inputInvoiceName';
@@ -184,9 +167,7 @@ final class InputInvoiceTelegram extends InputInvoice {
   /// An invoice for a payment toward Telegram; must not be used in the in-store apps.
   ///
   /// * [purpose]: Transaction purpose.
-  const InputInvoiceTelegram({
-    required this.purpose,
-  });
+  const InputInvoiceTelegram({required this.purpose});
 
   /// Transaction purpose
   final TelegramPaymentPurpose purpose;
@@ -200,10 +181,7 @@ final class InputInvoiceTelegram extends InputInvoice {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "purpose": purpose.toJson(),
-    };
+    return {"@type": defaultObjectId, "purpose": purpose.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -211,12 +189,8 @@ final class InputInvoiceTelegram extends InputInvoice {
   /// Properties:
   /// * [purpose]: Transaction purpose
   @override
-  InputInvoiceTelegram copyWith({
-    TelegramPaymentPurpose? purpose,
-  }) =>
-      InputInvoiceTelegram(
-        purpose: purpose ?? this.purpose,
-      );
+  InputInvoiceTelegram copyWith({TelegramPaymentPurpose? purpose}) =>
+      InputInvoiceTelegram(purpose: purpose ?? this.purpose);
 
   /// TDLib object type
   static const String defaultObjectId = 'inputInvoiceTelegram';

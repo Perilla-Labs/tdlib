@@ -15,9 +15,7 @@ final class SetBusinessAwayMessageSettings extends TdFunction {
   /// * [awayMessageSettings]: The new settings for the away message of the business; pass null to disable the away message *(optional)*.
   ///
   /// [Ok] is returned on completion.
-  const SetBusinessAwayMessageSettings({
-    this.awayMessageSettings,
-  });
+  const SetBusinessAwayMessageSettings({this.awayMessageSettings});
 
   /// The new settings for the away message of the business; pass null to disable the away message
   final BusinessAwayMessageSettings? awayMessageSettings;
@@ -38,10 +36,9 @@ final class SetBusinessAwayMessageSettings extends TdFunction {
   /// * [away_message_settings]: The new settings for the away message of the business; pass null to disable the away message
   SetBusinessAwayMessageSettings copyWith({
     BusinessAwayMessageSettings? awayMessageSettings,
-  }) =>
-      SetBusinessAwayMessageSettings(
-        awayMessageSettings: awayMessageSettings ?? this.awayMessageSettings,
-      );
+  }) => SetBusinessAwayMessageSettings(
+    awayMessageSettings: awayMessageSettings ?? this.awayMessageSettings,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setBusinessAwayMessageSettings';

@@ -56,12 +56,11 @@ final class SetForumTopicNotificationSettings extends TdFunction {
     int? chatId,
     int? messageThreadId,
     ChatNotificationSettings? notificationSettings,
-  }) =>
-      SetForumTopicNotificationSettings(
-        chatId: chatId ?? this.chatId,
-        messageThreadId: messageThreadId ?? this.messageThreadId,
-        notificationSettings: notificationSettings ?? this.notificationSettings,
-      );
+  }) => SetForumTopicNotificationSettings(
+    chatId: chatId ?? this.chatId,
+    messageThreadId: messageThreadId ?? this.messageThreadId,
+    notificationSettings: notificationSettings ?? this.notificationSettings,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setForumTopicNotificationSettings';

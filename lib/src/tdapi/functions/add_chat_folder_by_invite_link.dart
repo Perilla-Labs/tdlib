@@ -47,11 +47,10 @@ final class AddChatFolderByInviteLink extends TdFunction {
   AddChatFolderByInviteLink copyWith({
     String? inviteLink,
     List<int>? chatIds,
-  }) =>
-      AddChatFolderByInviteLink(
-        inviteLink: inviteLink ?? this.inviteLink,
-        chatIds: chatIds ?? this.chatIds,
-      );
+  }) => AddChatFolderByInviteLink(
+    inviteLink: inviteLink ?? this.inviteLink,
+    chatIds: chatIds ?? this.chatIds,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'addChatFolderByInviteLink';

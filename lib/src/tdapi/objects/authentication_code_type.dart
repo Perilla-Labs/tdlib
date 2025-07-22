@@ -81,27 +81,20 @@ final class AuthenticationCodeTypeTelegramMessage
   /// A digit-only authentication code is delivered via a private Telegram message, which can be viewed from another active session.
   ///
   /// * [length]: Length of the code.
-  const AuthenticationCodeTypeTelegramMessage({
-    required this.length,
-  });
+  const AuthenticationCodeTypeTelegramMessage({required this.length});
 
   /// Length of the code
   final int length;
 
   /// Parse from a json
   factory AuthenticationCodeTypeTelegramMessage.fromJson(
-          Map<String, dynamic> json) =>
-      AuthenticationCodeTypeTelegramMessage(
-        length: json['length'],
-      );
+    Map<String, dynamic> json,
+  ) => AuthenticationCodeTypeTelegramMessage(length: json['length']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "length": length,
-    };
+    return {"@type": defaultObjectId, "length": length};
   }
 
   /// Copy model with modified properties.
@@ -109,12 +102,8 @@ final class AuthenticationCodeTypeTelegramMessage
   /// Properties:
   /// * [length]: Length of the code
   @override
-  AuthenticationCodeTypeTelegramMessage copyWith({
-    int? length,
-  }) =>
-      AuthenticationCodeTypeTelegramMessage(
-        length: length ?? this.length,
-      );
+  AuthenticationCodeTypeTelegramMessage copyWith({int? length}) =>
+      AuthenticationCodeTypeTelegramMessage(length: length ?? this.length);
 
   /// TDLib object type
   static const String defaultObjectId = 'authenticationCodeTypeTelegramMessage';
@@ -139,26 +128,19 @@ final class AuthenticationCodeTypeSms extends AuthenticationCodeType {
   /// A digit-only authentication code is delivered via an SMS message to the specified phone number; non-official applications may not receive this type of code.
   ///
   /// * [length]: Length of the code.
-  const AuthenticationCodeTypeSms({
-    required this.length,
-  });
+  const AuthenticationCodeTypeSms({required this.length});
 
   /// Length of the code
   final int length;
 
   /// Parse from a json
   factory AuthenticationCodeTypeSms.fromJson(Map<String, dynamic> json) =>
-      AuthenticationCodeTypeSms(
-        length: json['length'],
-      );
+      AuthenticationCodeTypeSms(length: json['length']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "length": length,
-    };
+    return {"@type": defaultObjectId, "length": length};
   }
 
   /// Copy model with modified properties.
@@ -166,12 +148,8 @@ final class AuthenticationCodeTypeSms extends AuthenticationCodeType {
   /// Properties:
   /// * [length]: Length of the code
   @override
-  AuthenticationCodeTypeSms copyWith({
-    int? length,
-  }) =>
-      AuthenticationCodeTypeSms(
-        length: length ?? this.length,
-      );
+  AuthenticationCodeTypeSms copyWith({int? length}) =>
+      AuthenticationCodeTypeSms(length: length ?? this.length);
 
   /// TDLib object type
   static const String defaultObjectId = 'authenticationCodeTypeSms';
@@ -196,26 +174,19 @@ final class AuthenticationCodeTypeSmsWord extends AuthenticationCodeType {
   /// An authentication code is a word delivered via an SMS message to the specified phone number; non-official applications may not receive this type of code.
   ///
   /// * [firstLetter]: The first letters of the word if known.
-  const AuthenticationCodeTypeSmsWord({
-    required this.firstLetter,
-  });
+  const AuthenticationCodeTypeSmsWord({required this.firstLetter});
 
   /// The first letters of the word if known
   final String firstLetter;
 
   /// Parse from a json
   factory AuthenticationCodeTypeSmsWord.fromJson(Map<String, dynamic> json) =>
-      AuthenticationCodeTypeSmsWord(
-        firstLetter: json['first_letter'],
-      );
+      AuthenticationCodeTypeSmsWord(firstLetter: json['first_letter']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "first_letter": firstLetter,
-    };
+    return {"@type": defaultObjectId, "first_letter": firstLetter};
   }
 
   /// Copy model with modified properties.
@@ -223,9 +194,7 @@ final class AuthenticationCodeTypeSmsWord extends AuthenticationCodeType {
   /// Properties:
   /// * [first_letter]: The first letters of the word if known
   @override
-  AuthenticationCodeTypeSmsWord copyWith({
-    String? firstLetter,
-  }) =>
+  AuthenticationCodeTypeSmsWord copyWith({String? firstLetter}) =>
       AuthenticationCodeTypeSmsWord(
         firstLetter: firstLetter ?? this.firstLetter,
       );
@@ -253,26 +222,19 @@ final class AuthenticationCodeTypeSmsPhrase extends AuthenticationCodeType {
   /// An authentication code is a phrase from multiple words delivered via an SMS message to the specified phone number; non-official applications may not receive this type of code.
   ///
   /// * [firstWord]: The first word of the phrase if known.
-  const AuthenticationCodeTypeSmsPhrase({
-    required this.firstWord,
-  });
+  const AuthenticationCodeTypeSmsPhrase({required this.firstWord});
 
   /// The first word of the phrase if known
   final String firstWord;
 
   /// Parse from a json
   factory AuthenticationCodeTypeSmsPhrase.fromJson(Map<String, dynamic> json) =>
-      AuthenticationCodeTypeSmsPhrase(
-        firstWord: json['first_word'],
-      );
+      AuthenticationCodeTypeSmsPhrase(firstWord: json['first_word']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "first_word": firstWord,
-    };
+    return {"@type": defaultObjectId, "first_word": firstWord};
   }
 
   /// Copy model with modified properties.
@@ -280,12 +242,8 @@ final class AuthenticationCodeTypeSmsPhrase extends AuthenticationCodeType {
   /// Properties:
   /// * [first_word]: The first word of the phrase if known
   @override
-  AuthenticationCodeTypeSmsPhrase copyWith({
-    String? firstWord,
-  }) =>
-      AuthenticationCodeTypeSmsPhrase(
-        firstWord: firstWord ?? this.firstWord,
-      );
+  AuthenticationCodeTypeSmsPhrase copyWith({String? firstWord}) =>
+      AuthenticationCodeTypeSmsPhrase(firstWord: firstWord ?? this.firstWord);
 
   /// TDLib object type
   static const String defaultObjectId = 'authenticationCodeTypeSmsPhrase';
@@ -310,26 +268,19 @@ final class AuthenticationCodeTypeCall extends AuthenticationCodeType {
   /// A digit-only authentication code is delivered via a phone call to the specified phone number.
   ///
   /// * [length]: Length of the code.
-  const AuthenticationCodeTypeCall({
-    required this.length,
-  });
+  const AuthenticationCodeTypeCall({required this.length});
 
   /// Length of the code
   final int length;
 
   /// Parse from a json
   factory AuthenticationCodeTypeCall.fromJson(Map<String, dynamic> json) =>
-      AuthenticationCodeTypeCall(
-        length: json['length'],
-      );
+      AuthenticationCodeTypeCall(length: json['length']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "length": length,
-    };
+    return {"@type": defaultObjectId, "length": length};
   }
 
   /// Copy model with modified properties.
@@ -337,12 +288,8 @@ final class AuthenticationCodeTypeCall extends AuthenticationCodeType {
   /// Properties:
   /// * [length]: Length of the code
   @override
-  AuthenticationCodeTypeCall copyWith({
-    int? length,
-  }) =>
-      AuthenticationCodeTypeCall(
-        length: length ?? this.length,
-      );
+  AuthenticationCodeTypeCall copyWith({int? length}) =>
+      AuthenticationCodeTypeCall(length: length ?? this.length);
 
   /// TDLib object type
   static const String defaultObjectId = 'authenticationCodeTypeCall';
@@ -367,26 +314,19 @@ final class AuthenticationCodeTypeFlashCall extends AuthenticationCodeType {
   /// An authentication code is delivered by an immediately canceled call to the specified phone number. The phone number that calls is the code that must be entered automatically.
   ///
   /// * [pattern]: Pattern of the phone number from which the call will be made.
-  const AuthenticationCodeTypeFlashCall({
-    required this.pattern,
-  });
+  const AuthenticationCodeTypeFlashCall({required this.pattern});
 
   /// Pattern of the phone number from which the call will be made
   final String pattern;
 
   /// Parse from a json
   factory AuthenticationCodeTypeFlashCall.fromJson(Map<String, dynamic> json) =>
-      AuthenticationCodeTypeFlashCall(
-        pattern: json['pattern'],
-      );
+      AuthenticationCodeTypeFlashCall(pattern: json['pattern']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "pattern": pattern,
-    };
+    return {"@type": defaultObjectId, "pattern": pattern};
   }
 
   /// Copy model with modified properties.
@@ -394,12 +334,8 @@ final class AuthenticationCodeTypeFlashCall extends AuthenticationCodeType {
   /// Properties:
   /// * [pattern]: Pattern of the phone number from which the call will be made
   @override
-  AuthenticationCodeTypeFlashCall copyWith({
-    String? pattern,
-  }) =>
-      AuthenticationCodeTypeFlashCall(
-        pattern: pattern ?? this.pattern,
-      );
+  AuthenticationCodeTypeFlashCall copyWith({String? pattern}) =>
+      AuthenticationCodeTypeFlashCall(pattern: pattern ?? this.pattern);
 
   /// TDLib object type
   static const String defaultObjectId = 'authenticationCodeTypeFlashCall';
@@ -439,11 +375,11 @@ final class AuthenticationCodeTypeMissedCall extends AuthenticationCodeType {
 
   /// Parse from a json
   factory AuthenticationCodeTypeMissedCall.fromJson(
-          Map<String, dynamic> json) =>
-      AuthenticationCodeTypeMissedCall(
-        phoneNumberPrefix: json['phone_number_prefix'],
-        length: json['length'],
-      );
+    Map<String, dynamic> json,
+  ) => AuthenticationCodeTypeMissedCall(
+    phoneNumberPrefix: json['phone_number_prefix'],
+    length: json['length'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -464,11 +400,10 @@ final class AuthenticationCodeTypeMissedCall extends AuthenticationCodeType {
   AuthenticationCodeTypeMissedCall copyWith({
     String? phoneNumberPrefix,
     int? length,
-  }) =>
-      AuthenticationCodeTypeMissedCall(
-        phoneNumberPrefix: phoneNumberPrefix ?? this.phoneNumberPrefix,
-        length: length ?? this.length,
-      );
+  }) => AuthenticationCodeTypeMissedCall(
+    phoneNumberPrefix: phoneNumberPrefix ?? this.phoneNumberPrefix,
+    length: length ?? this.length,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'authenticationCodeTypeMissedCall';
@@ -508,19 +443,12 @@ final class AuthenticationCodeTypeFragment extends AuthenticationCodeType {
 
   /// Parse from a json
   factory AuthenticationCodeTypeFragment.fromJson(Map<String, dynamic> json) =>
-      AuthenticationCodeTypeFragment(
-        url: json['url'],
-        length: json['length'],
-      );
+      AuthenticationCodeTypeFragment(url: json['url'], length: json['length']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "url": url,
-      "length": length,
-    };
+    return {"@type": defaultObjectId, "url": url, "length": length};
   }
 
   /// Copy model with modified properties.
@@ -529,10 +457,7 @@ final class AuthenticationCodeTypeFragment extends AuthenticationCodeType {
   /// * [url]: URL to open to receive the code
   /// * [length]: Length of the code
   @override
-  AuthenticationCodeTypeFragment copyWith({
-    String? url,
-    int? length,
-  }) =>
+  AuthenticationCodeTypeFragment copyWith({String? url, int? length}) =>
       AuthenticationCodeTypeFragment(
         url: url ?? this.url,
         length: length ?? this.length,
@@ -577,13 +502,13 @@ final class AuthenticationCodeTypeFirebaseAndroid
 
   /// Parse from a json
   factory AuthenticationCodeTypeFirebaseAndroid.fromJson(
-          Map<String, dynamic> json) =>
-      AuthenticationCodeTypeFirebaseAndroid(
-        deviceVerificationParameters:
-            FirebaseDeviceVerificationParameters.fromJson(
-                json['device_verification_parameters']),
-        length: json['length'],
-      );
+    Map<String, dynamic> json,
+  ) => AuthenticationCodeTypeFirebaseAndroid(
+    deviceVerificationParameters: FirebaseDeviceVerificationParameters.fromJson(
+      json['device_verification_parameters'],
+    ),
+    length: json['length'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -604,12 +529,11 @@ final class AuthenticationCodeTypeFirebaseAndroid
   AuthenticationCodeTypeFirebaseAndroid copyWith({
     FirebaseDeviceVerificationParameters? deviceVerificationParameters,
     int? length,
-  }) =>
-      AuthenticationCodeTypeFirebaseAndroid(
-        deviceVerificationParameters:
-            deviceVerificationParameters ?? this.deviceVerificationParameters,
-        length: length ?? this.length,
-      );
+  }) => AuthenticationCodeTypeFirebaseAndroid(
+    deviceVerificationParameters:
+        deviceVerificationParameters ?? this.deviceVerificationParameters,
+    length: length ?? this.length,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'authenticationCodeTypeFirebaseAndroid';
@@ -628,7 +552,7 @@ final class AuthenticationCodeTypeFirebaseAndroid
 /// A digit-only authentication code is delivered via Firebase Authentication to the official iOS application.
 ///
 /// * [receipt]: Receipt of successful application token validation to compare with receipt from push notification.
-/// * [pushTimeout]: Time after the next authentication method is supposed to be used if verification push notification isn't received, in seconds.
+/// * [pushTimeout]: Time after the next authentication method is expected to be used if verification push notification isn't received, in seconds.
 /// * [length]: Length of the code.
 final class AuthenticationCodeTypeFirebaseIos extends AuthenticationCodeType {
   /// **AuthenticationCodeTypeFirebaseIos** *(authenticationCodeTypeFirebaseIos)* - child of AuthenticationCodeType
@@ -636,7 +560,7 @@ final class AuthenticationCodeTypeFirebaseIos extends AuthenticationCodeType {
   /// A digit-only authentication code is delivered via Firebase Authentication to the official iOS application.
   ///
   /// * [receipt]: Receipt of successful application token validation to compare with receipt from push notification.
-  /// * [pushTimeout]: Time after the next authentication method is supposed to be used if verification push notification isn't received, in seconds.
+  /// * [pushTimeout]: Time after the next authentication method is expected to be used if verification push notification isn't received, in seconds.
   /// * [length]: Length of the code.
   const AuthenticationCodeTypeFirebaseIos({
     required this.receipt,
@@ -647,7 +571,7 @@ final class AuthenticationCodeTypeFirebaseIos extends AuthenticationCodeType {
   /// Receipt of successful application token validation to compare with receipt from push notification
   final String receipt;
 
-  /// Time after the next authentication method is supposed to be used if verification push notification isn't received, in seconds
+  /// Time after the next authentication method is expected to be used if verification push notification isn't received, in seconds
   final int pushTimeout;
 
   /// Length of the code
@@ -655,12 +579,12 @@ final class AuthenticationCodeTypeFirebaseIos extends AuthenticationCodeType {
 
   /// Parse from a json
   factory AuthenticationCodeTypeFirebaseIos.fromJson(
-          Map<String, dynamic> json) =>
-      AuthenticationCodeTypeFirebaseIos(
-        receipt: json['receipt'],
-        pushTimeout: json['push_timeout'],
-        length: json['length'],
-      );
+    Map<String, dynamic> json,
+  ) => AuthenticationCodeTypeFirebaseIos(
+    receipt: json['receipt'],
+    pushTimeout: json['push_timeout'],
+    length: json['length'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -677,19 +601,18 @@ final class AuthenticationCodeTypeFirebaseIos extends AuthenticationCodeType {
   ///
   /// Properties:
   /// * [receipt]: Receipt of successful application token validation to compare with receipt from push notification
-  /// * [push_timeout]: Time after the next authentication method is supposed to be used if verification push notification isn't received, in seconds
+  /// * [push_timeout]: Time after the next authentication method is expected to be used if verification push notification isn't received, in seconds
   /// * [length]: Length of the code
   @override
   AuthenticationCodeTypeFirebaseIos copyWith({
     String? receipt,
     int? pushTimeout,
     int? length,
-  }) =>
-      AuthenticationCodeTypeFirebaseIos(
-        receipt: receipt ?? this.receipt,
-        pushTimeout: pushTimeout ?? this.pushTimeout,
-        length: length ?? this.length,
-      );
+  }) => AuthenticationCodeTypeFirebaseIos(
+    receipt: receipt ?? this.receipt,
+    pushTimeout: pushTimeout ?? this.pushTimeout,
+    length: length ?? this.length,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'authenticationCodeTypeFirebaseIos';

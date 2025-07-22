@@ -17,10 +17,7 @@ final class FinishFileGeneration extends TdFunction {
   /// * [error]: If passed, the file generation has failed and must be terminated; pass null if the file generation succeeded *(optional)*.
   ///
   /// [Ok] is returned on completion.
-  const FinishFileGeneration({
-    required this.generationId,
-    this.error,
-  });
+  const FinishFileGeneration({required this.generationId, this.error});
 
   /// The identifier of the generation process
   final int generationId;
@@ -44,10 +41,7 @@ final class FinishFileGeneration extends TdFunction {
   /// Properties:
   /// * [generation_id]: The identifier of the generation process
   /// * [error]: If passed, the file generation has failed and must be terminated; pass null if the file generation succeeded
-  FinishFileGeneration copyWith({
-    int? generationId,
-    TdError? error,
-  }) =>
+  FinishFileGeneration copyWith({int? generationId, TdError? error}) =>
       FinishFileGeneration(
         generationId: generationId ?? this.generationId,
         error: error ?? this.error,

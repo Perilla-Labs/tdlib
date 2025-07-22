@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **GetForumTopicLink** *(getForumTopicLink)* - TDLib function
 ///
-/// Returns an HTTPS link to a topic in a forum chat. This is an offline request.
+/// Returns an HTTPS link to a topic in a forum chat. This is an offline method.
 ///
 /// * [chatId]: Identifier of the chat.
 /// * [messageThreadId]: Message thread identifier of the forum topic.
@@ -11,7 +11,7 @@ part of '../tdapi.dart';
 final class GetForumTopicLink extends TdFunction {
   /// **GetForumTopicLink** *(getForumTopicLink)* - TDLib function
   ///
-  /// Returns an HTTPS link to a topic in a forum chat. This is an offline request.
+  /// Returns an HTTPS link to a topic in a forum chat. This is an offline method.
   ///
   /// * [chatId]: Identifier of the chat.
   /// * [messageThreadId]: Message thread identifier of the forum topic.
@@ -44,10 +44,7 @@ final class GetForumTopicLink extends TdFunction {
   /// Properties:
   /// * [chat_id]: Identifier of the chat
   /// * [message_thread_id]: Message thread identifier of the forum topic
-  GetForumTopicLink copyWith({
-    int? chatId,
-    int? messageThreadId,
-  }) =>
+  GetForumTopicLink copyWith({int? chatId, int? messageThreadId}) =>
       GetForumTopicLink(
         chatId: chatId ?? this.chatId,
         messageThreadId: messageThreadId ?? this.messageThreadId,

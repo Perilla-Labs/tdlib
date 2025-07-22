@@ -17,10 +17,7 @@ final class SetAutosaveSettings extends TdFunction {
   /// * [settings]: New autosave settings for the scope; pass null to set autosave settings to default *(optional)*.
   ///
   /// [Ok] is returned on completion.
-  const SetAutosaveSettings({
-    required this.scope,
-    this.settings,
-  });
+  const SetAutosaveSettings({required this.scope, this.settings});
 
   /// Autosave settings scope
   final AutosaveSettingsScope scope;
@@ -47,11 +44,10 @@ final class SetAutosaveSettings extends TdFunction {
   SetAutosaveSettings copyWith({
     AutosaveSettingsScope? scope,
     ScopeAutosaveSettings? settings,
-  }) =>
-      SetAutosaveSettings(
-        scope: scope ?? this.scope,
-        settings: settings ?? this.settings,
-      );
+  }) => SetAutosaveSettings(
+    scope: scope ?? this.scope,
+    settings: settings ?? this.settings,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setAutosaveSettings';

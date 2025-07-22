@@ -17,10 +17,7 @@ final class GetChatInviteLink extends TdFunction {
   /// * [inviteLink]: Invite link to get.
   ///
   /// [ChatInviteLink] is returned on completion.
-  const GetChatInviteLink({
-    required this.chatId,
-    required this.inviteLink,
-  });
+  const GetChatInviteLink({required this.chatId, required this.inviteLink});
 
   /// Chat identifier
   final int chatId;
@@ -44,10 +41,7 @@ final class GetChatInviteLink extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [invite_link]: Invite link to get
-  GetChatInviteLink copyWith({
-    int? chatId,
-    String? inviteLink,
-  }) =>
+  GetChatInviteLink copyWith({int? chatId, String? inviteLink}) =>
       GetChatInviteLink(
         chatId: chatId ?? this.chatId,
         inviteLink: inviteLink ?? this.inviteLink,

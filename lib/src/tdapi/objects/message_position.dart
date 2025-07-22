@@ -55,11 +55,7 @@ final class MessagePosition extends TdObject {
   /// * [position]: 0-based message position in the full list of suitable messages
   /// * [message_id]: Message identifier
   /// * [date]: Point in time (Unix timestamp) when the message was sent
-  MessagePosition copyWith({
-    int? position,
-    int? messageId,
-    int? date,
-  }) =>
+  MessagePosition copyWith({int? position, int? messageId, int? date}) =>
       MessagePosition(
         position: position ?? this.position,
         messageId: messageId ?? this.messageId,

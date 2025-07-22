@@ -13,10 +13,7 @@ final class InlineKeyboardButton extends TdObject {
   ///
   /// * [text]: Text of the button.
   /// * [type]: Type of the button.
-  const InlineKeyboardButton({
-    required this.text,
-    required this.type,
-  });
+  const InlineKeyboardButton({required this.text, required this.type});
 
   /// Text of the button
   final String text;
@@ -34,11 +31,7 @@ final class InlineKeyboardButton extends TdObject {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "text": text,
-      "type": type.toJson(),
-    };
+    return {"@type": defaultObjectId, "text": text, "type": type.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -49,11 +42,7 @@ final class InlineKeyboardButton extends TdObject {
   InlineKeyboardButton copyWith({
     String? text,
     InlineKeyboardButtonType? type,
-  }) =>
-      InlineKeyboardButton(
-        text: text ?? this.text,
-        type: type ?? this.type,
-      );
+  }) => InlineKeyboardButton(text: text ?? this.text, type: type ?? this.type);
 
   /// TDLib object type
   static const String defaultObjectId = 'inlineKeyboardButton';

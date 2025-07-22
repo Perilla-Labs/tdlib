@@ -74,14 +74,13 @@ final class DownloadFile extends TdFunction {
     int? offset,
     int? limit,
     bool? synchronous,
-  }) =>
-      DownloadFile(
-        fileId: fileId ?? this.fileId,
-        priority: priority ?? this.priority,
-        offset: offset ?? this.offset,
-        limit: limit ?? this.limit,
-        synchronous: synchronous ?? this.synchronous,
-      );
+  }) => DownloadFile(
+    fileId: fileId ?? this.fileId,
+    priority: priority ?? this.priority,
+    offset: offset ?? this.offset,
+    limit: limit ?? this.limit,
+    synchronous: synchronous ?? this.synchronous,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'downloadFile';

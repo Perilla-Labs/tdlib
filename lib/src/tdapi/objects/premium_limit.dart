@@ -42,12 +42,12 @@ final class PremiumLimit extends TdObject {
 
   /// Parse from a json
   factory PremiumLimit.fromJson(Map<String, dynamic> json) => PremiumLimit(
-        type: PremiumLimitType.fromJson(json['type']),
-        defaultValue: json['default_value'],
-        premiumValue: json['premium_value'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    type: PremiumLimitType.fromJson(json['type']),
+    defaultValue: json['default_value'],
+    premiumValue: json['premium_value'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -72,14 +72,13 @@ final class PremiumLimit extends TdObject {
     int? premiumValue,
     dynamic extra,
     int? clientId,
-  }) =>
-      PremiumLimit(
-        type: type ?? this.type,
-        defaultValue: defaultValue ?? this.defaultValue,
-        premiumValue: premiumValue ?? this.premiumValue,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => PremiumLimit(
+    type: type ?? this.type,
+    defaultValue: defaultValue ?? this.defaultValue,
+    premiumValue: premiumValue ?? this.premiumValue,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'premiumLimit';

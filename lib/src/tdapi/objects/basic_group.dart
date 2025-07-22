@@ -54,14 +54,14 @@ final class BasicGroup extends TdObject {
 
   /// Parse from a json
   factory BasicGroup.fromJson(Map<String, dynamic> json) => BasicGroup(
-        id: json['id'],
-        memberCount: json['member_count'],
-        status: ChatMemberStatus.fromJson(json['status']),
-        isActive: json['is_active'],
-        upgradedToSupergroupId: json['upgraded_to_supergroup_id'] ?? 0,
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    id: json['id'],
+    memberCount: json['member_count'],
+    status: ChatMemberStatus.fromJson(json['status']),
+    isActive: json['is_active'],
+    upgradedToSupergroupId: json['upgraded_to_supergroup_id'] ?? 0,
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -92,17 +92,16 @@ final class BasicGroup extends TdObject {
     int? upgradedToSupergroupId,
     dynamic extra,
     int? clientId,
-  }) =>
-      BasicGroup(
-        id: id ?? this.id,
-        memberCount: memberCount ?? this.memberCount,
-        status: status ?? this.status,
-        isActive: isActive ?? this.isActive,
-        upgradedToSupergroupId:
-            upgradedToSupergroupId ?? this.upgradedToSupergroupId,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => BasicGroup(
+    id: id ?? this.id,
+    memberCount: memberCount ?? this.memberCount,
+    status: status ?? this.status,
+    isActive: isActive ?? this.isActive,
+    upgradedToSupergroupId:
+        upgradedToSupergroupId ?? this.upgradedToSupergroupId,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'basicGroup';

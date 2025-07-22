@@ -44,9 +44,11 @@ final class TrendingStickerSets extends TdObject {
   factory TrendingStickerSets.fromJson(Map<String, dynamic> json) =>
       TrendingStickerSets(
         totalCount: json['total_count'],
-        sets: List<StickerSetInfo>.from((json['sets'] ?? [])
-            .map((item) => StickerSetInfo.fromJson(item))
-            .toList()),
+        sets: List<StickerSetInfo>.from(
+          (json['sets'] ?? [])
+              .map((item) => StickerSetInfo.fromJson(item))
+              .toList(),
+        ),
         isPremium: json['is_premium'],
         extra: json['@extra'],
         clientId: json['@client_id'],
@@ -75,14 +77,13 @@ final class TrendingStickerSets extends TdObject {
     bool? isPremium,
     dynamic extra,
     int? clientId,
-  }) =>
-      TrendingStickerSets(
-        totalCount: totalCount ?? this.totalCount,
-        sets: sets ?? this.sets,
-        isPremium: isPremium ?? this.isPremium,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => TrendingStickerSets(
+    totalCount: totalCount ?? this.totalCount,
+    sets: sets ?? this.sets,
+    isPremium: isPremium ?? this.isPremium,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'trendingStickerSets';

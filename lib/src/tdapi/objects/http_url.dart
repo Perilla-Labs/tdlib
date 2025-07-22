@@ -11,11 +11,7 @@ final class HttpUrl extends TdObject {
   /// Contains an HTTP URL.
   ///
   /// * [url]: The URL.
-  const HttpUrl({
-    required this.url,
-    this.extra,
-    this.clientId,
-  });
+  const HttpUrl({required this.url, this.extra, this.clientId});
 
   /// The URL
   final String url;
@@ -30,34 +26,26 @@ final class HttpUrl extends TdObject {
 
   /// Parse from a json
   factory HttpUrl.fromJson(Map<String, dynamic> json) => HttpUrl(
-        url: json['url'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    url: json['url'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "url": url,
-    };
+    return {"@type": defaultObjectId, "url": url};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [url]: The URL
-  HttpUrl copyWith({
-    String? url,
-    dynamic extra,
-    int? clientId,
-  }) =>
-      HttpUrl(
-        url: url ?? this.url,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  HttpUrl copyWith({String? url, dynamic extra, int? clientId}) => HttpUrl(
+    url: url ?? this.url,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'httpUrl';

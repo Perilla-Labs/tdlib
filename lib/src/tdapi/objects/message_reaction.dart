@@ -52,9 +52,10 @@ final class MessageReaction extends TdObject {
             ? null
             : MessageSender.fromJson(json['used_sender_id']),
         recentSenderIds: List<MessageSender>.from(
-            (json['recent_sender_ids'] ?? [])
-                .map((item) => MessageSender.fromJson(item))
-                .toList()),
+          (json['recent_sender_ids'] ?? [])
+              .map((item) => MessageSender.fromJson(item))
+              .toList(),
+        ),
       );
 
   /// Convert model to TDLib JSON format
@@ -84,14 +85,13 @@ final class MessageReaction extends TdObject {
     bool? isChosen,
     MessageSender? usedSenderId,
     List<MessageSender>? recentSenderIds,
-  }) =>
-      MessageReaction(
-        type: type ?? this.type,
-        totalCount: totalCount ?? this.totalCount,
-        isChosen: isChosen ?? this.isChosen,
-        usedSenderId: usedSenderId ?? this.usedSenderId,
-        recentSenderIds: recentSenderIds ?? this.recentSenderIds,
-      );
+  }) => MessageReaction(
+    type: type ?? this.type,
+    totalCount: totalCount ?? this.totalCount,
+    isChosen: isChosen ?? this.isChosen,
+    usedSenderId: usedSenderId ?? this.usedSenderId,
+    recentSenderIds: recentSenderIds ?? this.recentSenderIds,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageReaction';

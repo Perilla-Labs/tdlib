@@ -52,11 +52,7 @@ final class ProcessChatJoinRequest extends TdFunction {
   /// * [chat_id]: Chat identifier
   /// * [user_id]: Identifier of the user that sent the request
   /// * [approve]: Pass true to approve the request; pass false to decline it
-  ProcessChatJoinRequest copyWith({
-    int? chatId,
-    int? userId,
-    bool? approve,
-  }) =>
+  ProcessChatJoinRequest copyWith({int? chatId, int? userId, bool? approve}) =>
       ProcessChatJoinRequest(
         chatId: chatId ?? this.chatId,
         userId: userId ?? this.userId,

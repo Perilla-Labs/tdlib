@@ -6,6 +6,7 @@ part of '../tdapi.dart';
 ///
 /// * [callId]: Call identifier.
 /// * [isDisconnected]: Pass true if the user was disconnected.
+/// * [inviteLink]: If the call was upgraded to a group call, pass invite link to the group call.
 /// * [duration]: The call duration, in seconds.
 /// * [isVideo]: Pass true if the call was a video call.
 /// * [connectionId]: Identifier of the connection used during the call.
@@ -18,6 +19,7 @@ final class DiscardCall extends TdFunction {
   ///
   /// * [callId]: Call identifier.
   /// * [isDisconnected]: Pass true if the user was disconnected.
+  /// * [inviteLink]: If the call was upgraded to a group call, pass invite link to the group call.
   /// * [duration]: The call duration, in seconds.
   /// * [isVideo]: Pass true if the call was a video call.
   /// * [connectionId]: Identifier of the connection used during the call.
@@ -26,6 +28,7 @@ final class DiscardCall extends TdFunction {
   const DiscardCall({
     required this.callId,
     required this.isDisconnected,
+    required this.inviteLink,
     required this.duration,
     required this.isVideo,
     required this.connectionId,
@@ -36,6 +39,9 @@ final class DiscardCall extends TdFunction {
 
   /// Pass true if the user was disconnected
   final bool isDisconnected;
+
+  /// If the call was upgraded to a group call, pass invite link to the group call
+  final String inviteLink;
 
   /// The call duration, in seconds
   final int duration;
@@ -53,6 +59,7 @@ final class DiscardCall extends TdFunction {
       "@type": defaultObjectId,
       "call_id": callId,
       "is_disconnected": isDisconnected,
+      "invite_link": inviteLink,
       "duration": duration,
       "is_video": isVideo,
       "connection_id": connectionId,
@@ -65,23 +72,25 @@ final class DiscardCall extends TdFunction {
   /// Properties:
   /// * [call_id]: Call identifier
   /// * [is_disconnected]: Pass true if the user was disconnected
+  /// * [invite_link]: If the call was upgraded to a group call, pass invite link to the group call
   /// * [duration]: The call duration, in seconds
   /// * [is_video]: Pass true if the call was a video call
   /// * [connection_id]: Identifier of the connection used during the call
   DiscardCall copyWith({
     int? callId,
     bool? isDisconnected,
+    String? inviteLink,
     int? duration,
     bool? isVideo,
     int? connectionId,
-  }) =>
-      DiscardCall(
-        callId: callId ?? this.callId,
-        isDisconnected: isDisconnected ?? this.isDisconnected,
-        duration: duration ?? this.duration,
-        isVideo: isVideo ?? this.isVideo,
-        connectionId: connectionId ?? this.connectionId,
-      );
+  }) => DiscardCall(
+    callId: callId ?? this.callId,
+    isDisconnected: isDisconnected ?? this.isDisconnected,
+    inviteLink: inviteLink ?? this.inviteLink,
+    duration: duration ?? this.duration,
+    isVideo: isVideo ?? this.isVideo,
+    connectionId: connectionId ?? this.connectionId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'discardCall';

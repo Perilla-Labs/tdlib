@@ -47,12 +47,11 @@ final class ToggleChatDefaultDisableNotification extends TdFunction {
   ToggleChatDefaultDisableNotification copyWith({
     int? chatId,
     bool? defaultDisableNotification,
-  }) =>
-      ToggleChatDefaultDisableNotification(
-        chatId: chatId ?? this.chatId,
-        defaultDisableNotification:
-            defaultDisableNotification ?? this.defaultDisableNotification,
-      );
+  }) => ToggleChatDefaultDisableNotification(
+    chatId: chatId ?? this.chatId,
+    defaultDisableNotification:
+        defaultDisableNotification ?? this.defaultDisableNotification,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'toggleChatDefaultDisableNotification';

@@ -2,74 +2,39 @@ part of '../tdapi.dart';
 
 /// **JoinGroupCall** *(joinGroupCall)* - TDLib function
 ///
-/// Joins an active group call. Returns join response payload for tgcalls.
+/// Joins a group call that is not bound to a chat.
 ///
-/// * [groupCallId]: Group call identifier.
-/// * [participantId]: Identifier of a group call participant, which will be used to join the call; pass null to join as self; video chats only *(optional)*.
-/// * [audioSourceId]: Caller audio channel synchronization source identifier; received from tgcalls.
-/// * [payload]: Group call join payload; received from tgcalls.
-/// * [isMuted]: Pass true to join the call with muted microphone.
-/// * [isMyVideoEnabled]: Pass true if the user's video is enabled.
-/// * [inviteHash]: If non-empty, invite hash to be used to join the group call without being muted by administrators.
+/// * [inputGroupCall]: The group call to join.
+/// * [joinParameters]: Parameters to join the call.
 ///
-/// [Text] is returned on completion.
+/// [GroupCallInfo] is returned on completion.
 final class JoinGroupCall extends TdFunction {
   /// **JoinGroupCall** *(joinGroupCall)* - TDLib function
   ///
-  /// Joins an active group call. Returns join response payload for tgcalls.
+  /// Joins a group call that is not bound to a chat.
   ///
-  /// * [groupCallId]: Group call identifier.
-  /// * [participantId]: Identifier of a group call participant, which will be used to join the call; pass null to join as self; video chats only *(optional)*.
-  /// * [audioSourceId]: Caller audio channel synchronization source identifier; received from tgcalls.
-  /// * [payload]: Group call join payload; received from tgcalls.
-  /// * [isMuted]: Pass true to join the call with muted microphone.
-  /// * [isMyVideoEnabled]: Pass true if the user's video is enabled.
-  /// * [inviteHash]: If non-empty, invite hash to be used to join the group call without being muted by administrators.
+  /// * [inputGroupCall]: The group call to join.
+  /// * [joinParameters]: Parameters to join the call.
   ///
-  /// [Text] is returned on completion.
+  /// [GroupCallInfo] is returned on completion.
   const JoinGroupCall({
-    required this.groupCallId,
-    this.participantId,
-    required this.audioSourceId,
-    required this.payload,
-    required this.isMuted,
-    required this.isMyVideoEnabled,
-    required this.inviteHash,
+    required this.inputGroupCall,
+    required this.joinParameters,
   });
 
-  /// Group call identifier
-  final int groupCallId;
+  /// The group call to join
+  final InputGroupCall inputGroupCall;
 
-  /// Identifier of a group call participant, which will be used to join the call; pass null to join as self; video chats only
-  final MessageSender? participantId;
-
-  /// Caller audio channel synchronization source identifier; received from tgcalls
-  final int audioSourceId;
-
-  /// Group call join payload; received from tgcalls
-  final String payload;
-
-  /// Pass true to join the call with muted microphone
-  final bool isMuted;
-
-  /// Pass true if the user's video is enabled
-  final bool isMyVideoEnabled;
-
-  /// If non-empty, invite hash to be used to join the group call without being muted by administrators
-  final String inviteHash;
+  /// Parameters to join the call
+  final GroupCallJoinParameters joinParameters;
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
     return {
       "@type": defaultObjectId,
-      "group_call_id": groupCallId,
-      "participant_id": participantId?.toJson(),
-      "audio_source_id": audioSourceId,
-      "payload": payload,
-      "is_muted": isMuted,
-      "is_my_video_enabled": isMyVideoEnabled,
-      "invite_hash": inviteHash,
+      "input_group_call": inputGroupCall.toJson(),
+      "join_parameters": joinParameters.toJson(),
       "@extra": extra,
     };
   }
@@ -77,31 +42,15 @@ final class JoinGroupCall extends TdFunction {
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [group_call_id]: Group call identifier
-  /// * [participant_id]: Identifier of a group call participant, which will be used to join the call; pass null to join as self; video chats only
-  /// * [audio_source_id]: Caller audio channel synchronization source identifier; received from tgcalls
-  /// * [payload]: Group call join payload; received from tgcalls
-  /// * [is_muted]: Pass true to join the call with muted microphone
-  /// * [is_my_video_enabled]: Pass true if the user's video is enabled
-  /// * [invite_hash]: If non-empty, invite hash to be used to join the group call without being muted by administrators
+  /// * [input_group_call]: The group call to join
+  /// * [join_parameters]: Parameters to join the call
   JoinGroupCall copyWith({
-    int? groupCallId,
-    MessageSender? participantId,
-    int? audioSourceId,
-    String? payload,
-    bool? isMuted,
-    bool? isMyVideoEnabled,
-    String? inviteHash,
-  }) =>
-      JoinGroupCall(
-        groupCallId: groupCallId ?? this.groupCallId,
-        participantId: participantId ?? this.participantId,
-        audioSourceId: audioSourceId ?? this.audioSourceId,
-        payload: payload ?? this.payload,
-        isMuted: isMuted ?? this.isMuted,
-        isMyVideoEnabled: isMyVideoEnabled ?? this.isMyVideoEnabled,
-        inviteHash: inviteHash ?? this.inviteHash,
-      );
+    InputGroupCall? inputGroupCall,
+    GroupCallJoinParameters? joinParameters,
+  }) => JoinGroupCall(
+    inputGroupCall: inputGroupCall ?? this.inputGroupCall,
+    joinParameters: joinParameters ?? this.joinParameters,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'joinGroupCall';

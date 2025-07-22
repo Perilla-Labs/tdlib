@@ -13,10 +13,7 @@ final class ChatPhotoSticker extends TdObject {
   ///
   /// * [type]: Type of the sticker.
   /// * [backgroundFill]: The fill to be used as background for the sticker; rotation angle in backgroundFillGradient isn't supported.
-  const ChatPhotoSticker({
-    required this.type,
-    required this.backgroundFill,
-  });
+  const ChatPhotoSticker({required this.type, required this.backgroundFill});
 
   /// Type of the sticker
   final ChatPhotoStickerType type;
@@ -49,11 +46,10 @@ final class ChatPhotoSticker extends TdObject {
   ChatPhotoSticker copyWith({
     ChatPhotoStickerType? type,
     BackgroundFill? backgroundFill,
-  }) =>
-      ChatPhotoSticker(
-        type: type ?? this.type,
-        backgroundFill: backgroundFill ?? this.backgroundFill,
-      );
+  }) => ChatPhotoSticker(
+    type: type ?? this.type,
+    backgroundFill: backgroundFill ?? this.backgroundFill,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatPhotoSticker';

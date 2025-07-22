@@ -83,15 +83,14 @@ final class SendPaymentForm extends TdFunction {
     String? shippingOptionId,
     InputCredentials? credentials,
     int? tipAmount,
-  }) =>
-      SendPaymentForm(
-        inputInvoice: inputInvoice ?? this.inputInvoice,
-        paymentFormId: paymentFormId ?? this.paymentFormId,
-        orderInfoId: orderInfoId ?? this.orderInfoId,
-        shippingOptionId: shippingOptionId ?? this.shippingOptionId,
-        credentials: credentials ?? this.credentials,
-        tipAmount: tipAmount ?? this.tipAmount,
-      );
+  }) => SendPaymentForm(
+    inputInvoice: inputInvoice ?? this.inputInvoice,
+    paymentFormId: paymentFormId ?? this.paymentFormId,
+    orderInfoId: orderInfoId ?? this.orderInfoId,
+    shippingOptionId: shippingOptionId ?? this.shippingOptionId,
+    credentials: credentials ?? this.credentials,
+    tipAmount: tipAmount ?? this.tipAmount,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'sendPaymentForm';

@@ -15,9 +15,7 @@ final class DeletePassportElement extends TdFunction {
   /// * [type]: Element type.
   ///
   /// [Ok] is returned on completion.
-  const DeletePassportElement({
-    required this.type,
-  });
+  const DeletePassportElement({required this.type});
 
   /// Element type
   final PassportElementType type;
@@ -25,23 +23,15 @@ final class DeletePassportElement extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "type": type.toJson(),
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "type": type.toJson(), "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [type]: Element type
-  DeletePassportElement copyWith({
-    PassportElementType? type,
-  }) =>
-      DeletePassportElement(
-        type: type ?? this.type,
-      );
+  DeletePassportElement copyWith({PassportElementType? type}) =>
+      DeletePassportElement(type: type ?? this.type);
 
   /// TDLib object type
   static const String defaultObjectId = 'deletePassportElement';

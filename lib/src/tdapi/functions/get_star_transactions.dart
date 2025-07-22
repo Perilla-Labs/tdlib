@@ -4,7 +4,7 @@ part of '../tdapi.dart';
 ///
 /// Returns the list of Telegram Star transactions for the specified owner.
 ///
-/// * [ownerId]: Identifier of the owner of the Telegram Stars; can be the identifier of the current user, identifier of an owned bot,. or identifier of a channel chat with supergroupFullInfo.can_get_star_revenue_statistics == true.
+/// * [ownerId]: Identifier of the owner of the Telegram Stars; can be the identifier of the current user, identifier of an owned bot,. or identifier of a supergroup or a channel chat with supergroupFullInfo.can_get_star_revenue_statistics == true.
 /// * [subscriptionId]: If non-empty, only transactions related to the Star Subscription will be returned.
 /// * [direction]: Direction of the transactions to receive; pass null to get all transactions *(optional)*.
 /// * [offset]: Offset of the first transaction to return as received from the previous request; use empty string to get the first chunk of results.
@@ -16,7 +16,7 @@ final class GetStarTransactions extends TdFunction {
   ///
   /// Returns the list of Telegram Star transactions for the specified owner.
   ///
-  /// * [ownerId]: Identifier of the owner of the Telegram Stars; can be the identifier of the current user, identifier of an owned bot,. or identifier of a channel chat with supergroupFullInfo.can_get_star_revenue_statistics == true.
+  /// * [ownerId]: Identifier of the owner of the Telegram Stars; can be the identifier of the current user, identifier of an owned bot,. or identifier of a supergroup or a channel chat with supergroupFullInfo.can_get_star_revenue_statistics == true.
   /// * [subscriptionId]: If non-empty, only transactions related to the Star Subscription will be returned.
   /// * [direction]: Direction of the transactions to receive; pass null to get all transactions *(optional)*.
   /// * [offset]: Offset of the first transaction to return as received from the previous request; use empty string to get the first chunk of results.
@@ -31,7 +31,7 @@ final class GetStarTransactions extends TdFunction {
     required this.limit,
   });
 
-  /// Identifier of the owner of the Telegram Stars; can be the identifier of the current user, identifier of an owned bot,. or identifier of a channel chat with supergroupFullInfo.can_get_star_revenue_statistics == true
+  /// Identifier of the owner of the Telegram Stars; can be the identifier of the current user, identifier of an owned bot,. or identifier of a supergroup or a channel chat with supergroupFullInfo.can_get_star_revenue_statistics == true
   final MessageSender ownerId;
 
   /// If non-empty, only transactions related to the Star Subscription will be returned
@@ -63,7 +63,7 @@ final class GetStarTransactions extends TdFunction {
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [owner_id]: Identifier of the owner of the Telegram Stars; can be the identifier of the current user, identifier of an owned bot,. or identifier of a channel chat with supergroupFullInfo.can_get_star_revenue_statistics == true
+  /// * [owner_id]: Identifier of the owner of the Telegram Stars; can be the identifier of the current user, identifier of an owned bot,. or identifier of a supergroup or a channel chat with supergroupFullInfo.can_get_star_revenue_statistics == true
   /// * [subscription_id]: If non-empty, only transactions related to the Star Subscription will be returned
   /// * [direction]: Direction of the transactions to receive; pass null to get all transactions
   /// * [offset]: Offset of the first transaction to return as received from the previous request; use empty string to get the first chunk of results
@@ -74,14 +74,13 @@ final class GetStarTransactions extends TdFunction {
     StarTransactionDirection? direction,
     String? offset,
     int? limit,
-  }) =>
-      GetStarTransactions(
-        ownerId: ownerId ?? this.ownerId,
-        subscriptionId: subscriptionId ?? this.subscriptionId,
-        direction: direction ?? this.direction,
-        offset: offset ?? this.offset,
-        limit: limit ?? this.limit,
-      );
+  }) => GetStarTransactions(
+    ownerId: ownerId ?? this.ownerId,
+    subscriptionId: subscriptionId ?? this.subscriptionId,
+    direction: direction ?? this.direction,
+    offset: offset ?? this.offset,
+    limit: limit ?? this.limit,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getStarTransactions';

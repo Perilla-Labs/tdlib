@@ -44,10 +44,7 @@ final class GetFileDownloadedPrefixSize extends TdFunction {
   /// Properties:
   /// * [file_id]: Identifier of the file
   /// * [offset]: Offset from which downloaded prefix size needs to be calculated
-  GetFileDownloadedPrefixSize copyWith({
-    int? fileId,
-    int? offset,
-  }) =>
+  GetFileDownloadedPrefixSize copyWith({int? fileId, int? offset}) =>
       GetFileDownloadedPrefixSize(
         fileId: fileId ?? this.fileId,
         offset: offset ?? this.offset,

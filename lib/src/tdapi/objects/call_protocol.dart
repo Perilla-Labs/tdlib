@@ -44,13 +44,14 @@ final class CallProtocol extends TdObject {
 
   /// Parse from a json
   factory CallProtocol.fromJson(Map<String, dynamic> json) => CallProtocol(
-        udpP2p: json['udp_p2p'],
-        udpReflector: json['udp_reflector'],
-        minLayer: json['min_layer'],
-        maxLayer: json['max_layer'],
-        libraryVersions: List<String>.from(
-            (json['library_versions'] ?? []).map((item) => item).toList()),
-      );
+    udpP2p: json['udp_p2p'],
+    udpReflector: json['udp_reflector'],
+    minLayer: json['min_layer'],
+    maxLayer: json['max_layer'],
+    libraryVersions: List<String>.from(
+      (json['library_versions'] ?? []).map((item) => item).toList(),
+    ),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -79,14 +80,13 @@ final class CallProtocol extends TdObject {
     int? minLayer,
     int? maxLayer,
     List<String>? libraryVersions,
-  }) =>
-      CallProtocol(
-        udpP2p: udpP2p ?? this.udpP2p,
-        udpReflector: udpReflector ?? this.udpReflector,
-        minLayer: minLayer ?? this.minLayer,
-        maxLayer: maxLayer ?? this.maxLayer,
-        libraryVersions: libraryVersions ?? this.libraryVersions,
-      );
+  }) => CallProtocol(
+    udpP2p: udpP2p ?? this.udpP2p,
+    udpReflector: udpReflector ?? this.udpReflector,
+    minLayer: minLayer ?? this.minLayer,
+    maxLayer: maxLayer ?? this.maxLayer,
+    libraryVersions: libraryVersions ?? this.libraryVersions,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'callProtocol';

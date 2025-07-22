@@ -73,13 +73,12 @@ final class MessageInteractionInfo extends TdObject {
     int? forwardCount,
     MessageReplyInfo? replyInfo,
     MessageReactions? reactions,
-  }) =>
-      MessageInteractionInfo(
-        viewCount: viewCount ?? this.viewCount,
-        forwardCount: forwardCount ?? this.forwardCount,
-        replyInfo: replyInfo ?? this.replyInfo,
-        reactions: reactions ?? this.reactions,
-      );
+  }) => MessageInteractionInfo(
+    viewCount: viewCount ?? this.viewCount,
+    forwardCount: forwardCount ?? this.forwardCount,
+    replyInfo: replyInfo ?? this.replyInfo,
+    reactions: reactions ?? this.reactions,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageInteractionInfo';

@@ -15,9 +15,7 @@ final class CanBotSendMessages extends TdFunction {
   /// * [botUserId]: Identifier of the target bot.
   ///
   /// [Ok] is returned on completion.
-  const CanBotSendMessages({
-    required this.botUserId,
-  });
+  const CanBotSendMessages({required this.botUserId});
 
   /// Identifier of the target bot
   final int botUserId;
@@ -36,12 +34,8 @@ final class CanBotSendMessages extends TdFunction {
   ///
   /// Properties:
   /// * [bot_user_id]: Identifier of the target bot
-  CanBotSendMessages copyWith({
-    int? botUserId,
-  }) =>
-      CanBotSendMessages(
-        botUserId: botUserId ?? this.botUserId,
-      );
+  CanBotSendMessages copyWith({int? botUserId}) =>
+      CanBotSendMessages(botUserId: botUserId ?? this.botUserId);
 
   /// TDLib object type
   static const String defaultObjectId = 'canBotSendMessages';

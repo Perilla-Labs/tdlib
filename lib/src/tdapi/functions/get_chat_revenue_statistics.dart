@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **GetChatRevenueStatistics** *(getChatRevenueStatistics)* - TDLib function
 ///
-/// Returns detailed revenue statistics about a chat. Currently, this method can be used only for channels if supergroupFullInfo.can_get_revenue_statistics == true.
+/// Returns detailed revenue statistics about a chat. Currently, this method can be used only. for channels if supergroupFullInfo.can_get_revenue_statistics == true or bots if userFullInfo.bot_info.can_get_revenue_statistics == true.
 ///
 /// * [chatId]: Chat identifier.
 /// * [isDark]: Pass true if a dark theme is used by the application.
@@ -11,16 +11,13 @@ part of '../tdapi.dart';
 final class GetChatRevenueStatistics extends TdFunction {
   /// **GetChatRevenueStatistics** *(getChatRevenueStatistics)* - TDLib function
   ///
-  /// Returns detailed revenue statistics about a chat. Currently, this method can be used only for channels if supergroupFullInfo.can_get_revenue_statistics == true.
+  /// Returns detailed revenue statistics about a chat. Currently, this method can be used only. for channels if supergroupFullInfo.can_get_revenue_statistics == true or bots if userFullInfo.bot_info.can_get_revenue_statistics == true.
   ///
   /// * [chatId]: Chat identifier.
   /// * [isDark]: Pass true if a dark theme is used by the application.
   ///
   /// [ChatRevenueStatistics] is returned on completion.
-  const GetChatRevenueStatistics({
-    required this.chatId,
-    required this.isDark,
-  });
+  const GetChatRevenueStatistics({required this.chatId, required this.isDark});
 
   /// Chat identifier
   final int chatId;
@@ -44,10 +41,7 @@ final class GetChatRevenueStatistics extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [is_dark]: Pass true if a dark theme is used by the application
-  GetChatRevenueStatistics copyWith({
-    int? chatId,
-    bool? isDark,
-  }) =>
+  GetChatRevenueStatistics copyWith({int? chatId, bool? isDark}) =>
       GetChatRevenueStatistics(
         chatId: chatId ?? this.chatId,
         isDark: isDark ?? this.isDark,

@@ -61,12 +61,11 @@ final class ChatInviteLinkSubscriptionInfo extends TdObject {
     StarSubscriptionPricing? pricing,
     bool? canReuse,
     int? formId,
-  }) =>
-      ChatInviteLinkSubscriptionInfo(
-        pricing: pricing ?? this.pricing,
-        canReuse: canReuse ?? this.canReuse,
-        formId: formId ?? this.formId,
-      );
+  }) => ChatInviteLinkSubscriptionInfo(
+    pricing: pricing ?? this.pricing,
+    canReuse: canReuse ?? this.canReuse,
+    formId: formId ?? this.formId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatInviteLinkSubscriptionInfo';

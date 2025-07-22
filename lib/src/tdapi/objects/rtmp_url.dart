@@ -36,20 +36,16 @@ final class RtmpUrl extends TdObject {
 
   /// Parse from a json
   factory RtmpUrl.fromJson(Map<String, dynamic> json) => RtmpUrl(
-        url: json['url'],
-        streamKey: json['stream_key'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    url: json['url'],
+    streamKey: json['stream_key'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "url": url,
-      "stream_key": streamKey,
-    };
+    return {"@type": defaultObjectId, "url": url, "stream_key": streamKey};
   }
 
   /// Copy model with modified properties.
@@ -62,13 +58,12 @@ final class RtmpUrl extends TdObject {
     String? streamKey,
     dynamic extra,
     int? clientId,
-  }) =>
-      RtmpUrl(
-        url: url ?? this.url,
-        streamKey: streamKey ?? this.streamKey,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => RtmpUrl(
+    url: url ?? this.url,
+    streamKey: streamKey ?? this.streamKey,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'rtmpUrl';

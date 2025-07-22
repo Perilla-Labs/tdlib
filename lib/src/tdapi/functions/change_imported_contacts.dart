@@ -15,9 +15,7 @@ final class ChangeImportedContacts extends TdFunction {
   /// * [contacts]: The new list of contacts, contact's vCard are ignored and are not imported.
   ///
   /// [ImportedContacts] is returned on completion.
-  const ChangeImportedContacts({
-    required this.contacts,
-  });
+  const ChangeImportedContacts({required this.contacts});
 
   /// The new list of contacts, contact's vCard are ignored and are not imported
   final List<Contact> contacts;
@@ -36,12 +34,8 @@ final class ChangeImportedContacts extends TdFunction {
   ///
   /// Properties:
   /// * [contacts]: The new list of contacts, contact's vCard are ignored and are not imported
-  ChangeImportedContacts copyWith({
-    List<Contact>? contacts,
-  }) =>
-      ChangeImportedContacts(
-        contacts: contacts ?? this.contacts,
-      );
+  ChangeImportedContacts copyWith({List<Contact>? contacts}) =>
+      ChangeImportedContacts(contacts: contacts ?? this.contacts);
 
   /// TDLib object type
   static const String defaultObjectId = 'changeImportedContacts';

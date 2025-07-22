@@ -15,9 +15,7 @@ final class SetAuthenticationEmailAddress extends TdFunction {
   /// * [emailAddress]: The email address of the user.
   ///
   /// [Ok] is returned on completion.
-  const SetAuthenticationEmailAddress({
-    required this.emailAddress,
-  });
+  const SetAuthenticationEmailAddress({required this.emailAddress});
 
   /// The email address of the user
   final String emailAddress;
@@ -36,9 +34,7 @@ final class SetAuthenticationEmailAddress extends TdFunction {
   ///
   /// Properties:
   /// * [email_address]: The email address of the user
-  SetAuthenticationEmailAddress copyWith({
-    String? emailAddress,
-  }) =>
+  SetAuthenticationEmailAddress copyWith({String? emailAddress}) =>
       SetAuthenticationEmailAddress(
         emailAddress: emailAddress ?? this.emailAddress,
       );

@@ -46,10 +46,7 @@ final class ChatStatisticsInviterInfo extends TdObject {
   /// Properties:
   /// * [user_id]: User identifier
   /// * [added_member_count]: Number of new members invited by the user
-  ChatStatisticsInviterInfo copyWith({
-    int? userId,
-    int? addedMemberCount,
-  }) =>
+  ChatStatisticsInviterInfo copyWith({int? userId, int? addedMemberCount}) =>
       ChatStatisticsInviterInfo(
         userId: userId ?? this.userId,
         addedMemberCount: addedMemberCount ?? this.addedMemberCount,

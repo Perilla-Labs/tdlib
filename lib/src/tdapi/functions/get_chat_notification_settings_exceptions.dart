@@ -47,11 +47,10 @@ final class GetChatNotificationSettingsExceptions extends TdFunction {
   GetChatNotificationSettingsExceptions copyWith({
     NotificationSettingsScope? scope,
     bool? compareSound,
-  }) =>
-      GetChatNotificationSettingsExceptions(
-        scope: scope ?? this.scope,
-        compareSound: compareSound ?? this.compareSound,
-      );
+  }) => GetChatNotificationSettingsExceptions(
+    scope: scope ?? this.scope,
+    compareSound: compareSound ?? this.compareSound,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getChatNotificationSettingsExceptions';

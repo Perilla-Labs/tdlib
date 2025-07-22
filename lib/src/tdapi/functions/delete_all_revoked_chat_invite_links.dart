@@ -44,10 +44,7 @@ final class DeleteAllRevokedChatInviteLinks extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [creator_user_id]: User identifier of a chat administrator, which links will be deleted. Must be an identifier of the current user for non-owner
-  DeleteAllRevokedChatInviteLinks copyWith({
-    int? chatId,
-    int? creatorUserId,
-  }) =>
+  DeleteAllRevokedChatInviteLinks copyWith({int? chatId, int? creatorUserId}) =>
       DeleteAllRevokedChatInviteLinks(
         chatId: chatId ?? this.chatId,
         creatorUserId: creatorUserId ?? this.creatorUserId,

@@ -76,9 +76,7 @@ final class ChatMembersFilterContacts extends ChatMembersFilter {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -113,9 +111,7 @@ final class ChatMembersFilterAdministrators extends ChatMembersFilter {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -151,9 +147,7 @@ final class ChatMembersFilterMembers extends ChatMembersFilter {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -183,26 +177,19 @@ final class ChatMembersFilterMention extends ChatMembersFilter {
   /// Returns users which can be mentioned in the chat.
   ///
   /// * [messageThreadId]: If non-zero, the identifier of the current message thread.
-  const ChatMembersFilterMention({
-    required this.messageThreadId,
-  });
+  const ChatMembersFilterMention({required this.messageThreadId});
 
   /// If non-zero, the identifier of the current message thread
   final int messageThreadId;
 
   /// Parse from a json
   factory ChatMembersFilterMention.fromJson(Map<String, dynamic> json) =>
-      ChatMembersFilterMention(
-        messageThreadId: json['message_thread_id'],
-      );
+      ChatMembersFilterMention(messageThreadId: json['message_thread_id']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "message_thread_id": messageThreadId,
-    };
+    return {"@type": defaultObjectId, "message_thread_id": messageThreadId};
   }
 
   /// Copy model with modified properties.
@@ -210,9 +197,7 @@ final class ChatMembersFilterMention extends ChatMembersFilter {
   /// Properties:
   /// * [message_thread_id]: If non-zero, the identifier of the current message thread
   @override
-  ChatMembersFilterMention copyWith({
-    int? messageThreadId,
-  }) =>
+  ChatMembersFilterMention copyWith({int? messageThreadId}) =>
       ChatMembersFilterMention(
         messageThreadId: messageThreadId ?? this.messageThreadId,
       );
@@ -245,9 +230,7 @@ final class ChatMembersFilterRestricted extends ChatMembersFilter {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -282,9 +265,7 @@ final class ChatMembersFilterBanned extends ChatMembersFilter {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -319,9 +300,7 @@ final class ChatMembersFilterBots extends ChatMembersFilter {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.

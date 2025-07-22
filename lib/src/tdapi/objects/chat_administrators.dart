@@ -32,9 +32,10 @@ final class ChatAdministrators extends TdObject {
   factory ChatAdministrators.fromJson(Map<String, dynamic> json) =>
       ChatAdministrators(
         administrators: List<ChatAdministrator>.from(
-            (json['administrators'] ?? [])
-                .map((item) => ChatAdministrator.fromJson(item))
-                .toList()),
+          (json['administrators'] ?? [])
+              .map((item) => ChatAdministrator.fromJson(item))
+              .toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -56,12 +57,11 @@ final class ChatAdministrators extends TdObject {
     List<ChatAdministrator>? administrators,
     dynamic extra,
     int? clientId,
-  }) =>
-      ChatAdministrators(
-        administrators: administrators ?? this.administrators,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => ChatAdministrators(
+    administrators: administrators ?? this.administrators,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatAdministrators';

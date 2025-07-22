@@ -59,12 +59,11 @@ final class StorageStatisticsByFileType extends TdObject {
     FileType? fileType,
     int? size,
     int? count,
-  }) =>
-      StorageStatisticsByFileType(
-        fileType: fileType ?? this.fileType,
-        size: size ?? this.size,
-        count: count ?? this.count,
-      );
+  }) => StorageStatisticsByFileType(
+    fileType: fileType ?? this.fileType,
+    size: size ?? this.size,
+    count: count ?? this.count,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'storageStatisticsByFileType';

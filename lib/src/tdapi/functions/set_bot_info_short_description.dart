@@ -56,12 +56,11 @@ final class SetBotInfoShortDescription extends TdFunction {
     int? botUserId,
     String? languageCode,
     String? shortDescription,
-  }) =>
-      SetBotInfoShortDescription(
-        botUserId: botUserId ?? this.botUserId,
-        languageCode: languageCode ?? this.languageCode,
-        shortDescription: shortDescription ?? this.shortDescription,
-      );
+  }) => SetBotInfoShortDescription(
+    botUserId: botUserId ?? this.botUserId,
+    languageCode: languageCode ?? this.languageCode,
+    shortDescription: shortDescription ?? this.shortDescription,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setBotInfoShortDescription';

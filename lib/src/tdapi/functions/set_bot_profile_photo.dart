@@ -17,10 +17,7 @@ final class SetBotProfilePhoto extends TdFunction {
   /// * [photo]: Profile photo to set; pass null to delete the chat photo *(optional)*.
   ///
   /// [Ok] is returned on completion.
-  const SetBotProfilePhoto({
-    required this.botUserId,
-    this.photo,
-  });
+  const SetBotProfilePhoto({required this.botUserId, this.photo});
 
   /// Identifier of the target bot
   final int botUserId;
@@ -44,10 +41,7 @@ final class SetBotProfilePhoto extends TdFunction {
   /// Properties:
   /// * [bot_user_id]: Identifier of the target bot
   /// * [photo]: Profile photo to set; pass null to delete the chat photo
-  SetBotProfilePhoto copyWith({
-    int? botUserId,
-    InputChatPhoto? photo,
-  }) =>
+  SetBotProfilePhoto copyWith({int? botUserId, InputChatPhoto? photo}) =>
       SetBotProfilePhoto(
         botUserId: botUserId ?? this.botUserId,
         photo: photo ?? this.photo,

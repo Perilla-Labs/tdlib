@@ -60,15 +60,15 @@ final class SecretChat extends TdObject {
 
   /// Parse from a json
   factory SecretChat.fromJson(Map<String, dynamic> json) => SecretChat(
-        id: json['id'],
-        userId: json['user_id'],
-        state: SecretChatState.fromJson(json['state']),
-        isOutbound: json['is_outbound'],
-        keyHash: json['key_hash'],
-        layer: json['layer'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    id: json['id'],
+    userId: json['user_id'],
+    state: SecretChatState.fromJson(json['state']),
+    isOutbound: json['is_outbound'],
+    keyHash: json['key_hash'],
+    layer: json['layer'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -102,17 +102,16 @@ final class SecretChat extends TdObject {
     int? layer,
     dynamic extra,
     int? clientId,
-  }) =>
-      SecretChat(
-        id: id ?? this.id,
-        userId: userId ?? this.userId,
-        state: state ?? this.state,
-        isOutbound: isOutbound ?? this.isOutbound,
-        keyHash: keyHash ?? this.keyHash,
-        layer: layer ?? this.layer,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => SecretChat(
+    id: id ?? this.id,
+    userId: userId ?? this.userId,
+    state: state ?? this.state,
+    isOutbound: isOutbound ?? this.isOutbound,
+    keyHash: keyHash ?? this.keyHash,
+    layer: layer ?? this.layer,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'secretChat';

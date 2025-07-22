@@ -15,9 +15,7 @@ final class GetCollectibleItemInfo extends TdFunction {
   /// * [type]: Type of the collectible item. The item must be used by a user and must be visible to the current user.
   ///
   /// [CollectibleItemInfo] is returned on completion.
-  const GetCollectibleItemInfo({
-    required this.type,
-  });
+  const GetCollectibleItemInfo({required this.type});
 
   /// Type of the collectible item. The item must be used by a user and must be visible to the current user
   final CollectibleItemType type;
@@ -25,23 +23,15 @@ final class GetCollectibleItemInfo extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "type": type.toJson(),
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "type": type.toJson(), "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [type]: Type of the collectible item. The item must be used by a user and must be visible to the current user
-  GetCollectibleItemInfo copyWith({
-    CollectibleItemType? type,
-  }) =>
-      GetCollectibleItemInfo(
-        type: type ?? this.type,
-      );
+  GetCollectibleItemInfo copyWith({CollectibleItemType? type}) =>
+      GetCollectibleItemInfo(type: type ?? this.type);
 
   /// TDLib object type
   static const String defaultObjectId = 'getCollectibleItemInfo';

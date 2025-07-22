@@ -15,9 +15,7 @@ final class GetNetworkStatistics extends TdFunction {
   /// * [onlyCurrent]: Pass true to get statistics only for the current library launch.
   ///
   /// [NetworkStatistics] is returned on completion.
-  const GetNetworkStatistics({
-    required this.onlyCurrent,
-  });
+  const GetNetworkStatistics({required this.onlyCurrent});
 
   /// Pass true to get statistics only for the current library launch
   final bool onlyCurrent;
@@ -36,12 +34,8 @@ final class GetNetworkStatistics extends TdFunction {
   ///
   /// Properties:
   /// * [only_current]: Pass true to get statistics only for the current library launch
-  GetNetworkStatistics copyWith({
-    bool? onlyCurrent,
-  }) =>
-      GetNetworkStatistics(
-        onlyCurrent: onlyCurrent ?? this.onlyCurrent,
-      );
+  GetNetworkStatistics copyWith({bool? onlyCurrent}) =>
+      GetNetworkStatistics(onlyCurrent: onlyCurrent ?? this.onlyCurrent);
 
   /// TDLib object type
   static const String defaultObjectId = 'getNetworkStatistics';

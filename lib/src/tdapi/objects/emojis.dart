@@ -11,11 +11,7 @@ final class Emojis extends TdObject {
   /// Represents a list of emojis.
   ///
   /// * [emojis]: List of emojis.
-  const Emojis({
-    required this.emojis,
-    this.extra,
-    this.clientId,
-  });
+  const Emojis({required this.emojis, this.extra, this.clientId});
 
   /// List of emojis
   final List<String> emojis;
@@ -30,30 +26,24 @@ final class Emojis extends TdObject {
 
   /// Parse from a json
   factory Emojis.fromJson(Map<String, dynamic> json) => Emojis(
-        emojis: List<String>.from(
-            (json['emojis'] ?? []).map((item) => item).toList()),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    emojis: List<String>.from(
+      (json['emojis'] ?? []).map((item) => item).toList(),
+    ),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "emojis": emojis.map((i) => i).toList(),
-    };
+    return {"@type": defaultObjectId, "emojis": emojis.map((i) => i).toList()};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [emojis]: List of emojis
-  Emojis copyWith({
-    List<String>? emojis,
-    dynamic extra,
-    int? clientId,
-  }) =>
+  Emojis copyWith({List<String>? emojis, dynamic extra, int? clientId}) =>
       Emojis(
         emojis: emojis ?? this.emojis,
         extra: extra ?? this.extra,

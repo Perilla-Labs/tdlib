@@ -15,9 +15,7 @@ final class GetPreferredCountryLanguage extends TdFunction {
   /// * [countryCode]: A two-letter ISO 3166-1 alpha-2 country code.
   ///
   /// [Text] is returned on completion.
-  const GetPreferredCountryLanguage({
-    required this.countryCode,
-  });
+  const GetPreferredCountryLanguage({required this.countryCode});
 
   /// A two-letter ISO 3166-1 alpha-2 country code
   final String countryCode;
@@ -36,12 +34,8 @@ final class GetPreferredCountryLanguage extends TdFunction {
   ///
   /// Properties:
   /// * [country_code]: A two-letter ISO 3166-1 alpha-2 country code
-  GetPreferredCountryLanguage copyWith({
-    String? countryCode,
-  }) =>
-      GetPreferredCountryLanguage(
-        countryCode: countryCode ?? this.countryCode,
-      );
+  GetPreferredCountryLanguage copyWith({String? countryCode}) =>
+      GetPreferredCountryLanguage(countryCode: countryCode ?? this.countryCode);
 
   /// TDLib object type
   static const String defaultObjectId = 'getPreferredCountryLanguage';

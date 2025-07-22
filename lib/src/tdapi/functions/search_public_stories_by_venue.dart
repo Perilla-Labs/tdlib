@@ -65,13 +65,12 @@ final class SearchPublicStoriesByVenue extends TdFunction {
     String? venueId,
     String? offset,
     int? limit,
-  }) =>
-      SearchPublicStoriesByVenue(
-        venueProvider: venueProvider ?? this.venueProvider,
-        venueId: venueId ?? this.venueId,
-        offset: offset ?? this.offset,
-        limit: limit ?? this.limit,
-      );
+  }) => SearchPublicStoriesByVenue(
+    venueProvider: venueProvider ?? this.venueProvider,
+    venueId: venueId ?? this.venueId,
+    offset: offset ?? this.offset,
+    limit: limit ?? this.limit,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'searchPublicStoriesByVenue';

@@ -15,9 +15,7 @@ final class GetSuggestedStickerSetName extends TdFunction {
   /// * [title]: Sticker set title; 1-64 characters.
   ///
   /// [Text] is returned on completion.
-  const GetSuggestedStickerSetName({
-    required this.title,
-  });
+  const GetSuggestedStickerSetName({required this.title});
 
   /// Sticker set title; 1-64 characters
   final String title;
@@ -25,23 +23,15 @@ final class GetSuggestedStickerSetName extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "title": title,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "title": title, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [title]: Sticker set title; 1-64 characters
-  GetSuggestedStickerSetName copyWith({
-    String? title,
-  }) =>
-      GetSuggestedStickerSetName(
-        title: title ?? this.title,
-      );
+  GetSuggestedStickerSetName copyWith({String? title}) =>
+      GetSuggestedStickerSetName(title: title ?? this.title);
 
   /// TDLib object type
   static const String defaultObjectId = 'getSuggestedStickerSetName';

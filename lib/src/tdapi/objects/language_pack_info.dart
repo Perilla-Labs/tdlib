@@ -173,25 +173,23 @@ final class LanguagePackInfo extends TdObject {
     String? translationUrl,
     dynamic extra,
     int? clientId,
-  }) =>
-      LanguagePackInfo(
-        id: id ?? this.id,
-        baseLanguagePackId: baseLanguagePackId ?? this.baseLanguagePackId,
-        name: name ?? this.name,
-        nativeName: nativeName ?? this.nativeName,
-        pluralCode: pluralCode ?? this.pluralCode,
-        isOfficial: isOfficial ?? this.isOfficial,
-        isRtl: isRtl ?? this.isRtl,
-        isBeta: isBeta ?? this.isBeta,
-        isInstalled: isInstalled ?? this.isInstalled,
-        totalStringCount: totalStringCount ?? this.totalStringCount,
-        translatedStringCount:
-            translatedStringCount ?? this.translatedStringCount,
-        localStringCount: localStringCount ?? this.localStringCount,
-        translationUrl: translationUrl ?? this.translationUrl,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => LanguagePackInfo(
+    id: id ?? this.id,
+    baseLanguagePackId: baseLanguagePackId ?? this.baseLanguagePackId,
+    name: name ?? this.name,
+    nativeName: nativeName ?? this.nativeName,
+    pluralCode: pluralCode ?? this.pluralCode,
+    isOfficial: isOfficial ?? this.isOfficial,
+    isRtl: isRtl ?? this.isRtl,
+    isBeta: isBeta ?? this.isBeta,
+    isInstalled: isInstalled ?? this.isInstalled,
+    totalStringCount: totalStringCount ?? this.totalStringCount,
+    translatedStringCount: translatedStringCount ?? this.translatedStringCount,
+    localStringCount: localStringCount ?? this.localStringCount,
+    translationUrl: translationUrl ?? this.translationUrl,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'languagePackInfo';

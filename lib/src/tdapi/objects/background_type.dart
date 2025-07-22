@@ -98,10 +98,7 @@ final class BackgroundTypeWallpaper extends BackgroundType {
   /// * [is_blurred]: True, if the wallpaper must be downscaled to fit in 450x450 square and then box-blurred with radius 12
   /// * [is_moving]: True, if the background needs to be slightly moved when device is tilted
   @override
-  BackgroundTypeWallpaper copyWith({
-    bool? isBlurred,
-    bool? isMoving,
-  }) =>
+  BackgroundTypeWallpaper copyWith({bool? isBlurred, bool? isMoving}) =>
       BackgroundTypeWallpaper(
         isBlurred: isBlurred ?? this.isBlurred,
         isMoving: isMoving ?? this.isMoving,
@@ -189,13 +186,12 @@ final class BackgroundTypePattern extends BackgroundType {
     int? intensity,
     bool? isInverted,
     bool? isMoving,
-  }) =>
-      BackgroundTypePattern(
-        fill: fill ?? this.fill,
-        intensity: intensity ?? this.intensity,
-        isInverted: isInverted ?? this.isInverted,
-        isMoving: isMoving ?? this.isMoving,
-      );
+  }) => BackgroundTypePattern(
+    fill: fill ?? this.fill,
+    intensity: intensity ?? this.intensity,
+    isInverted: isInverted ?? this.isInverted,
+    isMoving: isMoving ?? this.isMoving,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'backgroundTypePattern';
@@ -220,26 +216,19 @@ final class BackgroundTypeFill extends BackgroundType {
   /// A filled background.
   ///
   /// * [fill]: The background fill.
-  const BackgroundTypeFill({
-    required this.fill,
-  });
+  const BackgroundTypeFill({required this.fill});
 
   /// The background fill
   final BackgroundFill fill;
 
   /// Parse from a json
   factory BackgroundTypeFill.fromJson(Map<String, dynamic> json) =>
-      BackgroundTypeFill(
-        fill: BackgroundFill.fromJson(json['fill']),
-      );
+      BackgroundTypeFill(fill: BackgroundFill.fromJson(json['fill']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "fill": fill.toJson(),
-    };
+    return {"@type": defaultObjectId, "fill": fill.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -247,12 +236,8 @@ final class BackgroundTypeFill extends BackgroundType {
   /// Properties:
   /// * [fill]: The background fill
   @override
-  BackgroundTypeFill copyWith({
-    BackgroundFill? fill,
-  }) =>
-      BackgroundTypeFill(
-        fill: fill ?? this.fill,
-      );
+  BackgroundTypeFill copyWith({BackgroundFill? fill}) =>
+      BackgroundTypeFill(fill: fill ?? this.fill);
 
   /// TDLib object type
   static const String defaultObjectId = 'backgroundTypeFill';
@@ -277,26 +262,19 @@ final class BackgroundTypeChatTheme extends BackgroundType {
   /// A background from a chat theme; can be used only as a chat background in channels.
   ///
   /// * [themeName]: Name of the chat theme.
-  const BackgroundTypeChatTheme({
-    required this.themeName,
-  });
+  const BackgroundTypeChatTheme({required this.themeName});
 
   /// Name of the chat theme
   final String themeName;
 
   /// Parse from a json
   factory BackgroundTypeChatTheme.fromJson(Map<String, dynamic> json) =>
-      BackgroundTypeChatTheme(
-        themeName: json['theme_name'],
-      );
+      BackgroundTypeChatTheme(themeName: json['theme_name']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "theme_name": themeName,
-    };
+    return {"@type": defaultObjectId, "theme_name": themeName};
   }
 
   /// Copy model with modified properties.
@@ -304,12 +282,8 @@ final class BackgroundTypeChatTheme extends BackgroundType {
   /// Properties:
   /// * [theme_name]: Name of the chat theme
   @override
-  BackgroundTypeChatTheme copyWith({
-    String? themeName,
-  }) =>
-      BackgroundTypeChatTheme(
-        themeName: themeName ?? this.themeName,
-      );
+  BackgroundTypeChatTheme copyWith({String? themeName}) =>
+      BackgroundTypeChatTheme(themeName: themeName ?? this.themeName);
 
   /// TDLib object type
   static const String defaultObjectId = 'backgroundTypeChatTheme';

@@ -54,14 +54,14 @@ final class File extends TdObject {
 
   /// Parse from a json
   factory File.fromJson(Map<String, dynamic> json) => File(
-        id: json['id'],
-        size: json['size'],
-        expectedSize: json['expected_size'],
-        local: LocalFile.fromJson(json['local']),
-        remote: RemoteFile.fromJson(json['remote']),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    id: json['id'],
+    size: json['size'],
+    expectedSize: json['expected_size'],
+    local: LocalFile.fromJson(json['local']),
+    remote: RemoteFile.fromJson(json['remote']),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -92,16 +92,15 @@ final class File extends TdObject {
     RemoteFile? remote,
     dynamic extra,
     int? clientId,
-  }) =>
-      File(
-        id: id ?? this.id,
-        size: size ?? this.size,
-        expectedSize: expectedSize ?? this.expectedSize,
-        local: local ?? this.local,
-        remote: remote ?? this.remote,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => File(
+    id: id ?? this.id,
+    size: size ?? this.size,
+    expectedSize: expectedSize ?? this.expectedSize,
+    local: local ?? this.local,
+    remote: remote ?? this.remote,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'file';

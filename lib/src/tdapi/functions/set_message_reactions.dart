@@ -6,7 +6,7 @@ part of '../tdapi.dart';
 ///
 /// * [chatId]: Identifier of the chat to which the message belongs.
 /// * [messageId]: Identifier of the message.
-/// * [reactionTypes]: Types of the reaction to set.
+/// * [reactionTypes]: Types of the reaction to set; pass an empty list to remove the reactions.
 /// * [isBig]: Pass true if the reactions are added with a big animation.
 ///
 /// [Ok] is returned on completion.
@@ -17,7 +17,7 @@ final class SetMessageReactions extends TdFunction {
   ///
   /// * [chatId]: Identifier of the chat to which the message belongs.
   /// * [messageId]: Identifier of the message.
-  /// * [reactionTypes]: Types of the reaction to set.
+  /// * [reactionTypes]: Types of the reaction to set; pass an empty list to remove the reactions.
   /// * [isBig]: Pass true if the reactions are added with a big animation.
   ///
   /// [Ok] is returned on completion.
@@ -34,7 +34,7 @@ final class SetMessageReactions extends TdFunction {
   /// Identifier of the message
   final int messageId;
 
-  /// Types of the reaction to set
+  /// Types of the reaction to set; pass an empty list to remove the reactions
   final List<ReactionType> reactionTypes;
 
   /// Pass true if the reactions are added with a big animation
@@ -58,20 +58,19 @@ final class SetMessageReactions extends TdFunction {
   /// Properties:
   /// * [chat_id]: Identifier of the chat to which the message belongs
   /// * [message_id]: Identifier of the message
-  /// * [reaction_types]: Types of the reaction to set
+  /// * [reaction_types]: Types of the reaction to set; pass an empty list to remove the reactions
   /// * [is_big]: Pass true if the reactions are added with a big animation
   SetMessageReactions copyWith({
     int? chatId,
     int? messageId,
     List<ReactionType>? reactionTypes,
     bool? isBig,
-  }) =>
-      SetMessageReactions(
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        reactionTypes: reactionTypes ?? this.reactionTypes,
-        isBig: isBig ?? this.isBig,
-      );
+  }) => SetMessageReactions(
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    reactionTypes: reactionTypes ?? this.reactionTypes,
+    isBig: isBig ?? this.isBig,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setMessageReactions';

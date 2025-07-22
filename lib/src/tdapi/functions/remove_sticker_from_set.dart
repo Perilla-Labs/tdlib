@@ -15,9 +15,7 @@ final class RemoveStickerFromSet extends TdFunction {
   /// * [sticker]: Sticker to remove from the set.
   ///
   /// [Ok] is returned on completion.
-  const RemoveStickerFromSet({
-    required this.sticker,
-  });
+  const RemoveStickerFromSet({required this.sticker});
 
   /// Sticker to remove from the set
   final InputFile sticker;
@@ -36,12 +34,8 @@ final class RemoveStickerFromSet extends TdFunction {
   ///
   /// Properties:
   /// * [sticker]: Sticker to remove from the set
-  RemoveStickerFromSet copyWith({
-    InputFile? sticker,
-  }) =>
-      RemoveStickerFromSet(
-        sticker: sticker ?? this.sticker,
-      );
+  RemoveStickerFromSet copyWith({InputFile? sticker}) =>
+      RemoveStickerFromSet(sticker: sticker ?? this.sticker);
 
   /// TDLib object type
   static const String defaultObjectId = 'removeStickerFromSet';

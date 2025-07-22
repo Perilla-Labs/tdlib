@@ -56,21 +56,20 @@ final class VideoNote extends TdObject {
 
   /// Parse from a json
   factory VideoNote.fromJson(Map<String, dynamic> json) => VideoNote(
-        duration: json['duration'],
-        waveform: json['waveform'],
-        length: json['length'],
-        minithumbnail: json['minithumbnail'] == null
-            ? null
-            : Minithumbnail.fromJson(json['minithumbnail']),
-        thumbnail: json['thumbnail'] == null
-            ? null
-            : Thumbnail.fromJson(json['thumbnail']),
-        speechRecognitionResult: json['speech_recognition_result'] == null
-            ? null
-            : SpeechRecognitionResult.fromJson(
-                json['speech_recognition_result']),
-        video: File.fromJson(json['video']),
-      );
+    duration: json['duration'],
+    waveform: json['waveform'],
+    length: json['length'],
+    minithumbnail: json['minithumbnail'] == null
+        ? null
+        : Minithumbnail.fromJson(json['minithumbnail']),
+    thumbnail: json['thumbnail'] == null
+        ? null
+        : Thumbnail.fromJson(json['thumbnail']),
+    speechRecognitionResult: json['speech_recognition_result'] == null
+        ? null
+        : SpeechRecognitionResult.fromJson(json['speech_recognition_result']),
+    video: File.fromJson(json['video']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -105,17 +104,16 @@ final class VideoNote extends TdObject {
     Thumbnail? thumbnail,
     SpeechRecognitionResult? speechRecognitionResult,
     File? video,
-  }) =>
-      VideoNote(
-        duration: duration ?? this.duration,
-        waveform: waveform ?? this.waveform,
-        length: length ?? this.length,
-        minithumbnail: minithumbnail ?? this.minithumbnail,
-        thumbnail: thumbnail ?? this.thumbnail,
-        speechRecognitionResult:
-            speechRecognitionResult ?? this.speechRecognitionResult,
-        video: video ?? this.video,
-      );
+  }) => VideoNote(
+    duration: duration ?? this.duration,
+    waveform: waveform ?? this.waveform,
+    length: length ?? this.length,
+    minithumbnail: minithumbnail ?? this.minithumbnail,
+    thumbnail: thumbnail ?? this.thumbnail,
+    speechRecognitionResult:
+        speechRecognitionResult ?? this.speechRecognitionResult,
+    video: video ?? this.video,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'videoNote';

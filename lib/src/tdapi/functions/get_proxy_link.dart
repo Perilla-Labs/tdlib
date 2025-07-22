@@ -15,9 +15,7 @@ final class GetProxyLink extends TdFunction {
   /// * [proxyId]: Proxy identifier.
   ///
   /// [HttpUrl] is returned on completion.
-  const GetProxyLink({
-    required this.proxyId,
-  });
+  const GetProxyLink({required this.proxyId});
 
   /// Proxy identifier
   final int proxyId;
@@ -25,23 +23,15 @@ final class GetProxyLink extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "proxy_id": proxyId,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "proxy_id": proxyId, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [proxy_id]: Proxy identifier
-  GetProxyLink copyWith({
-    int? proxyId,
-  }) =>
-      GetProxyLink(
-        proxyId: proxyId ?? this.proxyId,
-      );
+  GetProxyLink copyWith({int? proxyId}) =>
+      GetProxyLink(proxyId: proxyId ?? this.proxyId);
 
   /// TDLib object type
   static const String defaultObjectId = 'getProxyLink';

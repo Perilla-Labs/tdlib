@@ -49,8 +49,9 @@ final class ChatRevenueStatistics extends TdObject {
   /// Parse from a json
   factory ChatRevenueStatistics.fromJson(Map<String, dynamic> json) =>
       ChatRevenueStatistics(
-        revenueByHourGraph:
-            StatisticalGraph.fromJson(json['revenue_by_hour_graph']),
+        revenueByHourGraph: StatisticalGraph.fromJson(
+          json['revenue_by_hour_graph'],
+        ),
         revenueGraph: StatisticalGraph.fromJson(json['revenue_graph']),
         revenueAmount: ChatRevenueAmount.fromJson(json['revenue_amount']),
         usdRate: json['usd_rate'],
@@ -84,15 +85,14 @@ final class ChatRevenueStatistics extends TdObject {
     double? usdRate,
     dynamic extra,
     int? clientId,
-  }) =>
-      ChatRevenueStatistics(
-        revenueByHourGraph: revenueByHourGraph ?? this.revenueByHourGraph,
-        revenueGraph: revenueGraph ?? this.revenueGraph,
-        revenueAmount: revenueAmount ?? this.revenueAmount,
-        usdRate: usdRate ?? this.usdRate,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => ChatRevenueStatistics(
+    revenueByHourGraph: revenueByHourGraph ?? this.revenueByHourGraph,
+    revenueGraph: revenueGraph ?? this.revenueGraph,
+    revenueAmount: revenueAmount ?? this.revenueAmount,
+    usdRate: usdRate ?? this.usdRate,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatRevenueStatistics';

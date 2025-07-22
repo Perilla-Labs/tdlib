@@ -15,9 +15,7 @@ final class ReorderActiveUsernames extends TdFunction {
   /// * [usernames]: The new order of active usernames. All currently active usernames must be specified.
   ///
   /// [Ok] is returned on completion.
-  const ReorderActiveUsernames({
-    required this.usernames,
-  });
+  const ReorderActiveUsernames({required this.usernames});
 
   /// The new order of active usernames. All currently active usernames must be specified
   final List<String> usernames;
@@ -36,12 +34,8 @@ final class ReorderActiveUsernames extends TdFunction {
   ///
   /// Properties:
   /// * [usernames]: The new order of active usernames. All currently active usernames must be specified
-  ReorderActiveUsernames copyWith({
-    List<String>? usernames,
-  }) =>
-      ReorderActiveUsernames(
-        usernames: usernames ?? this.usernames,
-      );
+  ReorderActiveUsernames copyWith({List<String>? usernames}) =>
+      ReorderActiveUsernames(usernames: usernames ?? this.usernames);
 
   /// TDLib object type
   static const String defaultObjectId = 'reorderActiveUsernames';

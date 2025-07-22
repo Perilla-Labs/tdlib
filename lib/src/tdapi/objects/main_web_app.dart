@@ -5,17 +5,17 @@ part of '../tdapi.dart';
 /// Contains information about the main Web App of a bot.
 ///
 /// * [url]: URL of the Web App to open.
-/// * [isCompact]: True, if the Web App must always be opened in the compact mode instead of the full-size mode.
+/// * [mode]: The mode in which the Web App must be opened.
 final class MainWebApp extends TdObject {
   /// **MainWebApp** *(mainWebApp)* - basic class
   ///
   /// Contains information about the main Web App of a bot.
   ///
   /// * [url]: URL of the Web App to open.
-  /// * [isCompact]: True, if the Web App must always be opened in the compact mode instead of the full-size mode.
+  /// * [mode]: The mode in which the Web App must be opened.
   const MainWebApp({
     required this.url,
-    required this.isCompact,
+    required this.mode,
     this.extra,
     this.clientId,
   });
@@ -23,8 +23,8 @@ final class MainWebApp extends TdObject {
   /// URL of the Web App to open
   final String url;
 
-  /// True, if the Web App must always be opened in the compact mode instead of the full-size mode
-  final bool isCompact;
+  /// The mode in which the Web App must be opened
+  final WebAppOpenMode mode;
 
   /// [extra] callback sign
   @override
@@ -36,39 +36,34 @@ final class MainWebApp extends TdObject {
 
   /// Parse from a json
   factory MainWebApp.fromJson(Map<String, dynamic> json) => MainWebApp(
-        url: json['url'],
-        isCompact: json['is_compact'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    url: json['url'],
+    mode: WebAppOpenMode.fromJson(json['mode']),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "url": url,
-      "is_compact": isCompact,
-    };
+    return {"@type": defaultObjectId, "url": url, "mode": mode.toJson()};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [url]: URL of the Web App to open
-  /// * [is_compact]: True, if the Web App must always be opened in the compact mode instead of the full-size mode
+  /// * [mode]: The mode in which the Web App must be opened
   MainWebApp copyWith({
     String? url,
-    bool? isCompact,
+    WebAppOpenMode? mode,
     dynamic extra,
     int? clientId,
-  }) =>
-      MainWebApp(
-        url: url ?? this.url,
-        isCompact: isCompact ?? this.isCompact,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => MainWebApp(
+    url: url ?? this.url,
+    mode: mode ?? this.mode,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'mainWebApp';

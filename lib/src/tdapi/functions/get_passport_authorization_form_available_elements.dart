@@ -47,11 +47,10 @@ final class GetPassportAuthorizationFormAvailableElements extends TdFunction {
   GetPassportAuthorizationFormAvailableElements copyWith({
     int? authorizationFormId,
     String? password,
-  }) =>
-      GetPassportAuthorizationFormAvailableElements(
-        authorizationFormId: authorizationFormId ?? this.authorizationFormId,
-        password: password ?? this.password,
-      );
+  }) => GetPassportAuthorizationFormAvailableElements(
+    authorizationFormId: authorizationFormId ?? this.authorizationFormId,
+    password: password ?? this.password,
+  );
 
   /// TDLib object type
   static const String defaultObjectId =

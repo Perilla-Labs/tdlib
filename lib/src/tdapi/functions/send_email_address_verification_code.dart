@@ -15,9 +15,7 @@ final class SendEmailAddressVerificationCode extends TdFunction {
   /// * [emailAddress]: Email address.
   ///
   /// [EmailAddressAuthenticationCodeInfo] is returned on completion.
-  const SendEmailAddressVerificationCode({
-    required this.emailAddress,
-  });
+  const SendEmailAddressVerificationCode({required this.emailAddress});
 
   /// Email address
   final String emailAddress;
@@ -36,9 +34,7 @@ final class SendEmailAddressVerificationCode extends TdFunction {
   ///
   /// Properties:
   /// * [email_address]: Email address
-  SendEmailAddressVerificationCode copyWith({
-    String? emailAddress,
-  }) =>
+  SendEmailAddressVerificationCode copyWith({String? emailAddress}) =>
       SendEmailAddressVerificationCode(
         emailAddress: emailAddress ?? this.emailAddress,
       );

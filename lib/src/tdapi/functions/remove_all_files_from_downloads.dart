@@ -56,12 +56,11 @@ final class RemoveAllFilesFromDownloads extends TdFunction {
     bool? onlyActive,
     bool? onlyCompleted,
     bool? deleteFromCache,
-  }) =>
-      RemoveAllFilesFromDownloads(
-        onlyActive: onlyActive ?? this.onlyActive,
-        onlyCompleted: onlyCompleted ?? this.onlyCompleted,
-        deleteFromCache: deleteFromCache ?? this.deleteFromCache,
-      );
+  }) => RemoveAllFilesFromDownloads(
+    onlyActive: onlyActive ?? this.onlyActive,
+    onlyCompleted: onlyCompleted ?? this.onlyCompleted,
+    deleteFromCache: deleteFromCache ?? this.deleteFromCache,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'removeAllFilesFromDownloads';

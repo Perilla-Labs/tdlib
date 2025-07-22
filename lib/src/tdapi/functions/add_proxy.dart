@@ -65,13 +65,12 @@ final class AddProxy extends TdFunction {
     int? port,
     bool? enable,
     ProxyType? type,
-  }) =>
-      AddProxy(
-        server: server ?? this.server,
-        port: port ?? this.port,
-        enable: enable ?? this.enable,
-        type: type ?? this.type,
-      );
+  }) => AddProxy(
+    server: server ?? this.server,
+    port: port ?? this.port,
+    enable: enable ?? this.enable,
+    type: type ?? this.type,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'addProxy';

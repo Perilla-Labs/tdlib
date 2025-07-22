@@ -15,9 +15,7 @@ final class LeaveGroupCall extends TdFunction {
   /// * [groupCallId]: Group call identifier.
   ///
   /// [Ok] is returned on completion.
-  const LeaveGroupCall({
-    required this.groupCallId,
-  });
+  const LeaveGroupCall({required this.groupCallId});
 
   /// Group call identifier
   final int groupCallId;
@@ -36,12 +34,8 @@ final class LeaveGroupCall extends TdFunction {
   ///
   /// Properties:
   /// * [group_call_id]: Group call identifier
-  LeaveGroupCall copyWith({
-    int? groupCallId,
-  }) =>
-      LeaveGroupCall(
-        groupCallId: groupCallId ?? this.groupCallId,
-      );
+  LeaveGroupCall copyWith({int? groupCallId}) =>
+      LeaveGroupCall(groupCallId: groupCallId ?? this.groupCallId);
 
   /// TDLib object type
   static const String defaultObjectId = 'leaveGroupCall';

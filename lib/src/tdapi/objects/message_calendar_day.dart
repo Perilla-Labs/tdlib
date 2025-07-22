@@ -13,10 +13,7 @@ final class MessageCalendarDay extends TdObject {
   ///
   /// * [totalCount]: Total number of found messages sent on the day.
   /// * [message]: First message sent on the day.
-  const MessageCalendarDay({
-    required this.totalCount,
-    required this.message,
-  });
+  const MessageCalendarDay({required this.totalCount, required this.message});
 
   /// Total number of found messages sent on the day
   final int totalCount;
@@ -46,10 +43,7 @@ final class MessageCalendarDay extends TdObject {
   /// Properties:
   /// * [total_count]: Total number of found messages sent on the day
   /// * [message]: First message sent on the day
-  MessageCalendarDay copyWith({
-    int? totalCount,
-    Message? message,
-  }) =>
+  MessageCalendarDay copyWith({int? totalCount, Message? message}) =>
       MessageCalendarDay(
         totalCount: totalCount ?? this.totalCount,
         message: message ?? this.message,

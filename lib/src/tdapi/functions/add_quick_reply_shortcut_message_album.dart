@@ -41,8 +41,9 @@ final class AddQuickReplyShortcutMessageAlbum extends TdFunction {
       "@type": defaultObjectId,
       "shortcut_name": shortcutName,
       "reply_to_message_id": replyToMessageId,
-      "input_message_contents":
-          inputMessageContents.map((i) => i.toJson()).toList(),
+      "input_message_contents": inputMessageContents
+          .map((i) => i.toJson())
+          .toList(),
       "@extra": extra,
     };
   }
@@ -57,12 +58,11 @@ final class AddQuickReplyShortcutMessageAlbum extends TdFunction {
     String? shortcutName,
     int? replyToMessageId,
     List<InputMessageContent>? inputMessageContents,
-  }) =>
-      AddQuickReplyShortcutMessageAlbum(
-        shortcutName: shortcutName ?? this.shortcutName,
-        replyToMessageId: replyToMessageId ?? this.replyToMessageId,
-        inputMessageContents: inputMessageContents ?? this.inputMessageContents,
-      );
+  }) => AddQuickReplyShortcutMessageAlbum(
+    shortcutName: shortcutName ?? this.shortcutName,
+    replyToMessageId: replyToMessageId ?? this.replyToMessageId,
+    inputMessageContents: inputMessageContents ?? this.inputMessageContents,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'addQuickReplyShortcutMessageAlbum';

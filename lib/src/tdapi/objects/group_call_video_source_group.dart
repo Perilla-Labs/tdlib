@@ -29,7 +29,8 @@ final class GroupCallVideoSourceGroup extends TdObject {
       GroupCallVideoSourceGroup(
         semantics: json['semantics'],
         sourceIds: List<int>.from(
-            (json['source_ids'] ?? []).map((item) => item).toList()),
+          (json['source_ids'] ?? []).map((item) => item).toList(),
+        ),
       );
 
   /// Convert model to TDLib JSON format
@@ -50,11 +51,10 @@ final class GroupCallVideoSourceGroup extends TdObject {
   GroupCallVideoSourceGroup copyWith({
     String? semantics,
     List<int>? sourceIds,
-  }) =>
-      GroupCallVideoSourceGroup(
-        semantics: semantics ?? this.semantics,
-        sourceIds: sourceIds ?? this.sourceIds,
-      );
+  }) => GroupCallVideoSourceGroup(
+    semantics: semantics ?? this.semantics,
+    sourceIds: sourceIds ?? this.sourceIds,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'groupCallVideoSourceGroup';

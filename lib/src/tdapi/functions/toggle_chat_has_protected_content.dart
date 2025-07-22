@@ -47,11 +47,10 @@ final class ToggleChatHasProtectedContent extends TdFunction {
   ToggleChatHasProtectedContent copyWith({
     int? chatId,
     bool? hasProtectedContent,
-  }) =>
-      ToggleChatHasProtectedContent(
-        chatId: chatId ?? this.chatId,
-        hasProtectedContent: hasProtectedContent ?? this.hasProtectedContent,
-      );
+  }) => ToggleChatHasProtectedContent(
+    chatId: chatId ?? this.chatId,
+    hasProtectedContent: hasProtectedContent ?? this.hasProtectedContent,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'toggleChatHasProtectedContent';

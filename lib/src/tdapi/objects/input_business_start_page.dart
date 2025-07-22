@@ -61,12 +61,11 @@ final class InputBusinessStartPage extends TdObject {
     String? title,
     String? message,
     InputFile? sticker,
-  }) =>
-      InputBusinessStartPage(
-        title: title ?? this.title,
-        message: message ?? this.message,
-        sticker: sticker ?? this.sticker,
-      );
+  }) => InputBusinessStartPage(
+    title: title ?? this.title,
+    message: message ?? this.message,
+    sticker: sticker ?? this.sticker,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputBusinessStartPage';

@@ -11,11 +11,7 @@ final class Count extends TdObject {
   /// Contains a counter.
   ///
   /// * [count]: Count.
-  const Count({
-    required this.count,
-    this.extra,
-    this.clientId,
-  });
+  const Count({required this.count, this.extra, this.clientId});
 
   /// Count
   final int count;
@@ -30,34 +26,26 @@ final class Count extends TdObject {
 
   /// Parse from a json
   factory Count.fromJson(Map<String, dynamic> json) => Count(
-        count: json['count'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    count: json['count'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "count": count,
-    };
+    return {"@type": defaultObjectId, "count": count};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [count]: Count
-  Count copyWith({
-    int? count,
-    dynamic extra,
-    int? clientId,
-  }) =>
-      Count(
-        count: count ?? this.count,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  Count copyWith({int? count, dynamic extra, int? clientId}) => Count(
+    count: count ?? this.count,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'count';

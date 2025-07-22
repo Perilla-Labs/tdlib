@@ -43,16 +43,15 @@ final class ProfileAccentColor extends TdObject {
   final int minChannelChatBoostLevel;
 
   /// Parse from a json
-  factory ProfileAccentColor.fromJson(Map<String, dynamic> json) =>
-      ProfileAccentColor(
-        id: json['id'],
-        lightThemeColors:
-            ProfileAccentColors.fromJson(json['light_theme_colors']),
-        darkThemeColors:
-            ProfileAccentColors.fromJson(json['dark_theme_colors']),
-        minSupergroupChatBoostLevel: json['min_supergroup_chat_boost_level'],
-        minChannelChatBoostLevel: json['min_channel_chat_boost_level'],
-      );
+  factory ProfileAccentColor.fromJson(
+    Map<String, dynamic> json,
+  ) => ProfileAccentColor(
+    id: json['id'],
+    lightThemeColors: ProfileAccentColors.fromJson(json['light_theme_colors']),
+    darkThemeColors: ProfileAccentColors.fromJson(json['dark_theme_colors']),
+    minSupergroupChatBoostLevel: json['min_supergroup_chat_boost_level'],
+    minChannelChatBoostLevel: json['min_channel_chat_boost_level'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -81,16 +80,15 @@ final class ProfileAccentColor extends TdObject {
     ProfileAccentColors? darkThemeColors,
     int? minSupergroupChatBoostLevel,
     int? minChannelChatBoostLevel,
-  }) =>
-      ProfileAccentColor(
-        id: id ?? this.id,
-        lightThemeColors: lightThemeColors ?? this.lightThemeColors,
-        darkThemeColors: darkThemeColors ?? this.darkThemeColors,
-        minSupergroupChatBoostLevel:
-            minSupergroupChatBoostLevel ?? this.minSupergroupChatBoostLevel,
-        minChannelChatBoostLevel:
-            minChannelChatBoostLevel ?? this.minChannelChatBoostLevel,
-      );
+  }) => ProfileAccentColor(
+    id: id ?? this.id,
+    lightThemeColors: lightThemeColors ?? this.lightThemeColors,
+    darkThemeColors: darkThemeColors ?? this.darkThemeColors,
+    minSupergroupChatBoostLevel:
+        minSupergroupChatBoostLevel ?? this.minSupergroupChatBoostLevel,
+    minChannelChatBoostLevel:
+        minChannelChatBoostLevel ?? this.minChannelChatBoostLevel,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'profileAccentColor';

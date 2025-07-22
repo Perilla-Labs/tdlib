@@ -15,9 +15,7 @@ final class SetInactiveSessionTtl extends TdFunction {
   /// * [inactiveSessionTtlDays]: New number of days of inactivity before sessions will be automatically terminated; 1-366 days.
   ///
   /// [Ok] is returned on completion.
-  const SetInactiveSessionTtl({
-    required this.inactiveSessionTtlDays,
-  });
+  const SetInactiveSessionTtl({required this.inactiveSessionTtlDays});
 
   /// New number of days of inactivity before sessions will be automatically terminated; 1-366 days
   final int inactiveSessionTtlDays;
@@ -36,9 +34,7 @@ final class SetInactiveSessionTtl extends TdFunction {
   ///
   /// Properties:
   /// * [inactive_session_ttl_days]: New number of days of inactivity before sessions will be automatically terminated; 1-366 days
-  SetInactiveSessionTtl copyWith({
-    int? inactiveSessionTtlDays,
-  }) =>
+  SetInactiveSessionTtl copyWith({int? inactiveSessionTtlDays}) =>
       SetInactiveSessionTtl(
         inactiveSessionTtlDays:
             inactiveSessionTtlDays ?? this.inactiveSessionTtlDays,

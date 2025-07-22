@@ -15,9 +15,7 @@ final class SearchPublicChat extends TdFunction {
   /// * [username]: Username to be resolved.
   ///
   /// [Chat] is returned on completion.
-  const SearchPublicChat({
-    required this.username,
-  });
+  const SearchPublicChat({required this.username});
 
   /// Username to be resolved
   final String username;
@@ -25,23 +23,15 @@ final class SearchPublicChat extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "username": username,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "username": username, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [username]: Username to be resolved
-  SearchPublicChat copyWith({
-    String? username,
-  }) =>
-      SearchPublicChat(
-        username: username ?? this.username,
-      );
+  SearchPublicChat copyWith({String? username}) =>
+      SearchPublicChat(username: username ?? this.username);
 
   /// TDLib object type
   static const String defaultObjectId = 'searchPublicChat';

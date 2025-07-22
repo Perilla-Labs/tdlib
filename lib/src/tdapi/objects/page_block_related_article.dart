@@ -89,15 +89,14 @@ final class PageBlockRelatedArticle extends TdObject {
     Photo? photo,
     String? author,
     int? publishDate,
-  }) =>
-      PageBlockRelatedArticle(
-        url: url ?? this.url,
-        title: title ?? this.title,
-        description: description ?? this.description,
-        photo: photo ?? this.photo,
-        author: author ?? this.author,
-        publishDate: publishDate ?? this.publishDate,
-      );
+  }) => PageBlockRelatedArticle(
+    url: url ?? this.url,
+    title: title ?? this.title,
+    description: description ?? this.description,
+    photo: photo ?? this.photo,
+    author: author ?? this.author,
+    publishDate: publishDate ?? this.publishDate,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'pageBlockRelatedArticle';

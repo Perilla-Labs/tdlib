@@ -15,9 +15,7 @@ final class GetChatFolderDefaultIconName extends TdFunction {
   /// * [folder]: Chat folder.
   ///
   /// [ChatFolderIcon] is returned on completion.
-  const GetChatFolderDefaultIconName({
-    required this.folder,
-  });
+  const GetChatFolderDefaultIconName({required this.folder});
 
   /// Chat folder
   final ChatFolder folder;
@@ -36,12 +34,8 @@ final class GetChatFolderDefaultIconName extends TdFunction {
   ///
   /// Properties:
   /// * [folder]: Chat folder
-  GetChatFolderDefaultIconName copyWith({
-    ChatFolder? folder,
-  }) =>
-      GetChatFolderDefaultIconName(
-        folder: folder ?? this.folder,
-      );
+  GetChatFolderDefaultIconName copyWith({ChatFolder? folder}) =>
+      GetChatFolderDefaultIconName(folder: folder ?? this.folder);
 
   /// TDLib object type
   static const String defaultObjectId = 'getChatFolderDefaultIconName';

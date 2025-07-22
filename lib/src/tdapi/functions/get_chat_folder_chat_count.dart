@@ -15,9 +15,7 @@ final class GetChatFolderChatCount extends TdFunction {
   /// * [folder]: The new chat folder.
   ///
   /// [Count] is returned on completion.
-  const GetChatFolderChatCount({
-    required this.folder,
-  });
+  const GetChatFolderChatCount({required this.folder});
 
   /// The new chat folder
   final ChatFolder folder;
@@ -36,12 +34,8 @@ final class GetChatFolderChatCount extends TdFunction {
   ///
   /// Properties:
   /// * [folder]: The new chat folder
-  GetChatFolderChatCount copyWith({
-    ChatFolder? folder,
-  }) =>
-      GetChatFolderChatCount(
-        folder: folder ?? this.folder,
-      );
+  GetChatFolderChatCount copyWith({ChatFolder? folder}) =>
+      GetChatFolderChatCount(folder: folder ?? this.folder);
 
   /// TDLib object type
   static const String defaultObjectId = 'getChatFolderChatCount';

@@ -17,10 +17,7 @@ final class GetForumTopic extends TdFunction {
   /// * [messageThreadId]: Message thread identifier of the forum topic.
   ///
   /// [ForumTopic] is returned on completion.
-  const GetForumTopic({
-    required this.chatId,
-    required this.messageThreadId,
-  });
+  const GetForumTopic({required this.chatId, required this.messageThreadId});
 
   /// Identifier of the chat
   final int chatId;
@@ -44,14 +41,10 @@ final class GetForumTopic extends TdFunction {
   /// Properties:
   /// * [chat_id]: Identifier of the chat
   /// * [message_thread_id]: Message thread identifier of the forum topic
-  GetForumTopic copyWith({
-    int? chatId,
-    int? messageThreadId,
-  }) =>
-      GetForumTopic(
-        chatId: chatId ?? this.chatId,
-        messageThreadId: messageThreadId ?? this.messageThreadId,
-      );
+  GetForumTopic copyWith({int? chatId, int? messageThreadId}) => GetForumTopic(
+    chatId: chatId ?? this.chatId,
+    messageThreadId: messageThreadId ?? this.messageThreadId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getForumTopic';

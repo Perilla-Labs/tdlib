@@ -15,9 +15,7 @@ final class CreateNewSecretChat extends TdFunction {
   /// * [userId]: Identifier of the target user.
   ///
   /// [Chat] is returned on completion.
-  const CreateNewSecretChat({
-    required this.userId,
-  });
+  const CreateNewSecretChat({required this.userId});
 
   /// Identifier of the target user
   final int userId;
@@ -25,23 +23,15 @@ final class CreateNewSecretChat extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "user_id": userId,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "user_id": userId, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [user_id]: Identifier of the target user
-  CreateNewSecretChat copyWith({
-    int? userId,
-  }) =>
-      CreateNewSecretChat(
-        userId: userId ?? this.userId,
-      );
+  CreateNewSecretChat copyWith({int? userId}) =>
+      CreateNewSecretChat(userId: userId ?? this.userId);
 
   /// TDLib object type
   static const String defaultObjectId = 'createNewSecretChat';

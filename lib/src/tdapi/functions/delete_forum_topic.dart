@@ -17,10 +17,7 @@ final class DeleteForumTopic extends TdFunction {
   /// * [messageThreadId]: Message thread identifier of the forum topic.
   ///
   /// [Ok] is returned on completion.
-  const DeleteForumTopic({
-    required this.chatId,
-    required this.messageThreadId,
-  });
+  const DeleteForumTopic({required this.chatId, required this.messageThreadId});
 
   /// Identifier of the chat
   final int chatId;
@@ -44,10 +41,7 @@ final class DeleteForumTopic extends TdFunction {
   /// Properties:
   /// * [chat_id]: Identifier of the chat
   /// * [message_thread_id]: Message thread identifier of the forum topic
-  DeleteForumTopic copyWith({
-    int? chatId,
-    int? messageThreadId,
-  }) =>
+  DeleteForumTopic copyWith({int? chatId, int? messageThreadId}) =>
       DeleteForumTopic(
         chatId: chatId ?? this.chatId,
         messageThreadId: messageThreadId ?? this.messageThreadId,

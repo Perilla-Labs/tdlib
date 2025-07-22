@@ -15,9 +15,7 @@ final class GetMarkdownText extends TdFunction {
   /// * [text]: The text.
   ///
   /// [FormattedText] is returned on completion.
-  const GetMarkdownText({
-    required this.text,
-  });
+  const GetMarkdownText({required this.text});
 
   /// The text
   final FormattedText text;
@@ -25,23 +23,15 @@ final class GetMarkdownText extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "text": text.toJson(),
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "text": text.toJson(), "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [text]: The text
-  GetMarkdownText copyWith({
-    FormattedText? text,
-  }) =>
-      GetMarkdownText(
-        text: text ?? this.text,
-      );
+  GetMarkdownText copyWith({FormattedText? text}) =>
+      GetMarkdownText(text: text ?? this.text);
 
   /// TDLib object type
   static const String defaultObjectId = 'getMarkdownText';

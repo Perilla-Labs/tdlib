@@ -13,10 +13,7 @@ final class InputTextQuote extends TdObject {
   ///
   /// * [text]: Text of the quote; 0-getOption("message_reply_quote_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, and CustomEmoji entities are allowed to be kept and must be kept in the quote.
   /// * [position]: Quote position in the original message in UTF-16 code units.
-  const InputTextQuote({
-    required this.text,
-    required this.position,
-  });
+  const InputTextQuote({required this.text, required this.position});
 
   /// Text of the quote; 0-getOption("message_reply_quote_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, and CustomEmoji entities are allowed to be kept and must be kept in the quote
   final FormattedText text;
@@ -26,9 +23,9 @@ final class InputTextQuote extends TdObject {
 
   /// Parse from a json
   factory InputTextQuote.fromJson(Map<String, dynamic> json) => InputTextQuote(
-        text: FormattedText.fromJson(json['text']),
-        position: json['position'],
-      );
+    text: FormattedText.fromJson(json['text']),
+    position: json['position'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -45,10 +42,7 @@ final class InputTextQuote extends TdObject {
   /// Properties:
   /// * [text]: Text of the quote; 0-getOption("message_reply_quote_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, and CustomEmoji entities are allowed to be kept and must be kept in the quote
   /// * [position]: Quote position in the original message in UTF-16 code units
-  InputTextQuote copyWith({
-    FormattedText? text,
-    int? position,
-  }) =>
+  InputTextQuote copyWith({FormattedText? text, int? position}) =>
       InputTextQuote(
         text: text ?? this.text,
         position: position ?? this.position,

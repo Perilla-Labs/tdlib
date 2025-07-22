@@ -56,12 +56,11 @@ final class CreateChatFolderInviteLink extends TdFunction {
     int? chatFolderId,
     String? name,
     List<int>? chatIds,
-  }) =>
-      CreateChatFolderInviteLink(
-        chatFolderId: chatFolderId ?? this.chatFolderId,
-        name: name ?? this.name,
-        chatIds: chatIds ?? this.chatIds,
-      );
+  }) => CreateChatFolderInviteLink(
+    chatFolderId: chatFolderId ?? this.chatFolderId,
+    name: name ?? this.name,
+    chatIds: chatIds ?? this.chatIds,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'createChatFolderInviteLink';

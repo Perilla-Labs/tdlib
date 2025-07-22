@@ -56,12 +56,11 @@ final class ToggleBotUsernameIsActive extends TdFunction {
     int? botUserId,
     String? username,
     bool? isActive,
-  }) =>
-      ToggleBotUsernameIsActive(
-        botUserId: botUserId ?? this.botUserId,
-        username: username ?? this.username,
-        isActive: isActive ?? this.isActive,
-      );
+  }) => ToggleBotUsernameIsActive(
+    botUserId: botUserId ?? this.botUserId,
+    username: username ?? this.username,
+    isActive: isActive ?? this.isActive,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'toggleBotUsernameIsActive';

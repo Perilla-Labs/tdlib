@@ -13,10 +13,7 @@ final class BotCommand extends TdObject {
   ///
   /// * [command]: Text of the bot command.
   /// * [description]: Description of the bot command.
-  const BotCommand({
-    required this.command,
-    required this.description,
-  });
+  const BotCommand({required this.command, required this.description});
 
   /// Text of the bot command
   final String command;
@@ -25,10 +22,8 @@ final class BotCommand extends TdObject {
   final String description;
 
   /// Parse from a json
-  factory BotCommand.fromJson(Map<String, dynamic> json) => BotCommand(
-        command: json['command'],
-        description: json['description'],
-      );
+  factory BotCommand.fromJson(Map<String, dynamic> json) =>
+      BotCommand(command: json['command'], description: json['description']);
 
   /// Convert model to TDLib JSON format
   @override
@@ -45,14 +40,10 @@ final class BotCommand extends TdObject {
   /// Properties:
   /// * [command]: Text of the bot command
   /// * [description]: Description of the bot command
-  BotCommand copyWith({
-    String? command,
-    String? description,
-  }) =>
-      BotCommand(
-        command: command ?? this.command,
-        description: description ?? this.description,
-      );
+  BotCommand copyWith({String? command, String? description}) => BotCommand(
+    command: command ?? this.command,
+    description: description ?? this.description,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'botCommand';

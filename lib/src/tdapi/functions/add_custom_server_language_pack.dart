@@ -15,9 +15,7 @@ final class AddCustomServerLanguagePack extends TdFunction {
   /// * [languagePackId]: Identifier of a language pack to be added.
   ///
   /// [Ok] is returned on completion.
-  const AddCustomServerLanguagePack({
-    required this.languagePackId,
-  });
+  const AddCustomServerLanguagePack({required this.languagePackId});
 
   /// Identifier of a language pack to be added
   final String languagePackId;
@@ -36,9 +34,7 @@ final class AddCustomServerLanguagePack extends TdFunction {
   ///
   /// Properties:
   /// * [language_pack_id]: Identifier of a language pack to be added
-  AddCustomServerLanguagePack copyWith({
-    String? languagePackId,
-  }) =>
+  AddCustomServerLanguagePack copyWith({String? languagePackId}) =>
       AddCustomServerLanguagePack(
         languagePackId: languagePackId ?? this.languagePackId,
       );

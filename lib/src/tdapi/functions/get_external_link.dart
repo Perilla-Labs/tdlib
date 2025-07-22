@@ -17,10 +17,7 @@ final class GetExternalLink extends TdFunction {
   /// * [allowWriteAccess]: Pass true if the current user allowed the bot, returned in getExternalLinkInfo, to send them messages.
   ///
   /// [HttpUrl] is returned on completion.
-  const GetExternalLink({
-    required this.link,
-    required this.allowWriteAccess,
-  });
+  const GetExternalLink({required this.link, required this.allowWriteAccess});
 
   /// The HTTP link
   final String link;
@@ -44,10 +41,7 @@ final class GetExternalLink extends TdFunction {
   /// Properties:
   /// * [link]: The HTTP link
   /// * [allow_write_access]: Pass true if the current user allowed the bot, returned in getExternalLinkInfo, to send them messages
-  GetExternalLink copyWith({
-    String? link,
-    bool? allowWriteAccess,
-  }) =>
+  GetExternalLink copyWith({String? link, bool? allowWriteAccess}) =>
       GetExternalLink(
         link: link ?? this.link,
         allowWriteAccess: allowWriteAccess ?? this.allowWriteAccess,

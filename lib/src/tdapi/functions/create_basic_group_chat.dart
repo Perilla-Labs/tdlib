@@ -17,10 +17,7 @@ final class CreateBasicGroupChat extends TdFunction {
   /// * [force]: Pass true to create the chat without a network request. In this case all information about the chat except its type, title and photo can be incorrect.
   ///
   /// [Chat] is returned on completion.
-  const CreateBasicGroupChat({
-    required this.basicGroupId,
-    required this.force,
-  });
+  const CreateBasicGroupChat({required this.basicGroupId, required this.force});
 
   /// Basic group identifier
   final int basicGroupId;
@@ -44,10 +41,7 @@ final class CreateBasicGroupChat extends TdFunction {
   /// Properties:
   /// * [basic_group_id]: Basic group identifier
   /// * [force]: Pass true to create the chat without a network request. In this case all information about the chat except its type, title and photo can be incorrect
-  CreateBasicGroupChat copyWith({
-    int? basicGroupId,
-    bool? force,
-  }) =>
+  CreateBasicGroupChat copyWith({int? basicGroupId, bool? force}) =>
       CreateBasicGroupChat(
         basicGroupId: basicGroupId ?? this.basicGroupId,
         force: force ?? this.force,

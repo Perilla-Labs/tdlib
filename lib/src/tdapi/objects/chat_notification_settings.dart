@@ -14,8 +14,8 @@ part of '../tdapi.dart';
 /// * [muteStories]: True, if story notifications are disabled for the chat.
 /// * [useDefaultStorySound]: If true, the value for the relevant type of chat is used instead of story_sound_id.
 /// * [storySoundId]: Identifier of the notification sound to be played for stories; 0 if sound is disabled.
-/// * [useDefaultShowStorySender]: If true, the value for the relevant type of chat is used instead of show_story_sender.
-/// * [showStorySender]: True, if the sender of stories must be displayed in notifications.
+/// * [useDefaultShowStoryPoster]: If true, the value for the relevant type of chat is used instead of show_story_poster.
+/// * [showStoryPoster]: True, if the chat that posted a story must be displayed in notifications.
 /// * [useDefaultDisablePinnedMessageNotifications]: If true, the value for the relevant type of chat or the forum chat is used instead of disable_pinned_message_notifications.
 /// * [disablePinnedMessageNotifications]: If true, notifications for incoming pinned messages will be created as for an ordinary unread message.
 /// * [useDefaultDisableMentionNotifications]: If true, the value for the relevant type of chat or the forum chat is used instead of disable_mention_notifications.
@@ -35,8 +35,8 @@ final class ChatNotificationSettings extends TdObject {
   /// * [muteStories]: True, if story notifications are disabled for the chat.
   /// * [useDefaultStorySound]: If true, the value for the relevant type of chat is used instead of story_sound_id.
   /// * [storySoundId]: Identifier of the notification sound to be played for stories; 0 if sound is disabled.
-  /// * [useDefaultShowStorySender]: If true, the value for the relevant type of chat is used instead of show_story_sender.
-  /// * [showStorySender]: True, if the sender of stories must be displayed in notifications.
+  /// * [useDefaultShowStoryPoster]: If true, the value for the relevant type of chat is used instead of show_story_poster.
+  /// * [showStoryPoster]: True, if the chat that posted a story must be displayed in notifications.
   /// * [useDefaultDisablePinnedMessageNotifications]: If true, the value for the relevant type of chat or the forum chat is used instead of disable_pinned_message_notifications.
   /// * [disablePinnedMessageNotifications]: If true, notifications for incoming pinned messages will be created as for an ordinary unread message.
   /// * [useDefaultDisableMentionNotifications]: If true, the value for the relevant type of chat or the forum chat is used instead of disable_mention_notifications.
@@ -52,8 +52,8 @@ final class ChatNotificationSettings extends TdObject {
     required this.muteStories,
     required this.useDefaultStorySound,
     required this.storySoundId,
-    required this.useDefaultShowStorySender,
-    required this.showStorySender,
+    required this.useDefaultShowStoryPoster,
+    required this.showStoryPoster,
     required this.useDefaultDisablePinnedMessageNotifications,
     required this.disablePinnedMessageNotifications,
     required this.useDefaultDisableMentionNotifications,
@@ -90,11 +90,11 @@ final class ChatNotificationSettings extends TdObject {
   /// Identifier of the notification sound to be played for stories; 0 if sound is disabled
   final int storySoundId;
 
-  /// If true, the value for the relevant type of chat is used instead of show_story_sender
-  final bool useDefaultShowStorySender;
+  /// If true, the value for the relevant type of chat is used instead of show_story_poster
+  final bool useDefaultShowStoryPoster;
 
-  /// True, if the sender of stories must be displayed in notifications
-  final bool showStorySender;
+  /// True, if the chat that posted a story must be displayed in notifications
+  final bool showStoryPoster;
 
   /// If true, the value for the relevant type of chat or the forum chat is used instead of disable_pinned_message_notifications
   final bool useDefaultDisablePinnedMessageNotifications;
@@ -125,9 +125,8 @@ final class ChatNotificationSettings extends TdObject {
         storySoundId: json['story_sound_id'] is int
             ? json['story_sound_id']
             : int.parse(json['story_sound_id']),
-        useDefaultShowStorySender:
-            json['use_default_show_story_sender'] ?? true,
-        showStorySender: json['show_story_sender'] ?? true,
+        useDefaultShowStoryPoster: json['use_default_show_story_poster'],
+        showStoryPoster: json['show_story_poster'],
         useDefaultDisablePinnedMessageNotifications:
             json['use_default_disable_pinned_message_notifications'],
         disablePinnedMessageNotifications:
@@ -152,8 +151,8 @@ final class ChatNotificationSettings extends TdObject {
       "mute_stories": muteStories,
       "use_default_story_sound": useDefaultStorySound,
       "story_sound_id": storySoundId,
-      "use_default_show_story_sender": useDefaultShowStorySender,
-      "show_story_sender": showStorySender,
+      "use_default_show_story_poster": useDefaultShowStoryPoster,
+      "show_story_poster": showStoryPoster,
       "use_default_disable_pinned_message_notifications":
           useDefaultDisablePinnedMessageNotifications,
       "disable_pinned_message_notifications": disablePinnedMessageNotifications,
@@ -176,8 +175,8 @@ final class ChatNotificationSettings extends TdObject {
   /// * [mute_stories]: True, if story notifications are disabled for the chat
   /// * [use_default_story_sound]: If true, the value for the relevant type of chat is used instead of story_sound_id
   /// * [story_sound_id]: Identifier of the notification sound to be played for stories; 0 if sound is disabled
-  /// * [use_default_show_story_sender]: If true, the value for the relevant type of chat is used instead of show_story_sender
-  /// * [show_story_sender]: True, if the sender of stories must be displayed in notifications
+  /// * [use_default_show_story_poster]: If true, the value for the relevant type of chat is used instead of show_story_poster
+  /// * [show_story_poster]: True, if the chat that posted a story must be displayed in notifications
   /// * [use_default_disable_pinned_message_notifications]: If true, the value for the relevant type of chat or the forum chat is used instead of disable_pinned_message_notifications
   /// * [disable_pinned_message_notifications]: If true, notifications for incoming pinned messages will be created as for an ordinary unread message
   /// * [use_default_disable_mention_notifications]: If true, the value for the relevant type of chat or the forum chat is used instead of disable_mention_notifications
@@ -193,8 +192,8 @@ final class ChatNotificationSettings extends TdObject {
     bool? muteStories,
     bool? useDefaultStorySound,
     int? storySoundId,
-    bool? useDefaultShowStorySender,
-    bool? showStorySender,
+    bool? useDefaultShowStoryPoster,
+    bool? showStoryPoster,
     bool? useDefaultDisablePinnedMessageNotifications,
     bool? disablePinnedMessageNotifications,
     bool? useDefaultDisableMentionNotifications,
@@ -210,9 +209,9 @@ final class ChatNotificationSettings extends TdObject {
     muteStories: muteStories ?? this.muteStories,
     useDefaultStorySound: useDefaultStorySound ?? this.useDefaultStorySound,
     storySoundId: storySoundId ?? this.storySoundId,
-    useDefaultShowStorySender:
-        useDefaultShowStorySender ?? this.useDefaultShowStorySender,
-    showStorySender: showStorySender ?? this.showStorySender,
+    useDefaultShowStoryPoster:
+        useDefaultShowStoryPoster ?? this.useDefaultShowStoryPoster,
+    showStoryPoster: showStoryPoster ?? this.showStoryPoster,
     useDefaultDisablePinnedMessageNotifications:
         useDefaultDisablePinnedMessageNotifications ??
         this.useDefaultDisablePinnedMessageNotifications,

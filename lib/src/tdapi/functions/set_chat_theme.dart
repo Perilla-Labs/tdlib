@@ -17,10 +17,7 @@ final class SetChatTheme extends TdFunction {
   /// * [themeName]: Name of the new chat theme; pass an empty string to return the default theme.
   ///
   /// [Ok] is returned on completion.
-  const SetChatTheme({
-    required this.chatId,
-    required this.themeName,
-  });
+  const SetChatTheme({required this.chatId, required this.themeName});
 
   /// Chat identifier
   final int chatId;
@@ -44,14 +41,10 @@ final class SetChatTheme extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [theme_name]: Name of the new chat theme; pass an empty string to return the default theme
-  SetChatTheme copyWith({
-    int? chatId,
-    String? themeName,
-  }) =>
-      SetChatTheme(
-        chatId: chatId ?? this.chatId,
-        themeName: themeName ?? this.themeName,
-      );
+  SetChatTheme copyWith({int? chatId, String? themeName}) => SetChatTheme(
+    chatId: chatId ?? this.chatId,
+    themeName: themeName ?? this.themeName,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setChatTheme';

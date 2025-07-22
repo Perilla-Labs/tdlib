@@ -83,15 +83,14 @@ final class GetChatInviteLinks extends TdFunction {
     int? offsetDate,
     String? offsetInviteLink,
     int? limit,
-  }) =>
-      GetChatInviteLinks(
-        chatId: chatId ?? this.chatId,
-        creatorUserId: creatorUserId ?? this.creatorUserId,
-        isRevoked: isRevoked ?? this.isRevoked,
-        offsetDate: offsetDate ?? this.offsetDate,
-        offsetInviteLink: offsetInviteLink ?? this.offsetInviteLink,
-        limit: limit ?? this.limit,
-      );
+  }) => GetChatInviteLinks(
+    chatId: chatId ?? this.chatId,
+    creatorUserId: creatorUserId ?? this.creatorUserId,
+    isRevoked: isRevoked ?? this.isRevoked,
+    offsetDate: offsetDate ?? this.offsetDate,
+    offsetInviteLink: offsetInviteLink ?? this.offsetInviteLink,
+    limit: limit ?? this.limit,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getChatInviteLinks';

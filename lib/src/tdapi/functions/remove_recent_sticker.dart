@@ -17,10 +17,7 @@ final class RemoveRecentSticker extends TdFunction {
   /// * [sticker]: Sticker file to delete.
   ///
   /// [Ok] is returned on completion.
-  const RemoveRecentSticker({
-    required this.isAttached,
-    required this.sticker,
-  });
+  const RemoveRecentSticker({required this.isAttached, required this.sticker});
 
   /// Pass true to remove the sticker from the list of stickers recently attached to photo or video files; pass false to remove the sticker from the list of recently sent stickers
   final bool isAttached;
@@ -44,10 +41,7 @@ final class RemoveRecentSticker extends TdFunction {
   /// Properties:
   /// * [is_attached]: Pass true to remove the sticker from the list of stickers recently attached to photo or video files; pass false to remove the sticker from the list of recently sent stickers
   /// * [sticker]: Sticker file to delete
-  RemoveRecentSticker copyWith({
-    bool? isAttached,
-    InputFile? sticker,
-  }) =>
+  RemoveRecentSticker copyWith({bool? isAttached, InputFile? sticker}) =>
       RemoveRecentSticker(
         isAttached: isAttached ?? this.isAttached,
         sticker: sticker ?? this.sticker,

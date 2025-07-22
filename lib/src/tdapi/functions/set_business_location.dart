@@ -15,9 +15,7 @@ final class SetBusinessLocation extends TdFunction {
   /// * [location]: The new location of the business; pass null to remove the location *(optional)*.
   ///
   /// [Ok] is returned on completion.
-  const SetBusinessLocation({
-    this.location,
-  });
+  const SetBusinessLocation({this.location});
 
   /// The new location of the business; pass null to remove the location
   final BusinessLocation? location;
@@ -36,12 +34,8 @@ final class SetBusinessLocation extends TdFunction {
   ///
   /// Properties:
   /// * [location]: The new location of the business; pass null to remove the location
-  SetBusinessLocation copyWith({
-    BusinessLocation? location,
-  }) =>
-      SetBusinessLocation(
-        location: location ?? this.location,
-      );
+  SetBusinessLocation copyWith({BusinessLocation? location}) =>
+      SetBusinessLocation(location: location ?? this.location);
 
   /// TDLib object type
   static const String defaultObjectId = 'setBusinessLocation';

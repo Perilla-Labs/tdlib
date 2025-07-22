@@ -74,16 +74,15 @@ final class SetPassword extends TdFunction {
     String? newHint,
     bool? setRecoveryEmailAddress,
     String? newRecoveryEmailAddress,
-  }) =>
-      SetPassword(
-        oldPassword: oldPassword ?? this.oldPassword,
-        newPassword: newPassword ?? this.newPassword,
-        newHint: newHint ?? this.newHint,
-        setRecoveryEmailAddress:
-            setRecoveryEmailAddress ?? this.setRecoveryEmailAddress,
-        newRecoveryEmailAddress:
-            newRecoveryEmailAddress ?? this.newRecoveryEmailAddress,
-      );
+  }) => SetPassword(
+    oldPassword: oldPassword ?? this.oldPassword,
+    newPassword: newPassword ?? this.newPassword,
+    newHint: newHint ?? this.newHint,
+    setRecoveryEmailAddress:
+        setRecoveryEmailAddress ?? this.setRecoveryEmailAddress,
+    newRecoveryEmailAddress:
+        newRecoveryEmailAddress ?? this.newRecoveryEmailAddress,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setPassword';

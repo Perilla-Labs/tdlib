@@ -17,10 +17,7 @@ final class DeleteCommands extends TdFunction {
   /// * [languageCode]: A two-letter ISO 639-1 language code or an empty string.
   ///
   /// [Ok] is returned on completion.
-  const DeleteCommands({
-    this.scope,
-    required this.languageCode,
-  });
+  const DeleteCommands({this.scope, required this.languageCode});
 
   /// The scope to which the commands are relevant; pass null to delete commands in the default bot command scope
   final BotCommandScope? scope;
@@ -44,10 +41,7 @@ final class DeleteCommands extends TdFunction {
   /// Properties:
   /// * [scope]: The scope to which the commands are relevant; pass null to delete commands in the default bot command scope
   /// * [language_code]: A two-letter ISO 639-1 language code or an empty string
-  DeleteCommands copyWith({
-    BotCommandScope? scope,
-    String? languageCode,
-  }) =>
+  DeleteCommands copyWith({BotCommandScope? scope, String? languageCode}) =>
       DeleteCommands(
         scope: scope ?? this.scope,
         languageCode: languageCode ?? this.languageCode,

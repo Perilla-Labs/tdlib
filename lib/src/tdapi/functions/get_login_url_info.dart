@@ -52,11 +52,7 @@ final class GetLoginUrlInfo extends TdFunction {
   /// * [chat_id]: Chat identifier of the message with the button
   /// * [message_id]: Message identifier of the message with the button. The message must not be scheduled
   /// * [button_id]: Button identifier
-  GetLoginUrlInfo copyWith({
-    int? chatId,
-    int? messageId,
-    int? buttonId,
-  }) =>
+  GetLoginUrlInfo copyWith({int? chatId, int? messageId, int? buttonId}) =>
       GetLoginUrlInfo(
         chatId: chatId ?? this.chatId,
         messageId: messageId ?? this.messageId,

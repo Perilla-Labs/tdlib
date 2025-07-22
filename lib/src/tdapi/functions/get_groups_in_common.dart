@@ -52,11 +52,7 @@ final class GetGroupsInCommon extends TdFunction {
   /// * [user_id]: User identifier
   /// * [offset_chat_id]: Chat identifier starting from which to return chats; use 0 for the first request
   /// * [limit]: The maximum number of chats to be returned; up to 100
-  GetGroupsInCommon copyWith({
-    int? userId,
-    int? offsetChatId,
-    int? limit,
-  }) =>
+  GetGroupsInCommon copyWith({int? userId, int? offsetChatId, int? limit}) =>
       GetGroupsInCommon(
         userId: userId ?? this.userId,
         offsetChatId: offsetChatId ?? this.offsetChatId,

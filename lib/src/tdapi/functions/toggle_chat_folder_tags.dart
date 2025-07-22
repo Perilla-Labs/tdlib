@@ -15,9 +15,7 @@ final class ToggleChatFolderTags extends TdFunction {
   /// * [areTagsEnabled]: Pass true to enable folder tags; pass false to disable them.
   ///
   /// [Ok] is returned on completion.
-  const ToggleChatFolderTags({
-    required this.areTagsEnabled,
-  });
+  const ToggleChatFolderTags({required this.areTagsEnabled});
 
   /// Pass true to enable folder tags; pass false to disable them
   final bool areTagsEnabled;
@@ -36,12 +34,9 @@ final class ToggleChatFolderTags extends TdFunction {
   ///
   /// Properties:
   /// * [are_tags_enabled]: Pass true to enable folder tags; pass false to disable them
-  ToggleChatFolderTags copyWith({
-    bool? areTagsEnabled,
-  }) =>
-      ToggleChatFolderTags(
-        areTagsEnabled: areTagsEnabled ?? this.areTagsEnabled,
-      );
+  ToggleChatFolderTags copyWith({bool? areTagsEnabled}) => ToggleChatFolderTags(
+    areTagsEnabled: areTagsEnabled ?? this.areTagsEnabled,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'toggleChatFolderTags';

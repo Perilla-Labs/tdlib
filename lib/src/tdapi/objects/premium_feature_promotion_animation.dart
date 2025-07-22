@@ -26,11 +26,11 @@ final class PremiumFeaturePromotionAnimation extends TdObject {
 
   /// Parse from a json
   factory PremiumFeaturePromotionAnimation.fromJson(
-          Map<String, dynamic> json) =>
-      PremiumFeaturePromotionAnimation(
-        feature: PremiumFeature.fromJson(json['feature']),
-        animation: Animation.fromJson(json['animation']),
-      );
+    Map<String, dynamic> json,
+  ) => PremiumFeaturePromotionAnimation(
+    feature: PremiumFeature.fromJson(json['feature']),
+    animation: Animation.fromJson(json['animation']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -50,11 +50,10 @@ final class PremiumFeaturePromotionAnimation extends TdObject {
   PremiumFeaturePromotionAnimation copyWith({
     PremiumFeature? feature,
     Animation? animation,
-  }) =>
-      PremiumFeaturePromotionAnimation(
-        feature: feature ?? this.feature,
-        animation: animation ?? this.animation,
-      );
+  }) => PremiumFeaturePromotionAnimation(
+    feature: feature ?? this.feature,
+    animation: animation ?? this.animation,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'premiumFeaturePromotionAnimation';

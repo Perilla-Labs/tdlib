@@ -52,11 +52,7 @@ final class CreateCall extends TdFunction {
   /// * [user_id]: Identifier of the user to be called
   /// * [protocol]: The call protocols supported by the application
   /// * [is_video]: Pass true to create a video call
-  CreateCall copyWith({
-    int? userId,
-    CallProtocol? protocol,
-    bool? isVideo,
-  }) =>
+  CreateCall copyWith({int? userId, CallProtocol? protocol, bool? isVideo}) =>
       CreateCall(
         userId: userId ?? this.userId,
         protocol: protocol ?? this.protocol,

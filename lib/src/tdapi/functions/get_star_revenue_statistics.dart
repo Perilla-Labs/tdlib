@@ -4,7 +4,7 @@ part of '../tdapi.dart';
 ///
 /// Returns detailed Telegram Star revenue statistics.
 ///
-/// * [ownerId]: Identifier of the owner of the Telegram Stars; can be identifier of an owned bot, or identifier of a channel chat with supergroupFullInfo.can_get_star_revenue_statistics == true.
+/// * [ownerId]: Identifier of the owner of the Telegram Stars; can be identifier of the current user, an owned bot, or a supergroup or a channel chat with supergroupFullInfo.can_get_star_revenue_statistics == true.
 /// * [isDark]: Pass true if a dark theme is used by the application.
 ///
 /// [StarRevenueStatistics] is returned on completion.
@@ -13,16 +13,13 @@ final class GetStarRevenueStatistics extends TdFunction {
   ///
   /// Returns detailed Telegram Star revenue statistics.
   ///
-  /// * [ownerId]: Identifier of the owner of the Telegram Stars; can be identifier of an owned bot, or identifier of a channel chat with supergroupFullInfo.can_get_star_revenue_statistics == true.
+  /// * [ownerId]: Identifier of the owner of the Telegram Stars; can be identifier of the current user, an owned bot, or a supergroup or a channel chat with supergroupFullInfo.can_get_star_revenue_statistics == true.
   /// * [isDark]: Pass true if a dark theme is used by the application.
   ///
   /// [StarRevenueStatistics] is returned on completion.
-  const GetStarRevenueStatistics({
-    required this.ownerId,
-    required this.isDark,
-  });
+  const GetStarRevenueStatistics({required this.ownerId, required this.isDark});
 
-  /// Identifier of the owner of the Telegram Stars; can be identifier of an owned bot, or identifier of a channel chat with supergroupFullInfo.can_get_star_revenue_statistics == true
+  /// Identifier of the owner of the Telegram Stars; can be identifier of the current user, an owned bot, or a supergroup or a channel chat with supergroupFullInfo.can_get_star_revenue_statistics == true
   final MessageSender ownerId;
 
   /// Pass true if a dark theme is used by the application
@@ -42,12 +39,9 @@ final class GetStarRevenueStatistics extends TdFunction {
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [owner_id]: Identifier of the owner of the Telegram Stars; can be identifier of an owned bot, or identifier of a channel chat with supergroupFullInfo.can_get_star_revenue_statistics == true
+  /// * [owner_id]: Identifier of the owner of the Telegram Stars; can be identifier of the current user, an owned bot, or a supergroup or a channel chat with supergroupFullInfo.can_get_star_revenue_statistics == true
   /// * [is_dark]: Pass true if a dark theme is used by the application
-  GetStarRevenueStatistics copyWith({
-    MessageSender? ownerId,
-    bool? isDark,
-  }) =>
+  GetStarRevenueStatistics copyWith({MessageSender? ownerId, bool? isDark}) =>
       GetStarRevenueStatistics(
         ownerId: ownerId ?? this.ownerId,
         isDark: isDark ?? this.isDark,

@@ -32,10 +32,10 @@ final class Minithumbnail extends TdObject {
 
   /// Parse from a json
   factory Minithumbnail.fromJson(Map<String, dynamic> json) => Minithumbnail(
-        width: json['width'],
-        height: json['height'],
-        data: json['data'],
-      );
+    width: json['width'],
+    height: json['height'],
+    data: json['data'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -54,11 +54,7 @@ final class Minithumbnail extends TdObject {
   /// * [width]: Thumbnail width, usually doesn't exceed 40
   /// * [height]: Thumbnail height, usually doesn't exceed 40
   /// * [data]: The thumbnail in JPEG format
-  Minithumbnail copyWith({
-    int? width,
-    int? height,
-    String? data,
-  }) =>
+  Minithumbnail copyWith({int? width, int? height, String? data}) =>
       Minithumbnail(
         width: width ?? this.width,
         height: height ?? this.height,

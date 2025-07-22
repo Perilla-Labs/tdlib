@@ -47,11 +47,10 @@ final class SetScopeNotificationSettings extends TdFunction {
   SetScopeNotificationSettings copyWith({
     NotificationSettingsScope? scope,
     ScopeNotificationSettings? notificationSettings,
-  }) =>
-      SetScopeNotificationSettings(
-        scope: scope ?? this.scope,
-        notificationSettings: notificationSettings ?? this.notificationSettings,
-      );
+  }) => SetScopeNotificationSettings(
+    scope: scope ?? this.scope,
+    notificationSettings: notificationSettings ?? this.notificationSettings,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setScopeNotificationSettings';

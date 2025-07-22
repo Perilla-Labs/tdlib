@@ -42,14 +42,14 @@ final class FoundStories extends TdObject {
 
   /// Parse from a json
   factory FoundStories.fromJson(Map<String, dynamic> json) => FoundStories(
-        totalCount: json['total_count'],
-        stories: List<Story>.from((json['stories'] ?? [])
-            .map((item) => Story.fromJson(item))
-            .toList()),
-        nextOffset: json['next_offset'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    totalCount: json['total_count'],
+    stories: List<Story>.from(
+      (json['stories'] ?? []).map((item) => Story.fromJson(item)).toList(),
+    ),
+    nextOffset: json['next_offset'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -74,14 +74,13 @@ final class FoundStories extends TdObject {
     String? nextOffset,
     dynamic extra,
     int? clientId,
-  }) =>
-      FoundStories(
-        totalCount: totalCount ?? this.totalCount,
-        stories: stories ?? this.stories,
-        nextOffset: nextOffset ?? this.nextOffset,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => FoundStories(
+    totalCount: totalCount ?? this.totalCount,
+    stories: stories ?? this.stories,
+    nextOffset: nextOffset ?? this.nextOffset,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'foundStories';

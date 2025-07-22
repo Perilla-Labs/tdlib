@@ -44,10 +44,7 @@ final class GetKeywordEmojis extends TdFunction {
   /// Properties:
   /// * [text]: Text to search for
   /// * [input_language_codes]: List of possible IETF language tags of the user's input language; may be empty if unknown
-  GetKeywordEmojis copyWith({
-    String? text,
-    List<String>? inputLanguageCodes,
-  }) =>
+  GetKeywordEmojis copyWith({String? text, List<String>? inputLanguageCodes}) =>
       GetKeywordEmojis(
         text: text ?? this.text,
         inputLanguageCodes: inputLanguageCodes ?? this.inputLanguageCodes,

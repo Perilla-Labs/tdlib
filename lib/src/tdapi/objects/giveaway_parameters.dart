@@ -59,12 +59,14 @@ final class GiveawayParameters extends TdObject {
       GiveawayParameters(
         boostedChatId: json['boosted_chat_id'],
         additionalChatIds: List<int>.from(
-            (json['additional_chat_ids'] ?? []).map((item) => item).toList()),
+          (json['additional_chat_ids'] ?? []).map((item) => item).toList(),
+        ),
         winnersSelectionDate: json['winners_selection_date'],
         onlyNewMembers: json['only_new_members'],
         hasPublicWinners: json['has_public_winners'],
         countryCodes: List<String>.from(
-            (json['country_codes'] ?? []).map((item) => item).toList()),
+          (json['country_codes'] ?? []).map((item) => item).toList(),
+        ),
         prizeDescription: json['prize_description'],
       );
 
@@ -101,16 +103,15 @@ final class GiveawayParameters extends TdObject {
     bool? hasPublicWinners,
     List<String>? countryCodes,
     String? prizeDescription,
-  }) =>
-      GiveawayParameters(
-        boostedChatId: boostedChatId ?? this.boostedChatId,
-        additionalChatIds: additionalChatIds ?? this.additionalChatIds,
-        winnersSelectionDate: winnersSelectionDate ?? this.winnersSelectionDate,
-        onlyNewMembers: onlyNewMembers ?? this.onlyNewMembers,
-        hasPublicWinners: hasPublicWinners ?? this.hasPublicWinners,
-        countryCodes: countryCodes ?? this.countryCodes,
-        prizeDescription: prizeDescription ?? this.prizeDescription,
-      );
+  }) => GiveawayParameters(
+    boostedChatId: boostedChatId ?? this.boostedChatId,
+    additionalChatIds: additionalChatIds ?? this.additionalChatIds,
+    winnersSelectionDate: winnersSelectionDate ?? this.winnersSelectionDate,
+    onlyNewMembers: onlyNewMembers ?? this.onlyNewMembers,
+    hasPublicWinners: hasPublicWinners ?? this.hasPublicWinners,
+    countryCodes: countryCodes ?? this.countryCodes,
+    prizeDescription: prizeDescription ?? this.prizeDescription,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'giveawayParameters';

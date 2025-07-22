@@ -53,12 +53,11 @@ final class RecoveryEmailAddress extends TdObject {
     String? recoveryEmailAddress,
     dynamic extra,
     int? clientId,
-  }) =>
-      RecoveryEmailAddress(
-        recoveryEmailAddress: recoveryEmailAddress ?? this.recoveryEmailAddress,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => RecoveryEmailAddress(
+    recoveryEmailAddress: recoveryEmailAddress ?? this.recoveryEmailAddress,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'recoveryEmailAddress';

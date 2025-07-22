@@ -7,7 +7,7 @@ part of '../tdapi.dart';
 /// * [messageId]: Message identifier; unique for the chat to which the sponsored message belongs among both ordinary and sponsored messages.
 /// * [isRecommended]: True, if the message needs to be labeled as "recommended" instead of "sponsored".
 /// * [canBeReported]: True, if the message can be reported to Telegram moderators through reportChatSponsoredMessage.
-/// * [content]: Content of the message. Currently, can be only of the types messageText, messageAnimation, messagePhoto, or messageVideo.
+/// * [content]: Content of the message. Currently, can be only of the types messageText, messageAnimation, messagePhoto, or messageVideo. Video messages can be viewed fullscreen.
 /// * [sponsor]: Information about the sponsor of the message.
 /// * [title]: Title of the sponsored message.
 /// * [buttonText]: Text for the message action button.
@@ -22,7 +22,7 @@ final class SponsoredMessage extends TdObject {
   /// * [messageId]: Message identifier; unique for the chat to which the sponsored message belongs among both ordinary and sponsored messages.
   /// * [isRecommended]: True, if the message needs to be labeled as "recommended" instead of "sponsored".
   /// * [canBeReported]: True, if the message can be reported to Telegram moderators through reportChatSponsoredMessage.
-  /// * [content]: Content of the message. Currently, can be only of the types messageText, messageAnimation, messagePhoto, or messageVideo.
+  /// * [content]: Content of the message. Currently, can be only of the types messageText, messageAnimation, messagePhoto, or messageVideo. Video messages can be viewed fullscreen.
   /// * [sponsor]: Information about the sponsor of the message.
   /// * [title]: Title of the sponsored message.
   /// * [buttonText]: Text for the message action button.
@@ -51,11 +51,11 @@ final class SponsoredMessage extends TdObject {
   /// True, if the message can be reported to Telegram moderators through reportChatSponsoredMessage
   final bool canBeReported;
 
-  /// Content of the message. Currently, can be only of the types messageText, messageAnimation, messagePhoto, or messageVideo
+  /// Content of the message. Currently, can be only of the types messageText, messageAnimation, messagePhoto, or messageVideo. Video messages can be viewed fullscreen
   final MessageContent content;
 
   /// Information about the sponsor of the message
-  final MessageSponsor sponsor;
+  final AdvertisementSponsor sponsor;
 
   /// Title of the sponsored message
   final String title;
@@ -79,7 +79,7 @@ final class SponsoredMessage extends TdObject {
         isRecommended: json['is_recommended'],
         canBeReported: json['can_be_reported'],
         content: MessageContent.fromJson(json['content']),
-        sponsor: MessageSponsor.fromJson(json['sponsor']),
+        sponsor: AdvertisementSponsor.fromJson(json['sponsor']),
         title: json['title'],
         buttonText: json['button_text'],
         accentColorId: json['accent_color_id'],
@@ -113,7 +113,7 @@ final class SponsoredMessage extends TdObject {
   /// * [message_id]: Message identifier; unique for the chat to which the sponsored message belongs among both ordinary and sponsored messages
   /// * [is_recommended]: True, if the message needs to be labeled as "recommended" instead of "sponsored"
   /// * [can_be_reported]: True, if the message can be reported to Telegram moderators through reportChatSponsoredMessage
-  /// * [content]: Content of the message. Currently, can be only of the types messageText, messageAnimation, messagePhoto, or messageVideo
+  /// * [content]: Content of the message. Currently, can be only of the types messageText, messageAnimation, messagePhoto, or messageVideo. Video messages can be viewed fullscreen
   /// * [sponsor]: Information about the sponsor of the message
   /// * [title]: Title of the sponsored message
   /// * [button_text]: Text for the message action button
@@ -125,26 +125,25 @@ final class SponsoredMessage extends TdObject {
     bool? isRecommended,
     bool? canBeReported,
     MessageContent? content,
-    MessageSponsor? sponsor,
+    AdvertisementSponsor? sponsor,
     String? title,
     String? buttonText,
     int? accentColorId,
     int? backgroundCustomEmojiId,
     String? additionalInfo,
-  }) =>
-      SponsoredMessage(
-        messageId: messageId ?? this.messageId,
-        isRecommended: isRecommended ?? this.isRecommended,
-        canBeReported: canBeReported ?? this.canBeReported,
-        content: content ?? this.content,
-        sponsor: sponsor ?? this.sponsor,
-        title: title ?? this.title,
-        buttonText: buttonText ?? this.buttonText,
-        accentColorId: accentColorId ?? this.accentColorId,
-        backgroundCustomEmojiId:
-            backgroundCustomEmojiId ?? this.backgroundCustomEmojiId,
-        additionalInfo: additionalInfo ?? this.additionalInfo,
-      );
+  }) => SponsoredMessage(
+    messageId: messageId ?? this.messageId,
+    isRecommended: isRecommended ?? this.isRecommended,
+    canBeReported: canBeReported ?? this.canBeReported,
+    content: content ?? this.content,
+    sponsor: sponsor ?? this.sponsor,
+    title: title ?? this.title,
+    buttonText: buttonText ?? this.buttonText,
+    accentColorId: accentColorId ?? this.accentColorId,
+    backgroundCustomEmojiId:
+        backgroundCustomEmojiId ?? this.backgroundCustomEmojiId,
+    additionalInfo: additionalInfo ?? this.additionalInfo,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'sponsoredMessage';

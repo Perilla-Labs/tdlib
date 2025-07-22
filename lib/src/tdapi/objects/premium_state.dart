@@ -48,22 +48,25 @@ final class PremiumState extends TdObject {
 
   /// Parse from a json
   factory PremiumState.fromJson(Map<String, dynamic> json) => PremiumState(
-        state: FormattedText.fromJson(json['state']),
-        paymentOptions: List<PremiumStatePaymentOption>.from(
-            (json['payment_options'] ?? [])
-                .map((item) => PremiumStatePaymentOption.fromJson(item))
-                .toList()),
-        animations: List<PremiumFeaturePromotionAnimation>.from(
-            (json['animations'] ?? [])
-                .map((item) => PremiumFeaturePromotionAnimation.fromJson(item))
-                .toList()),
-        businessAnimations: List<BusinessFeaturePromotionAnimation>.from(
-            (json['business_animations'] ?? [])
-                .map((item) => BusinessFeaturePromotionAnimation.fromJson(item))
-                .toList()),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    state: FormattedText.fromJson(json['state']),
+    paymentOptions: List<PremiumStatePaymentOption>.from(
+      (json['payment_options'] ?? [])
+          .map((item) => PremiumStatePaymentOption.fromJson(item))
+          .toList(),
+    ),
+    animations: List<PremiumFeaturePromotionAnimation>.from(
+      (json['animations'] ?? [])
+          .map((item) => PremiumFeaturePromotionAnimation.fromJson(item))
+          .toList(),
+    ),
+    businessAnimations: List<BusinessFeaturePromotionAnimation>.from(
+      (json['business_animations'] ?? [])
+          .map((item) => BusinessFeaturePromotionAnimation.fromJson(item))
+          .toList(),
+    ),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -91,15 +94,14 @@ final class PremiumState extends TdObject {
     List<BusinessFeaturePromotionAnimation>? businessAnimations,
     dynamic extra,
     int? clientId,
-  }) =>
-      PremiumState(
-        state: state ?? this.state,
-        paymentOptions: paymentOptions ?? this.paymentOptions,
-        animations: animations ?? this.animations,
-        businessAnimations: businessAnimations ?? this.businessAnimations,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => PremiumState(
+    state: state ?? this.state,
+    paymentOptions: paymentOptions ?? this.paymentOptions,
+    animations: animations ?? this.animations,
+    businessAnimations: businessAnimations ?? this.businessAnimations,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'premiumState';

@@ -52,11 +52,7 @@ final class GetGameHighScores extends TdFunction {
   /// * [chat_id]: The chat that contains the message with the game
   /// * [message_id]: Identifier of the message
   /// * [user_id]: User identifier
-  GetGameHighScores copyWith({
-    int? chatId,
-    int? messageId,
-    int? userId,
-  }) =>
+  GetGameHighScores copyWith({int? chatId, int? messageId, int? userId}) =>
       GetGameHighScores(
         chatId: chatId ?? this.chatId,
         messageId: messageId ?? this.messageId,

@@ -65,15 +65,13 @@ final class ConnectionStateWaitingForNetwork extends ConnectionState {
 
   /// Parse from a json
   factory ConnectionStateWaitingForNetwork.fromJson(
-          Map<String, dynamic> json) =>
-      const ConnectionStateWaitingForNetwork();
+    Map<String, dynamic> json,
+  ) => const ConnectionStateWaitingForNetwork();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -104,15 +102,13 @@ final class ConnectionStateConnectingToProxy extends ConnectionState {
 
   /// Parse from a json
   factory ConnectionStateConnectingToProxy.fromJson(
-          Map<String, dynamic> json) =>
-      const ConnectionStateConnectingToProxy();
+    Map<String, dynamic> json,
+  ) => const ConnectionStateConnectingToProxy();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -148,9 +144,7 @@ final class ConnectionStateConnecting extends ConnectionState {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -171,11 +165,11 @@ final class ConnectionStateConnecting extends ConnectionState {
 
 /// **ConnectionStateUpdating** *(connectionStateUpdating)* - child of ConnectionState
 ///
-/// Downloading data supposed to be received while the application was offline.
+/// Downloading data expected to be received while the application was offline.
 final class ConnectionStateUpdating extends ConnectionState {
   /// **ConnectionStateUpdating** *(connectionStateUpdating)* - child of ConnectionState
   ///
-  /// Downloading data supposed to be received while the application was offline.
+  /// Downloading data expected to be received while the application was offline.
   const ConnectionStateUpdating();
 
   /// Parse from a json
@@ -185,9 +179,7 @@ final class ConnectionStateUpdating extends ConnectionState {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -222,9 +214,7 @@ final class ConnectionStateReady extends ConnectionState {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.

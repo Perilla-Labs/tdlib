@@ -65,13 +65,12 @@ final class DeleteChatMessagesByDate extends TdFunction {
     int? minDate,
     int? maxDate,
     bool? revoke,
-  }) =>
-      DeleteChatMessagesByDate(
-        chatId: chatId ?? this.chatId,
-        minDate: minDate ?? this.minDate,
-        maxDate: maxDate ?? this.maxDate,
-        revoke: revoke ?? this.revoke,
-      );
+  }) => DeleteChatMessagesByDate(
+    chatId: chatId ?? this.chatId,
+    minDate: minDate ?? this.minDate,
+    maxDate: maxDate ?? this.maxDate,
+    revoke: revoke ?? this.revoke,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'deleteChatMessagesByDate';

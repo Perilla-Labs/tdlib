@@ -36,13 +36,13 @@ final class EmailAddressAuthenticationCodeInfo extends TdObject {
 
   /// Parse from a json
   factory EmailAddressAuthenticationCodeInfo.fromJson(
-          Map<String, dynamic> json) =>
-      EmailAddressAuthenticationCodeInfo(
-        emailAddressPattern: json['email_address_pattern'],
-        length: json['length'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    Map<String, dynamic> json,
+  ) => EmailAddressAuthenticationCodeInfo(
+    emailAddressPattern: json['email_address_pattern'],
+    length: json['length'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -64,13 +64,12 @@ final class EmailAddressAuthenticationCodeInfo extends TdObject {
     int? length,
     dynamic extra,
     int? clientId,
-  }) =>
-      EmailAddressAuthenticationCodeInfo(
-        emailAddressPattern: emailAddressPattern ?? this.emailAddressPattern,
-        length: length ?? this.length,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => EmailAddressAuthenticationCodeInfo(
+    emailAddressPattern: emailAddressPattern ?? this.emailAddressPattern,
+    length: length ?? this.length,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'emailAddressAuthenticationCodeInfo';

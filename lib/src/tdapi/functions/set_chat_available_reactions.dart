@@ -47,11 +47,10 @@ final class SetChatAvailableReactions extends TdFunction {
   SetChatAvailableReactions copyWith({
     int? chatId,
     ChatAvailableReactions? availableReactions,
-  }) =>
-      SetChatAvailableReactions(
-        chatId: chatId ?? this.chatId,
-        availableReactions: availableReactions ?? this.availableReactions,
-      );
+  }) => SetChatAvailableReactions(
+    chatId: chatId ?? this.chatId,
+    availableReactions: availableReactions ?? this.availableReactions,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setChatAvailableReactions';

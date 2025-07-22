@@ -65,13 +65,12 @@ final class SearchChatMembers extends TdFunction {
     String? query,
     int? limit,
     ChatMembersFilter? filter,
-  }) =>
-      SearchChatMembers(
-        chatId: chatId ?? this.chatId,
-        query: query ?? this.query,
-        limit: limit ?? this.limit,
-        filter: filter ?? this.filter,
-      );
+  }) => SearchChatMembers(
+    chatId: chatId ?? this.chatId,
+    query: query ?? this.query,
+    limit: limit ?? this.limit,
+    filter: filter ?? this.filter,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'searchChatMembers';

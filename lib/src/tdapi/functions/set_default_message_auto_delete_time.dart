@@ -15,9 +15,7 @@ final class SetDefaultMessageAutoDeleteTime extends TdFunction {
   /// * [messageAutoDeleteTime]: New default message auto-delete time; must be from 0 up to 365 * 86400 and be divisible by 86400. If 0, then messages aren't deleted automatically.
   ///
   /// [Ok] is returned on completion.
-  const SetDefaultMessageAutoDeleteTime({
-    required this.messageAutoDeleteTime,
-  });
+  const SetDefaultMessageAutoDeleteTime({required this.messageAutoDeleteTime});
 
   /// New default message auto-delete time; must be from 0 up to 365 * 86400 and be divisible by 86400. If 0, then messages aren't deleted automatically
   final MessageAutoDeleteTime messageAutoDeleteTime;
@@ -38,11 +36,9 @@ final class SetDefaultMessageAutoDeleteTime extends TdFunction {
   /// * [message_auto_delete_time]: New default message auto-delete time; must be from 0 up to 365 * 86400 and be divisible by 86400. If 0, then messages aren't deleted automatically
   SetDefaultMessageAutoDeleteTime copyWith({
     MessageAutoDeleteTime? messageAutoDeleteTime,
-  }) =>
-      SetDefaultMessageAutoDeleteTime(
-        messageAutoDeleteTime:
-            messageAutoDeleteTime ?? this.messageAutoDeleteTime,
-      );
+  }) => SetDefaultMessageAutoDeleteTime(
+    messageAutoDeleteTime: messageAutoDeleteTime ?? this.messageAutoDeleteTime,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setDefaultMessageAutoDeleteTime';

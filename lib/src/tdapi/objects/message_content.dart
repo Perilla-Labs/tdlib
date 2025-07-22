@@ -32,8 +32,10 @@ sealed class MessageContent extends TdObject {
   /// * [MessageGame]
   /// * [MessagePoll]
   /// * [MessageStory]
+  /// * [MessageChecklist]
   /// * [MessageInvoice]
   /// * [MessageCall]
+  /// * [MessageGroupCall]
   /// * [MessageVideoChatScheduled]
   /// * [MessageVideoChatStarted]
   /// * [MessageVideoChatEnded]
@@ -73,6 +75,14 @@ sealed class MessageContent extends TdObject {
   /// * [MessageGiveawayWinners]
   /// * [MessageGiftedStars]
   /// * [MessageGiveawayPrizeStars]
+  /// * [MessageGift]
+  /// * [MessageUpgradedGift]
+  /// * [MessageRefundedUpgradedGift]
+  /// * [MessagePaidMessagesRefunded]
+  /// * [MessagePaidMessagePriceChanged]
+  /// * [MessageDirectMessagePriceChanged]
+  /// * [MessageChecklistTasksDone]
+  /// * [MessageChecklistTasksAdded]
   /// * [MessageContactRegistered]
   /// * [MessageUsersShared]
   /// * [MessageChatShared]
@@ -129,10 +139,14 @@ sealed class MessageContent extends TdObject {
         return MessagePoll.fromJson(json);
       case MessageStory.defaultObjectId:
         return MessageStory.fromJson(json);
+      case MessageChecklist.defaultObjectId:
+        return MessageChecklist.fromJson(json);
       case MessageInvoice.defaultObjectId:
         return MessageInvoice.fromJson(json);
       case MessageCall.defaultObjectId:
         return MessageCall.fromJson(json);
+      case MessageGroupCall.defaultObjectId:
+        return MessageGroupCall.fromJson(json);
       case MessageVideoChatScheduled.defaultObjectId:
         return MessageVideoChatScheduled.fromJson(json);
       case MessageVideoChatStarted.defaultObjectId:
@@ -211,6 +225,22 @@ sealed class MessageContent extends TdObject {
         return MessageGiftedStars.fromJson(json);
       case MessageGiveawayPrizeStars.defaultObjectId:
         return MessageGiveawayPrizeStars.fromJson(json);
+      case MessageGift.defaultObjectId:
+        return MessageGift.fromJson(json);
+      case MessageUpgradedGift.defaultObjectId:
+        return MessageUpgradedGift.fromJson(json);
+      case MessageRefundedUpgradedGift.defaultObjectId:
+        return MessageRefundedUpgradedGift.fromJson(json);
+      case MessagePaidMessagesRefunded.defaultObjectId:
+        return MessagePaidMessagesRefunded.fromJson(json);
+      case MessagePaidMessagePriceChanged.defaultObjectId:
+        return MessagePaidMessagePriceChanged.fromJson(json);
+      case MessageDirectMessagePriceChanged.defaultObjectId:
+        return MessageDirectMessagePriceChanged.fromJson(json);
+      case MessageChecklistTasksDone.defaultObjectId:
+        return MessageChecklistTasksDone.fromJson(json);
+      case MessageChecklistTasksAdded.defaultObjectId:
+        return MessageChecklistTasksAdded.fromJson(json);
       case MessageContactRegistered.defaultObjectId:
         return MessageContactRegistered.fromJson(json);
       case MessageUsersShared.defaultObjectId:
@@ -290,14 +320,14 @@ final class MessageText extends MessageContent {
 
   /// Parse from a json
   factory MessageText.fromJson(Map<String, dynamic> json) => MessageText(
-        text: FormattedText.fromJson(json['text']),
-        linkPreview: json['link_preview'] == null
-            ? null
-            : LinkPreview.fromJson(json['link_preview']),
-        linkPreviewOptions: json['link_preview_options'] == null
-            ? null
-            : LinkPreviewOptions.fromJson(json['link_preview_options']),
-      );
+    text: FormattedText.fromJson(json['text']),
+    linkPreview: json['link_preview'] == null
+        ? null
+        : LinkPreview.fromJson(json['link_preview']),
+    linkPreviewOptions: json['link_preview_options'] == null
+        ? null
+        : LinkPreviewOptions.fromJson(json['link_preview_options']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -321,12 +351,11 @@ final class MessageText extends MessageContent {
     FormattedText? text,
     LinkPreview? linkPreview,
     LinkPreviewOptions? linkPreviewOptions,
-  }) =>
-      MessageText(
-        text: text ?? this.text,
-        linkPreview: linkPreview ?? this.linkPreview,
-        linkPreviewOptions: linkPreviewOptions ?? this.linkPreviewOptions,
-      );
+  }) => MessageText(
+    text: text ?? this.text,
+    linkPreview: linkPreview ?? this.linkPreview,
+    linkPreviewOptions: linkPreviewOptions ?? this.linkPreviewOptions,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageText';
@@ -420,15 +449,13 @@ final class MessageAnimation extends MessageContent {
     bool? showCaptionAboveMedia,
     bool? hasSpoiler,
     bool? isSecret,
-  }) =>
-      MessageAnimation(
-        animation: animation ?? this.animation,
-        caption: caption ?? this.caption,
-        showCaptionAboveMedia:
-            showCaptionAboveMedia ?? this.showCaptionAboveMedia,
-        hasSpoiler: hasSpoiler ?? this.hasSpoiler,
-        isSecret: isSecret ?? this.isSecret,
-      );
+  }) => MessageAnimation(
+    animation: animation ?? this.animation,
+    caption: caption ?? this.caption,
+    showCaptionAboveMedia: showCaptionAboveMedia ?? this.showCaptionAboveMedia,
+    hasSpoiler: hasSpoiler ?? this.hasSpoiler,
+    isSecret: isSecret ?? this.isSecret,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageAnimation';
@@ -455,10 +482,7 @@ final class MessageAudio extends MessageContent {
   ///
   /// * [audio]: The audio description.
   /// * [caption]: Audio caption.
-  const MessageAudio({
-    required this.audio,
-    required this.caption,
-  });
+  const MessageAudio({required this.audio, required this.caption});
 
   /// The audio description
   final Audio audio;
@@ -468,9 +492,9 @@ final class MessageAudio extends MessageContent {
 
   /// Parse from a json
   factory MessageAudio.fromJson(Map<String, dynamic> json) => MessageAudio(
-        audio: Audio.fromJson(json['audio']),
-        caption: FormattedText.fromJson(json['caption']),
-      );
+    audio: Audio.fromJson(json['audio']),
+    caption: FormattedText.fromJson(json['caption']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -488,14 +512,10 @@ final class MessageAudio extends MessageContent {
   /// * [audio]: The audio description
   /// * [caption]: Audio caption
   @override
-  MessageAudio copyWith({
-    Audio? audio,
-    FormattedText? caption,
-  }) =>
-      MessageAudio(
-        audio: audio ?? this.audio,
-        caption: caption ?? this.caption,
-      );
+  MessageAudio copyWith({Audio? audio, FormattedText? caption}) => MessageAudio(
+    audio: audio ?? this.audio,
+    caption: caption ?? this.caption,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageAudio';
@@ -522,10 +542,7 @@ final class MessageDocument extends MessageContent {
   ///
   /// * [document]: The document description.
   /// * [caption]: Document caption.
-  const MessageDocument({
-    required this.document,
-    required this.caption,
-  });
+  const MessageDocument({required this.document, required this.caption});
 
   /// The document description
   final Document document;
@@ -556,10 +573,7 @@ final class MessageDocument extends MessageContent {
   /// * [document]: The document description
   /// * [caption]: Document caption
   @override
-  MessageDocument copyWith({
-    Document? document,
-    FormattedText? caption,
-  }) =>
+  MessageDocument copyWith({Document? document, FormattedText? caption}) =>
       MessageDocument(
         document: document ?? this.document,
         caption: caption ?? this.caption,
@@ -617,9 +631,11 @@ final class MessagePaidMedia extends MessageContent {
   factory MessagePaidMedia.fromJson(Map<String, dynamic> json) =>
       MessagePaidMedia(
         starCount: json['star_count'],
-        media: List<PaidMedia>.from((json['media'] ?? [])
-            .map((item) => PaidMedia.fromJson(item))
-            .toList()),
+        media: List<PaidMedia>.from(
+          (json['media'] ?? [])
+              .map((item) => PaidMedia.fromJson(item))
+              .toList(),
+        ),
         caption: FormattedText.fromJson(json['caption']),
         showCaptionAboveMedia: json['show_caption_above_media'],
       );
@@ -649,14 +665,12 @@ final class MessagePaidMedia extends MessageContent {
     List<PaidMedia>? media,
     FormattedText? caption,
     bool? showCaptionAboveMedia,
-  }) =>
-      MessagePaidMedia(
-        starCount: starCount ?? this.starCount,
-        media: media ?? this.media,
-        caption: caption ?? this.caption,
-        showCaptionAboveMedia:
-            showCaptionAboveMedia ?? this.showCaptionAboveMedia,
-      );
+  }) => MessagePaidMedia(
+    starCount: starCount ?? this.starCount,
+    media: media ?? this.media,
+    caption: caption ?? this.caption,
+    showCaptionAboveMedia: showCaptionAboveMedia ?? this.showCaptionAboveMedia,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messagePaidMedia';
@@ -714,12 +728,12 @@ final class MessagePhoto extends MessageContent {
 
   /// Parse from a json
   factory MessagePhoto.fromJson(Map<String, dynamic> json) => MessagePhoto(
-        photo: Photo.fromJson(json['photo']),
-        caption: FormattedText.fromJson(json['caption']),
-        showCaptionAboveMedia: json['show_caption_above_media'],
-        hasSpoiler: json['has_spoiler'],
-        isSecret: json['is_secret'],
-      );
+    photo: Photo.fromJson(json['photo']),
+    caption: FormattedText.fromJson(json['caption']),
+    showCaptionAboveMedia: json['show_caption_above_media'],
+    hasSpoiler: json['has_spoiler'],
+    isSecret: json['is_secret'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -749,15 +763,13 @@ final class MessagePhoto extends MessageContent {
     bool? showCaptionAboveMedia,
     bool? hasSpoiler,
     bool? isSecret,
-  }) =>
-      MessagePhoto(
-        photo: photo ?? this.photo,
-        caption: caption ?? this.caption,
-        showCaptionAboveMedia:
-            showCaptionAboveMedia ?? this.showCaptionAboveMedia,
-        hasSpoiler: hasSpoiler ?? this.hasSpoiler,
-        isSecret: isSecret ?? this.isSecret,
-      );
+  }) => MessagePhoto(
+    photo: photo ?? this.photo,
+    caption: caption ?? this.caption,
+    showCaptionAboveMedia: showCaptionAboveMedia ?? this.showCaptionAboveMedia,
+    hasSpoiler: hasSpoiler ?? this.hasSpoiler,
+    isSecret: isSecret ?? this.isSecret,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messagePhoto';
@@ -784,10 +796,7 @@ final class MessageSticker extends MessageContent {
   ///
   /// * [sticker]: The sticker description.
   /// * [isPremium]: True, if premium animation of the sticker must be played.
-  const MessageSticker({
-    required this.sticker,
-    required this.isPremium,
-  });
+  const MessageSticker({required this.sticker, required this.isPremium});
 
   /// The sticker description
   final Sticker sticker;
@@ -797,9 +806,9 @@ final class MessageSticker extends MessageContent {
 
   /// Parse from a json
   factory MessageSticker.fromJson(Map<String, dynamic> json) => MessageSticker(
-        sticker: Sticker.fromJson(json['sticker']),
-        isPremium: json['is_premium'],
-      );
+    sticker: Sticker.fromJson(json['sticker']),
+    isPremium: json['is_premium'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -817,10 +826,7 @@ final class MessageSticker extends MessageContent {
   /// * [sticker]: The sticker description
   /// * [is_premium]: True, if premium animation of the sticker must be played
   @override
-  MessageSticker copyWith({
-    Sticker? sticker,
-    bool? isPremium,
-  }) =>
+  MessageSticker copyWith({Sticker? sticker, bool? isPremium}) =>
       MessageSticker(
         sticker: sticker ?? this.sticker,
         isPremium: isPremium ?? this.isPremium,
@@ -843,6 +849,10 @@ final class MessageSticker extends MessageContent {
 /// A video message.
 ///
 /// * [video]: The video description.
+/// * [alternativeVideos]: Alternative qualities of the video.
+/// * [storyboards]: Available storyboards for the video.
+/// * [cover]: Cover of the video; may be null if none *(optional)*.
+/// * [startTimestamp]: Timestamp from which the video playing must start, in seconds.
 /// * [caption]: Video caption.
 /// * [showCaptionAboveMedia]: True, if the caption must be shown above the video; otherwise, the caption must be shown below the video.
 /// * [hasSpoiler]: True, if the video preview must be covered by a spoiler animation.
@@ -853,12 +863,20 @@ final class MessageVideo extends MessageContent {
   /// A video message.
   ///
   /// * [video]: The video description.
+  /// * [alternativeVideos]: Alternative qualities of the video.
+  /// * [storyboards]: Available storyboards for the video.
+  /// * [cover]: Cover of the video; may be null if none *(optional)*.
+  /// * [startTimestamp]: Timestamp from which the video playing must start, in seconds.
   /// * [caption]: Video caption.
   /// * [showCaptionAboveMedia]: True, if the caption must be shown above the video; otherwise, the caption must be shown below the video.
   /// * [hasSpoiler]: True, if the video preview must be covered by a spoiler animation.
   /// * [isSecret]: True, if the video thumbnail must be blurred and the video must be shown only while tapped.
   const MessageVideo({
     required this.video,
+    required this.alternativeVideos,
+    required this.storyboards,
+    this.cover,
+    required this.startTimestamp,
     required this.caption,
     required this.showCaptionAboveMedia,
     required this.hasSpoiler,
@@ -867,6 +885,18 @@ final class MessageVideo extends MessageContent {
 
   /// The video description
   final Video video;
+
+  /// Alternative qualities of the video
+  final List<AlternativeVideo> alternativeVideos;
+
+  /// Available storyboards for the video
+  final List<VideoStoryboard> storyboards;
+
+  /// Cover of the video; may be null if none
+  final Photo? cover;
+
+  /// Timestamp from which the video playing must start, in seconds
+  final int startTimestamp;
 
   /// Video caption
   final FormattedText caption;
@@ -882,12 +912,24 @@ final class MessageVideo extends MessageContent {
 
   /// Parse from a json
   factory MessageVideo.fromJson(Map<String, dynamic> json) => MessageVideo(
-        video: Video.fromJson(json['video']),
-        caption: FormattedText.fromJson(json['caption']),
-        showCaptionAboveMedia: json['show_caption_above_media'],
-        hasSpoiler: json['has_spoiler'],
-        isSecret: json['is_secret'],
-      );
+    video: Video.fromJson(json['video']),
+    alternativeVideos: List<AlternativeVideo>.from(
+      (json['alternative_videos'] ?? [])
+          .map((item) => AlternativeVideo.fromJson(item))
+          .toList(),
+    ),
+    storyboards: List<VideoStoryboard>.from(
+      (json['storyboards'] ?? [])
+          .map((item) => VideoStoryboard.fromJson(item))
+          .toList(),
+    ),
+    cover: json['cover'] == null ? null : Photo.fromJson(json['cover']),
+    startTimestamp: json['start_timestamp'],
+    caption: FormattedText.fromJson(json['caption']),
+    showCaptionAboveMedia: json['show_caption_above_media'],
+    hasSpoiler: json['has_spoiler'],
+    isSecret: json['is_secret'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -895,6 +937,10 @@ final class MessageVideo extends MessageContent {
     return {
       "@type": defaultObjectId,
       "video": video.toJson(),
+      "alternative_videos": alternativeVideos.map((i) => i.toJson()).toList(),
+      "storyboards": storyboards.map((i) => i.toJson()).toList(),
+      "cover": cover?.toJson(),
+      "start_timestamp": startTimestamp,
       "caption": caption.toJson(),
       "show_caption_above_media": showCaptionAboveMedia,
       "has_spoiler": hasSpoiler,
@@ -906,6 +952,10 @@ final class MessageVideo extends MessageContent {
   ///
   /// Properties:
   /// * [video]: The video description
+  /// * [alternative_videos]: Alternative qualities of the video
+  /// * [storyboards]: Available storyboards for the video
+  /// * [cover]: Cover of the video; may be null if none
+  /// * [start_timestamp]: Timestamp from which the video playing must start, in seconds
   /// * [caption]: Video caption
   /// * [show_caption_above_media]: True, if the caption must be shown above the video; otherwise, the caption must be shown below the video
   /// * [has_spoiler]: True, if the video preview must be covered by a spoiler animation
@@ -913,19 +963,25 @@ final class MessageVideo extends MessageContent {
   @override
   MessageVideo copyWith({
     Video? video,
+    List<AlternativeVideo>? alternativeVideos,
+    List<VideoStoryboard>? storyboards,
+    Photo? cover,
+    int? startTimestamp,
     FormattedText? caption,
     bool? showCaptionAboveMedia,
     bool? hasSpoiler,
     bool? isSecret,
-  }) =>
-      MessageVideo(
-        video: video ?? this.video,
-        caption: caption ?? this.caption,
-        showCaptionAboveMedia:
-            showCaptionAboveMedia ?? this.showCaptionAboveMedia,
-        hasSpoiler: hasSpoiler ?? this.hasSpoiler,
-        isSecret: isSecret ?? this.isSecret,
-      );
+  }) => MessageVideo(
+    video: video ?? this.video,
+    alternativeVideos: alternativeVideos ?? this.alternativeVideos,
+    storyboards: storyboards ?? this.storyboards,
+    cover: cover ?? this.cover,
+    startTimestamp: startTimestamp ?? this.startTimestamp,
+    caption: caption ?? this.caption,
+    showCaptionAboveMedia: showCaptionAboveMedia ?? this.showCaptionAboveMedia,
+    hasSpoiler: hasSpoiler ?? this.hasSpoiler,
+    isSecret: isSecret ?? this.isSecret,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageVideo';
@@ -999,12 +1055,11 @@ final class MessageVideoNote extends MessageContent {
     VideoNote? videoNote,
     bool? isViewed,
     bool? isSecret,
-  }) =>
-      MessageVideoNote(
-        videoNote: videoNote ?? this.videoNote,
-        isViewed: isViewed ?? this.isViewed,
-        isSecret: isSecret ?? this.isSecret,
-      );
+  }) => MessageVideoNote(
+    videoNote: videoNote ?? this.videoNote,
+    isViewed: isViewed ?? this.isViewed,
+    isSecret: isSecret ?? this.isSecret,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageVideoNote';
@@ -1078,12 +1133,11 @@ final class MessageVoiceNote extends MessageContent {
     VoiceNote? voiceNote,
     FormattedText? caption,
     bool? isListened,
-  }) =>
-      MessageVoiceNote(
-        voiceNote: voiceNote ?? this.voiceNote,
-        caption: caption ?? this.caption,
-        isListened: isListened ?? this.isListened,
-      );
+  }) => MessageVoiceNote(
+    voiceNote: voiceNote ?? this.voiceNote,
+    caption: caption ?? this.caption,
+    isListened: isListened ?? this.isListened,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageVoiceNote';
@@ -1113,9 +1167,7 @@ final class MessageExpiredPhoto extends MessageContent {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -1150,9 +1202,7 @@ final class MessageExpiredVideo extends MessageContent {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -1187,9 +1237,7 @@ final class MessageExpiredVideoNote extends MessageContent {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -1224,9 +1272,7 @@ final class MessageExpiredVoiceNote extends MessageContent {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -1325,14 +1371,13 @@ final class MessageLocation extends MessageContent {
     int? expiresIn,
     int? heading,
     int? proximityAlertRadius,
-  }) =>
-      MessageLocation(
-        location: location ?? this.location,
-        livePeriod: livePeriod ?? this.livePeriod,
-        expiresIn: expiresIn ?? this.expiresIn,
-        heading: heading ?? this.heading,
-        proximityAlertRadius: proximityAlertRadius ?? this.proximityAlertRadius,
-      );
+  }) => MessageLocation(
+    location: location ?? this.location,
+    livePeriod: livePeriod ?? this.livePeriod,
+    expiresIn: expiresIn ?? this.expiresIn,
+    heading: heading ?? this.heading,
+    proximityAlertRadius: proximityAlertRadius ?? this.proximityAlertRadius,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageLocation';
@@ -1357,25 +1402,19 @@ final class MessageVenue extends MessageContent {
   /// A message with information about a venue.
   ///
   /// * [venue]: The venue description.
-  const MessageVenue({
-    required this.venue,
-  });
+  const MessageVenue({required this.venue});
 
   /// The venue description
   final Venue venue;
 
   /// Parse from a json
-  factory MessageVenue.fromJson(Map<String, dynamic> json) => MessageVenue(
-        venue: Venue.fromJson(json['venue']),
-      );
+  factory MessageVenue.fromJson(Map<String, dynamic> json) =>
+      MessageVenue(venue: Venue.fromJson(json['venue']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "venue": venue.toJson(),
-    };
+    return {"@type": defaultObjectId, "venue": venue.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -1383,12 +1422,8 @@ final class MessageVenue extends MessageContent {
   /// Properties:
   /// * [venue]: The venue description
   @override
-  MessageVenue copyWith({
-    Venue? venue,
-  }) =>
-      MessageVenue(
-        venue: venue ?? this.venue,
-      );
+  MessageVenue copyWith({Venue? venue}) =>
+      MessageVenue(venue: venue ?? this.venue);
 
   /// TDLib object type
   static const String defaultObjectId = 'messageVenue';
@@ -1413,25 +1448,19 @@ final class MessageContact extends MessageContent {
   /// A message with a user contact.
   ///
   /// * [contact]: The contact description.
-  const MessageContact({
-    required this.contact,
-  });
+  const MessageContact({required this.contact});
 
   /// The contact description
   final Contact contact;
 
   /// Parse from a json
-  factory MessageContact.fromJson(Map<String, dynamic> json) => MessageContact(
-        contact: Contact.fromJson(json['contact']),
-      );
+  factory MessageContact.fromJson(Map<String, dynamic> json) =>
+      MessageContact(contact: Contact.fromJson(json['contact']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "contact": contact.toJson(),
-    };
+    return {"@type": defaultObjectId, "contact": contact.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -1439,12 +1468,8 @@ final class MessageContact extends MessageContent {
   /// Properties:
   /// * [contact]: The contact description
   @override
-  MessageContact copyWith({
-    Contact? contact,
-  }) =>
-      MessageContact(
-        contact: contact ?? this.contact,
-      );
+  MessageContact copyWith({Contact? contact}) =>
+      MessageContact(contact: contact ?? this.contact);
 
   /// TDLib object type
   static const String defaultObjectId = 'messageContact';
@@ -1508,11 +1533,10 @@ final class MessageAnimatedEmoji extends MessageContent {
   MessageAnimatedEmoji copyWith({
     AnimatedEmoji? animatedEmoji,
     String? emoji,
-  }) =>
-      MessageAnimatedEmoji(
-        animatedEmoji: animatedEmoji ?? this.animatedEmoji,
-        emoji: emoji ?? this.emoji,
-      );
+  }) => MessageAnimatedEmoji(
+    animatedEmoji: animatedEmoji ?? this.animatedEmoji,
+    emoji: emoji ?? this.emoji,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageAnimatedEmoji';
@@ -1570,16 +1594,16 @@ final class MessageDice extends MessageContent {
 
   /// Parse from a json
   factory MessageDice.fromJson(Map<String, dynamic> json) => MessageDice(
-        initialState: json['initial_state'] == null
-            ? null
-            : DiceStickers.fromJson(json['initial_state']),
-        finalState: json['final_state'] == null
-            ? null
-            : DiceStickers.fromJson(json['final_state']),
-        emoji: json['emoji'],
-        value: json['value'],
-        successAnimationFrameNumber: json['success_animation_frame_number'],
-      );
+    initialState: json['initial_state'] == null
+        ? null
+        : DiceStickers.fromJson(json['initial_state']),
+    finalState: json['final_state'] == null
+        ? null
+        : DiceStickers.fromJson(json['final_state']),
+    emoji: json['emoji'],
+    value: json['value'],
+    successAnimationFrameNumber: json['success_animation_frame_number'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -1609,15 +1633,14 @@ final class MessageDice extends MessageContent {
     String? emoji,
     int? value,
     int? successAnimationFrameNumber,
-  }) =>
-      MessageDice(
-        initialState: initialState ?? this.initialState,
-        finalState: finalState ?? this.finalState,
-        emoji: emoji ?? this.emoji,
-        value: value ?? this.value,
-        successAnimationFrameNumber:
-            successAnimationFrameNumber ?? this.successAnimationFrameNumber,
-      );
+  }) => MessageDice(
+    initialState: initialState ?? this.initialState,
+    finalState: finalState ?? this.finalState,
+    emoji: emoji ?? this.emoji,
+    value: value ?? this.value,
+    successAnimationFrameNumber:
+        successAnimationFrameNumber ?? this.successAnimationFrameNumber,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageDice';
@@ -1642,25 +1665,19 @@ final class MessageGame extends MessageContent {
   /// A message with a game.
   ///
   /// * [game]: The game description.
-  const MessageGame({
-    required this.game,
-  });
+  const MessageGame({required this.game});
 
   /// The game description
   final Game game;
 
   /// Parse from a json
-  factory MessageGame.fromJson(Map<String, dynamic> json) => MessageGame(
-        game: Game.fromJson(json['game']),
-      );
+  factory MessageGame.fromJson(Map<String, dynamic> json) =>
+      MessageGame(game: Game.fromJson(json['game']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "game": game.toJson(),
-    };
+    return {"@type": defaultObjectId, "game": game.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -1668,12 +1685,7 @@ final class MessageGame extends MessageContent {
   /// Properties:
   /// * [game]: The game description
   @override
-  MessageGame copyWith({
-    Game? game,
-  }) =>
-      MessageGame(
-        game: game ?? this.game,
-      );
+  MessageGame copyWith({Game? game}) => MessageGame(game: game ?? this.game);
 
   /// TDLib object type
   static const String defaultObjectId = 'messageGame';
@@ -1698,25 +1710,19 @@ final class MessagePoll extends MessageContent {
   /// A message with a poll.
   ///
   /// * [poll]: The poll description.
-  const MessagePoll({
-    required this.poll,
-  });
+  const MessagePoll({required this.poll});
 
   /// The poll description
   final Poll poll;
 
   /// Parse from a json
-  factory MessagePoll.fromJson(Map<String, dynamic> json) => MessagePoll(
-        poll: Poll.fromJson(json['poll']),
-      );
+  factory MessagePoll.fromJson(Map<String, dynamic> json) =>
+      MessagePoll(poll: Poll.fromJson(json['poll']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "poll": poll.toJson(),
-    };
+    return {"@type": defaultObjectId, "poll": poll.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -1724,12 +1730,7 @@ final class MessagePoll extends MessageContent {
   /// Properties:
   /// * [poll]: The poll description
   @override
-  MessagePoll copyWith({
-    Poll? poll,
-  }) =>
-      MessagePoll(
-        poll: poll ?? this.poll,
-      );
+  MessagePoll copyWith({Poll? poll}) => MessagePoll(poll: poll ?? this.poll);
 
   /// TDLib object type
   static const String defaultObjectId = 'messagePoll';
@@ -1747,7 +1748,7 @@ final class MessagePoll extends MessageContent {
 ///
 /// A message with a forwarded story.
 ///
-/// * [storySenderChatId]: Identifier of the chat that posted the story.
+/// * [storyPosterChatId]: Identifier of the chat that posted the story.
 /// * [storyId]: Story identifier.
 /// * [viaMention]: True, if the story was automatically forwarded because of a mention of the user.
 final class MessageStory extends MessageContent {
@@ -1755,17 +1756,17 @@ final class MessageStory extends MessageContent {
   ///
   /// A message with a forwarded story.
   ///
-  /// * [storySenderChatId]: Identifier of the chat that posted the story.
+  /// * [storyPosterChatId]: Identifier of the chat that posted the story.
   /// * [storyId]: Story identifier.
   /// * [viaMention]: True, if the story was automatically forwarded because of a mention of the user.
   const MessageStory({
-    required this.storySenderChatId,
+    required this.storyPosterChatId,
     required this.storyId,
     required this.viaMention,
   });
 
   /// Identifier of the chat that posted the story
-  final int storySenderChatId;
+  final int storyPosterChatId;
 
   /// Story identifier
   final int storyId;
@@ -1775,17 +1776,17 @@ final class MessageStory extends MessageContent {
 
   /// Parse from a json
   factory MessageStory.fromJson(Map<String, dynamic> json) => MessageStory(
-        storySenderChatId: json['story_sender_chat_id'],
-        storyId: json['story_id'],
-        viaMention: json['via_mention'],
-      );
+    storyPosterChatId: json['story_poster_chat_id'],
+    storyId: json['story_id'],
+    viaMention: json['via_mention'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
     return {
       "@type": defaultObjectId,
-      "story_sender_chat_id": storySenderChatId,
+      "story_poster_chat_id": storyPosterChatId,
       "story_id": storyId,
       "via_mention": viaMention,
     };
@@ -1794,23 +1795,68 @@ final class MessageStory extends MessageContent {
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [story_sender_chat_id]: Identifier of the chat that posted the story
+  /// * [story_poster_chat_id]: Identifier of the chat that posted the story
   /// * [story_id]: Story identifier
   /// * [via_mention]: True, if the story was automatically forwarded because of a mention of the user
   @override
   MessageStory copyWith({
-    int? storySenderChatId,
+    int? storyPosterChatId,
     int? storyId,
     bool? viaMention,
-  }) =>
-      MessageStory(
-        storySenderChatId: storySenderChatId ?? this.storySenderChatId,
-        storyId: storyId ?? this.storyId,
-        viaMention: viaMention ?? this.viaMention,
-      );
+  }) => MessageStory(
+    storyPosterChatId: storyPosterChatId ?? this.storyPosterChatId,
+    storyId: storyId ?? this.storyId,
+    viaMention: viaMention ?? this.viaMention,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageStory';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **MessageChecklist** *(messageChecklist)* - child of MessageContent
+///
+/// A message with a checklist.
+///
+/// * [list]: The checklist description.
+final class MessageChecklist extends MessageContent {
+  /// **MessageChecklist** *(messageChecklist)* - child of MessageContent
+  ///
+  /// A message with a checklist.
+  ///
+  /// * [list]: The checklist description.
+  const MessageChecklist({required this.list});
+
+  /// The checklist description
+  final Checklist list;
+
+  /// Parse from a json
+  factory MessageChecklist.fromJson(Map<String, dynamic> json) =>
+      MessageChecklist(list: Checklist.fromJson(json['list']));
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {"@type": defaultObjectId, "list": list.toJson()};
+  }
+
+  /// Copy model with modified properties.
+  ///
+  /// Properties:
+  /// * [list]: The checklist description
+  @override
+  MessageChecklist copyWith({Checklist? list}) =>
+      MessageChecklist(list: list ?? this.list);
+
+  /// TDLib object type
+  static const String defaultObjectId = 'messageChecklist';
 
   /// Convert model to TDLib JSON format, encoded into String.
   @override
@@ -1889,20 +1935,20 @@ final class MessageInvoice extends MessageContent {
 
   /// Parse from a json
   factory MessageInvoice.fromJson(Map<String, dynamic> json) => MessageInvoice(
-        productInfo: ProductInfo.fromJson(json['product_info']),
-        currency: json['currency'],
-        totalAmount: json['total_amount'],
-        startParameter: json['start_parameter'],
-        isTest: json['is_test'],
-        needShippingAddress: json['need_shipping_address'],
-        receiptMessageId: json['receipt_message_id'],
-        paidMedia: json['paid_media'] == null
-            ? null
-            : PaidMedia.fromJson(json['paid_media']),
-        paidMediaCaption: json['paid_media_caption'] == null
-            ? null
-            : FormattedText.fromJson(json['paid_media_caption']),
-      );
+    productInfo: ProductInfo.fromJson(json['product_info']),
+    currency: json['currency'],
+    totalAmount: json['total_amount'],
+    startParameter: json['start_parameter'],
+    isTest: json['is_test'],
+    needShippingAddress: json['need_shipping_address'],
+    receiptMessageId: json['receipt_message_id'],
+    paidMedia: json['paid_media'] == null
+        ? null
+        : PaidMedia.fromJson(json['paid_media']),
+    paidMediaCaption: json['paid_media_caption'] == null
+        ? null
+        : FormattedText.fromJson(json['paid_media_caption']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -1944,18 +1990,17 @@ final class MessageInvoice extends MessageContent {
     int? receiptMessageId,
     PaidMedia? paidMedia,
     FormattedText? paidMediaCaption,
-  }) =>
-      MessageInvoice(
-        productInfo: productInfo ?? this.productInfo,
-        currency: currency ?? this.currency,
-        totalAmount: totalAmount ?? this.totalAmount,
-        startParameter: startParameter ?? this.startParameter,
-        isTest: isTest ?? this.isTest,
-        needShippingAddress: needShippingAddress ?? this.needShippingAddress,
-        receiptMessageId: receiptMessageId ?? this.receiptMessageId,
-        paidMedia: paidMedia ?? this.paidMedia,
-        paidMediaCaption: paidMediaCaption ?? this.paidMediaCaption,
-      );
+  }) => MessageInvoice(
+    productInfo: productInfo ?? this.productInfo,
+    currency: currency ?? this.currency,
+    totalAmount: totalAmount ?? this.totalAmount,
+    startParameter: startParameter ?? this.startParameter,
+    isTest: isTest ?? this.isTest,
+    needShippingAddress: needShippingAddress ?? this.needShippingAddress,
+    receiptMessageId: receiptMessageId ?? this.receiptMessageId,
+    paidMedia: paidMedia ?? this.paidMedia,
+    paidMediaCaption: paidMediaCaption ?? this.paidMediaCaption,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageInvoice';
@@ -2001,10 +2046,10 @@ final class MessageCall extends MessageContent {
 
   /// Parse from a json
   factory MessageCall.fromJson(Map<String, dynamic> json) => MessageCall(
-        isVideo: json['is_video'],
-        discardReason: CallDiscardReason.fromJson(json['discard_reason']),
-        duration: json['duration'],
-      );
+    isVideo: json['is_video'],
+    discardReason: CallDiscardReason.fromJson(json['discard_reason']),
+    duration: json['duration'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -2028,15 +2073,120 @@ final class MessageCall extends MessageContent {
     bool? isVideo,
     CallDiscardReason? discardReason,
     int? duration,
-  }) =>
-      MessageCall(
-        isVideo: isVideo ?? this.isVideo,
-        discardReason: discardReason ?? this.discardReason,
-        duration: duration ?? this.duration,
-      );
+  }) => MessageCall(
+    isVideo: isVideo ?? this.isVideo,
+    discardReason: discardReason ?? this.discardReason,
+    duration: duration ?? this.duration,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageCall';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **MessageGroupCall** *(messageGroupCall)* - child of MessageContent
+///
+/// A message with information about a group call not bound to a chat. If the message is incoming, the call isn't active, isn't missed, and has no duration,. and getOption("can_accept_calls") is true, then incoming call screen must be shown to the user. Use getGroupCallParticipants to show current group call participants on the screen.. Use joinGroupCall to accept the call or declineGroupCallInvitation to decline it. If the call become active or missed, then the call screen must be hidden.
+///
+/// * [isActive]: True, if the call is active, i.e. the called user joined the call.
+/// * [wasMissed]: True, if the called user missed or declined the call.
+/// * [isVideo]: True, if the call is a video call.
+/// * [duration]: Call duration, in seconds; for left calls only.
+/// * [otherParticipantIds]: Identifiers of some other call participants.
+final class MessageGroupCall extends MessageContent {
+  /// **MessageGroupCall** *(messageGroupCall)* - child of MessageContent
+  ///
+  /// A message with information about a group call not bound to a chat. If the message is incoming, the call isn't active, isn't missed, and has no duration,. and getOption("can_accept_calls") is true, then incoming call screen must be shown to the user. Use getGroupCallParticipants to show current group call participants on the screen.. Use joinGroupCall to accept the call or declineGroupCallInvitation to decline it. If the call become active or missed, then the call screen must be hidden.
+  ///
+  /// * [isActive]: True, if the call is active, i.e. the called user joined the call.
+  /// * [wasMissed]: True, if the called user missed or declined the call.
+  /// * [isVideo]: True, if the call is a video call.
+  /// * [duration]: Call duration, in seconds; for left calls only.
+  /// * [otherParticipantIds]: Identifiers of some other call participants.
+  const MessageGroupCall({
+    required this.isActive,
+    required this.wasMissed,
+    required this.isVideo,
+    required this.duration,
+    required this.otherParticipantIds,
+  });
+
+  /// True, if the call is active, i.e. the called user joined the call
+  final bool isActive;
+
+  /// True, if the called user missed or declined the call
+  final bool wasMissed;
+
+  /// True, if the call is a video call
+  final bool isVideo;
+
+  /// Call duration, in seconds; for left calls only
+  final int duration;
+
+  /// Identifiers of some other call participants
+  final List<MessageSender> otherParticipantIds;
+
+  /// Parse from a json
+  factory MessageGroupCall.fromJson(Map<String, dynamic> json) =>
+      MessageGroupCall(
+        isActive: json['is_active'],
+        wasMissed: json['was_missed'],
+        isVideo: json['is_video'],
+        duration: json['duration'],
+        otherParticipantIds: List<MessageSender>.from(
+          (json['other_participant_ids'] ?? [])
+              .map((item) => MessageSender.fromJson(item))
+              .toList(),
+        ),
+      );
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      "@type": defaultObjectId,
+      "is_active": isActive,
+      "was_missed": wasMissed,
+      "is_video": isVideo,
+      "duration": duration,
+      "other_participant_ids": otherParticipantIds
+          .map((i) => i.toJson())
+          .toList(),
+    };
+  }
+
+  /// Copy model with modified properties.
+  ///
+  /// Properties:
+  /// * [is_active]: True, if the call is active, i.e. the called user joined the call
+  /// * [was_missed]: True, if the called user missed or declined the call
+  /// * [is_video]: True, if the call is a video call
+  /// * [duration]: Call duration, in seconds; for left calls only
+  /// * [other_participant_ids]: Identifiers of some other call participants
+  @override
+  MessageGroupCall copyWith({
+    bool? isActive,
+    bool? wasMissed,
+    bool? isVideo,
+    int? duration,
+    List<MessageSender>? otherParticipantIds,
+  }) => MessageGroupCall(
+    isActive: isActive ?? this.isActive,
+    wasMissed: wasMissed ?? this.wasMissed,
+    isVideo: isVideo ?? this.isVideo,
+    duration: duration ?? this.duration,
+    otherParticipantIds: otherParticipantIds ?? this.otherParticipantIds,
+  );
+
+  /// TDLib object type
+  static const String defaultObjectId = 'messageGroupCall';
 
   /// Convert model to TDLib JSON format, encoded into String.
   @override
@@ -2052,14 +2202,14 @@ final class MessageCall extends MessageContent {
 /// A new video chat was scheduled.
 ///
 /// * [groupCallId]: Identifier of the video chat. The video chat can be received through the method getGroupCall.
-/// * [startDate]: Point in time (Unix timestamp) when the group call is supposed to be started by an administrator.
+/// * [startDate]: Point in time (Unix timestamp) when the group call is expected to be started by an administrator.
 final class MessageVideoChatScheduled extends MessageContent {
   /// **MessageVideoChatScheduled** *(messageVideoChatScheduled)* - child of MessageContent
   ///
   /// A new video chat was scheduled.
   ///
   /// * [groupCallId]: Identifier of the video chat. The video chat can be received through the method getGroupCall.
-  /// * [startDate]: Point in time (Unix timestamp) when the group call is supposed to be started by an administrator.
+  /// * [startDate]: Point in time (Unix timestamp) when the group call is expected to be started by an administrator.
   const MessageVideoChatScheduled({
     required this.groupCallId,
     required this.startDate,
@@ -2068,7 +2218,7 @@ final class MessageVideoChatScheduled extends MessageContent {
   /// Identifier of the video chat. The video chat can be received through the method getGroupCall
   final int groupCallId;
 
-  /// Point in time (Unix timestamp) when the group call is supposed to be started by an administrator
+  /// Point in time (Unix timestamp) when the group call is expected to be started by an administrator
   final int startDate;
 
   /// Parse from a json
@@ -2092,12 +2242,9 @@ final class MessageVideoChatScheduled extends MessageContent {
   ///
   /// Properties:
   /// * [group_call_id]: Identifier of the video chat. The video chat can be received through the method getGroupCall
-  /// * [start_date]: Point in time (Unix timestamp) when the group call is supposed to be started by an administrator
+  /// * [start_date]: Point in time (Unix timestamp) when the group call is expected to be started by an administrator
   @override
-  MessageVideoChatScheduled copyWith({
-    int? groupCallId,
-    int? startDate,
-  }) =>
+  MessageVideoChatScheduled copyWith({int? groupCallId, int? startDate}) =>
       MessageVideoChatScheduled(
         groupCallId: groupCallId ?? this.groupCallId,
         startDate: startDate ?? this.startDate,
@@ -2126,26 +2273,19 @@ final class MessageVideoChatStarted extends MessageContent {
   /// A newly created video chat.
   ///
   /// * [groupCallId]: Identifier of the video chat. The video chat can be received through the method getGroupCall.
-  const MessageVideoChatStarted({
-    required this.groupCallId,
-  });
+  const MessageVideoChatStarted({required this.groupCallId});
 
   /// Identifier of the video chat. The video chat can be received through the method getGroupCall
   final int groupCallId;
 
   /// Parse from a json
   factory MessageVideoChatStarted.fromJson(Map<String, dynamic> json) =>
-      MessageVideoChatStarted(
-        groupCallId: json['group_call_id'],
-      );
+      MessageVideoChatStarted(groupCallId: json['group_call_id']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "group_call_id": groupCallId,
-    };
+    return {"@type": defaultObjectId, "group_call_id": groupCallId};
   }
 
   /// Copy model with modified properties.
@@ -2153,12 +2293,8 @@ final class MessageVideoChatStarted extends MessageContent {
   /// Properties:
   /// * [group_call_id]: Identifier of the video chat. The video chat can be received through the method getGroupCall
   @override
-  MessageVideoChatStarted copyWith({
-    int? groupCallId,
-  }) =>
-      MessageVideoChatStarted(
-        groupCallId: groupCallId ?? this.groupCallId,
-      );
+  MessageVideoChatStarted copyWith({int? groupCallId}) =>
+      MessageVideoChatStarted(groupCallId: groupCallId ?? this.groupCallId);
 
   /// TDLib object type
   static const String defaultObjectId = 'messageVideoChatStarted';
@@ -2183,26 +2319,19 @@ final class MessageVideoChatEnded extends MessageContent {
   /// A message with information about an ended video chat.
   ///
   /// * [duration]: Call duration, in seconds.
-  const MessageVideoChatEnded({
-    required this.duration,
-  });
+  const MessageVideoChatEnded({required this.duration});
 
   /// Call duration, in seconds
   final int duration;
 
   /// Parse from a json
   factory MessageVideoChatEnded.fromJson(Map<String, dynamic> json) =>
-      MessageVideoChatEnded(
-        duration: json['duration'],
-      );
+      MessageVideoChatEnded(duration: json['duration']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "duration": duration,
-    };
+    return {"@type": defaultObjectId, "duration": duration};
   }
 
   /// Copy model with modified properties.
@@ -2210,12 +2339,8 @@ final class MessageVideoChatEnded extends MessageContent {
   /// Properties:
   /// * [duration]: Call duration, in seconds
   @override
-  MessageVideoChatEnded copyWith({
-    int? duration,
-  }) =>
-      MessageVideoChatEnded(
-        duration: duration ?? this.duration,
-      );
+  MessageVideoChatEnded copyWith({int? duration}) =>
+      MessageVideoChatEnded(duration: duration ?? this.duration);
 
   /// TDLib object type
   static const String defaultObjectId = 'messageVideoChatEnded';
@@ -2255,12 +2380,13 @@ final class MessageInviteVideoChatParticipants extends MessageContent {
 
   /// Parse from a json
   factory MessageInviteVideoChatParticipants.fromJson(
-          Map<String, dynamic> json) =>
-      MessageInviteVideoChatParticipants(
-        groupCallId: json['group_call_id'],
-        userIds: List<int>.from(
-            (json['user_ids'] ?? []).map((item) => item).toList()),
-      );
+    Map<String, dynamic> json,
+  ) => MessageInviteVideoChatParticipants(
+    groupCallId: json['group_call_id'],
+    userIds: List<int>.from(
+      (json['user_ids'] ?? []).map((item) => item).toList(),
+    ),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -2281,11 +2407,10 @@ final class MessageInviteVideoChatParticipants extends MessageContent {
   MessageInviteVideoChatParticipants copyWith({
     int? groupCallId,
     List<int>? userIds,
-  }) =>
-      MessageInviteVideoChatParticipants(
-        groupCallId: groupCallId ?? this.groupCallId,
-        userIds: userIds ?? this.userIds,
-      );
+  }) => MessageInviteVideoChatParticipants(
+    groupCallId: groupCallId ?? this.groupCallId,
+    userIds: userIds ?? this.userIds,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageInviteVideoChatParticipants';
@@ -2328,7 +2453,8 @@ final class MessageBasicGroupChatCreate extends MessageContent {
       MessageBasicGroupChatCreate(
         title: json['title'],
         memberUserIds: List<int>.from(
-            (json['member_user_ids'] ?? []).map((item) => item).toList()),
+          (json['member_user_ids'] ?? []).map((item) => item).toList(),
+        ),
       );
 
   /// Convert model to TDLib JSON format
@@ -2350,11 +2476,10 @@ final class MessageBasicGroupChatCreate extends MessageContent {
   MessageBasicGroupChatCreate copyWith({
     String? title,
     List<int>? memberUserIds,
-  }) =>
-      MessageBasicGroupChatCreate(
-        title: title ?? this.title,
-        memberUserIds: memberUserIds ?? this.memberUserIds,
-      );
+  }) => MessageBasicGroupChatCreate(
+    title: title ?? this.title,
+    memberUserIds: memberUserIds ?? this.memberUserIds,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageBasicGroupChatCreate';
@@ -2379,26 +2504,19 @@ final class MessageSupergroupChatCreate extends MessageContent {
   /// A newly created supergroup or channel.
   ///
   /// * [title]: Title of the supergroup or channel.
-  const MessageSupergroupChatCreate({
-    required this.title,
-  });
+  const MessageSupergroupChatCreate({required this.title});
 
   /// Title of the supergroup or channel
   final String title;
 
   /// Parse from a json
   factory MessageSupergroupChatCreate.fromJson(Map<String, dynamic> json) =>
-      MessageSupergroupChatCreate(
-        title: json['title'],
-      );
+      MessageSupergroupChatCreate(title: json['title']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "title": title,
-    };
+    return {"@type": defaultObjectId, "title": title};
   }
 
   /// Copy model with modified properties.
@@ -2406,12 +2524,8 @@ final class MessageSupergroupChatCreate extends MessageContent {
   /// Properties:
   /// * [title]: Title of the supergroup or channel
   @override
-  MessageSupergroupChatCreate copyWith({
-    String? title,
-  }) =>
-      MessageSupergroupChatCreate(
-        title: title ?? this.title,
-      );
+  MessageSupergroupChatCreate copyWith({String? title}) =>
+      MessageSupergroupChatCreate(title: title ?? this.title);
 
   /// TDLib object type
   static const String defaultObjectId = 'messageSupergroupChatCreate';
@@ -2436,26 +2550,19 @@ final class MessageChatChangeTitle extends MessageContent {
   /// An updated chat title.
   ///
   /// * [title]: New chat title.
-  const MessageChatChangeTitle({
-    required this.title,
-  });
+  const MessageChatChangeTitle({required this.title});
 
   /// New chat title
   final String title;
 
   /// Parse from a json
   factory MessageChatChangeTitle.fromJson(Map<String, dynamic> json) =>
-      MessageChatChangeTitle(
-        title: json['title'],
-      );
+      MessageChatChangeTitle(title: json['title']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "title": title,
-    };
+    return {"@type": defaultObjectId, "title": title};
   }
 
   /// Copy model with modified properties.
@@ -2463,12 +2570,8 @@ final class MessageChatChangeTitle extends MessageContent {
   /// Properties:
   /// * [title]: New chat title
   @override
-  MessageChatChangeTitle copyWith({
-    String? title,
-  }) =>
-      MessageChatChangeTitle(
-        title: title ?? this.title,
-      );
+  MessageChatChangeTitle copyWith({String? title}) =>
+      MessageChatChangeTitle(title: title ?? this.title);
 
   /// TDLib object type
   static const String defaultObjectId = 'messageChatChangeTitle';
@@ -2493,26 +2596,19 @@ final class MessageChatChangePhoto extends MessageContent {
   /// An updated chat photo.
   ///
   /// * [photo]: New chat photo.
-  const MessageChatChangePhoto({
-    required this.photo,
-  });
+  const MessageChatChangePhoto({required this.photo});
 
   /// New chat photo
   final ChatPhoto photo;
 
   /// Parse from a json
   factory MessageChatChangePhoto.fromJson(Map<String, dynamic> json) =>
-      MessageChatChangePhoto(
-        photo: ChatPhoto.fromJson(json['photo']),
-      );
+      MessageChatChangePhoto(photo: ChatPhoto.fromJson(json['photo']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "photo": photo.toJson(),
-    };
+    return {"@type": defaultObjectId, "photo": photo.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -2520,12 +2616,8 @@ final class MessageChatChangePhoto extends MessageContent {
   /// Properties:
   /// * [photo]: New chat photo
   @override
-  MessageChatChangePhoto copyWith({
-    ChatPhoto? photo,
-  }) =>
-      MessageChatChangePhoto(
-        photo: photo ?? this.photo,
-      );
+  MessageChatChangePhoto copyWith({ChatPhoto? photo}) =>
+      MessageChatChangePhoto(photo: photo ?? this.photo);
 
   /// TDLib object type
   static const String defaultObjectId = 'messageChatChangePhoto';
@@ -2555,9 +2647,7 @@ final class MessageChatDeletePhoto extends MessageContent {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -2587,9 +2677,7 @@ final class MessageChatAddMembers extends MessageContent {
   /// New chat members were added.
   ///
   /// * [memberUserIds]: User identifiers of the new members.
-  const MessageChatAddMembers({
-    required this.memberUserIds,
-  });
+  const MessageChatAddMembers({required this.memberUserIds});
 
   /// User identifiers of the new members
   final List<int> memberUserIds;
@@ -2598,7 +2686,8 @@ final class MessageChatAddMembers extends MessageContent {
   factory MessageChatAddMembers.fromJson(Map<String, dynamic> json) =>
       MessageChatAddMembers(
         memberUserIds: List<int>.from(
-            (json['member_user_ids'] ?? []).map((item) => item).toList()),
+          (json['member_user_ids'] ?? []).map((item) => item).toList(),
+        ),
       );
 
   /// Convert model to TDLib JSON format
@@ -2615,12 +2704,8 @@ final class MessageChatAddMembers extends MessageContent {
   /// Properties:
   /// * [member_user_ids]: User identifiers of the new members
   @override
-  MessageChatAddMembers copyWith({
-    List<int>? memberUserIds,
-  }) =>
-      MessageChatAddMembers(
-        memberUserIds: memberUserIds ?? this.memberUserIds,
-      );
+  MessageChatAddMembers copyWith({List<int>? memberUserIds}) =>
+      MessageChatAddMembers(memberUserIds: memberUserIds ?? this.memberUserIds);
 
   /// TDLib object type
   static const String defaultObjectId = 'messageChatAddMembers';
@@ -2650,9 +2735,7 @@ final class MessageChatJoinByLink extends MessageContent {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -2687,9 +2770,7 @@ final class MessageChatJoinByRequest extends MessageContent {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -2719,26 +2800,19 @@ final class MessageChatDeleteMember extends MessageContent {
   /// A chat member was deleted.
   ///
   /// * [userId]: User identifier of the deleted chat member.
-  const MessageChatDeleteMember({
-    required this.userId,
-  });
+  const MessageChatDeleteMember({required this.userId});
 
   /// User identifier of the deleted chat member
   final int userId;
 
   /// Parse from a json
   factory MessageChatDeleteMember.fromJson(Map<String, dynamic> json) =>
-      MessageChatDeleteMember(
-        userId: json['user_id'],
-      );
+      MessageChatDeleteMember(userId: json['user_id']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "user_id": userId,
-    };
+    return {"@type": defaultObjectId, "user_id": userId};
   }
 
   /// Copy model with modified properties.
@@ -2746,12 +2820,8 @@ final class MessageChatDeleteMember extends MessageContent {
   /// Properties:
   /// * [user_id]: User identifier of the deleted chat member
   @override
-  MessageChatDeleteMember copyWith({
-    int? userId,
-  }) =>
-      MessageChatDeleteMember(
-        userId: userId ?? this.userId,
-      );
+  MessageChatDeleteMember copyWith({int? userId}) =>
+      MessageChatDeleteMember(userId: userId ?? this.userId);
 
   /// TDLib object type
   static const String defaultObjectId = 'messageChatDeleteMember';
@@ -2776,26 +2846,19 @@ final class MessageChatUpgradeTo extends MessageContent {
   /// A basic group was upgraded to a supergroup and was deactivated as the result.
   ///
   /// * [supergroupId]: Identifier of the supergroup to which the basic group was upgraded.
-  const MessageChatUpgradeTo({
-    required this.supergroupId,
-  });
+  const MessageChatUpgradeTo({required this.supergroupId});
 
   /// Identifier of the supergroup to which the basic group was upgraded
   final int supergroupId;
 
   /// Parse from a json
   factory MessageChatUpgradeTo.fromJson(Map<String, dynamic> json) =>
-      MessageChatUpgradeTo(
-        supergroupId: json['supergroup_id'],
-      );
+      MessageChatUpgradeTo(supergroupId: json['supergroup_id']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "supergroup_id": supergroupId,
-    };
+    return {"@type": defaultObjectId, "supergroup_id": supergroupId};
   }
 
   /// Copy model with modified properties.
@@ -2803,12 +2866,8 @@ final class MessageChatUpgradeTo extends MessageContent {
   /// Properties:
   /// * [supergroup_id]: Identifier of the supergroup to which the basic group was upgraded
   @override
-  MessageChatUpgradeTo copyWith({
-    int? supergroupId,
-  }) =>
-      MessageChatUpgradeTo(
-        supergroupId: supergroupId ?? this.supergroupId,
-      );
+  MessageChatUpgradeTo copyWith({int? supergroupId}) =>
+      MessageChatUpgradeTo(supergroupId: supergroupId ?? this.supergroupId);
 
   /// TDLib object type
   static const String defaultObjectId = 'messageChatUpgradeTo';
@@ -2869,10 +2928,7 @@ final class MessageChatUpgradeFrom extends MessageContent {
   /// * [title]: Title of the newly created supergroup
   /// * [basic_group_id]: The identifier of the original basic group
   @override
-  MessageChatUpgradeFrom copyWith({
-    String? title,
-    int? basicGroupId,
-  }) =>
+  MessageChatUpgradeFrom copyWith({String? title, int? basicGroupId}) =>
       MessageChatUpgradeFrom(
         title: title ?? this.title,
         basicGroupId: basicGroupId ?? this.basicGroupId,
@@ -2901,26 +2957,19 @@ final class MessagePinMessage extends MessageContent {
   /// A message has been pinned.
   ///
   /// * [messageId]: Identifier of the pinned message, can be an identifier of a deleted message or 0.
-  const MessagePinMessage({
-    required this.messageId,
-  });
+  const MessagePinMessage({required this.messageId});
 
   /// Identifier of the pinned message, can be an identifier of a deleted message or 0
   final int messageId;
 
   /// Parse from a json
   factory MessagePinMessage.fromJson(Map<String, dynamic> json) =>
-      MessagePinMessage(
-        messageId: json['message_id'],
-      );
+      MessagePinMessage(messageId: json['message_id']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "message_id": messageId,
-    };
+    return {"@type": defaultObjectId, "message_id": messageId};
   }
 
   /// Copy model with modified properties.
@@ -2928,12 +2977,8 @@ final class MessagePinMessage extends MessageContent {
   /// Properties:
   /// * [message_id]: Identifier of the pinned message, can be an identifier of a deleted message or 0
   @override
-  MessagePinMessage copyWith({
-    int? messageId,
-  }) =>
-      MessagePinMessage(
-        messageId: messageId ?? this.messageId,
-      );
+  MessagePinMessage copyWith({int? messageId}) =>
+      MessagePinMessage(messageId: messageId ?? this.messageId);
 
   /// TDLib object type
   static const String defaultObjectId = 'messagePinMessage';
@@ -2963,9 +3008,7 @@ final class MessageScreenshotTaken extends MessageContent {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -3044,13 +3087,12 @@ final class MessageChatSetBackground extends MessageContent {
     int? oldBackgroundMessageId,
     ChatBackground? background,
     bool? onlyForSelf,
-  }) =>
-      MessageChatSetBackground(
-        oldBackgroundMessageId:
-            oldBackgroundMessageId ?? this.oldBackgroundMessageId,
-        background: background ?? this.background,
-        onlyForSelf: onlyForSelf ?? this.onlyForSelf,
-      );
+  }) => MessageChatSetBackground(
+    oldBackgroundMessageId:
+        oldBackgroundMessageId ?? this.oldBackgroundMessageId,
+    background: background ?? this.background,
+    onlyForSelf: onlyForSelf ?? this.onlyForSelf,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageChatSetBackground';
@@ -3075,26 +3117,19 @@ final class MessageChatSetTheme extends MessageContent {
   /// A theme in the chat has been changed.
   ///
   /// * [themeName]: If non-empty, name of a new theme, set for the chat. Otherwise, chat theme was reset to the default one.
-  const MessageChatSetTheme({
-    required this.themeName,
-  });
+  const MessageChatSetTheme({required this.themeName});
 
   /// If non-empty, name of a new theme, set for the chat. Otherwise, chat theme was reset to the default one
   final String themeName;
 
   /// Parse from a json
   factory MessageChatSetTheme.fromJson(Map<String, dynamic> json) =>
-      MessageChatSetTheme(
-        themeName: json['theme_name'],
-      );
+      MessageChatSetTheme(themeName: json['theme_name']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "theme_name": themeName,
-    };
+    return {"@type": defaultObjectId, "theme_name": themeName};
   }
 
   /// Copy model with modified properties.
@@ -3102,12 +3137,8 @@ final class MessageChatSetTheme extends MessageContent {
   /// Properties:
   /// * [theme_name]: If non-empty, name of a new theme, set for the chat. Otherwise, chat theme was reset to the default one
   @override
-  MessageChatSetTheme copyWith({
-    String? themeName,
-  }) =>
-      MessageChatSetTheme(
-        themeName: themeName ?? this.themeName,
-      );
+  MessageChatSetTheme copyWith({String? themeName}) =>
+      MessageChatSetTheme(themeName: themeName ?? this.themeName);
 
   /// TDLib object type
   static const String defaultObjectId = 'messageChatSetTheme';
@@ -3147,11 +3178,11 @@ final class MessageChatSetMessageAutoDeleteTime extends MessageContent {
 
   /// Parse from a json
   factory MessageChatSetMessageAutoDeleteTime.fromJson(
-          Map<String, dynamic> json) =>
-      MessageChatSetMessageAutoDeleteTime(
-        messageAutoDeleteTime: json['message_auto_delete_time'],
-        fromUserId: json['from_user_id'],
-      );
+    Map<String, dynamic> json,
+  ) => MessageChatSetMessageAutoDeleteTime(
+    messageAutoDeleteTime: json['message_auto_delete_time'],
+    fromUserId: json['from_user_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -3172,12 +3203,10 @@ final class MessageChatSetMessageAutoDeleteTime extends MessageContent {
   MessageChatSetMessageAutoDeleteTime copyWith({
     int? messageAutoDeleteTime,
     int? fromUserId,
-  }) =>
-      MessageChatSetMessageAutoDeleteTime(
-        messageAutoDeleteTime:
-            messageAutoDeleteTime ?? this.messageAutoDeleteTime,
-        fromUserId: fromUserId ?? this.fromUserId,
-      );
+  }) => MessageChatSetMessageAutoDeleteTime(
+    messageAutoDeleteTime: messageAutoDeleteTime ?? this.messageAutoDeleteTime,
+    fromUserId: fromUserId ?? this.fromUserId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageChatSetMessageAutoDeleteTime';
@@ -3202,26 +3231,19 @@ final class MessageChatBoost extends MessageContent {
   /// The chat was boosted by the sender of the message.
   ///
   /// * [boostCount]: Number of times the chat was boosted.
-  const MessageChatBoost({
-    required this.boostCount,
-  });
+  const MessageChatBoost({required this.boostCount});
 
   /// Number of times the chat was boosted
   final int boostCount;
 
   /// Parse from a json
   factory MessageChatBoost.fromJson(Map<String, dynamic> json) =>
-      MessageChatBoost(
-        boostCount: json['boost_count'],
-      );
+      MessageChatBoost(boostCount: json['boost_count']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "boost_count": boostCount,
-    };
+    return {"@type": defaultObjectId, "boost_count": boostCount};
   }
 
   /// Copy model with modified properties.
@@ -3229,12 +3251,8 @@ final class MessageChatBoost extends MessageContent {
   /// Properties:
   /// * [boost_count]: Number of times the chat was boosted
   @override
-  MessageChatBoost copyWith({
-    int? boostCount,
-  }) =>
-      MessageChatBoost(
-        boostCount: boostCount ?? this.boostCount,
-      );
+  MessageChatBoost copyWith({int? boostCount}) =>
+      MessageChatBoost(boostCount: boostCount ?? this.boostCount);
 
   /// TDLib object type
   static const String defaultObjectId = 'messageChatBoost';
@@ -3261,10 +3279,7 @@ final class MessageForumTopicCreated extends MessageContent {
   ///
   /// * [name]: Name of the topic.
   /// * [icon]: Icon of the topic.
-  const MessageForumTopicCreated({
-    required this.name,
-    required this.icon,
-  });
+  const MessageForumTopicCreated({required this.name, required this.icon});
 
   /// Name of the topic
   final String name;
@@ -3282,11 +3297,7 @@ final class MessageForumTopicCreated extends MessageContent {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "name": name,
-      "icon": icon.toJson(),
-    };
+    return {"@type": defaultObjectId, "name": name, "icon": icon.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -3295,10 +3306,7 @@ final class MessageForumTopicCreated extends MessageContent {
   /// * [name]: Name of the topic
   /// * [icon]: Icon of the topic
   @override
-  MessageForumTopicCreated copyWith({
-    String? name,
-    ForumTopicIcon? icon,
-  }) =>
+  MessageForumTopicCreated copyWith({String? name, ForumTopicIcon? icon}) =>
       MessageForumTopicCreated(
         name: name ?? this.name,
         icon: icon ?? this.icon,
@@ -3378,13 +3386,11 @@ final class MessageForumTopicEdited extends MessageContent {
     String? name,
     bool? editIconCustomEmojiId,
     int? iconCustomEmojiId,
-  }) =>
-      MessageForumTopicEdited(
-        name: name ?? this.name,
-        editIconCustomEmojiId:
-            editIconCustomEmojiId ?? this.editIconCustomEmojiId,
-        iconCustomEmojiId: iconCustomEmojiId ?? this.iconCustomEmojiId,
-      );
+  }) => MessageForumTopicEdited(
+    name: name ?? this.name,
+    editIconCustomEmojiId: editIconCustomEmojiId ?? this.editIconCustomEmojiId,
+    iconCustomEmojiId: iconCustomEmojiId ?? this.iconCustomEmojiId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageForumTopicEdited';
@@ -3409,27 +3415,20 @@ final class MessageForumTopicIsClosedToggled extends MessageContent {
   /// A forum topic has been closed or opened.
   ///
   /// * [isClosed]: True, if the topic was closed; otherwise, the topic was reopened.
-  const MessageForumTopicIsClosedToggled({
-    required this.isClosed,
-  });
+  const MessageForumTopicIsClosedToggled({required this.isClosed});
 
   /// True, if the topic was closed; otherwise, the topic was reopened
   final bool isClosed;
 
   /// Parse from a json
   factory MessageForumTopicIsClosedToggled.fromJson(
-          Map<String, dynamic> json) =>
-      MessageForumTopicIsClosedToggled(
-        isClosed: json['is_closed'],
-      );
+    Map<String, dynamic> json,
+  ) => MessageForumTopicIsClosedToggled(isClosed: json['is_closed']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "is_closed": isClosed,
-    };
+    return {"@type": defaultObjectId, "is_closed": isClosed};
   }
 
   /// Copy model with modified properties.
@@ -3437,12 +3436,8 @@ final class MessageForumTopicIsClosedToggled extends MessageContent {
   /// Properties:
   /// * [is_closed]: True, if the topic was closed; otherwise, the topic was reopened
   @override
-  MessageForumTopicIsClosedToggled copyWith({
-    bool? isClosed,
-  }) =>
-      MessageForumTopicIsClosedToggled(
-        isClosed: isClosed ?? this.isClosed,
-      );
+  MessageForumTopicIsClosedToggled copyWith({bool? isClosed}) =>
+      MessageForumTopicIsClosedToggled(isClosed: isClosed ?? this.isClosed);
 
   /// TDLib object type
   static const String defaultObjectId = 'messageForumTopicIsClosedToggled';
@@ -3467,27 +3462,20 @@ final class MessageForumTopicIsHiddenToggled extends MessageContent {
   /// A General forum topic has been hidden or unhidden.
   ///
   /// * [isHidden]: True, if the topic was hidden; otherwise, the topic was unhidden.
-  const MessageForumTopicIsHiddenToggled({
-    required this.isHidden,
-  });
+  const MessageForumTopicIsHiddenToggled({required this.isHidden});
 
   /// True, if the topic was hidden; otherwise, the topic was unhidden
   final bool isHidden;
 
   /// Parse from a json
   factory MessageForumTopicIsHiddenToggled.fromJson(
-          Map<String, dynamic> json) =>
-      MessageForumTopicIsHiddenToggled(
-        isHidden: json['is_hidden'],
-      );
+    Map<String, dynamic> json,
+  ) => MessageForumTopicIsHiddenToggled(isHidden: json['is_hidden']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "is_hidden": isHidden,
-    };
+    return {"@type": defaultObjectId, "is_hidden": isHidden};
   }
 
   /// Copy model with modified properties.
@@ -3495,12 +3483,8 @@ final class MessageForumTopicIsHiddenToggled extends MessageContent {
   /// Properties:
   /// * [is_hidden]: True, if the topic was hidden; otherwise, the topic was unhidden
   @override
-  MessageForumTopicIsHiddenToggled copyWith({
-    bool? isHidden,
-  }) =>
-      MessageForumTopicIsHiddenToggled(
-        isHidden: isHidden ?? this.isHidden,
-      );
+  MessageForumTopicIsHiddenToggled copyWith({bool? isHidden}) =>
+      MessageForumTopicIsHiddenToggled(isHidden: isHidden ?? this.isHidden);
 
   /// TDLib object type
   static const String defaultObjectId = 'messageForumTopicIsHiddenToggled';
@@ -3525,26 +3509,19 @@ final class MessageSuggestProfilePhoto extends MessageContent {
   /// A profile photo was suggested to a user in a private chat.
   ///
   /// * [photo]: The suggested chat photo. Use the method setProfilePhoto with inputChatPhotoPrevious to apply the photo.
-  const MessageSuggestProfilePhoto({
-    required this.photo,
-  });
+  const MessageSuggestProfilePhoto({required this.photo});
 
   /// The suggested chat photo. Use the method setProfilePhoto with inputChatPhotoPrevious to apply the photo
   final ChatPhoto photo;
 
   /// Parse from a json
   factory MessageSuggestProfilePhoto.fromJson(Map<String, dynamic> json) =>
-      MessageSuggestProfilePhoto(
-        photo: ChatPhoto.fromJson(json['photo']),
-      );
+      MessageSuggestProfilePhoto(photo: ChatPhoto.fromJson(json['photo']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "photo": photo.toJson(),
-    };
+    return {"@type": defaultObjectId, "photo": photo.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -3552,12 +3529,8 @@ final class MessageSuggestProfilePhoto extends MessageContent {
   /// Properties:
   /// * [photo]: The suggested chat photo. Use the method setProfilePhoto with inputChatPhotoPrevious to apply the photo
   @override
-  MessageSuggestProfilePhoto copyWith({
-    ChatPhoto? photo,
-  }) =>
-      MessageSuggestProfilePhoto(
-        photo: photo ?? this.photo,
-      );
+  MessageSuggestProfilePhoto copyWith({ChatPhoto? photo}) =>
+      MessageSuggestProfilePhoto(photo: photo ?? this.photo);
 
   /// TDLib object type
   static const String defaultObjectId = 'messageSuggestProfilePhoto';
@@ -3582,26 +3555,19 @@ final class MessageCustomServiceAction extends MessageContent {
   /// A non-standard action has happened in the chat.
   ///
   /// * [text]: Message text to be shown in the chat.
-  const MessageCustomServiceAction({
-    required this.text,
-  });
+  const MessageCustomServiceAction({required this.text});
 
   /// Message text to be shown in the chat
   final String text;
 
   /// Parse from a json
   factory MessageCustomServiceAction.fromJson(Map<String, dynamic> json) =>
-      MessageCustomServiceAction(
-        text: json['text'],
-      );
+      MessageCustomServiceAction(text: json['text']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "text": text,
-    };
+    return {"@type": defaultObjectId, "text": text};
   }
 
   /// Copy model with modified properties.
@@ -3609,12 +3575,8 @@ final class MessageCustomServiceAction extends MessageContent {
   /// Properties:
   /// * [text]: Message text to be shown in the chat
   @override
-  MessageCustomServiceAction copyWith({
-    String? text,
-  }) =>
-      MessageCustomServiceAction(
-        text: text ?? this.text,
-      );
+  MessageCustomServiceAction copyWith({String? text}) =>
+      MessageCustomServiceAction(text: text ?? this.text);
 
   /// TDLib object type
   static const String defaultObjectId = 'messageCustomServiceAction';
@@ -3686,11 +3648,7 @@ final class MessageGameScore extends MessageContent {
   /// * [game_id]: Identifier of the game; may be different from the games presented in the message with the game
   /// * [score]: New score
   @override
-  MessageGameScore copyWith({
-    int? gameMessageId,
-    int? gameId,
-    int? score,
-  }) =>
+  MessageGameScore copyWith({int? gameMessageId, int? gameId, int? score}) =>
       MessageGameScore(
         gameMessageId: gameMessageId ?? this.gameMessageId,
         gameId: gameId ?? this.gameId,
@@ -3711,24 +3669,26 @@ final class MessageGameScore extends MessageContent {
 
 /// **MessagePaymentSuccessful** *(messagePaymentSuccessful)* - child of MessageContent
 ///
-/// A payment has been completed.
+/// A payment has been sent to a bot or a business account.
 ///
 /// * [invoiceChatId]: Identifier of the chat, containing the corresponding invoice message.
 /// * [invoiceMessageId]: Identifier of the message with the corresponding invoice; can be 0 or an identifier of a deleted message.
 /// * [currency]: Currency for the price of the product.
 /// * [totalAmount]: Total price for the product, in the smallest units of the currency.
+/// * [subscriptionUntilDate]: Point in time (Unix timestamp) when the subscription will expire; 0 if unknown or the payment isn't recurring.
 /// * [isRecurring]: True, if this is a recurring payment.
 /// * [isFirstRecurring]: True, if this is the first recurring payment.
 /// * [invoiceName]: Name of the invoice; may be empty if unknown.
 final class MessagePaymentSuccessful extends MessageContent {
   /// **MessagePaymentSuccessful** *(messagePaymentSuccessful)* - child of MessageContent
   ///
-  /// A payment has been completed.
+  /// A payment has been sent to a bot or a business account.
   ///
   /// * [invoiceChatId]: Identifier of the chat, containing the corresponding invoice message.
   /// * [invoiceMessageId]: Identifier of the message with the corresponding invoice; can be 0 or an identifier of a deleted message.
   /// * [currency]: Currency for the price of the product.
   /// * [totalAmount]: Total price for the product, in the smallest units of the currency.
+  /// * [subscriptionUntilDate]: Point in time (Unix timestamp) when the subscription will expire; 0 if unknown or the payment isn't recurring.
   /// * [isRecurring]: True, if this is a recurring payment.
   /// * [isFirstRecurring]: True, if this is the first recurring payment.
   /// * [invoiceName]: Name of the invoice; may be empty if unknown.
@@ -3737,6 +3697,7 @@ final class MessagePaymentSuccessful extends MessageContent {
     required this.invoiceMessageId,
     required this.currency,
     required this.totalAmount,
+    required this.subscriptionUntilDate,
     required this.isRecurring,
     required this.isFirstRecurring,
     required this.invoiceName,
@@ -3754,6 +3715,9 @@ final class MessagePaymentSuccessful extends MessageContent {
   /// Total price for the product, in the smallest units of the currency
   final int totalAmount;
 
+  /// Point in time (Unix timestamp) when the subscription will expire; 0 if unknown or the payment isn't recurring
+  final int subscriptionUntilDate;
+
   /// True, if this is a recurring payment
   final bool isRecurring;
 
@@ -3770,6 +3734,7 @@ final class MessagePaymentSuccessful extends MessageContent {
         invoiceMessageId: json['invoice_message_id'],
         currency: json['currency'],
         totalAmount: json['total_amount'],
+        subscriptionUntilDate: json['subscription_until_date'],
         isRecurring: json['is_recurring'],
         isFirstRecurring: json['is_first_recurring'],
         invoiceName: json['invoice_name'],
@@ -3784,6 +3749,7 @@ final class MessagePaymentSuccessful extends MessageContent {
       "invoice_message_id": invoiceMessageId,
       "currency": currency,
       "total_amount": totalAmount,
+      "subscription_until_date": subscriptionUntilDate,
       "is_recurring": isRecurring,
       "is_first_recurring": isFirstRecurring,
       "invoice_name": invoiceName,
@@ -3797,6 +3763,7 @@ final class MessagePaymentSuccessful extends MessageContent {
   /// * [invoice_message_id]: Identifier of the message with the corresponding invoice; can be 0 or an identifier of a deleted message
   /// * [currency]: Currency for the price of the product
   /// * [total_amount]: Total price for the product, in the smallest units of the currency
+  /// * [subscription_until_date]: Point in time (Unix timestamp) when the subscription will expire; 0 if unknown or the payment isn't recurring
   /// * [is_recurring]: True, if this is a recurring payment
   /// * [is_first_recurring]: True, if this is the first recurring payment
   /// * [invoice_name]: Name of the invoice; may be empty if unknown
@@ -3806,19 +3773,20 @@ final class MessagePaymentSuccessful extends MessageContent {
     int? invoiceMessageId,
     String? currency,
     int? totalAmount,
+    int? subscriptionUntilDate,
     bool? isRecurring,
     bool? isFirstRecurring,
     String? invoiceName,
-  }) =>
-      MessagePaymentSuccessful(
-        invoiceChatId: invoiceChatId ?? this.invoiceChatId,
-        invoiceMessageId: invoiceMessageId ?? this.invoiceMessageId,
-        currency: currency ?? this.currency,
-        totalAmount: totalAmount ?? this.totalAmount,
-        isRecurring: isRecurring ?? this.isRecurring,
-        isFirstRecurring: isFirstRecurring ?? this.isFirstRecurring,
-        invoiceName: invoiceName ?? this.invoiceName,
-      );
+  }) => MessagePaymentSuccessful(
+    invoiceChatId: invoiceChatId ?? this.invoiceChatId,
+    invoiceMessageId: invoiceMessageId ?? this.invoiceMessageId,
+    currency: currency ?? this.currency,
+    totalAmount: totalAmount ?? this.totalAmount,
+    subscriptionUntilDate: subscriptionUntilDate ?? this.subscriptionUntilDate,
+    isRecurring: isRecurring ?? this.isRecurring,
+    isFirstRecurring: isFirstRecurring ?? this.isFirstRecurring,
+    invoiceName: invoiceName ?? this.invoiceName,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messagePaymentSuccessful';
@@ -3834,34 +3802,37 @@ final class MessagePaymentSuccessful extends MessageContent {
 
 /// **MessagePaymentSuccessfulBot** *(messagePaymentSuccessfulBot)* - child of MessageContent
 ///
-/// A payment has been completed; for bots only.
+/// A payment has been received by the bot or the business account.
 ///
 /// * [currency]: Currency for price of the product.
 /// * [totalAmount]: Total price for the product, in the smallest units of the currency.
+/// * [subscriptionUntilDate]: Point in time (Unix timestamp) when the subscription will expire; 0 if unknown or the payment isn't recurring.
 /// * [isRecurring]: True, if this is a recurring payment.
 /// * [isFirstRecurring]: True, if this is the first recurring payment.
 /// * [invoicePayload]: Invoice payload.
-/// * [shippingOptionId]: Identifier of the shipping option chosen by the user; may be empty if not applicable.
-/// * [orderInfo]: Information about the order; may be null *(optional)*.
+/// * [shippingOptionId]: Identifier of the shipping option chosen by the user; may be empty if not applicable; for bots only.
+/// * [orderInfo]: Information about the order; may be null; for bots only *(optional)*.
 /// * [telegramPaymentChargeId]: Telegram payment identifier.
 /// * [providerPaymentChargeId]: Provider payment identifier.
 final class MessagePaymentSuccessfulBot extends MessageContent {
   /// **MessagePaymentSuccessfulBot** *(messagePaymentSuccessfulBot)* - child of MessageContent
   ///
-  /// A payment has been completed; for bots only.
+  /// A payment has been received by the bot or the business account.
   ///
   /// * [currency]: Currency for price of the product.
   /// * [totalAmount]: Total price for the product, in the smallest units of the currency.
+  /// * [subscriptionUntilDate]: Point in time (Unix timestamp) when the subscription will expire; 0 if unknown or the payment isn't recurring.
   /// * [isRecurring]: True, if this is a recurring payment.
   /// * [isFirstRecurring]: True, if this is the first recurring payment.
   /// * [invoicePayload]: Invoice payload.
-  /// * [shippingOptionId]: Identifier of the shipping option chosen by the user; may be empty if not applicable.
-  /// * [orderInfo]: Information about the order; may be null *(optional)*.
+  /// * [shippingOptionId]: Identifier of the shipping option chosen by the user; may be empty if not applicable; for bots only.
+  /// * [orderInfo]: Information about the order; may be null; for bots only *(optional)*.
   /// * [telegramPaymentChargeId]: Telegram payment identifier.
   /// * [providerPaymentChargeId]: Provider payment identifier.
   const MessagePaymentSuccessfulBot({
     required this.currency,
     required this.totalAmount,
+    required this.subscriptionUntilDate,
     required this.isRecurring,
     required this.isFirstRecurring,
     required this.invoicePayload,
@@ -3877,6 +3848,9 @@ final class MessagePaymentSuccessfulBot extends MessageContent {
   /// Total price for the product, in the smallest units of the currency
   final int totalAmount;
 
+  /// Point in time (Unix timestamp) when the subscription will expire; 0 if unknown or the payment isn't recurring
+  final int subscriptionUntilDate;
+
   /// True, if this is a recurring payment
   final bool isRecurring;
 
@@ -3886,10 +3860,10 @@ final class MessagePaymentSuccessfulBot extends MessageContent {
   /// Invoice payload
   final String invoicePayload;
 
-  /// Identifier of the shipping option chosen by the user; may be empty if not applicable
+  /// Identifier of the shipping option chosen by the user; may be empty if not applicable; for bots only
   final String shippingOptionId;
 
-  /// Information about the order; may be null
+  /// Information about the order; may be null; for bots only
   final OrderInfo? orderInfo;
 
   /// Telegram payment identifier
@@ -3903,6 +3877,7 @@ final class MessagePaymentSuccessfulBot extends MessageContent {
       MessagePaymentSuccessfulBot(
         currency: json['currency'],
         totalAmount: json['total_amount'],
+        subscriptionUntilDate: json['subscription_until_date'],
         isRecurring: json['is_recurring'],
         isFirstRecurring: json['is_first_recurring'],
         invoicePayload: json['invoice_payload'],
@@ -3921,6 +3896,7 @@ final class MessagePaymentSuccessfulBot extends MessageContent {
       "@type": defaultObjectId,
       "currency": currency,
       "total_amount": totalAmount,
+      "subscription_until_date": subscriptionUntilDate,
       "is_recurring": isRecurring,
       "is_first_recurring": isFirstRecurring,
       "invoice_payload": invoicePayload,
@@ -3936,17 +3912,19 @@ final class MessagePaymentSuccessfulBot extends MessageContent {
   /// Properties:
   /// * [currency]: Currency for price of the product
   /// * [total_amount]: Total price for the product, in the smallest units of the currency
+  /// * [subscription_until_date]: Point in time (Unix timestamp) when the subscription will expire; 0 if unknown or the payment isn't recurring
   /// * [is_recurring]: True, if this is a recurring payment
   /// * [is_first_recurring]: True, if this is the first recurring payment
   /// * [invoice_payload]: Invoice payload
-  /// * [shipping_option_id]: Identifier of the shipping option chosen by the user; may be empty if not applicable
-  /// * [order_info]: Information about the order; may be null
+  /// * [shipping_option_id]: Identifier of the shipping option chosen by the user; may be empty if not applicable; for bots only
+  /// * [order_info]: Information about the order; may be null; for bots only
   /// * [telegram_payment_charge_id]: Telegram payment identifier
   /// * [provider_payment_charge_id]: Provider payment identifier
   @override
   MessagePaymentSuccessfulBot copyWith({
     String? currency,
     int? totalAmount,
+    int? subscriptionUntilDate,
     bool? isRecurring,
     bool? isFirstRecurring,
     String? invoicePayload,
@@ -3954,20 +3932,20 @@ final class MessagePaymentSuccessfulBot extends MessageContent {
     OrderInfo? orderInfo,
     String? telegramPaymentChargeId,
     String? providerPaymentChargeId,
-  }) =>
-      MessagePaymentSuccessfulBot(
-        currency: currency ?? this.currency,
-        totalAmount: totalAmount ?? this.totalAmount,
-        isRecurring: isRecurring ?? this.isRecurring,
-        isFirstRecurring: isFirstRecurring ?? this.isFirstRecurring,
-        invoicePayload: invoicePayload ?? this.invoicePayload,
-        shippingOptionId: shippingOptionId ?? this.shippingOptionId,
-        orderInfo: orderInfo ?? this.orderInfo,
-        telegramPaymentChargeId:
-            telegramPaymentChargeId ?? this.telegramPaymentChargeId,
-        providerPaymentChargeId:
-            providerPaymentChargeId ?? this.providerPaymentChargeId,
-      );
+  }) => MessagePaymentSuccessfulBot(
+    currency: currency ?? this.currency,
+    totalAmount: totalAmount ?? this.totalAmount,
+    subscriptionUntilDate: subscriptionUntilDate ?? this.subscriptionUntilDate,
+    isRecurring: isRecurring ?? this.isRecurring,
+    isFirstRecurring: isFirstRecurring ?? this.isFirstRecurring,
+    invoicePayload: invoicePayload ?? this.invoicePayload,
+    shippingOptionId: shippingOptionId ?? this.shippingOptionId,
+    orderInfo: orderInfo ?? this.orderInfo,
+    telegramPaymentChargeId:
+        telegramPaymentChargeId ?? this.telegramPaymentChargeId,
+    providerPaymentChargeId:
+        providerPaymentChargeId ?? this.providerPaymentChargeId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messagePaymentSuccessfulBot';
@@ -4071,17 +4049,16 @@ final class MessagePaymentRefunded extends MessageContent {
     String? invoicePayload,
     String? telegramPaymentChargeId,
     String? providerPaymentChargeId,
-  }) =>
-      MessagePaymentRefunded(
-        ownerId: ownerId ?? this.ownerId,
-        currency: currency ?? this.currency,
-        totalAmount: totalAmount ?? this.totalAmount,
-        invoicePayload: invoicePayload ?? this.invoicePayload,
-        telegramPaymentChargeId:
-            telegramPaymentChargeId ?? this.telegramPaymentChargeId,
-        providerPaymentChargeId:
-            providerPaymentChargeId ?? this.providerPaymentChargeId,
-      );
+  }) => MessagePaymentRefunded(
+    ownerId: ownerId ?? this.ownerId,
+    currency: currency ?? this.currency,
+    totalAmount: totalAmount ?? this.totalAmount,
+    invoicePayload: invoicePayload ?? this.invoicePayload,
+    telegramPaymentChargeId:
+        telegramPaymentChargeId ?? this.telegramPaymentChargeId,
+    providerPaymentChargeId:
+        providerPaymentChargeId ?? this.providerPaymentChargeId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messagePaymentRefunded';
@@ -4101,6 +4078,7 @@ final class MessagePaymentRefunded extends MessageContent {
 ///
 /// * [gifterUserId]: The identifier of a user that gifted Telegram Premium; 0 if the gift was anonymous or is outgoing.
 /// * [receiverUserId]: The identifier of a user that received Telegram Premium; 0 if the gift is incoming.
+/// * [text]: Message added to the gifted Telegram Premium by the sender.
 /// * [currency]: Currency for the paid amount.
 /// * [amount]: The paid amount, in the smallest units of the currency.
 /// * [cryptocurrency]: Cryptocurrency used to pay for the gift; may be empty if none.
@@ -4114,6 +4092,7 @@ final class MessageGiftedPremium extends MessageContent {
   ///
   /// * [gifterUserId]: The identifier of a user that gifted Telegram Premium; 0 if the gift was anonymous or is outgoing.
   /// * [receiverUserId]: The identifier of a user that received Telegram Premium; 0 if the gift is incoming.
+  /// * [text]: Message added to the gifted Telegram Premium by the sender.
   /// * [currency]: Currency for the paid amount.
   /// * [amount]: The paid amount, in the smallest units of the currency.
   /// * [cryptocurrency]: Cryptocurrency used to pay for the gift; may be empty if none.
@@ -4123,6 +4102,7 @@ final class MessageGiftedPremium extends MessageContent {
   const MessageGiftedPremium({
     required this.gifterUserId,
     required this.receiverUserId,
+    required this.text,
     required this.currency,
     required this.amount,
     required this.cryptocurrency,
@@ -4136,6 +4116,9 @@ final class MessageGiftedPremium extends MessageContent {
 
   /// The identifier of a user that received Telegram Premium; 0 if the gift is incoming
   final int receiverUserId;
+
+  /// Message added to the gifted Telegram Premium by the sender
+  final FormattedText text;
 
   /// Currency for the paid amount
   final String currency;
@@ -4160,6 +4143,7 @@ final class MessageGiftedPremium extends MessageContent {
       MessageGiftedPremium(
         gifterUserId: json['gifter_user_id'],
         receiverUserId: json['receiver_user_id'],
+        text: FormattedText.fromJson(json['text']),
         currency: json['currency'],
         amount: json['amount'],
         cryptocurrency: json['cryptocurrency'],
@@ -4167,8 +4151,9 @@ final class MessageGiftedPremium extends MessageContent {
             ? json['cryptocurrency_amount']
             : int.tryParse(json['cryptocurrency_amount'] ?? "") ?? 0,
         monthCount: json['month_count'],
-        sticker:
-            json['sticker'] == null ? null : Sticker.fromJson(json['sticker']),
+        sticker: json['sticker'] == null
+            ? null
+            : Sticker.fromJson(json['sticker']),
       );
 
   /// Convert model to TDLib JSON format
@@ -4178,6 +4163,7 @@ final class MessageGiftedPremium extends MessageContent {
       "@type": defaultObjectId,
       "gifter_user_id": gifterUserId,
       "receiver_user_id": receiverUserId,
+      "text": text.toJson(),
       "currency": currency,
       "amount": amount,
       "cryptocurrency": cryptocurrency,
@@ -4192,6 +4178,7 @@ final class MessageGiftedPremium extends MessageContent {
   /// Properties:
   /// * [gifter_user_id]: The identifier of a user that gifted Telegram Premium; 0 if the gift was anonymous or is outgoing
   /// * [receiver_user_id]: The identifier of a user that received Telegram Premium; 0 if the gift is incoming
+  /// * [text]: Message added to the gifted Telegram Premium by the sender
   /// * [currency]: Currency for the paid amount
   /// * [amount]: The paid amount, in the smallest units of the currency
   /// * [cryptocurrency]: Cryptocurrency used to pay for the gift; may be empty if none
@@ -4202,23 +4189,24 @@ final class MessageGiftedPremium extends MessageContent {
   MessageGiftedPremium copyWith({
     int? gifterUserId,
     int? receiverUserId,
+    FormattedText? text,
     String? currency,
     int? amount,
     String? cryptocurrency,
     int? cryptocurrencyAmount,
     int? monthCount,
     Sticker? sticker,
-  }) =>
-      MessageGiftedPremium(
-        gifterUserId: gifterUserId ?? this.gifterUserId,
-        receiverUserId: receiverUserId ?? this.receiverUserId,
-        currency: currency ?? this.currency,
-        amount: amount ?? this.amount,
-        cryptocurrency: cryptocurrency ?? this.cryptocurrency,
-        cryptocurrencyAmount: cryptocurrencyAmount ?? this.cryptocurrencyAmount,
-        monthCount: monthCount ?? this.monthCount,
-        sticker: sticker ?? this.sticker,
-      );
+  }) => MessageGiftedPremium(
+    gifterUserId: gifterUserId ?? this.gifterUserId,
+    receiverUserId: receiverUserId ?? this.receiverUserId,
+    text: text ?? this.text,
+    currency: currency ?? this.currency,
+    amount: amount ?? this.amount,
+    cryptocurrency: cryptocurrency ?? this.cryptocurrency,
+    cryptocurrencyAmount: cryptocurrencyAmount ?? this.cryptocurrencyAmount,
+    monthCount: monthCount ?? this.monthCount,
+    sticker: sticker ?? this.sticker,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageGiftedPremium';
@@ -4237,6 +4225,7 @@ final class MessageGiftedPremium extends MessageContent {
 /// A Telegram Premium gift code was created for the user.
 ///
 /// * [creatorId]: Identifier of a chat or a user that created the gift code; may be null if unknown *(optional)*.
+/// * [text]: Message added to the gift.
 /// * [isFromGiveaway]: True, if the gift code was created for a giveaway.
 /// * [isUnclaimed]: True, if the winner for the corresponding Telegram Premium subscription wasn't chosen.
 /// * [currency]: Currency for the paid amount; empty if unknown.
@@ -4252,6 +4241,7 @@ final class MessagePremiumGiftCode extends MessageContent {
   /// A Telegram Premium gift code was created for the user.
   ///
   /// * [creatorId]: Identifier of a chat or a user that created the gift code; may be null if unknown *(optional)*.
+  /// * [text]: Message added to the gift.
   /// * [isFromGiveaway]: True, if the gift code was created for a giveaway.
   /// * [isUnclaimed]: True, if the winner for the corresponding Telegram Premium subscription wasn't chosen.
   /// * [currency]: Currency for the paid amount; empty if unknown.
@@ -4263,6 +4253,7 @@ final class MessagePremiumGiftCode extends MessageContent {
   /// * [code]: The gift code.
   const MessagePremiumGiftCode({
     this.creatorId,
+    required this.text,
     required this.isFromGiveaway,
     required this.isUnclaimed,
     required this.currency,
@@ -4276,6 +4267,9 @@ final class MessagePremiumGiftCode extends MessageContent {
 
   /// Identifier of a chat or a user that created the gift code; may be null if unknown
   final MessageSender? creatorId;
+
+  /// Message added to the gift
+  final FormattedText text;
 
   /// True, if the gift code was created for a giveaway
   final bool isFromGiveaway;
@@ -4310,6 +4304,7 @@ final class MessagePremiumGiftCode extends MessageContent {
         creatorId: json['creator_id'] == null
             ? null
             : MessageSender.fromJson(json['creator_id']),
+        text: FormattedText.fromJson(json['text']),
         isFromGiveaway: json['is_from_giveaway'],
         isUnclaimed: json['is_unclaimed'],
         currency: json['currency'],
@@ -4319,8 +4314,9 @@ final class MessagePremiumGiftCode extends MessageContent {
             ? json['cryptocurrency_amount']
             : int.parse(json['cryptocurrency_amount']),
         monthCount: json['month_count'],
-        sticker:
-            json['sticker'] == null ? null : Sticker.fromJson(json['sticker']),
+        sticker: json['sticker'] == null
+            ? null
+            : Sticker.fromJson(json['sticker']),
         code: json['code'],
       );
 
@@ -4330,6 +4326,7 @@ final class MessagePremiumGiftCode extends MessageContent {
     return {
       "@type": defaultObjectId,
       "creator_id": creatorId?.toJson(),
+      "text": text.toJson(),
       "is_from_giveaway": isFromGiveaway,
       "is_unclaimed": isUnclaimed,
       "currency": currency,
@@ -4346,6 +4343,7 @@ final class MessagePremiumGiftCode extends MessageContent {
   ///
   /// Properties:
   /// * [creator_id]: Identifier of a chat or a user that created the gift code; may be null if unknown
+  /// * [text]: Message added to the gift
   /// * [is_from_giveaway]: True, if the gift code was created for a giveaway
   /// * [is_unclaimed]: True, if the winner for the corresponding Telegram Premium subscription wasn't chosen
   /// * [currency]: Currency for the paid amount; empty if unknown
@@ -4358,6 +4356,7 @@ final class MessagePremiumGiftCode extends MessageContent {
   @override
   MessagePremiumGiftCode copyWith({
     MessageSender? creatorId,
+    FormattedText? text,
     bool? isFromGiveaway,
     bool? isUnclaimed,
     String? currency,
@@ -4367,19 +4366,19 @@ final class MessagePremiumGiftCode extends MessageContent {
     int? monthCount,
     Sticker? sticker,
     String? code,
-  }) =>
-      MessagePremiumGiftCode(
-        creatorId: creatorId ?? this.creatorId,
-        isFromGiveaway: isFromGiveaway ?? this.isFromGiveaway,
-        isUnclaimed: isUnclaimed ?? this.isUnclaimed,
-        currency: currency ?? this.currency,
-        amount: amount ?? this.amount,
-        cryptocurrency: cryptocurrency ?? this.cryptocurrency,
-        cryptocurrencyAmount: cryptocurrencyAmount ?? this.cryptocurrencyAmount,
-        monthCount: monthCount ?? this.monthCount,
-        sticker: sticker ?? this.sticker,
-        code: code ?? this.code,
-      );
+  }) => MessagePremiumGiftCode(
+    creatorId: creatorId ?? this.creatorId,
+    text: text ?? this.text,
+    isFromGiveaway: isFromGiveaway ?? this.isFromGiveaway,
+    isUnclaimed: isUnclaimed ?? this.isUnclaimed,
+    currency: currency ?? this.currency,
+    amount: amount ?? this.amount,
+    cryptocurrency: cryptocurrency ?? this.cryptocurrency,
+    cryptocurrencyAmount: cryptocurrencyAmount ?? this.cryptocurrencyAmount,
+    monthCount: monthCount ?? this.monthCount,
+    sticker: sticker ?? this.sticker,
+    code: code ?? this.code,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messagePremiumGiftCode';
@@ -4404,26 +4403,19 @@ final class MessageGiveawayCreated extends MessageContent {
   /// A giveaway was created for the chat. Use telegramPaymentPurposePremiumGiveaway, storePaymentPurposePremiumGiveaway, telegramPaymentPurposeStarGiveaway, or storePaymentPurposeStarGiveaway to create a giveaway.
   ///
   /// * [starCount]: Number of Telegram Stars that will be shared by winners of the giveaway; 0 for Telegram Premium giveaways.
-  const MessageGiveawayCreated({
-    required this.starCount,
-  });
+  const MessageGiveawayCreated({required this.starCount});
 
   /// Number of Telegram Stars that will be shared by winners of the giveaway; 0 for Telegram Premium giveaways
   final int starCount;
 
   /// Parse from a json
   factory MessageGiveawayCreated.fromJson(Map<String, dynamic> json) =>
-      MessageGiveawayCreated(
-        starCount: json['star_count'],
-      );
+      MessageGiveawayCreated(starCount: json['star_count']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "star_count": starCount,
-    };
+    return {"@type": defaultObjectId, "star_count": starCount};
   }
 
   /// Copy model with modified properties.
@@ -4431,12 +4423,8 @@ final class MessageGiveawayCreated extends MessageContent {
   /// Properties:
   /// * [star_count]: Number of Telegram Stars that will be shared by winners of the giveaway; 0 for Telegram Premium giveaways
   @override
-  MessageGiveawayCreated copyWith({
-    int? starCount,
-  }) =>
-      MessageGiveawayCreated(
-        starCount: starCount ?? this.starCount,
-      );
+  MessageGiveawayCreated copyWith({int? starCount}) =>
+      MessageGiveawayCreated(starCount: starCount ?? this.starCount);
 
   /// TDLib object type
   static const String defaultObjectId = 'messageGiveawayCreated';
@@ -4492,8 +4480,9 @@ final class MessageGiveaway extends MessageContent {
         parameters: GiveawayParameters.fromJson(json['parameters']),
         winnerCount: json['winner_count'],
         prize: GiveawayPrize.fromJson(json['prize']),
-        sticker:
-            json['sticker'] == null ? null : Sticker.fromJson(json['sticker']),
+        sticker: json['sticker'] == null
+            ? null
+            : Sticker.fromJson(json['sticker']),
       );
 
   /// Convert model to TDLib JSON format
@@ -4521,13 +4510,12 @@ final class MessageGiveaway extends MessageContent {
     int? winnerCount,
     GiveawayPrize? prize,
     Sticker? sticker,
-  }) =>
-      MessageGiveaway(
-        parameters: parameters ?? this.parameters,
-        winnerCount: winnerCount ?? this.winnerCount,
-        prize: prize ?? this.prize,
-        sticker: sticker ?? this.sticker,
-      );
+  }) => MessageGiveaway(
+    parameters: parameters ?? this.parameters,
+    winnerCount: winnerCount ?? this.winnerCount,
+    prize: prize ?? this.prize,
+    sticker: sticker ?? this.sticker,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageGiveaway';
@@ -4611,13 +4599,12 @@ final class MessageGiveawayCompleted extends MessageContent {
     int? winnerCount,
     bool? isStarGiveaway,
     int? unclaimedPrizeCount,
-  }) =>
-      MessageGiveawayCompleted(
-        giveawayMessageId: giveawayMessageId ?? this.giveawayMessageId,
-        winnerCount: winnerCount ?? this.winnerCount,
-        isStarGiveaway: isStarGiveaway ?? this.isStarGiveaway,
-        unclaimedPrizeCount: unclaimedPrizeCount ?? this.unclaimedPrizeCount,
-      );
+  }) => MessageGiveawayCompleted(
+    giveawayMessageId: giveawayMessageId ?? this.giveawayMessageId,
+    winnerCount: winnerCount ?? this.winnerCount,
+    isStarGiveaway: isStarGiveaway ?? this.isStarGiveaway,
+    unclaimedPrizeCount: unclaimedPrizeCount ?? this.unclaimedPrizeCount,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageGiveawayCompleted';
@@ -4722,7 +4709,8 @@ final class MessageGiveawayWinners extends MessageContent {
         prizeDescription: json['prize_description'],
         winnerCount: json['winner_count'],
         winnerUserIds: List<int>.from(
-            (json['winner_user_ids'] ?? []).map((item) => item).toList()),
+          (json['winner_user_ids'] ?? []).map((item) => item).toList(),
+        ),
         unclaimedPrizeCount: json['unclaimed_prize_count'],
       );
 
@@ -4772,21 +4760,20 @@ final class MessageGiveawayWinners extends MessageContent {
     int? winnerCount,
     List<int>? winnerUserIds,
     int? unclaimedPrizeCount,
-  }) =>
-      MessageGiveawayWinners(
-        boostedChatId: boostedChatId ?? this.boostedChatId,
-        giveawayMessageId: giveawayMessageId ?? this.giveawayMessageId,
-        additionalChatCount: additionalChatCount ?? this.additionalChatCount,
-        actualWinnersSelectionDate:
-            actualWinnersSelectionDate ?? this.actualWinnersSelectionDate,
-        onlyNewMembers: onlyNewMembers ?? this.onlyNewMembers,
-        wasRefunded: wasRefunded ?? this.wasRefunded,
-        prize: prize ?? this.prize,
-        prizeDescription: prizeDescription ?? this.prizeDescription,
-        winnerCount: winnerCount ?? this.winnerCount,
-        winnerUserIds: winnerUserIds ?? this.winnerUserIds,
-        unclaimedPrizeCount: unclaimedPrizeCount ?? this.unclaimedPrizeCount,
-      );
+  }) => MessageGiveawayWinners(
+    boostedChatId: boostedChatId ?? this.boostedChatId,
+    giveawayMessageId: giveawayMessageId ?? this.giveawayMessageId,
+    additionalChatCount: additionalChatCount ?? this.additionalChatCount,
+    actualWinnersSelectionDate:
+        actualWinnersSelectionDate ?? this.actualWinnersSelectionDate,
+    onlyNewMembers: onlyNewMembers ?? this.onlyNewMembers,
+    wasRefunded: wasRefunded ?? this.wasRefunded,
+    prize: prize ?? this.prize,
+    prizeDescription: prizeDescription ?? this.prizeDescription,
+    winnerCount: winnerCount ?? this.winnerCount,
+    winnerUserIds: winnerUserIds ?? this.winnerUserIds,
+    unclaimedPrizeCount: unclaimedPrizeCount ?? this.unclaimedPrizeCount,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageGiveawayWinners';
@@ -4879,8 +4866,9 @@ final class MessageGiftedStars extends MessageContent {
             : int.tryParse(json['cryptocurrency_amount'] ?? "") ?? 0,
         starCount: json['star_count'],
         transactionId: json['transaction_id'],
-        sticker:
-            json['sticker'] == null ? null : Sticker.fromJson(json['sticker']),
+        sticker: json['sticker'] == null
+            ? null
+            : Sticker.fromJson(json['sticker']),
       );
 
   /// Convert model to TDLib JSON format
@@ -4923,18 +4911,17 @@ final class MessageGiftedStars extends MessageContent {
     int? starCount,
     String? transactionId,
     Sticker? sticker,
-  }) =>
-      MessageGiftedStars(
-        gifterUserId: gifterUserId ?? this.gifterUserId,
-        receiverUserId: receiverUserId ?? this.receiverUserId,
-        currency: currency ?? this.currency,
-        amount: amount ?? this.amount,
-        cryptocurrency: cryptocurrency ?? this.cryptocurrency,
-        cryptocurrencyAmount: cryptocurrencyAmount ?? this.cryptocurrencyAmount,
-        starCount: starCount ?? this.starCount,
-        transactionId: transactionId ?? this.transactionId,
-        sticker: sticker ?? this.sticker,
-      );
+  }) => MessageGiftedStars(
+    gifterUserId: gifterUserId ?? this.gifterUserId,
+    receiverUserId: receiverUserId ?? this.receiverUserId,
+    currency: currency ?? this.currency,
+    amount: amount ?? this.amount,
+    cryptocurrency: cryptocurrency ?? this.cryptocurrency,
+    cryptocurrencyAmount: cryptocurrencyAmount ?? this.cryptocurrencyAmount,
+    starCount: starCount ?? this.starCount,
+    transactionId: transactionId ?? this.transactionId,
+    sticker: sticker ?? this.sticker,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageGiftedStars';
@@ -4950,7 +4937,7 @@ final class MessageGiftedStars extends MessageContent {
 
 /// **MessageGiveawayPrizeStars** *(messageGiveawayPrizeStars)* - child of MessageContent
 ///
-/// A Telegram Stars were received by the cuurent user from a giveaway.
+/// A Telegram Stars were received by the current user from a giveaway.
 ///
 /// * [starCount]: Number of Telegram Stars that were received.
 /// * [transactionId]: Identifier of the transaction for Telegram Stars credit.
@@ -4961,7 +4948,7 @@ final class MessageGiftedStars extends MessageContent {
 final class MessageGiveawayPrizeStars extends MessageContent {
   /// **MessageGiveawayPrizeStars** *(messageGiveawayPrizeStars)* - child of MessageContent
   ///
-  /// A Telegram Stars were received by the cuurent user from a giveaway.
+  /// A Telegram Stars were received by the current user from a giveaway.
   ///
   /// * [starCount]: Number of Telegram Stars that were received.
   /// * [transactionId]: Identifier of the transaction for Telegram Stars credit.
@@ -5004,8 +4991,9 @@ final class MessageGiveawayPrizeStars extends MessageContent {
         boostedChatId: json['boosted_chat_id'],
         giveawayMessageId: json['giveaway_message_id'],
         isUnclaimed: json['is_unclaimed'],
-        sticker:
-            json['sticker'] == null ? null : Sticker.fromJson(json['sticker']),
+        sticker: json['sticker'] == null
+            ? null
+            : Sticker.fromJson(json['sticker']),
       );
 
   /// Convert model to TDLib JSON format
@@ -5039,18 +5027,840 @@ final class MessageGiveawayPrizeStars extends MessageContent {
     int? giveawayMessageId,
     bool? isUnclaimed,
     Sticker? sticker,
-  }) =>
-      MessageGiveawayPrizeStars(
-        starCount: starCount ?? this.starCount,
-        transactionId: transactionId ?? this.transactionId,
-        boostedChatId: boostedChatId ?? this.boostedChatId,
-        giveawayMessageId: giveawayMessageId ?? this.giveawayMessageId,
-        isUnclaimed: isUnclaimed ?? this.isUnclaimed,
-        sticker: sticker ?? this.sticker,
-      );
+  }) => MessageGiveawayPrizeStars(
+    starCount: starCount ?? this.starCount,
+    transactionId: transactionId ?? this.transactionId,
+    boostedChatId: boostedChatId ?? this.boostedChatId,
+    giveawayMessageId: giveawayMessageId ?? this.giveawayMessageId,
+    isUnclaimed: isUnclaimed ?? this.isUnclaimed,
+    sticker: sticker ?? this.sticker,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageGiveawayPrizeStars';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **MessageGift** *(messageGift)* - child of MessageContent
+///
+/// A regular gift was received or sent by the current user, or the current user was notified about a channel gift.
+///
+/// * [gift]: The gift.
+/// * [senderId]: Sender of the gift.
+/// * [receiverId]: Receiver of the gift.
+/// * [receivedGiftId]: Unique identifier of the received gift for the current user; only for the receiver of the gift.
+/// * [text]: Message added to the gift.
+/// * [sellStarCount]: Number of Telegram Stars that can be claimed by the receiver instead of the regular gift; 0 if the gift can't be sold by the receiver.
+/// * [prepaidUpgradeStarCount]: Number of Telegram Stars that were paid by the sender for the ability to upgrade the gift.
+/// * [isPrivate]: True, if the sender and gift text are shown only to the gift receiver; otherwise, everyone will be able to see them.
+/// * [isSaved]: True, if the gift is displayed on the user's or the channel's profile page; only for the receiver of the gift.
+/// * [canBeUpgraded]: True, if the gift can be upgraded to a unique gift; only for the receiver of the gift.
+/// * [wasConverted]: True, if the gift was converted to Telegram Stars; only for the receiver of the gift.
+/// * [wasUpgraded]: True, if the gift was upgraded to a unique gift.
+/// * [wasRefunded]: True, if the gift was refunded and isn't available anymore.
+/// * [upgradedReceivedGiftId]: Identifier of the corresponding upgraded gift; may be empty if unknown. Use getReceivedGift to get information about the gift.
+final class MessageGift extends MessageContent {
+  /// **MessageGift** *(messageGift)* - child of MessageContent
+  ///
+  /// A regular gift was received or sent by the current user, or the current user was notified about a channel gift.
+  ///
+  /// * [gift]: The gift.
+  /// * [senderId]: Sender of the gift.
+  /// * [receiverId]: Receiver of the gift.
+  /// * [receivedGiftId]: Unique identifier of the received gift for the current user; only for the receiver of the gift.
+  /// * [text]: Message added to the gift.
+  /// * [sellStarCount]: Number of Telegram Stars that can be claimed by the receiver instead of the regular gift; 0 if the gift can't be sold by the receiver.
+  /// * [prepaidUpgradeStarCount]: Number of Telegram Stars that were paid by the sender for the ability to upgrade the gift.
+  /// * [isPrivate]: True, if the sender and gift text are shown only to the gift receiver; otherwise, everyone will be able to see them.
+  /// * [isSaved]: True, if the gift is displayed on the user's or the channel's profile page; only for the receiver of the gift.
+  /// * [canBeUpgraded]: True, if the gift can be upgraded to a unique gift; only for the receiver of the gift.
+  /// * [wasConverted]: True, if the gift was converted to Telegram Stars; only for the receiver of the gift.
+  /// * [wasUpgraded]: True, if the gift was upgraded to a unique gift.
+  /// * [wasRefunded]: True, if the gift was refunded and isn't available anymore.
+  /// * [upgradedReceivedGiftId]: Identifier of the corresponding upgraded gift; may be empty if unknown. Use getReceivedGift to get information about the gift.
+  const MessageGift({
+    required this.gift,
+    required this.senderId,
+    required this.receiverId,
+    required this.receivedGiftId,
+    required this.text,
+    required this.sellStarCount,
+    required this.prepaidUpgradeStarCount,
+    required this.isPrivate,
+    required this.isSaved,
+    required this.canBeUpgraded,
+    required this.wasConverted,
+    required this.wasUpgraded,
+    required this.wasRefunded,
+    required this.upgradedReceivedGiftId,
+  });
+
+  /// The gift
+  final Gift gift;
+
+  /// Sender of the gift
+  final MessageSender senderId;
+
+  /// Receiver of the gift
+  final MessageSender receiverId;
+
+  /// Unique identifier of the received gift for the current user; only for the receiver of the gift
+  final String receivedGiftId;
+
+  /// Message added to the gift
+  final FormattedText text;
+
+  /// Number of Telegram Stars that can be claimed by the receiver instead of the regular gift; 0 if the gift can't be sold by the receiver
+  final int sellStarCount;
+
+  /// Number of Telegram Stars that were paid by the sender for the ability to upgrade the gift
+  final int prepaidUpgradeStarCount;
+
+  /// True, if the sender and gift text are shown only to the gift receiver; otherwise, everyone will be able to see them
+  final bool isPrivate;
+
+  /// True, if the gift is displayed on the user's or the channel's profile page; only for the receiver of the gift
+  final bool isSaved;
+
+  /// True, if the gift can be upgraded to a unique gift; only for the receiver of the gift
+  final bool canBeUpgraded;
+
+  /// True, if the gift was converted to Telegram Stars; only for the receiver of the gift
+  final bool wasConverted;
+
+  /// True, if the gift was upgraded to a unique gift
+  final bool wasUpgraded;
+
+  /// True, if the gift was refunded and isn't available anymore
+  final bool wasRefunded;
+
+  /// Identifier of the corresponding upgraded gift; may be empty if unknown. Use getReceivedGift to get information about the gift
+  final String upgradedReceivedGiftId;
+
+  /// Parse from a json
+  factory MessageGift.fromJson(Map<String, dynamic> json) => MessageGift(
+    gift: Gift.fromJson(json['gift']),
+    senderId: MessageSender.fromJson(json['sender_id']),
+    receiverId: MessageSender.fromJson(json['receiver_id']),
+    receivedGiftId: json['received_gift_id'],
+    text: FormattedText.fromJson(json['text']),
+    sellStarCount: json['sell_star_count'],
+    prepaidUpgradeStarCount: json['prepaid_upgrade_star_count'],
+    isPrivate: json['is_private'],
+    isSaved: json['is_saved'],
+    canBeUpgraded: json['can_be_upgraded'],
+    wasConverted: json['was_converted'],
+    wasUpgraded: json['was_upgraded'],
+    wasRefunded: json['was_refunded'],
+    upgradedReceivedGiftId: json['upgraded_received_gift_id'],
+  );
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      "@type": defaultObjectId,
+      "gift": gift.toJson(),
+      "sender_id": senderId.toJson(),
+      "receiver_id": receiverId.toJson(),
+      "received_gift_id": receivedGiftId,
+      "text": text.toJson(),
+      "sell_star_count": sellStarCount,
+      "prepaid_upgrade_star_count": prepaidUpgradeStarCount,
+      "is_private": isPrivate,
+      "is_saved": isSaved,
+      "can_be_upgraded": canBeUpgraded,
+      "was_converted": wasConverted,
+      "was_upgraded": wasUpgraded,
+      "was_refunded": wasRefunded,
+      "upgraded_received_gift_id": upgradedReceivedGiftId,
+    };
+  }
+
+  /// Copy model with modified properties.
+  ///
+  /// Properties:
+  /// * [gift]: The gift
+  /// * [sender_id]: Sender of the gift
+  /// * [receiver_id]: Receiver of the gift
+  /// * [received_gift_id]: Unique identifier of the received gift for the current user; only for the receiver of the gift
+  /// * [text]: Message added to the gift
+  /// * [sell_star_count]: Number of Telegram Stars that can be claimed by the receiver instead of the regular gift; 0 if the gift can't be sold by the receiver
+  /// * [prepaid_upgrade_star_count]: Number of Telegram Stars that were paid by the sender for the ability to upgrade the gift
+  /// * [is_private]: True, if the sender and gift text are shown only to the gift receiver; otherwise, everyone will be able to see them
+  /// * [is_saved]: True, if the gift is displayed on the user's or the channel's profile page; only for the receiver of the gift
+  /// * [can_be_upgraded]: True, if the gift can be upgraded to a unique gift; only for the receiver of the gift
+  /// * [was_converted]: True, if the gift was converted to Telegram Stars; only for the receiver of the gift
+  /// * [was_upgraded]: True, if the gift was upgraded to a unique gift
+  /// * [was_refunded]: True, if the gift was refunded and isn't available anymore
+  /// * [upgraded_received_gift_id]: Identifier of the corresponding upgraded gift; may be empty if unknown. Use getReceivedGift to get information about the gift
+  @override
+  MessageGift copyWith({
+    Gift? gift,
+    MessageSender? senderId,
+    MessageSender? receiverId,
+    String? receivedGiftId,
+    FormattedText? text,
+    int? sellStarCount,
+    int? prepaidUpgradeStarCount,
+    bool? isPrivate,
+    bool? isSaved,
+    bool? canBeUpgraded,
+    bool? wasConverted,
+    bool? wasUpgraded,
+    bool? wasRefunded,
+    String? upgradedReceivedGiftId,
+  }) => MessageGift(
+    gift: gift ?? this.gift,
+    senderId: senderId ?? this.senderId,
+    receiverId: receiverId ?? this.receiverId,
+    receivedGiftId: receivedGiftId ?? this.receivedGiftId,
+    text: text ?? this.text,
+    sellStarCount: sellStarCount ?? this.sellStarCount,
+    prepaidUpgradeStarCount:
+        prepaidUpgradeStarCount ?? this.prepaidUpgradeStarCount,
+    isPrivate: isPrivate ?? this.isPrivate,
+    isSaved: isSaved ?? this.isSaved,
+    canBeUpgraded: canBeUpgraded ?? this.canBeUpgraded,
+    wasConverted: wasConverted ?? this.wasConverted,
+    wasUpgraded: wasUpgraded ?? this.wasUpgraded,
+    wasRefunded: wasRefunded ?? this.wasRefunded,
+    upgradedReceivedGiftId:
+        upgradedReceivedGiftId ?? this.upgradedReceivedGiftId,
+  );
+
+  /// TDLib object type
+  static const String defaultObjectId = 'messageGift';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **MessageUpgradedGift** *(messageUpgradedGift)* - child of MessageContent
+///
+/// An upgraded gift was received or sent by the current user, or the current user was notified about a channel gift.
+///
+/// * [gift]: The gift.
+/// * [senderId]: Sender of the gift; may be null for anonymous gifts *(optional)*.
+/// * [receiverId]: Receiver of the gift.
+/// * [receivedGiftId]: Unique identifier of the received gift for the current user; only for the receiver of the gift.
+/// * [isUpgrade]: True, if the gift was obtained by upgrading of a previously received gift; otherwise, this is a transferred or resold gift.
+/// * [isSaved]: True, if the gift is displayed on the user's or the channel's profile page; only for the receiver of the gift.
+/// * [canBeTransferred]: True, if the gift can be transferred to another owner; only for the receiver of the gift.
+/// * [wasTransferred]: True, if the gift was transferred to another owner; only for the receiver of the gift.
+/// * [lastResaleStarCount]: Number of Telegram Stars that were paid by the sender for the gift; 0 if the gift was upgraded or transferred.
+/// * [transferStarCount]: Number of Telegram Stars that must be paid to transfer the upgraded gift; only for the receiver of the gift.
+/// * [nextTransferDate]: Point in time (Unix timestamp) when the gift can be transferred to another owner; 0 if the gift can be transferred immediately or transfer isn't possible; only for the receiver of the gift.
+/// * [nextResaleDate]: Point in time (Unix timestamp) when the gift can be resold to another user; 0 if the gift can't be resold; only for the receiver of the gift.
+/// * [exportDate]: Point in time (Unix timestamp) when the gift can be transferred to the TON blockchain as an NFT; 0 if NFT export isn't possible; only for the receiver of the gift.
+final class MessageUpgradedGift extends MessageContent {
+  /// **MessageUpgradedGift** *(messageUpgradedGift)* - child of MessageContent
+  ///
+  /// An upgraded gift was received or sent by the current user, or the current user was notified about a channel gift.
+  ///
+  /// * [gift]: The gift.
+  /// * [senderId]: Sender of the gift; may be null for anonymous gifts *(optional)*.
+  /// * [receiverId]: Receiver of the gift.
+  /// * [receivedGiftId]: Unique identifier of the received gift for the current user; only for the receiver of the gift.
+  /// * [isUpgrade]: True, if the gift was obtained by upgrading of a previously received gift; otherwise, this is a transferred or resold gift.
+  /// * [isSaved]: True, if the gift is displayed on the user's or the channel's profile page; only for the receiver of the gift.
+  /// * [canBeTransferred]: True, if the gift can be transferred to another owner; only for the receiver of the gift.
+  /// * [wasTransferred]: True, if the gift was transferred to another owner; only for the receiver of the gift.
+  /// * [lastResaleStarCount]: Number of Telegram Stars that were paid by the sender for the gift; 0 if the gift was upgraded or transferred.
+  /// * [transferStarCount]: Number of Telegram Stars that must be paid to transfer the upgraded gift; only for the receiver of the gift.
+  /// * [nextTransferDate]: Point in time (Unix timestamp) when the gift can be transferred to another owner; 0 if the gift can be transferred immediately or transfer isn't possible; only for the receiver of the gift.
+  /// * [nextResaleDate]: Point in time (Unix timestamp) when the gift can be resold to another user; 0 if the gift can't be resold; only for the receiver of the gift.
+  /// * [exportDate]: Point in time (Unix timestamp) when the gift can be transferred to the TON blockchain as an NFT; 0 if NFT export isn't possible; only for the receiver of the gift.
+  const MessageUpgradedGift({
+    required this.gift,
+    this.senderId,
+    required this.receiverId,
+    required this.receivedGiftId,
+    required this.isUpgrade,
+    required this.isSaved,
+    required this.canBeTransferred,
+    required this.wasTransferred,
+    required this.lastResaleStarCount,
+    required this.transferStarCount,
+    required this.nextTransferDate,
+    required this.nextResaleDate,
+    required this.exportDate,
+  });
+
+  /// The gift
+  final UpgradedGift gift;
+
+  /// Sender of the gift; may be null for anonymous gifts
+  final MessageSender? senderId;
+
+  /// Receiver of the gift
+  final MessageSender receiverId;
+
+  /// Unique identifier of the received gift for the current user; only for the receiver of the gift
+  final String receivedGiftId;
+
+  /// True, if the gift was obtained by upgrading of a previously received gift; otherwise, this is a transferred or resold gift
+  final bool isUpgrade;
+
+  /// True, if the gift is displayed on the user's or the channel's profile page; only for the receiver of the gift
+  final bool isSaved;
+
+  /// True, if the gift can be transferred to another owner; only for the receiver of the gift
+  final bool canBeTransferred;
+
+  /// True, if the gift was transferred to another owner; only for the receiver of the gift
+  final bool wasTransferred;
+
+  /// Number of Telegram Stars that were paid by the sender for the gift; 0 if the gift was upgraded or transferred
+  final int lastResaleStarCount;
+
+  /// Number of Telegram Stars that must be paid to transfer the upgraded gift; only for the receiver of the gift
+  final int transferStarCount;
+
+  /// Point in time (Unix timestamp) when the gift can be transferred to another owner; 0 if the gift can be transferred immediately or transfer isn't possible; only for the receiver of the gift
+  final int nextTransferDate;
+
+  /// Point in time (Unix timestamp) when the gift can be resold to another user; 0 if the gift can't be resold; only for the receiver of the gift
+  final int nextResaleDate;
+
+  /// Point in time (Unix timestamp) when the gift can be transferred to the TON blockchain as an NFT; 0 if NFT export isn't possible; only for the receiver of the gift
+  final int exportDate;
+
+  /// Parse from a json
+  factory MessageUpgradedGift.fromJson(Map<String, dynamic> json) =>
+      MessageUpgradedGift(
+        gift: UpgradedGift.fromJson(json['gift']),
+        senderId: json['sender_id'] == null
+            ? null
+            : MessageSender.fromJson(json['sender_id']),
+        receiverId: MessageSender.fromJson(json['receiver_id']),
+        receivedGiftId: json['received_gift_id'],
+        isUpgrade: json['is_upgrade'],
+        isSaved: json['is_saved'],
+        canBeTransferred: json['can_be_transferred'],
+        wasTransferred: json['was_transferred'],
+        lastResaleStarCount: json['last_resale_star_count'],
+        transferStarCount: json['transfer_star_count'],
+        nextTransferDate: json['next_transfer_date'],
+        nextResaleDate: json['next_resale_date'],
+        exportDate: json['export_date'],
+      );
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      "@type": defaultObjectId,
+      "gift": gift.toJson(),
+      "sender_id": senderId?.toJson(),
+      "receiver_id": receiverId.toJson(),
+      "received_gift_id": receivedGiftId,
+      "is_upgrade": isUpgrade,
+      "is_saved": isSaved,
+      "can_be_transferred": canBeTransferred,
+      "was_transferred": wasTransferred,
+      "last_resale_star_count": lastResaleStarCount,
+      "transfer_star_count": transferStarCount,
+      "next_transfer_date": nextTransferDate,
+      "next_resale_date": nextResaleDate,
+      "export_date": exportDate,
+    };
+  }
+
+  /// Copy model with modified properties.
+  ///
+  /// Properties:
+  /// * [gift]: The gift
+  /// * [sender_id]: Sender of the gift; may be null for anonymous gifts
+  /// * [receiver_id]: Receiver of the gift
+  /// * [received_gift_id]: Unique identifier of the received gift for the current user; only for the receiver of the gift
+  /// * [is_upgrade]: True, if the gift was obtained by upgrading of a previously received gift; otherwise, this is a transferred or resold gift
+  /// * [is_saved]: True, if the gift is displayed on the user's or the channel's profile page; only for the receiver of the gift
+  /// * [can_be_transferred]: True, if the gift can be transferred to another owner; only for the receiver of the gift
+  /// * [was_transferred]: True, if the gift was transferred to another owner; only for the receiver of the gift
+  /// * [last_resale_star_count]: Number of Telegram Stars that were paid by the sender for the gift; 0 if the gift was upgraded or transferred
+  /// * [transfer_star_count]: Number of Telegram Stars that must be paid to transfer the upgraded gift; only for the receiver of the gift
+  /// * [next_transfer_date]: Point in time (Unix timestamp) when the gift can be transferred to another owner; 0 if the gift can be transferred immediately or transfer isn't possible; only for the receiver of the gift
+  /// * [next_resale_date]: Point in time (Unix timestamp) when the gift can be resold to another user; 0 if the gift can't be resold; only for the receiver of the gift
+  /// * [export_date]: Point in time (Unix timestamp) when the gift can be transferred to the TON blockchain as an NFT; 0 if NFT export isn't possible; only for the receiver of the gift
+  @override
+  MessageUpgradedGift copyWith({
+    UpgradedGift? gift,
+    MessageSender? senderId,
+    MessageSender? receiverId,
+    String? receivedGiftId,
+    bool? isUpgrade,
+    bool? isSaved,
+    bool? canBeTransferred,
+    bool? wasTransferred,
+    int? lastResaleStarCount,
+    int? transferStarCount,
+    int? nextTransferDate,
+    int? nextResaleDate,
+    int? exportDate,
+  }) => MessageUpgradedGift(
+    gift: gift ?? this.gift,
+    senderId: senderId ?? this.senderId,
+    receiverId: receiverId ?? this.receiverId,
+    receivedGiftId: receivedGiftId ?? this.receivedGiftId,
+    isUpgrade: isUpgrade ?? this.isUpgrade,
+    isSaved: isSaved ?? this.isSaved,
+    canBeTransferred: canBeTransferred ?? this.canBeTransferred,
+    wasTransferred: wasTransferred ?? this.wasTransferred,
+    lastResaleStarCount: lastResaleStarCount ?? this.lastResaleStarCount,
+    transferStarCount: transferStarCount ?? this.transferStarCount,
+    nextTransferDate: nextTransferDate ?? this.nextTransferDate,
+    nextResaleDate: nextResaleDate ?? this.nextResaleDate,
+    exportDate: exportDate ?? this.exportDate,
+  );
+
+  /// TDLib object type
+  static const String defaultObjectId = 'messageUpgradedGift';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **MessageRefundedUpgradedGift** *(messageRefundedUpgradedGift)* - child of MessageContent
+///
+/// A gift which purchase, upgrade or transfer were refunded.
+///
+/// * [gift]: The gift.
+/// * [senderId]: Sender of the gift.
+/// * [receiverId]: Receiver of the gift.
+/// * [isUpgrade]: True, if the gift was obtained by upgrading of a previously received gift; otherwise, this is a transferred or resold gift.
+final class MessageRefundedUpgradedGift extends MessageContent {
+  /// **MessageRefundedUpgradedGift** *(messageRefundedUpgradedGift)* - child of MessageContent
+  ///
+  /// A gift which purchase, upgrade or transfer were refunded.
+  ///
+  /// * [gift]: The gift.
+  /// * [senderId]: Sender of the gift.
+  /// * [receiverId]: Receiver of the gift.
+  /// * [isUpgrade]: True, if the gift was obtained by upgrading of a previously received gift; otherwise, this is a transferred or resold gift.
+  const MessageRefundedUpgradedGift({
+    required this.gift,
+    required this.senderId,
+    required this.receiverId,
+    required this.isUpgrade,
+  });
+
+  /// The gift
+  final Gift gift;
+
+  /// Sender of the gift
+  final MessageSender senderId;
+
+  /// Receiver of the gift
+  final MessageSender receiverId;
+
+  /// True, if the gift was obtained by upgrading of a previously received gift; otherwise, this is a transferred or resold gift
+  final bool isUpgrade;
+
+  /// Parse from a json
+  factory MessageRefundedUpgradedGift.fromJson(Map<String, dynamic> json) =>
+      MessageRefundedUpgradedGift(
+        gift: Gift.fromJson(json['gift']),
+        senderId: MessageSender.fromJson(json['sender_id']),
+        receiverId: MessageSender.fromJson(json['receiver_id']),
+        isUpgrade: json['is_upgrade'],
+      );
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      "@type": defaultObjectId,
+      "gift": gift.toJson(),
+      "sender_id": senderId.toJson(),
+      "receiver_id": receiverId.toJson(),
+      "is_upgrade": isUpgrade,
+    };
+  }
+
+  /// Copy model with modified properties.
+  ///
+  /// Properties:
+  /// * [gift]: The gift
+  /// * [sender_id]: Sender of the gift
+  /// * [receiver_id]: Receiver of the gift
+  /// * [is_upgrade]: True, if the gift was obtained by upgrading of a previously received gift; otherwise, this is a transferred or resold gift
+  @override
+  MessageRefundedUpgradedGift copyWith({
+    Gift? gift,
+    MessageSender? senderId,
+    MessageSender? receiverId,
+    bool? isUpgrade,
+  }) => MessageRefundedUpgradedGift(
+    gift: gift ?? this.gift,
+    senderId: senderId ?? this.senderId,
+    receiverId: receiverId ?? this.receiverId,
+    isUpgrade: isUpgrade ?? this.isUpgrade,
+  );
+
+  /// TDLib object type
+  static const String defaultObjectId = 'messageRefundedUpgradedGift';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **MessagePaidMessagesRefunded** *(messagePaidMessagesRefunded)* - child of MessageContent
+///
+/// Paid messages were refunded.
+///
+/// * [messageCount]: The number of refunded messages.
+/// * [starCount]: The number of refunded Telegram Stars.
+final class MessagePaidMessagesRefunded extends MessageContent {
+  /// **MessagePaidMessagesRefunded** *(messagePaidMessagesRefunded)* - child of MessageContent
+  ///
+  /// Paid messages were refunded.
+  ///
+  /// * [messageCount]: The number of refunded messages.
+  /// * [starCount]: The number of refunded Telegram Stars.
+  const MessagePaidMessagesRefunded({
+    required this.messageCount,
+    required this.starCount,
+  });
+
+  /// The number of refunded messages
+  final int messageCount;
+
+  /// The number of refunded Telegram Stars
+  final int starCount;
+
+  /// Parse from a json
+  factory MessagePaidMessagesRefunded.fromJson(Map<String, dynamic> json) =>
+      MessagePaidMessagesRefunded(
+        messageCount: json['message_count'],
+        starCount: json['star_count'],
+      );
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      "@type": defaultObjectId,
+      "message_count": messageCount,
+      "star_count": starCount,
+    };
+  }
+
+  /// Copy model with modified properties.
+  ///
+  /// Properties:
+  /// * [message_count]: The number of refunded messages
+  /// * [star_count]: The number of refunded Telegram Stars
+  @override
+  MessagePaidMessagesRefunded copyWith({int? messageCount, int? starCount}) =>
+      MessagePaidMessagesRefunded(
+        messageCount: messageCount ?? this.messageCount,
+        starCount: starCount ?? this.starCount,
+      );
+
+  /// TDLib object type
+  static const String defaultObjectId = 'messagePaidMessagesRefunded';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **MessagePaidMessagePriceChanged** *(messagePaidMessagePriceChanged)* - child of MessageContent
+///
+/// A price for paid messages was changed in the supergroup chat.
+///
+/// * [paidMessageStarCount]: The new number of Telegram Stars that must be paid by non-administrator users of the supergroup chat for each sent message.
+final class MessagePaidMessagePriceChanged extends MessageContent {
+  /// **MessagePaidMessagePriceChanged** *(messagePaidMessagePriceChanged)* - child of MessageContent
+  ///
+  /// A price for paid messages was changed in the supergroup chat.
+  ///
+  /// * [paidMessageStarCount]: The new number of Telegram Stars that must be paid by non-administrator users of the supergroup chat for each sent message.
+  const MessagePaidMessagePriceChanged({required this.paidMessageStarCount});
+
+  /// The new number of Telegram Stars that must be paid by non-administrator users of the supergroup chat for each sent message
+  final int paidMessageStarCount;
+
+  /// Parse from a json
+  factory MessagePaidMessagePriceChanged.fromJson(Map<String, dynamic> json) =>
+      MessagePaidMessagePriceChanged(
+        paidMessageStarCount: json['paid_message_star_count'],
+      );
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      "@type": defaultObjectId,
+      "paid_message_star_count": paidMessageStarCount,
+    };
+  }
+
+  /// Copy model with modified properties.
+  ///
+  /// Properties:
+  /// * [paid_message_star_count]: The new number of Telegram Stars that must be paid by non-administrator users of the supergroup chat for each sent message
+  @override
+  MessagePaidMessagePriceChanged copyWith({int? paidMessageStarCount}) =>
+      MessagePaidMessagePriceChanged(
+        paidMessageStarCount: paidMessageStarCount ?? this.paidMessageStarCount,
+      );
+
+  /// TDLib object type
+  static const String defaultObjectId = 'messagePaidMessagePriceChanged';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **MessageDirectMessagePriceChanged** *(messageDirectMessagePriceChanged)* - child of MessageContent
+///
+/// A price for direct messages was changed in the channel chat.
+///
+/// * [isEnabled]: True, if direct messages group was enabled for the channel; false otherwise.
+/// * [paidMessageStarCount]: The new number of Telegram Stars that must be paid by non-administrator users of the channel chat for each message sent to the direct messages group;. 0 if the direct messages group was disabled or the messages are free.
+final class MessageDirectMessagePriceChanged extends MessageContent {
+  /// **MessageDirectMessagePriceChanged** *(messageDirectMessagePriceChanged)* - child of MessageContent
+  ///
+  /// A price for direct messages was changed in the channel chat.
+  ///
+  /// * [isEnabled]: True, if direct messages group was enabled for the channel; false otherwise.
+  /// * [paidMessageStarCount]: The new number of Telegram Stars that must be paid by non-administrator users of the channel chat for each message sent to the direct messages group;. 0 if the direct messages group was disabled or the messages are free.
+  const MessageDirectMessagePriceChanged({
+    required this.isEnabled,
+    required this.paidMessageStarCount,
+  });
+
+  /// True, if direct messages group was enabled for the channel; false otherwise
+  final bool isEnabled;
+
+  /// The new number of Telegram Stars that must be paid by non-administrator users of the channel chat for each message sent to the direct messages group;. 0 if the direct messages group was disabled or the messages are free
+  final int paidMessageStarCount;
+
+  /// Parse from a json
+  factory MessageDirectMessagePriceChanged.fromJson(
+    Map<String, dynamic> json,
+  ) => MessageDirectMessagePriceChanged(
+    isEnabled: json['is_enabled'],
+    paidMessageStarCount: json['paid_message_star_count'],
+  );
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      "@type": defaultObjectId,
+      "is_enabled": isEnabled,
+      "paid_message_star_count": paidMessageStarCount,
+    };
+  }
+
+  /// Copy model with modified properties.
+  ///
+  /// Properties:
+  /// * [is_enabled]: True, if direct messages group was enabled for the channel; false otherwise
+  /// * [paid_message_star_count]: The new number of Telegram Stars that must be paid by non-administrator users of the channel chat for each message sent to the direct messages group;. 0 if the direct messages group was disabled or the messages are free
+  @override
+  MessageDirectMessagePriceChanged copyWith({
+    bool? isEnabled,
+    int? paidMessageStarCount,
+  }) => MessageDirectMessagePriceChanged(
+    isEnabled: isEnabled ?? this.isEnabled,
+    paidMessageStarCount: paidMessageStarCount ?? this.paidMessageStarCount,
+  );
+
+  /// TDLib object type
+  static const String defaultObjectId = 'messageDirectMessagePriceChanged';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **MessageChecklistTasksDone** *(messageChecklistTasksDone)* - child of MessageContent
+///
+/// Some tasks from a checklist were marked as done or not done.
+///
+/// * [checklistMessageId]: Identifier of the message with the checklist; can be 0 if the message was deleted.
+/// * [markedAsDoneTaskIds]: Identifiers of tasks that were marked as done.
+/// * [markedAsNotDoneTaskIds]: Identifiers of tasks that were marked as not done.
+final class MessageChecklistTasksDone extends MessageContent {
+  /// **MessageChecklistTasksDone** *(messageChecklistTasksDone)* - child of MessageContent
+  ///
+  /// Some tasks from a checklist were marked as done or not done.
+  ///
+  /// * [checklistMessageId]: Identifier of the message with the checklist; can be 0 if the message was deleted.
+  /// * [markedAsDoneTaskIds]: Identifiers of tasks that were marked as done.
+  /// * [markedAsNotDoneTaskIds]: Identifiers of tasks that were marked as not done.
+  const MessageChecklistTasksDone({
+    required this.checklistMessageId,
+    required this.markedAsDoneTaskIds,
+    required this.markedAsNotDoneTaskIds,
+  });
+
+  /// Identifier of the message with the checklist; can be 0 if the message was deleted
+  final int checklistMessageId;
+
+  /// Identifiers of tasks that were marked as done
+  final List<int> markedAsDoneTaskIds;
+
+  /// Identifiers of tasks that were marked as not done
+  final List<int> markedAsNotDoneTaskIds;
+
+  /// Parse from a json
+  factory MessageChecklistTasksDone.fromJson(Map<String, dynamic> json) =>
+      MessageChecklistTasksDone(
+        checklistMessageId: json['checklist_message_id'],
+        markedAsDoneTaskIds: List<int>.from(
+          (json['marked_as_done_task_ids'] ?? []).map((item) => item).toList(),
+        ),
+        markedAsNotDoneTaskIds: List<int>.from(
+          (json['marked_as_not_done_task_ids'] ?? [])
+              .map((item) => item)
+              .toList(),
+        ),
+      );
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      "@type": defaultObjectId,
+      "checklist_message_id": checklistMessageId,
+      "marked_as_done_task_ids": markedAsDoneTaskIds.map((i) => i).toList(),
+      "marked_as_not_done_task_ids": markedAsNotDoneTaskIds
+          .map((i) => i)
+          .toList(),
+    };
+  }
+
+  /// Copy model with modified properties.
+  ///
+  /// Properties:
+  /// * [checklist_message_id]: Identifier of the message with the checklist; can be 0 if the message was deleted
+  /// * [marked_as_done_task_ids]: Identifiers of tasks that were marked as done
+  /// * [marked_as_not_done_task_ids]: Identifiers of tasks that were marked as not done
+  @override
+  MessageChecklistTasksDone copyWith({
+    int? checklistMessageId,
+    List<int>? markedAsDoneTaskIds,
+    List<int>? markedAsNotDoneTaskIds,
+  }) => MessageChecklistTasksDone(
+    checklistMessageId: checklistMessageId ?? this.checklistMessageId,
+    markedAsDoneTaskIds: markedAsDoneTaskIds ?? this.markedAsDoneTaskIds,
+    markedAsNotDoneTaskIds:
+        markedAsNotDoneTaskIds ?? this.markedAsNotDoneTaskIds,
+  );
+
+  /// TDLib object type
+  static const String defaultObjectId = 'messageChecklistTasksDone';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **MessageChecklistTasksAdded** *(messageChecklistTasksAdded)* - child of MessageContent
+///
+/// Some tasks were added to a checklist.
+///
+/// * [checklistMessageId]: Identifier of the message with the checklist; can be 0 if the message was deleted.
+/// * [tasks]: List of tasks added to the checklist.
+final class MessageChecklistTasksAdded extends MessageContent {
+  /// **MessageChecklistTasksAdded** *(messageChecklistTasksAdded)* - child of MessageContent
+  ///
+  /// Some tasks were added to a checklist.
+  ///
+  /// * [checklistMessageId]: Identifier of the message with the checklist; can be 0 if the message was deleted.
+  /// * [tasks]: List of tasks added to the checklist.
+  const MessageChecklistTasksAdded({
+    required this.checklistMessageId,
+    required this.tasks,
+  });
+
+  /// Identifier of the message with the checklist; can be 0 if the message was deleted
+  final int checklistMessageId;
+
+  /// List of tasks added to the checklist
+  final List<ChecklistTask> tasks;
+
+  /// Parse from a json
+  factory MessageChecklistTasksAdded.fromJson(Map<String, dynamic> json) =>
+      MessageChecklistTasksAdded(
+        checklistMessageId: json['checklist_message_id'],
+        tasks: List<ChecklistTask>.from(
+          (json['tasks'] ?? [])
+              .map((item) => ChecklistTask.fromJson(item))
+              .toList(),
+        ),
+      );
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      "@type": defaultObjectId,
+      "checklist_message_id": checklistMessageId,
+      "tasks": tasks.map((i) => i.toJson()).toList(),
+    };
+  }
+
+  /// Copy model with modified properties.
+  ///
+  /// Properties:
+  /// * [checklist_message_id]: Identifier of the message with the checklist; can be 0 if the message was deleted
+  /// * [tasks]: List of tasks added to the checklist
+  @override
+  MessageChecklistTasksAdded copyWith({
+    int? checklistMessageId,
+    List<ChecklistTask>? tasks,
+  }) => MessageChecklistTasksAdded(
+    checklistMessageId: checklistMessageId ?? this.checklistMessageId,
+    tasks: tasks ?? this.tasks,
+  );
+
+  /// TDLib object type
+  static const String defaultObjectId = 'messageChecklistTasksAdded';
 
   /// Convert model to TDLib JSON format, encoded into String.
   @override
@@ -5077,9 +5887,7 @@ final class MessageContactRegistered extends MessageContent {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -5111,10 +5919,7 @@ final class MessageUsersShared extends MessageContent {
   ///
   /// * [users]: The shared users.
   /// * [buttonId]: Identifier of the keyboard button with the request.
-  const MessageUsersShared({
-    required this.users,
-    required this.buttonId,
-  });
+  const MessageUsersShared({required this.users, required this.buttonId});
 
   /// The shared users
   final List<SharedUser> users;
@@ -5125,9 +5930,11 @@ final class MessageUsersShared extends MessageContent {
   /// Parse from a json
   factory MessageUsersShared.fromJson(Map<String, dynamic> json) =>
       MessageUsersShared(
-        users: List<SharedUser>.from((json['users'] ?? [])
-            .map((item) => SharedUser.fromJson(item))
-            .toList()),
+        users: List<SharedUser>.from(
+          (json['users'] ?? [])
+              .map((item) => SharedUser.fromJson(item))
+              .toList(),
+        ),
         buttonId: json['button_id'],
       );
 
@@ -5147,10 +5954,7 @@ final class MessageUsersShared extends MessageContent {
   /// * [users]: The shared users
   /// * [button_id]: Identifier of the keyboard button with the request
   @override
-  MessageUsersShared copyWith({
-    List<SharedUser>? users,
-    int? buttonId,
-  }) =>
+  MessageUsersShared copyWith({List<SharedUser>? users, int? buttonId}) =>
       MessageUsersShared(
         users: users ?? this.users,
         buttonId: buttonId ?? this.buttonId,
@@ -5181,10 +5985,7 @@ final class MessageChatShared extends MessageContent {
   ///
   /// * [chat]: The shared chat.
   /// * [buttonId]: Identifier of the keyboard button with the request.
-  const MessageChatShared({
-    required this.chat,
-    required this.buttonId,
-  });
+  const MessageChatShared({required this.chat, required this.buttonId});
 
   /// The shared chat
   final SharedChat chat;
@@ -5215,10 +6016,7 @@ final class MessageChatShared extends MessageContent {
   /// * [chat]: The shared chat
   /// * [button_id]: Identifier of the keyboard button with the request
   @override
-  MessageChatShared copyWith({
-    SharedChat? chat,
-    int? buttonId,
-  }) =>
+  MessageChatShared copyWith({SharedChat? chat, int? buttonId}) =>
       MessageChatShared(
         chat: chat ?? this.chat,
         buttonId: buttonId ?? this.buttonId,
@@ -5247,9 +6045,7 @@ final class MessageBotWriteAccessAllowed extends MessageContent {
   /// The user allowed the bot to send messages.
   ///
   /// * [reason]: The reason why the bot was allowed to write messages.
-  const MessageBotWriteAccessAllowed({
-    required this.reason,
-  });
+  const MessageBotWriteAccessAllowed({required this.reason});
 
   /// The reason why the bot was allowed to write messages
   final BotWriteAccessAllowReason reason;
@@ -5263,10 +6059,7 @@ final class MessageBotWriteAccessAllowed extends MessageContent {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "reason": reason.toJson(),
-    };
+    return {"@type": defaultObjectId, "reason": reason.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -5274,12 +6067,8 @@ final class MessageBotWriteAccessAllowed extends MessageContent {
   /// Properties:
   /// * [reason]: The reason why the bot was allowed to write messages
   @override
-  MessageBotWriteAccessAllowed copyWith({
-    BotWriteAccessAllowReason? reason,
-  }) =>
-      MessageBotWriteAccessAllowed(
-        reason: reason ?? this.reason,
-      );
+  MessageBotWriteAccessAllowed copyWith({BotWriteAccessAllowReason? reason}) =>
+      MessageBotWriteAccessAllowed(reason: reason ?? this.reason);
 
   /// TDLib object type
   static const String defaultObjectId = 'messageBotWriteAccessAllowed';
@@ -5304,26 +6093,19 @@ final class MessageWebAppDataSent extends MessageContent {
   /// Data from a Web App has been sent to a bot.
   ///
   /// * [buttonText]: Text of the keyboardButtonTypeWebApp button, which opened the Web App.
-  const MessageWebAppDataSent({
-    required this.buttonText,
-  });
+  const MessageWebAppDataSent({required this.buttonText});
 
   /// Text of the keyboardButtonTypeWebApp button, which opened the Web App
   final String buttonText;
 
   /// Parse from a json
   factory MessageWebAppDataSent.fromJson(Map<String, dynamic> json) =>
-      MessageWebAppDataSent(
-        buttonText: json['button_text'],
-      );
+      MessageWebAppDataSent(buttonText: json['button_text']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "button_text": buttonText,
-    };
+    return {"@type": defaultObjectId, "button_text": buttonText};
   }
 
   /// Copy model with modified properties.
@@ -5331,12 +6113,8 @@ final class MessageWebAppDataSent extends MessageContent {
   /// Properties:
   /// * [button_text]: Text of the keyboardButtonTypeWebApp button, which opened the Web App
   @override
-  MessageWebAppDataSent copyWith({
-    String? buttonText,
-  }) =>
-      MessageWebAppDataSent(
-        buttonText: buttonText ?? this.buttonText,
-      );
+  MessageWebAppDataSent copyWith({String? buttonText}) =>
+      MessageWebAppDataSent(buttonText: buttonText ?? this.buttonText);
 
   /// TDLib object type
   static const String defaultObjectId = 'messageWebAppDataSent';
@@ -5384,11 +6162,7 @@ final class MessageWebAppDataReceived extends MessageContent {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "button_text": buttonText,
-      "data": data,
-    };
+    return {"@type": defaultObjectId, "button_text": buttonText, "data": data};
   }
 
   /// Copy model with modified properties.
@@ -5397,10 +6171,7 @@ final class MessageWebAppDataReceived extends MessageContent {
   /// * [button_text]: Text of the keyboardButtonTypeWebApp button, which opened the Web App
   /// * [data]: The data
   @override
-  MessageWebAppDataReceived copyWith({
-    String? buttonText,
-    String? data,
-  }) =>
+  MessageWebAppDataReceived copyWith({String? buttonText, String? data}) =>
       MessageWebAppDataReceived(
         buttonText: buttonText ?? this.buttonText,
         data: data ?? this.data,
@@ -5429,9 +6200,7 @@ final class MessagePassportDataSent extends MessageContent {
   /// Telegram Passport data has been sent to a bot.
   ///
   /// * [types]: List of Telegram Passport element types sent.
-  const MessagePassportDataSent({
-    required this.types,
-  });
+  const MessagePassportDataSent({required this.types});
 
   /// List of Telegram Passport element types sent
   final List<PassportElementType> types;
@@ -5439,9 +6208,11 @@ final class MessagePassportDataSent extends MessageContent {
   /// Parse from a json
   factory MessagePassportDataSent.fromJson(Map<String, dynamic> json) =>
       MessagePassportDataSent(
-        types: List<PassportElementType>.from((json['types'] ?? [])
-            .map((item) => PassportElementType.fromJson(item))
-            .toList()),
+        types: List<PassportElementType>.from(
+          (json['types'] ?? [])
+              .map((item) => PassportElementType.fromJson(item))
+              .toList(),
+        ),
       );
 
   /// Convert model to TDLib JSON format
@@ -5458,12 +6229,8 @@ final class MessagePassportDataSent extends MessageContent {
   /// Properties:
   /// * [types]: List of Telegram Passport element types sent
   @override
-  MessagePassportDataSent copyWith({
-    List<PassportElementType>? types,
-  }) =>
-      MessagePassportDataSent(
-        types: types ?? this.types,
-      );
+  MessagePassportDataSent copyWith({List<PassportElementType>? types}) =>
+      MessagePassportDataSent(types: types ?? this.types);
 
   /// TDLib object type
   static const String defaultObjectId = 'messagePassportDataSent';
@@ -5504,9 +6271,11 @@ final class MessagePassportDataReceived extends MessageContent {
   /// Parse from a json
   factory MessagePassportDataReceived.fromJson(Map<String, dynamic> json) =>
       MessagePassportDataReceived(
-        elements: List<EncryptedPassportElement>.from((json['elements'] ?? [])
-            .map((item) => EncryptedPassportElement.fromJson(item))
-            .toList()),
+        elements: List<EncryptedPassportElement>.from(
+          (json['elements'] ?? [])
+              .map((item) => EncryptedPassportElement.fromJson(item))
+              .toList(),
+        ),
         credentials: EncryptedCredentials.fromJson(json['credentials']),
       );
 
@@ -5529,11 +6298,10 @@ final class MessagePassportDataReceived extends MessageContent {
   MessagePassportDataReceived copyWith({
     List<EncryptedPassportElement>? elements,
     EncryptedCredentials? credentials,
-  }) =>
-      MessagePassportDataReceived(
-        elements: elements ?? this.elements,
-        credentials: credentials ?? this.credentials,
-      );
+  }) => MessagePassportDataReceived(
+    elements: elements ?? this.elements,
+    credentials: credentials ?? this.credentials,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messagePassportDataReceived';
@@ -5607,12 +6375,11 @@ final class MessageProximityAlertTriggered extends MessageContent {
     MessageSender? travelerId,
     MessageSender? watcherId,
     int? distance,
-  }) =>
-      MessageProximityAlertTriggered(
-        travelerId: travelerId ?? this.travelerId,
-        watcherId: watcherId ?? this.watcherId,
-        distance: distance ?? this.distance,
-      );
+  }) => MessageProximityAlertTriggered(
+    travelerId: travelerId ?? this.travelerId,
+    watcherId: watcherId ?? this.watcherId,
+    distance: distance ?? this.distance,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageProximityAlertTriggered';
@@ -5642,9 +6409,7 @@ final class MessageUnsupported extends MessageContent {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.

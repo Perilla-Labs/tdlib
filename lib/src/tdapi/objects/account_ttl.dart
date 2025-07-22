@@ -11,11 +11,7 @@ final class AccountTtl extends TdObject {
   /// Contains information about the period of inactivity after which the current user's account will automatically be deleted.
   ///
   /// * [days]: Number of days of inactivity before the account will be flagged for deletion; 30-730 days.
-  const AccountTtl({
-    required this.days,
-    this.extra,
-    this.clientId,
-  });
+  const AccountTtl({required this.days, this.extra, this.clientId});
 
   /// Number of days of inactivity before the account will be flagged for deletion; 30-730 days
   final int days;
@@ -30,34 +26,26 @@ final class AccountTtl extends TdObject {
 
   /// Parse from a json
   factory AccountTtl.fromJson(Map<String, dynamic> json) => AccountTtl(
-        days: json['days'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    days: json['days'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "days": days,
-    };
+    return {"@type": defaultObjectId, "days": days};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [days]: Number of days of inactivity before the account will be flagged for deletion; 30-730 days
-  AccountTtl copyWith({
-    int? days,
-    dynamic extra,
-    int? clientId,
-  }) =>
-      AccountTtl(
-        days: days ?? this.days,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  AccountTtl copyWith({int? days, dynamic extra, int? clientId}) => AccountTtl(
+    days: days ?? this.days,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'accountTtl';

@@ -15,9 +15,7 @@ final class SetPersonalChat extends TdFunction {
   /// * [chatId]: Identifier of the new personal chat; pass 0 to remove the chat. Use getSuitablePersonalChats to get suitable chats.
   ///
   /// [Ok] is returned on completion.
-  const SetPersonalChat({
-    required this.chatId,
-  });
+  const SetPersonalChat({required this.chatId});
 
   /// Identifier of the new personal chat; pass 0 to remove the chat. Use getSuitablePersonalChats to get suitable chats
   final int chatId;
@@ -25,23 +23,15 @@ final class SetPersonalChat extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "chat_id": chatId,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "chat_id": chatId, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [chat_id]: Identifier of the new personal chat; pass 0 to remove the chat. Use getSuitablePersonalChats to get suitable chats
-  SetPersonalChat copyWith({
-    int? chatId,
-  }) =>
-      SetPersonalChat(
-        chatId: chatId ?? this.chatId,
-      );
+  SetPersonalChat copyWith({int? chatId}) =>
+      SetPersonalChat(chatId: chatId ?? this.chatId);
 
   /// TDLib object type
   static const String defaultObjectId = 'setPersonalChat';

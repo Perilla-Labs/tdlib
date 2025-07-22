@@ -17,10 +17,7 @@ final class GetPaymentReceipt extends TdFunction {
   /// * [messageId]: Message identifier.
   ///
   /// [PaymentReceipt] is returned on completion.
-  const GetPaymentReceipt({
-    required this.chatId,
-    required this.messageId,
-  });
+  const GetPaymentReceipt({required this.chatId, required this.messageId});
 
   /// Chat identifier of the messagePaymentSuccessful message
   final int chatId;
@@ -44,10 +41,7 @@ final class GetPaymentReceipt extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier of the messagePaymentSuccessful message
   /// * [message_id]: Message identifier
-  GetPaymentReceipt copyWith({
-    int? chatId,
-    int? messageId,
-  }) =>
+  GetPaymentReceipt copyWith({int? chatId, int? messageId}) =>
       GetPaymentReceipt(
         chatId: chatId ?? this.chatId,
         messageId: messageId ?? this.messageId,

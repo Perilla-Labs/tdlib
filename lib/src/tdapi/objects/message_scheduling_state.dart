@@ -12,12 +12,15 @@ sealed class MessageSchedulingState extends TdObject {
   /// a MessageSchedulingState return type can be :
   /// * [MessageSchedulingStateSendAtDate]
   /// * [MessageSchedulingStateSendWhenOnline]
+  /// * [MessageSchedulingStateSendWhenVideoProcessed]
   factory MessageSchedulingState.fromJson(Map<String, dynamic> json) {
     switch (json["@type"]) {
       case MessageSchedulingStateSendAtDate.defaultObjectId:
         return MessageSchedulingStateSendAtDate.fromJson(json);
       case MessageSchedulingStateSendWhenOnline.defaultObjectId:
         return MessageSchedulingStateSendWhenOnline.fromJson(json);
+      case MessageSchedulingStateSendWhenVideoProcessed.defaultObjectId:
+        return MessageSchedulingStateSendWhenVideoProcessed.fromJson(json);
       default:
         throw FormatException(
           "Unknown object ${json["@type"]} (expected child of MessageSchedulingState)",
@@ -56,27 +59,20 @@ final class MessageSchedulingStateSendAtDate extends MessageSchedulingState {
   /// The message will be sent at the specified date.
   ///
   /// * [sendDate]: Point in time (Unix timestamp) when the message will be sent. The date must be within 367 days in the future.
-  const MessageSchedulingStateSendAtDate({
-    required this.sendDate,
-  });
+  const MessageSchedulingStateSendAtDate({required this.sendDate});
 
   /// Point in time (Unix timestamp) when the message will be sent. The date must be within 367 days in the future
   final int sendDate;
 
   /// Parse from a json
   factory MessageSchedulingStateSendAtDate.fromJson(
-          Map<String, dynamic> json) =>
-      MessageSchedulingStateSendAtDate(
-        sendDate: json['send_date'],
-      );
+    Map<String, dynamic> json,
+  ) => MessageSchedulingStateSendAtDate(sendDate: json['send_date']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "send_date": sendDate,
-    };
+    return {"@type": defaultObjectId, "send_date": sendDate};
   }
 
   /// Copy model with modified properties.
@@ -84,12 +80,8 @@ final class MessageSchedulingStateSendAtDate extends MessageSchedulingState {
   /// Properties:
   /// * [send_date]: Point in time (Unix timestamp) when the message will be sent. The date must be within 367 days in the future
   @override
-  MessageSchedulingStateSendAtDate copyWith({
-    int? sendDate,
-  }) =>
-      MessageSchedulingStateSendAtDate(
-        sendDate: sendDate ?? this.sendDate,
-      );
+  MessageSchedulingStateSendAtDate copyWith({int? sendDate}) =>
+      MessageSchedulingStateSendAtDate(sendDate: sendDate ?? this.sendDate);
 
   /// TDLib object type
   static const String defaultObjectId = 'messageSchedulingStateSendAtDate';
@@ -115,15 +107,13 @@ final class MessageSchedulingStateSendWhenOnline
 
   /// Parse from a json
   factory MessageSchedulingStateSendWhenOnline.fromJson(
-          Map<String, dynamic> json) =>
-      const MessageSchedulingStateSendWhenOnline();
+    Map<String, dynamic> json,
+  ) => const MessageSchedulingStateSendWhenOnline();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -133,6 +123,58 @@ final class MessageSchedulingStateSendWhenOnline
 
   /// TDLib object type
   static const String defaultObjectId = 'messageSchedulingStateSendWhenOnline';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **MessageSchedulingStateSendWhenVideoProcessed** *(messageSchedulingStateSendWhenVideoProcessed)* - child of MessageSchedulingState
+///
+/// The message will be sent when the video in the message is converted and optimized; can be used only by the server.
+///
+/// * [sendDate]: Approximate point in time (Unix timestamp) when the message is expected to be sent.
+final class MessageSchedulingStateSendWhenVideoProcessed
+    extends MessageSchedulingState {
+  /// **MessageSchedulingStateSendWhenVideoProcessed** *(messageSchedulingStateSendWhenVideoProcessed)* - child of MessageSchedulingState
+  ///
+  /// The message will be sent when the video in the message is converted and optimized; can be used only by the server.
+  ///
+  /// * [sendDate]: Approximate point in time (Unix timestamp) when the message is expected to be sent.
+  const MessageSchedulingStateSendWhenVideoProcessed({required this.sendDate});
+
+  /// Approximate point in time (Unix timestamp) when the message is expected to be sent
+  final int sendDate;
+
+  /// Parse from a json
+  factory MessageSchedulingStateSendWhenVideoProcessed.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      MessageSchedulingStateSendWhenVideoProcessed(sendDate: json['send_date']);
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {"@type": defaultObjectId, "send_date": sendDate};
+  }
+
+  /// Copy model with modified properties.
+  ///
+  /// Properties:
+  /// * [send_date]: Approximate point in time (Unix timestamp) when the message is expected to be sent
+  @override
+  MessageSchedulingStateSendWhenVideoProcessed copyWith({int? sendDate}) =>
+      MessageSchedulingStateSendWhenVideoProcessed(
+        sendDate: sendDate ?? this.sendDate,
+      );
+
+  /// TDLib object type
+  static const String defaultObjectId =
+      'messageSchedulingStateSendWhenVideoProcessed';
 
   /// Convert model to TDLib JSON format, encoded into String.
   @override

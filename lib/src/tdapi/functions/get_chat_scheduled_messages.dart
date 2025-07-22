@@ -15,9 +15,7 @@ final class GetChatScheduledMessages extends TdFunction {
   /// * [chatId]: Chat identifier.
   ///
   /// [Messages] is returned on completion.
-  const GetChatScheduledMessages({
-    required this.chatId,
-  });
+  const GetChatScheduledMessages({required this.chatId});
 
   /// Chat identifier
   final int chatId;
@@ -25,23 +23,15 @@ final class GetChatScheduledMessages extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "chat_id": chatId,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "chat_id": chatId, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [chat_id]: Chat identifier
-  GetChatScheduledMessages copyWith({
-    int? chatId,
-  }) =>
-      GetChatScheduledMessages(
-        chatId: chatId ?? this.chatId,
-      );
+  GetChatScheduledMessages copyWith({int? chatId}) =>
+      GetChatScheduledMessages(chatId: chatId ?? this.chatId);
 
   /// TDLib object type
   static const String defaultObjectId = 'getChatScheduledMessages';

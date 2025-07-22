@@ -71,13 +71,12 @@ final class StoryInteraction extends TdObject {
     int? interactionDate,
     BlockList? blockList,
     StoryInteractionType? type,
-  }) =>
-      StoryInteraction(
-        actorId: actorId ?? this.actorId,
-        interactionDate: interactionDate ?? this.interactionDate,
-        blockList: blockList ?? this.blockList,
-        type: type ?? this.type,
-      );
+  }) => StoryInteraction(
+    actorId: actorId ?? this.actorId,
+    interactionDate: interactionDate ?? this.interactionDate,
+    blockList: blockList ?? this.blockList,
+    type: type ?? this.type,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'storyInteraction';

@@ -17,10 +17,7 @@ final class SetOption extends TdFunction {
   /// * [value]: The new value of the option; pass null to reset option value to a default value *(optional)*.
   ///
   /// [Ok] is returned on completion.
-  const SetOption({
-    required this.name,
-    this.value,
-  });
+  const SetOption({required this.name, this.value});
 
   /// The name of the option
   final String name;
@@ -44,14 +41,8 @@ final class SetOption extends TdFunction {
   /// Properties:
   /// * [name]: The name of the option
   /// * [value]: The new value of the option; pass null to reset option value to a default value
-  SetOption copyWith({
-    String? name,
-    OptionValue? value,
-  }) =>
-      SetOption(
-        name: name ?? this.name,
-        value: value ?? this.value,
-      );
+  SetOption copyWith({String? name, OptionValue? value}) =>
+      SetOption(name: name ?? this.name, value: value ?? this.value);
 
   /// TDLib object type
   static const String defaultObjectId = 'setOption';

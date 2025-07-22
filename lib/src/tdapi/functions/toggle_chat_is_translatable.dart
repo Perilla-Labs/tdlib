@@ -44,10 +44,7 @@ final class ToggleChatIsTranslatable extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [is_translatable]: New value of is_translatable
-  ToggleChatIsTranslatable copyWith({
-    int? chatId,
-    bool? isTranslatable,
-  }) =>
+  ToggleChatIsTranslatable copyWith({int? chatId, bool? isTranslatable}) =>
       ToggleChatIsTranslatable(
         chatId: chatId ?? this.chatId,
         isTranslatable: isTranslatable ?? this.isTranslatable,

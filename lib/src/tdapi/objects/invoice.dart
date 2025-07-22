@@ -6,6 +6,7 @@ part of '../tdapi.dart';
 ///
 /// * [currency]: ISO 4217 currency code.
 /// * [priceParts]: A list of objects used to calculate the total price of the product.
+/// * [subscriptionPeriod]: The number of seconds between consecutive Telegram Star debiting for subscription invoices; 0 if the invoice doesn't create subscription.
 /// * [maxTipAmount]: The maximum allowed amount of tip in the smallest units of the currency.
 /// * [suggestedTipAmounts]: Suggested amounts of tip in the smallest units of the currency.
 /// * [recurringPaymentTermsOfServiceUrl]: An HTTP URL with terms of service for recurring payments. If non-empty, the invoice payment will result in recurring payments and the user must accept the terms of service before allowed to pay.
@@ -25,6 +26,7 @@ final class Invoice extends TdObject {
   ///
   /// * [currency]: ISO 4217 currency code.
   /// * [priceParts]: A list of objects used to calculate the total price of the product.
+  /// * [subscriptionPeriod]: The number of seconds between consecutive Telegram Star debiting for subscription invoices; 0 if the invoice doesn't create subscription.
   /// * [maxTipAmount]: The maximum allowed amount of tip in the smallest units of the currency.
   /// * [suggestedTipAmounts]: Suggested amounts of tip in the smallest units of the currency.
   /// * [recurringPaymentTermsOfServiceUrl]: An HTTP URL with terms of service for recurring payments. If non-empty, the invoice payment will result in recurring payments and the user must accept the terms of service before allowed to pay.
@@ -40,6 +42,7 @@ final class Invoice extends TdObject {
   const Invoice({
     required this.currency,
     required this.priceParts,
+    required this.subscriptionPeriod,
     required this.maxTipAmount,
     required this.suggestedTipAmounts,
     required this.recurringPaymentTermsOfServiceUrl,
@@ -59,6 +62,9 @@ final class Invoice extends TdObject {
 
   /// A list of objects used to calculate the total price of the product
   final List<LabeledPricePart> priceParts;
+
+  /// The number of seconds between consecutive Telegram Star debiting for subscription invoices; 0 if the invoice doesn't create subscription
+  final int subscriptionPeriod;
 
   /// The maximum allowed amount of tip in the smallest units of the currency
   final int maxTipAmount;
@@ -98,25 +104,29 @@ final class Invoice extends TdObject {
 
   /// Parse from a json
   factory Invoice.fromJson(Map<String, dynamic> json) => Invoice(
-        currency: json['currency'],
-        priceParts: List<LabeledPricePart>.from((json['price_parts'] ?? [])
-            .map((item) => LabeledPricePart.fromJson(item))
-            .toList()),
-        maxTipAmount: json['max_tip_amount'],
-        suggestedTipAmounts: List<int>.from(
-            (json['suggested_tip_amounts'] ?? []).map((item) => item).toList()),
-        recurringPaymentTermsOfServiceUrl:
-            json['recurring_payment_terms_of_service_url'],
-        termsOfServiceUrl: json['terms_of_service_url'],
-        isTest: json['is_test'],
-        needName: json['need_name'],
-        needPhoneNumber: json['need_phone_number'],
-        needEmailAddress: json['need_email_address'],
-        needShippingAddress: json['need_shipping_address'],
-        sendPhoneNumberToProvider: json['send_phone_number_to_provider'],
-        sendEmailAddressToProvider: json['send_email_address_to_provider'],
-        isFlexible: json['is_flexible'],
-      );
+    currency: json['currency'],
+    priceParts: List<LabeledPricePart>.from(
+      (json['price_parts'] ?? [])
+          .map((item) => LabeledPricePart.fromJson(item))
+          .toList(),
+    ),
+    subscriptionPeriod: json['subscription_period'],
+    maxTipAmount: json['max_tip_amount'],
+    suggestedTipAmounts: List<int>.from(
+      (json['suggested_tip_amounts'] ?? []).map((item) => item).toList(),
+    ),
+    recurringPaymentTermsOfServiceUrl:
+        json['recurring_payment_terms_of_service_url'],
+    termsOfServiceUrl: json['terms_of_service_url'],
+    isTest: json['is_test'],
+    needName: json['need_name'],
+    needPhoneNumber: json['need_phone_number'],
+    needEmailAddress: json['need_email_address'],
+    needShippingAddress: json['need_shipping_address'],
+    sendPhoneNumberToProvider: json['send_phone_number_to_provider'],
+    sendEmailAddressToProvider: json['send_email_address_to_provider'],
+    isFlexible: json['is_flexible'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -125,6 +135,7 @@ final class Invoice extends TdObject {
       "@type": defaultObjectId,
       "currency": currency,
       "price_parts": priceParts.map((i) => i.toJson()).toList(),
+      "subscription_period": subscriptionPeriod,
       "max_tip_amount": maxTipAmount,
       "suggested_tip_amounts": suggestedTipAmounts.map((i) => i).toList(),
       "recurring_payment_terms_of_service_url":
@@ -146,6 +157,7 @@ final class Invoice extends TdObject {
   /// Properties:
   /// * [currency]: ISO 4217 currency code
   /// * [price_parts]: A list of objects used to calculate the total price of the product
+  /// * [subscription_period]: The number of seconds between consecutive Telegram Star debiting for subscription invoices; 0 if the invoice doesn't create subscription
   /// * [max_tip_amount]: The maximum allowed amount of tip in the smallest units of the currency
   /// * [suggested_tip_amounts]: Suggested amounts of tip in the smallest units of the currency
   /// * [recurring_payment_terms_of_service_url]: An HTTP URL with terms of service for recurring payments. If non-empty, the invoice payment will result in recurring payments and the user must accept the terms of service before allowed to pay
@@ -161,6 +173,7 @@ final class Invoice extends TdObject {
   Invoice copyWith({
     String? currency,
     List<LabeledPricePart>? priceParts,
+    int? subscriptionPeriod,
     int? maxTipAmount,
     List<int>? suggestedTipAmounts,
     String? recurringPaymentTermsOfServiceUrl,
@@ -173,26 +186,27 @@ final class Invoice extends TdObject {
     bool? sendPhoneNumberToProvider,
     bool? sendEmailAddressToProvider,
     bool? isFlexible,
-  }) =>
-      Invoice(
-        currency: currency ?? this.currency,
-        priceParts: priceParts ?? this.priceParts,
-        maxTipAmount: maxTipAmount ?? this.maxTipAmount,
-        suggestedTipAmounts: suggestedTipAmounts ?? this.suggestedTipAmounts,
-        recurringPaymentTermsOfServiceUrl: recurringPaymentTermsOfServiceUrl ??
-            this.recurringPaymentTermsOfServiceUrl,
-        termsOfServiceUrl: termsOfServiceUrl ?? this.termsOfServiceUrl,
-        isTest: isTest ?? this.isTest,
-        needName: needName ?? this.needName,
-        needPhoneNumber: needPhoneNumber ?? this.needPhoneNumber,
-        needEmailAddress: needEmailAddress ?? this.needEmailAddress,
-        needShippingAddress: needShippingAddress ?? this.needShippingAddress,
-        sendPhoneNumberToProvider:
-            sendPhoneNumberToProvider ?? this.sendPhoneNumberToProvider,
-        sendEmailAddressToProvider:
-            sendEmailAddressToProvider ?? this.sendEmailAddressToProvider,
-        isFlexible: isFlexible ?? this.isFlexible,
-      );
+  }) => Invoice(
+    currency: currency ?? this.currency,
+    priceParts: priceParts ?? this.priceParts,
+    subscriptionPeriod: subscriptionPeriod ?? this.subscriptionPeriod,
+    maxTipAmount: maxTipAmount ?? this.maxTipAmount,
+    suggestedTipAmounts: suggestedTipAmounts ?? this.suggestedTipAmounts,
+    recurringPaymentTermsOfServiceUrl:
+        recurringPaymentTermsOfServiceUrl ??
+        this.recurringPaymentTermsOfServiceUrl,
+    termsOfServiceUrl: termsOfServiceUrl ?? this.termsOfServiceUrl,
+    isTest: isTest ?? this.isTest,
+    needName: needName ?? this.needName,
+    needPhoneNumber: needPhoneNumber ?? this.needPhoneNumber,
+    needEmailAddress: needEmailAddress ?? this.needEmailAddress,
+    needShippingAddress: needShippingAddress ?? this.needShippingAddress,
+    sendPhoneNumberToProvider:
+        sendPhoneNumberToProvider ?? this.sendPhoneNumberToProvider,
+    sendEmailAddressToProvider:
+        sendEmailAddressToProvider ?? this.sendEmailAddressToProvider,
+    isFlexible: isFlexible ?? this.isFlexible,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'invoice';

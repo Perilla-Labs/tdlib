@@ -38,9 +38,11 @@ final class MessageCalendar extends TdObject {
   factory MessageCalendar.fromJson(Map<String, dynamic> json) =>
       MessageCalendar(
         totalCount: json['total_count'],
-        days: List<MessageCalendarDay>.from((json['days'] ?? [])
-            .map((item) => MessageCalendarDay.fromJson(item))
-            .toList()),
+        days: List<MessageCalendarDay>.from(
+          (json['days'] ?? [])
+              .map((item) => MessageCalendarDay.fromJson(item))
+              .toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -65,13 +67,12 @@ final class MessageCalendar extends TdObject {
     List<MessageCalendarDay>? days,
     dynamic extra,
     int? clientId,
-  }) =>
-      MessageCalendar(
-        totalCount: totalCount ?? this.totalCount,
-        days: days ?? this.days,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => MessageCalendar(
+    totalCount: totalCount ?? this.totalCount,
+    days: days ?? this.days,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageCalendar';

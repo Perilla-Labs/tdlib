@@ -29,9 +29,10 @@ final class BusinessOpeningHours extends TdObject {
       BusinessOpeningHours(
         timeZoneId: json['time_zone_id'],
         openingHours: List<BusinessOpeningHoursInterval>.from(
-            (json['opening_hours'] ?? [])
-                .map((item) => BusinessOpeningHoursInterval.fromJson(item))
-                .toList()),
+          (json['opening_hours'] ?? [])
+              .map((item) => BusinessOpeningHoursInterval.fromJson(item))
+              .toList(),
+        ),
       );
 
   /// Convert model to TDLib JSON format
@@ -52,11 +53,10 @@ final class BusinessOpeningHours extends TdObject {
   BusinessOpeningHours copyWith({
     String? timeZoneId,
     List<BusinessOpeningHoursInterval>? openingHours,
-  }) =>
-      BusinessOpeningHours(
-        timeZoneId: timeZoneId ?? this.timeZoneId,
-        openingHours: openingHours ?? this.openingHours,
-      );
+  }) => BusinessOpeningHours(
+    timeZoneId: timeZoneId ?? this.timeZoneId,
+    openingHours: openingHours ?? this.openingHours,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'businessOpeningHours';

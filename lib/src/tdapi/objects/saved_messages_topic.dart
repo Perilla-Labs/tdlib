@@ -93,15 +93,14 @@ final class SavedMessagesTopic extends TdObject {
     int? order,
     Message? lastMessage,
     DraftMessage? draftMessage,
-  }) =>
-      SavedMessagesTopic(
-        id: id ?? this.id,
-        type: type ?? this.type,
-        isPinned: isPinned ?? this.isPinned,
-        order: order ?? this.order,
-        lastMessage: lastMessage ?? this.lastMessage,
-        draftMessage: draftMessage ?? this.draftMessage,
-      );
+  }) => SavedMessagesTopic(
+    id: id ?? this.id,
+    type: type ?? this.type,
+    isPinned: isPinned ?? this.isPinned,
+    order: order ?? this.order,
+    lastMessage: lastMessage ?? this.lastMessage,
+    draftMessage: draftMessage ?? this.draftMessage,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'savedMessagesTopic';

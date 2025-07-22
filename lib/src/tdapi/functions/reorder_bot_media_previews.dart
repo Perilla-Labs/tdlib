@@ -56,12 +56,11 @@ final class ReorderBotMediaPreviews extends TdFunction {
     int? botUserId,
     String? languageCode,
     List<int>? fileIds,
-  }) =>
-      ReorderBotMediaPreviews(
-        botUserId: botUserId ?? this.botUserId,
-        languageCode: languageCode ?? this.languageCode,
-        fileIds: fileIds ?? this.fileIds,
-      );
+  }) => ReorderBotMediaPreviews(
+    botUserId: botUserId ?? this.botUserId,
+    languageCode: languageCode ?? this.languageCode,
+    fileIds: fileIds ?? this.fileIds,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'reorderBotMediaPreviews';

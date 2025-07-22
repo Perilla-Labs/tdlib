@@ -59,26 +59,19 @@ final class ReactionTypeEmoji extends ReactionType {
   /// A reaction with an emoji.
   ///
   /// * [emoji]: Text representation of the reaction.
-  const ReactionTypeEmoji({
-    required this.emoji,
-  });
+  const ReactionTypeEmoji({required this.emoji});
 
   /// Text representation of the reaction
   final String emoji;
 
   /// Parse from a json
   factory ReactionTypeEmoji.fromJson(Map<String, dynamic> json) =>
-      ReactionTypeEmoji(
-        emoji: json['emoji'],
-      );
+      ReactionTypeEmoji(emoji: json['emoji']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "emoji": emoji,
-    };
+    return {"@type": defaultObjectId, "emoji": emoji};
   }
 
   /// Copy model with modified properties.
@@ -86,12 +79,8 @@ final class ReactionTypeEmoji extends ReactionType {
   /// Properties:
   /// * [emoji]: Text representation of the reaction
   @override
-  ReactionTypeEmoji copyWith({
-    String? emoji,
-  }) =>
-      ReactionTypeEmoji(
-        emoji: emoji ?? this.emoji,
-      );
+  ReactionTypeEmoji copyWith({String? emoji}) =>
+      ReactionTypeEmoji(emoji: emoji ?? this.emoji);
 
   /// TDLib object type
   static const String defaultObjectId = 'reactionTypeEmoji';
@@ -116,9 +105,7 @@ final class ReactionTypeCustomEmoji extends ReactionType {
   /// A reaction with a custom emoji.
   ///
   /// * [customEmojiId]: Unique identifier of the custom emoji.
-  const ReactionTypeCustomEmoji({
-    required this.customEmojiId,
-  });
+  const ReactionTypeCustomEmoji({required this.customEmojiId});
 
   /// Unique identifier of the custom emoji
   final int customEmojiId;
@@ -134,10 +121,7 @@ final class ReactionTypeCustomEmoji extends ReactionType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "custom_emoji_id": customEmojiId,
-    };
+    return {"@type": defaultObjectId, "custom_emoji_id": customEmojiId};
   }
 
   /// Copy model with modified properties.
@@ -145,9 +129,7 @@ final class ReactionTypeCustomEmoji extends ReactionType {
   /// Properties:
   /// * [custom_emoji_id]: Unique identifier of the custom emoji
   @override
-  ReactionTypeCustomEmoji copyWith({
-    int? customEmojiId,
-  }) =>
+  ReactionTypeCustomEmoji copyWith({int? customEmojiId}) =>
       ReactionTypeCustomEmoji(
         customEmojiId: customEmojiId ?? this.customEmojiId,
       );
@@ -180,9 +162,7 @@ final class ReactionTypePaid extends ReactionType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.

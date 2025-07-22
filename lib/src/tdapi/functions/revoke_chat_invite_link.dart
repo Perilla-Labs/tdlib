@@ -17,10 +17,7 @@ final class RevokeChatInviteLink extends TdFunction {
   /// * [inviteLink]: Invite link to be revoked.
   ///
   /// [ChatInviteLinks] is returned on completion.
-  const RevokeChatInviteLink({
-    required this.chatId,
-    required this.inviteLink,
-  });
+  const RevokeChatInviteLink({required this.chatId, required this.inviteLink});
 
   /// Chat identifier
   final int chatId;
@@ -44,10 +41,7 @@ final class RevokeChatInviteLink extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [invite_link]: Invite link to be revoked
-  RevokeChatInviteLink copyWith({
-    int? chatId,
-    String? inviteLink,
-  }) =>
+  RevokeChatInviteLink copyWith({int? chatId, String? inviteLink}) =>
       RevokeChatInviteLink(
         chatId: chatId ?? this.chatId,
         inviteLink: inviteLink ?? this.inviteLink,

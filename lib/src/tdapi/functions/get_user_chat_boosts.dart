@@ -17,10 +17,7 @@ final class GetUserChatBoosts extends TdFunction {
   /// * [userId]: Identifier of the user.
   ///
   /// [FoundChatBoosts] is returned on completion.
-  const GetUserChatBoosts({
-    required this.chatId,
-    required this.userId,
-  });
+  const GetUserChatBoosts({required this.chatId, required this.userId});
 
   /// Identifier of the chat
   final int chatId;
@@ -44,14 +41,10 @@ final class GetUserChatBoosts extends TdFunction {
   /// Properties:
   /// * [chat_id]: Identifier of the chat
   /// * [user_id]: Identifier of the user
-  GetUserChatBoosts copyWith({
-    int? chatId,
-    int? userId,
-  }) =>
-      GetUserChatBoosts(
-        chatId: chatId ?? this.chatId,
-        userId: userId ?? this.userId,
-      );
+  GetUserChatBoosts copyWith({int? chatId, int? userId}) => GetUserChatBoosts(
+    chatId: chatId ?? this.chatId,
+    userId: userId ?? this.userId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getUserChatBoosts';

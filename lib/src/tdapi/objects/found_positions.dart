@@ -36,12 +36,13 @@ final class FoundPositions extends TdObject {
 
   /// Parse from a json
   factory FoundPositions.fromJson(Map<String, dynamic> json) => FoundPositions(
-        totalCount: json['total_count'],
-        positions: List<int>.from(
-            (json['positions'] ?? []).map((item) => item).toList()),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    totalCount: json['total_count'],
+    positions: List<int>.from(
+      (json['positions'] ?? []).map((item) => item).toList(),
+    ),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -63,13 +64,12 @@ final class FoundPositions extends TdObject {
     List<int>? positions,
     dynamic extra,
     int? clientId,
-  }) =>
-      FoundPositions(
-        totalCount: totalCount ?? this.totalCount,
-        positions: positions ?? this.positions,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => FoundPositions(
+    totalCount: totalCount ?? this.totalCount,
+    positions: positions ?? this.positions,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'foundPositions';

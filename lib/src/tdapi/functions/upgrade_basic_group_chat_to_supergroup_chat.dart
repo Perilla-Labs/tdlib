@@ -15,9 +15,7 @@ final class UpgradeBasicGroupChatToSupergroupChat extends TdFunction {
   /// * [chatId]: Identifier of the chat to upgrade.
   ///
   /// [Chat] is returned on completion.
-  const UpgradeBasicGroupChatToSupergroupChat({
-    required this.chatId,
-  });
+  const UpgradeBasicGroupChatToSupergroupChat({required this.chatId});
 
   /// Identifier of the chat to upgrade
   final int chatId;
@@ -25,23 +23,15 @@ final class UpgradeBasicGroupChatToSupergroupChat extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "chat_id": chatId,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "chat_id": chatId, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [chat_id]: Identifier of the chat to upgrade
-  UpgradeBasicGroupChatToSupergroupChat copyWith({
-    int? chatId,
-  }) =>
-      UpgradeBasicGroupChatToSupergroupChat(
-        chatId: chatId ?? this.chatId,
-      );
+  UpgradeBasicGroupChatToSupergroupChat copyWith({int? chatId}) =>
+      UpgradeBasicGroupChatToSupergroupChat(chatId: chatId ?? this.chatId);
 
   /// TDLib object type
   static const String defaultObjectId = 'upgradeBasicGroupChatToSupergroupChat';

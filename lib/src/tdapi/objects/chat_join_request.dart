@@ -55,11 +55,7 @@ final class ChatJoinRequest extends TdObject {
   /// * [user_id]: User identifier
   /// * [date]: Point in time (Unix timestamp) when the user sent the join request
   /// * [bio]: A short bio of the user
-  ChatJoinRequest copyWith({
-    int? userId,
-    int? date,
-    String? bio,
-  }) =>
+  ChatJoinRequest copyWith({int? userId, int? date, String? bio}) =>
       ChatJoinRequest(
         userId: userId ?? this.userId,
         date: date ?? this.date,

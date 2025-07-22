@@ -56,12 +56,11 @@ final class AddBotMediaPreview extends TdFunction {
     int? botUserId,
     String? languageCode,
     InputStoryContent? content,
-  }) =>
-      AddBotMediaPreview(
-        botUserId: botUserId ?? this.botUserId,
-        languageCode: languageCode ?? this.languageCode,
-        content: content ?? this.content,
-      );
+  }) => AddBotMediaPreview(
+    botUserId: botUserId ?? this.botUserId,
+    languageCode: languageCode ?? this.languageCode,
+    content: content ?? this.content,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'addBotMediaPreview';

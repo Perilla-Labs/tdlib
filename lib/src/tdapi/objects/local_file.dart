@@ -62,15 +62,15 @@ final class LocalFile extends TdObject {
 
   /// Parse from a json
   factory LocalFile.fromJson(Map<String, dynamic> json) => LocalFile(
-        path: json['path'],
-        canBeDownloaded: json['can_be_downloaded'],
-        canBeDeleted: json['can_be_deleted'],
-        isDownloadingActive: json['is_downloading_active'],
-        isDownloadingCompleted: json['is_downloading_completed'],
-        downloadOffset: json['download_offset'],
-        downloadedPrefixSize: json['downloaded_prefix_size'],
-        downloadedSize: json['downloaded_size'],
-      );
+    path: json['path'],
+    canBeDownloaded: json['can_be_downloaded'],
+    canBeDeleted: json['can_be_deleted'],
+    isDownloadingActive: json['is_downloading_active'],
+    isDownloadingCompleted: json['is_downloading_completed'],
+    downloadOffset: json['download_offset'],
+    downloadedPrefixSize: json['downloaded_prefix_size'],
+    downloadedSize: json['downloaded_size'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -108,18 +108,17 @@ final class LocalFile extends TdObject {
     int? downloadOffset,
     int? downloadedPrefixSize,
     int? downloadedSize,
-  }) =>
-      LocalFile(
-        path: path ?? this.path,
-        canBeDownloaded: canBeDownloaded ?? this.canBeDownloaded,
-        canBeDeleted: canBeDeleted ?? this.canBeDeleted,
-        isDownloadingActive: isDownloadingActive ?? this.isDownloadingActive,
-        isDownloadingCompleted:
-            isDownloadingCompleted ?? this.isDownloadingCompleted,
-        downloadOffset: downloadOffset ?? this.downloadOffset,
-        downloadedPrefixSize: downloadedPrefixSize ?? this.downloadedPrefixSize,
-        downloadedSize: downloadedSize ?? this.downloadedSize,
-      );
+  }) => LocalFile(
+    path: path ?? this.path,
+    canBeDownloaded: canBeDownloaded ?? this.canBeDownloaded,
+    canBeDeleted: canBeDeleted ?? this.canBeDeleted,
+    isDownloadingActive: isDownloadingActive ?? this.isDownloadingActive,
+    isDownloadingCompleted:
+        isDownloadingCompleted ?? this.isDownloadingCompleted,
+    downloadOffset: downloadOffset ?? this.downloadOffset,
+    downloadedPrefixSize: downloadedPrefixSize ?? this.downloadedPrefixSize,
+    downloadedSize: downloadedSize ?? this.downloadedSize,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'localFile';

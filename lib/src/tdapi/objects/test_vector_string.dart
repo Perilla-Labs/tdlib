@@ -11,11 +11,7 @@ final class TestVectorString extends TdObject {
   /// A simple object containing a vector of strings; for testing only.
   ///
   /// * [value]: Vector of strings.
-  const TestVectorString({
-    required this.value,
-    this.extra,
-    this.clientId,
-  });
+  const TestVectorString({required this.value, this.extra, this.clientId});
 
   /// Vector of strings
   final List<String> value;
@@ -32,7 +28,8 @@ final class TestVectorString extends TdObject {
   factory TestVectorString.fromJson(Map<String, dynamic> json) =>
       TestVectorString(
         value: List<String>.from(
-            (json['value'] ?? []).map((item) => item).toList()),
+          (json['value'] ?? []).map((item) => item).toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -40,10 +37,7 @@ final class TestVectorString extends TdObject {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "value": value.map((i) => i).toList(),
-    };
+    return {"@type": defaultObjectId, "value": value.map((i) => i).toList()};
   }
 
   /// Copy model with modified properties.
@@ -54,12 +48,11 @@ final class TestVectorString extends TdObject {
     List<String>? value,
     dynamic extra,
     int? clientId,
-  }) =>
-      TestVectorString(
-        value: value ?? this.value,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => TestVectorString(
+    value: value ?? this.value,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'testVectorString';

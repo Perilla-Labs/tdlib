@@ -38,11 +38,11 @@ final class EmojiCategory extends TdObject {
 
   /// Parse from a json
   factory EmojiCategory.fromJson(Map<String, dynamic> json) => EmojiCategory(
-        name: json['name'],
-        icon: Sticker.fromJson(json['icon']),
-        source: EmojiCategorySource.fromJson(json['source']),
-        isGreeting: json['is_greeting'],
-      );
+    name: json['name'],
+    icon: Sticker.fromJson(json['icon']),
+    source: EmojiCategorySource.fromJson(json['source']),
+    isGreeting: json['is_greeting'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -68,13 +68,12 @@ final class EmojiCategory extends TdObject {
     Sticker? icon,
     EmojiCategorySource? source,
     bool? isGreeting,
-  }) =>
-      EmojiCategory(
-        name: name ?? this.name,
-        icon: icon ?? this.icon,
-        source: source ?? this.source,
-        isGreeting: isGreeting ?? this.isGreeting,
-      );
+  }) => EmojiCategory(
+    name: name ?? this.name,
+    icon: icon ?? this.icon,
+    source: source ?? this.source,
+    isGreeting: isGreeting ?? this.isGreeting,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'emojiCategory';

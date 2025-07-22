@@ -4,11 +4,14 @@ part of '../tdapi.dart';
 ///
 /// Options to be used when a message is sent.
 ///
+/// * [directMessagesChatTopicId]: Unique identifier of the topic in a channel direct messages chat administered by the current user; pass 0 if the chat isn't a channel direct messages chat administered by the current user.
 /// * [disableNotification]: Pass true to disable notification for the message.
 /// * [fromBackground]: Pass true if the message is sent from the background.
 /// * [protectContent]: Pass true if the content of the message must be protected from forwarding and saving; for bots only.
+/// * [allowPaidBroadcast]: Pass true to allow the message to ignore regular broadcast limits for a small fee; for bots only.
+/// * [paidMessageStarCount]: The number of Telegram Stars the user agreed to pay to send the messages.
 /// * [updateOrderOfInstalledStickerSets]: Pass true if the user explicitly chosen a sticker or a custom emoji from an installed sticker set; applicable only to sendMessage and sendMessageAlbum.
-/// * [schedulingState]: Message scheduling state; pass null to send message immediately. Messages sent to a secret chat, live location messages and self-destructing messages can't be scheduled *(optional)*.
+/// * [schedulingState]: Message scheduling state; pass null to send message immediately. Messages sent to a secret chat, to a chat with paid messages, to a channel direct messages chat,. live location messages and self-destructing messages can't be scheduled *(optional)*.
 /// * [effectId]: Identifier of the effect to apply to the message; pass 0 if none; applicable only to sendMessage and sendMessageAlbum in private chats.
 /// * [sendingId]: Non-persistent identifier, which will be returned back in messageSendingStatePending object and can be used to match sent messages and corresponding updateNewMessage updates.
 /// * [onlyPreview]: Pass true to get a fake message instead of actually sending them.
@@ -17,24 +20,33 @@ final class MessageSendOptions extends TdObject {
   ///
   /// Options to be used when a message is sent.
   ///
+  /// * [directMessagesChatTopicId]: Unique identifier of the topic in a channel direct messages chat administered by the current user; pass 0 if the chat isn't a channel direct messages chat administered by the current user.
   /// * [disableNotification]: Pass true to disable notification for the message.
   /// * [fromBackground]: Pass true if the message is sent from the background.
   /// * [protectContent]: Pass true if the content of the message must be protected from forwarding and saving; for bots only.
+  /// * [allowPaidBroadcast]: Pass true to allow the message to ignore regular broadcast limits for a small fee; for bots only.
+  /// * [paidMessageStarCount]: The number of Telegram Stars the user agreed to pay to send the messages.
   /// * [updateOrderOfInstalledStickerSets]: Pass true if the user explicitly chosen a sticker or a custom emoji from an installed sticker set; applicable only to sendMessage and sendMessageAlbum.
-  /// * [schedulingState]: Message scheduling state; pass null to send message immediately. Messages sent to a secret chat, live location messages and self-destructing messages can't be scheduled *(optional)*.
+  /// * [schedulingState]: Message scheduling state; pass null to send message immediately. Messages sent to a secret chat, to a chat with paid messages, to a channel direct messages chat,. live location messages and self-destructing messages can't be scheduled *(optional)*.
   /// * [effectId]: Identifier of the effect to apply to the message; pass 0 if none; applicable only to sendMessage and sendMessageAlbum in private chats.
   /// * [sendingId]: Non-persistent identifier, which will be returned back in messageSendingStatePending object and can be used to match sent messages and corresponding updateNewMessage updates.
   /// * [onlyPreview]: Pass true to get a fake message instead of actually sending them.
   const MessageSendOptions({
+    required this.directMessagesChatTopicId,
     required this.disableNotification,
     required this.fromBackground,
     required this.protectContent,
+    required this.allowPaidBroadcast,
+    required this.paidMessageStarCount,
     required this.updateOrderOfInstalledStickerSets,
     this.schedulingState,
     required this.effectId,
     required this.sendingId,
     required this.onlyPreview,
   });
+
+  /// Unique identifier of the topic in a channel direct messages chat administered by the current user; pass 0 if the chat isn't a channel direct messages chat administered by the current user
+  final int directMessagesChatTopicId;
 
   /// Pass true to disable notification for the message
   final bool disableNotification;
@@ -45,10 +57,16 @@ final class MessageSendOptions extends TdObject {
   /// Pass true if the content of the message must be protected from forwarding and saving; for bots only
   final bool protectContent;
 
+  /// Pass true to allow the message to ignore regular broadcast limits for a small fee; for bots only
+  final bool allowPaidBroadcast;
+
+  /// The number of Telegram Stars the user agreed to pay to send the messages
+  final int paidMessageStarCount;
+
   /// Pass true if the user explicitly chosen a sticker or a custom emoji from an installed sticker set; applicable only to sendMessage and sendMessageAlbum
   final bool updateOrderOfInstalledStickerSets;
 
-  /// Message scheduling state; pass null to send message immediately. Messages sent to a secret chat, live location messages and self-destructing messages can't be scheduled
+  /// Message scheduling state; pass null to send message immediately. Messages sent to a secret chat, to a chat with paid messages, to a channel direct messages chat,. live location messages and self-destructing messages can't be scheduled
   final MessageSchedulingState? schedulingState;
 
   /// Identifier of the effect to apply to the message; pass 0 if none; applicable only to sendMessage and sendMessageAlbum in private chats
@@ -63,9 +81,12 @@ final class MessageSendOptions extends TdObject {
   /// Parse from a json
   factory MessageSendOptions.fromJson(Map<String, dynamic> json) =>
       MessageSendOptions(
+        directMessagesChatTopicId: json['direct_messages_chat_topic_id'],
         disableNotification: json['disable_notification'],
         fromBackground: json['from_background'],
         protectContent: json['protect_content'],
+        allowPaidBroadcast: json['allow_paid_broadcast'],
+        paidMessageStarCount: json['paid_message_star_count'],
         updateOrderOfInstalledStickerSets:
             json['update_order_of_installed_sticker_sets'],
         schedulingState: json['scheduling_state'] == null
@@ -83,9 +104,12 @@ final class MessageSendOptions extends TdObject {
   Map<String, dynamic> toJson() {
     return {
       "@type": defaultObjectId,
+      "direct_messages_chat_topic_id": directMessagesChatTopicId,
       "disable_notification": disableNotification,
       "from_background": fromBackground,
       "protect_content": protectContent,
+      "allow_paid_broadcast": allowPaidBroadcast,
+      "paid_message_star_count": paidMessageStarCount,
       "update_order_of_installed_sticker_sets":
           updateOrderOfInstalledStickerSets,
       "scheduling_state": schedulingState?.toJson(),
@@ -98,35 +122,45 @@ final class MessageSendOptions extends TdObject {
   /// Copy model with modified properties.
   ///
   /// Properties:
+  /// * [direct_messages_chat_topic_id]: Unique identifier of the topic in a channel direct messages chat administered by the current user; pass 0 if the chat isn't a channel direct messages chat administered by the current user
   /// * [disable_notification]: Pass true to disable notification for the message
   /// * [from_background]: Pass true if the message is sent from the background
   /// * [protect_content]: Pass true if the content of the message must be protected from forwarding and saving; for bots only
+  /// * [allow_paid_broadcast]: Pass true to allow the message to ignore regular broadcast limits for a small fee; for bots only
+  /// * [paid_message_star_count]: The number of Telegram Stars the user agreed to pay to send the messages
   /// * [update_order_of_installed_sticker_sets]: Pass true if the user explicitly chosen a sticker or a custom emoji from an installed sticker set; applicable only to sendMessage and sendMessageAlbum
-  /// * [scheduling_state]: Message scheduling state; pass null to send message immediately. Messages sent to a secret chat, live location messages and self-destructing messages can't be scheduled
+  /// * [scheduling_state]: Message scheduling state; pass null to send message immediately. Messages sent to a secret chat, to a chat with paid messages, to a channel direct messages chat,. live location messages and self-destructing messages can't be scheduled
   /// * [effect_id]: Identifier of the effect to apply to the message; pass 0 if none; applicable only to sendMessage and sendMessageAlbum in private chats
   /// * [sending_id]: Non-persistent identifier, which will be returned back in messageSendingStatePending object and can be used to match sent messages and corresponding updateNewMessage updates
   /// * [only_preview]: Pass true to get a fake message instead of actually sending them
   MessageSendOptions copyWith({
+    int? directMessagesChatTopicId,
     bool? disableNotification,
     bool? fromBackground,
     bool? protectContent,
+    bool? allowPaidBroadcast,
+    int? paidMessageStarCount,
     bool? updateOrderOfInstalledStickerSets,
     MessageSchedulingState? schedulingState,
     int? effectId,
     int? sendingId,
     bool? onlyPreview,
-  }) =>
-      MessageSendOptions(
-        disableNotification: disableNotification ?? this.disableNotification,
-        fromBackground: fromBackground ?? this.fromBackground,
-        protectContent: protectContent ?? this.protectContent,
-        updateOrderOfInstalledStickerSets: updateOrderOfInstalledStickerSets ??
-            this.updateOrderOfInstalledStickerSets,
-        schedulingState: schedulingState ?? this.schedulingState,
-        effectId: effectId ?? this.effectId,
-        sendingId: sendingId ?? this.sendingId,
-        onlyPreview: onlyPreview ?? this.onlyPreview,
-      );
+  }) => MessageSendOptions(
+    directMessagesChatTopicId:
+        directMessagesChatTopicId ?? this.directMessagesChatTopicId,
+    disableNotification: disableNotification ?? this.disableNotification,
+    fromBackground: fromBackground ?? this.fromBackground,
+    protectContent: protectContent ?? this.protectContent,
+    allowPaidBroadcast: allowPaidBroadcast ?? this.allowPaidBroadcast,
+    paidMessageStarCount: paidMessageStarCount ?? this.paidMessageStarCount,
+    updateOrderOfInstalledStickerSets:
+        updateOrderOfInstalledStickerSets ??
+        this.updateOrderOfInstalledStickerSets,
+    schedulingState: schedulingState ?? this.schedulingState,
+    effectId: effectId ?? this.effectId,
+    sendingId: sendingId ?? this.sendingId,
+    onlyPreview: onlyPreview ?? this.onlyPreview,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageSendOptions';

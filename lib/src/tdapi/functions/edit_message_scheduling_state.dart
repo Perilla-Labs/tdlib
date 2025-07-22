@@ -6,7 +6,7 @@ part of '../tdapi.dart';
 ///
 /// * [chatId]: The chat the message belongs to.
 /// * [messageId]: Identifier of the message. Use messageProperties.can_edit_scheduling_state to check whether the message is suitable.
-/// * [schedulingState]: The new message scheduling state; pass null to send the message immediately *(optional)*.
+/// * [schedulingState]: The new message scheduling state; pass null to send the message immediately. Must be null for messages in the state messageSchedulingStateSendWhenVideoProcessed *(optional)*.
 ///
 /// [Ok] is returned on completion.
 final class EditMessageSchedulingState extends TdFunction {
@@ -16,7 +16,7 @@ final class EditMessageSchedulingState extends TdFunction {
   ///
   /// * [chatId]: The chat the message belongs to.
   /// * [messageId]: Identifier of the message. Use messageProperties.can_edit_scheduling_state to check whether the message is suitable.
-  /// * [schedulingState]: The new message scheduling state; pass null to send the message immediately *(optional)*.
+  /// * [schedulingState]: The new message scheduling state; pass null to send the message immediately. Must be null for messages in the state messageSchedulingStateSendWhenVideoProcessed *(optional)*.
   ///
   /// [Ok] is returned on completion.
   const EditMessageSchedulingState({
@@ -31,7 +31,7 @@ final class EditMessageSchedulingState extends TdFunction {
   /// Identifier of the message. Use messageProperties.can_edit_scheduling_state to check whether the message is suitable
   final int messageId;
 
-  /// The new message scheduling state; pass null to send the message immediately
+  /// The new message scheduling state; pass null to send the message immediately. Must be null for messages in the state messageSchedulingStateSendWhenVideoProcessed
   final MessageSchedulingState? schedulingState;
 
   /// Convert model to TDLib JSON format
@@ -51,17 +51,16 @@ final class EditMessageSchedulingState extends TdFunction {
   /// Properties:
   /// * [chat_id]: The chat the message belongs to
   /// * [message_id]: Identifier of the message. Use messageProperties.can_edit_scheduling_state to check whether the message is suitable
-  /// * [scheduling_state]: The new message scheduling state; pass null to send the message immediately
+  /// * [scheduling_state]: The new message scheduling state; pass null to send the message immediately. Must be null for messages in the state messageSchedulingStateSendWhenVideoProcessed
   EditMessageSchedulingState copyWith({
     int? chatId,
     int? messageId,
     MessageSchedulingState? schedulingState,
-  }) =>
-      EditMessageSchedulingState(
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        schedulingState: schedulingState ?? this.schedulingState,
-      );
+  }) => EditMessageSchedulingState(
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    schedulingState: schedulingState ?? this.schedulingState,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'editMessageSchedulingState';

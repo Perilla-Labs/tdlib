@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **GetMessageLocally** *(getMessageLocally)* - TDLib function
 ///
-/// Returns information about a message, if it is available without sending network request. This is an offline request.
+/// Returns information about a message, if it is available without sending network request. Returns a 404 error if message isn't available locally. This is an offline method.
 ///
 /// * [chatId]: Identifier of the chat the message belongs to.
 /// * [messageId]: Identifier of the message to get.
@@ -11,16 +11,13 @@ part of '../tdapi.dart';
 final class GetMessageLocally extends TdFunction {
   /// **GetMessageLocally** *(getMessageLocally)* - TDLib function
   ///
-  /// Returns information about a message, if it is available without sending network request. This is an offline request.
+  /// Returns information about a message, if it is available without sending network request. Returns a 404 error if message isn't available locally. This is an offline method.
   ///
   /// * [chatId]: Identifier of the chat the message belongs to.
   /// * [messageId]: Identifier of the message to get.
   ///
   /// [Message] is returned on completion.
-  const GetMessageLocally({
-    required this.chatId,
-    required this.messageId,
-  });
+  const GetMessageLocally({required this.chatId, required this.messageId});
 
   /// Identifier of the chat the message belongs to
   final int chatId;
@@ -44,10 +41,7 @@ final class GetMessageLocally extends TdFunction {
   /// Properties:
   /// * [chat_id]: Identifier of the chat the message belongs to
   /// * [message_id]: Identifier of the message to get
-  GetMessageLocally copyWith({
-    int? chatId,
-    int? messageId,
-  }) =>
+  GetMessageLocally copyWith({int? chatId, int? messageId}) =>
       GetMessageLocally(
         chatId: chatId ?? this.chatId,
         messageId: messageId ?? this.messageId,

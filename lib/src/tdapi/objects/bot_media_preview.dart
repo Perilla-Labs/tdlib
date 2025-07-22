@@ -63,13 +63,12 @@ final class BotMediaPreview extends TdObject {
     StoryContent? content,
     dynamic extra,
     int? clientId,
-  }) =>
-      BotMediaPreview(
-        date: date ?? this.date,
-        content: content ?? this.content,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => BotMediaPreview(
+    date: date ?? this.date,
+    content: content ?? this.content,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'botMediaPreview';

@@ -15,9 +15,7 @@ final class JoinChatByInviteLink extends TdFunction {
   /// * [inviteLink]: Invite link to use.
   ///
   /// [Chat] is returned on completion.
-  const JoinChatByInviteLink({
-    required this.inviteLink,
-  });
+  const JoinChatByInviteLink({required this.inviteLink});
 
   /// Invite link to use
   final String inviteLink;
@@ -36,12 +34,8 @@ final class JoinChatByInviteLink extends TdFunction {
   ///
   /// Properties:
   /// * [invite_link]: Invite link to use
-  JoinChatByInviteLink copyWith({
-    String? inviteLink,
-  }) =>
-      JoinChatByInviteLink(
-        inviteLink: inviteLink ?? this.inviteLink,
-      );
+  JoinChatByInviteLink copyWith({String? inviteLink}) =>
+      JoinChatByInviteLink(inviteLink: inviteLink ?? this.inviteLink);
 
   /// TDLib object type
   static const String defaultObjectId = 'joinChatByInviteLink';

@@ -65,13 +65,12 @@ final class BusinessMessage extends TdObject {
     Message? replyToMessage,
     dynamic extra,
     int? clientId,
-  }) =>
-      BusinessMessage(
-        message: message ?? this.message,
-        replyToMessage: replyToMessage ?? this.replyToMessage,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => BusinessMessage(
+    message: message ?? this.message,
+    replyToMessage: replyToMessage ?? this.replyToMessage,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'businessMessage';

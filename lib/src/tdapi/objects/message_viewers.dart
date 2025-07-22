@@ -11,11 +11,7 @@ final class MessageViewers extends TdObject {
   /// Represents a list of message viewers.
   ///
   /// * [viewers]: List of message viewers.
-  const MessageViewers({
-    required this.viewers,
-    this.extra,
-    this.clientId,
-  });
+  const MessageViewers({required this.viewers, this.extra, this.clientId});
 
   /// List of message viewers
   final List<MessageViewer> viewers;
@@ -30,12 +26,14 @@ final class MessageViewers extends TdObject {
 
   /// Parse from a json
   factory MessageViewers.fromJson(Map<String, dynamic> json) => MessageViewers(
-        viewers: List<MessageViewer>.from((json['viewers'] ?? [])
-            .map((item) => MessageViewer.fromJson(item))
-            .toList()),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    viewers: List<MessageViewer>.from(
+      (json['viewers'] ?? [])
+          .map((item) => MessageViewer.fromJson(item))
+          .toList(),
+    ),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -54,12 +52,11 @@ final class MessageViewers extends TdObject {
     List<MessageViewer>? viewers,
     dynamic extra,
     int? clientId,
-  }) =>
-      MessageViewers(
-        viewers: viewers ?? this.viewers,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => MessageViewers(
+    viewers: viewers ?? this.viewers,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageViewers';

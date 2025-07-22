@@ -89,15 +89,14 @@ final class PageBlockTableCell extends TdObject {
     int? rowspan,
     PageBlockHorizontalAlignment? align,
     PageBlockVerticalAlignment? valign,
-  }) =>
-      PageBlockTableCell(
-        text: text ?? this.text,
-        isHeader: isHeader ?? this.isHeader,
-        colspan: colspan ?? this.colspan,
-        rowspan: rowspan ?? this.rowspan,
-        align: align ?? this.align,
-        valign: valign ?? this.valign,
-      );
+  }) => PageBlockTableCell(
+    text: text ?? this.text,
+    isHeader: isHeader ?? this.isHeader,
+    colspan: colspan ?? this.colspan,
+    rowspan: rowspan ?? this.rowspan,
+    align: align ?? this.align,
+    valign: valign ?? this.valign,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'pageBlockTableCell';

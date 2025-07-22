@@ -17,10 +17,7 @@ final class SendCallLog extends TdFunction {
   /// * [logFile]: Call log file. Only inputFileLocal and inputFileGenerated are supported.
   ///
   /// [Ok] is returned on completion.
-  const SendCallLog({
-    required this.callId,
-    required this.logFile,
-  });
+  const SendCallLog({required this.callId, required this.logFile});
 
   /// Call identifier
   final int callId;
@@ -44,14 +41,10 @@ final class SendCallLog extends TdFunction {
   /// Properties:
   /// * [call_id]: Call identifier
   /// * [log_file]: Call log file. Only inputFileLocal and inputFileGenerated are supported
-  SendCallLog copyWith({
-    int? callId,
-    InputFile? logFile,
-  }) =>
-      SendCallLog(
-        callId: callId ?? this.callId,
-        logFile: logFile ?? this.logFile,
-      );
+  SendCallLog copyWith({int? callId, InputFile? logFile}) => SendCallLog(
+    callId: callId ?? this.callId,
+    logFile: logFile ?? this.logFile,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'sendCallLog';

@@ -59,12 +59,11 @@ final class ChatAdministrator extends TdObject {
     int? userId,
     String? customTitle,
     bool? isOwner,
-  }) =>
-      ChatAdministrator(
-        userId: userId ?? this.userId,
-        customTitle: customTitle ?? this.customTitle,
-        isOwner: isOwner ?? this.isOwner,
-      );
+  }) => ChatAdministrator(
+    userId: userId ?? this.userId,
+    customTitle: customTitle ?? this.customTitle,
+    isOwner: isOwner ?? this.isOwner,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatAdministrator';

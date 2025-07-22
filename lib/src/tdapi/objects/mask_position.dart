@@ -38,11 +38,11 @@ final class MaskPosition extends TdObject {
 
   /// Parse from a json
   factory MaskPosition.fromJson(Map<String, dynamic> json) => MaskPosition(
-        point: MaskPoint.fromJson(json['point']),
-        xShift: json['x_shift'],
-        yShift: json['y_shift'],
-        scale: json['scale'],
-      );
+    point: MaskPoint.fromJson(json['point']),
+    xShift: json['x_shift'],
+    yShift: json['y_shift'],
+    scale: json['scale'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -68,13 +68,12 @@ final class MaskPosition extends TdObject {
     double? xShift,
     double? yShift,
     double? scale,
-  }) =>
-      MaskPosition(
-        point: point ?? this.point,
-        xShift: xShift ?? this.xShift,
-        yShift: yShift ?? this.yShift,
-        scale: scale ?? this.scale,
-      );
+  }) => MaskPosition(
+    point: point ?? this.point,
+    xShift: xShift ?? this.xShift,
+    yShift: yShift ?? this.yShift,
+    scale: scale ?? this.scale,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'maskPosition';

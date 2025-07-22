@@ -54,16 +54,16 @@ final class MessageEffect extends TdObject {
 
   /// Parse from a json
   factory MessageEffect.fromJson(Map<String, dynamic> json) => MessageEffect(
-        id: json['id'] is int ? json['id'] : int.parse(json['id']),
-        staticIcon: json['static_icon'] == null
-            ? null
-            : Sticker.fromJson(json['static_icon']),
-        emoji: json['emoji'],
-        isPremium: json['is_premium'],
-        type: MessageEffectType.fromJson(json['type']),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    id: json['id'] is int ? json['id'] : int.parse(json['id']),
+    staticIcon: json['static_icon'] == null
+        ? null
+        : Sticker.fromJson(json['static_icon']),
+    emoji: json['emoji'],
+    isPremium: json['is_premium'],
+    type: MessageEffectType.fromJson(json['type']),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -94,16 +94,15 @@ final class MessageEffect extends TdObject {
     MessageEffectType? type,
     dynamic extra,
     int? clientId,
-  }) =>
-      MessageEffect(
-        id: id ?? this.id,
-        staticIcon: staticIcon ?? this.staticIcon,
-        emoji: emoji ?? this.emoji,
-        isPremium: isPremium ?? this.isPremium,
-        type: type ?? this.type,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => MessageEffect(
+    id: id ?? this.id,
+    staticIcon: staticIcon ?? this.staticIcon,
+    emoji: emoji ?? this.emoji,
+    isPremium: isPremium ?? this.isPremium,
+    type: type ?? this.type,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageEffect';

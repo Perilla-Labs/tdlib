@@ -36,20 +36,16 @@ final class TdError extends TdObject {
 
   /// Parse from a json
   factory TdError.fromJson(Map<String, dynamic> json) => TdError(
-        code: json['code'],
-        message: json['message'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    code: json['code'],
+    message: json['message'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "code": code,
-      "message": message,
-    };
+    return {"@type": defaultObjectId, "code": code, "message": message};
   }
 
   /// Copy model with modified properties.
@@ -62,13 +58,12 @@ final class TdError extends TdObject {
     String? message,
     dynamic extra,
     int? clientId,
-  }) =>
-      TdError(
-        code: code ?? this.code,
-        message: message ?? this.message,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => TdError(
+    code: code ?? this.code,
+    message: message ?? this.message,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'error';

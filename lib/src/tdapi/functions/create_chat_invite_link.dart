@@ -74,14 +74,13 @@ final class CreateChatInviteLink extends TdFunction {
     int? expirationDate,
     int? memberLimit,
     bool? createsJoinRequest,
-  }) =>
-      CreateChatInviteLink(
-        chatId: chatId ?? this.chatId,
-        name: name ?? this.name,
-        expirationDate: expirationDate ?? this.expirationDate,
-        memberLimit: memberLimit ?? this.memberLimit,
-        createsJoinRequest: createsJoinRequest ?? this.createsJoinRequest,
-      );
+  }) => CreateChatInviteLink(
+    chatId: chatId ?? this.chatId,
+    name: name ?? this.name,
+    expirationDate: expirationDate ?? this.expirationDate,
+    memberLimit: memberLimit ?? this.memberLimit,
+    createsJoinRequest: createsJoinRequest ?? this.createsJoinRequest,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'createChatInviteLink';

@@ -49,15 +49,18 @@ final class AutosaveSettings extends TdObject {
   /// Parse from a json
   factory AutosaveSettings.fromJson(Map<String, dynamic> json) =>
       AutosaveSettings(
-        privateChatSettings:
-            ScopeAutosaveSettings.fromJson(json['private_chat_settings']),
+        privateChatSettings: ScopeAutosaveSettings.fromJson(
+          json['private_chat_settings'],
+        ),
         groupSettings: ScopeAutosaveSettings.fromJson(json['group_settings']),
-        channelSettings:
-            ScopeAutosaveSettings.fromJson(json['channel_settings']),
+        channelSettings: ScopeAutosaveSettings.fromJson(
+          json['channel_settings'],
+        ),
         exceptions: List<AutosaveSettingsException>.from(
-            (json['exceptions'] ?? [])
-                .map((item) => AutosaveSettingsException.fromJson(item))
-                .toList()),
+          (json['exceptions'] ?? [])
+              .map((item) => AutosaveSettingsException.fromJson(item))
+              .toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -88,15 +91,14 @@ final class AutosaveSettings extends TdObject {
     List<AutosaveSettingsException>? exceptions,
     dynamic extra,
     int? clientId,
-  }) =>
-      AutosaveSettings(
-        privateChatSettings: privateChatSettings ?? this.privateChatSettings,
-        groupSettings: groupSettings ?? this.groupSettings,
-        channelSettings: channelSettings ?? this.channelSettings,
-        exceptions: exceptions ?? this.exceptions,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => AutosaveSettings(
+    privateChatSettings: privateChatSettings ?? this.privateChatSettings,
+    groupSettings: groupSettings ?? this.groupSettings,
+    channelSettings: channelSettings ?? this.channelSettings,
+    exceptions: exceptions ?? this.exceptions,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'autosaveSettings';

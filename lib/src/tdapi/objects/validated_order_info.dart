@@ -39,9 +39,10 @@ final class ValidatedOrderInfo extends TdObject {
       ValidatedOrderInfo(
         orderInfoId: json['order_info_id'],
         shippingOptions: List<ShippingOption>.from(
-            (json['shipping_options'] ?? [])
-                .map((item) => ShippingOption.fromJson(item))
-                .toList()),
+          (json['shipping_options'] ?? [])
+              .map((item) => ShippingOption.fromJson(item))
+              .toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -66,13 +67,12 @@ final class ValidatedOrderInfo extends TdObject {
     List<ShippingOption>? shippingOptions,
     dynamic extra,
     int? clientId,
-  }) =>
-      ValidatedOrderInfo(
-        orderInfoId: orderInfoId ?? this.orderInfoId,
-        shippingOptions: shippingOptions ?? this.shippingOptions,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => ValidatedOrderInfo(
+    orderInfoId: orderInfoId ?? this.orderInfoId,
+    shippingOptions: shippingOptions ?? this.shippingOptions,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'validatedOrderInfo';

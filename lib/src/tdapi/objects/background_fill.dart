@@ -52,46 +52,35 @@ sealed class BackgroundFill extends TdObject {
 ///
 /// Describes a solid fill of a background.
 ///
-/// * [color]: A color of the background in the RGB24 format.
+/// * [color]: A color of the background in the RGB format.
 final class BackgroundFillSolid extends BackgroundFill {
   /// **BackgroundFillSolid** *(backgroundFillSolid)* - child of BackgroundFill
   ///
   /// Describes a solid fill of a background.
   ///
-  /// * [color]: A color of the background in the RGB24 format.
-  const BackgroundFillSolid({
-    required this.color,
-  });
+  /// * [color]: A color of the background in the RGB format.
+  const BackgroundFillSolid({required this.color});
 
-  /// A color of the background in the RGB24 format
+  /// A color of the background in the RGB format
   final int color;
 
   /// Parse from a json
   factory BackgroundFillSolid.fromJson(Map<String, dynamic> json) =>
-      BackgroundFillSolid(
-        color: json['color'],
-      );
+      BackgroundFillSolid(color: json['color']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "color": color,
-    };
+    return {"@type": defaultObjectId, "color": color};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [color]: A color of the background in the RGB24 format
+  /// * [color]: A color of the background in the RGB format
   @override
-  BackgroundFillSolid copyWith({
-    int? color,
-  }) =>
-      BackgroundFillSolid(
-        color: color ?? this.color,
-      );
+  BackgroundFillSolid copyWith({int? color}) =>
+      BackgroundFillSolid(color: color ?? this.color);
 
   /// TDLib object type
   static const String defaultObjectId = 'backgroundFillSolid';
@@ -109,16 +98,16 @@ final class BackgroundFillSolid extends BackgroundFill {
 ///
 /// Describes a gradient fill of a background.
 ///
-/// * [topColor]: A top color of the background in the RGB24 format.
-/// * [bottomColor]: A bottom color of the background in the RGB24 format.
+/// * [topColor]: A top color of the background in the RGB format.
+/// * [bottomColor]: A bottom color of the background in the RGB format.
 /// * [rotationAngle]: Clockwise rotation angle of the gradient, in degrees; 0-359. Must always be divisible by 45.
 final class BackgroundFillGradient extends BackgroundFill {
   /// **BackgroundFillGradient** *(backgroundFillGradient)* - child of BackgroundFill
   ///
   /// Describes a gradient fill of a background.
   ///
-  /// * [topColor]: A top color of the background in the RGB24 format.
-  /// * [bottomColor]: A bottom color of the background in the RGB24 format.
+  /// * [topColor]: A top color of the background in the RGB format.
+  /// * [bottomColor]: A bottom color of the background in the RGB format.
   /// * [rotationAngle]: Clockwise rotation angle of the gradient, in degrees; 0-359. Must always be divisible by 45.
   const BackgroundFillGradient({
     required this.topColor,
@@ -126,10 +115,10 @@ final class BackgroundFillGradient extends BackgroundFill {
     required this.rotationAngle,
   });
 
-  /// A top color of the background in the RGB24 format
+  /// A top color of the background in the RGB format
   final int topColor;
 
-  /// A bottom color of the background in the RGB24 format
+  /// A bottom color of the background in the RGB format
   final int bottomColor;
 
   /// Clockwise rotation angle of the gradient, in degrees; 0-359. Must always be divisible by 45
@@ -157,20 +146,19 @@ final class BackgroundFillGradient extends BackgroundFill {
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [top_color]: A top color of the background in the RGB24 format
-  /// * [bottom_color]: A bottom color of the background in the RGB24 format
+  /// * [top_color]: A top color of the background in the RGB format
+  /// * [bottom_color]: A bottom color of the background in the RGB format
   /// * [rotation_angle]: Clockwise rotation angle of the gradient, in degrees; 0-359. Must always be divisible by 45
   @override
   BackgroundFillGradient copyWith({
     int? topColor,
     int? bottomColor,
     int? rotationAngle,
-  }) =>
-      BackgroundFillGradient(
-        topColor: topColor ?? this.topColor,
-        bottomColor: bottomColor ?? this.bottomColor,
-        rotationAngle: rotationAngle ?? this.rotationAngle,
-      );
+  }) => BackgroundFillGradient(
+    topColor: topColor ?? this.topColor,
+    bottomColor: bottomColor ?? this.bottomColor,
+    rotationAngle: rotationAngle ?? this.rotationAngle,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'backgroundFillGradient';
@@ -188,47 +176,39 @@ final class BackgroundFillGradient extends BackgroundFill {
 ///
 /// Describes a freeform gradient fill of a background.
 ///
-/// * [colors]: A list of 3 or 4 colors of the freeform gradient in the RGB24 format.
+/// * [colors]: A list of 3 or 4 colors of the freeform gradient in the RGB format.
 final class BackgroundFillFreeformGradient extends BackgroundFill {
   /// **BackgroundFillFreeformGradient** *(backgroundFillFreeformGradient)* - child of BackgroundFill
   ///
   /// Describes a freeform gradient fill of a background.
   ///
-  /// * [colors]: A list of 3 or 4 colors of the freeform gradient in the RGB24 format.
-  const BackgroundFillFreeformGradient({
-    required this.colors,
-  });
+  /// * [colors]: A list of 3 or 4 colors of the freeform gradient in the RGB format.
+  const BackgroundFillFreeformGradient({required this.colors});
 
-  /// A list of 3 or 4 colors of the freeform gradient in the RGB24 format
+  /// A list of 3 or 4 colors of the freeform gradient in the RGB format
   final List<int> colors;
 
   /// Parse from a json
   factory BackgroundFillFreeformGradient.fromJson(Map<String, dynamic> json) =>
       BackgroundFillFreeformGradient(
-        colors:
-            List<int>.from((json['colors'] ?? []).map((item) => item).toList()),
+        colors: List<int>.from(
+          (json['colors'] ?? []).map((item) => item).toList(),
+        ),
       );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "colors": colors.map((i) => i).toList(),
-    };
+    return {"@type": defaultObjectId, "colors": colors.map((i) => i).toList()};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [colors]: A list of 3 or 4 colors of the freeform gradient in the RGB24 format
+  /// * [colors]: A list of 3 or 4 colors of the freeform gradient in the RGB format
   @override
-  BackgroundFillFreeformGradient copyWith({
-    List<int>? colors,
-  }) =>
-      BackgroundFillFreeformGradient(
-        colors: colors ?? this.colors,
-      );
+  BackgroundFillFreeformGradient copyWith({List<int>? colors}) =>
+      BackgroundFillFreeformGradient(colors: colors ?? this.colors);
 
   /// TDLib object type
   static const String defaultObjectId = 'backgroundFillFreeformGradient';

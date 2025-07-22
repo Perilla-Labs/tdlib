@@ -15,9 +15,7 @@ final class GetEmojiReaction extends TdFunction {
   /// * [emoji]: Text representation of the reaction.
   ///
   /// [EmojiReaction] is returned on completion.
-  const GetEmojiReaction({
-    required this.emoji,
-  });
+  const GetEmojiReaction({required this.emoji});
 
   /// Text representation of the reaction
   final String emoji;
@@ -25,23 +23,15 @@ final class GetEmojiReaction extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "emoji": emoji,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "emoji": emoji, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [emoji]: Text representation of the reaction
-  GetEmojiReaction copyWith({
-    String? emoji,
-  }) =>
-      GetEmojiReaction(
-        emoji: emoji ?? this.emoji,
-      );
+  GetEmojiReaction copyWith({String? emoji}) =>
+      GetEmojiReaction(emoji: emoji ?? this.emoji);
 
   /// TDLib object type
   static const String defaultObjectId = 'getEmojiReaction';

@@ -2,51 +2,45 @@ part of '../tdapi.dart';
 
 /// **StarSubscription** *(starSubscription)* - basic class
 ///
-/// Contains information about subscription to a channel chat paid in Telegram Stars.
+/// Contains information about subscription to a channel chat, a bot, or a business account that was paid in Telegram Stars.
 ///
 /// * [id]: Unique identifier of the subscription.
-/// * [chatId]: Identifier of the channel chat that is subscribed.
+/// * [chatId]: Identifier of the chat that is subscribed.
 /// * [expirationDate]: Point in time (Unix timestamp) when the subscription will expire or expired.
-/// * [canReuse]: True, if the subscription is active and the user can use the method reuseStarSubscription to join the subscribed chat again.
 /// * [isCanceled]: True, if the subscription was canceled.
 /// * [isExpiring]: True, if the subscription expires soon and there are no enough Telegram Stars on the user's balance to extend it.
-/// * [inviteLink]: The invite link that can be used to renew the subscription if it has been expired; may be empty, if the link isn't available anymore.
 /// * [pricing]: The subscription plan.
+/// * [type]: Type of the subscription.
 final class StarSubscription extends TdObject {
   /// **StarSubscription** *(starSubscription)* - basic class
   ///
-  /// Contains information about subscription to a channel chat paid in Telegram Stars.
+  /// Contains information about subscription to a channel chat, a bot, or a business account that was paid in Telegram Stars.
   ///
   /// * [id]: Unique identifier of the subscription.
-  /// * [chatId]: Identifier of the channel chat that is subscribed.
+  /// * [chatId]: Identifier of the chat that is subscribed.
   /// * [expirationDate]: Point in time (Unix timestamp) when the subscription will expire or expired.
-  /// * [canReuse]: True, if the subscription is active and the user can use the method reuseStarSubscription to join the subscribed chat again.
   /// * [isCanceled]: True, if the subscription was canceled.
   /// * [isExpiring]: True, if the subscription expires soon and there are no enough Telegram Stars on the user's balance to extend it.
-  /// * [inviteLink]: The invite link that can be used to renew the subscription if it has been expired; may be empty, if the link isn't available anymore.
   /// * [pricing]: The subscription plan.
+  /// * [type]: Type of the subscription.
   const StarSubscription({
     required this.id,
     required this.chatId,
     required this.expirationDate,
-    required this.canReuse,
     required this.isCanceled,
     required this.isExpiring,
-    required this.inviteLink,
     required this.pricing,
+    required this.type,
   });
 
   /// Unique identifier of the subscription
   final String id;
 
-  /// Identifier of the channel chat that is subscribed
+  /// Identifier of the chat that is subscribed
   final int chatId;
 
   /// Point in time (Unix timestamp) when the subscription will expire or expired
   final int expirationDate;
-
-  /// True, if the subscription is active and the user can use the method reuseStarSubscription to join the subscribed chat again
-  final bool canReuse;
 
   /// True, if the subscription was canceled
   final bool isCanceled;
@@ -54,11 +48,11 @@ final class StarSubscription extends TdObject {
   /// True, if the subscription expires soon and there are no enough Telegram Stars on the user's balance to extend it
   final bool isExpiring;
 
-  /// The invite link that can be used to renew the subscription if it has been expired; may be empty, if the link isn't available anymore
-  final String inviteLink;
-
   /// The subscription plan
   final StarSubscriptionPricing pricing;
+
+  /// Type of the subscription
+  final StarSubscriptionType type;
 
   /// Parse from a json
   factory StarSubscription.fromJson(Map<String, dynamic> json) =>
@@ -66,11 +60,10 @@ final class StarSubscription extends TdObject {
         id: json['id'],
         chatId: json['chat_id'],
         expirationDate: json['expiration_date'],
-        canReuse: json['can_reuse'],
         isCanceled: json['is_canceled'],
         isExpiring: json['is_expiring'],
-        inviteLink: json['invite_link'],
         pricing: StarSubscriptionPricing.fromJson(json['pricing']),
+        type: StarSubscriptionType.fromJson(json['type']),
       );
 
   /// Convert model to TDLib JSON format
@@ -81,11 +74,10 @@ final class StarSubscription extends TdObject {
       "id": id,
       "chat_id": chatId,
       "expiration_date": expirationDate,
-      "can_reuse": canReuse,
       "is_canceled": isCanceled,
       "is_expiring": isExpiring,
-      "invite_link": inviteLink,
       "pricing": pricing.toJson(),
+      "type": type.toJson(),
     };
   }
 
@@ -93,33 +85,29 @@ final class StarSubscription extends TdObject {
   ///
   /// Properties:
   /// * [id]: Unique identifier of the subscription
-  /// * [chat_id]: Identifier of the channel chat that is subscribed
+  /// * [chat_id]: Identifier of the chat that is subscribed
   /// * [expiration_date]: Point in time (Unix timestamp) when the subscription will expire or expired
-  /// * [can_reuse]: True, if the subscription is active and the user can use the method reuseStarSubscription to join the subscribed chat again
   /// * [is_canceled]: True, if the subscription was canceled
   /// * [is_expiring]: True, if the subscription expires soon and there are no enough Telegram Stars on the user's balance to extend it
-  /// * [invite_link]: The invite link that can be used to renew the subscription if it has been expired; may be empty, if the link isn't available anymore
   /// * [pricing]: The subscription plan
+  /// * [type]: Type of the subscription
   StarSubscription copyWith({
     String? id,
     int? chatId,
     int? expirationDate,
-    bool? canReuse,
     bool? isCanceled,
     bool? isExpiring,
-    String? inviteLink,
     StarSubscriptionPricing? pricing,
-  }) =>
-      StarSubscription(
-        id: id ?? this.id,
-        chatId: chatId ?? this.chatId,
-        expirationDate: expirationDate ?? this.expirationDate,
-        canReuse: canReuse ?? this.canReuse,
-        isCanceled: isCanceled ?? this.isCanceled,
-        isExpiring: isExpiring ?? this.isExpiring,
-        inviteLink: inviteLink ?? this.inviteLink,
-        pricing: pricing ?? this.pricing,
-      );
+    StarSubscriptionType? type,
+  }) => StarSubscription(
+    id: id ?? this.id,
+    chatId: chatId ?? this.chatId,
+    expirationDate: expirationDate ?? this.expirationDate,
+    isCanceled: isCanceled ?? this.isCanceled,
+    isExpiring: isExpiring ?? this.isExpiring,
+    pricing: pricing ?? this.pricing,
+    type: type ?? this.type,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'starSubscription';

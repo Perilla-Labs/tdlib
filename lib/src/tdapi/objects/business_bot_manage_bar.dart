@@ -69,13 +69,12 @@ final class BusinessBotManageBar extends TdObject {
     String? manageUrl,
     bool? isBotPaused,
     bool? canBotReply,
-  }) =>
-      BusinessBotManageBar(
-        botUserId: botUserId ?? this.botUserId,
-        manageUrl: manageUrl ?? this.manageUrl,
-        isBotPaused: isBotPaused ?? this.isBotPaused,
-        canBotReply: canBotReply ?? this.canBotReply,
-      );
+  }) => BusinessBotManageBar(
+    botUserId: botUserId ?? this.botUserId,
+    manageUrl: manageUrl ?? this.manageUrl,
+    isBotPaused: isBotPaused ?? this.isBotPaused,
+    canBotReply: canBotReply ?? this.canBotReply,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'businessBotManageBar';

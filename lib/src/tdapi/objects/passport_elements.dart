@@ -11,11 +11,7 @@ final class PassportElements extends TdObject {
   /// Contains information about saved Telegram Passport elements.
   ///
   /// * [elements]: Telegram Passport elements.
-  const PassportElements({
-    required this.elements,
-    this.extra,
-    this.clientId,
-  });
+  const PassportElements({required this.elements, this.extra, this.clientId});
 
   /// Telegram Passport elements
   final List<PassportElement> elements;
@@ -31,9 +27,11 @@ final class PassportElements extends TdObject {
   /// Parse from a json
   factory PassportElements.fromJson(Map<String, dynamic> json) =>
       PassportElements(
-        elements: List<PassportElement>.from((json['elements'] ?? [])
-            .map((item) => PassportElement.fromJson(item))
-            .toList()),
+        elements: List<PassportElement>.from(
+          (json['elements'] ?? [])
+              .map((item) => PassportElement.fromJson(item))
+              .toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -55,12 +53,11 @@ final class PassportElements extends TdObject {
     List<PassportElement>? elements,
     dynamic extra,
     int? clientId,
-  }) =>
-      PassportElements(
-        elements: elements ?? this.elements,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => PassportElements(
+    elements: elements ?? this.elements,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'passportElements';

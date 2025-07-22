@@ -44,15 +44,14 @@ final class VoiceNote extends TdObject {
 
   /// Parse from a json
   factory VoiceNote.fromJson(Map<String, dynamic> json) => VoiceNote(
-        duration: json['duration'],
-        waveform: json['waveform'],
-        mimeType: json['mime_type'],
-        speechRecognitionResult: json['speech_recognition_result'] == null
-            ? null
-            : SpeechRecognitionResult.fromJson(
-                json['speech_recognition_result']),
-        voice: File.fromJson(json['voice']),
-      );
+    duration: json['duration'],
+    waveform: json['waveform'],
+    mimeType: json['mime_type'],
+    speechRecognitionResult: json['speech_recognition_result'] == null
+        ? null
+        : SpeechRecognitionResult.fromJson(json['speech_recognition_result']),
+    voice: File.fromJson(json['voice']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -81,15 +80,14 @@ final class VoiceNote extends TdObject {
     String? mimeType,
     SpeechRecognitionResult? speechRecognitionResult,
     File? voice,
-  }) =>
-      VoiceNote(
-        duration: duration ?? this.duration,
-        waveform: waveform ?? this.waveform,
-        mimeType: mimeType ?? this.mimeType,
-        speechRecognitionResult:
-            speechRecognitionResult ?? this.speechRecognitionResult,
-        voice: voice ?? this.voice,
-      );
+  }) => VoiceNote(
+    duration: duration ?? this.duration,
+    waveform: waveform ?? this.waveform,
+    mimeType: mimeType ?? this.mimeType,
+    speechRecognitionResult:
+        speechRecognitionResult ?? this.speechRecognitionResult,
+    voice: voice ?? this.voice,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'voiceNote';

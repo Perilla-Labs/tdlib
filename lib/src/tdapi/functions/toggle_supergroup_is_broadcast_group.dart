@@ -15,9 +15,7 @@ final class ToggleSupergroupIsBroadcastGroup extends TdFunction {
   /// * [supergroupId]: Identifier of the supergroup.
   ///
   /// [Ok] is returned on completion.
-  const ToggleSupergroupIsBroadcastGroup({
-    required this.supergroupId,
-  });
+  const ToggleSupergroupIsBroadcastGroup({required this.supergroupId});
 
   /// Identifier of the supergroup
   final int supergroupId;
@@ -36,9 +34,7 @@ final class ToggleSupergroupIsBroadcastGroup extends TdFunction {
   ///
   /// Properties:
   /// * [supergroup_id]: Identifier of the supergroup
-  ToggleSupergroupIsBroadcastGroup copyWith({
-    int? supergroupId,
-  }) =>
+  ToggleSupergroupIsBroadcastGroup copyWith({int? supergroupId}) =>
       ToggleSupergroupIsBroadcastGroup(
         supergroupId: supergroupId ?? this.supergroupId,
       );

@@ -17,10 +17,7 @@ final class SetCustomLanguagePack extends TdFunction {
   /// * [strings]: Strings of the new language pack.
   ///
   /// [Ok] is returned on completion.
-  const SetCustomLanguagePack({
-    required this.info,
-    required this.strings,
-  });
+  const SetCustomLanguagePack({required this.info, required this.strings});
 
   /// Information about the language pack. Language pack identifier must start with 'X', consist only of English letters, digits and hyphens, and must not exceed 64 characters. Can be called before authorization
   final LanguagePackInfo info;
@@ -47,11 +44,10 @@ final class SetCustomLanguagePack extends TdFunction {
   SetCustomLanguagePack copyWith({
     LanguagePackInfo? info,
     List<LanguagePackString>? strings,
-  }) =>
-      SetCustomLanguagePack(
-        info: info ?? this.info,
-        strings: strings ?? this.strings,
-      );
+  }) => SetCustomLanguagePack(
+    info: info ?? this.info,
+    strings: strings ?? this.strings,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setCustomLanguagePack';

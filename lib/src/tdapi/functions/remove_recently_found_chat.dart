@@ -15,9 +15,7 @@ final class RemoveRecentlyFoundChat extends TdFunction {
   /// * [chatId]: Identifier of the chat to be removed.
   ///
   /// [Ok] is returned on completion.
-  const RemoveRecentlyFoundChat({
-    required this.chatId,
-  });
+  const RemoveRecentlyFoundChat({required this.chatId});
 
   /// Identifier of the chat to be removed
   final int chatId;
@@ -25,23 +23,15 @@ final class RemoveRecentlyFoundChat extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "chat_id": chatId,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "chat_id": chatId, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [chat_id]: Identifier of the chat to be removed
-  RemoveRecentlyFoundChat copyWith({
-    int? chatId,
-  }) =>
-      RemoveRecentlyFoundChat(
-        chatId: chatId ?? this.chatId,
-      );
+  RemoveRecentlyFoundChat copyWith({int? chatId}) =>
+      RemoveRecentlyFoundChat(chatId: chatId ?? this.chatId);
 
   /// TDLib object type
   static const String defaultObjectId = 'removeRecentlyFoundChat';

@@ -62,15 +62,13 @@ final class AutosaveSettingsScopePrivateChats extends AutosaveSettingsScope {
 
   /// Parse from a json
   factory AutosaveSettingsScopePrivateChats.fromJson(
-          Map<String, dynamic> json) =>
-      const AutosaveSettingsScopePrivateChats();
+    Map<String, dynamic> json,
+  ) => const AutosaveSettingsScopePrivateChats();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -106,9 +104,7 @@ final class AutosaveSettingsScopeGroupChats extends AutosaveSettingsScope {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -139,15 +135,13 @@ final class AutosaveSettingsScopeChannelChats extends AutosaveSettingsScope {
 
   /// Parse from a json
   factory AutosaveSettingsScopeChannelChats.fromJson(
-          Map<String, dynamic> json) =>
-      const AutosaveSettingsScopeChannelChats();
+    Map<String, dynamic> json,
+  ) => const AutosaveSettingsScopeChannelChats();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -178,26 +172,19 @@ final class AutosaveSettingsScopeChat extends AutosaveSettingsScope {
   /// Autosave settings applied to a chat.
   ///
   /// * [chatId]: Chat identifier.
-  const AutosaveSettingsScopeChat({
-    required this.chatId,
-  });
+  const AutosaveSettingsScopeChat({required this.chatId});
 
   /// Chat identifier
   final int chatId;
 
   /// Parse from a json
   factory AutosaveSettingsScopeChat.fromJson(Map<String, dynamic> json) =>
-      AutosaveSettingsScopeChat(
-        chatId: json['chat_id'],
-      );
+      AutosaveSettingsScopeChat(chatId: json['chat_id']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "chat_id": chatId,
-    };
+    return {"@type": defaultObjectId, "chat_id": chatId};
   }
 
   /// Copy model with modified properties.
@@ -205,12 +192,8 @@ final class AutosaveSettingsScopeChat extends AutosaveSettingsScope {
   /// Properties:
   /// * [chat_id]: Chat identifier
   @override
-  AutosaveSettingsScopeChat copyWith({
-    int? chatId,
-  }) =>
-      AutosaveSettingsScopeChat(
-        chatId: chatId ?? this.chatId,
-      );
+  AutosaveSettingsScopeChat copyWith({int? chatId}) =>
+      AutosaveSettingsScopeChat(chatId: chatId ?? this.chatId);
 
   /// TDLib object type
   static const String defaultObjectId = 'autosaveSettingsScopeChat';

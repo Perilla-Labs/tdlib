@@ -59,11 +59,14 @@ final class IdentityDocument extends TdObject {
         reverseSide: json['reverse_side'] == null
             ? null
             : DatedFile.fromJson(json['reverse_side']),
-        selfie:
-            json['selfie'] == null ? null : DatedFile.fromJson(json['selfie']),
-        translation: List<DatedFile>.from((json['translation'] ?? [])
-            .map((item) => DatedFile.fromJson(item))
-            .toList()),
+        selfie: json['selfie'] == null
+            ? null
+            : DatedFile.fromJson(json['selfie']),
+        translation: List<DatedFile>.from(
+          (json['translation'] ?? [])
+              .map((item) => DatedFile.fromJson(item))
+              .toList(),
+        ),
       );
 
   /// Convert model to TDLib JSON format
@@ -96,15 +99,14 @@ final class IdentityDocument extends TdObject {
     DatedFile? reverseSide,
     DatedFile? selfie,
     List<DatedFile>? translation,
-  }) =>
-      IdentityDocument(
-        number: number ?? this.number,
-        expirationDate: expirationDate ?? this.expirationDate,
-        frontSide: frontSide ?? this.frontSide,
-        reverseSide: reverseSide ?? this.reverseSide,
-        selfie: selfie ?? this.selfie,
-        translation: translation ?? this.translation,
-      );
+  }) => IdentityDocument(
+    number: number ?? this.number,
+    expirationDate: expirationDate ?? this.expirationDate,
+    frontSide: frontSide ?? this.frontSide,
+    reverseSide: reverseSide ?? this.reverseSide,
+    selfie: selfie ?? this.selfie,
+    translation: translation ?? this.translation,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'identityDocument';

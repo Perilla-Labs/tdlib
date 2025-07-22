@@ -56,12 +56,11 @@ final class ProcessChatJoinRequests extends TdFunction {
     int? chatId,
     String? inviteLink,
     bool? approve,
-  }) =>
-      ProcessChatJoinRequests(
-        chatId: chatId ?? this.chatId,
-        inviteLink: inviteLink ?? this.inviteLink,
-        approve: approve ?? this.approve,
-      );
+  }) => ProcessChatJoinRequests(
+    chatId: chatId ?? this.chatId,
+    inviteLink: inviteLink ?? this.inviteLink,
+    approve: approve ?? this.approve,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'processChatJoinRequests';

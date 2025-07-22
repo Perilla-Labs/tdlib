@@ -44,12 +44,12 @@ final class PollOption extends TdObject {
 
   /// Parse from a json
   factory PollOption.fromJson(Map<String, dynamic> json) => PollOption(
-        text: FormattedText.fromJson(json['text']),
-        voterCount: json['voter_count'],
-        votePercentage: json['vote_percentage'],
-        isChosen: json['is_chosen'],
-        isBeingChosen: json['is_being_chosen'],
-      );
+    text: FormattedText.fromJson(json['text']),
+    voterCount: json['voter_count'],
+    votePercentage: json['vote_percentage'],
+    isChosen: json['is_chosen'],
+    isBeingChosen: json['is_being_chosen'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -78,14 +78,13 @@ final class PollOption extends TdObject {
     int? votePercentage,
     bool? isChosen,
     bool? isBeingChosen,
-  }) =>
-      PollOption(
-        text: text ?? this.text,
-        voterCount: voterCount ?? this.voterCount,
-        votePercentage: votePercentage ?? this.votePercentage,
-        isChosen: isChosen ?? this.isChosen,
-        isBeingChosen: isBeingChosen ?? this.isBeingChosen,
-      );
+  }) => PollOption(
+    text: text ?? this.text,
+    voterCount: voterCount ?? this.voterCount,
+    votePercentage: votePercentage ?? this.votePercentage,
+    isChosen: isChosen ?? this.isChosen,
+    isBeingChosen: isBeingChosen ?? this.isBeingChosen,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'pollOption';

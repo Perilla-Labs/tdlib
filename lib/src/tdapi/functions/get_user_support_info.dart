@@ -15,9 +15,7 @@ final class GetUserSupportInfo extends TdFunction {
   /// * [userId]: User identifier.
   ///
   /// [UserSupportInfo] is returned on completion.
-  const GetUserSupportInfo({
-    required this.userId,
-  });
+  const GetUserSupportInfo({required this.userId});
 
   /// User identifier
   final int userId;
@@ -25,23 +23,15 @@ final class GetUserSupportInfo extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "user_id": userId,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "user_id": userId, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [user_id]: User identifier
-  GetUserSupportInfo copyWith({
-    int? userId,
-  }) =>
-      GetUserSupportInfo(
-        userId: userId ?? this.userId,
-      );
+  GetUserSupportInfo copyWith({int? userId}) =>
+      GetUserSupportInfo(userId: userId ?? this.userId);
 
   /// TDLib object type
   static const String defaultObjectId = 'getUserSupportInfo';

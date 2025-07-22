@@ -15,9 +15,7 @@ final class RemoveInstalledBackground extends TdFunction {
   /// * [backgroundId]: The background identifier.
   ///
   /// [Ok] is returned on completion.
-  const RemoveInstalledBackground({
-    required this.backgroundId,
-  });
+  const RemoveInstalledBackground({required this.backgroundId});
 
   /// The background identifier
   final int backgroundId;
@@ -36,9 +34,7 @@ final class RemoveInstalledBackground extends TdFunction {
   ///
   /// Properties:
   /// * [background_id]: The background identifier
-  RemoveInstalledBackground copyWith({
-    int? backgroundId,
-  }) =>
+  RemoveInstalledBackground copyWith({int? backgroundId}) =>
       RemoveInstalledBackground(
         backgroundId: backgroundId ?? this.backgroundId,
       );

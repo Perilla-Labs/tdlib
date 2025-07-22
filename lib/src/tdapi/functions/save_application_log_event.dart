@@ -56,12 +56,11 @@ final class SaveApplicationLogEvent extends TdFunction {
     String? type,
     int? chatId,
     JsonValue? data,
-  }) =>
-      SaveApplicationLogEvent(
-        type: type ?? this.type,
-        chatId: chatId ?? this.chatId,
-        data: data ?? this.data,
-      );
+  }) => SaveApplicationLogEvent(
+    type: type ?? this.type,
+    chatId: chatId ?? this.chatId,
+    data: data ?? this.data,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'saveApplicationLogEvent';

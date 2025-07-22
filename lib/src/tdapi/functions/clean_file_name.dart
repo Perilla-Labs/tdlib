@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **CleanFileName** *(cleanFileName)* - TDLib function
 ///
-/// Removes potentially dangerous characters from the name of a file. The encoding of the file name is supposed to be UTF-8. Returns an empty string on failure. Can be called synchronously.
+/// Removes potentially dangerous characters from the name of a file. Returns an empty string on failure. Can be called synchronously.
 ///
 /// * [fileName]: File name or path to the file.
 ///
@@ -10,14 +10,12 @@ part of '../tdapi.dart';
 final class CleanFileName extends TdFunction {
   /// **CleanFileName** *(cleanFileName)* - TDLib function
   ///
-  /// Removes potentially dangerous characters from the name of a file. The encoding of the file name is supposed to be UTF-8. Returns an empty string on failure. Can be called synchronously.
+  /// Removes potentially dangerous characters from the name of a file. Returns an empty string on failure. Can be called synchronously.
   ///
   /// * [fileName]: File name or path to the file.
   ///
   /// [Text] is returned on completion.
-  const CleanFileName({
-    required this.fileName,
-  });
+  const CleanFileName({required this.fileName});
 
   /// File name or path to the file
   final String fileName;
@@ -25,23 +23,15 @@ final class CleanFileName extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "file_name": fileName,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "file_name": fileName, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [file_name]: File name or path to the file
-  CleanFileName copyWith({
-    String? fileName,
-  }) =>
-      CleanFileName(
-        fileName: fileName ?? this.fileName,
-      );
+  CleanFileName copyWith({String? fileName}) =>
+      CleanFileName(fileName: fileName ?? this.fileName);
 
   /// TDLib object type
   static const String defaultObjectId = 'cleanFileName';

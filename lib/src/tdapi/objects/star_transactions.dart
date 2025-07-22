@@ -4,7 +4,7 @@ part of '../tdapi.dart';
 ///
 /// Represents a list of Telegram Star transactions.
 ///
-/// * [starCount]: The amount of owned Telegram Stars.
+/// * [starAmount]: The amount of owned Telegram Stars.
 /// * [transactions]: List of transactions with Telegram Stars.
 /// * [nextOffset]: The offset for the next request. If empty, then there are no more results.
 final class StarTransactions extends TdObject {
@@ -12,11 +12,11 @@ final class StarTransactions extends TdObject {
   ///
   /// Represents a list of Telegram Star transactions.
   ///
-  /// * [starCount]: The amount of owned Telegram Stars.
+  /// * [starAmount]: The amount of owned Telegram Stars.
   /// * [transactions]: List of transactions with Telegram Stars.
   /// * [nextOffset]: The offset for the next request. If empty, then there are no more results.
   const StarTransactions({
-    required this.starCount,
+    required this.starAmount,
     required this.transactions,
     required this.nextOffset,
     this.extra,
@@ -24,7 +24,7 @@ final class StarTransactions extends TdObject {
   });
 
   /// The amount of owned Telegram Stars
-  final int starCount;
+  final StarAmount starAmount;
 
   /// List of transactions with Telegram Stars
   final List<StarTransaction> transactions;
@@ -43,10 +43,12 @@ final class StarTransactions extends TdObject {
   /// Parse from a json
   factory StarTransactions.fromJson(Map<String, dynamic> json) =>
       StarTransactions(
-        starCount: json['star_count'],
-        transactions: List<StarTransaction>.from((json['transactions'] ?? [])
-            .map((item) => StarTransaction.fromJson(item))
-            .toList()),
+        starAmount: StarAmount.fromJson(json['star_amount']),
+        transactions: List<StarTransaction>.from(
+          (json['transactions'] ?? [])
+              .map((item) => StarTransaction.fromJson(item))
+              .toList(),
+        ),
         nextOffset: json['next_offset'],
         extra: json['@extra'],
         clientId: json['@client_id'],
@@ -57,7 +59,7 @@ final class StarTransactions extends TdObject {
   Map<String, dynamic> toJson() {
     return {
       "@type": defaultObjectId,
-      "star_count": starCount,
+      "star_amount": starAmount.toJson(),
       "transactions": transactions.map((i) => i.toJson()).toList(),
       "next_offset": nextOffset,
     };
@@ -66,23 +68,22 @@ final class StarTransactions extends TdObject {
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [star_count]: The amount of owned Telegram Stars
+  /// * [star_amount]: The amount of owned Telegram Stars
   /// * [transactions]: List of transactions with Telegram Stars
   /// * [next_offset]: The offset for the next request. If empty, then there are no more results
   StarTransactions copyWith({
-    int? starCount,
+    StarAmount? starAmount,
     List<StarTransaction>? transactions,
     String? nextOffset,
     dynamic extra,
     int? clientId,
-  }) =>
-      StarTransactions(
-        starCount: starCount ?? this.starCount,
-        transactions: transactions ?? this.transactions,
-        nextOffset: nextOffset ?? this.nextOffset,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => StarTransactions(
+    starAmount: starAmount ?? this.starAmount,
+    transactions: transactions ?? this.transactions,
+    nextOffset: nextOffset ?? this.nextOffset,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'starTransactions';

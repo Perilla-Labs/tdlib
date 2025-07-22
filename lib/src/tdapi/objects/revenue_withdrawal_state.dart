@@ -64,9 +64,7 @@ final class RevenueWithdrawalStatePending extends RevenueWithdrawalState {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -112,19 +110,12 @@ final class RevenueWithdrawalStateSucceeded extends RevenueWithdrawalState {
 
   /// Parse from a json
   factory RevenueWithdrawalStateSucceeded.fromJson(Map<String, dynamic> json) =>
-      RevenueWithdrawalStateSucceeded(
-        date: json['date'],
-        url: json['url'],
-      );
+      RevenueWithdrawalStateSucceeded(date: json['date'], url: json['url']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "date": date,
-      "url": url,
-    };
+    return {"@type": defaultObjectId, "date": date, "url": url};
   }
 
   /// Copy model with modified properties.
@@ -133,10 +124,7 @@ final class RevenueWithdrawalStateSucceeded extends RevenueWithdrawalState {
   /// * [date]: Point in time (Unix timestamp) when the withdrawal was completed
   /// * [url]: The URL where the withdrawal transaction can be viewed
   @override
-  RevenueWithdrawalStateSucceeded copyWith({
-    int? date,
-    String? url,
-  }) =>
+  RevenueWithdrawalStateSucceeded copyWith({int? date, String? url}) =>
       RevenueWithdrawalStateSucceeded(
         date: date ?? this.date,
         url: url ?? this.url,
@@ -170,9 +158,7 @@ final class RevenueWithdrawalStateFailed extends RevenueWithdrawalState {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.

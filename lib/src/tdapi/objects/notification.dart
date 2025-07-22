@@ -38,11 +38,11 @@ final class Notification extends TdObject {
 
   /// Parse from a json
   factory Notification.fromJson(Map<String, dynamic> json) => Notification(
-        id: json['id'],
-        date: json['date'],
-        isSilent: json['is_silent'],
-        type: NotificationType.fromJson(json['type']),
-      );
+    id: json['id'],
+    date: json['date'],
+    isSilent: json['is_silent'],
+    type: NotificationType.fromJson(json['type']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -68,13 +68,12 @@ final class Notification extends TdObject {
     int? date,
     bool? isSilent,
     NotificationType? type,
-  }) =>
-      Notification(
-        id: id ?? this.id,
-        date: date ?? this.date,
-        isSilent: isSilent ?? this.isSilent,
-        type: type ?? this.type,
-      );
+  }) => Notification(
+    id: id ?? this.id,
+    date: date ?? this.date,
+    isSilent: isSilent ?? this.isSilent,
+    type: type ?? this.type,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'notification';

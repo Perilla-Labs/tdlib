@@ -92,16 +92,15 @@ final class SendInlineQueryResultMessage extends TdFunction {
     int? queryId,
     String? resultId,
     bool? hideViaBot,
-  }) =>
-      SendInlineQueryResultMessage(
-        chatId: chatId ?? this.chatId,
-        messageThreadId: messageThreadId ?? this.messageThreadId,
-        replyTo: replyTo ?? this.replyTo,
-        options: options ?? this.options,
-        queryId: queryId ?? this.queryId,
-        resultId: resultId ?? this.resultId,
-        hideViaBot: hideViaBot ?? this.hideViaBot,
-      );
+  }) => SendInlineQueryResultMessage(
+    chatId: chatId ?? this.chatId,
+    messageThreadId: messageThreadId ?? this.messageThreadId,
+    replyTo: replyTo ?? this.replyTo,
+    options: options ?? this.options,
+    queryId: queryId ?? this.queryId,
+    resultId: resultId ?? this.resultId,
+    hideViaBot: hideViaBot ?? this.hideViaBot,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'sendInlineQueryResultMessage';

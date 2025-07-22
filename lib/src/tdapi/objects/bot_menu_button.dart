@@ -36,20 +36,16 @@ final class BotMenuButton extends TdObject {
 
   /// Parse from a json
   factory BotMenuButton.fromJson(Map<String, dynamic> json) => BotMenuButton(
-        text: json['text'],
-        url: json['url'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    text: json['text'],
+    url: json['url'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "text": text,
-      "url": url,
-    };
+    return {"@type": defaultObjectId, "text": text, "url": url};
   }
 
   /// Copy model with modified properties.
@@ -62,13 +58,12 @@ final class BotMenuButton extends TdObject {
     String? url,
     dynamic extra,
     int? clientId,
-  }) =>
-      BotMenuButton(
-        text: text ?? this.text,
-        url: url ?? this.url,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => BotMenuButton(
+    text: text ?? this.text,
+    url: url ?? this.url,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'botMenuButton';

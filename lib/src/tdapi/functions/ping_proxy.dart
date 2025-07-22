@@ -15,9 +15,7 @@ final class PingProxy extends TdFunction {
   /// * [proxyId]: Proxy identifier. Use 0 to ping a Telegram server without a proxy.
   ///
   /// [Seconds] is returned on completion.
-  const PingProxy({
-    required this.proxyId,
-  });
+  const PingProxy({required this.proxyId});
 
   /// Proxy identifier. Use 0 to ping a Telegram server without a proxy
   final int proxyId;
@@ -25,23 +23,15 @@ final class PingProxy extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "proxy_id": proxyId,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "proxy_id": proxyId, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [proxy_id]: Proxy identifier. Use 0 to ping a Telegram server without a proxy
-  PingProxy copyWith({
-    int? proxyId,
-  }) =>
-      PingProxy(
-        proxyId: proxyId ?? this.proxyId,
-      );
+  PingProxy copyWith({int? proxyId}) =>
+      PingProxy(proxyId: proxyId ?? this.proxyId);
 
   /// TDLib object type
   static const String defaultObjectId = 'pingProxy';

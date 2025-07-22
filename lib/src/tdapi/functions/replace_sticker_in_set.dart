@@ -65,13 +65,12 @@ final class ReplaceStickerInSet extends TdFunction {
     String? name,
     InputFile? oldSticker,
     InputSticker? newSticker,
-  }) =>
-      ReplaceStickerInSet(
-        userId: userId ?? this.userId,
-        name: name ?? this.name,
-        oldSticker: oldSticker ?? this.oldSticker,
-        newSticker: newSticker ?? this.newSticker,
-      );
+  }) => ReplaceStickerInSet(
+    userId: userId ?? this.userId,
+    name: name ?? this.name,
+    oldSticker: oldSticker ?? this.oldSticker,
+    newSticker: newSticker ?? this.newSticker,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'replaceStickerInSet';

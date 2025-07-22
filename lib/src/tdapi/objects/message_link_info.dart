@@ -64,8 +64,9 @@ final class MessageLinkInfo extends TdObject {
         isPublic: json['is_public'],
         chatId: json['chat_id'],
         messageThreadId: json['message_thread_id'],
-        message:
-            json['message'] == null ? null : Message.fromJson(json['message']),
+        message: json['message'] == null
+            ? null
+            : Message.fromJson(json['message']),
         mediaTimestamp: json['media_timestamp'],
         forAlbum: json['for_album'],
         extra: json['@extra'],
@@ -104,17 +105,16 @@ final class MessageLinkInfo extends TdObject {
     bool? forAlbum,
     dynamic extra,
     int? clientId,
-  }) =>
-      MessageLinkInfo(
-        isPublic: isPublic ?? this.isPublic,
-        chatId: chatId ?? this.chatId,
-        messageThreadId: messageThreadId ?? this.messageThreadId,
-        message: message ?? this.message,
-        mediaTimestamp: mediaTimestamp ?? this.mediaTimestamp,
-        forAlbum: forAlbum ?? this.forAlbum,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => MessageLinkInfo(
+    isPublic: isPublic ?? this.isPublic,
+    chatId: chatId ?? this.chatId,
+    messageThreadId: messageThreadId ?? this.messageThreadId,
+    message: message ?? this.message,
+    mediaTimestamp: mediaTimestamp ?? this.mediaTimestamp,
+    forAlbum: forAlbum ?? this.forAlbum,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageLinkInfo';

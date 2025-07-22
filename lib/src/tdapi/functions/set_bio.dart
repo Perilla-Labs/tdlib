@@ -15,9 +15,7 @@ final class SetBio extends TdFunction {
   /// * [bio]: The new value of the user bio; 0-getOption("bio_length_max") characters without line feeds.
   ///
   /// [Ok] is returned on completion.
-  const SetBio({
-    required this.bio,
-  });
+  const SetBio({required this.bio});
 
   /// The new value of the user bio; 0-getOption("bio_length_max") characters without line feeds
   final String bio;
@@ -25,23 +23,14 @@ final class SetBio extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "bio": bio,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "bio": bio, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [bio]: The new value of the user bio; 0-getOption("bio_length_max") characters without line feeds
-  SetBio copyWith({
-    String? bio,
-  }) =>
-      SetBio(
-        bio: bio ?? this.bio,
-      );
+  SetBio copyWith({String? bio}) => SetBio(bio: bio ?? this.bio);
 
   /// TDLib object type
   static const String defaultObjectId = 'setBio';

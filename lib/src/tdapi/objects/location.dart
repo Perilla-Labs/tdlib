@@ -32,10 +32,10 @@ final class Location extends TdObject {
 
   /// Parse from a json
   factory Location.fromJson(Map<String, dynamic> json) => Location(
-        latitude: json['latitude'],
-        longitude: json['longitude'],
-        horizontalAccuracy: json['horizontal_accuracy'],
-      );
+    latitude: json['latitude'],
+    longitude: json['longitude'],
+    horizontalAccuracy: json['horizontal_accuracy'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -58,12 +58,11 @@ final class Location extends TdObject {
     double? latitude,
     double? longitude,
     double? horizontalAccuracy,
-  }) =>
-      Location(
-        latitude: latitude ?? this.latitude,
-        longitude: longitude ?? this.longitude,
-        horizontalAccuracy: horizontalAccuracy ?? this.horizontalAccuracy,
-      );
+  }) => Location(
+    latitude: latitude ?? this.latitude,
+    longitude: longitude ?? this.longitude,
+    horizontalAccuracy: horizontalAccuracy ?? this.horizontalAccuracy,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'location';

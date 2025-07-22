@@ -35,8 +35,9 @@ final class BusinessStartPage extends TdObject {
       BusinessStartPage(
         title: json['title'],
         message: json['message'],
-        sticker:
-            json['sticker'] == null ? null : Sticker.fromJson(json['sticker']),
+        sticker: json['sticker'] == null
+            ? null
+            : Sticker.fromJson(json['sticker']),
       );
 
   /// Convert model to TDLib JSON format
@@ -60,12 +61,11 @@ final class BusinessStartPage extends TdObject {
     String? title,
     String? message,
     Sticker? sticker,
-  }) =>
-      BusinessStartPage(
-        title: title ?? this.title,
-        message: message ?? this.message,
-        sticker: sticker ?? this.sticker,
-      );
+  }) => BusinessStartPage(
+    title: title ?? this.title,
+    message: message ?? this.message,
+    sticker: sticker ?? this.sticker,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'businessStartPage';

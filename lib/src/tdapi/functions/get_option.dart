@@ -15,9 +15,7 @@ final class GetOption extends TdFunction {
   /// * [name]: The name of the option.
   ///
   /// [OptionValue] is returned on completion.
-  const GetOption({
-    required this.name,
-  });
+  const GetOption({required this.name});
 
   /// The name of the option
   final String name;
@@ -25,23 +23,14 @@ final class GetOption extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "name": name,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "name": name, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [name]: The name of the option
-  GetOption copyWith({
-    String? name,
-  }) =>
-      GetOption(
-        name: name ?? this.name,
-      );
+  GetOption copyWith({String? name}) => GetOption(name: name ?? this.name);
 
   /// TDLib object type
   static const String defaultObjectId = 'getOption';

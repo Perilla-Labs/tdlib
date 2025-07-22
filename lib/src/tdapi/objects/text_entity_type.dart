@@ -121,9 +121,7 @@ final class TextEntityTypeMention extends TextEntityType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -144,11 +142,11 @@ final class TextEntityTypeMention extends TextEntityType {
 
 /// **TextEntityTypeHashtag** *(textEntityTypeHashtag)* - child of TextEntityType
 ///
-/// A hashtag text, beginning with "#".
+/// A hashtag text, beginning with "#" and optionally containing a chat username at the end.
 final class TextEntityTypeHashtag extends TextEntityType {
   /// **TextEntityTypeHashtag** *(textEntityTypeHashtag)* - child of TextEntityType
   ///
-  /// A hashtag text, beginning with "#".
+  /// A hashtag text, beginning with "#" and optionally containing a chat username at the end.
   const TextEntityTypeHashtag();
 
   /// Parse from a json
@@ -158,9 +156,7 @@ final class TextEntityTypeHashtag extends TextEntityType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -181,11 +177,11 @@ final class TextEntityTypeHashtag extends TextEntityType {
 
 /// **TextEntityTypeCashtag** *(textEntityTypeCashtag)* - child of TextEntityType
 ///
-/// A cashtag text, beginning with "$" and consisting of capital English letters (e.g., "$USD").
+/// A cashtag text, beginning with "$", consisting of capital English letters (e.g., "$USD"), and optionally containing a chat username at the end.
 final class TextEntityTypeCashtag extends TextEntityType {
   /// **TextEntityTypeCashtag** *(textEntityTypeCashtag)* - child of TextEntityType
   ///
-  /// A cashtag text, beginning with "$" and consisting of capital English letters (e.g., "$USD").
+  /// A cashtag text, beginning with "$", consisting of capital English letters (e.g., "$USD"), and optionally containing a chat username at the end.
   const TextEntityTypeCashtag();
 
   /// Parse from a json
@@ -195,9 +191,7 @@ final class TextEntityTypeCashtag extends TextEntityType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -232,9 +226,7 @@ final class TextEntityTypeBotCommand extends TextEntityType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -269,9 +261,7 @@ final class TextEntityTypeUrl extends TextEntityType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -306,9 +296,7 @@ final class TextEntityTypeEmailAddress extends TextEntityType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -343,9 +331,7 @@ final class TextEntityTypePhoneNumber extends TextEntityType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -380,9 +366,7 @@ final class TextEntityTypeBankCardNumber extends TextEntityType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -418,9 +402,7 @@ final class TextEntityTypeBold extends TextEntityType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -455,9 +437,7 @@ final class TextEntityTypeItalic extends TextEntityType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -492,9 +472,7 @@ final class TextEntityTypeUnderline extends TextEntityType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -529,9 +507,7 @@ final class TextEntityTypeStrikethrough extends TextEntityType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -566,9 +542,7 @@ final class TextEntityTypeSpoiler extends TextEntityType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -603,9 +577,7 @@ final class TextEntityTypeCode extends TextEntityType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -640,9 +612,7 @@ final class TextEntityTypePre extends TextEntityType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -672,26 +642,19 @@ final class TextEntityTypePreCode extends TextEntityType {
   /// Text that must be formatted as if inside pre, and code HTML tags.
   ///
   /// * [language]: Programming language of the code; as defined by the sender.
-  const TextEntityTypePreCode({
-    required this.language,
-  });
+  const TextEntityTypePreCode({required this.language});
 
   /// Programming language of the code; as defined by the sender
   final String language;
 
   /// Parse from a json
   factory TextEntityTypePreCode.fromJson(Map<String, dynamic> json) =>
-      TextEntityTypePreCode(
-        language: json['language'],
-      );
+      TextEntityTypePreCode(language: json['language']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "language": language,
-    };
+    return {"@type": defaultObjectId, "language": language};
   }
 
   /// Copy model with modified properties.
@@ -699,12 +662,8 @@ final class TextEntityTypePreCode extends TextEntityType {
   /// Properties:
   /// * [language]: Programming language of the code; as defined by the sender
   @override
-  TextEntityTypePreCode copyWith({
-    String? language,
-  }) =>
-      TextEntityTypePreCode(
-        language: language ?? this.language,
-      );
+  TextEntityTypePreCode copyWith({String? language}) =>
+      TextEntityTypePreCode(language: language ?? this.language);
 
   /// TDLib object type
   static const String defaultObjectId = 'textEntityTypePreCode';
@@ -734,9 +693,7 @@ final class TextEntityTypeBlockQuote extends TextEntityType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -766,15 +723,13 @@ final class TextEntityTypeExpandableBlockQuote extends TextEntityType {
 
   /// Parse from a json
   factory TextEntityTypeExpandableBlockQuote.fromJson(
-          Map<String, dynamic> json) =>
-      const TextEntityTypeExpandableBlockQuote();
+    Map<String, dynamic> json,
+  ) => const TextEntityTypeExpandableBlockQuote();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -805,26 +760,19 @@ final class TextEntityTypeTextUrl extends TextEntityType {
   /// A text description shown instead of a raw URL.
   ///
   /// * [url]: HTTP or tg:// URL to be opened when the link is clicked.
-  const TextEntityTypeTextUrl({
-    required this.url,
-  });
+  const TextEntityTypeTextUrl({required this.url});
 
   /// HTTP or tg:// URL to be opened when the link is clicked
   final String url;
 
   /// Parse from a json
   factory TextEntityTypeTextUrl.fromJson(Map<String, dynamic> json) =>
-      TextEntityTypeTextUrl(
-        url: json['url'],
-      );
+      TextEntityTypeTextUrl(url: json['url']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "url": url,
-    };
+    return {"@type": defaultObjectId, "url": url};
   }
 
   /// Copy model with modified properties.
@@ -832,12 +780,8 @@ final class TextEntityTypeTextUrl extends TextEntityType {
   /// Properties:
   /// * [url]: HTTP or tg:// URL to be opened when the link is clicked
   @override
-  TextEntityTypeTextUrl copyWith({
-    String? url,
-  }) =>
-      TextEntityTypeTextUrl(
-        url: url ?? this.url,
-      );
+  TextEntityTypeTextUrl copyWith({String? url}) =>
+      TextEntityTypeTextUrl(url: url ?? this.url);
 
   /// TDLib object type
   static const String defaultObjectId = 'textEntityTypeTextUrl';
@@ -862,26 +806,19 @@ final class TextEntityTypeMentionName extends TextEntityType {
   /// A text shows instead of a raw mention of the user (e.g., when the user has no username).
   ///
   /// * [userId]: Identifier of the mentioned user.
-  const TextEntityTypeMentionName({
-    required this.userId,
-  });
+  const TextEntityTypeMentionName({required this.userId});
 
   /// Identifier of the mentioned user
   final int userId;
 
   /// Parse from a json
   factory TextEntityTypeMentionName.fromJson(Map<String, dynamic> json) =>
-      TextEntityTypeMentionName(
-        userId: json['user_id'],
-      );
+      TextEntityTypeMentionName(userId: json['user_id']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "user_id": userId,
-    };
+    return {"@type": defaultObjectId, "user_id": userId};
   }
 
   /// Copy model with modified properties.
@@ -889,12 +826,8 @@ final class TextEntityTypeMentionName extends TextEntityType {
   /// Properties:
   /// * [user_id]: Identifier of the mentioned user
   @override
-  TextEntityTypeMentionName copyWith({
-    int? userId,
-  }) =>
-      TextEntityTypeMentionName(
-        userId: userId ?? this.userId,
-      );
+  TextEntityTypeMentionName copyWith({int? userId}) =>
+      TextEntityTypeMentionName(userId: userId ?? this.userId);
 
   /// TDLib object type
   static const String defaultObjectId = 'textEntityTypeMentionName';
@@ -919,9 +852,7 @@ final class TextEntityTypeCustomEmoji extends TextEntityType {
   /// A custom emoji. The text behind a custom emoji must be an emoji. Only premium users can use premium custom emoji.
   ///
   /// * [customEmojiId]: Unique identifier of the custom emoji.
-  const TextEntityTypeCustomEmoji({
-    required this.customEmojiId,
-  });
+  const TextEntityTypeCustomEmoji({required this.customEmojiId});
 
   /// Unique identifier of the custom emoji
   final int customEmojiId;
@@ -937,10 +868,7 @@ final class TextEntityTypeCustomEmoji extends TextEntityType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "custom_emoji_id": customEmojiId,
-    };
+    return {"@type": defaultObjectId, "custom_emoji_id": customEmojiId};
   }
 
   /// Copy model with modified properties.
@@ -948,9 +876,7 @@ final class TextEntityTypeCustomEmoji extends TextEntityType {
   /// Properties:
   /// * [custom_emoji_id]: Unique identifier of the custom emoji
   @override
-  TextEntityTypeCustomEmoji copyWith({
-    int? customEmojiId,
-  }) =>
+  TextEntityTypeCustomEmoji copyWith({int? customEmojiId}) =>
       TextEntityTypeCustomEmoji(
         customEmojiId: customEmojiId ?? this.customEmojiId,
       );
@@ -978,26 +904,19 @@ final class TextEntityTypeMediaTimestamp extends TextEntityType {
   /// A media timestamp.
   ///
   /// * [mediaTimestamp]: Timestamp from which a video/audio/video note/voice note/story playing must start, in seconds. The media can be in the content or the link preview of the current message, or in the same places in the replied message.
-  const TextEntityTypeMediaTimestamp({
-    required this.mediaTimestamp,
-  });
+  const TextEntityTypeMediaTimestamp({required this.mediaTimestamp});
 
   /// Timestamp from which a video/audio/video note/voice note/story playing must start, in seconds. The media can be in the content or the link preview of the current message, or in the same places in the replied message
   final int mediaTimestamp;
 
   /// Parse from a json
   factory TextEntityTypeMediaTimestamp.fromJson(Map<String, dynamic> json) =>
-      TextEntityTypeMediaTimestamp(
-        mediaTimestamp: json['media_timestamp'],
-      );
+      TextEntityTypeMediaTimestamp(mediaTimestamp: json['media_timestamp']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "media_timestamp": mediaTimestamp,
-    };
+    return {"@type": defaultObjectId, "media_timestamp": mediaTimestamp};
   }
 
   /// Copy model with modified properties.
@@ -1005,9 +924,7 @@ final class TextEntityTypeMediaTimestamp extends TextEntityType {
   /// Properties:
   /// * [media_timestamp]: Timestamp from which a video/audio/video note/voice note/story playing must start, in seconds. The media can be in the content or the link preview of the current message, or in the same places in the replied message
   @override
-  TextEntityTypeMediaTimestamp copyWith({
-    int? mediaTimestamp,
-  }) =>
+  TextEntityTypeMediaTimestamp copyWith({int? mediaTimestamp}) =>
       TextEntityTypeMediaTimestamp(
         mediaTimestamp: mediaTimestamp ?? this.mediaTimestamp,
       );

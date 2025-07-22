@@ -129,19 +129,18 @@ final class QuickReplyMessage extends TdObject {
     ReplyMarkup? replyMarkup,
     dynamic extra,
     int? clientId,
-  }) =>
-      QuickReplyMessage(
-        id: id ?? this.id,
-        sendingState: sendingState ?? this.sendingState,
-        canBeEdited: canBeEdited ?? this.canBeEdited,
-        replyToMessageId: replyToMessageId ?? this.replyToMessageId,
-        viaBotUserId: viaBotUserId ?? this.viaBotUserId,
-        mediaAlbumId: mediaAlbumId ?? this.mediaAlbumId,
-        content: content ?? this.content,
-        replyMarkup: replyMarkup ?? this.replyMarkup,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => QuickReplyMessage(
+    id: id ?? this.id,
+    sendingState: sendingState ?? this.sendingState,
+    canBeEdited: canBeEdited ?? this.canBeEdited,
+    replyToMessageId: replyToMessageId ?? this.replyToMessageId,
+    viaBotUserId: viaBotUserId ?? this.viaBotUserId,
+    mediaAlbumId: mediaAlbumId ?? this.mediaAlbumId,
+    content: content ?? this.content,
+    replyMarkup: replyMarkup ?? this.replyMarkup,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'quickReplyMessage';

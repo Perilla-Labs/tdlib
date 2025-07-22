@@ -32,9 +32,10 @@ final class ChatInviteLinkCounts extends TdObject {
   factory ChatInviteLinkCounts.fromJson(Map<String, dynamic> json) =>
       ChatInviteLinkCounts(
         inviteLinkCounts: List<ChatInviteLinkCount>.from(
-            (json['invite_link_counts'] ?? [])
-                .map((item) => ChatInviteLinkCount.fromJson(item))
-                .toList()),
+          (json['invite_link_counts'] ?? [])
+              .map((item) => ChatInviteLinkCount.fromJson(item))
+              .toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -56,12 +57,11 @@ final class ChatInviteLinkCounts extends TdObject {
     List<ChatInviteLinkCount>? inviteLinkCounts,
     dynamic extra,
     int? clientId,
-  }) =>
-      ChatInviteLinkCounts(
-        inviteLinkCounts: inviteLinkCounts ?? this.inviteLinkCounts,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => ChatInviteLinkCounts(
+    inviteLinkCounts: inviteLinkCounts ?? this.inviteLinkCounts,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatInviteLinkCounts';

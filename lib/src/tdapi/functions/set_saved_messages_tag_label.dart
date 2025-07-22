@@ -17,10 +17,7 @@ final class SetSavedMessagesTagLabel extends TdFunction {
   /// * [label]: New label for the tag; 0-12 characters.
   ///
   /// [Ok] is returned on completion.
-  const SetSavedMessagesTagLabel({
-    required this.tag,
-    required this.label,
-  });
+  const SetSavedMessagesTagLabel({required this.tag, required this.label});
 
   /// The tag which label will be changed
   final ReactionType tag;
@@ -44,10 +41,7 @@ final class SetSavedMessagesTagLabel extends TdFunction {
   /// Properties:
   /// * [tag]: The tag which label will be changed
   /// * [label]: New label for the tag; 0-12 characters
-  SetSavedMessagesTagLabel copyWith({
-    ReactionType? tag,
-    String? label,
-  }) =>
+  SetSavedMessagesTagLabel copyWith({ReactionType? tag, String? label}) =>
       SetSavedMessagesTagLabel(
         tag: tag ?? this.tag,
         label: label ?? this.label,

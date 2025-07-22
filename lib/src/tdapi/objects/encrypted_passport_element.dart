@@ -67,25 +67,27 @@ final class EncryptedPassportElement extends TdObject {
   final String hash;
 
   /// Parse from a json
-  factory EncryptedPassportElement.fromJson(Map<String, dynamic> json) =>
-      EncryptedPassportElement(
-        type: PassportElementType.fromJson(json['type']),
-        data: json['data'],
-        frontSide: DatedFile.fromJson(json['front_side']),
-        reverseSide: json['reverse_side'] == null
-            ? null
-            : DatedFile.fromJson(json['reverse_side']),
-        selfie:
-            json['selfie'] == null ? null : DatedFile.fromJson(json['selfie']),
-        translation: List<DatedFile>.from((json['translation'] ?? [])
-            .map((item) => DatedFile.fromJson(item))
-            .toList()),
-        files: List<DatedFile>.from((json['files'] ?? [])
-            .map((item) => DatedFile.fromJson(item))
-            .toList()),
-        value: json['value'],
-        hash: json['hash'],
-      );
+  factory EncryptedPassportElement.fromJson(
+    Map<String, dynamic> json,
+  ) => EncryptedPassportElement(
+    type: PassportElementType.fromJson(json['type']),
+    data: json['data'],
+    frontSide: DatedFile.fromJson(json['front_side']),
+    reverseSide: json['reverse_side'] == null
+        ? null
+        : DatedFile.fromJson(json['reverse_side']),
+    selfie: json['selfie'] == null ? null : DatedFile.fromJson(json['selfie']),
+    translation: List<DatedFile>.from(
+      (json['translation'] ?? [])
+          .map((item) => DatedFile.fromJson(item))
+          .toList(),
+    ),
+    files: List<DatedFile>.from(
+      (json['files'] ?? []).map((item) => DatedFile.fromJson(item)).toList(),
+    ),
+    value: json['value'],
+    hash: json['hash'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -126,18 +128,17 @@ final class EncryptedPassportElement extends TdObject {
     List<DatedFile>? files,
     String? value,
     String? hash,
-  }) =>
-      EncryptedPassportElement(
-        type: type ?? this.type,
-        data: data ?? this.data,
-        frontSide: frontSide ?? this.frontSide,
-        reverseSide: reverseSide ?? this.reverseSide,
-        selfie: selfie ?? this.selfie,
-        translation: translation ?? this.translation,
-        files: files ?? this.files,
-        value: value ?? this.value,
-        hash: hash ?? this.hash,
-      );
+  }) => EncryptedPassportElement(
+    type: type ?? this.type,
+    data: data ?? this.data,
+    frontSide: frontSide ?? this.frontSide,
+    reverseSide: reverseSide ?? this.reverseSide,
+    selfie: selfie ?? this.selfie,
+    translation: translation ?? this.translation,
+    files: files ?? this.files,
+    value: value ?? this.value,
+    hash: hash ?? this.hash,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'encryptedPassportElement';

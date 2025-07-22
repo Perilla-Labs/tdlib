@@ -44,12 +44,12 @@ final class Contact extends TdObject {
 
   /// Parse from a json
   factory Contact.fromJson(Map<String, dynamic> json) => Contact(
-        phoneNumber: json['phone_number'],
-        firstName: json['first_name'],
-        lastName: json['last_name'],
-        vcard: json['vcard'],
-        userId: json['user_id'],
-      );
+    phoneNumber: json['phone_number'],
+    firstName: json['first_name'],
+    lastName: json['last_name'],
+    vcard: json['vcard'],
+    userId: json['user_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -78,14 +78,13 @@ final class Contact extends TdObject {
     String? lastName,
     String? vcard,
     int? userId,
-  }) =>
-      Contact(
-        phoneNumber: phoneNumber ?? this.phoneNumber,
-        firstName: firstName ?? this.firstName,
-        lastName: lastName ?? this.lastName,
-        vcard: vcard ?? this.vcard,
-        userId: userId ?? this.userId,
-      );
+  }) => Contact(
+    phoneNumber: phoneNumber ?? this.phoneNumber,
+    firstName: firstName ?? this.firstName,
+    lastName: lastName ?? this.lastName,
+    vcard: vcard ?? this.vcard,
+    userId: userId ?? this.userId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'contact';

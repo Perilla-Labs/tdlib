@@ -11,11 +11,7 @@ final class TestBytes extends TdObject {
   /// A simple object containing a sequence of bytes; for testing only.
   ///
   /// * [value]: Bytes.
-  const TestBytes({
-    required this.value,
-    this.extra,
-    this.clientId,
-  });
+  const TestBytes({required this.value, this.extra, this.clientId});
 
   /// Bytes
   final String value;
@@ -30,29 +26,22 @@ final class TestBytes extends TdObject {
 
   /// Parse from a json
   factory TestBytes.fromJson(Map<String, dynamic> json) => TestBytes(
-        value: json['value'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    value: json['value'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "value": value,
-    };
+    return {"@type": defaultObjectId, "value": value};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [value]: Bytes
-  TestBytes copyWith({
-    String? value,
-    dynamic extra,
-    int? clientId,
-  }) =>
+  TestBytes copyWith({String? value, dynamic extra, int? clientId}) =>
       TestBytes(
         value: value ?? this.value,
         extra: extra ?? this.extra,

@@ -32,10 +32,10 @@ final class ProductInfo extends TdObject {
 
   /// Parse from a json
   factory ProductInfo.fromJson(Map<String, dynamic> json) => ProductInfo(
-        title: json['title'],
-        description: FormattedText.fromJson(json['description']),
-        photo: json['photo'] == null ? null : Photo.fromJson(json['photo']),
-      );
+    title: json['title'],
+    description: FormattedText.fromJson(json['description']),
+    photo: json['photo'] == null ? null : Photo.fromJson(json['photo']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -58,12 +58,11 @@ final class ProductInfo extends TdObject {
     String? title,
     FormattedText? description,
     Photo? photo,
-  }) =>
-      ProductInfo(
-        title: title ?? this.title,
-        description: description ?? this.description,
-        photo: photo ?? this.photo,
-      );
+  }) => ProductInfo(
+    title: title ?? this.title,
+    description: description ?? this.description,
+    photo: photo ?? this.photo,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'productInfo';

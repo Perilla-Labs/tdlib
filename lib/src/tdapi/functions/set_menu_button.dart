@@ -17,10 +17,7 @@ final class SetMenuButton extends TdFunction {
   /// * [menuButton]: New menu button.
   ///
   /// [Ok] is returned on completion.
-  const SetMenuButton({
-    required this.userId,
-    required this.menuButton,
-  });
+  const SetMenuButton({required this.userId, required this.menuButton});
 
   /// Identifier of the user or 0 to set menu button for all users
   final int userId;
@@ -44,10 +41,7 @@ final class SetMenuButton extends TdFunction {
   /// Properties:
   /// * [user_id]: Identifier of the user or 0 to set menu button for all users
   /// * [menu_button]: New menu button
-  SetMenuButton copyWith({
-    int? userId,
-    BotMenuButton? menuButton,
-  }) =>
+  SetMenuButton copyWith({int? userId, BotMenuButton? menuButton}) =>
       SetMenuButton(
         userId: userId ?? this.userId,
         menuButton: menuButton ?? this.menuButton,

@@ -64,10 +64,7 @@ final class CheckChatUsernameResultOk extends CheckChatUsernameResult {
   /// **CheckChatUsernameResultOk** *(checkChatUsernameResultOk)* - child of CheckChatUsernameResult
   ///
   /// The username can be set.
-  const CheckChatUsernameResultOk({
-    this.extra,
-    this.clientId,
-  });
+  const CheckChatUsernameResultOk({this.extra, this.clientId});
 
   /// [extra] callback sign
   @override
@@ -87,17 +84,12 @@ final class CheckChatUsernameResultOk extends CheckChatUsernameResult {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
   @override
-  CheckChatUsernameResultOk copyWith({
-    dynamic extra,
-    int? clientId,
-  }) =>
+  CheckChatUsernameResultOk copyWith({dynamic extra, int? clientId}) =>
       CheckChatUsernameResultOk(
         extra: extra ?? this.extra,
         clientId: clientId ?? this.clientId,
@@ -123,10 +115,7 @@ final class CheckChatUsernameResultUsernameInvalid
   /// **CheckChatUsernameResultUsernameInvalid** *(checkChatUsernameResultUsernameInvalid)* - child of CheckChatUsernameResult
   ///
   /// The username is invalid.
-  const CheckChatUsernameResultUsernameInvalid({
-    this.extra,
-    this.clientId,
-  });
+  const CheckChatUsernameResultUsernameInvalid({this.extra, this.clientId});
 
   /// [extra] callback sign
   @override
@@ -138,18 +127,16 @@ final class CheckChatUsernameResultUsernameInvalid
 
   /// Parse from a json
   factory CheckChatUsernameResultUsernameInvalid.fromJson(
-          Map<String, dynamic> json) =>
-      CheckChatUsernameResultUsernameInvalid(
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    Map<String, dynamic> json,
+  ) => CheckChatUsernameResultUsernameInvalid(
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -157,11 +144,10 @@ final class CheckChatUsernameResultUsernameInvalid
   CheckChatUsernameResultUsernameInvalid copyWith({
     dynamic extra,
     int? clientId,
-  }) =>
-      CheckChatUsernameResultUsernameInvalid(
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => CheckChatUsernameResultUsernameInvalid(
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId =
@@ -184,10 +170,7 @@ final class CheckChatUsernameResultUsernameOccupied
   /// **CheckChatUsernameResultUsernameOccupied** *(checkChatUsernameResultUsernameOccupied)* - child of CheckChatUsernameResult
   ///
   /// The username is occupied.
-  const CheckChatUsernameResultUsernameOccupied({
-    this.extra,
-    this.clientId,
-  });
+  const CheckChatUsernameResultUsernameOccupied({this.extra, this.clientId});
 
   /// [extra] callback sign
   @override
@@ -199,18 +182,16 @@ final class CheckChatUsernameResultUsernameOccupied
 
   /// Parse from a json
   factory CheckChatUsernameResultUsernameOccupied.fromJson(
-          Map<String, dynamic> json) =>
-      CheckChatUsernameResultUsernameOccupied(
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    Map<String, dynamic> json,
+  ) => CheckChatUsernameResultUsernameOccupied(
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -218,11 +199,10 @@ final class CheckChatUsernameResultUsernameOccupied
   CheckChatUsernameResultUsernameOccupied copyWith({
     dynamic extra,
     int? clientId,
-  }) =>
-      CheckChatUsernameResultUsernameOccupied(
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => CheckChatUsernameResultUsernameOccupied(
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId =
@@ -245,10 +225,7 @@ final class CheckChatUsernameResultUsernamePurchasable
   /// **CheckChatUsernameResultUsernamePurchasable** *(checkChatUsernameResultUsernamePurchasable)* - child of CheckChatUsernameResult
   ///
   /// The username can be purchased at https://fragment.com. Information about the username can be received using getCollectibleItemInfo.
-  const CheckChatUsernameResultUsernamePurchasable({
-    this.extra,
-    this.clientId,
-  });
+  const CheckChatUsernameResultUsernamePurchasable({this.extra, this.clientId});
 
   /// [extra] callback sign
   @override
@@ -260,18 +237,16 @@ final class CheckChatUsernameResultUsernamePurchasable
 
   /// Parse from a json
   factory CheckChatUsernameResultUsernamePurchasable.fromJson(
-          Map<String, dynamic> json) =>
-      CheckChatUsernameResultUsernamePurchasable(
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    Map<String, dynamic> json,
+  ) => CheckChatUsernameResultUsernamePurchasable(
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -279,11 +254,10 @@ final class CheckChatUsernameResultUsernamePurchasable
   CheckChatUsernameResultUsernamePurchasable copyWith({
     dynamic extra,
     int? clientId,
-  }) =>
-      CheckChatUsernameResultUsernamePurchasable(
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => CheckChatUsernameResultUsernamePurchasable(
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId =
@@ -306,10 +280,7 @@ final class CheckChatUsernameResultPublicChatsTooMany
   /// **CheckChatUsernameResultPublicChatsTooMany** *(checkChatUsernameResultPublicChatsTooMany)* - child of CheckChatUsernameResult
   ///
   /// The user has too many chats with username, one of them must be made private first.
-  const CheckChatUsernameResultPublicChatsTooMany({
-    this.extra,
-    this.clientId,
-  });
+  const CheckChatUsernameResultPublicChatsTooMany({this.extra, this.clientId});
 
   /// [extra] callback sign
   @override
@@ -321,18 +292,16 @@ final class CheckChatUsernameResultPublicChatsTooMany
 
   /// Parse from a json
   factory CheckChatUsernameResultPublicChatsTooMany.fromJson(
-          Map<String, dynamic> json) =>
-      CheckChatUsernameResultPublicChatsTooMany(
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    Map<String, dynamic> json,
+  ) => CheckChatUsernameResultPublicChatsTooMany(
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -340,11 +309,10 @@ final class CheckChatUsernameResultPublicChatsTooMany
   CheckChatUsernameResultPublicChatsTooMany copyWith({
     dynamic extra,
     int? clientId,
-  }) =>
-      CheckChatUsernameResultPublicChatsTooMany(
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => CheckChatUsernameResultPublicChatsTooMany(
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId =
@@ -382,18 +350,16 @@ final class CheckChatUsernameResultPublicGroupsUnavailable
 
   /// Parse from a json
   factory CheckChatUsernameResultPublicGroupsUnavailable.fromJson(
-          Map<String, dynamic> json) =>
-      CheckChatUsernameResultPublicGroupsUnavailable(
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    Map<String, dynamic> json,
+  ) => CheckChatUsernameResultPublicGroupsUnavailable(
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -401,11 +367,10 @@ final class CheckChatUsernameResultPublicGroupsUnavailable
   CheckChatUsernameResultPublicGroupsUnavailable copyWith({
     dynamic extra,
     int? clientId,
-  }) =>
-      CheckChatUsernameResultPublicGroupsUnavailable(
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => CheckChatUsernameResultPublicGroupsUnavailable(
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId =

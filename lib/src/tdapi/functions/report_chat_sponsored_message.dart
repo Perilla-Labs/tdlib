@@ -8,7 +8,7 @@ part of '../tdapi.dart';
 /// * [messageId]: Identifier of the sponsored message.
 /// * [optionId]: Option identifier chosen by the user; leave empty for the initial request.
 ///
-/// [ReportChatSponsoredMessageResult] is returned on completion.
+/// [ReportSponsoredResult] is returned on completion.
 final class ReportChatSponsoredMessage extends TdFunction {
   /// **ReportChatSponsoredMessage** *(reportChatSponsoredMessage)* - TDLib function
   ///
@@ -18,7 +18,7 @@ final class ReportChatSponsoredMessage extends TdFunction {
   /// * [messageId]: Identifier of the sponsored message.
   /// * [optionId]: Option identifier chosen by the user; leave empty for the initial request.
   ///
-  /// [ReportChatSponsoredMessageResult] is returned on completion.
+  /// [ReportSponsoredResult] is returned on completion.
   const ReportChatSponsoredMessage({
     required this.chatId,
     required this.messageId,
@@ -56,12 +56,11 @@ final class ReportChatSponsoredMessage extends TdFunction {
     int? chatId,
     int? messageId,
     String? optionId,
-  }) =>
-      ReportChatSponsoredMessage(
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        optionId: optionId ?? this.optionId,
-      );
+  }) => ReportChatSponsoredMessage(
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    optionId: optionId ?? this.optionId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'reportChatSponsoredMessage';

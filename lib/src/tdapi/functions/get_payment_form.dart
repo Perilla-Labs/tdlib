@@ -17,10 +17,7 @@ final class GetPaymentForm extends TdFunction {
   /// * [theme]: Preferred payment form theme; pass null to use the default theme *(optional)*.
   ///
   /// [PaymentForm] is returned on completion.
-  const GetPaymentForm({
-    required this.inputInvoice,
-    this.theme,
-  });
+  const GetPaymentForm({required this.inputInvoice, this.theme});
 
   /// The invoice
   final InputInvoice inputInvoice;
@@ -47,11 +44,10 @@ final class GetPaymentForm extends TdFunction {
   GetPaymentForm copyWith({
     InputInvoice? inputInvoice,
     ThemeParameters? theme,
-  }) =>
-      GetPaymentForm(
-        inputInvoice: inputInvoice ?? this.inputInvoice,
-        theme: theme ?? this.theme,
-      );
+  }) => GetPaymentForm(
+    inputInvoice: inputInvoice ?? this.inputInvoice,
+    theme: theme ?? this.theme,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getPaymentForm';

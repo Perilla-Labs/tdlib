@@ -65,14 +65,13 @@ final class SearchStringsByPrefix extends TdFunction {
     String? query,
     int? limit,
     bool? returnNoneForEmptyQuery,
-  }) =>
-      SearchStringsByPrefix(
-        strings: strings ?? this.strings,
-        query: query ?? this.query,
-        limit: limit ?? this.limit,
-        returnNoneForEmptyQuery:
-            returnNoneForEmptyQuery ?? this.returnNoneForEmptyQuery,
-      );
+  }) => SearchStringsByPrefix(
+    strings: strings ?? this.strings,
+    query: query ?? this.query,
+    limit: limit ?? this.limit,
+    returnNoneForEmptyQuery:
+        returnNoneForEmptyQuery ?? this.returnNoneForEmptyQuery,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'searchStringsByPrefix';

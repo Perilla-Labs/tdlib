@@ -52,11 +52,7 @@ final class SetPollAnswer extends TdFunction {
   /// * [chat_id]: Identifier of the chat to which the poll belongs
   /// * [message_id]: Identifier of the message containing the poll
   /// * [option_ids]: 0-based identifiers of answer options, chosen by the user. User can choose more than 1 answer option only is the poll allows multiple answers
-  SetPollAnswer copyWith({
-    int? chatId,
-    int? messageId,
-    List<int>? optionIds,
-  }) =>
+  SetPollAnswer copyWith({int? chatId, int? messageId, List<int>? optionIds}) =>
       SetPollAnswer(
         chatId: chatId ?? this.chatId,
         messageId: messageId ?? this.messageId,

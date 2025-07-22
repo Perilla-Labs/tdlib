@@ -74,22 +74,23 @@ final class Poll extends TdObject {
 
   /// Parse from a json
   factory Poll.fromJson(Map<String, dynamic> json) => Poll(
-        id: json['id'] is int ? json['id'] : int.parse(json['id']),
-        question: FormattedText.fromJson(json['question']),
-        options: List<PollOption>.from((json['options'] ?? [])
-            .map((item) => PollOption.fromJson(item))
-            .toList()),
-        totalVoterCount: json['total_voter_count'],
-        recentVoterIds: List<MessageSender>.from(
-            (json['recent_voter_ids'] ?? [])
-                .map((item) => MessageSender.fromJson(item))
-                .toList()),
-        isAnonymous: json['is_anonymous'],
-        type: PollType.fromJson(json['type']),
-        openPeriod: json['open_period'],
-        closeDate: json['close_date'],
-        isClosed: json['is_closed'],
-      );
+    id: json['id'] is int ? json['id'] : int.parse(json['id']),
+    question: FormattedText.fromJson(json['question']),
+    options: List<PollOption>.from(
+      (json['options'] ?? []).map((item) => PollOption.fromJson(item)).toList(),
+    ),
+    totalVoterCount: json['total_voter_count'],
+    recentVoterIds: List<MessageSender>.from(
+      (json['recent_voter_ids'] ?? [])
+          .map((item) => MessageSender.fromJson(item))
+          .toList(),
+    ),
+    isAnonymous: json['is_anonymous'],
+    type: PollType.fromJson(json['type']),
+    openPeriod: json['open_period'],
+    closeDate: json['close_date'],
+    isClosed: json['is_closed'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -133,19 +134,18 @@ final class Poll extends TdObject {
     int? openPeriod,
     int? closeDate,
     bool? isClosed,
-  }) =>
-      Poll(
-        id: id ?? this.id,
-        question: question ?? this.question,
-        options: options ?? this.options,
-        totalVoterCount: totalVoterCount ?? this.totalVoterCount,
-        recentVoterIds: recentVoterIds ?? this.recentVoterIds,
-        isAnonymous: isAnonymous ?? this.isAnonymous,
-        type: type ?? this.type,
-        openPeriod: openPeriod ?? this.openPeriod,
-        closeDate: closeDate ?? this.closeDate,
-        isClosed: isClosed ?? this.isClosed,
-      );
+  }) => Poll(
+    id: id ?? this.id,
+    question: question ?? this.question,
+    options: options ?? this.options,
+    totalVoterCount: totalVoterCount ?? this.totalVoterCount,
+    recentVoterIds: recentVoterIds ?? this.recentVoterIds,
+    isAnonymous: isAnonymous ?? this.isAnonymous,
+    type: type ?? this.type,
+    openPeriod: openPeriod ?? this.openPeriod,
+    closeDate: closeDate ?? this.closeDate,
+    isClosed: isClosed ?? this.isClosed,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'poll';

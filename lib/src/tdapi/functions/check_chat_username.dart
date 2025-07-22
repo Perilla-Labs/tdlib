@@ -17,10 +17,7 @@ final class CheckChatUsername extends TdFunction {
   /// * [username]: Username to be checked.
   ///
   /// [CheckChatUsernameResult] is returned on completion.
-  const CheckChatUsername({
-    required this.chatId,
-    required this.username,
-  });
+  const CheckChatUsername({required this.chatId, required this.username});
 
   /// Chat identifier; must be identifier of a supergroup chat, or a channel chat, or a private chat with self, or 0 if the chat is being created
   final int chatId;
@@ -44,10 +41,7 @@ final class CheckChatUsername extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier; must be identifier of a supergroup chat, or a channel chat, or a private chat with self, or 0 if the chat is being created
   /// * [username]: Username to be checked
-  CheckChatUsername copyWith({
-    int? chatId,
-    String? username,
-  }) =>
+  CheckChatUsername copyWith({int? chatId, String? username}) =>
       CheckChatUsername(
         chatId: chatId ?? this.chatId,
         username: username ?? this.username,

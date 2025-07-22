@@ -24,6 +24,7 @@ sealed class LinkPreviewType extends TdObject {
   /// * [LinkPreviewTypeEmbeddedVideoPlayer]
   /// * [LinkPreviewTypeExternalAudio]
   /// * [LinkPreviewTypeExternalVideo]
+  /// * [LinkPreviewTypeGroupCall]
   /// * [LinkPreviewTypeInvoice]
   /// * [LinkPreviewTypeMessage]
   /// * [LinkPreviewTypePhoto]
@@ -35,6 +36,7 @@ sealed class LinkPreviewType extends TdObject {
   /// * [LinkPreviewTypeSupergroupBoost]
   /// * [LinkPreviewTypeTheme]
   /// * [LinkPreviewTypeUnsupported]
+  /// * [LinkPreviewTypeUpgradedGift]
   /// * [LinkPreviewTypeUser]
   /// * [LinkPreviewTypeVideo]
   /// * [LinkPreviewTypeVideoChat]
@@ -71,6 +73,8 @@ sealed class LinkPreviewType extends TdObject {
         return LinkPreviewTypeExternalAudio.fromJson(json);
       case LinkPreviewTypeExternalVideo.defaultObjectId:
         return LinkPreviewTypeExternalVideo.fromJson(json);
+      case LinkPreviewTypeGroupCall.defaultObjectId:
+        return LinkPreviewTypeGroupCall.fromJson(json);
       case LinkPreviewTypeInvoice.defaultObjectId:
         return LinkPreviewTypeInvoice.fromJson(json);
       case LinkPreviewTypeMessage.defaultObjectId:
@@ -93,6 +97,8 @@ sealed class LinkPreviewType extends TdObject {
         return LinkPreviewTypeTheme.fromJson(json);
       case LinkPreviewTypeUnsupported.defaultObjectId:
         return LinkPreviewTypeUnsupported.fromJson(json);
+      case LinkPreviewTypeUpgradedGift.defaultObjectId:
+        return LinkPreviewTypeUpgradedGift.fromJson(json);
       case LinkPreviewTypeUser.defaultObjectId:
         return LinkPreviewTypeUser.fromJson(json);
       case LinkPreviewTypeVideo.defaultObjectId:
@@ -145,10 +151,7 @@ final class LinkPreviewTypeAlbum extends LinkPreviewType {
   ///
   /// * [media]: The list of album media.
   /// * [caption]: Album caption.
-  const LinkPreviewTypeAlbum({
-    required this.media,
-    required this.caption,
-  });
+  const LinkPreviewTypeAlbum({required this.media, required this.caption});
 
   /// The list of album media
   final List<LinkPreviewAlbumMedia> media;
@@ -159,9 +162,11 @@ final class LinkPreviewTypeAlbum extends LinkPreviewType {
   /// Parse from a json
   factory LinkPreviewTypeAlbum.fromJson(Map<String, dynamic> json) =>
       LinkPreviewTypeAlbum(
-        media: List<LinkPreviewAlbumMedia>.from((json['media'] ?? [])
-            .map((item) => LinkPreviewAlbumMedia.fromJson(item))
-            .toList()),
+        media: List<LinkPreviewAlbumMedia>.from(
+          (json['media'] ?? [])
+              .map((item) => LinkPreviewAlbumMedia.fromJson(item))
+              .toList(),
+        ),
         caption: json['caption'],
       );
 
@@ -184,11 +189,10 @@ final class LinkPreviewTypeAlbum extends LinkPreviewType {
   LinkPreviewTypeAlbum copyWith({
     List<LinkPreviewAlbumMedia>? media,
     String? caption,
-  }) =>
-      LinkPreviewTypeAlbum(
-        media: media ?? this.media,
-        caption: caption ?? this.caption,
-      );
+  }) => LinkPreviewTypeAlbum(
+    media: media ?? this.media,
+    caption: caption ?? this.caption,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'linkPreviewTypeAlbum';
@@ -213,9 +217,7 @@ final class LinkPreviewTypeAnimation extends LinkPreviewType {
   /// The link is a link to an animation.
   ///
   /// * [animation]: The animation.
-  const LinkPreviewTypeAnimation({
-    required this.animation,
-  });
+  const LinkPreviewTypeAnimation({required this.animation});
 
   /// The animation
   final Animation animation;
@@ -229,10 +231,7 @@ final class LinkPreviewTypeAnimation extends LinkPreviewType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "animation": animation.toJson(),
-    };
+    return {"@type": defaultObjectId, "animation": animation.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -240,12 +239,8 @@ final class LinkPreviewTypeAnimation extends LinkPreviewType {
   /// Properties:
   /// * [animation]: The animation
   @override
-  LinkPreviewTypeAnimation copyWith({
-    Animation? animation,
-  }) =>
-      LinkPreviewTypeAnimation(
-        animation: animation ?? this.animation,
-      );
+  LinkPreviewTypeAnimation copyWith({Animation? animation}) =>
+      LinkPreviewTypeAnimation(animation: animation ?? this.animation);
 
   /// TDLib object type
   static const String defaultObjectId = 'linkPreviewTypeAnimation';
@@ -270,26 +265,19 @@ final class LinkPreviewTypeApp extends LinkPreviewType {
   /// The link is a link to an app at App Store or Google Play.
   ///
   /// * [photo]: Photo for the app.
-  const LinkPreviewTypeApp({
-    required this.photo,
-  });
+  const LinkPreviewTypeApp({required this.photo});
 
   /// Photo for the app
   final Photo photo;
 
   /// Parse from a json
   factory LinkPreviewTypeApp.fromJson(Map<String, dynamic> json) =>
-      LinkPreviewTypeApp(
-        photo: Photo.fromJson(json['photo']),
-      );
+      LinkPreviewTypeApp(photo: Photo.fromJson(json['photo']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "photo": photo.toJson(),
-    };
+    return {"@type": defaultObjectId, "photo": photo.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -297,12 +285,8 @@ final class LinkPreviewTypeApp extends LinkPreviewType {
   /// Properties:
   /// * [photo]: Photo for the app
   @override
-  LinkPreviewTypeApp copyWith({
-    Photo? photo,
-  }) =>
-      LinkPreviewTypeApp(
-        photo: photo ?? this.photo,
-      );
+  LinkPreviewTypeApp copyWith({Photo? photo}) =>
+      LinkPreviewTypeApp(photo: photo ?? this.photo);
 
   /// TDLib object type
   static const String defaultObjectId = 'linkPreviewTypeApp';
@@ -327,9 +311,7 @@ final class LinkPreviewTypeArticle extends LinkPreviewType {
   /// The link is a link to a web site.
   ///
   /// * [photo]: Article's main photo; may be null *(optional)*.
-  const LinkPreviewTypeArticle({
-    this.photo,
-  });
+  const LinkPreviewTypeArticle({this.photo});
 
   /// Article's main photo; may be null
   final Photo? photo;
@@ -343,10 +325,7 @@ final class LinkPreviewTypeArticle extends LinkPreviewType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "photo": photo?.toJson(),
-    };
+    return {"@type": defaultObjectId, "photo": photo?.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -354,12 +333,8 @@ final class LinkPreviewTypeArticle extends LinkPreviewType {
   /// Properties:
   /// * [photo]: Article's main photo; may be null
   @override
-  LinkPreviewTypeArticle copyWith({
-    Photo? photo,
-  }) =>
-      LinkPreviewTypeArticle(
-        photo: photo ?? this.photo,
-      );
+  LinkPreviewTypeArticle copyWith({Photo? photo}) =>
+      LinkPreviewTypeArticle(photo: photo ?? this.photo);
 
   /// TDLib object type
   static const String defaultObjectId = 'linkPreviewTypeArticle';
@@ -384,26 +359,19 @@ final class LinkPreviewTypeAudio extends LinkPreviewType {
   /// The link is a link to an audio.
   ///
   /// * [audio]: The audio description.
-  const LinkPreviewTypeAudio({
-    required this.audio,
-  });
+  const LinkPreviewTypeAudio({required this.audio});
 
   /// The audio description
   final Audio audio;
 
   /// Parse from a json
   factory LinkPreviewTypeAudio.fromJson(Map<String, dynamic> json) =>
-      LinkPreviewTypeAudio(
-        audio: Audio.fromJson(json['audio']),
-      );
+      LinkPreviewTypeAudio(audio: Audio.fromJson(json['audio']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "audio": audio.toJson(),
-    };
+    return {"@type": defaultObjectId, "audio": audio.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -411,12 +379,8 @@ final class LinkPreviewTypeAudio extends LinkPreviewType {
   /// Properties:
   /// * [audio]: The audio description
   @override
-  LinkPreviewTypeAudio copyWith({
-    Audio? audio,
-  }) =>
-      LinkPreviewTypeAudio(
-        audio: audio ?? this.audio,
-      );
+  LinkPreviewTypeAudio copyWith({Audio? audio}) =>
+      LinkPreviewTypeAudio(audio: audio ?? this.audio);
 
   /// TDLib object type
   static const String defaultObjectId = 'linkPreviewTypeAudio';
@@ -443,10 +407,7 @@ final class LinkPreviewTypeBackground extends LinkPreviewType {
   ///
   /// * [document]: Document with the background; may be null for filled backgrounds *(optional)*.
   /// * [backgroundType]: Type of the background; may be null if unknown *(optional)*.
-  const LinkPreviewTypeBackground({
-    this.document,
-    this.backgroundType,
-  });
+  const LinkPreviewTypeBackground({this.document, this.backgroundType});
 
   /// Document with the background; may be null for filled backgrounds
   final Document? document;
@@ -484,11 +445,10 @@ final class LinkPreviewTypeBackground extends LinkPreviewType {
   LinkPreviewTypeBackground copyWith({
     Document? document,
     BackgroundType? backgroundType,
-  }) =>
-      LinkPreviewTypeBackground(
-        document: document ?? this.document,
-        backgroundType: backgroundType ?? this.backgroundType,
-      );
+  }) => LinkPreviewTypeBackground(
+    document: document ?? this.document,
+    backgroundType: backgroundType ?? this.backgroundType,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'linkPreviewTypeBackground';
@@ -513,9 +473,7 @@ final class LinkPreviewTypeChannelBoost extends LinkPreviewType {
   /// The link is a link to boost a channel chat.
   ///
   /// * [photo]: Photo of the chat; may be null *(optional)*.
-  const LinkPreviewTypeChannelBoost({
-    this.photo,
-  });
+  const LinkPreviewTypeChannelBoost({this.photo});
 
   /// Photo of the chat; may be null
   final ChatPhoto? photo;
@@ -529,10 +487,7 @@ final class LinkPreviewTypeChannelBoost extends LinkPreviewType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "photo": photo?.toJson(),
-    };
+    return {"@type": defaultObjectId, "photo": photo?.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -540,12 +495,8 @@ final class LinkPreviewTypeChannelBoost extends LinkPreviewType {
   /// Properties:
   /// * [photo]: Photo of the chat; may be null
   @override
-  LinkPreviewTypeChannelBoost copyWith({
-    ChatPhoto? photo,
-  }) =>
-      LinkPreviewTypeChannelBoost(
-        photo: photo ?? this.photo,
-      );
+  LinkPreviewTypeChannelBoost copyWith({ChatPhoto? photo}) =>
+      LinkPreviewTypeChannelBoost(photo: photo ?? this.photo);
 
   /// TDLib object type
   static const String defaultObjectId = 'linkPreviewTypeChannelBoost';
@@ -619,12 +570,11 @@ final class LinkPreviewTypeChat extends LinkPreviewType {
     InviteLinkChatType? type,
     ChatPhoto? photo,
     bool? createsJoinRequest,
-  }) =>
-      LinkPreviewTypeChat(
-        type: type ?? this.type,
-        photo: photo ?? this.photo,
-        createsJoinRequest: createsJoinRequest ?? this.createsJoinRequest,
-      );
+  }) => LinkPreviewTypeChat(
+    type: type ?? this.type,
+    photo: photo ?? this.photo,
+    createsJoinRequest: createsJoinRequest ?? this.createsJoinRequest,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'linkPreviewTypeChat';
@@ -649,26 +599,19 @@ final class LinkPreviewTypeDocument extends LinkPreviewType {
   /// The link is a link to a general file.
   ///
   /// * [document]: The document description.
-  const LinkPreviewTypeDocument({
-    required this.document,
-  });
+  const LinkPreviewTypeDocument({required this.document});
 
   /// The document description
   final Document document;
 
   /// Parse from a json
   factory LinkPreviewTypeDocument.fromJson(Map<String, dynamic> json) =>
-      LinkPreviewTypeDocument(
-        document: Document.fromJson(json['document']),
-      );
+      LinkPreviewTypeDocument(document: Document.fromJson(json['document']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "document": document.toJson(),
-    };
+    return {"@type": defaultObjectId, "document": document.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -676,12 +619,8 @@ final class LinkPreviewTypeDocument extends LinkPreviewType {
   /// Properties:
   /// * [document]: The document description
   @override
-  LinkPreviewTypeDocument copyWith({
-    Document? document,
-  }) =>
-      LinkPreviewTypeDocument(
-        document: document ?? this.document,
-      );
+  LinkPreviewTypeDocument copyWith({Document? document}) =>
+      LinkPreviewTypeDocument(document: document ?? this.document);
 
   /// TDLib object type
   static const String defaultObjectId = 'linkPreviewTypeDocument';
@@ -739,16 +678,16 @@ final class LinkPreviewTypeEmbeddedAnimationPlayer extends LinkPreviewType {
 
   /// Parse from a json
   factory LinkPreviewTypeEmbeddedAnimationPlayer.fromJson(
-          Map<String, dynamic> json) =>
-      LinkPreviewTypeEmbeddedAnimationPlayer(
-        url: json['url'],
-        thumbnail: json['thumbnail'] == null
-            ? null
-            : Photo.fromJson(json['thumbnail']),
-        duration: json['duration'],
-        width: json['width'],
-        height: json['height'],
-      );
+    Map<String, dynamic> json,
+  ) => LinkPreviewTypeEmbeddedAnimationPlayer(
+    url: json['url'],
+    thumbnail: json['thumbnail'] == null
+        ? null
+        : Photo.fromJson(json['thumbnail']),
+    duration: json['duration'],
+    width: json['width'],
+    height: json['height'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -778,14 +717,13 @@ final class LinkPreviewTypeEmbeddedAnimationPlayer extends LinkPreviewType {
     int? duration,
     int? width,
     int? height,
-  }) =>
-      LinkPreviewTypeEmbeddedAnimationPlayer(
-        url: url ?? this.url,
-        thumbnail: thumbnail ?? this.thumbnail,
-        duration: duration ?? this.duration,
-        width: width ?? this.width,
-        height: height ?? this.height,
-      );
+  }) => LinkPreviewTypeEmbeddedAnimationPlayer(
+    url: url ?? this.url,
+    thumbnail: thumbnail ?? this.thumbnail,
+    duration: duration ?? this.duration,
+    width: width ?? this.width,
+    height: height ?? this.height,
+  );
 
   /// TDLib object type
   static const String defaultObjectId =
@@ -844,16 +782,16 @@ final class LinkPreviewTypeEmbeddedAudioPlayer extends LinkPreviewType {
 
   /// Parse from a json
   factory LinkPreviewTypeEmbeddedAudioPlayer.fromJson(
-          Map<String, dynamic> json) =>
-      LinkPreviewTypeEmbeddedAudioPlayer(
-        url: json['url'],
-        thumbnail: json['thumbnail'] == null
-            ? null
-            : Photo.fromJson(json['thumbnail']),
-        duration: json['duration'],
-        width: json['width'],
-        height: json['height'],
-      );
+    Map<String, dynamic> json,
+  ) => LinkPreviewTypeEmbeddedAudioPlayer(
+    url: json['url'],
+    thumbnail: json['thumbnail'] == null
+        ? null
+        : Photo.fromJson(json['thumbnail']),
+    duration: json['duration'],
+    width: json['width'],
+    height: json['height'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -883,14 +821,13 @@ final class LinkPreviewTypeEmbeddedAudioPlayer extends LinkPreviewType {
     int? duration,
     int? width,
     int? height,
-  }) =>
-      LinkPreviewTypeEmbeddedAudioPlayer(
-        url: url ?? this.url,
-        thumbnail: thumbnail ?? this.thumbnail,
-        duration: duration ?? this.duration,
-        width: width ?? this.width,
-        height: height ?? this.height,
-      );
+  }) => LinkPreviewTypeEmbeddedAudioPlayer(
+    url: url ?? this.url,
+    thumbnail: thumbnail ?? this.thumbnail,
+    duration: duration ?? this.duration,
+    width: width ?? this.width,
+    height: height ?? this.height,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'linkPreviewTypeEmbeddedAudioPlayer';
@@ -948,16 +885,16 @@ final class LinkPreviewTypeEmbeddedVideoPlayer extends LinkPreviewType {
 
   /// Parse from a json
   factory LinkPreviewTypeEmbeddedVideoPlayer.fromJson(
-          Map<String, dynamic> json) =>
-      LinkPreviewTypeEmbeddedVideoPlayer(
-        url: json['url'],
-        thumbnail: json['thumbnail'] == null
-            ? null
-            : Photo.fromJson(json['thumbnail']),
-        duration: json['duration'],
-        width: json['width'],
-        height: json['height'],
-      );
+    Map<String, dynamic> json,
+  ) => LinkPreviewTypeEmbeddedVideoPlayer(
+    url: json['url'],
+    thumbnail: json['thumbnail'] == null
+        ? null
+        : Photo.fromJson(json['thumbnail']),
+    duration: json['duration'],
+    width: json['width'],
+    height: json['height'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -987,14 +924,13 @@ final class LinkPreviewTypeEmbeddedVideoPlayer extends LinkPreviewType {
     int? duration,
     int? width,
     int? height,
-  }) =>
-      LinkPreviewTypeEmbeddedVideoPlayer(
-        url: url ?? this.url,
-        thumbnail: thumbnail ?? this.thumbnail,
-        duration: duration ?? this.duration,
-        width: width ?? this.width,
-        height: height ?? this.height,
-      );
+  }) => LinkPreviewTypeEmbeddedVideoPlayer(
+    url: url ?? this.url,
+    thumbnail: thumbnail ?? this.thumbnail,
+    duration: duration ?? this.duration,
+    width: width ?? this.width,
+    height: height ?? this.height,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'linkPreviewTypeEmbeddedVideoPlayer';
@@ -1068,12 +1004,11 @@ final class LinkPreviewTypeExternalAudio extends LinkPreviewType {
     String? url,
     String? mimeType,
     int? duration,
-  }) =>
-      LinkPreviewTypeExternalAudio(
-        url: url ?? this.url,
-        mimeType: mimeType ?? this.mimeType,
-        duration: duration ?? this.duration,
-      );
+  }) => LinkPreviewTypeExternalAudio(
+    url: url ?? this.url,
+    mimeType: mimeType ?? this.mimeType,
+    duration: duration ?? this.duration,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'linkPreviewTypeExternalAudio';
@@ -1167,17 +1102,51 @@ final class LinkPreviewTypeExternalVideo extends LinkPreviewType {
     int? width,
     int? height,
     int? duration,
-  }) =>
-      LinkPreviewTypeExternalVideo(
-        url: url ?? this.url,
-        mimeType: mimeType ?? this.mimeType,
-        width: width ?? this.width,
-        height: height ?? this.height,
-        duration: duration ?? this.duration,
-      );
+  }) => LinkPreviewTypeExternalVideo(
+    url: url ?? this.url,
+    mimeType: mimeType ?? this.mimeType,
+    width: width ?? this.width,
+    height: height ?? this.height,
+    duration: duration ?? this.duration,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'linkPreviewTypeExternalVideo';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **LinkPreviewTypeGroupCall** *(linkPreviewTypeGroupCall)* - child of LinkPreviewType
+///
+/// The link is a link to a group call that isn't bound to a chat.
+final class LinkPreviewTypeGroupCall extends LinkPreviewType {
+  /// **LinkPreviewTypeGroupCall** *(linkPreviewTypeGroupCall)* - child of LinkPreviewType
+  ///
+  /// The link is a link to a group call that isn't bound to a chat.
+  const LinkPreviewTypeGroupCall();
+
+  /// Parse from a json
+  factory LinkPreviewTypeGroupCall.fromJson(Map<String, dynamic> json) =>
+      const LinkPreviewTypeGroupCall();
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {"@type": defaultObjectId};
+  }
+
+  /// Copy instance with no modifications.
+  @override
+  LinkPreviewTypeGroupCall copyWith() => const LinkPreviewTypeGroupCall();
+
+  /// TDLib object type
+  static const String defaultObjectId = 'linkPreviewTypeGroupCall';
 
   /// Convert model to TDLib JSON format, encoded into String.
   @override
@@ -1204,9 +1173,7 @@ final class LinkPreviewTypeInvoice extends LinkPreviewType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -1241,9 +1208,7 @@ final class LinkPreviewTypeMessage extends LinkPreviewType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -1273,26 +1238,19 @@ final class LinkPreviewTypePhoto extends LinkPreviewType {
   /// The link is a link to a photo.
   ///
   /// * [photo]: The photo.
-  const LinkPreviewTypePhoto({
-    required this.photo,
-  });
+  const LinkPreviewTypePhoto({required this.photo});
 
   /// The photo
   final Photo photo;
 
   /// Parse from a json
   factory LinkPreviewTypePhoto.fromJson(Map<String, dynamic> json) =>
-      LinkPreviewTypePhoto(
-        photo: Photo.fromJson(json['photo']),
-      );
+      LinkPreviewTypePhoto(photo: Photo.fromJson(json['photo']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "photo": photo.toJson(),
-    };
+    return {"@type": defaultObjectId, "photo": photo.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -1300,12 +1258,8 @@ final class LinkPreviewTypePhoto extends LinkPreviewType {
   /// Properties:
   /// * [photo]: The photo
   @override
-  LinkPreviewTypePhoto copyWith({
-    Photo? photo,
-  }) =>
-      LinkPreviewTypePhoto(
-        photo: photo ?? this.photo,
-      );
+  LinkPreviewTypePhoto copyWith({Photo? photo}) =>
+      LinkPreviewTypePhoto(photo: photo ?? this.photo);
 
   /// TDLib object type
   static const String defaultObjectId = 'linkPreviewTypePhoto';
@@ -1335,9 +1289,7 @@ final class LinkPreviewTypePremiumGiftCode extends LinkPreviewType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -1368,15 +1320,13 @@ final class LinkPreviewTypeShareableChatFolder extends LinkPreviewType {
 
   /// Parse from a json
   factory LinkPreviewTypeShareableChatFolder.fromJson(
-          Map<String, dynamic> json) =>
-      const LinkPreviewTypeShareableChatFolder();
+    Map<String, dynamic> json,
+  ) => const LinkPreviewTypeShareableChatFolder();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -1407,26 +1357,19 @@ final class LinkPreviewTypeSticker extends LinkPreviewType {
   /// The link is a link to a sticker.
   ///
   /// * [sticker]: The sticker. It can be an arbitrary WEBP image and can have dimensions bigger than 512.
-  const LinkPreviewTypeSticker({
-    required this.sticker,
-  });
+  const LinkPreviewTypeSticker({required this.sticker});
 
   /// The sticker. It can be an arbitrary WEBP image and can have dimensions bigger than 512
   final Sticker sticker;
 
   /// Parse from a json
   factory LinkPreviewTypeSticker.fromJson(Map<String, dynamic> json) =>
-      LinkPreviewTypeSticker(
-        sticker: Sticker.fromJson(json['sticker']),
-      );
+      LinkPreviewTypeSticker(sticker: Sticker.fromJson(json['sticker']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "sticker": sticker.toJson(),
-    };
+    return {"@type": defaultObjectId, "sticker": sticker.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -1434,12 +1377,8 @@ final class LinkPreviewTypeSticker extends LinkPreviewType {
   /// Properties:
   /// * [sticker]: The sticker. It can be an arbitrary WEBP image and can have dimensions bigger than 512
   @override
-  LinkPreviewTypeSticker copyWith({
-    Sticker? sticker,
-  }) =>
-      LinkPreviewTypeSticker(
-        sticker: sticker ?? this.sticker,
-      );
+  LinkPreviewTypeSticker copyWith({Sticker? sticker}) =>
+      LinkPreviewTypeSticker(sticker: sticker ?? this.sticker);
 
   /// TDLib object type
   static const String defaultObjectId = 'linkPreviewTypeSticker';
@@ -1464,9 +1403,7 @@ final class LinkPreviewTypeStickerSet extends LinkPreviewType {
   /// The link is a link to a sticker set.
   ///
   /// * [stickers]: Up to 4 stickers from the sticker set.
-  const LinkPreviewTypeStickerSet({
-    required this.stickers,
-  });
+  const LinkPreviewTypeStickerSet({required this.stickers});
 
   /// Up to 4 stickers from the sticker set
   final List<Sticker> stickers;
@@ -1474,9 +1411,11 @@ final class LinkPreviewTypeStickerSet extends LinkPreviewType {
   /// Parse from a json
   factory LinkPreviewTypeStickerSet.fromJson(Map<String, dynamic> json) =>
       LinkPreviewTypeStickerSet(
-        stickers: List<Sticker>.from((json['stickers'] ?? [])
-            .map((item) => Sticker.fromJson(item))
-            .toList()),
+        stickers: List<Sticker>.from(
+          (json['stickers'] ?? [])
+              .map((item) => Sticker.fromJson(item))
+              .toList(),
+        ),
       );
 
   /// Convert model to TDLib JSON format
@@ -1493,12 +1432,8 @@ final class LinkPreviewTypeStickerSet extends LinkPreviewType {
   /// Properties:
   /// * [stickers]: Up to 4 stickers from the sticker set
   @override
-  LinkPreviewTypeStickerSet copyWith({
-    List<Sticker>? stickers,
-  }) =>
-      LinkPreviewTypeStickerSet(
-        stickers: stickers ?? this.stickers,
-      );
+  LinkPreviewTypeStickerSet copyWith({List<Sticker>? stickers}) =>
+      LinkPreviewTypeStickerSet(stickers: stickers ?? this.stickers);
 
   /// TDLib object type
   static const String defaultObjectId = 'linkPreviewTypeStickerSet';
@@ -1516,22 +1451,22 @@ final class LinkPreviewTypeStickerSet extends LinkPreviewType {
 ///
 /// The link is a link to a story. Link preview description is unavailable.
 ///
-/// * [storySenderChatId]: The identifier of the chat that posted the story.
+/// * [storyPosterChatId]: The identifier of the chat that posted the story.
 /// * [storyId]: Story identifier.
 final class LinkPreviewTypeStory extends LinkPreviewType {
   /// **LinkPreviewTypeStory** *(linkPreviewTypeStory)* - child of LinkPreviewType
   ///
   /// The link is a link to a story. Link preview description is unavailable.
   ///
-  /// * [storySenderChatId]: The identifier of the chat that posted the story.
+  /// * [storyPosterChatId]: The identifier of the chat that posted the story.
   /// * [storyId]: Story identifier.
   const LinkPreviewTypeStory({
-    required this.storySenderChatId,
+    required this.storyPosterChatId,
     required this.storyId,
   });
 
   /// The identifier of the chat that posted the story
-  final int storySenderChatId;
+  final int storyPosterChatId;
 
   /// Story identifier
   final int storyId;
@@ -1539,7 +1474,7 @@ final class LinkPreviewTypeStory extends LinkPreviewType {
   /// Parse from a json
   factory LinkPreviewTypeStory.fromJson(Map<String, dynamic> json) =>
       LinkPreviewTypeStory(
-        storySenderChatId: json['story_sender_chat_id'],
+        storyPosterChatId: json['story_poster_chat_id'],
         storyId: json['story_id'],
       );
 
@@ -1548,7 +1483,7 @@ final class LinkPreviewTypeStory extends LinkPreviewType {
   Map<String, dynamic> toJson() {
     return {
       "@type": defaultObjectId,
-      "story_sender_chat_id": storySenderChatId,
+      "story_poster_chat_id": storyPosterChatId,
       "story_id": storyId,
     };
   }
@@ -1556,15 +1491,12 @@ final class LinkPreviewTypeStory extends LinkPreviewType {
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [story_sender_chat_id]: The identifier of the chat that posted the story
+  /// * [story_poster_chat_id]: The identifier of the chat that posted the story
   /// * [story_id]: Story identifier
   @override
-  LinkPreviewTypeStory copyWith({
-    int? storySenderChatId,
-    int? storyId,
-  }) =>
+  LinkPreviewTypeStory copyWith({int? storyPosterChatId, int? storyId}) =>
       LinkPreviewTypeStory(
-        storySenderChatId: storySenderChatId ?? this.storySenderChatId,
+        storyPosterChatId: storyPosterChatId ?? this.storyPosterChatId,
         storyId: storyId ?? this.storyId,
       );
 
@@ -1591,9 +1523,7 @@ final class LinkPreviewTypeSupergroupBoost extends LinkPreviewType {
   /// The link is a link to boost a supergroup chat.
   ///
   /// * [photo]: Photo of the chat; may be null *(optional)*.
-  const LinkPreviewTypeSupergroupBoost({
-    this.photo,
-  });
+  const LinkPreviewTypeSupergroupBoost({this.photo});
 
   /// Photo of the chat; may be null
   final ChatPhoto? photo;
@@ -1607,10 +1537,7 @@ final class LinkPreviewTypeSupergroupBoost extends LinkPreviewType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "photo": photo?.toJson(),
-    };
+    return {"@type": defaultObjectId, "photo": photo?.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -1618,12 +1545,8 @@ final class LinkPreviewTypeSupergroupBoost extends LinkPreviewType {
   /// Properties:
   /// * [photo]: Photo of the chat; may be null
   @override
-  LinkPreviewTypeSupergroupBoost copyWith({
-    ChatPhoto? photo,
-  }) =>
-      LinkPreviewTypeSupergroupBoost(
-        photo: photo ?? this.photo,
-      );
+  LinkPreviewTypeSupergroupBoost copyWith({ChatPhoto? photo}) =>
+      LinkPreviewTypeSupergroupBoost(photo: photo ?? this.photo);
 
   /// TDLib object type
   static const String defaultObjectId = 'linkPreviewTypeSupergroupBoost';
@@ -1642,32 +1565,33 @@ final class LinkPreviewTypeSupergroupBoost extends LinkPreviewType {
 /// The link is a link to a cloud theme. TDLib has no theme support yet.
 ///
 /// * [documents]: The list of files with theme description.
-/// * [settings]: Settings for the cloud theme.
+/// * [settings]: Settings for the cloud theme; may be null if unknown *(optional)*.
 final class LinkPreviewTypeTheme extends LinkPreviewType {
   /// **LinkPreviewTypeTheme** *(linkPreviewTypeTheme)* - child of LinkPreviewType
   ///
   /// The link is a link to a cloud theme. TDLib has no theme support yet.
   ///
   /// * [documents]: The list of files with theme description.
-  /// * [settings]: Settings for the cloud theme.
-  const LinkPreviewTypeTheme({
-    required this.documents,
-    required this.settings,
-  });
+  /// * [settings]: Settings for the cloud theme; may be null if unknown *(optional)*.
+  const LinkPreviewTypeTheme({required this.documents, this.settings});
 
   /// The list of files with theme description
   final List<Document> documents;
 
-  /// Settings for the cloud theme
-  final ThemeSettings settings;
+  /// Settings for the cloud theme; may be null if unknown
+  final ThemeSettings? settings;
 
   /// Parse from a json
   factory LinkPreviewTypeTheme.fromJson(Map<String, dynamic> json) =>
       LinkPreviewTypeTheme(
-        documents: List<Document>.from((json['documents'] ?? [])
-            .map((item) => Document.fromJson(item))
-            .toList()),
-        settings: ThemeSettings.fromJson(json['settings']),
+        documents: List<Document>.from(
+          (json['documents'] ?? [])
+              .map((item) => Document.fromJson(item))
+              .toList(),
+        ),
+        settings: json['settings'] == null
+            ? null
+            : ThemeSettings.fromJson(json['settings']),
       );
 
   /// Convert model to TDLib JSON format
@@ -1676,7 +1600,7 @@ final class LinkPreviewTypeTheme extends LinkPreviewType {
     return {
       "@type": defaultObjectId,
       "documents": documents.map((i) => i.toJson()).toList(),
-      "settings": settings.toJson(),
+      "settings": settings?.toJson(),
     };
   }
 
@@ -1684,16 +1608,15 @@ final class LinkPreviewTypeTheme extends LinkPreviewType {
   ///
   /// Properties:
   /// * [documents]: The list of files with theme description
-  /// * [settings]: Settings for the cloud theme
+  /// * [settings]: Settings for the cloud theme; may be null if unknown
   @override
   LinkPreviewTypeTheme copyWith({
     List<Document>? documents,
     ThemeSettings? settings,
-  }) =>
-      LinkPreviewTypeTheme(
-        documents: documents ?? this.documents,
-        settings: settings ?? this.settings,
-      );
+  }) => LinkPreviewTypeTheme(
+    documents: documents ?? this.documents,
+    settings: settings ?? this.settings,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'linkPreviewTypeTheme';
@@ -1723,9 +1646,7 @@ final class LinkPreviewTypeUnsupported extends LinkPreviewType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -1734,6 +1655,52 @@ final class LinkPreviewTypeUnsupported extends LinkPreviewType {
 
   /// TDLib object type
   static const String defaultObjectId = 'linkPreviewTypeUnsupported';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **LinkPreviewTypeUpgradedGift** *(linkPreviewTypeUpgradedGift)* - child of LinkPreviewType
+///
+/// The link is a link to an upgraded gift.
+///
+/// * [gift]: The gift.
+final class LinkPreviewTypeUpgradedGift extends LinkPreviewType {
+  /// **LinkPreviewTypeUpgradedGift** *(linkPreviewTypeUpgradedGift)* - child of LinkPreviewType
+  ///
+  /// The link is a link to an upgraded gift.
+  ///
+  /// * [gift]: The gift.
+  const LinkPreviewTypeUpgradedGift({required this.gift});
+
+  /// The gift
+  final UpgradedGift gift;
+
+  /// Parse from a json
+  factory LinkPreviewTypeUpgradedGift.fromJson(Map<String, dynamic> json) =>
+      LinkPreviewTypeUpgradedGift(gift: UpgradedGift.fromJson(json['gift']));
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {"@type": defaultObjectId, "gift": gift.toJson()};
+  }
+
+  /// Copy model with modified properties.
+  ///
+  /// Properties:
+  /// * [gift]: The gift
+  @override
+  LinkPreviewTypeUpgradedGift copyWith({UpgradedGift? gift}) =>
+      LinkPreviewTypeUpgradedGift(gift: gift ?? this.gift);
+
+  /// TDLib object type
+  static const String defaultObjectId = 'linkPreviewTypeUpgradedGift';
 
   /// Convert model to TDLib JSON format, encoded into String.
   @override
@@ -1757,10 +1724,7 @@ final class LinkPreviewTypeUser extends LinkPreviewType {
   ///
   /// * [photo]: Photo of the user; may be null if none *(optional)*.
   /// * [isBot]: True, if the user is a bot.
-  const LinkPreviewTypeUser({
-    this.photo,
-    required this.isBot,
-  });
+  const LinkPreviewTypeUser({this.photo, required this.isBot});
 
   /// Photo of the user; may be null if none
   final ChatPhoto? photo;
@@ -1791,10 +1755,7 @@ final class LinkPreviewTypeUser extends LinkPreviewType {
   /// * [photo]: Photo of the user; may be null if none
   /// * [is_bot]: True, if the user is a bot
   @override
-  LinkPreviewTypeUser copyWith({
-    ChatPhoto? photo,
-    bool? isBot,
-  }) =>
+  LinkPreviewTypeUser copyWith({ChatPhoto? photo, bool? isBot}) =>
       LinkPreviewTypeUser(
         photo: photo ?? this.photo,
         isBot: isBot ?? this.isBot,
@@ -1817,23 +1778,37 @@ final class LinkPreviewTypeUser extends LinkPreviewType {
 /// The link is a link to a video.
 ///
 /// * [video]: The video description.
+/// * [cover]: Cover of the video; may be null if none *(optional)*.
+/// * [startTimestamp]: Timestamp from which the video playing must start, in seconds.
 final class LinkPreviewTypeVideo extends LinkPreviewType {
   /// **LinkPreviewTypeVideo** *(linkPreviewTypeVideo)* - child of LinkPreviewType
   ///
   /// The link is a link to a video.
   ///
   /// * [video]: The video description.
+  /// * [cover]: Cover of the video; may be null if none *(optional)*.
+  /// * [startTimestamp]: Timestamp from which the video playing must start, in seconds.
   const LinkPreviewTypeVideo({
     required this.video,
+    this.cover,
+    required this.startTimestamp,
   });
 
   /// The video description
   final Video video;
 
+  /// Cover of the video; may be null if none
+  final Photo? cover;
+
+  /// Timestamp from which the video playing must start, in seconds
+  final int startTimestamp;
+
   /// Parse from a json
   factory LinkPreviewTypeVideo.fromJson(Map<String, dynamic> json) =>
       LinkPreviewTypeVideo(
         video: Video.fromJson(json['video']),
+        cover: json['cover'] == null ? null : Photo.fromJson(json['cover']),
+        startTimestamp: json['start_timestamp'],
       );
 
   /// Convert model to TDLib JSON format
@@ -1842,6 +1817,8 @@ final class LinkPreviewTypeVideo extends LinkPreviewType {
     return {
       "@type": defaultObjectId,
       "video": video.toJson(),
+      "cover": cover?.toJson(),
+      "start_timestamp": startTimestamp,
     };
   }
 
@@ -1849,13 +1826,18 @@ final class LinkPreviewTypeVideo extends LinkPreviewType {
   ///
   /// Properties:
   /// * [video]: The video description
+  /// * [cover]: Cover of the video; may be null if none
+  /// * [start_timestamp]: Timestamp from which the video playing must start, in seconds
   @override
   LinkPreviewTypeVideo copyWith({
     Video? video,
-  }) =>
-      LinkPreviewTypeVideo(
-        video: video ?? this.video,
-      );
+    Photo? cover,
+    int? startTimestamp,
+  }) => LinkPreviewTypeVideo(
+    video: video ?? this.video,
+    cover: cover ?? this.cover,
+    startTimestamp: startTimestamp ?? this.startTimestamp,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'linkPreviewTypeVideo';
@@ -1882,10 +1864,7 @@ final class LinkPreviewTypeVideoChat extends LinkPreviewType {
   ///
   /// * [photo]: Photo of the chat with the video chat; may be null if none *(optional)*.
   /// * [isLiveStream]: True, if the video chat is expected to be a live stream in a channel or a broadcast group.
-  const LinkPreviewTypeVideoChat({
-    this.photo,
-    required this.isLiveStream,
-  });
+  const LinkPreviewTypeVideoChat({this.photo, required this.isLiveStream});
 
   /// Photo of the chat with the video chat; may be null if none
   final ChatPhoto? photo;
@@ -1916,10 +1895,7 @@ final class LinkPreviewTypeVideoChat extends LinkPreviewType {
   /// * [photo]: Photo of the chat with the video chat; may be null if none
   /// * [is_live_stream]: True, if the video chat is expected to be a live stream in a channel or a broadcast group
   @override
-  LinkPreviewTypeVideoChat copyWith({
-    ChatPhoto? photo,
-    bool? isLiveStream,
-  }) =>
+  LinkPreviewTypeVideoChat copyWith({ChatPhoto? photo, bool? isLiveStream}) =>
       LinkPreviewTypeVideoChat(
         photo: photo ?? this.photo,
         isLiveStream: isLiveStream ?? this.isLiveStream,
@@ -1948,9 +1924,7 @@ final class LinkPreviewTypeVideoNote extends LinkPreviewType {
   /// The link is a link to a video note message.
   ///
   /// * [videoNote]: The video note.
-  const LinkPreviewTypeVideoNote({
-    required this.videoNote,
-  });
+  const LinkPreviewTypeVideoNote({required this.videoNote});
 
   /// The video note
   final VideoNote videoNote;
@@ -1964,10 +1938,7 @@ final class LinkPreviewTypeVideoNote extends LinkPreviewType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "video_note": videoNote.toJson(),
-    };
+    return {"@type": defaultObjectId, "video_note": videoNote.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -1975,12 +1946,8 @@ final class LinkPreviewTypeVideoNote extends LinkPreviewType {
   /// Properties:
   /// * [video_note]: The video note
   @override
-  LinkPreviewTypeVideoNote copyWith({
-    VideoNote? videoNote,
-  }) =>
-      LinkPreviewTypeVideoNote(
-        videoNote: videoNote ?? this.videoNote,
-      );
+  LinkPreviewTypeVideoNote copyWith({VideoNote? videoNote}) =>
+      LinkPreviewTypeVideoNote(videoNote: videoNote ?? this.videoNote);
 
   /// TDLib object type
   static const String defaultObjectId = 'linkPreviewTypeVideoNote';
@@ -2005,9 +1972,7 @@ final class LinkPreviewTypeVoiceNote extends LinkPreviewType {
   /// The link is a link to a voice note message.
   ///
   /// * [voiceNote]: The voice note.
-  const LinkPreviewTypeVoiceNote({
-    required this.voiceNote,
-  });
+  const LinkPreviewTypeVoiceNote({required this.voiceNote});
 
   /// The voice note
   final VoiceNote voiceNote;
@@ -2021,10 +1986,7 @@ final class LinkPreviewTypeVoiceNote extends LinkPreviewType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "voice_note": voiceNote.toJson(),
-    };
+    return {"@type": defaultObjectId, "voice_note": voiceNote.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -2032,12 +1994,8 @@ final class LinkPreviewTypeVoiceNote extends LinkPreviewType {
   /// Properties:
   /// * [voice_note]: The voice note
   @override
-  LinkPreviewTypeVoiceNote copyWith({
-    VoiceNote? voiceNote,
-  }) =>
-      LinkPreviewTypeVoiceNote(
-        voiceNote: voiceNote ?? this.voiceNote,
-      );
+  LinkPreviewTypeVoiceNote copyWith({VoiceNote? voiceNote}) =>
+      LinkPreviewTypeVoiceNote(voiceNote: voiceNote ?? this.voiceNote);
 
   /// TDLib object type
   static const String defaultObjectId = 'linkPreviewTypeVoiceNote';
@@ -2055,46 +2013,37 @@ final class LinkPreviewTypeVoiceNote extends LinkPreviewType {
 ///
 /// The link is a link to a Web App.
 ///
-/// * [photo]: Web App photo.
+/// * [photo]: Web App photo; may be null if none *(optional)*.
 final class LinkPreviewTypeWebApp extends LinkPreviewType {
   /// **LinkPreviewTypeWebApp** *(linkPreviewTypeWebApp)* - child of LinkPreviewType
   ///
   /// The link is a link to a Web App.
   ///
-  /// * [photo]: Web App photo.
-  const LinkPreviewTypeWebApp({
-    required this.photo,
-  });
+  /// * [photo]: Web App photo; may be null if none *(optional)*.
+  const LinkPreviewTypeWebApp({this.photo});
 
-  /// Web App photo
-  final Photo photo;
+  /// Web App photo; may be null if none
+  final Photo? photo;
 
   /// Parse from a json
   factory LinkPreviewTypeWebApp.fromJson(Map<String, dynamic> json) =>
       LinkPreviewTypeWebApp(
-        photo: Photo.fromJson(json['photo']),
+        photo: json['photo'] == null ? null : Photo.fromJson(json['photo']),
       );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "photo": photo.toJson(),
-    };
+    return {"@type": defaultObjectId, "photo": photo?.toJson()};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [photo]: Web App photo
+  /// * [photo]: Web App photo; may be null if none
   @override
-  LinkPreviewTypeWebApp copyWith({
-    Photo? photo,
-  }) =>
-      LinkPreviewTypeWebApp(
-        photo: photo ?? this.photo,
-      );
+  LinkPreviewTypeWebApp copyWith({Photo? photo}) =>
+      LinkPreviewTypeWebApp(photo: photo ?? this.photo);
 
   /// TDLib object type
   static const String defaultObjectId = 'linkPreviewTypeWebApp';

@@ -46,11 +46,7 @@ final class BusinessChatLinkInfo extends TdObject {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "chat_id": chatId,
-      "text": text.toJson(),
-    };
+    return {"@type": defaultObjectId, "chat_id": chatId, "text": text.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -63,13 +59,12 @@ final class BusinessChatLinkInfo extends TdObject {
     FormattedText? text,
     dynamic extra,
     int? clientId,
-  }) =>
-      BusinessChatLinkInfo(
-        chatId: chatId ?? this.chatId,
-        text: text ?? this.text,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => BusinessChatLinkInfo(
+    chatId: chatId ?? this.chatId,
+    text: text ?? this.text,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'businessChatLinkInfo';

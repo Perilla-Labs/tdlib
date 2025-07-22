@@ -83,15 +83,14 @@ final class GetChatEventLog extends TdFunction {
     int? limit,
     ChatEventLogFilters? filters,
     List<int>? userIds,
-  }) =>
-      GetChatEventLog(
-        chatId: chatId ?? this.chatId,
-        query: query ?? this.query,
-        fromEventId: fromEventId ?? this.fromEventId,
-        limit: limit ?? this.limit,
-        filters: filters ?? this.filters,
-        userIds: userIds ?? this.userIds,
-      );
+  }) => GetChatEventLog(
+    chatId: chatId ?? this.chatId,
+    query: query ?? this.query,
+    fromEventId: fromEventId ?? this.fromEventId,
+    limit: limit ?? this.limit,
+    filters: filters ?? this.filters,
+    userIds: userIds ?? this.userIds,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getChatEventLog';

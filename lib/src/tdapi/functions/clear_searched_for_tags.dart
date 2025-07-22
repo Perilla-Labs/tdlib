@@ -15,9 +15,7 @@ final class ClearSearchedForTags extends TdFunction {
   /// * [clearCashtags]: Pass true to clear the list of recently searched for cashtags; otherwise, the list of recently searched for hashtags will be cleared.
   ///
   /// [Ok] is returned on completion.
-  const ClearSearchedForTags({
-    required this.clearCashtags,
-  });
+  const ClearSearchedForTags({required this.clearCashtags});
 
   /// Pass true to clear the list of recently searched for cashtags; otherwise, the list of recently searched for hashtags will be cleared
   final bool clearCashtags;
@@ -36,12 +34,8 @@ final class ClearSearchedForTags extends TdFunction {
   ///
   /// Properties:
   /// * [clear_cashtags]: Pass true to clear the list of recently searched for cashtags; otherwise, the list of recently searched for hashtags will be cleared
-  ClearSearchedForTags copyWith({
-    bool? clearCashtags,
-  }) =>
-      ClearSearchedForTags(
-        clearCashtags: clearCashtags ?? this.clearCashtags,
-      );
+  ClearSearchedForTags copyWith({bool? clearCashtags}) =>
+      ClearSearchedForTags(clearCashtags: clearCashtags ?? this.clearCashtags);
 
   /// TDLib object type
   static const String defaultObjectId = 'clearSearchedForTags';

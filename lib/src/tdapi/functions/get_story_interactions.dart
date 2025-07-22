@@ -92,16 +92,15 @@ final class GetStoryInteractions extends TdFunction {
     bool? preferWithReaction,
     String? offset,
     int? limit,
-  }) =>
-      GetStoryInteractions(
-        storyId: storyId ?? this.storyId,
-        query: query ?? this.query,
-        onlyContacts: onlyContacts ?? this.onlyContacts,
-        preferForwards: preferForwards ?? this.preferForwards,
-        preferWithReaction: preferWithReaction ?? this.preferWithReaction,
-        offset: offset ?? this.offset,
-        limit: limit ?? this.limit,
-      );
+  }) => GetStoryInteractions(
+    storyId: storyId ?? this.storyId,
+    query: query ?? this.query,
+    onlyContacts: onlyContacts ?? this.onlyContacts,
+    preferForwards: preferForwards ?? this.preferForwards,
+    preferWithReaction: preferWithReaction ?? this.preferWithReaction,
+    offset: offset ?? this.offset,
+    limit: limit ?? this.limit,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getStoryInteractions';

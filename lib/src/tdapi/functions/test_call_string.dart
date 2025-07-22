@@ -15,9 +15,7 @@ final class TestCallString extends TdFunction {
   /// * [x]: String to return.
   ///
   /// [TestString] is returned on completion.
-  const TestCallString({
-    required this.x,
-  });
+  const TestCallString({required this.x});
 
   /// String to return
   final String x;
@@ -25,23 +23,14 @@ final class TestCallString extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "x": x,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "x": x, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [x]: String to return
-  TestCallString copyWith({
-    String? x,
-  }) =>
-      TestCallString(
-        x: x ?? this.x,
-      );
+  TestCallString copyWith({String? x}) => TestCallString(x: x ?? this.x);
 
   /// TDLib object type
   static const String defaultObjectId = 'testCallString';

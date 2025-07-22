@@ -15,9 +15,7 @@ final class ViewTrendingStickerSets extends TdFunction {
   /// * [stickerSetIds]: Identifiers of viewed trending sticker sets.
   ///
   /// [Ok] is returned on completion.
-  const ViewTrendingStickerSets({
-    required this.stickerSetIds,
-  });
+  const ViewTrendingStickerSets({required this.stickerSetIds});
 
   /// Identifiers of viewed trending sticker sets
   final List<int> stickerSetIds;
@@ -36,9 +34,7 @@ final class ViewTrendingStickerSets extends TdFunction {
   ///
   /// Properties:
   /// * [sticker_set_ids]: Identifiers of viewed trending sticker sets
-  ViewTrendingStickerSets copyWith({
-    List<int>? stickerSetIds,
-  }) =>
+  ViewTrendingStickerSets copyWith({List<int>? stickerSetIds}) =>
       ViewTrendingStickerSets(
         stickerSetIds: stickerSetIds ?? this.stickerSetIds,
       );

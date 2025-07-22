@@ -5,7 +5,7 @@ part of '../tdapi.dart';
 /// Reports messages in a supergroup as spam; requires administrator rights in the supergroup.
 ///
 /// * [supergroupId]: Supergroup identifier.
-/// * [messageIds]: Identifiers of messages to report. Use messageProperties.can_be_reported to check whether the message can be reported.
+/// * [messageIds]: Identifiers of messages to report. Use messageProperties.can_report_supergroup_spam to check whether the message can be reported.
 ///
 /// [Ok] is returned on completion.
 final class ReportSupergroupSpam extends TdFunction {
@@ -14,7 +14,7 @@ final class ReportSupergroupSpam extends TdFunction {
   /// Reports messages in a supergroup as spam; requires administrator rights in the supergroup.
   ///
   /// * [supergroupId]: Supergroup identifier.
-  /// * [messageIds]: Identifiers of messages to report. Use messageProperties.can_be_reported to check whether the message can be reported.
+  /// * [messageIds]: Identifiers of messages to report. Use messageProperties.can_report_supergroup_spam to check whether the message can be reported.
   ///
   /// [Ok] is returned on completion.
   const ReportSupergroupSpam({
@@ -25,7 +25,7 @@ final class ReportSupergroupSpam extends TdFunction {
   /// Supergroup identifier
   final int supergroupId;
 
-  /// Identifiers of messages to report. Use messageProperties.can_be_reported to check whether the message can be reported
+  /// Identifiers of messages to report. Use messageProperties.can_report_supergroup_spam to check whether the message can be reported
   final List<int> messageIds;
 
   /// Convert model to TDLib JSON format
@@ -43,11 +43,8 @@ final class ReportSupergroupSpam extends TdFunction {
   ///
   /// Properties:
   /// * [supergroup_id]: Supergroup identifier
-  /// * [message_ids]: Identifiers of messages to report. Use messageProperties.can_be_reported to check whether the message can be reported
-  ReportSupergroupSpam copyWith({
-    int? supergroupId,
-    List<int>? messageIds,
-  }) =>
+  /// * [message_ids]: Identifiers of messages to report. Use messageProperties.can_report_supergroup_spam to check whether the message can be reported
+  ReportSupergroupSpam copyWith({int? supergroupId, List<int>? messageIds}) =>
       ReportSupergroupSpam(
         supergroupId: supergroupId ?? this.supergroupId,
         messageIds: messageIds ?? this.messageIds,

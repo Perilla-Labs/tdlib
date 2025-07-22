@@ -15,9 +15,7 @@ final class ResendAuthenticationCode extends TdFunction {
   /// * [reason]: Reason of code resending; pass null if unknown *(optional)*.
   ///
   /// [Ok] is returned on completion.
-  const ResendAuthenticationCode({
-    this.reason,
-  });
+  const ResendAuthenticationCode({this.reason});
 
   /// Reason of code resending; pass null if unknown
   final ResendCodeReason? reason;
@@ -36,12 +34,8 @@ final class ResendAuthenticationCode extends TdFunction {
   ///
   /// Properties:
   /// * [reason]: Reason of code resending; pass null if unknown
-  ResendAuthenticationCode copyWith({
-    ResendCodeReason? reason,
-  }) =>
-      ResendAuthenticationCode(
-        reason: reason ?? this.reason,
-      );
+  ResendAuthenticationCode copyWith({ResendCodeReason? reason}) =>
+      ResendAuthenticationCode(reason: reason ?? this.reason);
 
   /// TDLib object type
   static const String defaultObjectId = 'resendAuthenticationCode';

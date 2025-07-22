@@ -56,26 +56,19 @@ final class ChatStatisticsObjectTypeMessage extends ChatStatisticsObjectType {
   /// Describes a message sent in the chat.
   ///
   /// * [messageId]: Message identifier.
-  const ChatStatisticsObjectTypeMessage({
-    required this.messageId,
-  });
+  const ChatStatisticsObjectTypeMessage({required this.messageId});
 
   /// Message identifier
   final int messageId;
 
   /// Parse from a json
   factory ChatStatisticsObjectTypeMessage.fromJson(Map<String, dynamic> json) =>
-      ChatStatisticsObjectTypeMessage(
-        messageId: json['message_id'],
-      );
+      ChatStatisticsObjectTypeMessage(messageId: json['message_id']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "message_id": messageId,
-    };
+    return {"@type": defaultObjectId, "message_id": messageId};
   }
 
   /// Copy model with modified properties.
@@ -83,12 +76,8 @@ final class ChatStatisticsObjectTypeMessage extends ChatStatisticsObjectType {
   /// Properties:
   /// * [message_id]: Message identifier
   @override
-  ChatStatisticsObjectTypeMessage copyWith({
-    int? messageId,
-  }) =>
-      ChatStatisticsObjectTypeMessage(
-        messageId: messageId ?? this.messageId,
-      );
+  ChatStatisticsObjectTypeMessage copyWith({int? messageId}) =>
+      ChatStatisticsObjectTypeMessage(messageId: messageId ?? this.messageId);
 
   /// TDLib object type
   static const String defaultObjectId = 'chatStatisticsObjectTypeMessage';
@@ -104,35 +93,28 @@ final class ChatStatisticsObjectTypeMessage extends ChatStatisticsObjectType {
 
 /// **ChatStatisticsObjectTypeStory** *(chatStatisticsObjectTypeStory)* - child of ChatStatisticsObjectType
 ///
-/// Describes a story sent by the chat.
+/// Describes a story posted on behalf of the chat.
 ///
 /// * [storyId]: Story identifier.
 final class ChatStatisticsObjectTypeStory extends ChatStatisticsObjectType {
   /// **ChatStatisticsObjectTypeStory** *(chatStatisticsObjectTypeStory)* - child of ChatStatisticsObjectType
   ///
-  /// Describes a story sent by the chat.
+  /// Describes a story posted on behalf of the chat.
   ///
   /// * [storyId]: Story identifier.
-  const ChatStatisticsObjectTypeStory({
-    required this.storyId,
-  });
+  const ChatStatisticsObjectTypeStory({required this.storyId});
 
   /// Story identifier
   final int storyId;
 
   /// Parse from a json
   factory ChatStatisticsObjectTypeStory.fromJson(Map<String, dynamic> json) =>
-      ChatStatisticsObjectTypeStory(
-        storyId: json['story_id'],
-      );
+      ChatStatisticsObjectTypeStory(storyId: json['story_id']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "story_id": storyId,
-    };
+    return {"@type": defaultObjectId, "story_id": storyId};
   }
 
   /// Copy model with modified properties.
@@ -140,12 +122,8 @@ final class ChatStatisticsObjectTypeStory extends ChatStatisticsObjectType {
   /// Properties:
   /// * [story_id]: Story identifier
   @override
-  ChatStatisticsObjectTypeStory copyWith({
-    int? storyId,
-  }) =>
-      ChatStatisticsObjectTypeStory(
-        storyId: storyId ?? this.storyId,
-      );
+  ChatStatisticsObjectTypeStory copyWith({int? storyId}) =>
+      ChatStatisticsObjectTypeStory(storyId: storyId ?? this.storyId);
 
   /// TDLib object type
   static const String defaultObjectId = 'chatStatisticsObjectTypeStory';

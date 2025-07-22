@@ -15,9 +15,7 @@ final class GetStarAdAccountUrl extends TdFunction {
   /// * [ownerId]: Identifier of the owner of the Telegram Stars; can be identifier of an owned bot, or identifier of an owned channel chat.
   ///
   /// [HttpUrl] is returned on completion.
-  const GetStarAdAccountUrl({
-    required this.ownerId,
-  });
+  const GetStarAdAccountUrl({required this.ownerId});
 
   /// Identifier of the owner of the Telegram Stars; can be identifier of an owned bot, or identifier of an owned channel chat
   final MessageSender ownerId;
@@ -36,12 +34,8 @@ final class GetStarAdAccountUrl extends TdFunction {
   ///
   /// Properties:
   /// * [owner_id]: Identifier of the owner of the Telegram Stars; can be identifier of an owned bot, or identifier of an owned channel chat
-  GetStarAdAccountUrl copyWith({
-    MessageSender? ownerId,
-  }) =>
-      GetStarAdAccountUrl(
-        ownerId: ownerId ?? this.ownerId,
-      );
+  GetStarAdAccountUrl copyWith({MessageSender? ownerId}) =>
+      GetStarAdAccountUrl(ownerId: ownerId ?? this.ownerId);
 
   /// TDLib object type
   static const String defaultObjectId = 'getStarAdAccountUrl';

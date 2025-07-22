@@ -2,13 +2,13 @@ part of '../tdapi.dart';
 
 /// **StarGiveawayPaymentOptions** *(starGiveawayPaymentOptions)* - basic class
 ///
-/// Contains a list of options for creating Telegram Star giveaway.
+/// Contains a list of options for creating of Telegram Star giveaway.
 ///
 /// * [options]: The list of options.
 final class StarGiveawayPaymentOptions extends TdObject {
   /// **StarGiveawayPaymentOptions** *(starGiveawayPaymentOptions)* - basic class
   ///
-  /// Contains a list of options for creating Telegram Star giveaway.
+  /// Contains a list of options for creating of Telegram Star giveaway.
   ///
   /// * [options]: The list of options.
   const StarGiveawayPaymentOptions({
@@ -31,9 +31,11 @@ final class StarGiveawayPaymentOptions extends TdObject {
   /// Parse from a json
   factory StarGiveawayPaymentOptions.fromJson(Map<String, dynamic> json) =>
       StarGiveawayPaymentOptions(
-        options: List<StarGiveawayPaymentOption>.from((json['options'] ?? [])
-            .map((item) => StarGiveawayPaymentOption.fromJson(item))
-            .toList()),
+        options: List<StarGiveawayPaymentOption>.from(
+          (json['options'] ?? [])
+              .map((item) => StarGiveawayPaymentOption.fromJson(item))
+              .toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -55,12 +57,11 @@ final class StarGiveawayPaymentOptions extends TdObject {
     List<StarGiveawayPaymentOption>? options,
     dynamic extra,
     int? clientId,
-  }) =>
-      StarGiveawayPaymentOptions(
-        options: options ?? this.options,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => StarGiveawayPaymentOptions(
+    options: options ?? this.options,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'starGiveawayPaymentOptions';

@@ -74,14 +74,13 @@ final class GetMessageThreadHistory extends TdFunction {
     int? fromMessageId,
     int? offset,
     int? limit,
-  }) =>
-      GetMessageThreadHistory(
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        fromMessageId: fromMessageId ?? this.fromMessageId,
-        offset: offset ?? this.offset,
-        limit: limit ?? this.limit,
-      );
+  }) => GetMessageThreadHistory(
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    fromMessageId: fromMessageId ?? this.fromMessageId,
+    offset: offset ?? this.offset,
+    limit: limit ?? this.limit,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getMessageThreadHistory';

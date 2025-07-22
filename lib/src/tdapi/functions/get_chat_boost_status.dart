@@ -15,9 +15,7 @@ final class GetChatBoostStatus extends TdFunction {
   /// * [chatId]: Identifier of the chat.
   ///
   /// [ChatBoostStatus] is returned on completion.
-  const GetChatBoostStatus({
-    required this.chatId,
-  });
+  const GetChatBoostStatus({required this.chatId});
 
   /// Identifier of the chat
   final int chatId;
@@ -25,23 +23,15 @@ final class GetChatBoostStatus extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "chat_id": chatId,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "chat_id": chatId, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [chat_id]: Identifier of the chat
-  GetChatBoostStatus copyWith({
-    int? chatId,
-  }) =>
-      GetChatBoostStatus(
-        chatId: chatId ?? this.chatId,
-      );
+  GetChatBoostStatus copyWith({int? chatId}) =>
+      GetChatBoostStatus(chatId: chatId ?? this.chatId);
 
   /// TDLib object type
   static const String defaultObjectId = 'getChatBoostStatus';

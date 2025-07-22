@@ -47,11 +47,10 @@ final class GetPhoneNumberInfoSync extends TdFunction {
   GetPhoneNumberInfoSync copyWith({
     String? languageCode,
     String? phoneNumberPrefix,
-  }) =>
-      GetPhoneNumberInfoSync(
-        languageCode: languageCode ?? this.languageCode,
-        phoneNumberPrefix: phoneNumberPrefix ?? this.phoneNumberPrefix,
-      );
+  }) => GetPhoneNumberInfoSync(
+    languageCode: languageCode ?? this.languageCode,
+    phoneNumberPrefix: phoneNumberPrefix ?? this.phoneNumberPrefix,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getPhoneNumberInfoSync';

@@ -47,11 +47,10 @@ final class ToggleSupergroupHasHiddenMembers extends TdFunction {
   ToggleSupergroupHasHiddenMembers copyWith({
     int? supergroupId,
     bool? hasHiddenMembers,
-  }) =>
-      ToggleSupergroupHasHiddenMembers(
-        supergroupId: supergroupId ?? this.supergroupId,
-        hasHiddenMembers: hasHiddenMembers ?? this.hasHiddenMembers,
-      );
+  }) => ToggleSupergroupHasHiddenMembers(
+    supergroupId: supergroupId ?? this.supergroupId,
+    hasHiddenMembers: hasHiddenMembers ?? this.hasHiddenMembers,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'toggleSupergroupHasHiddenMembers';

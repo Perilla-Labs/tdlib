@@ -36,13 +36,15 @@ final class StickerSets extends TdObject {
 
   /// Parse from a json
   factory StickerSets.fromJson(Map<String, dynamic> json) => StickerSets(
-        totalCount: json['total_count'],
-        sets: List<StickerSetInfo>.from((json['sets'] ?? [])
-            .map((item) => StickerSetInfo.fromJson(item))
-            .toList()),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    totalCount: json['total_count'],
+    sets: List<StickerSetInfo>.from(
+      (json['sets'] ?? [])
+          .map((item) => StickerSetInfo.fromJson(item))
+          .toList(),
+    ),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -64,13 +66,12 @@ final class StickerSets extends TdObject {
     List<StickerSetInfo>? sets,
     dynamic extra,
     int? clientId,
-  }) =>
-      StickerSets(
-        totalCount: totalCount ?? this.totalCount,
-        sets: sets ?? this.sets,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => StickerSets(
+    totalCount: totalCount ?? this.totalCount,
+    sets: sets ?? this.sets,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'stickerSets';

@@ -17,10 +17,7 @@ final class SetMessageSenderBlockList extends TdFunction {
   /// * [blockList]: New block list for the message sender; pass null to unblock the message sender *(optional)*.
   ///
   /// [Ok] is returned on completion.
-  const SetMessageSenderBlockList({
-    required this.senderId,
-    this.blockList,
-  });
+  const SetMessageSenderBlockList({required this.senderId, this.blockList});
 
   /// Identifier of a message sender to block/unblock
   final MessageSender senderId;
@@ -47,11 +44,10 @@ final class SetMessageSenderBlockList extends TdFunction {
   SetMessageSenderBlockList copyWith({
     MessageSender? senderId,
     BlockList? blockList,
-  }) =>
-      SetMessageSenderBlockList(
-        senderId: senderId ?? this.senderId,
-        blockList: blockList ?? this.blockList,
-      );
+  }) => SetMessageSenderBlockList(
+    senderId: senderId ?? this.senderId,
+    blockList: blockList ?? this.blockList,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setMessageSenderBlockList';

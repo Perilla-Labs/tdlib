@@ -11,11 +11,7 @@ final class Stickers extends TdObject {
   /// Represents a list of stickers.
   ///
   /// * [stickers]: List of stickers.
-  const Stickers({
-    required this.stickers,
-    this.extra,
-    this.clientId,
-  });
+  const Stickers({required this.stickers, this.extra, this.clientId});
 
   /// List of stickers
   final List<Sticker> stickers;
@@ -30,12 +26,12 @@ final class Stickers extends TdObject {
 
   /// Parse from a json
   factory Stickers.fromJson(Map<String, dynamic> json) => Stickers(
-        stickers: List<Sticker>.from((json['stickers'] ?? [])
-            .map((item) => Sticker.fromJson(item))
-            .toList()),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    stickers: List<Sticker>.from(
+      (json['stickers'] ?? []).map((item) => Sticker.fromJson(item)).toList(),
+    ),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -50,11 +46,7 @@ final class Stickers extends TdObject {
   ///
   /// Properties:
   /// * [stickers]: List of stickers
-  Stickers copyWith({
-    List<Sticker>? stickers,
-    dynamic extra,
-    int? clientId,
-  }) =>
+  Stickers copyWith({List<Sticker>? stickers, dynamic extra, int? clientId}) =>
       Stickers(
         stickers: stickers ?? this.stickers,
         extra: extra ?? this.extra,

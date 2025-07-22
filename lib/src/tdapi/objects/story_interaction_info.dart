@@ -43,9 +43,8 @@ final class StoryInteractionInfo extends TdObject {
         forwardCount: json['forward_count'] ?? 0,
         reactionCount: json['reaction_count'] ?? 0,
         recentViewerUserIds: List<int>.from(
-            (json['recent_viewer_user_ids'] ?? [])
-                .map((item) => item)
-                .toList()),
+          (json['recent_viewer_user_ids'] ?? []).map((item) => item).toList(),
+        ),
       );
 
   /// Convert model to TDLib JSON format
@@ -72,13 +71,12 @@ final class StoryInteractionInfo extends TdObject {
     int? forwardCount,
     int? reactionCount,
     List<int>? recentViewerUserIds,
-  }) =>
-      StoryInteractionInfo(
-        viewCount: viewCount ?? this.viewCount,
-        forwardCount: forwardCount ?? this.forwardCount,
-        reactionCount: reactionCount ?? this.reactionCount,
-        recentViewerUserIds: recentViewerUserIds ?? this.recentViewerUserIds,
-      );
+  }) => StoryInteractionInfo(
+    viewCount: viewCount ?? this.viewCount,
+    forwardCount: forwardCount ?? this.forwardCount,
+    reactionCount: reactionCount ?? this.reactionCount,
+    recentViewerUserIds: recentViewerUserIds ?? this.recentViewerUserIds,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'storyInteractionInfo';

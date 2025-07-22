@@ -52,11 +52,7 @@ final class DeleteMessages extends TdFunction {
   /// * [chat_id]: Chat identifier
   /// * [message_ids]: Identifiers of the messages to be deleted. Use messageProperties.can_be_deleted_only_for_self and messageProperties.can_be_deleted_for_all_users to get suitable messages
   /// * [revoke]: Pass true to delete messages for all chat members. Always true for supergroups, channels and secret chats
-  DeleteMessages copyWith({
-    int? chatId,
-    List<int>? messageIds,
-    bool? revoke,
-  }) =>
+  DeleteMessages copyWith({int? chatId, List<int>? messageIds, bool? revoke}) =>
       DeleteMessages(
         chatId: chatId ?? this.chatId,
         messageIds: messageIds ?? this.messageIds,

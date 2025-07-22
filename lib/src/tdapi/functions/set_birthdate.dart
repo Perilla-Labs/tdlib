@@ -15,9 +15,7 @@ final class SetBirthdate extends TdFunction {
   /// * [birthdate]: The new value of the current user's birthdate; pass null to remove the birthdate *(optional)*.
   ///
   /// [Ok] is returned on completion.
-  const SetBirthdate({
-    this.birthdate,
-  });
+  const SetBirthdate({this.birthdate});
 
   /// The new value of the current user's birthdate; pass null to remove the birthdate
   final Birthdate? birthdate;
@@ -36,12 +34,8 @@ final class SetBirthdate extends TdFunction {
   ///
   /// Properties:
   /// * [birthdate]: The new value of the current user's birthdate; pass null to remove the birthdate
-  SetBirthdate copyWith({
-    Birthdate? birthdate,
-  }) =>
-      SetBirthdate(
-        birthdate: birthdate ?? this.birthdate,
-      );
+  SetBirthdate copyWith({Birthdate? birthdate}) =>
+      SetBirthdate(birthdate: birthdate ?? this.birthdate);
 
   /// TDLib object type
   static const String defaultObjectId = 'setBirthdate';

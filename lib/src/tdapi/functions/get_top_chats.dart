@@ -17,10 +17,7 @@ final class GetTopChats extends TdFunction {
   /// * [limit]: The maximum number of chats to be returned; up to 30.
   ///
   /// [Chats] is returned on completion.
-  const GetTopChats({
-    required this.category,
-    required this.limit,
-  });
+  const GetTopChats({required this.category, required this.limit});
 
   /// Category of chats to be returned
   final TopChatCategory category;
@@ -44,14 +41,10 @@ final class GetTopChats extends TdFunction {
   /// Properties:
   /// * [category]: Category of chats to be returned
   /// * [limit]: The maximum number of chats to be returned; up to 30
-  GetTopChats copyWith({
-    TopChatCategory? category,
-    int? limit,
-  }) =>
-      GetTopChats(
-        category: category ?? this.category,
-        limit: limit ?? this.limit,
-      );
+  GetTopChats copyWith({TopChatCategory? category, int? limit}) => GetTopChats(
+    category: category ?? this.category,
+    limit: limit ?? this.limit,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getTopChats';

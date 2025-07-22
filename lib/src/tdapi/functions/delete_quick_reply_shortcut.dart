@@ -15,9 +15,7 @@ final class DeleteQuickReplyShortcut extends TdFunction {
   /// * [shortcutId]: Unique identifier of the quick reply shortcut.
   ///
   /// [Ok] is returned on completion.
-  const DeleteQuickReplyShortcut({
-    required this.shortcutId,
-  });
+  const DeleteQuickReplyShortcut({required this.shortcutId});
 
   /// Unique identifier of the quick reply shortcut
   final int shortcutId;
@@ -36,12 +34,8 @@ final class DeleteQuickReplyShortcut extends TdFunction {
   ///
   /// Properties:
   /// * [shortcut_id]: Unique identifier of the quick reply shortcut
-  DeleteQuickReplyShortcut copyWith({
-    int? shortcutId,
-  }) =>
-      DeleteQuickReplyShortcut(
-        shortcutId: shortcutId ?? this.shortcutId,
-      );
+  DeleteQuickReplyShortcut copyWith({int? shortcutId}) =>
+      DeleteQuickReplyShortcut(shortcutId: shortcutId ?? this.shortcutId);
 
   /// TDLib object type
   static const String defaultObjectId = 'deleteQuickReplyShortcut';

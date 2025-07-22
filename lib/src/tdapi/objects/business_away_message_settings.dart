@@ -69,13 +69,12 @@ final class BusinessAwayMessageSettings extends TdObject {
     BusinessRecipients? recipients,
     BusinessAwayMessageSchedule? schedule,
     bool? offlineOnly,
-  }) =>
-      BusinessAwayMessageSettings(
-        shortcutId: shortcutId ?? this.shortcutId,
-        recipients: recipients ?? this.recipients,
-        schedule: schedule ?? this.schedule,
-        offlineOnly: offlineOnly ?? this.offlineOnly,
-      );
+  }) => BusinessAwayMessageSettings(
+    shortcutId: shortcutId ?? this.shortcutId,
+    recipients: recipients ?? this.recipients,
+    schedule: schedule ?? this.schedule,
+    offlineOnly: offlineOnly ?? this.offlineOnly,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'businessAwayMessageSettings';

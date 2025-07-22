@@ -17,10 +17,7 @@ final class OpenChatSimilarChat extends TdFunction {
   /// * [openedChatId]: Identifier of the opened chat.
   ///
   /// [Ok] is returned on completion.
-  const OpenChatSimilarChat({
-    required this.chatId,
-    required this.openedChatId,
-  });
+  const OpenChatSimilarChat({required this.chatId, required this.openedChatId});
 
   /// Identifier of the original chat, which similar chats were requested
   final int chatId;
@@ -44,10 +41,7 @@ final class OpenChatSimilarChat extends TdFunction {
   /// Properties:
   /// * [chat_id]: Identifier of the original chat, which similar chats were requested
   /// * [opened_chat_id]: Identifier of the opened chat
-  OpenChatSimilarChat copyWith({
-    int? chatId,
-    int? openedChatId,
-  }) =>
+  OpenChatSimilarChat copyWith({int? chatId, int? openedChatId}) =>
       OpenChatSimilarChat(
         chatId: chatId ?? this.chatId,
         openedChatId: openedChatId ?? this.openedChatId,

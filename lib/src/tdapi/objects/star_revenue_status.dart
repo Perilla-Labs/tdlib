@@ -4,9 +4,9 @@ part of '../tdapi.dart';
 ///
 /// Contains information about Telegram Stars earned by a bot or a chat.
 ///
-/// * [totalCount]: Total number of Telegram Stars earned.
-/// * [currentCount]: The number of Telegram Stars that aren't withdrawn yet.
-/// * [availableCount]: The number of Telegram Stars that are available for withdrawal.
+/// * [totalAmount]: Total amount of Telegram Stars earned.
+/// * [currentAmount]: The amount of Telegram Stars that aren't withdrawn yet.
+/// * [availableAmount]: The amount of Telegram Stars that are available for withdrawal.
 /// * [withdrawalEnabled]: True, if Telegram Stars can be withdrawn now or later.
 /// * [nextWithdrawalIn]: Time left before the next withdrawal can be started, in seconds; 0 if withdrawal can be started now.
 final class StarRevenueStatus extends TdObject {
@@ -14,27 +14,27 @@ final class StarRevenueStatus extends TdObject {
   ///
   /// Contains information about Telegram Stars earned by a bot or a chat.
   ///
-  /// * [totalCount]: Total number of Telegram Stars earned.
-  /// * [currentCount]: The number of Telegram Stars that aren't withdrawn yet.
-  /// * [availableCount]: The number of Telegram Stars that are available for withdrawal.
+  /// * [totalAmount]: Total amount of Telegram Stars earned.
+  /// * [currentAmount]: The amount of Telegram Stars that aren't withdrawn yet.
+  /// * [availableAmount]: The amount of Telegram Stars that are available for withdrawal.
   /// * [withdrawalEnabled]: True, if Telegram Stars can be withdrawn now or later.
   /// * [nextWithdrawalIn]: Time left before the next withdrawal can be started, in seconds; 0 if withdrawal can be started now.
   const StarRevenueStatus({
-    required this.totalCount,
-    required this.currentCount,
-    required this.availableCount,
+    required this.totalAmount,
+    required this.currentAmount,
+    required this.availableAmount,
     required this.withdrawalEnabled,
     required this.nextWithdrawalIn,
   });
 
-  /// Total number of Telegram Stars earned
-  final int totalCount;
+  /// Total amount of Telegram Stars earned
+  final StarAmount totalAmount;
 
-  /// The number of Telegram Stars that aren't withdrawn yet
-  final int currentCount;
+  /// The amount of Telegram Stars that aren't withdrawn yet
+  final StarAmount currentAmount;
 
-  /// The number of Telegram Stars that are available for withdrawal
-  final int availableCount;
+  /// The amount of Telegram Stars that are available for withdrawal
+  final StarAmount availableAmount;
 
   /// True, if Telegram Stars can be withdrawn now or later
   final bool withdrawalEnabled;
@@ -45,9 +45,9 @@ final class StarRevenueStatus extends TdObject {
   /// Parse from a json
   factory StarRevenueStatus.fromJson(Map<String, dynamic> json) =>
       StarRevenueStatus(
-        totalCount: json['total_count'],
-        currentCount: json['current_count'],
-        availableCount: json['available_count'],
+        totalAmount: StarAmount.fromJson(json['total_amount']),
+        currentAmount: StarAmount.fromJson(json['current_amount']),
+        availableAmount: StarAmount.fromJson(json['available_amount']),
         withdrawalEnabled: json['withdrawal_enabled'],
         nextWithdrawalIn: json['next_withdrawal_in'],
       );
@@ -57,9 +57,9 @@ final class StarRevenueStatus extends TdObject {
   Map<String, dynamic> toJson() {
     return {
       "@type": defaultObjectId,
-      "total_count": totalCount,
-      "current_count": currentCount,
-      "available_count": availableCount,
+      "total_amount": totalAmount.toJson(),
+      "current_amount": currentAmount.toJson(),
+      "available_amount": availableAmount.toJson(),
       "withdrawal_enabled": withdrawalEnabled,
       "next_withdrawal_in": nextWithdrawalIn,
     };
@@ -68,25 +68,24 @@ final class StarRevenueStatus extends TdObject {
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [total_count]: Total number of Telegram Stars earned
-  /// * [current_count]: The number of Telegram Stars that aren't withdrawn yet
-  /// * [available_count]: The number of Telegram Stars that are available for withdrawal
+  /// * [total_amount]: Total amount of Telegram Stars earned
+  /// * [current_amount]: The amount of Telegram Stars that aren't withdrawn yet
+  /// * [available_amount]: The amount of Telegram Stars that are available for withdrawal
   /// * [withdrawal_enabled]: True, if Telegram Stars can be withdrawn now or later
   /// * [next_withdrawal_in]: Time left before the next withdrawal can be started, in seconds; 0 if withdrawal can be started now
   StarRevenueStatus copyWith({
-    int? totalCount,
-    int? currentCount,
-    int? availableCount,
+    StarAmount? totalAmount,
+    StarAmount? currentAmount,
+    StarAmount? availableAmount,
     bool? withdrawalEnabled,
     int? nextWithdrawalIn,
-  }) =>
-      StarRevenueStatus(
-        totalCount: totalCount ?? this.totalCount,
-        currentCount: currentCount ?? this.currentCount,
-        availableCount: availableCount ?? this.availableCount,
-        withdrawalEnabled: withdrawalEnabled ?? this.withdrawalEnabled,
-        nextWithdrawalIn: nextWithdrawalIn ?? this.nextWithdrawalIn,
-      );
+  }) => StarRevenueStatus(
+    totalAmount: totalAmount ?? this.totalAmount,
+    currentAmount: currentAmount ?? this.currentAmount,
+    availableAmount: availableAmount ?? this.availableAmount,
+    withdrawalEnabled: withdrawalEnabled ?? this.withdrawalEnabled,
+    nextWithdrawalIn: nextWithdrawalIn ?? this.nextWithdrawalIn,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'starRevenueStatus';

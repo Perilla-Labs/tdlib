@@ -38,9 +38,11 @@ final class ChatJoinRequests extends TdObject {
   factory ChatJoinRequests.fromJson(Map<String, dynamic> json) =>
       ChatJoinRequests(
         totalCount: json['total_count'],
-        requests: List<ChatJoinRequest>.from((json['requests'] ?? [])
-            .map((item) => ChatJoinRequest.fromJson(item))
-            .toList()),
+        requests: List<ChatJoinRequest>.from(
+          (json['requests'] ?? [])
+              .map((item) => ChatJoinRequest.fromJson(item))
+              .toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -65,13 +67,12 @@ final class ChatJoinRequests extends TdObject {
     List<ChatJoinRequest>? requests,
     dynamic extra,
     int? clientId,
-  }) =>
-      ChatJoinRequests(
-        totalCount: totalCount ?? this.totalCount,
-        requests: requests ?? this.requests,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => ChatJoinRequests(
+    totalCount: totalCount ?? this.totalCount,
+    requests: requests ?? this.requests,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatJoinRequests';

@@ -15,9 +15,7 @@ final class OpenChat extends TdFunction {
   /// * [chatId]: Chat identifier.
   ///
   /// [Ok] is returned on completion.
-  const OpenChat({
-    required this.chatId,
-  });
+  const OpenChat({required this.chatId});
 
   /// Chat identifier
   final int chatId;
@@ -25,23 +23,14 @@ final class OpenChat extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "chat_id": chatId,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "chat_id": chatId, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [chat_id]: Chat identifier
-  OpenChat copyWith({
-    int? chatId,
-  }) =>
-      OpenChat(
-        chatId: chatId ?? this.chatId,
-      );
+  OpenChat copyWith({int? chatId}) => OpenChat(chatId: chatId ?? this.chatId);
 
   /// TDLib object type
   static const String defaultObjectId = 'openChat';

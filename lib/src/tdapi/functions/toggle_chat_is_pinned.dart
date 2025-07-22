@@ -56,12 +56,11 @@ final class ToggleChatIsPinned extends TdFunction {
     ChatList? chatList,
     int? chatId,
     bool? isPinned,
-  }) =>
-      ToggleChatIsPinned(
-        chatList: chatList ?? this.chatList,
-        chatId: chatId ?? this.chatId,
-        isPinned: isPinned ?? this.isPinned,
-      );
+  }) => ToggleChatIsPinned(
+    chatList: chatList ?? this.chatList,
+    chatId: chatId ?? this.chatId,
+    isPinned: isPinned ?? this.isPinned,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'toggleChatIsPinned';

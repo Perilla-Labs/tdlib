@@ -68,9 +68,7 @@ final class PremiumSourceLimitExceeded extends PremiumSource {
   /// A limit was exceeded.
   ///
   /// * [limitType]: Type of the exceeded limit.
-  const PremiumSourceLimitExceeded({
-    required this.limitType,
-  });
+  const PremiumSourceLimitExceeded({required this.limitType});
 
   /// Type of the exceeded limit
   final PremiumLimitType limitType;
@@ -84,10 +82,7 @@ final class PremiumSourceLimitExceeded extends PremiumSource {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "limit_type": limitType.toJson(),
-    };
+    return {"@type": defaultObjectId, "limit_type": limitType.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -95,12 +90,8 @@ final class PremiumSourceLimitExceeded extends PremiumSource {
   /// Properties:
   /// * [limit_type]: Type of the exceeded limit
   @override
-  PremiumSourceLimitExceeded copyWith({
-    PremiumLimitType? limitType,
-  }) =>
-      PremiumSourceLimitExceeded(
-        limitType: limitType ?? this.limitType,
-      );
+  PremiumSourceLimitExceeded copyWith({PremiumLimitType? limitType}) =>
+      PremiumSourceLimitExceeded(limitType: limitType ?? this.limitType);
 
   /// TDLib object type
   static const String defaultObjectId = 'premiumSourceLimitExceeded';
@@ -125,26 +116,19 @@ final class PremiumSourceFeature extends PremiumSource {
   /// A user tried to use a Premium feature.
   ///
   /// * [feature]: The used feature.
-  const PremiumSourceFeature({
-    required this.feature,
-  });
+  const PremiumSourceFeature({required this.feature});
 
   /// The used feature
   final PremiumFeature feature;
 
   /// Parse from a json
   factory PremiumSourceFeature.fromJson(Map<String, dynamic> json) =>
-      PremiumSourceFeature(
-        feature: PremiumFeature.fromJson(json['feature']),
-      );
+      PremiumSourceFeature(feature: PremiumFeature.fromJson(json['feature']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "feature": feature.toJson(),
-    };
+    return {"@type": defaultObjectId, "feature": feature.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -152,12 +136,8 @@ final class PremiumSourceFeature extends PremiumSource {
   /// Properties:
   /// * [feature]: The used feature
   @override
-  PremiumSourceFeature copyWith({
-    PremiumFeature? feature,
-  }) =>
-      PremiumSourceFeature(
-        feature: feature ?? this.feature,
-      );
+  PremiumSourceFeature copyWith({PremiumFeature? feature}) =>
+      PremiumSourceFeature(feature: feature ?? this.feature);
 
   /// TDLib object type
   static const String defaultObjectId = 'premiumSourceFeature';
@@ -182,9 +162,7 @@ final class PremiumSourceBusinessFeature extends PremiumSource {
   /// A user tried to use a Business feature.
   ///
   /// * [feature]: The used feature; pass null if none specific feature was used *(optional)*.
-  const PremiumSourceBusinessFeature({
-    this.feature,
-  });
+  const PremiumSourceBusinessFeature({this.feature});
 
   /// The used feature; pass null if none specific feature was used
   final BusinessFeature? feature;
@@ -200,10 +178,7 @@ final class PremiumSourceBusinessFeature extends PremiumSource {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "feature": feature?.toJson(),
-    };
+    return {"@type": defaultObjectId, "feature": feature?.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -211,12 +186,8 @@ final class PremiumSourceBusinessFeature extends PremiumSource {
   /// Properties:
   /// * [feature]: The used feature; pass null if none specific feature was used
   @override
-  PremiumSourceBusinessFeature copyWith({
-    BusinessFeature? feature,
-  }) =>
-      PremiumSourceBusinessFeature(
-        feature: feature ?? this.feature,
-      );
+  PremiumSourceBusinessFeature copyWith({BusinessFeature? feature}) =>
+      PremiumSourceBusinessFeature(feature: feature ?? this.feature);
 
   /// TDLib object type
   static const String defaultObjectId = 'premiumSourceBusinessFeature';
@@ -241,9 +212,7 @@ final class PremiumSourceStoryFeature extends PremiumSource {
   /// A user tried to use a Premium story feature.
   ///
   /// * [feature]: The used feature.
-  const PremiumSourceStoryFeature({
-    required this.feature,
-  });
+  const PremiumSourceStoryFeature({required this.feature});
 
   /// The used feature
   final PremiumStoryFeature feature;
@@ -257,10 +226,7 @@ final class PremiumSourceStoryFeature extends PremiumSource {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "feature": feature.toJson(),
-    };
+    return {"@type": defaultObjectId, "feature": feature.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -268,12 +234,8 @@ final class PremiumSourceStoryFeature extends PremiumSource {
   /// Properties:
   /// * [feature]: The used feature
   @override
-  PremiumSourceStoryFeature copyWith({
-    PremiumStoryFeature? feature,
-  }) =>
-      PremiumSourceStoryFeature(
-        feature: feature ?? this.feature,
-      );
+  PremiumSourceStoryFeature copyWith({PremiumStoryFeature? feature}) =>
+      PremiumSourceStoryFeature(feature: feature ?? this.feature);
 
   /// TDLib object type
   static const String defaultObjectId = 'premiumSourceStoryFeature';
@@ -298,26 +260,19 @@ final class PremiumSourceLink extends PremiumSource {
   /// A user opened an internal link of the type internalLinkTypePremiumFeatures.
   ///
   /// * [referrer]: The referrer from the link.
-  const PremiumSourceLink({
-    required this.referrer,
-  });
+  const PremiumSourceLink({required this.referrer});
 
   /// The referrer from the link
   final String referrer;
 
   /// Parse from a json
   factory PremiumSourceLink.fromJson(Map<String, dynamic> json) =>
-      PremiumSourceLink(
-        referrer: json['referrer'],
-      );
+      PremiumSourceLink(referrer: json['referrer']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "referrer": referrer,
-    };
+    return {"@type": defaultObjectId, "referrer": referrer};
   }
 
   /// Copy model with modified properties.
@@ -325,12 +280,8 @@ final class PremiumSourceLink extends PremiumSource {
   /// Properties:
   /// * [referrer]: The referrer from the link
   @override
-  PremiumSourceLink copyWith({
-    String? referrer,
-  }) =>
-      PremiumSourceLink(
-        referrer: referrer ?? this.referrer,
-      );
+  PremiumSourceLink copyWith({String? referrer}) =>
+      PremiumSourceLink(referrer: referrer ?? this.referrer);
 
   /// TDLib object type
   static const String defaultObjectId = 'premiumSourceLink';
@@ -360,9 +311,7 @@ final class PremiumSourceSettings extends PremiumSource {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.

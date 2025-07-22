@@ -8,7 +8,7 @@ part of '../tdapi.dart';
 /// * [messageId]: Identifier of the message. Use messageProperties.can_be_edited to check whether the message can be edited.
 /// * [replyMarkup]: The new message reply markup; pass null if none; for bots only *(optional)*.
 /// * [caption]: New message content caption; 0-getOption("message_caption_length_max") characters; pass null to remove caption *(optional)*.
-/// * [showCaptionAboveMedia]: Pass true to show the caption above the media; otherwise, the caption will be shown below the media. Can be true only for animation, photo, and video messages.
+/// * [showCaptionAboveMedia]: Pass true to show the caption above the media; otherwise, the caption will be shown below the media. May be true only for animation, photo, and video messages.
 ///
 /// [Message] is returned on completion.
 final class EditMessageCaption extends TdFunction {
@@ -20,7 +20,7 @@ final class EditMessageCaption extends TdFunction {
   /// * [messageId]: Identifier of the message. Use messageProperties.can_be_edited to check whether the message can be edited.
   /// * [replyMarkup]: The new message reply markup; pass null if none; for bots only *(optional)*.
   /// * [caption]: New message content caption; 0-getOption("message_caption_length_max") characters; pass null to remove caption *(optional)*.
-  /// * [showCaptionAboveMedia]: Pass true to show the caption above the media; otherwise, the caption will be shown below the media. Can be true only for animation, photo, and video messages.
+  /// * [showCaptionAboveMedia]: Pass true to show the caption above the media; otherwise, the caption will be shown below the media. May be true only for animation, photo, and video messages.
   ///
   /// [Message] is returned on completion.
   const EditMessageCaption({
@@ -43,7 +43,7 @@ final class EditMessageCaption extends TdFunction {
   /// New message content caption; 0-getOption("message_caption_length_max") characters; pass null to remove caption
   final FormattedText? caption;
 
-  /// Pass true to show the caption above the media; otherwise, the caption will be shown below the media. Can be true only for animation, photo, and video messages
+  /// Pass true to show the caption above the media; otherwise, the caption will be shown below the media. May be true only for animation, photo, and video messages
   final bool showCaptionAboveMedia;
 
   /// Convert model to TDLib JSON format
@@ -67,22 +67,20 @@ final class EditMessageCaption extends TdFunction {
   /// * [message_id]: Identifier of the message. Use messageProperties.can_be_edited to check whether the message can be edited
   /// * [reply_markup]: The new message reply markup; pass null if none; for bots only
   /// * [caption]: New message content caption; 0-getOption("message_caption_length_max") characters; pass null to remove caption
-  /// * [show_caption_above_media]: Pass true to show the caption above the media; otherwise, the caption will be shown below the media. Can be true only for animation, photo, and video messages
+  /// * [show_caption_above_media]: Pass true to show the caption above the media; otherwise, the caption will be shown below the media. May be true only for animation, photo, and video messages
   EditMessageCaption copyWith({
     int? chatId,
     int? messageId,
     ReplyMarkup? replyMarkup,
     FormattedText? caption,
     bool? showCaptionAboveMedia,
-  }) =>
-      EditMessageCaption(
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        replyMarkup: replyMarkup ?? this.replyMarkup,
-        caption: caption ?? this.caption,
-        showCaptionAboveMedia:
-            showCaptionAboveMedia ?? this.showCaptionAboveMedia,
-      );
+  }) => EditMessageCaption(
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    replyMarkup: replyMarkup ?? this.replyMarkup,
+    caption: caption ?? this.caption,
+    showCaptionAboveMedia: showCaptionAboveMedia ?? this.showCaptionAboveMedia,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'editMessageCaption';

@@ -65,13 +65,12 @@ final class GetMessagePublicForwards extends TdFunction {
     int? messageId,
     String? offset,
     int? limit,
-  }) =>
-      GetMessagePublicForwards(
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        offset: offset ?? this.offset,
-        limit: limit ?? this.limit,
-      );
+  }) => GetMessagePublicForwards(
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    offset: offset ?? this.offset,
+    limit: limit ?? this.limit,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getMessagePublicForwards';

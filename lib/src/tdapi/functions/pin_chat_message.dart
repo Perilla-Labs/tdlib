@@ -65,13 +65,12 @@ final class PinChatMessage extends TdFunction {
     int? messageId,
     bool? disableNotification,
     bool? onlyForSelf,
-  }) =>
-      PinChatMessage(
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        disableNotification: disableNotification ?? this.disableNotification,
-        onlyForSelf: onlyForSelf ?? this.onlyForSelf,
-      );
+  }) => PinChatMessage(
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    disableNotification: disableNotification ?? this.disableNotification,
+    onlyForSelf: onlyForSelf ?? this.onlyForSelf,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'pinChatMessage';

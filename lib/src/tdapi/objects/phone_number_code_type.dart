@@ -64,9 +64,7 @@ final class PhoneNumberCodeTypeChange extends PhoneNumberCodeType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -101,9 +99,7 @@ final class PhoneNumberCodeTypeVerify extends PhoneNumberCodeType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -133,27 +129,20 @@ final class PhoneNumberCodeTypeConfirmOwnership extends PhoneNumberCodeType {
   /// Confirms ownership of a phone number to prevent account deletion while handling links of the type internalLinkTypePhoneNumberConfirmation.
   ///
   /// * [hash]: Hash value from the link.
-  const PhoneNumberCodeTypeConfirmOwnership({
-    required this.hash,
-  });
+  const PhoneNumberCodeTypeConfirmOwnership({required this.hash});
 
   /// Hash value from the link
   final String hash;
 
   /// Parse from a json
   factory PhoneNumberCodeTypeConfirmOwnership.fromJson(
-          Map<String, dynamic> json) =>
-      PhoneNumberCodeTypeConfirmOwnership(
-        hash: json['hash'],
-      );
+    Map<String, dynamic> json,
+  ) => PhoneNumberCodeTypeConfirmOwnership(hash: json['hash']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "hash": hash,
-    };
+    return {"@type": defaultObjectId, "hash": hash};
   }
 
   /// Copy model with modified properties.
@@ -161,12 +150,8 @@ final class PhoneNumberCodeTypeConfirmOwnership extends PhoneNumberCodeType {
   /// Properties:
   /// * [hash]: Hash value from the link
   @override
-  PhoneNumberCodeTypeConfirmOwnership copyWith({
-    String? hash,
-  }) =>
-      PhoneNumberCodeTypeConfirmOwnership(
-        hash: hash ?? this.hash,
-      );
+  PhoneNumberCodeTypeConfirmOwnership copyWith({String? hash}) =>
+      PhoneNumberCodeTypeConfirmOwnership(hash: hash ?? this.hash);
 
   /// TDLib object type
   static const String defaultObjectId = 'phoneNumberCodeTypeConfirmOwnership';

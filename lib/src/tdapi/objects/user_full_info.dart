@@ -20,8 +20,12 @@ part of '../tdapi.dart';
 /// * [bio]: A short user bio; may be null for bots *(optional)*.
 /// * [birthdate]: Birthdate of the user; may be null if unknown *(optional)*.
 /// * [personalChatId]: Identifier of the personal chat of the user; 0 if none.
-/// * [premiumGiftOptions]: The list of available options for gifting Telegram Premium to the user.
+/// * [giftCount]: Number of saved to profile gifts for other users or the total number of received gifts for the current user.
 /// * [groupInCommonCount]: Number of group chats where both the other user and the current user are a member; 0 for the current user.
+/// * [incomingPaidMessageStarCount]: Number of Telegram Stars that must be paid by the user for each sent message to the current user.
+/// * [outgoingPaidMessageStarCount]: Number of Telegram Stars that must be paid by the current user for each sent message to the user.
+/// * [giftSettings]: Settings for gift receiving for the user.
+/// * [botVerification]: Information about verification status of the user provided by a bot; may be null if none or unknown *(optional)*.
 /// * [businessInfo]: Information about business settings for Telegram Business accounts; may be null if none *(optional)*.
 /// * [botInfo]: For bots, information about the bot; may be null if the user isn't a bot *(optional)*.
 final class UserFullInfo extends TdObject {
@@ -45,8 +49,12 @@ final class UserFullInfo extends TdObject {
   /// * [bio]: A short user bio; may be null for bots *(optional)*.
   /// * [birthdate]: Birthdate of the user; may be null if unknown *(optional)*.
   /// * [personalChatId]: Identifier of the personal chat of the user; 0 if none.
-  /// * [premiumGiftOptions]: The list of available options for gifting Telegram Premium to the user.
+  /// * [giftCount]: Number of saved to profile gifts for other users or the total number of received gifts for the current user.
   /// * [groupInCommonCount]: Number of group chats where both the other user and the current user are a member; 0 for the current user.
+  /// * [incomingPaidMessageStarCount]: Number of Telegram Stars that must be paid by the user for each sent message to the current user.
+  /// * [outgoingPaidMessageStarCount]: Number of Telegram Stars that must be paid by the current user for each sent message to the user.
+  /// * [giftSettings]: Settings for gift receiving for the user.
+  /// * [botVerification]: Information about verification status of the user provided by a bot; may be null if none or unknown *(optional)*.
   /// * [businessInfo]: Information about business settings for Telegram Business accounts; may be null if none *(optional)*.
   /// * [botInfo]: For bots, information about the bot; may be null if the user isn't a bot *(optional)*.
   const UserFullInfo({
@@ -66,8 +74,12 @@ final class UserFullInfo extends TdObject {
     this.bio,
     this.birthdate,
     required this.personalChatId,
-    required this.premiumGiftOptions,
+    required this.giftCount,
     required this.groupInCommonCount,
+    required this.incomingPaidMessageStarCount,
+    required this.outgoingPaidMessageStarCount,
+    required this.giftSettings,
+    this.botVerification,
     this.businessInfo,
     this.botInfo,
     this.extra,
@@ -122,11 +134,23 @@ final class UserFullInfo extends TdObject {
   /// Identifier of the personal chat of the user; 0 if none
   final int personalChatId;
 
-  /// The list of available options for gifting Telegram Premium to the user
-  final List<PremiumPaymentOption> premiumGiftOptions;
+  /// Number of saved to profile gifts for other users or the total number of received gifts for the current user
+  final int giftCount;
 
   /// Number of group chats where both the other user and the current user are a member; 0 for the current user
   final int groupInCommonCount;
+
+  /// Number of Telegram Stars that must be paid by the user for each sent message to the current user
+  final int incomingPaidMessageStarCount;
+
+  /// Number of Telegram Stars that must be paid by the current user for each sent message to the user
+  final int outgoingPaidMessageStarCount;
+
+  /// Settings for gift receiving for the user
+  final GiftSettings giftSettings;
+
+  /// Information about verification status of the user provided by a bot; may be null if none or unknown
+  final BotVerification? botVerification;
 
   /// Information about business settings for Telegram Business accounts; may be null if none
   final BusinessInfo? businessInfo;
@@ -144,46 +168,49 @@ final class UserFullInfo extends TdObject {
 
   /// Parse from a json
   factory UserFullInfo.fromJson(Map<String, dynamic> json) => UserFullInfo(
-        personalPhoto: json['personal_photo'] == null
-            ? null
-            : ChatPhoto.fromJson(json['personal_photo']),
-        photo: json['photo'] == null ? null : ChatPhoto.fromJson(json['photo']),
-        publicPhoto: json['public_photo'] == null
-            ? null
-            : ChatPhoto.fromJson(json['public_photo']),
-        blockList: json['block_list'] == null
-            ? null
-            : BlockList.fromJson(json['block_list']),
-        canBeCalled: json['can_be_called'],
-        supportsVideoCalls: json['supports_video_calls'],
-        hasPrivateCalls: json['has_private_calls'],
-        hasPrivateForwards: json['has_private_forwards'],
-        hasRestrictedVoiceAndVideoNoteMessages:
-            json['has_restricted_voice_and_video_note_messages'],
-        hasPostedToProfileStories: json['has_posted_to_profile_stories'],
-        hasSponsoredMessagesEnabled: json['has_sponsored_messages_enabled'],
-        needPhoneNumberPrivacyException:
-            json['need_phone_number_privacy_exception'],
-        setChatBackground: json['set_chat_background'],
-        bio: json['bio'] == null ? null : FormattedText.fromJson(json['bio']),
-        birthdate: json['birthdate'] == null
-            ? null
-            : Birthdate.fromJson(json['birthdate']),
-        personalChatId: json['personal_chat_id'] ?? 0,
-        premiumGiftOptions: List<PremiumPaymentOption>.from(
-            (json['premium_gift_options'] ?? [])
-                .map((item) => PremiumPaymentOption.fromJson(item))
-                .toList()),
-        groupInCommonCount: json['group_in_common_count'],
-        businessInfo: json['business_info'] == null
-            ? null
-            : BusinessInfo.fromJson(json['business_info']),
-        botInfo: json['bot_info'] == null
-            ? null
-            : BotInfo.fromJson(json['bot_info']),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    personalPhoto: json['personal_photo'] == null
+        ? null
+        : ChatPhoto.fromJson(json['personal_photo']),
+    photo: json['photo'] == null ? null : ChatPhoto.fromJson(json['photo']),
+    publicPhoto: json['public_photo'] == null
+        ? null
+        : ChatPhoto.fromJson(json['public_photo']),
+    blockList: json['block_list'] == null
+        ? null
+        : BlockList.fromJson(json['block_list']),
+    canBeCalled: json['can_be_called'],
+    supportsVideoCalls: json['supports_video_calls'],
+    hasPrivateCalls: json['has_private_calls'],
+    hasPrivateForwards: json['has_private_forwards'],
+    hasRestrictedVoiceAndVideoNoteMessages:
+        json['has_restricted_voice_and_video_note_messages'],
+    hasPostedToProfileStories: json['has_posted_to_profile_stories'],
+    hasSponsoredMessagesEnabled: json['has_sponsored_messages_enabled'],
+    needPhoneNumberPrivacyException:
+        json['need_phone_number_privacy_exception'],
+    setChatBackground: json['set_chat_background'],
+    bio: json['bio'] == null ? null : FormattedText.fromJson(json['bio']),
+    birthdate: json['birthdate'] == null
+        ? null
+        : Birthdate.fromJson(json['birthdate']),
+    personalChatId: json['personal_chat_id'] ?? 0,
+    giftCount: json['gift_count'],
+    groupInCommonCount: json['group_in_common_count'],
+    incomingPaidMessageStarCount: json['incoming_paid_message_star_count'],
+    outgoingPaidMessageStarCount: json['outgoing_paid_message_star_count'],
+    giftSettings: GiftSettings.fromJson(json['gift_settings']),
+    botVerification: json['bot_verification'] == null
+        ? null
+        : BotVerification.fromJson(json['bot_verification']),
+    businessInfo: json['business_info'] == null
+        ? null
+        : BusinessInfo.fromJson(json['business_info']),
+    botInfo: json['bot_info'] == null
+        ? null
+        : BotInfo.fromJson(json['bot_info']),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -207,9 +234,12 @@ final class UserFullInfo extends TdObject {
       "bio": bio?.toJson(),
       "birthdate": birthdate?.toJson(),
       "personal_chat_id": personalChatId,
-      "premium_gift_options":
-          premiumGiftOptions.map((i) => i.toJson()).toList(),
+      "gift_count": giftCount,
       "group_in_common_count": groupInCommonCount,
+      "incoming_paid_message_star_count": incomingPaidMessageStarCount,
+      "outgoing_paid_message_star_count": outgoingPaidMessageStarCount,
+      "gift_settings": giftSettings.toJson(),
+      "bot_verification": botVerification?.toJson(),
       "business_info": businessInfo?.toJson(),
       "bot_info": botInfo?.toJson(),
     };
@@ -234,8 +264,12 @@ final class UserFullInfo extends TdObject {
   /// * [bio]: A short user bio; may be null for bots
   /// * [birthdate]: Birthdate of the user; may be null if unknown
   /// * [personal_chat_id]: Identifier of the personal chat of the user; 0 if none
-  /// * [premium_gift_options]: The list of available options for gifting Telegram Premium to the user
+  /// * [gift_count]: Number of saved to profile gifts for other users or the total number of received gifts for the current user
   /// * [group_in_common_count]: Number of group chats where both the other user and the current user are a member; 0 for the current user
+  /// * [incoming_paid_message_star_count]: Number of Telegram Stars that must be paid by the user for each sent message to the current user
+  /// * [outgoing_paid_message_star_count]: Number of Telegram Stars that must be paid by the current user for each sent message to the user
+  /// * [gift_settings]: Settings for gift receiving for the user
+  /// * [bot_verification]: Information about verification status of the user provided by a bot; may be null if none or unknown
   /// * [business_info]: Information about business settings for Telegram Business accounts; may be null if none
   /// * [bot_info]: For bots, information about the bot; may be null if the user isn't a bot
   UserFullInfo copyWith({
@@ -255,42 +289,51 @@ final class UserFullInfo extends TdObject {
     FormattedText? bio,
     Birthdate? birthdate,
     int? personalChatId,
-    List<PremiumPaymentOption>? premiumGiftOptions,
+    int? giftCount,
     int? groupInCommonCount,
+    int? incomingPaidMessageStarCount,
+    int? outgoingPaidMessageStarCount,
+    GiftSettings? giftSettings,
+    BotVerification? botVerification,
     BusinessInfo? businessInfo,
     BotInfo? botInfo,
     dynamic extra,
     int? clientId,
-  }) =>
-      UserFullInfo(
-        personalPhoto: personalPhoto ?? this.personalPhoto,
-        photo: photo ?? this.photo,
-        publicPhoto: publicPhoto ?? this.publicPhoto,
-        blockList: blockList ?? this.blockList,
-        canBeCalled: canBeCalled ?? this.canBeCalled,
-        supportsVideoCalls: supportsVideoCalls ?? this.supportsVideoCalls,
-        hasPrivateCalls: hasPrivateCalls ?? this.hasPrivateCalls,
-        hasPrivateForwards: hasPrivateForwards ?? this.hasPrivateForwards,
-        hasRestrictedVoiceAndVideoNoteMessages:
-            hasRestrictedVoiceAndVideoNoteMessages ??
-                this.hasRestrictedVoiceAndVideoNoteMessages,
-        hasPostedToProfileStories:
-            hasPostedToProfileStories ?? this.hasPostedToProfileStories,
-        hasSponsoredMessagesEnabled:
-            hasSponsoredMessagesEnabled ?? this.hasSponsoredMessagesEnabled,
-        needPhoneNumberPrivacyException: needPhoneNumberPrivacyException ??
-            this.needPhoneNumberPrivacyException,
-        setChatBackground: setChatBackground ?? this.setChatBackground,
-        bio: bio ?? this.bio,
-        birthdate: birthdate ?? this.birthdate,
-        personalChatId: personalChatId ?? this.personalChatId,
-        premiumGiftOptions: premiumGiftOptions ?? this.premiumGiftOptions,
-        groupInCommonCount: groupInCommonCount ?? this.groupInCommonCount,
-        businessInfo: businessInfo ?? this.businessInfo,
-        botInfo: botInfo ?? this.botInfo,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => UserFullInfo(
+    personalPhoto: personalPhoto ?? this.personalPhoto,
+    photo: photo ?? this.photo,
+    publicPhoto: publicPhoto ?? this.publicPhoto,
+    blockList: blockList ?? this.blockList,
+    canBeCalled: canBeCalled ?? this.canBeCalled,
+    supportsVideoCalls: supportsVideoCalls ?? this.supportsVideoCalls,
+    hasPrivateCalls: hasPrivateCalls ?? this.hasPrivateCalls,
+    hasPrivateForwards: hasPrivateForwards ?? this.hasPrivateForwards,
+    hasRestrictedVoiceAndVideoNoteMessages:
+        hasRestrictedVoiceAndVideoNoteMessages ??
+        this.hasRestrictedVoiceAndVideoNoteMessages,
+    hasPostedToProfileStories:
+        hasPostedToProfileStories ?? this.hasPostedToProfileStories,
+    hasSponsoredMessagesEnabled:
+        hasSponsoredMessagesEnabled ?? this.hasSponsoredMessagesEnabled,
+    needPhoneNumberPrivacyException:
+        needPhoneNumberPrivacyException ?? this.needPhoneNumberPrivacyException,
+    setChatBackground: setChatBackground ?? this.setChatBackground,
+    bio: bio ?? this.bio,
+    birthdate: birthdate ?? this.birthdate,
+    personalChatId: personalChatId ?? this.personalChatId,
+    giftCount: giftCount ?? this.giftCount,
+    groupInCommonCount: groupInCommonCount ?? this.groupInCommonCount,
+    incomingPaidMessageStarCount:
+        incomingPaidMessageStarCount ?? this.incomingPaidMessageStarCount,
+    outgoingPaidMessageStarCount:
+        outgoingPaidMessageStarCount ?? this.outgoingPaidMessageStarCount,
+    giftSettings: giftSettings ?? this.giftSettings,
+    botVerification: botVerification ?? this.botVerification,
+    businessInfo: businessInfo ?? this.businessInfo,
+    botInfo: botInfo ?? this.botInfo,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'userFullInfo';

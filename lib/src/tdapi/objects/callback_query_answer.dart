@@ -73,14 +73,13 @@ final class CallbackQueryAnswer extends TdObject {
     String? url,
     dynamic extra,
     int? clientId,
-  }) =>
-      CallbackQueryAnswer(
-        text: text ?? this.text,
-        showAlert: showAlert ?? this.showAlert,
-        url: url ?? this.url,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => CallbackQueryAnswer(
+    text: text ?? this.text,
+    showAlert: showAlert ?? this.showAlert,
+    url: url ?? this.url,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'callbackQueryAnswer';

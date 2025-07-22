@@ -52,11 +52,7 @@ final class GetUserProfilePhotos extends TdFunction {
   /// * [user_id]: User identifier
   /// * [offset]: The number of photos to skip; must be non-negative
   /// * [limit]: The maximum number of photos to be returned; up to 100
-  GetUserProfilePhotos copyWith({
-    int? userId,
-    int? offset,
-    int? limit,
-  }) =>
+  GetUserProfilePhotos copyWith({int? userId, int? offset, int? limit}) =>
       GetUserProfilePhotos(
         userId: userId ?? this.userId,
         offset: offset ?? this.offset,

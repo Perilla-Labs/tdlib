@@ -44,10 +44,7 @@ final class GetBotMediaPreviewInfo extends TdFunction {
   /// Properties:
   /// * [bot_user_id]: Identifier of the target bot. The bot must be owned and must have the main Web App
   /// * [language_code]: A two-letter ISO 639-1 language code for which to get previews. If empty, then default previews are returned
-  GetBotMediaPreviewInfo copyWith({
-    int? botUserId,
-    String? languageCode,
-  }) =>
+  GetBotMediaPreviewInfo copyWith({int? botUserId, String? languageCode}) =>
       GetBotMediaPreviewInfo(
         botUserId: botUserId ?? this.botUserId,
         languageCode: languageCode ?? this.languageCode,

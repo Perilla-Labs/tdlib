@@ -56,26 +56,19 @@ final class TextParseModeMarkdown extends TextParseMode {
   /// The text uses Markdown-style formatting.
   ///
   /// * [version]: Version of the parser: 0 or 1 - Telegram Bot API "Markdown" parse mode, 2 - Telegram Bot API "MarkdownV2" parse mode.
-  const TextParseModeMarkdown({
-    required this.version,
-  });
+  const TextParseModeMarkdown({required this.version});
 
   /// Version of the parser: 0 or 1 - Telegram Bot API "Markdown" parse mode, 2 - Telegram Bot API "MarkdownV2" parse mode
   final int version;
 
   /// Parse from a json
   factory TextParseModeMarkdown.fromJson(Map<String, dynamic> json) =>
-      TextParseModeMarkdown(
-        version: json['version'],
-      );
+      TextParseModeMarkdown(version: json['version']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "version": version,
-    };
+    return {"@type": defaultObjectId, "version": version};
   }
 
   /// Copy model with modified properties.
@@ -83,12 +76,8 @@ final class TextParseModeMarkdown extends TextParseMode {
   /// Properties:
   /// * [version]: Version of the parser: 0 or 1 - Telegram Bot API "Markdown" parse mode, 2 - Telegram Bot API "MarkdownV2" parse mode
   @override
-  TextParseModeMarkdown copyWith({
-    int? version,
-  }) =>
-      TextParseModeMarkdown(
-        version: version ?? this.version,
-      );
+  TextParseModeMarkdown copyWith({int? version}) =>
+      TextParseModeMarkdown(version: version ?? this.version);
 
   /// TDLib object type
   static const String defaultObjectId = 'textParseModeMarkdown';
@@ -118,9 +107,7 @@ final class TextParseModeHTML extends TextParseMode {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.

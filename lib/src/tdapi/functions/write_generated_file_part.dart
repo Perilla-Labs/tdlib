@@ -56,12 +56,11 @@ final class WriteGeneratedFilePart extends TdFunction {
     int? generationId,
     int? offset,
     String? data,
-  }) =>
-      WriteGeneratedFilePart(
-        generationId: generationId ?? this.generationId,
-        offset: offset ?? this.offset,
-        data: data ?? this.data,
-      );
+  }) => WriteGeneratedFilePart(
+    generationId: generationId ?? this.generationId,
+    offset: offset ?? this.offset,
+    data: data ?? this.data,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'writeGeneratedFilePart';

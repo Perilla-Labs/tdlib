@@ -44,10 +44,7 @@ final class SetChatSlowModeDelay extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [slow_mode_delay]: New slow mode delay for the chat, in seconds; must be one of 0, 10, 30, 60, 300, 900, 3600
-  SetChatSlowModeDelay copyWith({
-    int? chatId,
-    int? slowModeDelay,
-  }) =>
+  SetChatSlowModeDelay copyWith({int? chatId, int? slowModeDelay}) =>
       SetChatSlowModeDelay(
         chatId: chatId ?? this.chatId,
         slowModeDelay: slowModeDelay ?? this.slowModeDelay,

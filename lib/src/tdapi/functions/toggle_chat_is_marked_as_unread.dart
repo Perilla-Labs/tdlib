@@ -44,10 +44,7 @@ final class ToggleChatIsMarkedAsUnread extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [is_marked_as_unread]: New value of is_marked_as_unread
-  ToggleChatIsMarkedAsUnread copyWith({
-    int? chatId,
-    bool? isMarkedAsUnread,
-  }) =>
+  ToggleChatIsMarkedAsUnread copyWith({int? chatId, bool? isMarkedAsUnread}) =>
       ToggleChatIsMarkedAsUnread(
         chatId: chatId ?? this.chatId,
         isMarkedAsUnread: isMarkedAsUnread ?? this.isMarkedAsUnread,

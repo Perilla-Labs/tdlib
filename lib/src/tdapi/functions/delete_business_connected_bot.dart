@@ -15,9 +15,7 @@ final class DeleteBusinessConnectedBot extends TdFunction {
   /// * [botUserId]: Unique user identifier for the bot.
   ///
   /// [Ok] is returned on completion.
-  const DeleteBusinessConnectedBot({
-    required this.botUserId,
-  });
+  const DeleteBusinessConnectedBot({required this.botUserId});
 
   /// Unique user identifier for the bot
   final int botUserId;
@@ -36,12 +34,8 @@ final class DeleteBusinessConnectedBot extends TdFunction {
   ///
   /// Properties:
   /// * [bot_user_id]: Unique user identifier for the bot
-  DeleteBusinessConnectedBot copyWith({
-    int? botUserId,
-  }) =>
-      DeleteBusinessConnectedBot(
-        botUserId: botUserId ?? this.botUserId,
-      );
+  DeleteBusinessConnectedBot copyWith({int? botUserId}) =>
+      DeleteBusinessConnectedBot(botUserId: botUserId ?? this.botUserId);
 
   /// TDLib object type
   static const String defaultObjectId = 'deleteBusinessConnectedBot';

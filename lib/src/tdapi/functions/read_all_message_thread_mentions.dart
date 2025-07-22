@@ -44,10 +44,7 @@ final class ReadAllMessageThreadMentions extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [message_thread_id]: Message thread identifier in which mentions are marked as read
-  ReadAllMessageThreadMentions copyWith({
-    int? chatId,
-    int? messageThreadId,
-  }) =>
+  ReadAllMessageThreadMentions copyWith({int? chatId, int? messageThreadId}) =>
       ReadAllMessageThreadMentions(
         chatId: chatId ?? this.chatId,
         messageThreadId: messageThreadId ?? this.messageThreadId,

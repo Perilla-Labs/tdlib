@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **SendQuickReplyShortcutMessages** *(sendQuickReplyShortcutMessages)* - TDLib function
 ///
-/// Sends messages from a quick reply shortcut. Requires Telegram Business subscription.
+/// Sends messages from a quick reply shortcut. Requires Telegram Business subscription. Can't be used to send paid messages.
 ///
 /// * [chatId]: Identifier of the chat to which to send messages. The chat must be a private chat with a regular user.
 /// * [shortcutId]: Unique identifier of the quick reply shortcut.
@@ -12,7 +12,7 @@ part of '../tdapi.dart';
 final class SendQuickReplyShortcutMessages extends TdFunction {
   /// **SendQuickReplyShortcutMessages** *(sendQuickReplyShortcutMessages)* - TDLib function
   ///
-  /// Sends messages from a quick reply shortcut. Requires Telegram Business subscription.
+  /// Sends messages from a quick reply shortcut. Requires Telegram Business subscription. Can't be used to send paid messages.
   ///
   /// * [chatId]: Identifier of the chat to which to send messages. The chat must be a private chat with a regular user.
   /// * [shortcutId]: Unique identifier of the quick reply shortcut.
@@ -56,12 +56,11 @@ final class SendQuickReplyShortcutMessages extends TdFunction {
     int? chatId,
     int? shortcutId,
     int? sendingId,
-  }) =>
-      SendQuickReplyShortcutMessages(
-        chatId: chatId ?? this.chatId,
-        shortcutId: shortcutId ?? this.shortcutId,
-        sendingId: sendingId ?? this.sendingId,
-      );
+  }) => SendQuickReplyShortcutMessages(
+    chatId: chatId ?? this.chatId,
+    shortcutId: shortcutId ?? this.shortcutId,
+    sendingId: sendingId ?? this.sendingId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'sendQuickReplyShortcutMessages';

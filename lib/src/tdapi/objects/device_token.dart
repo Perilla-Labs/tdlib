@@ -101,20 +101,16 @@ final class DeviceTokenFirebaseCloudMessaging extends DeviceToken {
 
   /// Parse from a json
   factory DeviceTokenFirebaseCloudMessaging.fromJson(
-          Map<String, dynamic> json) =>
-      DeviceTokenFirebaseCloudMessaging(
-        token: json['token'],
-        encrypt: json['encrypt'],
-      );
+    Map<String, dynamic> json,
+  ) => DeviceTokenFirebaseCloudMessaging(
+    token: json['token'],
+    encrypt: json['encrypt'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "token": token,
-      "encrypt": encrypt,
-    };
+    return {"@type": defaultObjectId, "token": token, "encrypt": encrypt};
   }
 
   /// Copy model with modified properties.
@@ -123,10 +119,7 @@ final class DeviceTokenFirebaseCloudMessaging extends DeviceToken {
   /// * [token]: Device registration token; may be empty to deregister a device
   /// * [encrypt]: True, if push notifications must be additionally encrypted
   @override
-  DeviceTokenFirebaseCloudMessaging copyWith({
-    String? token,
-    bool? encrypt,
-  }) =>
+  DeviceTokenFirebaseCloudMessaging copyWith({String? token, bool? encrypt}) =>
       DeviceTokenFirebaseCloudMessaging(
         token: token ?? this.token,
         encrypt: encrypt ?? this.encrypt,
@@ -191,10 +184,7 @@ final class DeviceTokenApplePush extends DeviceToken {
   /// * [device_token]: Device token; may be empty to deregister a device
   /// * [is_app_sandbox]: True, if App Sandbox is enabled
   @override
-  DeviceTokenApplePush copyWith({
-    String? deviceToken,
-    bool? isAppSandbox,
-  }) =>
+  DeviceTokenApplePush copyWith({String? deviceToken, bool? isAppSandbox}) =>
       DeviceTokenApplePush(
         deviceToken: deviceToken ?? this.deviceToken,
         isAppSandbox: isAppSandbox ?? this.isAppSandbox,
@@ -272,12 +262,11 @@ final class DeviceTokenApplePushVoIP extends DeviceToken {
     String? deviceToken,
     bool? isAppSandbox,
     bool? encrypt,
-  }) =>
-      DeviceTokenApplePushVoIP(
-        deviceToken: deviceToken ?? this.deviceToken,
-        isAppSandbox: isAppSandbox ?? this.isAppSandbox,
-        encrypt: encrypt ?? this.encrypt,
-      );
+  }) => DeviceTokenApplePushVoIP(
+    deviceToken: deviceToken ?? this.deviceToken,
+    isAppSandbox: isAppSandbox ?? this.isAppSandbox,
+    encrypt: encrypt ?? this.encrypt,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'deviceTokenApplePushVoIP';
@@ -302,26 +291,19 @@ final class DeviceTokenWindowsPush extends DeviceToken {
   /// A token for Windows Push Notification Services.
   ///
   /// * [accessToken]: The access token that will be used to send notifications; may be empty to deregister a device.
-  const DeviceTokenWindowsPush({
-    required this.accessToken,
-  });
+  const DeviceTokenWindowsPush({required this.accessToken});
 
   /// The access token that will be used to send notifications; may be empty to deregister a device
   final String accessToken;
 
   /// Parse from a json
   factory DeviceTokenWindowsPush.fromJson(Map<String, dynamic> json) =>
-      DeviceTokenWindowsPush(
-        accessToken: json['access_token'],
-      );
+      DeviceTokenWindowsPush(accessToken: json['access_token']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "access_token": accessToken,
-    };
+    return {"@type": defaultObjectId, "access_token": accessToken};
   }
 
   /// Copy model with modified properties.
@@ -329,12 +311,8 @@ final class DeviceTokenWindowsPush extends DeviceToken {
   /// Properties:
   /// * [access_token]: The access token that will be used to send notifications; may be empty to deregister a device
   @override
-  DeviceTokenWindowsPush copyWith({
-    String? accessToken,
-  }) =>
-      DeviceTokenWindowsPush(
-        accessToken: accessToken ?? this.accessToken,
-      );
+  DeviceTokenWindowsPush copyWith({String? accessToken}) =>
+      DeviceTokenWindowsPush(accessToken: accessToken ?? this.accessToken);
 
   /// TDLib object type
   static const String defaultObjectId = 'deviceTokenWindowsPush';
@@ -359,26 +337,19 @@ final class DeviceTokenMicrosoftPush extends DeviceToken {
   /// A token for Microsoft Push Notification Service.
   ///
   /// * [channelUri]: Push notification channel URI; may be empty to deregister a device.
-  const DeviceTokenMicrosoftPush({
-    required this.channelUri,
-  });
+  const DeviceTokenMicrosoftPush({required this.channelUri});
 
   /// Push notification channel URI; may be empty to deregister a device
   final String channelUri;
 
   /// Parse from a json
   factory DeviceTokenMicrosoftPush.fromJson(Map<String, dynamic> json) =>
-      DeviceTokenMicrosoftPush(
-        channelUri: json['channel_uri'],
-      );
+      DeviceTokenMicrosoftPush(channelUri: json['channel_uri']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "channel_uri": channelUri,
-    };
+    return {"@type": defaultObjectId, "channel_uri": channelUri};
   }
 
   /// Copy model with modified properties.
@@ -386,12 +357,8 @@ final class DeviceTokenMicrosoftPush extends DeviceToken {
   /// Properties:
   /// * [channel_uri]: Push notification channel URI; may be empty to deregister a device
   @override
-  DeviceTokenMicrosoftPush copyWith({
-    String? channelUri,
-  }) =>
-      DeviceTokenMicrosoftPush(
-        channelUri: channelUri ?? this.channelUri,
-      );
+  DeviceTokenMicrosoftPush copyWith({String? channelUri}) =>
+      DeviceTokenMicrosoftPush(channelUri: channelUri ?? this.channelUri);
 
   /// TDLib object type
   static const String defaultObjectId = 'deviceTokenMicrosoftPush';
@@ -416,26 +383,19 @@ final class DeviceTokenMicrosoftPushVoIP extends DeviceToken {
   /// A token for Microsoft Push Notification Service VoIP channel.
   ///
   /// * [channelUri]: Push notification channel URI; may be empty to deregister a device.
-  const DeviceTokenMicrosoftPushVoIP({
-    required this.channelUri,
-  });
+  const DeviceTokenMicrosoftPushVoIP({required this.channelUri});
 
   /// Push notification channel URI; may be empty to deregister a device
   final String channelUri;
 
   /// Parse from a json
   factory DeviceTokenMicrosoftPushVoIP.fromJson(Map<String, dynamic> json) =>
-      DeviceTokenMicrosoftPushVoIP(
-        channelUri: json['channel_uri'],
-      );
+      DeviceTokenMicrosoftPushVoIP(channelUri: json['channel_uri']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "channel_uri": channelUri,
-    };
+    return {"@type": defaultObjectId, "channel_uri": channelUri};
   }
 
   /// Copy model with modified properties.
@@ -443,12 +403,8 @@ final class DeviceTokenMicrosoftPushVoIP extends DeviceToken {
   /// Properties:
   /// * [channel_uri]: Push notification channel URI; may be empty to deregister a device
   @override
-  DeviceTokenMicrosoftPushVoIP copyWith({
-    String? channelUri,
-  }) =>
-      DeviceTokenMicrosoftPushVoIP(
-        channelUri: channelUri ?? this.channelUri,
-      );
+  DeviceTokenMicrosoftPushVoIP copyWith({String? channelUri}) =>
+      DeviceTokenMicrosoftPushVoIP(channelUri: channelUri ?? this.channelUri);
 
   /// TDLib object type
   static const String defaultObjectId = 'deviceTokenMicrosoftPushVoIP';
@@ -522,12 +478,11 @@ final class DeviceTokenWebPush extends DeviceToken {
     String? endpoint,
     String? p256dhBase64url,
     String? authBase64url,
-  }) =>
-      DeviceTokenWebPush(
-        endpoint: endpoint ?? this.endpoint,
-        p256dhBase64url: p256dhBase64url ?? this.p256dhBase64url,
-        authBase64url: authBase64url ?? this.authBase64url,
-      );
+  }) => DeviceTokenWebPush(
+    endpoint: endpoint ?? this.endpoint,
+    p256dhBase64url: p256dhBase64url ?? this.p256dhBase64url,
+    authBase64url: authBase64url ?? this.authBase64url,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'deviceTokenWebPush';
@@ -552,26 +507,19 @@ final class DeviceTokenSimplePush extends DeviceToken {
   /// A token for Simple Push API for Firefox OS.
   ///
   /// * [endpoint]: Absolute URL exposed by the push service where the application server can send push messages; may be empty to deregister a device.
-  const DeviceTokenSimplePush({
-    required this.endpoint,
-  });
+  const DeviceTokenSimplePush({required this.endpoint});
 
   /// Absolute URL exposed by the push service where the application server can send push messages; may be empty to deregister a device
   final String endpoint;
 
   /// Parse from a json
   factory DeviceTokenSimplePush.fromJson(Map<String, dynamic> json) =>
-      DeviceTokenSimplePush(
-        endpoint: json['endpoint'],
-      );
+      DeviceTokenSimplePush(endpoint: json['endpoint']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "endpoint": endpoint,
-    };
+    return {"@type": defaultObjectId, "endpoint": endpoint};
   }
 
   /// Copy model with modified properties.
@@ -579,12 +527,8 @@ final class DeviceTokenSimplePush extends DeviceToken {
   /// Properties:
   /// * [endpoint]: Absolute URL exposed by the push service where the application server can send push messages; may be empty to deregister a device
   @override
-  DeviceTokenSimplePush copyWith({
-    String? endpoint,
-  }) =>
-      DeviceTokenSimplePush(
-        endpoint: endpoint ?? this.endpoint,
-      );
+  DeviceTokenSimplePush copyWith({String? endpoint}) =>
+      DeviceTokenSimplePush(endpoint: endpoint ?? this.endpoint);
 
   /// TDLib object type
   static const String defaultObjectId = 'deviceTokenSimplePush';
@@ -609,26 +553,19 @@ final class DeviceTokenUbuntuPush extends DeviceToken {
   /// A token for Ubuntu Push Client service.
   ///
   /// * [token]: Token; may be empty to deregister a device.
-  const DeviceTokenUbuntuPush({
-    required this.token,
-  });
+  const DeviceTokenUbuntuPush({required this.token});
 
   /// Token; may be empty to deregister a device
   final String token;
 
   /// Parse from a json
   factory DeviceTokenUbuntuPush.fromJson(Map<String, dynamic> json) =>
-      DeviceTokenUbuntuPush(
-        token: json['token'],
-      );
+      DeviceTokenUbuntuPush(token: json['token']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "token": token,
-    };
+    return {"@type": defaultObjectId, "token": token};
   }
 
   /// Copy model with modified properties.
@@ -636,12 +573,8 @@ final class DeviceTokenUbuntuPush extends DeviceToken {
   /// Properties:
   /// * [token]: Token; may be empty to deregister a device
   @override
-  DeviceTokenUbuntuPush copyWith({
-    String? token,
-  }) =>
-      DeviceTokenUbuntuPush(
-        token: token ?? this.token,
-      );
+  DeviceTokenUbuntuPush copyWith({String? token}) =>
+      DeviceTokenUbuntuPush(token: token ?? this.token);
 
   /// TDLib object type
   static const String defaultObjectId = 'deviceTokenUbuntuPush';
@@ -666,26 +599,19 @@ final class DeviceTokenBlackBerryPush extends DeviceToken {
   /// A token for BlackBerry Push Service.
   ///
   /// * [token]: Token; may be empty to deregister a device.
-  const DeviceTokenBlackBerryPush({
-    required this.token,
-  });
+  const DeviceTokenBlackBerryPush({required this.token});
 
   /// Token; may be empty to deregister a device
   final String token;
 
   /// Parse from a json
   factory DeviceTokenBlackBerryPush.fromJson(Map<String, dynamic> json) =>
-      DeviceTokenBlackBerryPush(
-        token: json['token'],
-      );
+      DeviceTokenBlackBerryPush(token: json['token']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "token": token,
-    };
+    return {"@type": defaultObjectId, "token": token};
   }
 
   /// Copy model with modified properties.
@@ -693,12 +619,8 @@ final class DeviceTokenBlackBerryPush extends DeviceToken {
   /// Properties:
   /// * [token]: Token; may be empty to deregister a device
   @override
-  DeviceTokenBlackBerryPush copyWith({
-    String? token,
-  }) =>
-      DeviceTokenBlackBerryPush(
-        token: token ?? this.token,
-      );
+  DeviceTokenBlackBerryPush copyWith({String? token}) =>
+      DeviceTokenBlackBerryPush(token: token ?? this.token);
 
   /// TDLib object type
   static const String defaultObjectId = 'deviceTokenBlackBerryPush';
@@ -723,26 +645,19 @@ final class DeviceTokenTizenPush extends DeviceToken {
   /// A token for Tizen Push Service.
   ///
   /// * [regId]: Push service registration identifier; may be empty to deregister a device.
-  const DeviceTokenTizenPush({
-    required this.regId,
-  });
+  const DeviceTokenTizenPush({required this.regId});
 
   /// Push service registration identifier; may be empty to deregister a device
   final String regId;
 
   /// Parse from a json
   factory DeviceTokenTizenPush.fromJson(Map<String, dynamic> json) =>
-      DeviceTokenTizenPush(
-        regId: json['reg_id'],
-      );
+      DeviceTokenTizenPush(regId: json['reg_id']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "reg_id": regId,
-    };
+    return {"@type": defaultObjectId, "reg_id": regId};
   }
 
   /// Copy model with modified properties.
@@ -750,12 +665,8 @@ final class DeviceTokenTizenPush extends DeviceToken {
   /// Properties:
   /// * [reg_id]: Push service registration identifier; may be empty to deregister a device
   @override
-  DeviceTokenTizenPush copyWith({
-    String? regId,
-  }) =>
-      DeviceTokenTizenPush(
-        regId: regId ?? this.regId,
-      );
+  DeviceTokenTizenPush copyWith({String? regId}) =>
+      DeviceTokenTizenPush(regId: regId ?? this.regId);
 
   /// TDLib object type
   static const String defaultObjectId = 'deviceTokenTizenPush';
@@ -782,10 +693,7 @@ final class DeviceTokenHuaweiPush extends DeviceToken {
   ///
   /// * [token]: Device registration token; may be empty to deregister a device.
   /// * [encrypt]: True, if push notifications must be additionally encrypted.
-  const DeviceTokenHuaweiPush({
-    required this.token,
-    required this.encrypt,
-  });
+  const DeviceTokenHuaweiPush({required this.token, required this.encrypt});
 
   /// Device registration token; may be empty to deregister a device
   final String token;
@@ -795,19 +703,12 @@ final class DeviceTokenHuaweiPush extends DeviceToken {
 
   /// Parse from a json
   factory DeviceTokenHuaweiPush.fromJson(Map<String, dynamic> json) =>
-      DeviceTokenHuaweiPush(
-        token: json['token'],
-        encrypt: json['encrypt'],
-      );
+      DeviceTokenHuaweiPush(token: json['token'], encrypt: json['encrypt']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "token": token,
-      "encrypt": encrypt,
-    };
+    return {"@type": defaultObjectId, "token": token, "encrypt": encrypt};
   }
 
   /// Copy model with modified properties.
@@ -816,10 +717,7 @@ final class DeviceTokenHuaweiPush extends DeviceToken {
   /// * [token]: Device registration token; may be empty to deregister a device
   /// * [encrypt]: True, if push notifications must be additionally encrypted
   @override
-  DeviceTokenHuaweiPush copyWith({
-    String? token,
-    bool? encrypt,
-  }) =>
+  DeviceTokenHuaweiPush copyWith({String? token, bool? encrypt}) =>
       DeviceTokenHuaweiPush(
         token: token ?? this.token,
         encrypt: encrypt ?? this.encrypt,

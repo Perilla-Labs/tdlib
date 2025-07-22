@@ -87,10 +87,7 @@ final class LanguagePackStringValueOrdinary extends LanguagePackStringValue {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "value": value,
-    };
+    return {"@type": defaultObjectId, "value": value};
   }
 
   /// Copy model with modified properties.
@@ -102,12 +99,11 @@ final class LanguagePackStringValueOrdinary extends LanguagePackStringValue {
     String? value,
     dynamic extra,
     int? clientId,
-  }) =>
-      LanguagePackStringValueOrdinary(
-        value: value ?? this.value,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => LanguagePackStringValueOrdinary(
+    value: value ?? this.value,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'languagePackStringValueOrdinary';
@@ -181,17 +177,17 @@ final class LanguagePackStringValuePluralized extends LanguagePackStringValue {
 
   /// Parse from a json
   factory LanguagePackStringValuePluralized.fromJson(
-          Map<String, dynamic> json) =>
-      LanguagePackStringValuePluralized(
-        zeroValue: json['zero_value'],
-        oneValue: json['one_value'],
-        twoValue: json['two_value'],
-        fewValue: json['few_value'],
-        manyValue: json['many_value'],
-        otherValue: json['other_value'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    Map<String, dynamic> json,
+  ) => LanguagePackStringValuePluralized(
+    zeroValue: json['zero_value'],
+    oneValue: json['one_value'],
+    twoValue: json['two_value'],
+    fewValue: json['few_value'],
+    manyValue: json['many_value'],
+    otherValue: json['other_value'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -226,17 +222,16 @@ final class LanguagePackStringValuePluralized extends LanguagePackStringValue {
     String? otherValue,
     dynamic extra,
     int? clientId,
-  }) =>
-      LanguagePackStringValuePluralized(
-        zeroValue: zeroValue ?? this.zeroValue,
-        oneValue: oneValue ?? this.oneValue,
-        twoValue: twoValue ?? this.twoValue,
-        fewValue: fewValue ?? this.fewValue,
-        manyValue: manyValue ?? this.manyValue,
-        otherValue: otherValue ?? this.otherValue,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => LanguagePackStringValuePluralized(
+    zeroValue: zeroValue ?? this.zeroValue,
+    oneValue: oneValue ?? this.oneValue,
+    twoValue: twoValue ?? this.twoValue,
+    fewValue: fewValue ?? this.fewValue,
+    manyValue: manyValue ?? this.manyValue,
+    otherValue: otherValue ?? this.otherValue,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'languagePackStringValuePluralized';
@@ -257,10 +252,7 @@ final class LanguagePackStringValueDeleted extends LanguagePackStringValue {
   /// **LanguagePackStringValueDeleted** *(languagePackStringValueDeleted)* - child of LanguagePackStringValue
   ///
   /// A deleted language pack string, the value must be taken from the built-in English language pack.
-  const LanguagePackStringValueDeleted({
-    this.extra,
-    this.clientId,
-  });
+  const LanguagePackStringValueDeleted({this.extra, this.clientId});
 
   /// [extra] callback sign
   @override
@@ -280,17 +272,12 @@ final class LanguagePackStringValueDeleted extends LanguagePackStringValue {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
   @override
-  LanguagePackStringValueDeleted copyWith({
-    dynamic extra,
-    int? clientId,
-  }) =>
+  LanguagePackStringValueDeleted copyWith({dynamic extra, int? clientId}) =>
       LanguagePackStringValueDeleted(
         extra: extra ?? this.extra,
         clientId: clientId ?? this.clientId,

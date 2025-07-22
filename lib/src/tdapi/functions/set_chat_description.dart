@@ -17,10 +17,7 @@ final class SetChatDescription extends TdFunction {
   /// * [description]: New chat description; 0-255 characters.
   ///
   /// [Ok] is returned on completion.
-  const SetChatDescription({
-    required this.chatId,
-    required this.description,
-  });
+  const SetChatDescription({required this.chatId, required this.description});
 
   /// Identifier of the chat
   final int chatId;
@@ -44,10 +41,7 @@ final class SetChatDescription extends TdFunction {
   /// Properties:
   /// * [chat_id]: Identifier of the chat
   /// * [description]: New chat description; 0-255 characters
-  SetChatDescription copyWith({
-    int? chatId,
-    String? description,
-  }) =>
+  SetChatDescription copyWith({int? chatId, String? description}) =>
       SetChatDescription(
         chatId: chatId ?? this.chatId,
         description: description ?? this.description,

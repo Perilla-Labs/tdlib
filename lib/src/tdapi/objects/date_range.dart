@@ -13,10 +13,7 @@ final class DateRange extends TdObject {
   ///
   /// * [startDate]: Point in time (Unix timestamp) at which the date range begins.
   /// * [endDate]: Point in time (Unix timestamp) at which the date range ends.
-  const DateRange({
-    required this.startDate,
-    required this.endDate,
-  });
+  const DateRange({required this.startDate, required this.endDate});
 
   /// Point in time (Unix timestamp) at which the date range begins
   final int startDate;
@@ -25,10 +22,8 @@ final class DateRange extends TdObject {
   final int endDate;
 
   /// Parse from a json
-  factory DateRange.fromJson(Map<String, dynamic> json) => DateRange(
-        startDate: json['start_date'],
-        endDate: json['end_date'],
-      );
+  factory DateRange.fromJson(Map<String, dynamic> json) =>
+      DateRange(startDate: json['start_date'], endDate: json['end_date']);
 
   /// Convert model to TDLib JSON format
   @override
@@ -45,14 +40,10 @@ final class DateRange extends TdObject {
   /// Properties:
   /// * [start_date]: Point in time (Unix timestamp) at which the date range begins
   /// * [end_date]: Point in time (Unix timestamp) at which the date range ends
-  DateRange copyWith({
-    int? startDate,
-    int? endDate,
-  }) =>
-      DateRange(
-        startDate: startDate ?? this.startDate,
-        endDate: endDate ?? this.endDate,
-      );
+  DateRange copyWith({int? startDate, int? endDate}) => DateRange(
+    startDate: startDate ?? this.startDate,
+    endDate: endDate ?? this.endDate,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'dateRange';

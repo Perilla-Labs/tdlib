@@ -44,12 +44,12 @@ final class Call extends TdObject {
 
   /// Parse from a json
   factory Call.fromJson(Map<String, dynamic> json) => Call(
-        id: json['id'],
-        userId: json['user_id'],
-        isOutgoing: json['is_outgoing'],
-        isVideo: json['is_video'],
-        state: CallState.fromJson(json['state']),
-      );
+    id: json['id'],
+    userId: json['user_id'],
+    isOutgoing: json['is_outgoing'],
+    isVideo: json['is_video'],
+    state: CallState.fromJson(json['state']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -78,14 +78,13 @@ final class Call extends TdObject {
     bool? isOutgoing,
     bool? isVideo,
     CallState? state,
-  }) =>
-      Call(
-        id: id ?? this.id,
-        userId: userId ?? this.userId,
-        isOutgoing: isOutgoing ?? this.isOutgoing,
-        isVideo: isVideo ?? this.isVideo,
-        state: state ?? this.state,
-      );
+  }) => Call(
+    id: id ?? this.id,
+    userId: userId ?? this.userId,
+    isOutgoing: isOutgoing ?? this.isOutgoing,
+    isVideo: isVideo ?? this.isVideo,
+    state: state ?? this.state,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'call';

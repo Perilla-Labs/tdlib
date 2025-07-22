@@ -47,11 +47,10 @@ final class GetSavedMessagesTopicMessageByDate extends TdFunction {
   GetSavedMessagesTopicMessageByDate copyWith({
     int? savedMessagesTopicId,
     int? date,
-  }) =>
-      GetSavedMessagesTopicMessageByDate(
-        savedMessagesTopicId: savedMessagesTopicId ?? this.savedMessagesTopicId,
-        date: date ?? this.date,
-      );
+  }) => GetSavedMessagesTopicMessageByDate(
+    savedMessagesTopicId: savedMessagesTopicId ?? this.savedMessagesTopicId,
+    date: date ?? this.date,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getSavedMessagesTopicMessageByDate';

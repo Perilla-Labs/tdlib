@@ -49,11 +49,10 @@ final class GroupCallRecentSpeaker extends TdObject {
   GroupCallRecentSpeaker copyWith({
     MessageSender? participantId,
     bool? isSpeaking,
-  }) =>
-      GroupCallRecentSpeaker(
-        participantId: participantId ?? this.participantId,
-        isSpeaking: isSpeaking ?? this.isSpeaking,
-      );
+  }) => GroupCallRecentSpeaker(
+    participantId: participantId ?? this.participantId,
+    isSpeaking: isSpeaking ?? this.isSpeaking,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'groupCallRecentSpeaker';

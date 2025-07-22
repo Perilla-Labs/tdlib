@@ -55,10 +55,7 @@ final class LogStreamDefault extends LogStream {
   /// **LogStreamDefault** *(logStreamDefault)* - child of LogStream
   ///
   /// The log is written to stderr or an OS specific log.
-  const LogStreamDefault({
-    this.extra,
-    this.clientId,
-  });
+  const LogStreamDefault({this.extra, this.clientId});
 
   /// [extra] callback sign
   @override
@@ -70,29 +67,20 @@ final class LogStreamDefault extends LogStream {
 
   /// Parse from a json
   factory LogStreamDefault.fromJson(Map<String, dynamic> json) =>
-      LogStreamDefault(
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+      LogStreamDefault(extra: json['@extra'], clientId: json['@client_id']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
   @override
-  LogStreamDefault copyWith({
-    dynamic extra,
-    int? clientId,
-  }) =>
-      LogStreamDefault(
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  LogStreamDefault copyWith({dynamic extra, int? clientId}) => LogStreamDefault(
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'logStreamDefault';
@@ -148,12 +136,12 @@ final class LogStreamFile extends LogStream {
 
   /// Parse from a json
   factory LogStreamFile.fromJson(Map<String, dynamic> json) => LogStreamFile(
-        path: json['path'],
-        maxFileSize: json['max_file_size'],
-        redirectStderr: json['redirect_stderr'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    path: json['path'],
+    maxFileSize: json['max_file_size'],
+    redirectStderr: json['redirect_stderr'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -179,14 +167,13 @@ final class LogStreamFile extends LogStream {
     bool? redirectStderr,
     dynamic extra,
     int? clientId,
-  }) =>
-      LogStreamFile(
-        path: path ?? this.path,
-        maxFileSize: maxFileSize ?? this.maxFileSize,
-        redirectStderr: redirectStderr ?? this.redirectStderr,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => LogStreamFile(
+    path: path ?? this.path,
+    maxFileSize: maxFileSize ?? this.maxFileSize,
+    redirectStderr: redirectStderr ?? this.redirectStderr,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'logStreamFile';
@@ -207,10 +194,7 @@ final class LogStreamEmpty extends LogStream {
   /// **LogStreamEmpty** *(logStreamEmpty)* - child of LogStream
   ///
   /// The log is written nowhere.
-  const LogStreamEmpty({
-    this.extra,
-    this.clientId,
-  });
+  const LogStreamEmpty({this.extra, this.clientId});
 
   /// [extra] callback sign
   @override
@@ -221,29 +205,21 @@ final class LogStreamEmpty extends LogStream {
   final int? clientId;
 
   /// Parse from a json
-  factory LogStreamEmpty.fromJson(Map<String, dynamic> json) => LogStreamEmpty(
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+  factory LogStreamEmpty.fromJson(Map<String, dynamic> json) =>
+      LogStreamEmpty(extra: json['@extra'], clientId: json['@client_id']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
   @override
-  LogStreamEmpty copyWith({
-    dynamic extra,
-    int? clientId,
-  }) =>
-      LogStreamEmpty(
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  LogStreamEmpty copyWith({dynamic extra, int? clientId}) => LogStreamEmpty(
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'logStreamEmpty';

@@ -36,20 +36,16 @@ final class ChatBoostLink extends TdObject {
 
   /// Parse from a json
   factory ChatBoostLink.fromJson(Map<String, dynamic> json) => ChatBoostLink(
-        link: json['link'],
-        isPublic: json['is_public'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    link: json['link'],
+    isPublic: json['is_public'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "link": link,
-      "is_public": isPublic,
-    };
+    return {"@type": defaultObjectId, "link": link, "is_public": isPublic};
   }
 
   /// Copy model with modified properties.
@@ -62,13 +58,12 @@ final class ChatBoostLink extends TdObject {
     bool? isPublic,
     dynamic extra,
     int? clientId,
-  }) =>
-      ChatBoostLink(
-        link: link ?? this.link,
-        isPublic: isPublic ?? this.isPublic,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => ChatBoostLink(
+    link: link ?? this.link,
+    isPublic: isPublic ?? this.isPublic,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatBoostLink';

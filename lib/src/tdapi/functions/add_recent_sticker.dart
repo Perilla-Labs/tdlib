@@ -17,10 +17,7 @@ final class AddRecentSticker extends TdFunction {
   /// * [sticker]: Sticker file to add.
   ///
   /// [Stickers] is returned on completion.
-  const AddRecentSticker({
-    required this.isAttached,
-    required this.sticker,
-  });
+  const AddRecentSticker({required this.isAttached, required this.sticker});
 
   /// Pass true to add the sticker to the list of stickers recently attached to photo or video files; pass false to add the sticker to the list of recently sent stickers
   final bool isAttached;
@@ -44,10 +41,7 @@ final class AddRecentSticker extends TdFunction {
   /// Properties:
   /// * [is_attached]: Pass true to add the sticker to the list of stickers recently attached to photo or video files; pass false to add the sticker to the list of recently sent stickers
   /// * [sticker]: Sticker file to add
-  AddRecentSticker copyWith({
-    bool? isAttached,
-    InputFile? sticker,
-  }) =>
+  AddRecentSticker copyWith({bool? isAttached, InputFile? sticker}) =>
       AddRecentSticker(
         isAttached: isAttached ?? this.isAttached,
         sticker: sticker ?? this.sticker,

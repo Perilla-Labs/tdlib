@@ -15,9 +15,7 @@ final class GetAttachmentMenuBot extends TdFunction {
   /// * [botUserId]: Bot's user identifier.
   ///
   /// [AttachmentMenuBot] is returned on completion.
-  const GetAttachmentMenuBot({
-    required this.botUserId,
-  });
+  const GetAttachmentMenuBot({required this.botUserId});
 
   /// Bot's user identifier
   final int botUserId;
@@ -36,12 +34,8 @@ final class GetAttachmentMenuBot extends TdFunction {
   ///
   /// Properties:
   /// * [bot_user_id]: Bot's user identifier
-  GetAttachmentMenuBot copyWith({
-    int? botUserId,
-  }) =>
-      GetAttachmentMenuBot(
-        botUserId: botUserId ?? this.botUserId,
-      );
+  GetAttachmentMenuBot copyWith({int? botUserId}) =>
+      GetAttachmentMenuBot(botUserId: botUserId ?? this.botUserId);
 
   /// TDLib object type
   static const String defaultObjectId = 'getAttachmentMenuBot';

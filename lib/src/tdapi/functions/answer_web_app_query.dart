@@ -17,10 +17,7 @@ final class AnswerWebAppQuery extends TdFunction {
   /// * [result]: The result of the query.
   ///
   /// [SentWebAppMessage] is returned on completion.
-  const AnswerWebAppQuery({
-    required this.webAppQueryId,
-    required this.result,
-  });
+  const AnswerWebAppQuery({required this.webAppQueryId, required this.result});
 
   /// Identifier of the Web App query
   final String webAppQueryId;
@@ -47,11 +44,10 @@ final class AnswerWebAppQuery extends TdFunction {
   AnswerWebAppQuery copyWith({
     String? webAppQueryId,
     InputInlineQueryResult? result,
-  }) =>
-      AnswerWebAppQuery(
-        webAppQueryId: webAppQueryId ?? this.webAppQueryId,
-        result: result ?? this.result,
-      );
+  }) => AnswerWebAppQuery(
+    webAppQueryId: webAppQueryId ?? this.webAppQueryId,
+    result: result ?? this.result,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'answerWebAppQuery';

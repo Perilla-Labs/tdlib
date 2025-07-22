@@ -11,11 +11,7 @@ final class QuickReplyMessages extends TdObject {
   /// Contains a list of quick reply messages.
   ///
   /// * [messages]: List of quick reply messages; messages may be null.
-  const QuickReplyMessages({
-    required this.messages,
-    this.extra,
-    this.clientId,
-  });
+  const QuickReplyMessages({required this.messages, this.extra, this.clientId});
 
   /// List of quick reply messages; messages may be null
   final List<QuickReplyMessage> messages;
@@ -31,9 +27,11 @@ final class QuickReplyMessages extends TdObject {
   /// Parse from a json
   factory QuickReplyMessages.fromJson(Map<String, dynamic> json) =>
       QuickReplyMessages(
-        messages: List<QuickReplyMessage>.from((json['messages'] ?? [])
-            .map((item) => QuickReplyMessage.fromJson(item))
-            .toList()),
+        messages: List<QuickReplyMessage>.from(
+          (json['messages'] ?? [])
+              .map((item) => QuickReplyMessage.fromJson(item))
+              .toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -55,12 +53,11 @@ final class QuickReplyMessages extends TdObject {
     List<QuickReplyMessage>? messages,
     dynamic extra,
     int? clientId,
-  }) =>
-      QuickReplyMessages(
-        messages: messages ?? this.messages,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => QuickReplyMessages(
+    messages: messages ?? this.messages,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'quickReplyMessages';

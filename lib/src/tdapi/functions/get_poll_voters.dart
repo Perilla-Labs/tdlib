@@ -74,14 +74,13 @@ final class GetPollVoters extends TdFunction {
     int? optionId,
     int? offset,
     int? limit,
-  }) =>
-      GetPollVoters(
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        optionId: optionId ?? this.optionId,
-        offset: offset ?? this.offset,
-        limit: limit ?? this.limit,
-      );
+  }) => GetPollVoters(
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    optionId: optionId ?? this.optionId,
+    offset: offset ?? this.offset,
+    limit: limit ?? this.limit,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getPollVoters';

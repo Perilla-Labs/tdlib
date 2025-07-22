@@ -79,14 +79,13 @@ final class LinkPreviewOptions extends TdObject {
     bool? forceSmallMedia,
     bool? forceLargeMedia,
     bool? showAboveText,
-  }) =>
-      LinkPreviewOptions(
-        isDisabled: isDisabled ?? this.isDisabled,
-        url: url ?? this.url,
-        forceSmallMedia: forceSmallMedia ?? this.forceSmallMedia,
-        forceLargeMedia: forceLargeMedia ?? this.forceLargeMedia,
-        showAboveText: showAboveText ?? this.showAboveText,
-      );
+  }) => LinkPreviewOptions(
+    isDisabled: isDisabled ?? this.isDisabled,
+    url: url ?? this.url,
+    forceSmallMedia: forceSmallMedia ?? this.forceSmallMedia,
+    forceLargeMedia: forceLargeMedia ?? this.forceLargeMedia,
+    showAboveText: showAboveText ?? this.showAboveText,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'linkPreviewOptions';

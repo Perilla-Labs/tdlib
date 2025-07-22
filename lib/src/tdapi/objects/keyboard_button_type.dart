@@ -76,9 +76,7 @@ final class KeyboardButtonTypeText extends KeyboardButtonType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -108,15 +106,13 @@ final class KeyboardButtonTypeRequestPhoneNumber extends KeyboardButtonType {
 
   /// Parse from a json
   factory KeyboardButtonTypeRequestPhoneNumber.fromJson(
-          Map<String, dynamic> json) =>
-      const KeyboardButtonTypeRequestPhoneNumber();
+    Map<String, dynamic> json,
+  ) => const KeyboardButtonTypeRequestPhoneNumber();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -147,15 +143,13 @@ final class KeyboardButtonTypeRequestLocation extends KeyboardButtonType {
 
   /// Parse from a json
   factory KeyboardButtonTypeRequestLocation.fromJson(
-          Map<String, dynamic> json) =>
-      const KeyboardButtonTypeRequestLocation();
+    Map<String, dynamic> json,
+  ) => const KeyboardButtonTypeRequestLocation();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -225,11 +219,10 @@ final class KeyboardButtonTypeRequestPoll extends KeyboardButtonType {
   KeyboardButtonTypeRequestPoll copyWith({
     bool? forceRegular,
     bool? forceQuiz,
-  }) =>
-      KeyboardButtonTypeRequestPoll(
-        forceRegular: forceRegular ?? this.forceRegular,
-        forceQuiz: forceQuiz ?? this.forceQuiz,
-      );
+  }) => KeyboardButtonTypeRequestPoll(
+    forceRegular: forceRegular ?? this.forceRegular,
+    forceQuiz: forceQuiz ?? this.forceQuiz,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'keyboardButtonTypeRequestPoll';
@@ -363,19 +356,17 @@ final class KeyboardButtonTypeRequestUsers extends KeyboardButtonType {
     bool? requestName,
     bool? requestUsername,
     bool? requestPhoto,
-  }) =>
-      KeyboardButtonTypeRequestUsers(
-        id: id ?? this.id,
-        restrictUserIsBot: restrictUserIsBot ?? this.restrictUserIsBot,
-        userIsBot: userIsBot ?? this.userIsBot,
-        restrictUserIsPremium:
-            restrictUserIsPremium ?? this.restrictUserIsPremium,
-        userIsPremium: userIsPremium ?? this.userIsPremium,
-        maxQuantity: maxQuantity ?? this.maxQuantity,
-        requestName: requestName ?? this.requestName,
-        requestUsername: requestUsername ?? this.requestUsername,
-        requestPhoto: requestPhoto ?? this.requestPhoto,
-      );
+  }) => KeyboardButtonTypeRequestUsers(
+    id: id ?? this.id,
+    restrictUserIsBot: restrictUserIsBot ?? this.restrictUserIsBot,
+    userIsBot: userIsBot ?? this.userIsBot,
+    restrictUserIsPremium: restrictUserIsPremium ?? this.restrictUserIsPremium,
+    userIsPremium: userIsPremium ?? this.userIsPremium,
+    maxQuantity: maxQuantity ?? this.maxQuantity,
+    requestName: requestName ?? this.requestName,
+    requestUsername: requestUsername ?? this.requestUsername,
+    requestPhoto: requestPhoto ?? this.requestPhoto,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'keyboardButtonTypeRequestUsers';
@@ -480,28 +471,27 @@ final class KeyboardButtonTypeRequestChat extends KeyboardButtonType {
   final bool requestPhoto;
 
   /// Parse from a json
-  factory KeyboardButtonTypeRequestChat.fromJson(Map<String, dynamic> json) =>
-      KeyboardButtonTypeRequestChat(
-        id: json['id'],
-        chatIsChannel: json['chat_is_channel'],
-        restrictChatIsForum: json['restrict_chat_is_forum'],
-        chatIsForum: json['chat_is_forum'],
-        restrictChatHasUsername: json['restrict_chat_has_username'],
-        chatHasUsername: json['chat_has_username'],
-        chatIsCreated: json['chat_is_created'],
-        userAdministratorRights: json['user_administrator_rights'] == null
-            ? null
-            : ChatAdministratorRights.fromJson(
-                json['user_administrator_rights']),
-        botAdministratorRights: json['bot_administrator_rights'] == null
-            ? null
-            : ChatAdministratorRights.fromJson(
-                json['bot_administrator_rights']),
-        botIsMember: json['bot_is_member'],
-        requestTitle: json['request_title'],
-        requestUsername: json['request_username'],
-        requestPhoto: json['request_photo'],
-      );
+  factory KeyboardButtonTypeRequestChat.fromJson(
+    Map<String, dynamic> json,
+  ) => KeyboardButtonTypeRequestChat(
+    id: json['id'],
+    chatIsChannel: json['chat_is_channel'],
+    restrictChatIsForum: json['restrict_chat_is_forum'],
+    chatIsForum: json['chat_is_forum'],
+    restrictChatHasUsername: json['restrict_chat_has_username'],
+    chatHasUsername: json['chat_has_username'],
+    chatIsCreated: json['chat_is_created'],
+    userAdministratorRights: json['user_administrator_rights'] == null
+        ? null
+        : ChatAdministratorRights.fromJson(json['user_administrator_rights']),
+    botAdministratorRights: json['bot_administrator_rights'] == null
+        ? null
+        : ChatAdministratorRights.fromJson(json['bot_administrator_rights']),
+    botIsMember: json['bot_is_member'],
+    requestTitle: json['request_title'],
+    requestUsername: json['request_username'],
+    requestPhoto: json['request_photo'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -555,25 +545,24 @@ final class KeyboardButtonTypeRequestChat extends KeyboardButtonType {
     bool? requestTitle,
     bool? requestUsername,
     bool? requestPhoto,
-  }) =>
-      KeyboardButtonTypeRequestChat(
-        id: id ?? this.id,
-        chatIsChannel: chatIsChannel ?? this.chatIsChannel,
-        restrictChatIsForum: restrictChatIsForum ?? this.restrictChatIsForum,
-        chatIsForum: chatIsForum ?? this.chatIsForum,
-        restrictChatHasUsername:
-            restrictChatHasUsername ?? this.restrictChatHasUsername,
-        chatHasUsername: chatHasUsername ?? this.chatHasUsername,
-        chatIsCreated: chatIsCreated ?? this.chatIsCreated,
-        userAdministratorRights:
-            userAdministratorRights ?? this.userAdministratorRights,
-        botAdministratorRights:
-            botAdministratorRights ?? this.botAdministratorRights,
-        botIsMember: botIsMember ?? this.botIsMember,
-        requestTitle: requestTitle ?? this.requestTitle,
-        requestUsername: requestUsername ?? this.requestUsername,
-        requestPhoto: requestPhoto ?? this.requestPhoto,
-      );
+  }) => KeyboardButtonTypeRequestChat(
+    id: id ?? this.id,
+    chatIsChannel: chatIsChannel ?? this.chatIsChannel,
+    restrictChatIsForum: restrictChatIsForum ?? this.restrictChatIsForum,
+    chatIsForum: chatIsForum ?? this.chatIsForum,
+    restrictChatHasUsername:
+        restrictChatHasUsername ?? this.restrictChatHasUsername,
+    chatHasUsername: chatHasUsername ?? this.chatHasUsername,
+    chatIsCreated: chatIsCreated ?? this.chatIsCreated,
+    userAdministratorRights:
+        userAdministratorRights ?? this.userAdministratorRights,
+    botAdministratorRights:
+        botAdministratorRights ?? this.botAdministratorRights,
+    botIsMember: botIsMember ?? this.botIsMember,
+    requestTitle: requestTitle ?? this.requestTitle,
+    requestUsername: requestUsername ?? this.requestUsername,
+    requestPhoto: requestPhoto ?? this.requestPhoto,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'keyboardButtonTypeRequestChat';
@@ -598,26 +587,19 @@ final class KeyboardButtonTypeWebApp extends KeyboardButtonType {
   /// A button that opens a Web App by calling getWebAppUrl.
   ///
   /// * [url]: An HTTP URL to pass to getWebAppUrl.
-  const KeyboardButtonTypeWebApp({
-    required this.url,
-  });
+  const KeyboardButtonTypeWebApp({required this.url});
 
   /// An HTTP URL to pass to getWebAppUrl
   final String url;
 
   /// Parse from a json
   factory KeyboardButtonTypeWebApp.fromJson(Map<String, dynamic> json) =>
-      KeyboardButtonTypeWebApp(
-        url: json['url'],
-      );
+      KeyboardButtonTypeWebApp(url: json['url']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "url": url,
-    };
+    return {"@type": defaultObjectId, "url": url};
   }
 
   /// Copy model with modified properties.
@@ -625,12 +607,8 @@ final class KeyboardButtonTypeWebApp extends KeyboardButtonType {
   /// Properties:
   /// * [url]: An HTTP URL to pass to getWebAppUrl
   @override
-  KeyboardButtonTypeWebApp copyWith({
-    String? url,
-  }) =>
-      KeyboardButtonTypeWebApp(
-        url: url ?? this.url,
-      );
+  KeyboardButtonTypeWebApp copyWith({String? url}) =>
+      KeyboardButtonTypeWebApp(url: url ?? this.url);
 
   /// TDLib object type
   static const String defaultObjectId = 'keyboardButtonTypeWebApp';

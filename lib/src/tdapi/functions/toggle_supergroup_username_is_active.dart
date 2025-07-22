@@ -56,12 +56,11 @@ final class ToggleSupergroupUsernameIsActive extends TdFunction {
     int? supergroupId,
     String? username,
     bool? isActive,
-  }) =>
-      ToggleSupergroupUsernameIsActive(
-        supergroupId: supergroupId ?? this.supergroupId,
-        username: username ?? this.username,
-        isActive: isActive ?? this.isActive,
-      );
+  }) => ToggleSupergroupUsernameIsActive(
+    supergroupId: supergroupId ?? this.supergroupId,
+    username: username ?? this.username,
+    isActive: isActive ?? this.isActive,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'toggleSupergroupUsernameIsActive';

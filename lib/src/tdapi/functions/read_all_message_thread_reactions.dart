@@ -44,10 +44,7 @@ final class ReadAllMessageThreadReactions extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [message_thread_id]: Message thread identifier in which reactions are marked as read
-  ReadAllMessageThreadReactions copyWith({
-    int? chatId,
-    int? messageThreadId,
-  }) =>
+  ReadAllMessageThreadReactions copyWith({int? chatId, int? messageThreadId}) =>
       ReadAllMessageThreadReactions(
         chatId: chatId ?? this.chatId,
         messageThreadId: messageThreadId ?? this.messageThreadId,

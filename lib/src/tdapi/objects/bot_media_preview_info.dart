@@ -37,11 +37,14 @@ final class BotMediaPreviewInfo extends TdObject {
   /// Parse from a json
   factory BotMediaPreviewInfo.fromJson(Map<String, dynamic> json) =>
       BotMediaPreviewInfo(
-        previews: List<BotMediaPreview>.from((json['previews'] ?? [])
-            .map((item) => BotMediaPreview.fromJson(item))
-            .toList()),
+        previews: List<BotMediaPreview>.from(
+          (json['previews'] ?? [])
+              .map((item) => BotMediaPreview.fromJson(item))
+              .toList(),
+        ),
         languageCodes: List<String>.from(
-            (json['language_codes'] ?? []).map((item) => item).toList()),
+          (json['language_codes'] ?? []).map((item) => item).toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -66,13 +69,12 @@ final class BotMediaPreviewInfo extends TdObject {
     List<String>? languageCodes,
     dynamic extra,
     int? clientId,
-  }) =>
-      BotMediaPreviewInfo(
-        previews: previews ?? this.previews,
-        languageCodes: languageCodes ?? this.languageCodes,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => BotMediaPreviewInfo(
+    previews: previews ?? this.previews,
+    languageCodes: languageCodes ?? this.languageCodes,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'botMediaPreviewInfo';

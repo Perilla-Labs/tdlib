@@ -15,9 +15,7 @@ final class GetPremiumFeatures extends TdFunction {
   /// * [source]: Source of the request; pass null if the method is called from some non-standard source *(optional)*.
   ///
   /// [PremiumFeatures] is returned on completion.
-  const GetPremiumFeatures({
-    this.source,
-  });
+  const GetPremiumFeatures({this.source});
 
   /// Source of the request; pass null if the method is called from some non-standard source
   final PremiumSource? source;
@@ -36,12 +34,8 @@ final class GetPremiumFeatures extends TdFunction {
   ///
   /// Properties:
   /// * [source]: Source of the request; pass null if the method is called from some non-standard source
-  GetPremiumFeatures copyWith({
-    PremiumSource? source,
-  }) =>
-      GetPremiumFeatures(
-        source: source ?? this.source,
-      );
+  GetPremiumFeatures copyWith({PremiumSource? source}) =>
+      GetPremiumFeatures(source: source ?? this.source);
 
   /// TDLib object type
   static const String defaultObjectId = 'getPremiumFeatures';

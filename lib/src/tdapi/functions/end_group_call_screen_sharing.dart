@@ -15,9 +15,7 @@ final class EndGroupCallScreenSharing extends TdFunction {
   /// * [groupCallId]: Group call identifier.
   ///
   /// [Ok] is returned on completion.
-  const EndGroupCallScreenSharing({
-    required this.groupCallId,
-  });
+  const EndGroupCallScreenSharing({required this.groupCallId});
 
   /// Group call identifier
   final int groupCallId;
@@ -36,12 +34,8 @@ final class EndGroupCallScreenSharing extends TdFunction {
   ///
   /// Properties:
   /// * [group_call_id]: Group call identifier
-  EndGroupCallScreenSharing copyWith({
-    int? groupCallId,
-  }) =>
-      EndGroupCallScreenSharing(
-        groupCallId: groupCallId ?? this.groupCallId,
-      );
+  EndGroupCallScreenSharing copyWith({int? groupCallId}) =>
+      EndGroupCallScreenSharing(groupCallId: groupCallId ?? this.groupCallId);
 
   /// TDLib object type
   static const String defaultObjectId = 'endGroupCallScreenSharing';

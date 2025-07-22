@@ -50,13 +50,13 @@ final class Venue extends TdObject {
 
   /// Parse from a json
   factory Venue.fromJson(Map<String, dynamic> json) => Venue(
-        location: Location.fromJson(json['location']),
-        title: json['title'],
-        address: json['address'],
-        provider: json['provider'],
-        id: json['id'],
-        type: json['type'],
-      );
+    location: Location.fromJson(json['location']),
+    title: json['title'],
+    address: json['address'],
+    provider: json['provider'],
+    id: json['id'],
+    type: json['type'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -88,15 +88,14 @@ final class Venue extends TdObject {
     String? provider,
     String? id,
     String? type,
-  }) =>
-      Venue(
-        location: location ?? this.location,
-        title: title ?? this.title,
-        address: address ?? this.address,
-        provider: provider ?? this.provider,
-        id: id ?? this.id,
-        type: type ?? this.type,
-      );
+  }) => Venue(
+    location: location ?? this.location,
+    title: title ?? this.title,
+    address: address ?? this.address,
+    provider: provider ?? this.provider,
+    id: id ?? this.id,
+    type: type ?? this.type,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'venue';

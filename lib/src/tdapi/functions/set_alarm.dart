@@ -15,9 +15,7 @@ final class SetAlarm extends TdFunction {
   /// * [seconds]: Number of seconds before the function returns.
   ///
   /// [Ok] is returned on completion.
-  const SetAlarm({
-    required this.seconds,
-  });
+  const SetAlarm({required this.seconds});
 
   /// Number of seconds before the function returns
   final double seconds;
@@ -25,23 +23,15 @@ final class SetAlarm extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "seconds": seconds,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "seconds": seconds, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [seconds]: Number of seconds before the function returns
-  SetAlarm copyWith({
-    double? seconds,
-  }) =>
-      SetAlarm(
-        seconds: seconds ?? this.seconds,
-      );
+  SetAlarm copyWith({double? seconds}) =>
+      SetAlarm(seconds: seconds ?? this.seconds);
 
   /// TDLib object type
   static const String defaultObjectId = 'setAlarm';

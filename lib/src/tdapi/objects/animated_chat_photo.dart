@@ -59,12 +59,11 @@ final class AnimatedChatPhoto extends TdObject {
     int? length,
     File? file,
     double? mainFrameTimestamp,
-  }) =>
-      AnimatedChatPhoto(
-        length: length ?? this.length,
-        file: file ?? this.file,
-        mainFrameTimestamp: mainFrameTimestamp ?? this.mainFrameTimestamp,
-      );
+  }) => AnimatedChatPhoto(
+    length: length ?? this.length,
+    file: file ?? this.file,
+    mainFrameTimestamp: mainFrameTimestamp ?? this.mainFrameTimestamp,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'animatedChatPhoto';

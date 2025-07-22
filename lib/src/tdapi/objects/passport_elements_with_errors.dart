@@ -37,12 +37,16 @@ final class PassportElementsWithErrors extends TdObject {
   /// Parse from a json
   factory PassportElementsWithErrors.fromJson(Map<String, dynamic> json) =>
       PassportElementsWithErrors(
-        elements: List<PassportElement>.from((json['elements'] ?? [])
-            .map((item) => PassportElement.fromJson(item))
-            .toList()),
-        errors: List<PassportElementError>.from((json['errors'] ?? [])
-            .map((item) => PassportElementError.fromJson(item))
-            .toList()),
+        elements: List<PassportElement>.from(
+          (json['elements'] ?? [])
+              .map((item) => PassportElement.fromJson(item))
+              .toList(),
+        ),
+        errors: List<PassportElementError>.from(
+          (json['errors'] ?? [])
+              .map((item) => PassportElementError.fromJson(item))
+              .toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -67,13 +71,12 @@ final class PassportElementsWithErrors extends TdObject {
     List<PassportElementError>? errors,
     dynamic extra,
     int? clientId,
-  }) =>
-      PassportElementsWithErrors(
-        elements: elements ?? this.elements,
-        errors: errors ?? this.errors,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => PassportElementsWithErrors(
+    elements: elements ?? this.elements,
+    errors: errors ?? this.errors,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'passportElementsWithErrors';

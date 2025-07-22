@@ -15,9 +15,7 @@ final class DeleteLanguagePack extends TdFunction {
   /// * [languagePackId]: Identifier of the language pack to delete.
   ///
   /// [Ok] is returned on completion.
-  const DeleteLanguagePack({
-    required this.languagePackId,
-  });
+  const DeleteLanguagePack({required this.languagePackId});
 
   /// Identifier of the language pack to delete
   final String languagePackId;
@@ -36,12 +34,8 @@ final class DeleteLanguagePack extends TdFunction {
   ///
   /// Properties:
   /// * [language_pack_id]: Identifier of the language pack to delete
-  DeleteLanguagePack copyWith({
-    String? languagePackId,
-  }) =>
-      DeleteLanguagePack(
-        languagePackId: languagePackId ?? this.languagePackId,
-      );
+  DeleteLanguagePack copyWith({String? languagePackId}) =>
+      DeleteLanguagePack(languagePackId: languagePackId ?? this.languagePackId);
 
   /// TDLib object type
   static const String defaultObjectId = 'deleteLanguagePack';

@@ -73,14 +73,13 @@ final class UserSupportInfo extends TdObject {
     int? date,
     dynamic extra,
     int? clientId,
-  }) =>
-      UserSupportInfo(
-        message: message ?? this.message,
-        author: author ?? this.author,
-        date: date ?? this.date,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => UserSupportInfo(
+    message: message ?? this.message,
+    author: author ?? this.author,
+    date: date ?? this.date,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'userSupportInfo';

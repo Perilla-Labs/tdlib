@@ -15,9 +15,7 @@ final class GetSavedMessagesTags extends TdFunction {
   /// * [savedMessagesTopicId]: Identifier of Saved Messages topic which tags will be returned; pass 0 to get all Saved Messages tags.
   ///
   /// [SavedMessagesTags] is returned on completion.
-  const GetSavedMessagesTags({
-    required this.savedMessagesTopicId,
-  });
+  const GetSavedMessagesTags({required this.savedMessagesTopicId});
 
   /// Identifier of Saved Messages topic which tags will be returned; pass 0 to get all Saved Messages tags
   final int savedMessagesTopicId;
@@ -36,9 +34,7 @@ final class GetSavedMessagesTags extends TdFunction {
   ///
   /// Properties:
   /// * [saved_messages_topic_id]: Identifier of Saved Messages topic which tags will be returned; pass 0 to get all Saved Messages tags
-  GetSavedMessagesTags copyWith({
-    int? savedMessagesTopicId,
-  }) =>
+  GetSavedMessagesTags copyWith({int? savedMessagesTopicId}) =>
       GetSavedMessagesTags(
         savedMessagesTopicId: savedMessagesTopicId ?? this.savedMessagesTopicId,
       );

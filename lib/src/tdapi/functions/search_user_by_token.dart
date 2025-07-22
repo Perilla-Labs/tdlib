@@ -15,9 +15,7 @@ final class SearchUserByToken extends TdFunction {
   /// * [token]: Token to search for.
   ///
   /// [User] is returned on completion.
-  const SearchUserByToken({
-    required this.token,
-  });
+  const SearchUserByToken({required this.token});
 
   /// Token to search for
   final String token;
@@ -25,23 +23,15 @@ final class SearchUserByToken extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "token": token,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "token": token, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [token]: Token to search for
-  SearchUserByToken copyWith({
-    String? token,
-  }) =>
-      SearchUserByToken(
-        token: token ?? this.token,
-      );
+  SearchUserByToken copyWith({String? token}) =>
+      SearchUserByToken(token: token ?? this.token);
 
   /// TDLib object type
   static const String defaultObjectId = 'searchUserByToken';

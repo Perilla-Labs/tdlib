@@ -74,14 +74,13 @@ final class GetMessageAddedReactions extends TdFunction {
     ReactionType? reactionType,
     String? offset,
     int? limit,
-  }) =>
-      GetMessageAddedReactions(
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        reactionType: reactionType ?? this.reactionType,
-        offset: offset ?? this.offset,
-        limit: limit ?? this.limit,
-      );
+  }) => GetMessageAddedReactions(
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    reactionType: reactionType ?? this.reactionType,
+    offset: offset ?? this.offset,
+    limit: limit ?? this.limit,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getMessageAddedReactions';

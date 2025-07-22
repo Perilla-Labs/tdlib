@@ -56,12 +56,11 @@ final class EditInlineMessageText extends TdFunction {
     String? inlineMessageId,
     ReplyMarkup? replyMarkup,
     InputMessageContent? inputMessageContent,
-  }) =>
-      EditInlineMessageText(
-        inlineMessageId: inlineMessageId ?? this.inlineMessageId,
-        replyMarkup: replyMarkup ?? this.replyMarkup,
-        inputMessageContent: inputMessageContent ?? this.inputMessageContent,
-      );
+  }) => EditInlineMessageText(
+    inlineMessageId: inlineMessageId ?? this.inlineMessageId,
+    replyMarkup: replyMarkup ?? this.replyMarkup,
+    inputMessageContent: inputMessageContent ?? this.inputMessageContent,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'editInlineMessageText';

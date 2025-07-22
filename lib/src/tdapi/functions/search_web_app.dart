@@ -17,10 +17,7 @@ final class SearchWebApp extends TdFunction {
   /// * [webAppShortName]: Short name of the Web App.
   ///
   /// [FoundWebApp] is returned on completion.
-  const SearchWebApp({
-    required this.botUserId,
-    required this.webAppShortName,
-  });
+  const SearchWebApp({required this.botUserId, required this.webAppShortName});
 
   /// Identifier of the target bot
   final int botUserId;
@@ -44,10 +41,7 @@ final class SearchWebApp extends TdFunction {
   /// Properties:
   /// * [bot_user_id]: Identifier of the target bot
   /// * [web_app_short_name]: Short name of the Web App
-  SearchWebApp copyWith({
-    int? botUserId,
-    String? webAppShortName,
-  }) =>
+  SearchWebApp copyWith({int? botUserId, String? webAppShortName}) =>
       SearchWebApp(
         botUserId: botUserId ?? this.botUserId,
         webAppShortName: webAppShortName ?? this.webAppShortName,

@@ -36,13 +36,13 @@ final class ChatPhotos extends TdObject {
 
   /// Parse from a json
   factory ChatPhotos.fromJson(Map<String, dynamic> json) => ChatPhotos(
-        totalCount: json['total_count'],
-        photos: List<ChatPhoto>.from((json['photos'] ?? [])
-            .map((item) => ChatPhoto.fromJson(item))
-            .toList()),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    totalCount: json['total_count'],
+    photos: List<ChatPhoto>.from(
+      (json['photos'] ?? []).map((item) => ChatPhoto.fromJson(item)).toList(),
+    ),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -64,13 +64,12 @@ final class ChatPhotos extends TdObject {
     List<ChatPhoto>? photos,
     dynamic extra,
     int? clientId,
-  }) =>
-      ChatPhotos(
-        totalCount: totalCount ?? this.totalCount,
-        photos: photos ?? this.photos,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => ChatPhotos(
+    totalCount: totalCount ?? this.totalCount,
+    photos: photos ?? this.photos,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatPhotos';

@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **RequestQrCodeAuthentication** *(requestQrCodeAuthentication)* - TDLib function
 ///
-/// Requests QR code authentication by scanning a QR code on another logged in device. Works only when the current authorization state is authorizationStateWaitPhoneNumber,. or if there is no pending authentication query and the current authorization state is authorizationStateWaitEmailAddress, authorizationStateWaitEmailCode, authorizationStateWaitCode, authorizationStateWaitRegistration, or authorizationStateWaitPassword.
+/// Requests QR code authentication by scanning a QR code on another logged in device. Works only when the current authorization state is authorizationStateWaitPhoneNumber,. or if there is no pending authentication query and the current authorization state is authorizationStateWaitPremiumPurchase, authorizationStateWaitEmailAddress,. authorizationStateWaitEmailCode, authorizationStateWaitCode, authorizationStateWaitRegistration, or authorizationStateWaitPassword.
 ///
 /// * [otherUserIds]: List of user identifiers of other users currently using the application.
 ///
@@ -10,14 +10,12 @@ part of '../tdapi.dart';
 final class RequestQrCodeAuthentication extends TdFunction {
   /// **RequestQrCodeAuthentication** *(requestQrCodeAuthentication)* - TDLib function
   ///
-  /// Requests QR code authentication by scanning a QR code on another logged in device. Works only when the current authorization state is authorizationStateWaitPhoneNumber,. or if there is no pending authentication query and the current authorization state is authorizationStateWaitEmailAddress, authorizationStateWaitEmailCode, authorizationStateWaitCode, authorizationStateWaitRegistration, or authorizationStateWaitPassword.
+  /// Requests QR code authentication by scanning a QR code on another logged in device. Works only when the current authorization state is authorizationStateWaitPhoneNumber,. or if there is no pending authentication query and the current authorization state is authorizationStateWaitPremiumPurchase, authorizationStateWaitEmailAddress,. authorizationStateWaitEmailCode, authorizationStateWaitCode, authorizationStateWaitRegistration, or authorizationStateWaitPassword.
   ///
   /// * [otherUserIds]: List of user identifiers of other users currently using the application.
   ///
   /// [Ok] is returned on completion.
-  const RequestQrCodeAuthentication({
-    required this.otherUserIds,
-  });
+  const RequestQrCodeAuthentication({required this.otherUserIds});
 
   /// List of user identifiers of other users currently using the application
   final List<int> otherUserIds;
@@ -36,9 +34,7 @@ final class RequestQrCodeAuthentication extends TdFunction {
   ///
   /// Properties:
   /// * [other_user_ids]: List of user identifiers of other users currently using the application
-  RequestQrCodeAuthentication copyWith({
-    List<int>? otherUserIds,
-  }) =>
+  RequestQrCodeAuthentication copyWith({List<int>? otherUserIds}) =>
       RequestQrCodeAuthentication(
         otherUserIds: otherUserIds ?? this.otherUserIds,
       );

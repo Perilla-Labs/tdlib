@@ -15,9 +15,7 @@ final class ConfirmQrCodeAuthentication extends TdFunction {
   /// * [link]: A link from a QR code. The link must be scanned by the in-app camera.
   ///
   /// [Session] is returned on completion.
-  const ConfirmQrCodeAuthentication({
-    required this.link,
-  });
+  const ConfirmQrCodeAuthentication({required this.link});
 
   /// A link from a QR code. The link must be scanned by the in-app camera
   final String link;
@@ -25,23 +23,15 @@ final class ConfirmQrCodeAuthentication extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "link": link,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "link": link, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [link]: A link from a QR code. The link must be scanned by the in-app camera
-  ConfirmQrCodeAuthentication copyWith({
-    String? link,
-  }) =>
-      ConfirmQrCodeAuthentication(
-        link: link ?? this.link,
-      );
+  ConfirmQrCodeAuthentication copyWith({String? link}) =>
+      ConfirmQrCodeAuthentication(link: link ?? this.link);
 
   /// TDLib object type
   static const String defaultObjectId = 'confirmQrCodeAuthentication';

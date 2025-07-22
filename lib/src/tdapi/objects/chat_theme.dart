@@ -32,10 +32,10 @@ final class ChatTheme extends TdObject {
 
   /// Parse from a json
   factory ChatTheme.fromJson(Map<String, dynamic> json) => ChatTheme(
-        name: json['name'],
-        lightSettings: ThemeSettings.fromJson(json['light_settings']),
-        darkSettings: ThemeSettings.fromJson(json['dark_settings']),
-      );
+    name: json['name'],
+    lightSettings: ThemeSettings.fromJson(json['light_settings']),
+    darkSettings: ThemeSettings.fromJson(json['dark_settings']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -58,12 +58,11 @@ final class ChatTheme extends TdObject {
     String? name,
     ThemeSettings? lightSettings,
     ThemeSettings? darkSettings,
-  }) =>
-      ChatTheme(
-        name: name ?? this.name,
-        lightSettings: lightSettings ?? this.lightSettings,
-        darkSettings: darkSettings ?? this.darkSettings,
-      );
+  }) => ChatTheme(
+    name: name ?? this.name,
+    lightSettings: lightSettings ?? this.lightSettings,
+    darkSettings: darkSettings ?? this.darkSettings,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatTheme';

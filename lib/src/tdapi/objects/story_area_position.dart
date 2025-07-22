@@ -89,16 +89,15 @@ final class StoryAreaPosition extends TdObject {
     double? heightPercentage,
     double? rotationAngle,
     double? cornerRadiusPercentage,
-  }) =>
-      StoryAreaPosition(
-        xPercentage: xPercentage ?? this.xPercentage,
-        yPercentage: yPercentage ?? this.yPercentage,
-        widthPercentage: widthPercentage ?? this.widthPercentage,
-        heightPercentage: heightPercentage ?? this.heightPercentage,
-        rotationAngle: rotationAngle ?? this.rotationAngle,
-        cornerRadiusPercentage:
-            cornerRadiusPercentage ?? this.cornerRadiusPercentage,
-      );
+  }) => StoryAreaPosition(
+    xPercentage: xPercentage ?? this.xPercentage,
+    yPercentage: yPercentage ?? this.yPercentage,
+    widthPercentage: widthPercentage ?? this.widthPercentage,
+    heightPercentage: heightPercentage ?? this.heightPercentage,
+    rotationAngle: rotationAngle ?? this.rotationAngle,
+    cornerRadiusPercentage:
+        cornerRadiusPercentage ?? this.cornerRadiusPercentage,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'storyAreaPosition';

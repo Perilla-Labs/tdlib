@@ -101,17 +101,16 @@ final class SendBusinessMessage extends TdFunction {
     int? effectId,
     ReplyMarkup? replyMarkup,
     InputMessageContent? inputMessageContent,
-  }) =>
-      SendBusinessMessage(
-        businessConnectionId: businessConnectionId ?? this.businessConnectionId,
-        chatId: chatId ?? this.chatId,
-        replyTo: replyTo ?? this.replyTo,
-        disableNotification: disableNotification ?? this.disableNotification,
-        protectContent: protectContent ?? this.protectContent,
-        effectId: effectId ?? this.effectId,
-        replyMarkup: replyMarkup ?? this.replyMarkup,
-        inputMessageContent: inputMessageContent ?? this.inputMessageContent,
-      );
+  }) => SendBusinessMessage(
+    businessConnectionId: businessConnectionId ?? this.businessConnectionId,
+    chatId: chatId ?? this.chatId,
+    replyTo: replyTo ?? this.replyTo,
+    disableNotification: disableNotification ?? this.disableNotification,
+    protectContent: protectContent ?? this.protectContent,
+    effectId: effectId ?? this.effectId,
+    replyMarkup: replyMarkup ?? this.replyMarkup,
+    inputMessageContent: inputMessageContent ?? this.inputMessageContent,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'sendBusinessMessage';

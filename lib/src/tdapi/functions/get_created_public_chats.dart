@@ -15,9 +15,7 @@ final class GetCreatedPublicChats extends TdFunction {
   /// * [type]: Type of the public chats to return.
   ///
   /// [Chats] is returned on completion.
-  const GetCreatedPublicChats({
-    required this.type,
-  });
+  const GetCreatedPublicChats({required this.type});
 
   /// Type of the public chats to return
   final PublicChatType type;
@@ -25,23 +23,15 @@ final class GetCreatedPublicChats extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "type": type.toJson(),
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "type": type.toJson(), "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [type]: Type of the public chats to return
-  GetCreatedPublicChats copyWith({
-    PublicChatType? type,
-  }) =>
-      GetCreatedPublicChats(
-        type: type ?? this.type,
-      );
+  GetCreatedPublicChats copyWith({PublicChatType? type}) =>
+      GetCreatedPublicChats(type: type ?? this.type);
 
   /// TDLib object type
   static const String defaultObjectId = 'getCreatedPublicChats';

@@ -47,11 +47,10 @@ final class SetSupergroupUnrestrictBoostCount extends TdFunction {
   SetSupergroupUnrestrictBoostCount copyWith({
     int? supergroupId,
     int? unrestrictBoostCount,
-  }) =>
-      SetSupergroupUnrestrictBoostCount(
-        supergroupId: supergroupId ?? this.supergroupId,
-        unrestrictBoostCount: unrestrictBoostCount ?? this.unrestrictBoostCount,
-      );
+  }) => SetSupergroupUnrestrictBoostCount(
+    supergroupId: supergroupId ?? this.supergroupId,
+    unrestrictBoostCount: unrestrictBoostCount ?? this.unrestrictBoostCount,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setSupergroupUnrestrictBoostCount';

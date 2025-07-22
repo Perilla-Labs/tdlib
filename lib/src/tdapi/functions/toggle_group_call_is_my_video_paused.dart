@@ -47,11 +47,10 @@ final class ToggleGroupCallIsMyVideoPaused extends TdFunction {
   ToggleGroupCallIsMyVideoPaused copyWith({
     int? groupCallId,
     bool? isMyVideoPaused,
-  }) =>
-      ToggleGroupCallIsMyVideoPaused(
-        groupCallId: groupCallId ?? this.groupCallId,
-        isMyVideoPaused: isMyVideoPaused ?? this.isMyVideoPaused,
-      );
+  }) => ToggleGroupCallIsMyVideoPaused(
+    groupCallId: groupCallId ?? this.groupCallId,
+    isMyVideoPaused: isMyVideoPaused ?? this.isMyVideoPaused,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'toggleGroupCallIsMyVideoPaused';

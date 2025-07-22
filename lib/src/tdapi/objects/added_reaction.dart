@@ -38,11 +38,11 @@ final class AddedReaction extends TdObject {
 
   /// Parse from a json
   factory AddedReaction.fromJson(Map<String, dynamic> json) => AddedReaction(
-        type: ReactionType.fromJson(json['type']),
-        senderId: MessageSender.fromJson(json['sender_id']),
-        isOutgoing: json['is_outgoing'],
-        date: json['date'],
-      );
+    type: ReactionType.fromJson(json['type']),
+    senderId: MessageSender.fromJson(json['sender_id']),
+    isOutgoing: json['is_outgoing'],
+    date: json['date'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -68,13 +68,12 @@ final class AddedReaction extends TdObject {
     MessageSender? senderId,
     bool? isOutgoing,
     int? date,
-  }) =>
-      AddedReaction(
-        type: type ?? this.type,
-        senderId: senderId ?? this.senderId,
-        isOutgoing: isOutgoing ?? this.isOutgoing,
-        date: date ?? this.date,
-      );
+  }) => AddedReaction(
+    type: type ?? this.type,
+    senderId: senderId ?? this.senderId,
+    isOutgoing: isOutgoing ?? this.isOutgoing,
+    date: date ?? this.date,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'addedReaction';

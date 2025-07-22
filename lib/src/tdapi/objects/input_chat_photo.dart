@@ -62,9 +62,7 @@ final class InputChatPhotoPrevious extends InputChatPhoto {
   /// A previously used profile photo of the current user.
   ///
   /// * [chatPhotoId]: Identifier of the current user's profile photo to reuse.
-  const InputChatPhotoPrevious({
-    required this.chatPhotoId,
-  });
+  const InputChatPhotoPrevious({required this.chatPhotoId});
 
   /// Identifier of the current user's profile photo to reuse
   final int chatPhotoId;
@@ -80,10 +78,7 @@ final class InputChatPhotoPrevious extends InputChatPhoto {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "chat_photo_id": chatPhotoId,
-    };
+    return {"@type": defaultObjectId, "chat_photo_id": chatPhotoId};
   }
 
   /// Copy model with modified properties.
@@ -91,12 +86,8 @@ final class InputChatPhotoPrevious extends InputChatPhoto {
   /// Properties:
   /// * [chat_photo_id]: Identifier of the current user's profile photo to reuse
   @override
-  InputChatPhotoPrevious copyWith({
-    int? chatPhotoId,
-  }) =>
-      InputChatPhotoPrevious(
-        chatPhotoId: chatPhotoId ?? this.chatPhotoId,
-      );
+  InputChatPhotoPrevious copyWith({int? chatPhotoId}) =>
+      InputChatPhotoPrevious(chatPhotoId: chatPhotoId ?? this.chatPhotoId);
 
   /// TDLib object type
   static const String defaultObjectId = 'inputChatPhotoPrevious';
@@ -121,26 +112,19 @@ final class InputChatPhotoStatic extends InputChatPhoto {
   /// A static photo in JPEG format.
   ///
   /// * [photo]: Photo to be set as profile photo. Only inputFileLocal and inputFileGenerated are allowed.
-  const InputChatPhotoStatic({
-    required this.photo,
-  });
+  const InputChatPhotoStatic({required this.photo});
 
   /// Photo to be set as profile photo. Only inputFileLocal and inputFileGenerated are allowed
   final InputFile photo;
 
   /// Parse from a json
   factory InputChatPhotoStatic.fromJson(Map<String, dynamic> json) =>
-      InputChatPhotoStatic(
-        photo: InputFile.fromJson(json['photo']),
-      );
+      InputChatPhotoStatic(photo: InputFile.fromJson(json['photo']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "photo": photo.toJson(),
-    };
+    return {"@type": defaultObjectId, "photo": photo.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -148,12 +132,8 @@ final class InputChatPhotoStatic extends InputChatPhoto {
   /// Properties:
   /// * [photo]: Photo to be set as profile photo. Only inputFileLocal and inputFileGenerated are allowed
   @override
-  InputChatPhotoStatic copyWith({
-    InputFile? photo,
-  }) =>
-      InputChatPhotoStatic(
-        photo: photo ?? this.photo,
-      );
+  InputChatPhotoStatic copyWith({InputFile? photo}) =>
+      InputChatPhotoStatic(photo: photo ?? this.photo);
 
   /// TDLib object type
   static const String defaultObjectId = 'inputChatPhotoStatic';
@@ -217,11 +197,10 @@ final class InputChatPhotoAnimation extends InputChatPhoto {
   InputChatPhotoAnimation copyWith({
     InputFile? animation,
     double? mainFrameTimestamp,
-  }) =>
-      InputChatPhotoAnimation(
-        animation: animation ?? this.animation,
-        mainFrameTimestamp: mainFrameTimestamp ?? this.mainFrameTimestamp,
-      );
+  }) => InputChatPhotoAnimation(
+    animation: animation ?? this.animation,
+    mainFrameTimestamp: mainFrameTimestamp ?? this.mainFrameTimestamp,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputChatPhotoAnimation';
@@ -246,9 +225,7 @@ final class InputChatPhotoSticker extends InputChatPhoto {
   /// A sticker on a custom background.
   ///
   /// * [sticker]: Information about the sticker.
-  const InputChatPhotoSticker({
-    required this.sticker,
-  });
+  const InputChatPhotoSticker({required this.sticker});
 
   /// Information about the sticker
   final ChatPhotoSticker sticker;
@@ -262,10 +239,7 @@ final class InputChatPhotoSticker extends InputChatPhoto {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "sticker": sticker.toJson(),
-    };
+    return {"@type": defaultObjectId, "sticker": sticker.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -273,12 +247,8 @@ final class InputChatPhotoSticker extends InputChatPhoto {
   /// Properties:
   /// * [sticker]: Information about the sticker
   @override
-  InputChatPhotoSticker copyWith({
-    ChatPhotoSticker? sticker,
-  }) =>
-      InputChatPhotoSticker(
-        sticker: sticker ?? this.sticker,
-      );
+  InputChatPhotoSticker copyWith({ChatPhotoSticker? sticker}) =>
+      InputChatPhotoSticker(sticker: sticker ?? this.sticker);
 
   /// TDLib object type
   static const String defaultObjectId = 'inputChatPhotoSticker';

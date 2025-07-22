@@ -34,9 +34,10 @@ final class GroupCallParticipantVideoInfo extends TdObject {
   factory GroupCallParticipantVideoInfo.fromJson(Map<String, dynamic> json) =>
       GroupCallParticipantVideoInfo(
         sourceGroups: List<GroupCallVideoSourceGroup>.from(
-            (json['source_groups'] ?? [])
-                .map((item) => GroupCallVideoSourceGroup.fromJson(item))
-                .toList()),
+          (json['source_groups'] ?? [])
+              .map((item) => GroupCallVideoSourceGroup.fromJson(item))
+              .toList(),
+        ),
         endpointId: json['endpoint_id'],
         isPaused: json['is_paused'],
       );
@@ -62,12 +63,11 @@ final class GroupCallParticipantVideoInfo extends TdObject {
     List<GroupCallVideoSourceGroup>? sourceGroups,
     String? endpointId,
     bool? isPaused,
-  }) =>
-      GroupCallParticipantVideoInfo(
-        sourceGroups: sourceGroups ?? this.sourceGroups,
-        endpointId: endpointId ?? this.endpointId,
-        isPaused: isPaused ?? this.isPaused,
-      );
+  }) => GroupCallParticipantVideoInfo(
+    sourceGroups: sourceGroups ?? this.sourceGroups,
+    endpointId: endpointId ?? this.endpointId,
+    isPaused: isPaused ?? this.isPaused,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'groupCallParticipantVideoInfo';

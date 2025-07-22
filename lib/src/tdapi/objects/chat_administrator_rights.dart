@@ -4,9 +4,9 @@ part of '../tdapi.dart';
 ///
 /// Describes rights of the administrator.
 ///
-/// * [canManageChat]: True, if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report supergroup spam messages and ignore slow mode. Implied by any other privilege; applicable to supergroups and channels only.
+/// * [canManageChat]: True, if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report supergroup spam messages,. ignore slow mode, and send messages to the chat without paying Telegram Stars. Implied by any other privilege; applicable to supergroups and channels only.
 /// * [canChangeInfo]: True, if the administrator can change the chat title, photo, and other settings.
-/// * [canPostMessages]: True, if the administrator can create channel posts or view channel statistics; applicable to channels only.
+/// * [canPostMessages]: True, if the administrator can create channel posts, answer to channel direct messages, or view channel statistics; applicable to channels only.
 /// * [canEditMessages]: True, if the administrator can edit messages of other users and pin messages; applicable to channels only.
 /// * [canDeleteMessages]: True, if the administrator can delete messages of other users.
 /// * [canInviteUsers]: True, if the administrator can invite new users to the chat.
@@ -24,9 +24,9 @@ final class ChatAdministratorRights extends TdObject {
   ///
   /// Describes rights of the administrator.
   ///
-  /// * [canManageChat]: True, if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report supergroup spam messages and ignore slow mode. Implied by any other privilege; applicable to supergroups and channels only.
+  /// * [canManageChat]: True, if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report supergroup spam messages,. ignore slow mode, and send messages to the chat without paying Telegram Stars. Implied by any other privilege; applicable to supergroups and channels only.
   /// * [canChangeInfo]: True, if the administrator can change the chat title, photo, and other settings.
-  /// * [canPostMessages]: True, if the administrator can create channel posts or view channel statistics; applicable to channels only.
+  /// * [canPostMessages]: True, if the administrator can create channel posts, answer to channel direct messages, or view channel statistics; applicable to channels only.
   /// * [canEditMessages]: True, if the administrator can edit messages of other users and pin messages; applicable to channels only.
   /// * [canDeleteMessages]: True, if the administrator can delete messages of other users.
   /// * [canInviteUsers]: True, if the administrator can invite new users to the chat.
@@ -57,13 +57,13 @@ final class ChatAdministratorRights extends TdObject {
     required this.isAnonymous,
   });
 
-  /// True, if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report supergroup spam messages and ignore slow mode. Implied by any other privilege; applicable to supergroups and channels only
+  /// True, if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report supergroup spam messages,. ignore slow mode, and send messages to the chat without paying Telegram Stars. Implied by any other privilege; applicable to supergroups and channels only
   final bool canManageChat;
 
   /// True, if the administrator can change the chat title, photo, and other settings
   final bool canChangeInfo;
 
-  /// True, if the administrator can create channel posts or view channel statistics; applicable to channels only
+  /// True, if the administrator can create channel posts, answer to channel direct messages, or view channel statistics; applicable to channels only
   final bool canPostMessages;
 
   /// True, if the administrator can edit messages of other users and pin messages; applicable to channels only
@@ -148,9 +148,9 @@ final class ChatAdministratorRights extends TdObject {
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [can_manage_chat]: True, if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report supergroup spam messages and ignore slow mode. Implied by any other privilege; applicable to supergroups and channels only
+  /// * [can_manage_chat]: True, if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report supergroup spam messages,. ignore slow mode, and send messages to the chat without paying Telegram Stars. Implied by any other privilege; applicable to supergroups and channels only
   /// * [can_change_info]: True, if the administrator can change the chat title, photo, and other settings
-  /// * [can_post_messages]: True, if the administrator can create channel posts or view channel statistics; applicable to channels only
+  /// * [can_post_messages]: True, if the administrator can create channel posts, answer to channel direct messages, or view channel statistics; applicable to channels only
   /// * [can_edit_messages]: True, if the administrator can edit messages of other users and pin messages; applicable to channels only
   /// * [can_delete_messages]: True, if the administrator can delete messages of other users
   /// * [can_invite_users]: True, if the administrator can invite new users to the chat
@@ -179,24 +179,23 @@ final class ChatAdministratorRights extends TdObject {
     bool? canEditStories,
     bool? canDeleteStories,
     bool? isAnonymous,
-  }) =>
-      ChatAdministratorRights(
-        canManageChat: canManageChat ?? this.canManageChat,
-        canChangeInfo: canChangeInfo ?? this.canChangeInfo,
-        canPostMessages: canPostMessages ?? this.canPostMessages,
-        canEditMessages: canEditMessages ?? this.canEditMessages,
-        canDeleteMessages: canDeleteMessages ?? this.canDeleteMessages,
-        canInviteUsers: canInviteUsers ?? this.canInviteUsers,
-        canRestrictMembers: canRestrictMembers ?? this.canRestrictMembers,
-        canPinMessages: canPinMessages ?? this.canPinMessages,
-        canManageTopics: canManageTopics ?? this.canManageTopics,
-        canPromoteMembers: canPromoteMembers ?? this.canPromoteMembers,
-        canManageVideoChats: canManageVideoChats ?? this.canManageVideoChats,
-        canPostStories: canPostStories ?? this.canPostStories,
-        canEditStories: canEditStories ?? this.canEditStories,
-        canDeleteStories: canDeleteStories ?? this.canDeleteStories,
-        isAnonymous: isAnonymous ?? this.isAnonymous,
-      );
+  }) => ChatAdministratorRights(
+    canManageChat: canManageChat ?? this.canManageChat,
+    canChangeInfo: canChangeInfo ?? this.canChangeInfo,
+    canPostMessages: canPostMessages ?? this.canPostMessages,
+    canEditMessages: canEditMessages ?? this.canEditMessages,
+    canDeleteMessages: canDeleteMessages ?? this.canDeleteMessages,
+    canInviteUsers: canInviteUsers ?? this.canInviteUsers,
+    canRestrictMembers: canRestrictMembers ?? this.canRestrictMembers,
+    canPinMessages: canPinMessages ?? this.canPinMessages,
+    canManageTopics: canManageTopics ?? this.canManageTopics,
+    canPromoteMembers: canPromoteMembers ?? this.canPromoteMembers,
+    canManageVideoChats: canManageVideoChats ?? this.canManageVideoChats,
+    canPostStories: canPostStories ?? this.canPostStories,
+    canEditStories: canEditStories ?? this.canEditStories,
+    canDeleteStories: canDeleteStories ?? this.canDeleteStories,
+    isAnonymous: isAnonymous ?? this.isAnonymous,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatAdministratorRights';

@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **GetChatRevenueTransactions** *(getChatRevenueTransactions)* - TDLib function
 ///
-/// Returns the list of revenue transactions for a chat. Currently, this method can be used only for channels if supergroupFullInfo.can_get_revenue_statistics == true.
+/// Returns the list of revenue transactions for a chat. Currently, this method can be used only. for channels if supergroupFullInfo.can_get_revenue_statistics == true or bots if userFullInfo.bot_info.can_get_revenue_statistics == true.
 ///
 /// * [chatId]: Chat identifier.
 /// * [offset]: Number of transactions to skip.
@@ -12,7 +12,7 @@ part of '../tdapi.dart';
 final class GetChatRevenueTransactions extends TdFunction {
   /// **GetChatRevenueTransactions** *(getChatRevenueTransactions)* - TDLib function
   ///
-  /// Returns the list of revenue transactions for a chat. Currently, this method can be used only for channels if supergroupFullInfo.can_get_revenue_statistics == true.
+  /// Returns the list of revenue transactions for a chat. Currently, this method can be used only. for channels if supergroupFullInfo.can_get_revenue_statistics == true or bots if userFullInfo.bot_info.can_get_revenue_statistics == true.
   ///
   /// * [chatId]: Chat identifier.
   /// * [offset]: Number of transactions to skip.
@@ -52,11 +52,7 @@ final class GetChatRevenueTransactions extends TdFunction {
   /// * [chat_id]: Chat identifier
   /// * [offset]: Number of transactions to skip
   /// * [limit]: The maximum number of transactions to be returned; up to 200
-  GetChatRevenueTransactions copyWith({
-    int? chatId,
-    int? offset,
-    int? limit,
-  }) =>
+  GetChatRevenueTransactions copyWith({int? chatId, int? offset, int? limit}) =>
       GetChatRevenueTransactions(
         chatId: chatId ?? this.chatId,
         offset: offset ?? this.offset,

@@ -5,6 +5,7 @@ part of '../tdapi.dart';
 /// Searches for a sticker set by its name.
 ///
 /// * [name]: Name of the sticker set.
+/// * [ignoreCache]: Pass true to ignore local cache of sticker sets and always send a network request.
 ///
 /// [StickerSet] is returned on completion.
 final class SearchStickerSet extends TdFunction {
@@ -13,14 +14,16 @@ final class SearchStickerSet extends TdFunction {
   /// Searches for a sticker set by its name.
   ///
   /// * [name]: Name of the sticker set.
+  /// * [ignoreCache]: Pass true to ignore local cache of sticker sets and always send a network request.
   ///
   /// [StickerSet] is returned on completion.
-  const SearchStickerSet({
-    required this.name,
-  });
+  const SearchStickerSet({required this.name, required this.ignoreCache});
 
   /// Name of the sticker set
   final String name;
+
+  /// Pass true to ignore local cache of sticker sets and always send a network request
+  final bool ignoreCache;
 
   /// Convert model to TDLib JSON format
   @override
@@ -28,6 +31,7 @@ final class SearchStickerSet extends TdFunction {
     return {
       "@type": defaultObjectId,
       "name": name,
+      "ignore_cache": ignoreCache,
       "@extra": extra,
     };
   }
@@ -36,11 +40,11 @@ final class SearchStickerSet extends TdFunction {
   ///
   /// Properties:
   /// * [name]: Name of the sticker set
-  SearchStickerSet copyWith({
-    String? name,
-  }) =>
+  /// * [ignore_cache]: Pass true to ignore local cache of sticker sets and always send a network request
+  SearchStickerSet copyWith({String? name, bool? ignoreCache}) =>
       SearchStickerSet(
         name: name ?? this.name,
+        ignoreCache: ignoreCache ?? this.ignoreCache,
       );
 
   /// TDLib object type

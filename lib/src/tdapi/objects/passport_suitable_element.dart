@@ -69,14 +69,12 @@ final class PassportSuitableElement extends TdObject {
     bool? isSelfieRequired,
     bool? isTranslationRequired,
     bool? isNativeNameRequired,
-  }) =>
-      PassportSuitableElement(
-        type: type ?? this.type,
-        isSelfieRequired: isSelfieRequired ?? this.isSelfieRequired,
-        isTranslationRequired:
-            isTranslationRequired ?? this.isTranslationRequired,
-        isNativeNameRequired: isNativeNameRequired ?? this.isNativeNameRequired,
-      );
+  }) => PassportSuitableElement(
+    type: type ?? this.type,
+    isSelfieRequired: isSelfieRequired ?? this.isSelfieRequired,
+    isTranslationRequired: isTranslationRequired ?? this.isTranslationRequired,
+    isNativeNameRequired: isNativeNameRequired ?? this.isNativeNameRequired,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'passportSuitableElement';

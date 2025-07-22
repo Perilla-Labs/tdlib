@@ -17,10 +17,7 @@ final class SetChatClientData extends TdFunction {
   /// * [clientData]: New value of client_data.
   ///
   /// [Ok] is returned on completion.
-  const SetChatClientData({
-    required this.chatId,
-    required this.clientData,
-  });
+  const SetChatClientData({required this.chatId, required this.clientData});
 
   /// Chat identifier
   final int chatId;
@@ -44,10 +41,7 @@ final class SetChatClientData extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [client_data]: New value of client_data
-  SetChatClientData copyWith({
-    int? chatId,
-    String? clientData,
-  }) =>
+  SetChatClientData copyWith({int? chatId, String? clientData}) =>
       SetChatClientData(
         chatId: chatId ?? this.chatId,
         clientData: clientData ?? this.clientData,

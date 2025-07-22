@@ -74,14 +74,13 @@ final class TestProxy extends TdFunction {
     ProxyType? type,
     int? dcId,
     double? timeout,
-  }) =>
-      TestProxy(
-        server: server ?? this.server,
-        port: port ?? this.port,
-        type: type ?? this.type,
-        dcId: dcId ?? this.dcId,
-        timeout: timeout ?? this.timeout,
-      );
+  }) => TestProxy(
+    server: server ?? this.server,
+    port: port ?? this.port,
+    type: type ?? this.type,
+    dcId: dcId ?? this.dcId,
+    timeout: timeout ?? this.timeout,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'testProxy';

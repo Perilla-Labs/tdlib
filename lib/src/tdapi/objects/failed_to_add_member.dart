@@ -60,14 +60,13 @@ final class FailedToAddMember extends TdObject {
     int? userId,
     bool? premiumWouldAllowInvite,
     bool? premiumRequiredToSendMessages,
-  }) =>
-      FailedToAddMember(
-        userId: userId ?? this.userId,
-        premiumWouldAllowInvite:
-            premiumWouldAllowInvite ?? this.premiumWouldAllowInvite,
-        premiumRequiredToSendMessages:
-            premiumRequiredToSendMessages ?? this.premiumRequiredToSendMessages,
-      );
+  }) => FailedToAddMember(
+    userId: userId ?? this.userId,
+    premiumWouldAllowInvite:
+        premiumWouldAllowInvite ?? this.premiumWouldAllowInvite,
+    premiumRequiredToSendMessages:
+        premiumRequiredToSendMessages ?? this.premiumRequiredToSendMessages,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'failedToAddMember';

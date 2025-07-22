@@ -56,12 +56,11 @@ final class PreliminaryUploadFile extends TdFunction {
     InputFile? file,
     FileType? fileType,
     int? priority,
-  }) =>
-      PreliminaryUploadFile(
-        file: file ?? this.file,
-        fileType: fileType ?? this.fileType,
-        priority: priority ?? this.priority,
-      );
+  }) => PreliminaryUploadFile(
+    file: file ?? this.file,
+    fileType: fileType ?? this.fileType,
+    priority: priority ?? this.priority,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'preliminaryUploadFile';

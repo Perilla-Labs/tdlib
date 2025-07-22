@@ -47,11 +47,10 @@ final class SetCustomEmojiStickerSetThumbnail extends TdFunction {
   SetCustomEmojiStickerSetThumbnail copyWith({
     String? name,
     int? customEmojiId,
-  }) =>
-      SetCustomEmojiStickerSetThumbnail(
-        name: name ?? this.name,
-        customEmojiId: customEmojiId ?? this.customEmojiId,
-      );
+  }) => SetCustomEmojiStickerSetThumbnail(
+    name: name ?? this.name,
+    customEmojiId: customEmojiId ?? this.customEmojiId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setCustomEmojiStickerSetThumbnail';

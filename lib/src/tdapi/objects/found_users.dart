@@ -36,12 +36,13 @@ final class FoundUsers extends TdObject {
 
   /// Parse from a json
   factory FoundUsers.fromJson(Map<String, dynamic> json) => FoundUsers(
-        userIds: List<int>.from(
-            (json['user_ids'] ?? []).map((item) => item).toList()),
-        nextOffset: json['next_offset'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    userIds: List<int>.from(
+      (json['user_ids'] ?? []).map((item) => item).toList(),
+    ),
+    nextOffset: json['next_offset'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -63,13 +64,12 @@ final class FoundUsers extends TdObject {
     String? nextOffset,
     dynamic extra,
     int? clientId,
-  }) =>
-      FoundUsers(
-        userIds: userIds ?? this.userIds,
-        nextOffset: nextOffset ?? this.nextOffset,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => FoundUsers(
+    userIds: userIds ?? this.userIds,
+    nextOffset: nextOffset ?? this.nextOffset,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'foundUsers';

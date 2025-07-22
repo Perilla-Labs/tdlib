@@ -15,9 +15,7 @@ final class GetChatFolder extends TdFunction {
   /// * [chatFolderId]: Chat folder identifier.
   ///
   /// [ChatFolder] is returned on completion.
-  const GetChatFolder({
-    required this.chatFolderId,
-  });
+  const GetChatFolder({required this.chatFolderId});
 
   /// Chat folder identifier
   final int chatFolderId;
@@ -36,12 +34,8 @@ final class GetChatFolder extends TdFunction {
   ///
   /// Properties:
   /// * [chat_folder_id]: Chat folder identifier
-  GetChatFolder copyWith({
-    int? chatFolderId,
-  }) =>
-      GetChatFolder(
-        chatFolderId: chatFolderId ?? this.chatFolderId,
-      );
+  GetChatFolder copyWith({int? chatFolderId}) =>
+      GetChatFolder(chatFolderId: chatFolderId ?? this.chatFolderId);
 
   /// TDLib object type
   static const String defaultObjectId = 'getChatFolder';

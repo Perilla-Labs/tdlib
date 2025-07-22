@@ -65,13 +65,12 @@ final class AddFileToDownloads extends TdFunction {
     int? chatId,
     int? messageId,
     int? priority,
-  }) =>
-      AddFileToDownloads(
-        fileId: fileId ?? this.fileId,
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        priority: priority ?? this.priority,
-      );
+  }) => AddFileToDownloads(
+    fileId: fileId ?? this.fileId,
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    priority: priority ?? this.priority,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'addFileToDownloads';

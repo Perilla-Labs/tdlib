@@ -11,11 +11,7 @@ final class TestString extends TdObject {
   /// A simple object containing a string; for testing only.
   ///
   /// * [value]: String.
-  const TestString({
-    required this.value,
-    this.extra,
-    this.clientId,
-  });
+  const TestString({required this.value, this.extra, this.clientId});
 
   /// String
   final String value;
@@ -30,29 +26,22 @@ final class TestString extends TdObject {
 
   /// Parse from a json
   factory TestString.fromJson(Map<String, dynamic> json) => TestString(
-        value: json['value'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    value: json['value'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "value": value,
-    };
+    return {"@type": defaultObjectId, "value": value};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [value]: String
-  TestString copyWith({
-    String? value,
-    dynamic extra,
-    int? clientId,
-  }) =>
+  TestString copyWith({String? value, dynamic extra, int? clientId}) =>
       TestString(
         value: value ?? this.value,
         extra: extra ?? this.extra,

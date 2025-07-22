@@ -65,13 +65,12 @@ final class GetAllStickerEmojis extends TdFunction {
     String? query,
     int? chatId,
     bool? returnOnlyMainEmoji,
-  }) =>
-      GetAllStickerEmojis(
-        stickerType: stickerType ?? this.stickerType,
-        query: query ?? this.query,
-        chatId: chatId ?? this.chatId,
-        returnOnlyMainEmoji: returnOnlyMainEmoji ?? this.returnOnlyMainEmoji,
-      );
+  }) => GetAllStickerEmojis(
+    stickerType: stickerType ?? this.stickerType,
+    query: query ?? this.query,
+    chatId: chatId ?? this.chatId,
+    returnOnlyMainEmoji: returnOnlyMainEmoji ?? this.returnOnlyMainEmoji,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getAllStickerEmojis';

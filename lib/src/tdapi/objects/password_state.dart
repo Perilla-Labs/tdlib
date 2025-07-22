@@ -66,20 +66,21 @@ final class PasswordState extends TdObject {
 
   /// Parse from a json
   factory PasswordState.fromJson(Map<String, dynamic> json) => PasswordState(
-        hasPassword: json['has_password'],
-        passwordHint: json['password_hint'],
-        hasRecoveryEmailAddress: json['has_recovery_email_address'],
-        hasPassportData: json['has_passport_data'],
-        recoveryEmailAddressCodeInfo:
-            json['recovery_email_address_code_info'] == null
-                ? null
-                : EmailAddressAuthenticationCodeInfo.fromJson(
-                    json['recovery_email_address_code_info']),
-        loginEmailAddressPattern: json['login_email_address_pattern'],
-        pendingResetDate: json['pending_reset_date'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    hasPassword: json['has_password'],
+    passwordHint: json['password_hint'],
+    hasRecoveryEmailAddress: json['has_recovery_email_address'],
+    hasPassportData: json['has_passport_data'],
+    recoveryEmailAddressCodeInfo:
+        json['recovery_email_address_code_info'] == null
+        ? null
+        : EmailAddressAuthenticationCodeInfo.fromJson(
+            json['recovery_email_address_code_info'],
+          ),
+    loginEmailAddressPattern: json['login_email_address_pattern'],
+    pendingResetDate: json['pending_reset_date'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -90,8 +91,8 @@ final class PasswordState extends TdObject {
       "password_hint": passwordHint,
       "has_recovery_email_address": hasRecoveryEmailAddress,
       "has_passport_data": hasPassportData,
-      "recovery_email_address_code_info":
-          recoveryEmailAddressCodeInfo?.toJson(),
+      "recovery_email_address_code_info": recoveryEmailAddressCodeInfo
+          ?.toJson(),
       "login_email_address_pattern": loginEmailAddressPattern,
       "pending_reset_date": pendingResetDate,
     };
@@ -117,21 +118,20 @@ final class PasswordState extends TdObject {
     int? pendingResetDate,
     dynamic extra,
     int? clientId,
-  }) =>
-      PasswordState(
-        hasPassword: hasPassword ?? this.hasPassword,
-        passwordHint: passwordHint ?? this.passwordHint,
-        hasRecoveryEmailAddress:
-            hasRecoveryEmailAddress ?? this.hasRecoveryEmailAddress,
-        hasPassportData: hasPassportData ?? this.hasPassportData,
-        recoveryEmailAddressCodeInfo:
-            recoveryEmailAddressCodeInfo ?? this.recoveryEmailAddressCodeInfo,
-        loginEmailAddressPattern:
-            loginEmailAddressPattern ?? this.loginEmailAddressPattern,
-        pendingResetDate: pendingResetDate ?? this.pendingResetDate,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => PasswordState(
+    hasPassword: hasPassword ?? this.hasPassword,
+    passwordHint: passwordHint ?? this.passwordHint,
+    hasRecoveryEmailAddress:
+        hasRecoveryEmailAddress ?? this.hasRecoveryEmailAddress,
+    hasPassportData: hasPassportData ?? this.hasPassportData,
+    recoveryEmailAddressCodeInfo:
+        recoveryEmailAddressCodeInfo ?? this.recoveryEmailAddressCodeInfo,
+    loginEmailAddressPattern:
+        loginEmailAddressPattern ?? this.loginEmailAddressPattern,
+    pendingResetDate: pendingResetDate ?? this.pendingResetDate,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'passwordState';

@@ -17,10 +17,7 @@ final class GetCommands extends TdFunction {
   /// * [languageCode]: A two-letter ISO 639-1 language code or an empty string.
   ///
   /// [BotCommands] is returned on completion.
-  const GetCommands({
-    this.scope,
-    required this.languageCode,
-  });
+  const GetCommands({this.scope, required this.languageCode});
 
   /// The scope to which the commands are relevant; pass null to get commands in the default bot command scope
   final BotCommandScope? scope;
@@ -44,10 +41,7 @@ final class GetCommands extends TdFunction {
   /// Properties:
   /// * [scope]: The scope to which the commands are relevant; pass null to get commands in the default bot command scope
   /// * [language_code]: A two-letter ISO 639-1 language code or an empty string
-  GetCommands copyWith({
-    BotCommandScope? scope,
-    String? languageCode,
-  }) =>
+  GetCommands copyWith({BotCommandScope? scope, String? languageCode}) =>
       GetCommands(
         scope: scope ?? this.scope,
         languageCode: languageCode ?? this.languageCode,

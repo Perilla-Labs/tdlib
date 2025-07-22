@@ -11,11 +11,7 @@ final class PushReceiverId extends TdObject {
   /// Contains a globally unique push receiver identifier, which can be used to identify which account has received a push notification.
   ///
   /// * [id]: The globally unique identifier of push notification subscription.
-  const PushReceiverId({
-    required this.id,
-    this.extra,
-    this.clientId,
-  });
+  const PushReceiverId({required this.id, this.extra, this.clientId});
 
   /// The globally unique identifier of push notification subscription
   final int id;
@@ -30,29 +26,22 @@ final class PushReceiverId extends TdObject {
 
   /// Parse from a json
   factory PushReceiverId.fromJson(Map<String, dynamic> json) => PushReceiverId(
-        id: json['id'] is int ? json['id'] : int.parse(json['id']),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    id: json['id'] is int ? json['id'] : int.parse(json['id']),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "id": id,
-    };
+    return {"@type": defaultObjectId, "id": id};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [id]: The globally unique identifier of push notification subscription
-  PushReceiverId copyWith({
-    int? id,
-    dynamic extra,
-    int? clientId,
-  }) =>
+  PushReceiverId copyWith({int? id, dynamic extra, int? clientId}) =>
       PushReceiverId(
         id: id ?? this.id,
         extra: extra ?? this.extra,

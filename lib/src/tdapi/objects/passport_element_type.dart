@@ -89,15 +89,13 @@ final class PassportElementTypePersonalDetails extends PassportElementType {
 
   /// Parse from a json
   factory PassportElementTypePersonalDetails.fromJson(
-          Map<String, dynamic> json) =>
-      const PassportElementTypePersonalDetails();
+    Map<String, dynamic> json,
+  ) => const PassportElementTypePersonalDetails();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -133,9 +131,7 @@ final class PassportElementTypePassport extends PassportElementType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -165,15 +161,13 @@ final class PassportElementTypeDriverLicense extends PassportElementType {
 
   /// Parse from a json
   factory PassportElementTypeDriverLicense.fromJson(
-          Map<String, dynamic> json) =>
-      const PassportElementTypeDriverLicense();
+    Map<String, dynamic> json,
+  ) => const PassportElementTypeDriverLicense();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -209,9 +203,7 @@ final class PassportElementTypeIdentityCard extends PassportElementType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -242,15 +234,13 @@ final class PassportElementTypeInternalPassport extends PassportElementType {
 
   /// Parse from a json
   factory PassportElementTypeInternalPassport.fromJson(
-          Map<String, dynamic> json) =>
-      const PassportElementTypeInternalPassport();
+    Map<String, dynamic> json,
+  ) => const PassportElementTypeInternalPassport();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -286,9 +276,7 @@ final class PassportElementTypeAddress extends PassportElementType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -323,9 +311,7 @@ final class PassportElementTypeUtilityBill extends PassportElementType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -356,15 +342,13 @@ final class PassportElementTypeBankStatement extends PassportElementType {
 
   /// Parse from a json
   factory PassportElementTypeBankStatement.fromJson(
-          Map<String, dynamic> json) =>
-      const PassportElementTypeBankStatement();
+    Map<String, dynamic> json,
+  ) => const PassportElementTypeBankStatement();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -395,15 +379,13 @@ final class PassportElementTypeRentalAgreement extends PassportElementType {
 
   /// Parse from a json
   factory PassportElementTypeRentalAgreement.fromJson(
-          Map<String, dynamic> json) =>
-      const PassportElementTypeRentalAgreement();
+    Map<String, dynamic> json,
+  ) => const PassportElementTypeRentalAgreement();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -435,15 +417,13 @@ final class PassportElementTypePassportRegistration
 
   /// Parse from a json
   factory PassportElementTypePassportRegistration.fromJson(
-          Map<String, dynamic> json) =>
-      const PassportElementTypePassportRegistration();
+    Map<String, dynamic> json,
+  ) => const PassportElementTypePassportRegistration();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -476,15 +456,13 @@ final class PassportElementTypeTemporaryRegistration
 
   /// Parse from a json
   factory PassportElementTypeTemporaryRegistration.fromJson(
-          Map<String, dynamic> json) =>
-      const PassportElementTypeTemporaryRegistration();
+    Map<String, dynamic> json,
+  ) => const PassportElementTypeTemporaryRegistration();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -521,9 +499,7 @@ final class PassportElementTypePhoneNumber extends PassportElementType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -559,9 +535,7 @@ final class PassportElementTypeEmailAddress extends PassportElementType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.

@@ -13,10 +13,7 @@ final class AvailableReaction extends TdObject {
   ///
   /// * [type]: Type of the reaction.
   /// * [needsPremium]: True, if Telegram Premium is needed to send the reaction.
-  const AvailableReaction({
-    required this.type,
-    required this.needsPremium,
-  });
+  const AvailableReaction({required this.type, required this.needsPremium});
 
   /// Type of the reaction
   final ReactionType type;
@@ -46,10 +43,7 @@ final class AvailableReaction extends TdObject {
   /// Properties:
   /// * [type]: Type of the reaction
   /// * [needs_premium]: True, if Telegram Premium is needed to send the reaction
-  AvailableReaction copyWith({
-    ReactionType? type,
-    bool? needsPremium,
-  }) =>
+  AvailableReaction copyWith({ReactionType? type, bool? needsPremium}) =>
       AvailableReaction(
         type: type ?? this.type,
         needsPremium: needsPremium ?? this.needsPremium,

@@ -46,10 +46,7 @@ final class BusinessOpeningHoursInterval extends TdObject {
   /// Properties:
   /// * [start_minute]: The minute's sequence number in a week, starting on Monday, marking the start of the time interval during which the business is open; 0-7*24*60
   /// * [end_minute]: The minute's sequence number in a week, starting on Monday, marking the end of the time interval during which the business is open; 1-8*24*60
-  BusinessOpeningHoursInterval copyWith({
-    int? startMinute,
-    int? endMinute,
-  }) =>
+  BusinessOpeningHoursInterval copyWith({int? startMinute, int? endMinute}) =>
       BusinessOpeningHoursInterval(
         startMinute: startMinute ?? this.startMinute,
         endMinute: endMinute ?? this.endMinute,

@@ -15,9 +15,7 @@ final class ClearRecentStickers extends TdFunction {
   /// * [isAttached]: Pass true to clear the list of stickers recently attached to photo or video files; pass false to clear the list of recently sent stickers.
   ///
   /// [Ok] is returned on completion.
-  const ClearRecentStickers({
-    required this.isAttached,
-  });
+  const ClearRecentStickers({required this.isAttached});
 
   /// Pass true to clear the list of stickers recently attached to photo or video files; pass false to clear the list of recently sent stickers
   final bool isAttached;
@@ -36,12 +34,8 @@ final class ClearRecentStickers extends TdFunction {
   ///
   /// Properties:
   /// * [is_attached]: Pass true to clear the list of stickers recently attached to photo or video files; pass false to clear the list of recently sent stickers
-  ClearRecentStickers copyWith({
-    bool? isAttached,
-  }) =>
-      ClearRecentStickers(
-        isAttached: isAttached ?? this.isAttached,
-      );
+  ClearRecentStickers copyWith({bool? isAttached}) =>
+      ClearRecentStickers(isAttached: isAttached ?? this.isAttached);
 
   /// TDLib object type
   static const String defaultObjectId = 'clearRecentStickers';

@@ -15,9 +15,7 @@ final class GetStickerEmojis extends TdFunction {
   /// * [sticker]: Sticker file identifier.
   ///
   /// [Emojis] is returned on completion.
-  const GetStickerEmojis({
-    required this.sticker,
-  });
+  const GetStickerEmojis({required this.sticker});
 
   /// Sticker file identifier
   final InputFile sticker;
@@ -36,12 +34,8 @@ final class GetStickerEmojis extends TdFunction {
   ///
   /// Properties:
   /// * [sticker]: Sticker file identifier
-  GetStickerEmojis copyWith({
-    InputFile? sticker,
-  }) =>
-      GetStickerEmojis(
-        sticker: sticker ?? this.sticker,
-      );
+  GetStickerEmojis copyWith({InputFile? sticker}) =>
+      GetStickerEmojis(sticker: sticker ?? this.sticker);
 
   /// TDLib object type
   static const String defaultObjectId = 'getStickerEmojis';

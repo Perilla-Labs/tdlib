@@ -13,10 +13,7 @@ final class BusinessLocation extends TdObject {
   ///
   /// * [location]: The location; may be null if not specified *(optional)*.
   /// * [address]: Location address; 1-96 characters.
-  const BusinessLocation({
-    this.location,
-    required this.address,
-  });
+  const BusinessLocation({this.location, required this.address});
 
   /// The location; may be null if not specified
   final Location? location;
@@ -48,10 +45,7 @@ final class BusinessLocation extends TdObject {
   /// Properties:
   /// * [location]: The location; may be null if not specified
   /// * [address]: Location address; 1-96 characters
-  BusinessLocation copyWith({
-    Location? location,
-    String? address,
-  }) =>
+  BusinessLocation copyWith({Location? location, String? address}) =>
       BusinessLocation(
         location: location ?? this.location,
         address: address ?? this.address,

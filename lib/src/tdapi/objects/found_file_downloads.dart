@@ -44,9 +44,11 @@ final class FoundFileDownloads extends TdObject {
   factory FoundFileDownloads.fromJson(Map<String, dynamic> json) =>
       FoundFileDownloads(
         totalCounts: DownloadedFileCounts.fromJson(json['total_counts']),
-        files: List<FileDownload>.from((json['files'] ?? [])
-            .map((item) => FileDownload.fromJson(item))
-            .toList()),
+        files: List<FileDownload>.from(
+          (json['files'] ?? [])
+              .map((item) => FileDownload.fromJson(item))
+              .toList(),
+        ),
         nextOffset: json['next_offset'],
         extra: json['@extra'],
         clientId: json['@client_id'],
@@ -75,14 +77,13 @@ final class FoundFileDownloads extends TdObject {
     String? nextOffset,
     dynamic extra,
     int? clientId,
-  }) =>
-      FoundFileDownloads(
-        totalCounts: totalCounts ?? this.totalCounts,
-        files: files ?? this.files,
-        nextOffset: nextOffset ?? this.nextOffset,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => FoundFileDownloads(
+    totalCounts: totalCounts ?? this.totalCounts,
+    files: files ?? this.files,
+    nextOffset: nextOffset ?? this.nextOffset,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'foundFileDownloads';

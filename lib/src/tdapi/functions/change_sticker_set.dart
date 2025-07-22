@@ -56,12 +56,11 @@ final class ChangeStickerSet extends TdFunction {
     int? setId,
     bool? isInstalled,
     bool? isArchived,
-  }) =>
-      ChangeStickerSet(
-        setId: setId ?? this.setId,
-        isInstalled: isInstalled ?? this.isInstalled,
-        isArchived: isArchived ?? this.isArchived,
-      );
+  }) => ChangeStickerSet(
+    setId: setId ?? this.setId,
+    isInstalled: isInstalled ?? this.isInstalled,
+    isArchived: isArchived ?? this.isArchived,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'changeStickerSet';

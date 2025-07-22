@@ -36,11 +36,11 @@ final class DeepLinkInfo extends TdObject {
 
   /// Parse from a json
   factory DeepLinkInfo.fromJson(Map<String, dynamic> json) => DeepLinkInfo(
-        text: FormattedText.fromJson(json['text']),
-        needUpdateApplication: json['need_update_application'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    text: FormattedText.fromJson(json['text']),
+    needUpdateApplication: json['need_update_application'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -62,14 +62,12 @@ final class DeepLinkInfo extends TdObject {
     bool? needUpdateApplication,
     dynamic extra,
     int? clientId,
-  }) =>
-      DeepLinkInfo(
-        text: text ?? this.text,
-        needUpdateApplication:
-            needUpdateApplication ?? this.needUpdateApplication,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => DeepLinkInfo(
+    text: text ?? this.text,
+    needUpdateApplication: needUpdateApplication ?? this.needUpdateApplication,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'deepLinkInfo';

@@ -17,10 +17,7 @@ final class SetStickerEmojis extends TdFunction {
   /// * [emojis]: New string with 1-20 emoji corresponding to the sticker.
   ///
   /// [Ok] is returned on completion.
-  const SetStickerEmojis({
-    required this.sticker,
-    required this.emojis,
-  });
+  const SetStickerEmojis({required this.sticker, required this.emojis});
 
   /// Sticker
   final InputFile sticker;
@@ -44,10 +41,7 @@ final class SetStickerEmojis extends TdFunction {
   /// Properties:
   /// * [sticker]: Sticker
   /// * [emojis]: New string with 1-20 emoji corresponding to the sticker
-  SetStickerEmojis copyWith({
-    InputFile? sticker,
-    String? emojis,
-  }) =>
+  SetStickerEmojis copyWith({InputFile? sticker, String? emojis}) =>
       SetStickerEmojis(
         sticker: sticker ?? this.sticker,
         emojis: emojis ?? this.emojis,

@@ -15,9 +15,7 @@ final class ViewPremiumFeature extends TdFunction {
   /// * [feature]: The viewed premium feature.
   ///
   /// [Ok] is returned on completion.
-  const ViewPremiumFeature({
-    required this.feature,
-  });
+  const ViewPremiumFeature({required this.feature});
 
   /// The viewed premium feature
   final PremiumFeature feature;
@@ -36,12 +34,8 @@ final class ViewPremiumFeature extends TdFunction {
   ///
   /// Properties:
   /// * [feature]: The viewed premium feature
-  ViewPremiumFeature copyWith({
-    PremiumFeature? feature,
-  }) =>
-      ViewPremiumFeature(
-        feature: feature ?? this.feature,
-      );
+  ViewPremiumFeature copyWith({PremiumFeature? feature}) =>
+      ViewPremiumFeature(feature: feature ?? this.feature);
 
   /// TDLib object type
   static const String defaultObjectId = 'viewPremiumFeature';

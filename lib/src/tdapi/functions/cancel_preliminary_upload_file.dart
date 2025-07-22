@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **CancelPreliminaryUploadFile** *(cancelPreliminaryUploadFile)* - TDLib function
 ///
-/// Stops the preliminary uploading of a file. Supported only for files uploaded by using preliminaryUploadFile. For other files the behavior is undefined.
+/// Stops the preliminary uploading of a file. Supported only for files uploaded by using preliminaryUploadFile.
 ///
 /// * [fileId]: Identifier of the file to stop uploading.
 ///
@@ -10,14 +10,12 @@ part of '../tdapi.dart';
 final class CancelPreliminaryUploadFile extends TdFunction {
   /// **CancelPreliminaryUploadFile** *(cancelPreliminaryUploadFile)* - TDLib function
   ///
-  /// Stops the preliminary uploading of a file. Supported only for files uploaded by using preliminaryUploadFile. For other files the behavior is undefined.
+  /// Stops the preliminary uploading of a file. Supported only for files uploaded by using preliminaryUploadFile.
   ///
   /// * [fileId]: Identifier of the file to stop uploading.
   ///
   /// [Ok] is returned on completion.
-  const CancelPreliminaryUploadFile({
-    required this.fileId,
-  });
+  const CancelPreliminaryUploadFile({required this.fileId});
 
   /// Identifier of the file to stop uploading
   final int fileId;
@@ -25,23 +23,15 @@ final class CancelPreliminaryUploadFile extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "file_id": fileId,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "file_id": fileId, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [file_id]: Identifier of the file to stop uploading
-  CancelPreliminaryUploadFile copyWith({
-    int? fileId,
-  }) =>
-      CancelPreliminaryUploadFile(
-        fileId: fileId ?? this.fileId,
-      );
+  CancelPreliminaryUploadFile copyWith({int? fileId}) =>
+      CancelPreliminaryUploadFile(fileId: fileId ?? this.fileId);
 
   /// TDLib object type
   static const String defaultObjectId = 'cancelPreliminaryUploadFile';

@@ -39,9 +39,10 @@ final class ChatRevenueTransactions extends TdObject {
       ChatRevenueTransactions(
         totalCount: json['total_count'],
         transactions: List<ChatRevenueTransaction>.from(
-            (json['transactions'] ?? [])
-                .map((item) => ChatRevenueTransaction.fromJson(item))
-                .toList()),
+          (json['transactions'] ?? [])
+              .map((item) => ChatRevenueTransaction.fromJson(item))
+              .toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -66,13 +67,12 @@ final class ChatRevenueTransactions extends TdObject {
     List<ChatRevenueTransaction>? transactions,
     dynamic extra,
     int? clientId,
-  }) =>
-      ChatRevenueTransactions(
-        totalCount: totalCount ?? this.totalCount,
-        transactions: transactions ?? this.transactions,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => ChatRevenueTransactions(
+    totalCount: totalCount ?? this.totalCount,
+    transactions: transactions ?? this.transactions,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatRevenueTransactions';

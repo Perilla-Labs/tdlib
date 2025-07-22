@@ -65,13 +65,12 @@ final class GetLoginUrl extends TdFunction {
     int? messageId,
     int? buttonId,
     bool? allowWriteAccess,
-  }) =>
-      GetLoginUrl(
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        buttonId: buttonId ?? this.buttonId,
-        allowWriteAccess: allowWriteAccess ?? this.allowWriteAccess,
-      );
+  }) => GetLoginUrl(
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    buttonId: buttonId ?? this.buttonId,
+    allowWriteAccess: allowWriteAccess ?? this.allowWriteAccess,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getLoginUrl';

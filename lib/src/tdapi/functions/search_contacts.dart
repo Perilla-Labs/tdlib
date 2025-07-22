@@ -17,10 +17,7 @@ final class SearchContacts extends TdFunction {
   /// * [limit]: The maximum number of users to be returned.
   ///
   /// [Users] is returned on completion.
-  const SearchContacts({
-    required this.query,
-    required this.limit,
-  });
+  const SearchContacts({required this.query, required this.limit});
 
   /// Query to search for; may be empty to return all contacts
   final String query;
@@ -44,14 +41,8 @@ final class SearchContacts extends TdFunction {
   /// Properties:
   /// * [query]: Query to search for; may be empty to return all contacts
   /// * [limit]: The maximum number of users to be returned
-  SearchContacts copyWith({
-    String? query,
-    int? limit,
-  }) =>
-      SearchContacts(
-        query: query ?? this.query,
-        limit: limit ?? this.limit,
-      );
+  SearchContacts copyWith({String? query, int? limit}) =>
+      SearchContacts(query: query ?? this.query, limit: limit ?? this.limit);
 
   /// TDLib object type
   static const String defaultObjectId = 'searchContacts';

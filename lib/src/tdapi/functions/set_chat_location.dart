@@ -17,10 +17,7 @@ final class SetChatLocation extends TdFunction {
   /// * [location]: New location for the chat; must be valid and not null.
   ///
   /// [Ok] is returned on completion.
-  const SetChatLocation({
-    required this.chatId,
-    required this.location,
-  });
+  const SetChatLocation({required this.chatId, required this.location});
 
   /// Chat identifier
   final int chatId;
@@ -44,10 +41,7 @@ final class SetChatLocation extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [location]: New location for the chat; must be valid and not null
-  SetChatLocation copyWith({
-    int? chatId,
-    ChatLocation? location,
-  }) =>
+  SetChatLocation copyWith({int? chatId, ChatLocation? location}) =>
       SetChatLocation(
         chatId: chatId ?? this.chatId,
         location: location ?? this.location,

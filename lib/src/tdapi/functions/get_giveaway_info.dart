@@ -17,10 +17,7 @@ final class GetGiveawayInfo extends TdFunction {
   /// * [messageId]: Identifier of the giveaway or a giveaway winners message in the chat.
   ///
   /// [GiveawayInfo] is returned on completion.
-  const GetGiveawayInfo({
-    required this.chatId,
-    required this.messageId,
-  });
+  const GetGiveawayInfo({required this.chatId, required this.messageId});
 
   /// Identifier of the channel chat which started the giveaway
   final int chatId;
@@ -44,14 +41,10 @@ final class GetGiveawayInfo extends TdFunction {
   /// Properties:
   /// * [chat_id]: Identifier of the channel chat which started the giveaway
   /// * [message_id]: Identifier of the giveaway or a giveaway winners message in the chat
-  GetGiveawayInfo copyWith({
-    int? chatId,
-    int? messageId,
-  }) =>
-      GetGiveawayInfo(
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-      );
+  GetGiveawayInfo copyWith({int? chatId, int? messageId}) => GetGiveawayInfo(
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getGiveawayInfo';

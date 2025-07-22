@@ -15,9 +15,7 @@ final class EnableProxy extends TdFunction {
   /// * [proxyId]: Proxy identifier.
   ///
   /// [Ok] is returned on completion.
-  const EnableProxy({
-    required this.proxyId,
-  });
+  const EnableProxy({required this.proxyId});
 
   /// Proxy identifier
   final int proxyId;
@@ -25,23 +23,15 @@ final class EnableProxy extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "proxy_id": proxyId,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "proxy_id": proxyId, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [proxy_id]: Proxy identifier
-  EnableProxy copyWith({
-    int? proxyId,
-  }) =>
-      EnableProxy(
-        proxyId: proxyId ?? this.proxyId,
-      );
+  EnableProxy copyWith({int? proxyId}) =>
+      EnableProxy(proxyId: proxyId ?? this.proxyId);
 
   /// TDLib object type
   static const String defaultObjectId = 'enableProxy';

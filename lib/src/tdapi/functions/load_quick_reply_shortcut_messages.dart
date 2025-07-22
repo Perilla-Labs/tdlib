@@ -15,9 +15,7 @@ final class LoadQuickReplyShortcutMessages extends TdFunction {
   /// * [shortcutId]: Unique identifier of the quick reply shortcut.
   ///
   /// [Ok] is returned on completion.
-  const LoadQuickReplyShortcutMessages({
-    required this.shortcutId,
-  });
+  const LoadQuickReplyShortcutMessages({required this.shortcutId});
 
   /// Unique identifier of the quick reply shortcut
   final int shortcutId;
@@ -36,12 +34,8 @@ final class LoadQuickReplyShortcutMessages extends TdFunction {
   ///
   /// Properties:
   /// * [shortcut_id]: Unique identifier of the quick reply shortcut
-  LoadQuickReplyShortcutMessages copyWith({
-    int? shortcutId,
-  }) =>
-      LoadQuickReplyShortcutMessages(
-        shortcutId: shortcutId ?? this.shortcutId,
-      );
+  LoadQuickReplyShortcutMessages copyWith({int? shortcutId}) =>
+      LoadQuickReplyShortcutMessages(shortcutId: shortcutId ?? this.shortcutId);
 
   /// TDLib object type
   static const String defaultObjectId = 'loadQuickReplyShortcutMessages';

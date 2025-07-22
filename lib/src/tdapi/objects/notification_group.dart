@@ -49,9 +49,11 @@ final class NotificationGroup extends TdObject {
         type: NotificationGroupType.fromJson(json['type']),
         chatId: json['chat_id'],
         totalCount: json['total_count'],
-        notifications: List<Notification>.from((json['notifications'] ?? [])
-            .map((item) => Notification.fromJson(item))
-            .toList()),
+        notifications: List<Notification>.from(
+          (json['notifications'] ?? [])
+              .map((item) => Notification.fromJson(item))
+              .toList(),
+        ),
       );
 
   /// Convert model to TDLib JSON format
@@ -81,14 +83,13 @@ final class NotificationGroup extends TdObject {
     int? chatId,
     int? totalCount,
     List<Notification>? notifications,
-  }) =>
-      NotificationGroup(
-        id: id ?? this.id,
-        type: type ?? this.type,
-        chatId: chatId ?? this.chatId,
-        totalCount: totalCount ?? this.totalCount,
-        notifications: notifications ?? this.notifications,
-      );
+  }) => NotificationGroup(
+    id: id ?? this.id,
+    type: type ?? this.type,
+    chatId: chatId ?? this.chatId,
+    totalCount: totalCount ?? this.totalCount,
+    notifications: notifications ?? this.notifications,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'notificationGroup';

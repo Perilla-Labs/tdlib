@@ -61,9 +61,7 @@ final class ChatSourceMtprotoProxy extends ChatSource {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -108,20 +106,16 @@ final class ChatSourcePublicServiceAnnouncement extends ChatSource {
 
   /// Parse from a json
   factory ChatSourcePublicServiceAnnouncement.fromJson(
-          Map<String, dynamic> json) =>
-      ChatSourcePublicServiceAnnouncement(
-        type: json['type'],
-        text: json['text'],
-      );
+    Map<String, dynamic> json,
+  ) => ChatSourcePublicServiceAnnouncement(
+    type: json['type'],
+    text: json['text'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "type": type,
-      "text": text,
-    };
+    return {"@type": defaultObjectId, "type": type, "text": text};
   }
 
   /// Copy model with modified properties.
@@ -130,10 +124,7 @@ final class ChatSourcePublicServiceAnnouncement extends ChatSource {
   /// * [type]: The type of the announcement
   /// * [text]: The text of the announcement
   @override
-  ChatSourcePublicServiceAnnouncement copyWith({
-    String? type,
-    String? text,
-  }) =>
+  ChatSourcePublicServiceAnnouncement copyWith({String? type, String? text}) =>
       ChatSourcePublicServiceAnnouncement(
         type: type ?? this.type,
         text: text ?? this.text,

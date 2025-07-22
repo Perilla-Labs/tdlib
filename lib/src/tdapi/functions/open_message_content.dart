@@ -17,10 +17,7 @@ final class OpenMessageContent extends TdFunction {
   /// * [messageId]: Identifier of the message with the opened content.
   ///
   /// [Ok] is returned on completion.
-  const OpenMessageContent({
-    required this.chatId,
-    required this.messageId,
-  });
+  const OpenMessageContent({required this.chatId, required this.messageId});
 
   /// Chat identifier of the message
   final int chatId;
@@ -44,10 +41,7 @@ final class OpenMessageContent extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier of the message
   /// * [message_id]: Identifier of the message with the opened content
-  OpenMessageContent copyWith({
-    int? chatId,
-    int? messageId,
-  }) =>
+  OpenMessageContent copyWith({int? chatId, int? messageId}) =>
       OpenMessageContent(
         chatId: chatId ?? this.chatId,
         messageId: messageId ?? this.messageId,

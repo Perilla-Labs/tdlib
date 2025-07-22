@@ -11,11 +11,7 @@ final class Updates extends TdObject {
   /// Contains a list of updates.
   ///
   /// * [updates]: List of updates.
-  const Updates({
-    required this.updates,
-    this.extra,
-    this.clientId,
-  });
+  const Updates({required this.updates, this.extra, this.clientId});
 
   /// List of updates
   final List<Update> updates;
@@ -30,12 +26,12 @@ final class Updates extends TdObject {
 
   /// Parse from a json
   factory Updates.fromJson(Map<String, dynamic> json) => Updates(
-        updates: List<Update>.from((json['updates'] ?? [])
-            .map((item) => Update.fromJson(item))
-            .toList()),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    updates: List<Update>.from(
+      (json['updates'] ?? []).map((item) => Update.fromJson(item)).toList(),
+    ),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -50,11 +46,7 @@ final class Updates extends TdObject {
   ///
   /// Properties:
   /// * [updates]: List of updates
-  Updates copyWith({
-    List<Update>? updates,
-    dynamic extra,
-    int? clientId,
-  }) =>
+  Updates copyWith({List<Update>? updates, dynamic extra, int? clientId}) =>
       Updates(
         updates: updates ?? this.updates,
         extra: extra ?? this.extra,

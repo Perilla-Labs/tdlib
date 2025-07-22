@@ -5,7 +5,7 @@ part of '../tdapi.dart';
 /// Returns suggested name for saving a file in a given directory.
 ///
 /// * [fileId]: Identifier of the file.
-/// * [directory]: Directory in which the file is supposed to be saved.
+/// * [directory]: Directory in which the file is expected to be saved.
 ///
 /// [Text] is returned on completion.
 final class GetSuggestedFileName extends TdFunction {
@@ -14,18 +14,15 @@ final class GetSuggestedFileName extends TdFunction {
   /// Returns suggested name for saving a file in a given directory.
   ///
   /// * [fileId]: Identifier of the file.
-  /// * [directory]: Directory in which the file is supposed to be saved.
+  /// * [directory]: Directory in which the file is expected to be saved.
   ///
   /// [Text] is returned on completion.
-  const GetSuggestedFileName({
-    required this.fileId,
-    required this.directory,
-  });
+  const GetSuggestedFileName({required this.fileId, required this.directory});
 
   /// Identifier of the file
   final int fileId;
 
-  /// Directory in which the file is supposed to be saved
+  /// Directory in which the file is expected to be saved
   final String directory;
 
   /// Convert model to TDLib JSON format
@@ -43,11 +40,8 @@ final class GetSuggestedFileName extends TdFunction {
   ///
   /// Properties:
   /// * [file_id]: Identifier of the file
-  /// * [directory]: Directory in which the file is supposed to be saved
-  GetSuggestedFileName copyWith({
-    int? fileId,
-    String? directory,
-  }) =>
+  /// * [directory]: Directory in which the file is expected to be saved
+  GetSuggestedFileName copyWith({int? fileId, String? directory}) =>
       GetSuggestedFileName(
         fileId: fileId ?? this.fileId,
         directory: directory ?? this.directory,

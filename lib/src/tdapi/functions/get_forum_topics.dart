@@ -83,16 +83,14 @@ final class GetForumTopics extends TdFunction {
     int? offsetMessageId,
     int? offsetMessageThreadId,
     int? limit,
-  }) =>
-      GetForumTopics(
-        chatId: chatId ?? this.chatId,
-        query: query ?? this.query,
-        offsetDate: offsetDate ?? this.offsetDate,
-        offsetMessageId: offsetMessageId ?? this.offsetMessageId,
-        offsetMessageThreadId:
-            offsetMessageThreadId ?? this.offsetMessageThreadId,
-        limit: limit ?? this.limit,
-      );
+  }) => GetForumTopics(
+    chatId: chatId ?? this.chatId,
+    query: query ?? this.query,
+    offsetDate: offsetDate ?? this.offsetDate,
+    offsetMessageId: offsetMessageId ?? this.offsetMessageId,
+    offsetMessageThreadId: offsetMessageThreadId ?? this.offsetMessageThreadId,
+    limit: limit ?? this.limit,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getForumTopics';

@@ -15,9 +15,7 @@ final class HideSuggestedAction extends TdFunction {
   /// * [action]: Suggested action to hide.
   ///
   /// [Ok] is returned on completion.
-  const HideSuggestedAction({
-    required this.action,
-  });
+  const HideSuggestedAction({required this.action});
 
   /// Suggested action to hide
   final SuggestedAction action;
@@ -36,12 +34,8 @@ final class HideSuggestedAction extends TdFunction {
   ///
   /// Properties:
   /// * [action]: Suggested action to hide
-  HideSuggestedAction copyWith({
-    SuggestedAction? action,
-  }) =>
-      HideSuggestedAction(
-        action: action ?? this.action,
-      );
+  HideSuggestedAction copyWith({SuggestedAction? action}) =>
+      HideSuggestedAction(action: action ?? this.action);
 
   /// TDLib object type
   static const String defaultObjectId = 'hideSuggestedAction';

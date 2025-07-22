@@ -37,9 +37,11 @@ final class SponsoredMessages extends TdObject {
   /// Parse from a json
   factory SponsoredMessages.fromJson(Map<String, dynamic> json) =>
       SponsoredMessages(
-        messages: List<SponsoredMessage>.from((json['messages'] ?? [])
-            .map((item) => SponsoredMessage.fromJson(item))
-            .toList()),
+        messages: List<SponsoredMessage>.from(
+          (json['messages'] ?? [])
+              .map((item) => SponsoredMessage.fromJson(item))
+              .toList(),
+        ),
         messagesBetween: json['messages_between'],
         extra: json['@extra'],
         clientId: json['@client_id'],
@@ -65,13 +67,12 @@ final class SponsoredMessages extends TdObject {
     int? messagesBetween,
     dynamic extra,
     int? clientId,
-  }) =>
-      SponsoredMessages(
-        messages: messages ?? this.messages,
-        messagesBetween: messagesBetween ?? this.messagesBetween,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => SponsoredMessages(
+    messages: messages ?? this.messages,
+    messagesBetween: messagesBetween ?? this.messagesBetween,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'sponsoredMessages';

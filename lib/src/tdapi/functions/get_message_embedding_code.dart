@@ -56,12 +56,11 @@ final class GetMessageEmbeddingCode extends TdFunction {
     int? chatId,
     int? messageId,
     bool? forAlbum,
-  }) =>
-      GetMessageEmbeddingCode(
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        forAlbum: forAlbum ?? this.forAlbum,
-      );
+  }) => GetMessageEmbeddingCode(
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    forAlbum: forAlbum ?? this.forAlbum,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getMessageEmbeddingCode';

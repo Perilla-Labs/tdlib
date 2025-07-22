@@ -85,15 +85,14 @@ final class AuthenticationCodeInfo extends TdObject {
     int? timeout,
     dynamic extra,
     int? clientId,
-  }) =>
-      AuthenticationCodeInfo(
-        phoneNumber: phoneNumber ?? this.phoneNumber,
-        type: type ?? this.type,
-        nextType: nextType ?? this.nextType,
-        timeout: timeout ?? this.timeout,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => AuthenticationCodeInfo(
+    phoneNumber: phoneNumber ?? this.phoneNumber,
+    type: type ?? this.type,
+    nextType: nextType ?? this.nextType,
+    timeout: timeout ?? this.timeout,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'authenticationCodeInfo';

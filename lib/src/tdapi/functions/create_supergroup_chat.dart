@@ -17,10 +17,7 @@ final class CreateSupergroupChat extends TdFunction {
   /// * [force]: Pass true to create the chat without a network request. In this case all information about the chat except its type, title and photo can be incorrect.
   ///
   /// [Chat] is returned on completion.
-  const CreateSupergroupChat({
-    required this.supergroupId,
-    required this.force,
-  });
+  const CreateSupergroupChat({required this.supergroupId, required this.force});
 
   /// Supergroup or channel identifier
   final int supergroupId;
@@ -44,10 +41,7 @@ final class CreateSupergroupChat extends TdFunction {
   /// Properties:
   /// * [supergroup_id]: Supergroup or channel identifier
   /// * [force]: Pass true to create the chat without a network request. In this case all information about the chat except its type, title and photo can be incorrect
-  CreateSupergroupChat copyWith({
-    int? supergroupId,
-    bool? force,
-  }) =>
+  CreateSupergroupChat copyWith({int? supergroupId, bool? force}) =>
       CreateSupergroupChat(
         supergroupId: supergroupId ?? this.supergroupId,
         force: force ?? this.force,

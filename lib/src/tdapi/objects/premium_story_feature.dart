@@ -71,15 +71,13 @@ final class PremiumStoryFeaturePriorityOrder extends PremiumStoryFeature {
 
   /// Parse from a json
   factory PremiumStoryFeaturePriorityOrder.fromJson(
-          Map<String, dynamic> json) =>
-      const PremiumStoryFeaturePriorityOrder();
+    Map<String, dynamic> json,
+  ) => const PremiumStoryFeaturePriorityOrder();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -115,9 +113,7 @@ final class PremiumStoryFeatureStealthMode extends PremiumStoryFeature {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -149,15 +145,13 @@ final class PremiumStoryFeaturePermanentViewsHistory
 
   /// Parse from a json
   factory PremiumStoryFeaturePermanentViewsHistory.fromJson(
-          Map<String, dynamic> json) =>
-      const PremiumStoryFeaturePermanentViewsHistory();
+    Map<String, dynamic> json,
+  ) => const PremiumStoryFeaturePermanentViewsHistory();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -190,15 +184,13 @@ final class PremiumStoryFeatureCustomExpirationDuration
 
   /// Parse from a json
   factory PremiumStoryFeatureCustomExpirationDuration.fromJson(
-          Map<String, dynamic> json) =>
-      const PremiumStoryFeatureCustomExpirationDuration();
+    Map<String, dynamic> json,
+  ) => const PremiumStoryFeatureCustomExpirationDuration();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -235,9 +227,7 @@ final class PremiumStoryFeatureSaveStories extends PremiumStoryFeature {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -268,15 +258,13 @@ final class PremiumStoryFeatureLinksAndFormatting extends PremiumStoryFeature {
 
   /// Parse from a json
   factory PremiumStoryFeatureLinksAndFormatting.fromJson(
-          Map<String, dynamic> json) =>
-      const PremiumStoryFeatureLinksAndFormatting();
+    Map<String, dynamic> json,
+  ) => const PremiumStoryFeatureLinksAndFormatting();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -312,9 +300,7 @@ final class PremiumStoryFeatureVideoQuality extends PremiumStoryFeature {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.

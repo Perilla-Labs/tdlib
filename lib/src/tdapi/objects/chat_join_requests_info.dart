@@ -13,10 +13,7 @@ final class ChatJoinRequestsInfo extends TdObject {
   ///
   /// * [totalCount]: Total number of pending join requests.
   /// * [userIds]: Identifiers of at most 3 users sent the newest pending join requests.
-  const ChatJoinRequestsInfo({
-    required this.totalCount,
-    required this.userIds,
-  });
+  const ChatJoinRequestsInfo({required this.totalCount, required this.userIds});
 
   /// Total number of pending join requests
   final int totalCount;
@@ -29,7 +26,8 @@ final class ChatJoinRequestsInfo extends TdObject {
       ChatJoinRequestsInfo(
         totalCount: json['total_count'],
         userIds: List<int>.from(
-            (json['user_ids'] ?? []).map((item) => item).toList()),
+          (json['user_ids'] ?? []).map((item) => item).toList(),
+        ),
       );
 
   /// Convert model to TDLib JSON format
@@ -47,10 +45,7 @@ final class ChatJoinRequestsInfo extends TdObject {
   /// Properties:
   /// * [total_count]: Total number of pending join requests
   /// * [user_ids]: Identifiers of at most 3 users sent the newest pending join requests
-  ChatJoinRequestsInfo copyWith({
-    int? totalCount,
-    List<int>? userIds,
-  }) =>
+  ChatJoinRequestsInfo copyWith({int? totalCount, List<int>? userIds}) =>
       ChatJoinRequestsInfo(
         totalCount: totalCount ?? this.totalCount,
         userIds: userIds ?? this.userIds,

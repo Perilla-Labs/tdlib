@@ -47,12 +47,11 @@ final class SetRecoveryEmailAddress extends TdFunction {
   SetRecoveryEmailAddress copyWith({
     String? password,
     String? newRecoveryEmailAddress,
-  }) =>
-      SetRecoveryEmailAddress(
-        password: password ?? this.password,
-        newRecoveryEmailAddress:
-            newRecoveryEmailAddress ?? this.newRecoveryEmailAddress,
-      );
+  }) => SetRecoveryEmailAddress(
+    password: password ?? this.password,
+    newRecoveryEmailAddress:
+        newRecoveryEmailAddress ?? this.newRecoveryEmailAddress,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setRecoveryEmailAddress';

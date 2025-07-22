@@ -47,12 +47,11 @@ final class SetProfileAccentColor extends TdFunction {
   SetProfileAccentColor copyWith({
     int? profileAccentColorId,
     int? profileBackgroundCustomEmojiId,
-  }) =>
-      SetProfileAccentColor(
-        profileAccentColorId: profileAccentColorId ?? this.profileAccentColorId,
-        profileBackgroundCustomEmojiId: profileBackgroundCustomEmojiId ??
-            this.profileBackgroundCustomEmojiId,
-      );
+  }) => SetProfileAccentColor(
+    profileAccentColorId: profileAccentColorId ?? this.profileAccentColorId,
+    profileBackgroundCustomEmojiId:
+        profileBackgroundCustomEmojiId ?? this.profileBackgroundCustomEmojiId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setProfileAccentColor';

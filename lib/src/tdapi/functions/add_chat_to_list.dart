@@ -17,10 +17,7 @@ final class AddChatToList extends TdFunction {
   /// * [chatList]: The chat list. Use getChatListsToAddChat to get suitable chat lists.
   ///
   /// [Ok] is returned on completion.
-  const AddChatToList({
-    required this.chatId,
-    required this.chatList,
-  });
+  const AddChatToList({required this.chatId, required this.chatList});
 
   /// Chat identifier
   final int chatId;
@@ -44,14 +41,10 @@ final class AddChatToList extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [chat_list]: The chat list. Use getChatListsToAddChat to get suitable chat lists
-  AddChatToList copyWith({
-    int? chatId,
-    ChatList? chatList,
-  }) =>
-      AddChatToList(
-        chatId: chatId ?? this.chatId,
-        chatList: chatList ?? this.chatList,
-      );
+  AddChatToList copyWith({int? chatId, ChatList? chatList}) => AddChatToList(
+    chatId: chatId ?? this.chatId,
+    chatList: chatList ?? this.chatList,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'addChatToList';

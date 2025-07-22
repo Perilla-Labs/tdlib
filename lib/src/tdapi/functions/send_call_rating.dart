@@ -65,13 +65,12 @@ final class SendCallRating extends TdFunction {
     int? rating,
     String? comment,
     List<CallProblem>? problems,
-  }) =>
-      SendCallRating(
-        callId: callId ?? this.callId,
-        rating: rating ?? this.rating,
-        comment: comment ?? this.comment,
-        problems: problems ?? this.problems,
-      );
+  }) => SendCallRating(
+    callId: callId ?? this.callId,
+    rating: rating ?? this.rating,
+    comment: comment ?? this.comment,
+    problems: problems ?? this.problems,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'sendCallRating';

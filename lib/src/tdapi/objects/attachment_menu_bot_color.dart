@@ -4,24 +4,24 @@ part of '../tdapi.dart';
 ///
 /// Describes a color to highlight a bot added to attachment menu.
 ///
-/// * [lightColor]: Color in the RGB24 format for light themes.
-/// * [darkColor]: Color in the RGB24 format for dark themes.
+/// * [lightColor]: Color in the RGB format for light themes.
+/// * [darkColor]: Color in the RGB format for dark themes.
 final class AttachmentMenuBotColor extends TdObject {
   /// **AttachmentMenuBotColor** *(attachmentMenuBotColor)* - basic class
   ///
   /// Describes a color to highlight a bot added to attachment menu.
   ///
-  /// * [lightColor]: Color in the RGB24 format for light themes.
-  /// * [darkColor]: Color in the RGB24 format for dark themes.
+  /// * [lightColor]: Color in the RGB format for light themes.
+  /// * [darkColor]: Color in the RGB format for dark themes.
   const AttachmentMenuBotColor({
     required this.lightColor,
     required this.darkColor,
   });
 
-  /// Color in the RGB24 format for light themes
+  /// Color in the RGB format for light themes
   final int lightColor;
 
-  /// Color in the RGB24 format for dark themes
+  /// Color in the RGB format for dark themes
   final int darkColor;
 
   /// Parse from a json
@@ -44,12 +44,9 @@ final class AttachmentMenuBotColor extends TdObject {
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [light_color]: Color in the RGB24 format for light themes
-  /// * [dark_color]: Color in the RGB24 format for dark themes
-  AttachmentMenuBotColor copyWith({
-    int? lightColor,
-    int? darkColor,
-  }) =>
+  /// * [light_color]: Color in the RGB format for light themes
+  /// * [dark_color]: Color in the RGB format for dark themes
+  AttachmentMenuBotColor copyWith({int? lightColor, int? darkColor}) =>
       AttachmentMenuBotColor(
         lightColor: lightColor ?? this.lightColor,
         darkColor: darkColor ?? this.darkColor,

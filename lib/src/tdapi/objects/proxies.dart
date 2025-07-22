@@ -11,11 +11,7 @@ final class Proxies extends TdObject {
   /// Represents a list of proxy servers.
   ///
   /// * [proxies]: List of proxy servers.
-  const Proxies({
-    required this.proxies,
-    this.extra,
-    this.clientId,
-  });
+  const Proxies({required this.proxies, this.extra, this.clientId});
 
   /// List of proxy servers
   final List<Proxy> proxies;
@@ -30,12 +26,12 @@ final class Proxies extends TdObject {
 
   /// Parse from a json
   factory Proxies.fromJson(Map<String, dynamic> json) => Proxies(
-        proxies: List<Proxy>.from((json['proxies'] ?? [])
-            .map((item) => Proxy.fromJson(item))
-            .toList()),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    proxies: List<Proxy>.from(
+      (json['proxies'] ?? []).map((item) => Proxy.fromJson(item)).toList(),
+    ),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -50,11 +46,7 @@ final class Proxies extends TdObject {
   ///
   /// Properties:
   /// * [proxies]: List of proxy servers
-  Proxies copyWith({
-    List<Proxy>? proxies,
-    dynamic extra,
-    int? clientId,
-  }) =>
+  Proxies copyWith({List<Proxy>? proxies, dynamic extra, int? clientId}) =>
       Proxies(
         proxies: proxies ?? this.proxies,
         extra: extra ?? this.extra,

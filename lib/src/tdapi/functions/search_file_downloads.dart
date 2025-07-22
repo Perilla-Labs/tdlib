@@ -74,14 +74,13 @@ final class SearchFileDownloads extends TdFunction {
     bool? onlyCompleted,
     String? offset,
     int? limit,
-  }) =>
-      SearchFileDownloads(
-        query: query ?? this.query,
-        onlyActive: onlyActive ?? this.onlyActive,
-        onlyCompleted: onlyCompleted ?? this.onlyCompleted,
-        offset: offset ?? this.offset,
-        limit: limit ?? this.limit,
-      );
+  }) => SearchFileDownloads(
+    query: query ?? this.query,
+    onlyActive: onlyActive ?? this.onlyActive,
+    onlyCompleted: onlyCompleted ?? this.onlyCompleted,
+    offset: offset ?? this.offset,
+    limit: limit ?? this.limit,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'searchFileDownloads';

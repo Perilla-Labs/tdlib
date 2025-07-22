@@ -4,8 +4,8 @@ part of '../tdapi.dart';
 ///
 /// Represents a list of Telegram Star subscriptions.
 ///
-/// * [starCount]: The amount of owned Telegram Stars.
-/// * [subscriptions]: List of subbscriptions for Telegram Stars.
+/// * [starAmount]: The amount of owned Telegram Stars.
+/// * [subscriptions]: List of subscriptions for Telegram Stars.
 /// * [requiredStarCount]: The number of Telegram Stars required to buy to extend subscriptions expiring soon.
 /// * [nextOffset]: The offset for the next request. If empty, then there are no more results.
 final class StarSubscriptions extends TdObject {
@@ -13,12 +13,12 @@ final class StarSubscriptions extends TdObject {
   ///
   /// Represents a list of Telegram Star subscriptions.
   ///
-  /// * [starCount]: The amount of owned Telegram Stars.
-  /// * [subscriptions]: List of subbscriptions for Telegram Stars.
+  /// * [starAmount]: The amount of owned Telegram Stars.
+  /// * [subscriptions]: List of subscriptions for Telegram Stars.
   /// * [requiredStarCount]: The number of Telegram Stars required to buy to extend subscriptions expiring soon.
   /// * [nextOffset]: The offset for the next request. If empty, then there are no more results.
   const StarSubscriptions({
-    required this.starCount,
+    required this.starAmount,
     required this.subscriptions,
     required this.requiredStarCount,
     required this.nextOffset,
@@ -27,9 +27,9 @@ final class StarSubscriptions extends TdObject {
   });
 
   /// The amount of owned Telegram Stars
-  final int starCount;
+  final StarAmount starAmount;
 
-  /// List of subbscriptions for Telegram Stars
+  /// List of subscriptions for Telegram Stars
   final List<StarSubscription> subscriptions;
 
   /// The number of Telegram Stars required to buy to extend subscriptions expiring soon
@@ -49,10 +49,12 @@ final class StarSubscriptions extends TdObject {
   /// Parse from a json
   factory StarSubscriptions.fromJson(Map<String, dynamic> json) =>
       StarSubscriptions(
-        starCount: json['star_count'],
-        subscriptions: List<StarSubscription>.from((json['subscriptions'] ?? [])
-            .map((item) => StarSubscription.fromJson(item))
-            .toList()),
+        starAmount: StarAmount.fromJson(json['star_amount']),
+        subscriptions: List<StarSubscription>.from(
+          (json['subscriptions'] ?? [])
+              .map((item) => StarSubscription.fromJson(item))
+              .toList(),
+        ),
         requiredStarCount: json['required_star_count'],
         nextOffset: json['next_offset'],
         extra: json['@extra'],
@@ -64,7 +66,7 @@ final class StarSubscriptions extends TdObject {
   Map<String, dynamic> toJson() {
     return {
       "@type": defaultObjectId,
-      "star_count": starCount,
+      "star_amount": starAmount.toJson(),
       "subscriptions": subscriptions.map((i) => i.toJson()).toList(),
       "required_star_count": requiredStarCount,
       "next_offset": nextOffset,
@@ -74,26 +76,25 @@ final class StarSubscriptions extends TdObject {
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [star_count]: The amount of owned Telegram Stars
-  /// * [subscriptions]: List of subbscriptions for Telegram Stars
+  /// * [star_amount]: The amount of owned Telegram Stars
+  /// * [subscriptions]: List of subscriptions for Telegram Stars
   /// * [required_star_count]: The number of Telegram Stars required to buy to extend subscriptions expiring soon
   /// * [next_offset]: The offset for the next request. If empty, then there are no more results
   StarSubscriptions copyWith({
-    int? starCount,
+    StarAmount? starAmount,
     List<StarSubscription>? subscriptions,
     int? requiredStarCount,
     String? nextOffset,
     dynamic extra,
     int? clientId,
-  }) =>
-      StarSubscriptions(
-        starCount: starCount ?? this.starCount,
-        subscriptions: subscriptions ?? this.subscriptions,
-        requiredStarCount: requiredStarCount ?? this.requiredStarCount,
-        nextOffset: nextOffset ?? this.nextOffset,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => StarSubscriptions(
+    starAmount: starAmount ?? this.starAmount,
+    subscriptions: subscriptions ?? this.subscriptions,
+    requiredStarCount: requiredStarCount ?? this.requiredStarCount,
+    nextOffset: nextOffset ?? this.nextOffset,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'starSubscriptions';

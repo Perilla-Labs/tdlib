@@ -4,7 +4,7 @@ part of '../tdapi.dart';
 ///
 /// Informs TDLib that a story is closed by the user.
 ///
-/// * [storySenderChatId]: The identifier of the sender of the story to close.
+/// * [storyPosterChatId]: The identifier of the poster of the story to close.
 /// * [storyId]: The identifier of the story.
 ///
 /// [Ok] is returned on completion.
@@ -13,17 +13,14 @@ final class CloseStory extends TdFunction {
   ///
   /// Informs TDLib that a story is closed by the user.
   ///
-  /// * [storySenderChatId]: The identifier of the sender of the story to close.
+  /// * [storyPosterChatId]: The identifier of the poster of the story to close.
   /// * [storyId]: The identifier of the story.
   ///
   /// [Ok] is returned on completion.
-  const CloseStory({
-    required this.storySenderChatId,
-    required this.storyId,
-  });
+  const CloseStory({required this.storyPosterChatId, required this.storyId});
 
-  /// The identifier of the sender of the story to close
-  final int storySenderChatId;
+  /// The identifier of the poster of the story to close
+  final int storyPosterChatId;
 
   /// The identifier of the story
   final int storyId;
@@ -33,7 +30,7 @@ final class CloseStory extends TdFunction {
   Map<String, dynamic> toJson([dynamic extra]) {
     return {
       "@type": defaultObjectId,
-      "story_sender_chat_id": storySenderChatId,
+      "story_poster_chat_id": storyPosterChatId,
       "story_id": storyId,
       "@extra": extra,
     };
@@ -42,16 +39,12 @@ final class CloseStory extends TdFunction {
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [story_sender_chat_id]: The identifier of the sender of the story to close
+  /// * [story_poster_chat_id]: The identifier of the poster of the story to close
   /// * [story_id]: The identifier of the story
-  CloseStory copyWith({
-    int? storySenderChatId,
-    int? storyId,
-  }) =>
-      CloseStory(
-        storySenderChatId: storySenderChatId ?? this.storySenderChatId,
-        storyId: storyId ?? this.storyId,
-      );
+  CloseStory copyWith({int? storyPosterChatId, int? storyId}) => CloseStory(
+    storyPosterChatId: storyPosterChatId ?? this.storyPosterChatId,
+    storyId: storyId ?? this.storyId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'closeStory';

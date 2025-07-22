@@ -56,12 +56,11 @@ final class DeleteSavedMessagesTopicMessagesByDate extends TdFunction {
     int? savedMessagesTopicId,
     int? minDate,
     int? maxDate,
-  }) =>
-      DeleteSavedMessagesTopicMessagesByDate(
-        savedMessagesTopicId: savedMessagesTopicId ?? this.savedMessagesTopicId,
-        minDate: minDate ?? this.minDate,
-        maxDate: maxDate ?? this.maxDate,
-      );
+  }) => DeleteSavedMessagesTopicMessagesByDate(
+    savedMessagesTopicId: savedMessagesTopicId ?? this.savedMessagesTopicId,
+    minDate: minDate ?? this.minDate,
+    maxDate: maxDate ?? this.maxDate,
+  );
 
   /// TDLib object type
   static const String defaultObjectId =

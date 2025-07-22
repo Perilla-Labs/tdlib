@@ -65,13 +65,12 @@ final class BlockMessageSenderFromReplies extends TdFunction {
     bool? deleteMessage,
     bool? deleteAllMessages,
     bool? reportSpam,
-  }) =>
-      BlockMessageSenderFromReplies(
-        messageId: messageId ?? this.messageId,
-        deleteMessage: deleteMessage ?? this.deleteMessage,
-        deleteAllMessages: deleteAllMessages ?? this.deleteAllMessages,
-        reportSpam: reportSpam ?? this.reportSpam,
-      );
+  }) => BlockMessageSenderFromReplies(
+    messageId: messageId ?? this.messageId,
+    deleteMessage: deleteMessage ?? this.deleteMessage,
+    deleteAllMessages: deleteAllMessages ?? this.deleteAllMessages,
+    reportSpam: reportSpam ?? this.reportSpam,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'blockMessageSenderFromReplies';

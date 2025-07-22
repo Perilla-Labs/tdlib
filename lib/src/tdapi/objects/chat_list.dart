@@ -64,9 +64,7 @@ final class ChatListMain extends ChatList {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -101,9 +99,7 @@ final class ChatListArchive extends ChatList {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -133,25 +129,19 @@ final class ChatListFolder extends ChatList {
   /// A list of chats added to a chat folder.
   ///
   /// * [chatFolderId]: Chat folder identifier.
-  const ChatListFolder({
-    required this.chatFolderId,
-  });
+  const ChatListFolder({required this.chatFolderId});
 
   /// Chat folder identifier
   final int chatFolderId;
 
   /// Parse from a json
-  factory ChatListFolder.fromJson(Map<String, dynamic> json) => ChatListFolder(
-        chatFolderId: json['chat_folder_id'],
-      );
+  factory ChatListFolder.fromJson(Map<String, dynamic> json) =>
+      ChatListFolder(chatFolderId: json['chat_folder_id']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "chat_folder_id": chatFolderId,
-    };
+    return {"@type": defaultObjectId, "chat_folder_id": chatFolderId};
   }
 
   /// Copy model with modified properties.
@@ -159,12 +149,8 @@ final class ChatListFolder extends ChatList {
   /// Properties:
   /// * [chat_folder_id]: Chat folder identifier
   @override
-  ChatListFolder copyWith({
-    int? chatFolderId,
-  }) =>
-      ChatListFolder(
-        chatFolderId: chatFolderId ?? this.chatFolderId,
-      );
+  ChatListFolder copyWith({int? chatFolderId}) =>
+      ChatListFolder(chatFolderId: chatFolderId ?? this.chatFolderId);
 
   /// TDLib object type
   static const String defaultObjectId = 'chatListFolder';

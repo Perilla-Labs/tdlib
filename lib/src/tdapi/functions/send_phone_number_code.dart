@@ -56,12 +56,11 @@ final class SendPhoneNumberCode extends TdFunction {
     String? phoneNumber,
     PhoneNumberAuthenticationSettings? settings,
     PhoneNumberCodeType? type,
-  }) =>
-      SendPhoneNumberCode(
-        phoneNumber: phoneNumber ?? this.phoneNumber,
-        settings: settings ?? this.settings,
-        type: type ?? this.type,
-      );
+  }) => SendPhoneNumberCode(
+    phoneNumber: phoneNumber ?? this.phoneNumber,
+    settings: settings ?? this.settings,
+    type: type ?? this.type,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'sendPhoneNumberCode';

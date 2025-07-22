@@ -4,6 +4,8 @@ part of '../tdapi.dart';
 ///
 /// Contains basic information about a forum topic.
 ///
+/// * [chatId]: Identifier of the forum chat to which the topic belongs.
+/// * [forumTopicId]: Forum topic identifier of the topic.
 /// * [messageThreadId]: Message thread identifier of the topic.
 /// * [name]: Name of the topic.
 /// * [icon]: Icon of the topic.
@@ -18,6 +20,8 @@ final class ForumTopicInfo extends TdObject {
   ///
   /// Contains basic information about a forum topic.
   ///
+  /// * [chatId]: Identifier of the forum chat to which the topic belongs.
+  /// * [forumTopicId]: Forum topic identifier of the topic.
   /// * [messageThreadId]: Message thread identifier of the topic.
   /// * [name]: Name of the topic.
   /// * [icon]: Icon of the topic.
@@ -28,6 +32,8 @@ final class ForumTopicInfo extends TdObject {
   /// * [isClosed]: True, if the topic is closed.
   /// * [isHidden]: True, if the topic is hidden above the topic list and closed; for General topic only.
   const ForumTopicInfo({
+    required this.chatId,
+    required this.forumTopicId,
     required this.messageThreadId,
     required this.name,
     required this.icon,
@@ -40,6 +46,12 @@ final class ForumTopicInfo extends TdObject {
     this.extra,
     this.clientId,
   });
+
+  /// Identifier of the forum chat to which the topic belongs
+  final int chatId;
+
+  /// Forum topic identifier of the topic
+  final int forumTopicId;
 
   /// Message thread identifier of the topic
   final int messageThreadId;
@@ -78,24 +90,28 @@ final class ForumTopicInfo extends TdObject {
 
   /// Parse from a json
   factory ForumTopicInfo.fromJson(Map<String, dynamic> json) => ForumTopicInfo(
-        messageThreadId: json['message_thread_id'],
-        name: json['name'],
-        icon: ForumTopicIcon.fromJson(json['icon']),
-        creationDate: json['creation_date'],
-        creatorId: MessageSender.fromJson(json['creator_id']),
-        isGeneral: json['is_general'],
-        isOutgoing: json['is_outgoing'],
-        isClosed: json['is_closed'],
-        isHidden: json['is_hidden'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    chatId: json['chat_id'],
+    forumTopicId: json['forum_topic_id'],
+    messageThreadId: json['message_thread_id'],
+    name: json['name'],
+    icon: ForumTopicIcon.fromJson(json['icon']),
+    creationDate: json['creation_date'],
+    creatorId: MessageSender.fromJson(json['creator_id']),
+    isGeneral: json['is_general'],
+    isOutgoing: json['is_outgoing'],
+    isClosed: json['is_closed'],
+    isHidden: json['is_hidden'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
     return {
       "@type": defaultObjectId,
+      "chat_id": chatId,
+      "forum_topic_id": forumTopicId,
       "message_thread_id": messageThreadId,
       "name": name,
       "icon": icon.toJson(),
@@ -111,6 +127,8 @@ final class ForumTopicInfo extends TdObject {
   /// Copy model with modified properties.
   ///
   /// Properties:
+  /// * [chat_id]: Identifier of the forum chat to which the topic belongs
+  /// * [forum_topic_id]: Forum topic identifier of the topic
   /// * [message_thread_id]: Message thread identifier of the topic
   /// * [name]: Name of the topic
   /// * [icon]: Icon of the topic
@@ -121,6 +139,8 @@ final class ForumTopicInfo extends TdObject {
   /// * [is_closed]: True, if the topic is closed
   /// * [is_hidden]: True, if the topic is hidden above the topic list and closed; for General topic only
   ForumTopicInfo copyWith({
+    int? chatId,
+    int? forumTopicId,
     int? messageThreadId,
     String? name,
     ForumTopicIcon? icon,
@@ -132,20 +152,21 @@ final class ForumTopicInfo extends TdObject {
     bool? isHidden,
     dynamic extra,
     int? clientId,
-  }) =>
-      ForumTopicInfo(
-        messageThreadId: messageThreadId ?? this.messageThreadId,
-        name: name ?? this.name,
-        icon: icon ?? this.icon,
-        creationDate: creationDate ?? this.creationDate,
-        creatorId: creatorId ?? this.creatorId,
-        isGeneral: isGeneral ?? this.isGeneral,
-        isOutgoing: isOutgoing ?? this.isOutgoing,
-        isClosed: isClosed ?? this.isClosed,
-        isHidden: isHidden ?? this.isHidden,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => ForumTopicInfo(
+    chatId: chatId ?? this.chatId,
+    forumTopicId: forumTopicId ?? this.forumTopicId,
+    messageThreadId: messageThreadId ?? this.messageThreadId,
+    name: name ?? this.name,
+    icon: icon ?? this.icon,
+    creationDate: creationDate ?? this.creationDate,
+    creatorId: creatorId ?? this.creatorId,
+    isGeneral: isGeneral ?? this.isGeneral,
+    isOutgoing: isOutgoing ?? this.isOutgoing,
+    isClosed: isClosed ?? this.isClosed,
+    isHidden: isHidden ?? this.isHidden,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'forumTopicInfo';

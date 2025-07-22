@@ -44,12 +44,12 @@ final class RemoteFile extends TdObject {
 
   /// Parse from a json
   factory RemoteFile.fromJson(Map<String, dynamic> json) => RemoteFile(
-        id: json['id'],
-        uniqueId: json['unique_id'],
-        isUploadingActive: json['is_uploading_active'],
-        isUploadingCompleted: json['is_uploading_completed'],
-        uploadedSize: json['uploaded_size'],
-      );
+    id: json['id'],
+    uniqueId: json['unique_id'],
+    isUploadingActive: json['is_uploading_active'],
+    isUploadingCompleted: json['is_uploading_completed'],
+    uploadedSize: json['uploaded_size'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -78,14 +78,13 @@ final class RemoteFile extends TdObject {
     bool? isUploadingActive,
     bool? isUploadingCompleted,
     int? uploadedSize,
-  }) =>
-      RemoteFile(
-        id: id ?? this.id,
-        uniqueId: uniqueId ?? this.uniqueId,
-        isUploadingActive: isUploadingActive ?? this.isUploadingActive,
-        isUploadingCompleted: isUploadingCompleted ?? this.isUploadingCompleted,
-        uploadedSize: uploadedSize ?? this.uploadedSize,
-      );
+  }) => RemoteFile(
+    id: id ?? this.id,
+    uniqueId: uniqueId ?? this.uniqueId,
+    isUploadingActive: isUploadingActive ?? this.isUploadingActive,
+    isUploadingCompleted: isUploadingCompleted ?? this.isUploadingCompleted,
+    uploadedSize: uploadedSize ?? this.uploadedSize,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'remoteFile';

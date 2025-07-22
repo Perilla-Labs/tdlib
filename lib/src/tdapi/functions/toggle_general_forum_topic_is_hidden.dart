@@ -44,10 +44,7 @@ final class ToggleGeneralForumTopicIsHidden extends TdFunction {
   /// Properties:
   /// * [chat_id]: Identifier of the chat
   /// * [is_hidden]: Pass true to hide and close the General topic; pass false to unhide it
-  ToggleGeneralForumTopicIsHidden copyWith({
-    int? chatId,
-    bool? isHidden,
-  }) =>
+  ToggleGeneralForumTopicIsHidden copyWith({int? chatId, bool? isHidden}) =>
       ToggleGeneralForumTopicIsHidden(
         chatId: chatId ?? this.chatId,
         isHidden: isHidden ?? this.isHidden,

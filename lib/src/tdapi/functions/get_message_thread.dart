@@ -17,10 +17,7 @@ final class GetMessageThread extends TdFunction {
   /// * [messageId]: Identifier of the message.
   ///
   /// [MessageThreadInfo] is returned on completion.
-  const GetMessageThread({
-    required this.chatId,
-    required this.messageId,
-  });
+  const GetMessageThread({required this.chatId, required this.messageId});
 
   /// Chat identifier
   final int chatId;
@@ -44,14 +41,10 @@ final class GetMessageThread extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [message_id]: Identifier of the message
-  GetMessageThread copyWith({
-    int? chatId,
-    int? messageId,
-  }) =>
-      GetMessageThread(
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-      );
+  GetMessageThread copyWith({int? chatId, int? messageId}) => GetMessageThread(
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getMessageThread';

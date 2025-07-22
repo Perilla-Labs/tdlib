@@ -15,9 +15,7 @@ final class GetChatInviteLinkCounts extends TdFunction {
   /// * [chatId]: Chat identifier.
   ///
   /// [ChatInviteLinkCounts] is returned on completion.
-  const GetChatInviteLinkCounts({
-    required this.chatId,
-  });
+  const GetChatInviteLinkCounts({required this.chatId});
 
   /// Chat identifier
   final int chatId;
@@ -25,23 +23,15 @@ final class GetChatInviteLinkCounts extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "chat_id": chatId,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "chat_id": chatId, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [chat_id]: Chat identifier
-  GetChatInviteLinkCounts copyWith({
-    int? chatId,
-  }) =>
-      GetChatInviteLinkCounts(
-        chatId: chatId ?? this.chatId,
-      );
+  GetChatInviteLinkCounts copyWith({int? chatId}) =>
+      GetChatInviteLinkCounts(chatId: chatId ?? this.chatId);
 
   /// TDLib object type
   static const String defaultObjectId = 'getChatInviteLinkCounts';

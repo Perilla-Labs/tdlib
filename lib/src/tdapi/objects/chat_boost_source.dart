@@ -61,10 +61,7 @@ final class ChatBoostSourceGiftCode extends ChatBoostSource {
   ///
   /// * [userId]: Identifier of a user, for which the gift code was created.
   /// * [giftCode]: The created Telegram Premium gift code, which is known only if this is a gift code for the current user, or it has already been claimed.
-  const ChatBoostSourceGiftCode({
-    required this.userId,
-    required this.giftCode,
-  });
+  const ChatBoostSourceGiftCode({required this.userId, required this.giftCode});
 
   /// Identifier of a user, for which the gift code was created
   final int userId;
@@ -82,11 +79,7 @@ final class ChatBoostSourceGiftCode extends ChatBoostSource {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "user_id": userId,
-      "gift_code": giftCode,
-    };
+    return {"@type": defaultObjectId, "user_id": userId, "gift_code": giftCode};
   }
 
   /// Copy model with modified properties.
@@ -95,10 +88,7 @@ final class ChatBoostSourceGiftCode extends ChatBoostSource {
   /// * [user_id]: Identifier of a user, for which the gift code was created
   /// * [gift_code]: The created Telegram Premium gift code, which is known only if this is a gift code for the current user, or it has already been claimed
   @override
-  ChatBoostSourceGiftCode copyWith({
-    int? userId,
-    String? giftCode,
-  }) =>
+  ChatBoostSourceGiftCode copyWith({int? userId, String? giftCode}) =>
       ChatBoostSourceGiftCode(
         userId: userId ?? this.userId,
         giftCode: giftCode ?? this.giftCode,
@@ -196,14 +186,13 @@ final class ChatBoostSourceGiveaway extends ChatBoostSource {
     int? starCount,
     int? giveawayMessageId,
     bool? isUnclaimed,
-  }) =>
-      ChatBoostSourceGiveaway(
-        userId: userId ?? this.userId,
-        giftCode: giftCode ?? this.giftCode,
-        starCount: starCount ?? this.starCount,
-        giveawayMessageId: giveawayMessageId ?? this.giveawayMessageId,
-        isUnclaimed: isUnclaimed ?? this.isUnclaimed,
-      );
+  }) => ChatBoostSourceGiveaway(
+    userId: userId ?? this.userId,
+    giftCode: giftCode ?? this.giftCode,
+    starCount: starCount ?? this.starCount,
+    giveawayMessageId: giveawayMessageId ?? this.giveawayMessageId,
+    isUnclaimed: isUnclaimed ?? this.isUnclaimed,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatBoostSourceGiveaway';
@@ -228,26 +217,19 @@ final class ChatBoostSourcePremium extends ChatBoostSource {
   /// A user with Telegram Premium subscription or gifted Telegram Premium boosted the chat.
   ///
   /// * [userId]: Identifier of the user.
-  const ChatBoostSourcePremium({
-    required this.userId,
-  });
+  const ChatBoostSourcePremium({required this.userId});
 
   /// Identifier of the user
   final int userId;
 
   /// Parse from a json
   factory ChatBoostSourcePremium.fromJson(Map<String, dynamic> json) =>
-      ChatBoostSourcePremium(
-        userId: json['user_id'],
-      );
+      ChatBoostSourcePremium(userId: json['user_id']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "user_id": userId,
-    };
+    return {"@type": defaultObjectId, "user_id": userId};
   }
 
   /// Copy model with modified properties.
@@ -255,12 +237,8 @@ final class ChatBoostSourcePremium extends ChatBoostSource {
   /// Properties:
   /// * [user_id]: Identifier of the user
   @override
-  ChatBoostSourcePremium copyWith({
-    int? userId,
-  }) =>
-      ChatBoostSourcePremium(
-        userId: userId ?? this.userId,
-      );
+  ChatBoostSourcePremium copyWith({int? userId}) =>
+      ChatBoostSourcePremium(userId: userId ?? this.userId);
 
   /// TDLib object type
   static const String defaultObjectId = 'chatBoostSourcePremium';

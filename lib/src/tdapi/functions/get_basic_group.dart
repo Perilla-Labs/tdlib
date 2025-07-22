@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **GetBasicGroup** *(getBasicGroup)* - TDLib function
 ///
-/// Returns information about a basic group by its identifier. This is an offline request if the current user is not a bot.
+/// Returns information about a basic group by its identifier. This is an offline method if the current user is not a bot.
 ///
 /// * [basicGroupId]: Basic group identifier.
 ///
@@ -10,14 +10,12 @@ part of '../tdapi.dart';
 final class GetBasicGroup extends TdFunction {
   /// **GetBasicGroup** *(getBasicGroup)* - TDLib function
   ///
-  /// Returns information about a basic group by its identifier. This is an offline request if the current user is not a bot.
+  /// Returns information about a basic group by its identifier. This is an offline method if the current user is not a bot.
   ///
   /// * [basicGroupId]: Basic group identifier.
   ///
   /// [BasicGroup] is returned on completion.
-  const GetBasicGroup({
-    required this.basicGroupId,
-  });
+  const GetBasicGroup({required this.basicGroupId});
 
   /// Basic group identifier
   final int basicGroupId;
@@ -36,12 +34,8 @@ final class GetBasicGroup extends TdFunction {
   ///
   /// Properties:
   /// * [basic_group_id]: Basic group identifier
-  GetBasicGroup copyWith({
-    int? basicGroupId,
-  }) =>
-      GetBasicGroup(
-        basicGroupId: basicGroupId ?? this.basicGroupId,
-      );
+  GetBasicGroup copyWith({int? basicGroupId}) =>
+      GetBasicGroup(basicGroupId: basicGroupId ?? this.basicGroupId);
 
   /// TDLib object type
   static const String defaultObjectId = 'getBasicGroup';

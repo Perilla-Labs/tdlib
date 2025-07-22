@@ -15,9 +15,7 @@ final class LoadSavedMessagesTopics extends TdFunction {
   /// * [limit]: The maximum number of topics to be loaded. For optimal performance, the number of loaded topics is chosen by TDLib and can be smaller than the specified limit, even if the end of the list is not reached.
   ///
   /// [Ok] is returned on completion.
-  const LoadSavedMessagesTopics({
-    required this.limit,
-  });
+  const LoadSavedMessagesTopics({required this.limit});
 
   /// The maximum number of topics to be loaded. For optimal performance, the number of loaded topics is chosen by TDLib and can be smaller than the specified limit, even if the end of the list is not reached
   final int limit;
@@ -25,23 +23,15 @@ final class LoadSavedMessagesTopics extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "limit": limit,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "limit": limit, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [limit]: The maximum number of topics to be loaded. For optimal performance, the number of loaded topics is chosen by TDLib and can be smaller than the specified limit, even if the end of the list is not reached
-  LoadSavedMessagesTopics copyWith({
-    int? limit,
-  }) =>
-      LoadSavedMessagesTopics(
-        limit: limit ?? this.limit,
-      );
+  LoadSavedMessagesTopics copyWith({int? limit}) =>
+      LoadSavedMessagesTopics(limit: limit ?? this.limit);
 
   /// TDLib object type
   static const String defaultObjectId = 'loadSavedMessagesTopics';

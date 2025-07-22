@@ -32,10 +32,10 @@ final class TimeZone extends TdObject {
 
   /// Parse from a json
   factory TimeZone.fromJson(Map<String, dynamic> json) => TimeZone(
-        id: json['id'],
-        name: json['name'],
-        utcTimeOffset: json['utc_time_offset'],
-      );
+    id: json['id'],
+    name: json['name'],
+    utcTimeOffset: json['utc_time_offset'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -54,16 +54,11 @@ final class TimeZone extends TdObject {
   /// * [id]: Unique time zone identifier
   /// * [name]: Time zone name
   /// * [utc_time_offset]: Current UTC time offset for the time zone
-  TimeZone copyWith({
-    String? id,
-    String? name,
-    int? utcTimeOffset,
-  }) =>
-      TimeZone(
-        id: id ?? this.id,
-        name: name ?? this.name,
-        utcTimeOffset: utcTimeOffset ?? this.utcTimeOffset,
-      );
+  TimeZone copyWith({String? id, String? name, int? utcTimeOffset}) => TimeZone(
+    id: id ?? this.id,
+    name: name ?? this.name,
+    utcTimeOffset: utcTimeOffset ?? this.utcTimeOffset,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'timeZone';

@@ -59,12 +59,11 @@ final class StarGiveawayWinnerOption extends TdObject {
     int? winnerCount,
     int? wonStarCount,
     bool? isDefault,
-  }) =>
-      StarGiveawayWinnerOption(
-        winnerCount: winnerCount ?? this.winnerCount,
-        wonStarCount: wonStarCount ?? this.wonStarCount,
-        isDefault: isDefault ?? this.isDefault,
-      );
+  }) => StarGiveawayWinnerOption(
+    winnerCount: winnerCount ?? this.winnerCount,
+    wonStarCount: wonStarCount ?? this.wonStarCount,
+    isDefault: isDefault ?? this.isDefault,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'starGiveawayWinnerOption';

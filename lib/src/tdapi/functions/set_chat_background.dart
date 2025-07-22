@@ -74,14 +74,13 @@ final class SetChatBackground extends TdFunction {
     BackgroundType? type,
     int? darkThemeDimming,
     bool? onlyForSelf,
-  }) =>
-      SetChatBackground(
-        chatId: chatId ?? this.chatId,
-        background: background ?? this.background,
-        type: type ?? this.type,
-        darkThemeDimming: darkThemeDimming ?? this.darkThemeDimming,
-        onlyForSelf: onlyForSelf ?? this.onlyForSelf,
-      );
+  }) => SetChatBackground(
+    chatId: chatId ?? this.chatId,
+    background: background ?? this.background,
+    type: type ?? this.type,
+    darkThemeDimming: darkThemeDimming ?? this.darkThemeDimming,
+    onlyForSelf: onlyForSelf ?? this.onlyForSelf,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setChatBackground';

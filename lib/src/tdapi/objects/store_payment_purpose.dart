@@ -11,7 +11,7 @@ sealed class StorePaymentPurpose extends TdObject {
 
   /// a StorePaymentPurpose return type can be :
   /// * [StorePaymentPurposePremiumSubscription]
-  /// * [StorePaymentPurposeGiftedPremium]
+  /// * [StorePaymentPurposePremiumGift]
   /// * [StorePaymentPurposePremiumGiftCodes]
   /// * [StorePaymentPurposePremiumGiveaway]
   /// * [StorePaymentPurposeStarGiveaway]
@@ -21,8 +21,8 @@ sealed class StorePaymentPurpose extends TdObject {
     switch (json["@type"]) {
       case StorePaymentPurposePremiumSubscription.defaultObjectId:
         return StorePaymentPurposePremiumSubscription.fromJson(json);
-      case StorePaymentPurposeGiftedPremium.defaultObjectId:
-        return StorePaymentPurposeGiftedPremium.fromJson(json);
+      case StorePaymentPurposePremiumGift.defaultObjectId:
+        return StorePaymentPurposePremiumGift.fromJson(json);
       case StorePaymentPurposePremiumGiftCodes.defaultObjectId:
         return StorePaymentPurposePremiumGiftCodes.fromJson(json);
       case StorePaymentPurposePremiumGiveaway.defaultObjectId:
@@ -86,11 +86,11 @@ final class StorePaymentPurposePremiumSubscription extends StorePaymentPurpose {
 
   /// Parse from a json
   factory StorePaymentPurposePremiumSubscription.fromJson(
-          Map<String, dynamic> json) =>
-      StorePaymentPurposePremiumSubscription(
-        isRestore: json['is_restore'],
-        isUpgrade: json['is_upgrade'],
-      );
+    Map<String, dynamic> json,
+  ) => StorePaymentPurposePremiumSubscription(
+    isRestore: json['is_restore'],
+    isUpgrade: json['is_upgrade'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -111,11 +111,10 @@ final class StorePaymentPurposePremiumSubscription extends StorePaymentPurpose {
   StorePaymentPurposePremiumSubscription copyWith({
     bool? isRestore,
     bool? isUpgrade,
-  }) =>
-      StorePaymentPurposePremiumSubscription(
-        isRestore: isRestore ?? this.isRestore,
-        isUpgrade: isUpgrade ?? this.isUpgrade,
-      );
+  }) => StorePaymentPurposePremiumSubscription(
+    isRestore: isRestore ?? this.isRestore,
+    isUpgrade: isUpgrade ?? this.isUpgrade,
+  );
 
   /// TDLib object type
   static const String defaultObjectId =
@@ -130,29 +129,29 @@ final class StorePaymentPurposePremiumSubscription extends StorePaymentPurpose {
   String get currentObjectId => defaultObjectId;
 }
 
-/// **StorePaymentPurposeGiftedPremium** *(storePaymentPurposeGiftedPremium)* - child of StorePaymentPurpose
+/// **StorePaymentPurposePremiumGift** *(storePaymentPurposePremiumGift)* - child of StorePaymentPurpose
 ///
 /// The user gifting Telegram Premium to another user.
 ///
-/// * [userId]: Identifier of the user to which Telegram Premium is gifted.
 /// * [currency]: ISO 4217 currency code of the payment currency.
 /// * [amount]: Paid amount, in the smallest units of the currency.
-final class StorePaymentPurposeGiftedPremium extends StorePaymentPurpose {
-  /// **StorePaymentPurposeGiftedPremium** *(storePaymentPurposeGiftedPremium)* - child of StorePaymentPurpose
+/// * [userId]: Identifiers of the user which will receive Telegram Premium.
+/// * [text]: Text to show along with the gift codes; 0-getOption("gift_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, and CustomEmoji entities are allowed.
+final class StorePaymentPurposePremiumGift extends StorePaymentPurpose {
+  /// **StorePaymentPurposePremiumGift** *(storePaymentPurposePremiumGift)* - child of StorePaymentPurpose
   ///
   /// The user gifting Telegram Premium to another user.
   ///
-  /// * [userId]: Identifier of the user to which Telegram Premium is gifted.
   /// * [currency]: ISO 4217 currency code of the payment currency.
   /// * [amount]: Paid amount, in the smallest units of the currency.
-  const StorePaymentPurposeGiftedPremium({
-    required this.userId,
+  /// * [userId]: Identifiers of the user which will receive Telegram Premium.
+  /// * [text]: Text to show along with the gift codes; 0-getOption("gift_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, and CustomEmoji entities are allowed.
+  const StorePaymentPurposePremiumGift({
     required this.currency,
     required this.amount,
+    required this.userId,
+    required this.text,
   });
-
-  /// Identifier of the user to which Telegram Premium is gifted
-  final int userId;
 
   /// ISO 4217 currency code of the payment currency
   final String currency;
@@ -160,13 +159,19 @@ final class StorePaymentPurposeGiftedPremium extends StorePaymentPurpose {
   /// Paid amount, in the smallest units of the currency
   final int amount;
 
+  /// Identifiers of the user which will receive Telegram Premium
+  final int userId;
+
+  /// Text to show along with the gift codes; 0-getOption("gift_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, and CustomEmoji entities are allowed
+  final FormattedText text;
+
   /// Parse from a json
-  factory StorePaymentPurposeGiftedPremium.fromJson(
-          Map<String, dynamic> json) =>
-      StorePaymentPurposeGiftedPremium(
-        userId: json['user_id'],
+  factory StorePaymentPurposePremiumGift.fromJson(Map<String, dynamic> json) =>
+      StorePaymentPurposePremiumGift(
         currency: json['currency'],
         amount: json['amount'],
+        userId: json['user_id'],
+        text: FormattedText.fromJson(json['text']),
       );
 
   /// Convert model to TDLib JSON format
@@ -174,32 +179,35 @@ final class StorePaymentPurposeGiftedPremium extends StorePaymentPurpose {
   Map<String, dynamic> toJson() {
     return {
       "@type": defaultObjectId,
-      "user_id": userId,
       "currency": currency,
       "amount": amount,
+      "user_id": userId,
+      "text": text.toJson(),
     };
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [user_id]: Identifier of the user to which Telegram Premium is gifted
   /// * [currency]: ISO 4217 currency code of the payment currency
   /// * [amount]: Paid amount, in the smallest units of the currency
+  /// * [user_id]: Identifiers of the user which will receive Telegram Premium
+  /// * [text]: Text to show along with the gift codes; 0-getOption("gift_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, and CustomEmoji entities are allowed
   @override
-  StorePaymentPurposeGiftedPremium copyWith({
-    int? userId,
+  StorePaymentPurposePremiumGift copyWith({
     String? currency,
     int? amount,
-  }) =>
-      StorePaymentPurposeGiftedPremium(
-        userId: userId ?? this.userId,
-        currency: currency ?? this.currency,
-        amount: amount ?? this.amount,
-      );
+    int? userId,
+    FormattedText? text,
+  }) => StorePaymentPurposePremiumGift(
+    currency: currency ?? this.currency,
+    amount: amount ?? this.amount,
+    userId: userId ?? this.userId,
+    text: text ?? this.text,
+  );
 
   /// TDLib object type
-  static const String defaultObjectId = 'storePaymentPurposeGiftedPremium';
+  static const String defaultObjectId = 'storePaymentPurposePremiumGift';
 
   /// Convert model to TDLib JSON format, encoded into String.
   @override
@@ -212,29 +220,32 @@ final class StorePaymentPurposeGiftedPremium extends StorePaymentPurpose {
 
 /// **StorePaymentPurposePremiumGiftCodes** *(storePaymentPurposePremiumGiftCodes)* - child of StorePaymentPurpose
 ///
-/// The user creating Telegram Premium gift codes for other users.
+/// The user boosting a chat by creating Telegram Premium gift codes for other users.
 ///
-/// * [boostedChatId]: Identifier of the supergroup or channel chat, which will be automatically boosted by the users for duration of the Premium subscription and which is administered by the user; 0 if none.
+/// * [boostedChatId]: Identifier of the supergroup or channel chat, which will be automatically boosted by the users for duration of the Premium subscription and which is administered by the user.
 /// * [currency]: ISO 4217 currency code of the payment currency.
 /// * [amount]: Paid amount, in the smallest units of the currency.
 /// * [userIds]: Identifiers of the users which can activate the gift codes.
+/// * [text]: Text to show along with the gift codes; 0-getOption("gift_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, and CustomEmoji entities are allowed.
 final class StorePaymentPurposePremiumGiftCodes extends StorePaymentPurpose {
   /// **StorePaymentPurposePremiumGiftCodes** *(storePaymentPurposePremiumGiftCodes)* - child of StorePaymentPurpose
   ///
-  /// The user creating Telegram Premium gift codes for other users.
+  /// The user boosting a chat by creating Telegram Premium gift codes for other users.
   ///
-  /// * [boostedChatId]: Identifier of the supergroup or channel chat, which will be automatically boosted by the users for duration of the Premium subscription and which is administered by the user; 0 if none.
+  /// * [boostedChatId]: Identifier of the supergroup or channel chat, which will be automatically boosted by the users for duration of the Premium subscription and which is administered by the user.
   /// * [currency]: ISO 4217 currency code of the payment currency.
   /// * [amount]: Paid amount, in the smallest units of the currency.
   /// * [userIds]: Identifiers of the users which can activate the gift codes.
+  /// * [text]: Text to show along with the gift codes; 0-getOption("gift_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, and CustomEmoji entities are allowed.
   const StorePaymentPurposePremiumGiftCodes({
     required this.boostedChatId,
     required this.currency,
     required this.amount,
     required this.userIds,
+    required this.text,
   });
 
-  /// Identifier of the supergroup or channel chat, which will be automatically boosted by the users for duration of the Premium subscription and which is administered by the user; 0 if none
+  /// Identifier of the supergroup or channel chat, which will be automatically boosted by the users for duration of the Premium subscription and which is administered by the user
   final int boostedChatId;
 
   /// ISO 4217 currency code of the payment currency
@@ -246,16 +257,21 @@ final class StorePaymentPurposePremiumGiftCodes extends StorePaymentPurpose {
   /// Identifiers of the users which can activate the gift codes
   final List<int> userIds;
 
+  /// Text to show along with the gift codes; 0-getOption("gift_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, and CustomEmoji entities are allowed
+  final FormattedText text;
+
   /// Parse from a json
   factory StorePaymentPurposePremiumGiftCodes.fromJson(
-          Map<String, dynamic> json) =>
-      StorePaymentPurposePremiumGiftCodes(
-        boostedChatId: json['boosted_chat_id'] ?? 0,
-        currency: json['currency'],
-        amount: json['amount'],
-        userIds: List<int>.from(
-            (json['user_ids'] ?? []).map((item) => item).toList()),
-      );
+    Map<String, dynamic> json,
+  ) => StorePaymentPurposePremiumGiftCodes(
+    boostedChatId: json['boosted_chat_id'],
+    currency: json['currency'],
+    amount: json['amount'],
+    userIds: List<int>.from(
+      (json['user_ids'] ?? []).map((item) => item).toList(),
+    ),
+    text: FormattedText.fromJson(json['text']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -266,29 +282,32 @@ final class StorePaymentPurposePremiumGiftCodes extends StorePaymentPurpose {
       "currency": currency,
       "amount": amount,
       "user_ids": userIds.map((i) => i).toList(),
+      "text": text.toJson(),
     };
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [boosted_chat_id]: Identifier of the supergroup or channel chat, which will be automatically boosted by the users for duration of the Premium subscription and which is administered by the user; 0 if none
+  /// * [boosted_chat_id]: Identifier of the supergroup or channel chat, which will be automatically boosted by the users for duration of the Premium subscription and which is administered by the user
   /// * [currency]: ISO 4217 currency code of the payment currency
   /// * [amount]: Paid amount, in the smallest units of the currency
   /// * [user_ids]: Identifiers of the users which can activate the gift codes
+  /// * [text]: Text to show along with the gift codes; 0-getOption("gift_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, and CustomEmoji entities are allowed
   @override
   StorePaymentPurposePremiumGiftCodes copyWith({
     int? boostedChatId,
     String? currency,
     int? amount,
     List<int>? userIds,
-  }) =>
-      StorePaymentPurposePremiumGiftCodes(
-        boostedChatId: boostedChatId ?? this.boostedChatId,
-        currency: currency ?? this.currency,
-        amount: amount ?? this.amount,
-        userIds: userIds ?? this.userIds,
-      );
+    FormattedText? text,
+  }) => StorePaymentPurposePremiumGiftCodes(
+    boostedChatId: boostedChatId ?? this.boostedChatId,
+    currency: currency ?? this.currency,
+    amount: amount ?? this.amount,
+    userIds: userIds ?? this.userIds,
+    text: text ?? this.text,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'storePaymentPurposePremiumGiftCodes';
@@ -334,12 +353,12 @@ final class StorePaymentPurposePremiumGiveaway extends StorePaymentPurpose {
 
   /// Parse from a json
   factory StorePaymentPurposePremiumGiveaway.fromJson(
-          Map<String, dynamic> json) =>
-      StorePaymentPurposePremiumGiveaway(
-        parameters: GiveawayParameters.fromJson(json['parameters']),
-        currency: json['currency'],
-        amount: json['amount'],
-      );
+    Map<String, dynamic> json,
+  ) => StorePaymentPurposePremiumGiveaway(
+    parameters: GiveawayParameters.fromJson(json['parameters']),
+    currency: json['currency'],
+    amount: json['amount'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -363,12 +382,11 @@ final class StorePaymentPurposePremiumGiveaway extends StorePaymentPurpose {
     GiveawayParameters? parameters,
     String? currency,
     int? amount,
-  }) =>
-      StorePaymentPurposePremiumGiveaway(
-        parameters: parameters ?? this.parameters,
-        currency: currency ?? this.currency,
-        amount: amount ?? this.amount,
-      );
+  }) => StorePaymentPurposePremiumGiveaway(
+    parameters: parameters ?? this.parameters,
+    currency: currency ?? this.currency,
+    amount: amount ?? this.amount,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'storePaymentPurposePremiumGiveaway';
@@ -462,14 +480,13 @@ final class StorePaymentPurposeStarGiveaway extends StorePaymentPurpose {
     int? amount,
     int? winnerCount,
     int? starCount,
-  }) =>
-      StorePaymentPurposeStarGiveaway(
-        parameters: parameters ?? this.parameters,
-        currency: currency ?? this.currency,
-        amount: amount ?? this.amount,
-        winnerCount: winnerCount ?? this.winnerCount,
-        starCount: starCount ?? this.starCount,
-      );
+  }) => StorePaymentPurposeStarGiveaway(
+    parameters: parameters ?? this.parameters,
+    currency: currency ?? this.currency,
+    amount: amount ?? this.amount,
+    winnerCount: winnerCount ?? this.winnerCount,
+    starCount: starCount ?? this.starCount,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'storePaymentPurposeStarGiveaway';
@@ -543,12 +560,11 @@ final class StorePaymentPurposeStars extends StorePaymentPurpose {
     String? currency,
     int? amount,
     int? starCount,
-  }) =>
-      StorePaymentPurposeStars(
-        currency: currency ?? this.currency,
-        amount: amount ?? this.amount,
-        starCount: starCount ?? this.starCount,
-      );
+  }) => StorePaymentPurposeStars(
+    currency: currency ?? this.currency,
+    amount: amount ?? this.amount,
+    starCount: starCount ?? this.starCount,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'storePaymentPurposeStars';
@@ -632,13 +648,12 @@ final class StorePaymentPurposeGiftedStars extends StorePaymentPurpose {
     String? currency,
     int? amount,
     int? starCount,
-  }) =>
-      StorePaymentPurposeGiftedStars(
-        userId: userId ?? this.userId,
-        currency: currency ?? this.currency,
-        amount: amount ?? this.amount,
-        starCount: starCount ?? this.starCount,
-      );
+  }) => StorePaymentPurposeGiftedStars(
+    userId: userId ?? this.userId,
+    currency: currency ?? this.currency,
+    amount: amount ?? this.amount,
+    starCount: starCount ?? this.starCount,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'storePaymentPurposeGiftedStars';

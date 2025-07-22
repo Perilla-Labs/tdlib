@@ -56,9 +56,7 @@ final class EmojiCategorySourceSearch extends EmojiCategorySource {
   /// The category contains a list of similar emoji to search for in getStickers and searchStickers for stickers,. or getInlineQueryResults with the bot getOption("animation_search_bot_username") for animations.
   ///
   /// * [emojis]: List of emojis to search for.
-  const EmojiCategorySourceSearch({
-    required this.emojis,
-  });
+  const EmojiCategorySourceSearch({required this.emojis});
 
   /// List of emojis to search for
   final List<String> emojis;
@@ -67,16 +65,14 @@ final class EmojiCategorySourceSearch extends EmojiCategorySource {
   factory EmojiCategorySourceSearch.fromJson(Map<String, dynamic> json) =>
       EmojiCategorySourceSearch(
         emojis: List<String>.from(
-            (json['emojis'] ?? []).map((item) => item).toList()),
+          (json['emojis'] ?? []).map((item) => item).toList(),
+        ),
       );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "emojis": emojis.map((i) => i).toList(),
-    };
+    return {"@type": defaultObjectId, "emojis": emojis.map((i) => i).toList()};
   }
 
   /// Copy model with modified properties.
@@ -84,12 +80,8 @@ final class EmojiCategorySourceSearch extends EmojiCategorySource {
   /// Properties:
   /// * [emojis]: List of emojis to search for
   @override
-  EmojiCategorySourceSearch copyWith({
-    List<String>? emojis,
-  }) =>
-      EmojiCategorySourceSearch(
-        emojis: emojis ?? this.emojis,
-      );
+  EmojiCategorySourceSearch copyWith({List<String>? emojis}) =>
+      EmojiCategorySourceSearch(emojis: emojis ?? this.emojis);
 
   /// TDLib object type
   static const String defaultObjectId = 'emojiCategorySourceSearch';
@@ -119,9 +111,7 @@ final class EmojiCategorySourcePremium extends EmojiCategorySource {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.

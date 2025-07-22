@@ -32,10 +32,10 @@ final class GameHighScore extends TdObject {
 
   /// Parse from a json
   factory GameHighScore.fromJson(Map<String, dynamic> json) => GameHighScore(
-        position: json['position'],
-        userId: json['user_id'],
-        score: json['score'],
-      );
+    position: json['position'],
+    userId: json['user_id'],
+    score: json['score'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -54,11 +54,7 @@ final class GameHighScore extends TdObject {
   /// * [position]: Position in the high score table
   /// * [user_id]: User identifier
   /// * [score]: User score
-  GameHighScore copyWith({
-    int? position,
-    int? userId,
-    int? score,
-  }) =>
+  GameHighScore copyWith({int? position, int? userId, int? score}) =>
       GameHighScore(
         position: position ?? this.position,
         userId: userId ?? this.userId,

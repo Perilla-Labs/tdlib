@@ -15,9 +15,7 @@ final class SearchPublicChats extends TdFunction {
   /// * [query]: Query to search for.
   ///
   /// [Chats] is returned on completion.
-  const SearchPublicChats({
-    required this.query,
-  });
+  const SearchPublicChats({required this.query});
 
   /// Query to search for
   final String query;
@@ -25,23 +23,15 @@ final class SearchPublicChats extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "query": query,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "query": query, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [query]: Query to search for
-  SearchPublicChats copyWith({
-    String? query,
-  }) =>
-      SearchPublicChats(
-        query: query ?? this.query,
-      );
+  SearchPublicChats copyWith({String? query}) =>
+      SearchPublicChats(query: query ?? this.query);
 
   /// TDLib object type
   static const String defaultObjectId = 'searchPublicChats';

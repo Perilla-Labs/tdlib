@@ -56,12 +56,11 @@ final class DeleteBotMediaPreviews extends TdFunction {
     int? botUserId,
     String? languageCode,
     List<int>? fileIds,
-  }) =>
-      DeleteBotMediaPreviews(
-        botUserId: botUserId ?? this.botUserId,
-        languageCode: languageCode ?? this.languageCode,
-        fileIds: fileIds ?? this.fileIds,
-      );
+  }) => DeleteBotMediaPreviews(
+    botUserId: botUserId ?? this.botUserId,
+    languageCode: languageCode ?? this.languageCode,
+    fileIds: fileIds ?? this.fileIds,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'deleteBotMediaPreviews';

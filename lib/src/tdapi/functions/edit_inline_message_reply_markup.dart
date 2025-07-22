@@ -47,11 +47,10 @@ final class EditInlineMessageReplyMarkup extends TdFunction {
   EditInlineMessageReplyMarkup copyWith({
     String? inlineMessageId,
     ReplyMarkup? replyMarkup,
-  }) =>
-      EditInlineMessageReplyMarkup(
-        inlineMessageId: inlineMessageId ?? this.inlineMessageId,
-        replyMarkup: replyMarkup ?? this.replyMarkup,
-      );
+  }) => EditInlineMessageReplyMarkup(
+    inlineMessageId: inlineMessageId ?? this.inlineMessageId,
+    replyMarkup: replyMarkup ?? this.replyMarkup,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'editInlineMessageReplyMarkup';

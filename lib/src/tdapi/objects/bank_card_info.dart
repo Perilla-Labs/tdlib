@@ -36,13 +36,15 @@ final class BankCardInfo extends TdObject {
 
   /// Parse from a json
   factory BankCardInfo.fromJson(Map<String, dynamic> json) => BankCardInfo(
-        title: json['title'],
-        actions: List<BankCardActionOpenUrl>.from((json['actions'] ?? [])
-            .map((item) => BankCardActionOpenUrl.fromJson(item))
-            .toList()),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    title: json['title'],
+    actions: List<BankCardActionOpenUrl>.from(
+      (json['actions'] ?? [])
+          .map((item) => BankCardActionOpenUrl.fromJson(item))
+          .toList(),
+    ),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -64,13 +66,12 @@ final class BankCardInfo extends TdObject {
     List<BankCardActionOpenUrl>? actions,
     dynamic extra,
     int? clientId,
-  }) =>
-      BankCardInfo(
-        title: title ?? this.title,
-        actions: actions ?? this.actions,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => BankCardInfo(
+    title: title ?? this.title,
+    actions: actions ?? this.actions,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'bankCardInfo';

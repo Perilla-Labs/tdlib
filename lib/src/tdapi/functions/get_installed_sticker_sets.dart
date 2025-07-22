@@ -15,9 +15,7 @@ final class GetInstalledStickerSets extends TdFunction {
   /// * [stickerType]: Type of the sticker sets to return.
   ///
   /// [StickerSets] is returned on completion.
-  const GetInstalledStickerSets({
-    required this.stickerType,
-  });
+  const GetInstalledStickerSets({required this.stickerType});
 
   /// Type of the sticker sets to return
   final StickerType stickerType;
@@ -36,12 +34,8 @@ final class GetInstalledStickerSets extends TdFunction {
   ///
   /// Properties:
   /// * [sticker_type]: Type of the sticker sets to return
-  GetInstalledStickerSets copyWith({
-    StickerType? stickerType,
-  }) =>
-      GetInstalledStickerSets(
-        stickerType: stickerType ?? this.stickerType,
-      );
+  GetInstalledStickerSets copyWith({StickerType? stickerType}) =>
+      GetInstalledStickerSets(stickerType: stickerType ?? this.stickerType);
 
   /// TDLib object type
   static const String defaultObjectId = 'getInstalledStickerSets';

@@ -87,7 +87,8 @@ final class ChatBoostStatus extends TdObject {
       ChatBoostStatus(
         boostUrl: json['boost_url'],
         appliedSlotIds: List<int>.from(
-            (json['applied_slot_ids'] ?? []).map((item) => item).toList()),
+          (json['applied_slot_ids'] ?? []).map((item) => item).toList(),
+        ),
         level: json['level'],
         giftCodeBoostCount: json['gift_code_boost_count'],
         boostCount: json['boost_count'],
@@ -96,9 +97,10 @@ final class ChatBoostStatus extends TdObject {
         premiumMemberCount: json['premium_member_count'],
         premiumMemberPercentage: json['premium_member_percentage'],
         prepaidGiveaways: List<PrepaidGiveaway>.from(
-            (json['prepaid_giveaways'] ?? [])
-                .map((item) => PrepaidGiveaway.fromJson(item))
-                .toList()),
+          (json['prepaid_giveaways'] ?? [])
+              .map((item) => PrepaidGiveaway.fromJson(item))
+              .toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -147,23 +149,22 @@ final class ChatBoostStatus extends TdObject {
     List<PrepaidGiveaway>? prepaidGiveaways,
     dynamic extra,
     int? clientId,
-  }) =>
-      ChatBoostStatus(
-        boostUrl: boostUrl ?? this.boostUrl,
-        appliedSlotIds: appliedSlotIds ?? this.appliedSlotIds,
-        level: level ?? this.level,
-        giftCodeBoostCount: giftCodeBoostCount ?? this.giftCodeBoostCount,
-        boostCount: boostCount ?? this.boostCount,
-        currentLevelBoostCount:
-            currentLevelBoostCount ?? this.currentLevelBoostCount,
-        nextLevelBoostCount: nextLevelBoostCount ?? this.nextLevelBoostCount,
-        premiumMemberCount: premiumMemberCount ?? this.premiumMemberCount,
-        premiumMemberPercentage:
-            premiumMemberPercentage ?? this.premiumMemberPercentage,
-        prepaidGiveaways: prepaidGiveaways ?? this.prepaidGiveaways,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => ChatBoostStatus(
+    boostUrl: boostUrl ?? this.boostUrl,
+    appliedSlotIds: appliedSlotIds ?? this.appliedSlotIds,
+    level: level ?? this.level,
+    giftCodeBoostCount: giftCodeBoostCount ?? this.giftCodeBoostCount,
+    boostCount: boostCount ?? this.boostCount,
+    currentLevelBoostCount:
+        currentLevelBoostCount ?? this.currentLevelBoostCount,
+    nextLevelBoostCount: nextLevelBoostCount ?? this.nextLevelBoostCount,
+    premiumMemberCount: premiumMemberCount ?? this.premiumMemberCount,
+    premiumMemberPercentage:
+        premiumMemberPercentage ?? this.premiumMemberPercentage,
+    prepaidGiveaways: prepaidGiveaways ?? this.prepaidGiveaways,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatBoostStatus';

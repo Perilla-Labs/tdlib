@@ -59,13 +59,11 @@ final class ChatStatisticsMessageSenderInfo extends TdObject {
     int? userId,
     int? sentMessageCount,
     int? averageCharacterCount,
-  }) =>
-      ChatStatisticsMessageSenderInfo(
-        userId: userId ?? this.userId,
-        sentMessageCount: sentMessageCount ?? this.sentMessageCount,
-        averageCharacterCount:
-            averageCharacterCount ?? this.averageCharacterCount,
-      );
+  }) => ChatStatisticsMessageSenderInfo(
+    userId: userId ?? this.userId,
+    sentMessageCount: sentMessageCount ?? this.sentMessageCount,
+    averageCharacterCount: averageCharacterCount ?? this.averageCharacterCount,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatStatisticsMessageSenderInfo';

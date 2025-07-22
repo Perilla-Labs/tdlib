@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **DeleteChatMessagesBySender** *(deleteChatMessagesBySender)* - TDLib function
 ///
-/// Deletes all messages sent by the specified message sender in a chat. Supported only for supergroups; requires can_delete_messages administrator privileges.
+/// Deletes all messages sent by the specified message sender in a chat. Supported only for supergroups; requires can_delete_messages administrator right.
 ///
 /// * [chatId]: Chat identifier.
 /// * [senderId]: Identifier of the sender of messages to delete.
@@ -11,7 +11,7 @@ part of '../tdapi.dart';
 final class DeleteChatMessagesBySender extends TdFunction {
   /// **DeleteChatMessagesBySender** *(deleteChatMessagesBySender)* - TDLib function
   ///
-  /// Deletes all messages sent by the specified message sender in a chat. Supported only for supergroups; requires can_delete_messages administrator privileges.
+  /// Deletes all messages sent by the specified message sender in a chat. Supported only for supergroups; requires can_delete_messages administrator right.
   ///
   /// * [chatId]: Chat identifier.
   /// * [senderId]: Identifier of the sender of messages to delete.
@@ -44,10 +44,7 @@ final class DeleteChatMessagesBySender extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [sender_id]: Identifier of the sender of messages to delete
-  DeleteChatMessagesBySender copyWith({
-    int? chatId,
-    MessageSender? senderId,
-  }) =>
+  DeleteChatMessagesBySender copyWith({int? chatId, MessageSender? senderId}) =>
       DeleteChatMessagesBySender(
         chatId: chatId ?? this.chatId,
         senderId: senderId ?? this.senderId,

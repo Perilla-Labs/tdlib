@@ -42,14 +42,16 @@ final class AddedReactions extends TdObject {
 
   /// Parse from a json
   factory AddedReactions.fromJson(Map<String, dynamic> json) => AddedReactions(
-        totalCount: json['total_count'],
-        reactions: List<AddedReaction>.from((json['reactions'] ?? [])
-            .map((item) => AddedReaction.fromJson(item))
-            .toList()),
-        nextOffset: json['next_offset'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    totalCount: json['total_count'],
+    reactions: List<AddedReaction>.from(
+      (json['reactions'] ?? [])
+          .map((item) => AddedReaction.fromJson(item))
+          .toList(),
+    ),
+    nextOffset: json['next_offset'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -74,14 +76,13 @@ final class AddedReactions extends TdObject {
     String? nextOffset,
     dynamic extra,
     int? clientId,
-  }) =>
-      AddedReactions(
-        totalCount: totalCount ?? this.totalCount,
-        reactions: reactions ?? this.reactions,
-        nextOffset: nextOffset ?? this.nextOffset,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => AddedReactions(
+    totalCount: totalCount ?? this.totalCount,
+    reactions: reactions ?? this.reactions,
+    nextOffset: nextOffset ?? this.nextOffset,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'addedReactions';

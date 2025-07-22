@@ -32,12 +32,14 @@ final class ShippingOption extends TdObject {
 
   /// Parse from a json
   factory ShippingOption.fromJson(Map<String, dynamic> json) => ShippingOption(
-        id: json['id'],
-        title: json['title'],
-        priceParts: List<LabeledPricePart>.from((json['price_parts'] ?? [])
-            .map((item) => LabeledPricePart.fromJson(item))
-            .toList()),
-      );
+    id: json['id'],
+    title: json['title'],
+    priceParts: List<LabeledPricePart>.from(
+      (json['price_parts'] ?? [])
+          .map((item) => LabeledPricePart.fromJson(item))
+          .toList(),
+    ),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -60,12 +62,11 @@ final class ShippingOption extends TdObject {
     String? id,
     String? title,
     List<LabeledPricePart>? priceParts,
-  }) =>
-      ShippingOption(
-        id: id ?? this.id,
-        title: title ?? this.title,
-        priceParts: priceParts ?? this.priceParts,
-      );
+  }) => ShippingOption(
+    id: id ?? this.id,
+    title: title ?? this.title,
+    priceParts: priceParts ?? this.priceParts,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'shippingOption';

@@ -15,9 +15,7 @@ final class TestCallBytes extends TdFunction {
   /// * [x]: Bytes to return.
   ///
   /// [TestBytes] is returned on completion.
-  const TestCallBytes({
-    required this.x,
-  });
+  const TestCallBytes({required this.x});
 
   /// Bytes to return
   final String x;
@@ -25,23 +23,14 @@ final class TestCallBytes extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "x": x,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "x": x, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [x]: Bytes to return
-  TestCallBytes copyWith({
-    String? x,
-  }) =>
-      TestCallBytes(
-        x: x ?? this.x,
-      );
+  TestCallBytes copyWith({String? x}) => TestCallBytes(x: x ?? this.x);
 
   /// TDLib object type
   static const String defaultObjectId = 'testCallBytes';

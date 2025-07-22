@@ -10,7 +10,7 @@ part of '../tdapi.dart';
 /// * [hasUnknownPhoneNumber]: Pass true if there is a SIM card in the current device, but it is not possible to check whether phone number matches.
 /// * [allowSmsRetrieverApi]: For official applications only. True, if the application can use Android SMS Retriever API (requires Google Play Services.
 /// * [firebaseAuthenticationSettings]: For official Android and iOS applications only; pass null otherwise. Settings for Firebase Authentication *(optional)*.
-/// * [authenticationTokens]: List of up to 20 authentication tokens, recently received in updateOption("authentication_token") in previously logged out sessions.
+/// * [authenticationTokens]: List of up to 20 authentication tokens, recently received in updateOption("authentication_token") in previously logged out sessions; for setAuthenticationPhoneNumber only.
 final class PhoneNumberAuthenticationSettings extends TdObject {
   /// **PhoneNumberAuthenticationSettings** *(phoneNumberAuthenticationSettings)* - basic class
   ///
@@ -22,7 +22,7 @@ final class PhoneNumberAuthenticationSettings extends TdObject {
   /// * [hasUnknownPhoneNumber]: Pass true if there is a SIM card in the current device, but it is not possible to check whether phone number matches.
   /// * [allowSmsRetrieverApi]: For official applications only. True, if the application can use Android SMS Retriever API (requires Google Play Services.
   /// * [firebaseAuthenticationSettings]: For official Android and iOS applications only; pass null otherwise. Settings for Firebase Authentication *(optional)*.
-  /// * [authenticationTokens]: List of up to 20 authentication tokens, recently received in updateOption("authentication_token") in previously logged out sessions.
+  /// * [authenticationTokens]: List of up to 20 authentication tokens, recently received in updateOption("authentication_token") in previously logged out sessions; for setAuthenticationPhoneNumber only.
   const PhoneNumberAuthenticationSettings({
     required this.allowFlashCall,
     required this.allowMissedCall,
@@ -51,26 +51,28 @@ final class PhoneNumberAuthenticationSettings extends TdObject {
   /// For official Android and iOS applications only; pass null otherwise. Settings for Firebase Authentication
   final FirebaseAuthenticationSettings? firebaseAuthenticationSettings;
 
-  /// List of up to 20 authentication tokens, recently received in updateOption("authentication_token") in previously logged out sessions
+  /// List of up to 20 authentication tokens, recently received in updateOption("authentication_token") in previously logged out sessions; for setAuthenticationPhoneNumber only
   final List<String> authenticationTokens;
 
   /// Parse from a json
   factory PhoneNumberAuthenticationSettings.fromJson(
-          Map<String, dynamic> json) =>
-      PhoneNumberAuthenticationSettings(
-        allowFlashCall: json['allow_flash_call'],
-        allowMissedCall: json['allow_missed_call'],
-        isCurrentPhoneNumber: json['is_current_phone_number'],
-        hasUnknownPhoneNumber: json['has_unknown_phone_number'],
-        allowSmsRetrieverApi: json['allow_sms_retriever_api'],
-        firebaseAuthenticationSettings:
-            json['firebase_authentication_settings'] == null
-                ? null
-                : FirebaseAuthenticationSettings.fromJson(
-                    json['firebase_authentication_settings']),
-        authenticationTokens: List<String>.from(
-            (json['authentication_tokens'] ?? []).map((item) => item).toList()),
-      );
+    Map<String, dynamic> json,
+  ) => PhoneNumberAuthenticationSettings(
+    allowFlashCall: json['allow_flash_call'],
+    allowMissedCall: json['allow_missed_call'],
+    isCurrentPhoneNumber: json['is_current_phone_number'],
+    hasUnknownPhoneNumber: json['has_unknown_phone_number'],
+    allowSmsRetrieverApi: json['allow_sms_retriever_api'],
+    firebaseAuthenticationSettings:
+        json['firebase_authentication_settings'] == null
+        ? null
+        : FirebaseAuthenticationSettings.fromJson(
+            json['firebase_authentication_settings'],
+          ),
+    authenticationTokens: List<String>.from(
+      (json['authentication_tokens'] ?? []).map((item) => item).toList(),
+    ),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -82,8 +84,8 @@ final class PhoneNumberAuthenticationSettings extends TdObject {
       "is_current_phone_number": isCurrentPhoneNumber,
       "has_unknown_phone_number": hasUnknownPhoneNumber,
       "allow_sms_retriever_api": allowSmsRetrieverApi,
-      "firebase_authentication_settings":
-          firebaseAuthenticationSettings?.toJson(),
+      "firebase_authentication_settings": firebaseAuthenticationSettings
+          ?.toJson(),
       "authentication_tokens": authenticationTokens.map((i) => i).toList(),
     };
   }
@@ -97,7 +99,7 @@ final class PhoneNumberAuthenticationSettings extends TdObject {
   /// * [has_unknown_phone_number]: Pass true if there is a SIM card in the current device, but it is not possible to check whether phone number matches
   /// * [allow_sms_retriever_api]: For official applications only. True, if the application can use Android SMS Retriever API (requires Google Play Services
   /// * [firebase_authentication_settings]: For official Android and iOS applications only; pass null otherwise. Settings for Firebase Authentication
-  /// * [authentication_tokens]: List of up to 20 authentication tokens, recently received in updateOption("authentication_token") in previously logged out sessions
+  /// * [authentication_tokens]: List of up to 20 authentication tokens, recently received in updateOption("authentication_token") in previously logged out sessions; for setAuthenticationPhoneNumber only
   PhoneNumberAuthenticationSettings copyWith({
     bool? allowFlashCall,
     bool? allowMissedCall,
@@ -106,18 +108,16 @@ final class PhoneNumberAuthenticationSettings extends TdObject {
     bool? allowSmsRetrieverApi,
     FirebaseAuthenticationSettings? firebaseAuthenticationSettings,
     List<String>? authenticationTokens,
-  }) =>
-      PhoneNumberAuthenticationSettings(
-        allowFlashCall: allowFlashCall ?? this.allowFlashCall,
-        allowMissedCall: allowMissedCall ?? this.allowMissedCall,
-        isCurrentPhoneNumber: isCurrentPhoneNumber ?? this.isCurrentPhoneNumber,
-        hasUnknownPhoneNumber:
-            hasUnknownPhoneNumber ?? this.hasUnknownPhoneNumber,
-        allowSmsRetrieverApi: allowSmsRetrieverApi ?? this.allowSmsRetrieverApi,
-        firebaseAuthenticationSettings: firebaseAuthenticationSettings ??
-            this.firebaseAuthenticationSettings,
-        authenticationTokens: authenticationTokens ?? this.authenticationTokens,
-      );
+  }) => PhoneNumberAuthenticationSettings(
+    allowFlashCall: allowFlashCall ?? this.allowFlashCall,
+    allowMissedCall: allowMissedCall ?? this.allowMissedCall,
+    isCurrentPhoneNumber: isCurrentPhoneNumber ?? this.isCurrentPhoneNumber,
+    hasUnknownPhoneNumber: hasUnknownPhoneNumber ?? this.hasUnknownPhoneNumber,
+    allowSmsRetrieverApi: allowSmsRetrieverApi ?? this.allowSmsRetrieverApi,
+    firebaseAuthenticationSettings:
+        firebaseAuthenticationSettings ?? this.firebaseAuthenticationSettings,
+    authenticationTokens: authenticationTokens ?? this.authenticationTokens,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'phoneNumberAuthenticationSettings';

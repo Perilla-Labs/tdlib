@@ -15,9 +15,7 @@ final class EditCustomLanguagePackInfo extends TdFunction {
   /// * [info]: New information about the custom local language pack.
   ///
   /// [Ok] is returned on completion.
-  const EditCustomLanguagePackInfo({
-    required this.info,
-  });
+  const EditCustomLanguagePackInfo({required this.info});
 
   /// New information about the custom local language pack
   final LanguagePackInfo info;
@@ -25,23 +23,15 @@ final class EditCustomLanguagePackInfo extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "info": info.toJson(),
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "info": info.toJson(), "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [info]: New information about the custom local language pack
-  EditCustomLanguagePackInfo copyWith({
-    LanguagePackInfo? info,
-  }) =>
-      EditCustomLanguagePackInfo(
-        info: info ?? this.info,
-      );
+  EditCustomLanguagePackInfo copyWith({LanguagePackInfo? info}) =>
+      EditCustomLanguagePackInfo(info: info ?? this.info);
 
   /// TDLib object type
   static const String defaultObjectId = 'editCustomLanguagePackInfo';

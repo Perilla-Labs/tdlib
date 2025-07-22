@@ -32,9 +32,10 @@ final class LocalizationTargetInfo extends TdObject {
   factory LocalizationTargetInfo.fromJson(Map<String, dynamic> json) =>
       LocalizationTargetInfo(
         languagePacks: List<LanguagePackInfo>.from(
-            (json['language_packs'] ?? [])
-                .map((item) => LanguagePackInfo.fromJson(item))
-                .toList()),
+          (json['language_packs'] ?? [])
+              .map((item) => LanguagePackInfo.fromJson(item))
+              .toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -56,12 +57,11 @@ final class LocalizationTargetInfo extends TdObject {
     List<LanguagePackInfo>? languagePacks,
     dynamic extra,
     int? clientId,
-  }) =>
-      LocalizationTargetInfo(
-        languagePacks: languagePacks ?? this.languagePacks,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => LocalizationTargetInfo(
+    languagePacks: languagePacks ?? this.languagePacks,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'localizationTargetInfo';

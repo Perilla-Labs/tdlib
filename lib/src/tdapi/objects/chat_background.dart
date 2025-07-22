@@ -26,9 +26,9 @@ final class ChatBackground extends TdObject {
 
   /// Parse from a json
   factory ChatBackground.fromJson(Map<String, dynamic> json) => ChatBackground(
-        background: Background.fromJson(json['background']),
-        darkThemeDimming: json['dark_theme_dimming'],
-      );
+    background: Background.fromJson(json['background']),
+    darkThemeDimming: json['dark_theme_dimming'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -45,10 +45,7 @@ final class ChatBackground extends TdObject {
   /// Properties:
   /// * [background]: The background
   /// * [dark_theme_dimming]: Dimming of the background in dark themes, as a percentage; 0-100. Applied only to Wallpaper and Fill types of background
-  ChatBackground copyWith({
-    Background? background,
-    int? darkThemeDimming,
-  }) =>
+  ChatBackground copyWith({Background? background, int? darkThemeDimming}) =>
       ChatBackground(
         background: background ?? this.background,
         darkThemeDimming: darkThemeDimming ?? this.darkThemeDimming,

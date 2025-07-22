@@ -16,6 +16,7 @@ sealed class StoryAreaType extends TdObject {
   /// * [StoryAreaTypeMessage]
   /// * [StoryAreaTypeLink]
   /// * [StoryAreaTypeWeather]
+  /// * [StoryAreaTypeUpgradedGift]
   factory StoryAreaType.fromJson(Map<String, dynamic> json) {
     switch (json["@type"]) {
       case StoryAreaTypeLocation.defaultObjectId:
@@ -30,6 +31,8 @@ sealed class StoryAreaType extends TdObject {
         return StoryAreaTypeLink.fromJson(json);
       case StoryAreaTypeWeather.defaultObjectId:
         return StoryAreaTypeWeather.fromJson(json);
+      case StoryAreaTypeUpgradedGift.defaultObjectId:
+        return StoryAreaTypeUpgradedGift.fromJson(json);
       default:
         throw FormatException(
           "Unknown object ${json["@type"]} (expected child of StoryAreaType)",
@@ -70,10 +73,7 @@ final class StoryAreaTypeLocation extends StoryAreaType {
   ///
   /// * [location]: The location.
   /// * [address]: Address of the location; may be null if unknown *(optional)*.
-  const StoryAreaTypeLocation({
-    required this.location,
-    this.address,
-  });
+  const StoryAreaTypeLocation({required this.location, this.address});
 
   /// The location
   final Location location;
@@ -109,11 +109,10 @@ final class StoryAreaTypeLocation extends StoryAreaType {
   StoryAreaTypeLocation copyWith({
     Location? location,
     LocationAddress? address,
-  }) =>
-      StoryAreaTypeLocation(
-        location: location ?? this.location,
-        address: address ?? this.address,
-      );
+  }) => StoryAreaTypeLocation(
+    location: location ?? this.location,
+    address: address ?? this.address,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'storyAreaTypeLocation';
@@ -138,26 +137,19 @@ final class StoryAreaTypeVenue extends StoryAreaType {
   /// An area pointing to a venue.
   ///
   /// * [venue]: Information about the venue.
-  const StoryAreaTypeVenue({
-    required this.venue,
-  });
+  const StoryAreaTypeVenue({required this.venue});
 
   /// Information about the venue
   final Venue venue;
 
   /// Parse from a json
   factory StoryAreaTypeVenue.fromJson(Map<String, dynamic> json) =>
-      StoryAreaTypeVenue(
-        venue: Venue.fromJson(json['venue']),
-      );
+      StoryAreaTypeVenue(venue: Venue.fromJson(json['venue']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "venue": venue.toJson(),
-    };
+    return {"@type": defaultObjectId, "venue": venue.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -165,12 +157,8 @@ final class StoryAreaTypeVenue extends StoryAreaType {
   /// Properties:
   /// * [venue]: Information about the venue
   @override
-  StoryAreaTypeVenue copyWith({
-    Venue? venue,
-  }) =>
-      StoryAreaTypeVenue(
-        venue: venue ?? this.venue,
-      );
+  StoryAreaTypeVenue copyWith({Venue? venue}) =>
+      StoryAreaTypeVenue(venue: venue ?? this.venue);
 
   /// TDLib object type
   static const String defaultObjectId = 'storyAreaTypeVenue';
@@ -254,13 +242,12 @@ final class StoryAreaTypeSuggestedReaction extends StoryAreaType {
     int? totalCount,
     bool? isDark,
     bool? isFlipped,
-  }) =>
-      StoryAreaTypeSuggestedReaction(
-        reactionType: reactionType ?? this.reactionType,
-        totalCount: totalCount ?? this.totalCount,
-        isDark: isDark ?? this.isDark,
-        isFlipped: isFlipped ?? this.isFlipped,
-      );
+  }) => StoryAreaTypeSuggestedReaction(
+    reactionType: reactionType ?? this.reactionType,
+    totalCount: totalCount ?? this.totalCount,
+    isDark: isDark ?? this.isDark,
+    isFlipped: isFlipped ?? this.isFlipped,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'storyAreaTypeSuggestedReaction';
@@ -287,10 +274,7 @@ final class StoryAreaTypeMessage extends StoryAreaType {
   ///
   /// * [chatId]: Identifier of the chat with the message.
   /// * [messageId]: Identifier of the message.
-  const StoryAreaTypeMessage({
-    required this.chatId,
-    required this.messageId,
-  });
+  const StoryAreaTypeMessage({required this.chatId, required this.messageId});
 
   /// Identifier of the chat with the message
   final int chatId;
@@ -321,10 +305,7 @@ final class StoryAreaTypeMessage extends StoryAreaType {
   /// * [chat_id]: Identifier of the chat with the message
   /// * [message_id]: Identifier of the message
   @override
-  StoryAreaTypeMessage copyWith({
-    int? chatId,
-    int? messageId,
-  }) =>
+  StoryAreaTypeMessage copyWith({int? chatId, int? messageId}) =>
       StoryAreaTypeMessage(
         chatId: chatId ?? this.chatId,
         messageId: messageId ?? this.messageId,
@@ -353,26 +334,19 @@ final class StoryAreaTypeLink extends StoryAreaType {
   /// An area pointing to a HTTP or tg:// link.
   ///
   /// * [url]: HTTP or tg:// URL to be opened when the area is clicked.
-  const StoryAreaTypeLink({
-    required this.url,
-  });
+  const StoryAreaTypeLink({required this.url});
 
   /// HTTP or tg:// URL to be opened when the area is clicked
   final String url;
 
   /// Parse from a json
   factory StoryAreaTypeLink.fromJson(Map<String, dynamic> json) =>
-      StoryAreaTypeLink(
-        url: json['url'],
-      );
+      StoryAreaTypeLink(url: json['url']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "url": url,
-    };
+    return {"@type": defaultObjectId, "url": url};
   }
 
   /// Copy model with modified properties.
@@ -380,12 +354,8 @@ final class StoryAreaTypeLink extends StoryAreaType {
   /// Properties:
   /// * [url]: HTTP or tg:// URL to be opened when the area is clicked
   @override
-  StoryAreaTypeLink copyWith({
-    String? url,
-  }) =>
-      StoryAreaTypeLink(
-        url: url ?? this.url,
-      );
+  StoryAreaTypeLink copyWith({String? url}) =>
+      StoryAreaTypeLink(url: url ?? this.url);
 
   /// TDLib object type
   static const String defaultObjectId = 'storyAreaTypeLink';
@@ -459,15 +429,60 @@ final class StoryAreaTypeWeather extends StoryAreaType {
     double? temperature,
     String? emoji,
     int? backgroundColor,
-  }) =>
-      StoryAreaTypeWeather(
-        temperature: temperature ?? this.temperature,
-        emoji: emoji ?? this.emoji,
-        backgroundColor: backgroundColor ?? this.backgroundColor,
-      );
+  }) => StoryAreaTypeWeather(
+    temperature: temperature ?? this.temperature,
+    emoji: emoji ?? this.emoji,
+    backgroundColor: backgroundColor ?? this.backgroundColor,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'storyAreaTypeWeather';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **StoryAreaTypeUpgradedGift** *(storyAreaTypeUpgradedGift)* - child of StoryAreaType
+///
+/// An area with an upgraded gift.
+///
+/// * [giftName]: Unique name of the upgraded gift.
+final class StoryAreaTypeUpgradedGift extends StoryAreaType {
+  /// **StoryAreaTypeUpgradedGift** *(storyAreaTypeUpgradedGift)* - child of StoryAreaType
+  ///
+  /// An area with an upgraded gift.
+  ///
+  /// * [giftName]: Unique name of the upgraded gift.
+  const StoryAreaTypeUpgradedGift({required this.giftName});
+
+  /// Unique name of the upgraded gift
+  final String giftName;
+
+  /// Parse from a json
+  factory StoryAreaTypeUpgradedGift.fromJson(Map<String, dynamic> json) =>
+      StoryAreaTypeUpgradedGift(giftName: json['gift_name']);
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {"@type": defaultObjectId, "gift_name": giftName};
+  }
+
+  /// Copy model with modified properties.
+  ///
+  /// Properties:
+  /// * [gift_name]: Unique name of the upgraded gift
+  @override
+  StoryAreaTypeUpgradedGift copyWith({String? giftName}) =>
+      StoryAreaTypeUpgradedGift(giftName: giftName ?? this.giftName);
+
+  /// TDLib object type
+  static const String defaultObjectId = 'storyAreaTypeUpgradedGift';
 
   /// Convert model to TDLib JSON format, encoded into String.
   @override

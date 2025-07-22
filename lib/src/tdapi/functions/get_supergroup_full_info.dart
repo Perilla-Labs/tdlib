@@ -15,9 +15,7 @@ final class GetSupergroupFullInfo extends TdFunction {
   /// * [supergroupId]: Supergroup or channel identifier.
   ///
   /// [SupergroupFullInfo] is returned on completion.
-  const GetSupergroupFullInfo({
-    required this.supergroupId,
-  });
+  const GetSupergroupFullInfo({required this.supergroupId});
 
   /// Supergroup or channel identifier
   final int supergroupId;
@@ -36,12 +34,8 @@ final class GetSupergroupFullInfo extends TdFunction {
   ///
   /// Properties:
   /// * [supergroup_id]: Supergroup or channel identifier
-  GetSupergroupFullInfo copyWith({
-    int? supergroupId,
-  }) =>
-      GetSupergroupFullInfo(
-        supergroupId: supergroupId ?? this.supergroupId,
-      );
+  GetSupergroupFullInfo copyWith({int? supergroupId}) =>
+      GetSupergroupFullInfo(supergroupId: supergroupId ?? this.supergroupId);
 
   /// TDLib object type
   static const String defaultObjectId = 'getSupergroupFullInfo';

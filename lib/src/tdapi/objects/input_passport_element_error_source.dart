@@ -78,27 +78,22 @@ final class InputPassportElementErrorSourceUnspecified
   /// The element contains an error in an unspecified place. The error will be considered resolved when new data is added.
   ///
   /// * [elementHash]: Current hash of the entire element.
-  const InputPassportElementErrorSourceUnspecified({
-    required this.elementHash,
-  });
+  const InputPassportElementErrorSourceUnspecified({required this.elementHash});
 
   /// Current hash of the entire element
   final String elementHash;
 
   /// Parse from a json
   factory InputPassportElementErrorSourceUnspecified.fromJson(
-          Map<String, dynamic> json) =>
-      InputPassportElementErrorSourceUnspecified(
-        elementHash: json['element_hash'],
-      );
+    Map<String, dynamic> json,
+  ) => InputPassportElementErrorSourceUnspecified(
+    elementHash: json['element_hash'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "element_hash": elementHash,
-    };
+    return {"@type": defaultObjectId, "element_hash": elementHash};
   }
 
   /// Copy model with modified properties.
@@ -106,9 +101,7 @@ final class InputPassportElementErrorSourceUnspecified
   /// Properties:
   /// * [element_hash]: Current hash of the entire element
   @override
-  InputPassportElementErrorSourceUnspecified copyWith({
-    String? elementHash,
-  }) =>
+  InputPassportElementErrorSourceUnspecified copyWith({String? elementHash}) =>
       InputPassportElementErrorSourceUnspecified(
         elementHash: elementHash ?? this.elementHash,
       );
@@ -153,11 +146,11 @@ final class InputPassportElementErrorSourceDataField
 
   /// Parse from a json
   factory InputPassportElementErrorSourceDataField.fromJson(
-          Map<String, dynamic> json) =>
-      InputPassportElementErrorSourceDataField(
-        fieldName: json['field_name'],
-        dataHash: json['data_hash'],
-      );
+    Map<String, dynamic> json,
+  ) => InputPassportElementErrorSourceDataField(
+    fieldName: json['field_name'],
+    dataHash: json['data_hash'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -178,11 +171,10 @@ final class InputPassportElementErrorSourceDataField
   InputPassportElementErrorSourceDataField copyWith({
     String? fieldName,
     String? dataHash,
-  }) =>
-      InputPassportElementErrorSourceDataField(
-        fieldName: fieldName ?? this.fieldName,
-        dataHash: dataHash ?? this.dataHash,
-      );
+  }) => InputPassportElementErrorSourceDataField(
+    fieldName: fieldName ?? this.fieldName,
+    dataHash: dataHash ?? this.dataHash,
+  );
 
   /// TDLib object type
   static const String defaultObjectId =
@@ -209,27 +201,20 @@ final class InputPassportElementErrorSourceFrontSide
   /// The front side of the document contains an error. The error is considered resolved when the file with the front side of the document changes.
   ///
   /// * [fileHash]: Current hash of the file containing the front side.
-  const InputPassportElementErrorSourceFrontSide({
-    required this.fileHash,
-  });
+  const InputPassportElementErrorSourceFrontSide({required this.fileHash});
 
   /// Current hash of the file containing the front side
   final String fileHash;
 
   /// Parse from a json
   factory InputPassportElementErrorSourceFrontSide.fromJson(
-          Map<String, dynamic> json) =>
-      InputPassportElementErrorSourceFrontSide(
-        fileHash: json['file_hash'],
-      );
+    Map<String, dynamic> json,
+  ) => InputPassportElementErrorSourceFrontSide(fileHash: json['file_hash']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "file_hash": fileHash,
-    };
+    return {"@type": defaultObjectId, "file_hash": fileHash};
   }
 
   /// Copy model with modified properties.
@@ -237,9 +222,7 @@ final class InputPassportElementErrorSourceFrontSide
   /// Properties:
   /// * [file_hash]: Current hash of the file containing the front side
   @override
-  InputPassportElementErrorSourceFrontSide copyWith({
-    String? fileHash,
-  }) =>
+  InputPassportElementErrorSourceFrontSide copyWith({String? fileHash}) =>
       InputPassportElementErrorSourceFrontSide(
         fileHash: fileHash ?? this.fileHash,
       );
@@ -269,27 +252,20 @@ final class InputPassportElementErrorSourceReverseSide
   /// The reverse side of the document contains an error. The error is considered resolved when the file with the reverse side of the document changes.
   ///
   /// * [fileHash]: Current hash of the file containing the reverse side.
-  const InputPassportElementErrorSourceReverseSide({
-    required this.fileHash,
-  });
+  const InputPassportElementErrorSourceReverseSide({required this.fileHash});
 
   /// Current hash of the file containing the reverse side
   final String fileHash;
 
   /// Parse from a json
   factory InputPassportElementErrorSourceReverseSide.fromJson(
-          Map<String, dynamic> json) =>
-      InputPassportElementErrorSourceReverseSide(
-        fileHash: json['file_hash'],
-      );
+    Map<String, dynamic> json,
+  ) => InputPassportElementErrorSourceReverseSide(fileHash: json['file_hash']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "file_hash": fileHash,
-    };
+    return {"@type": defaultObjectId, "file_hash": fileHash};
   }
 
   /// Copy model with modified properties.
@@ -297,9 +273,7 @@ final class InputPassportElementErrorSourceReverseSide
   /// Properties:
   /// * [file_hash]: Current hash of the file containing the reverse side
   @override
-  InputPassportElementErrorSourceReverseSide copyWith({
-    String? fileHash,
-  }) =>
+  InputPassportElementErrorSourceReverseSide copyWith({String? fileHash}) =>
       InputPassportElementErrorSourceReverseSide(
         fileHash: fileHash ?? this.fileHash,
       );
@@ -329,27 +303,20 @@ final class InputPassportElementErrorSourceSelfie
   /// The selfie contains an error. The error is considered resolved when the file with the selfie changes.
   ///
   /// * [fileHash]: Current hash of the file containing the selfie.
-  const InputPassportElementErrorSourceSelfie({
-    required this.fileHash,
-  });
+  const InputPassportElementErrorSourceSelfie({required this.fileHash});
 
   /// Current hash of the file containing the selfie
   final String fileHash;
 
   /// Parse from a json
   factory InputPassportElementErrorSourceSelfie.fromJson(
-          Map<String, dynamic> json) =>
-      InputPassportElementErrorSourceSelfie(
-        fileHash: json['file_hash'],
-      );
+    Map<String, dynamic> json,
+  ) => InputPassportElementErrorSourceSelfie(fileHash: json['file_hash']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "file_hash": fileHash,
-    };
+    return {"@type": defaultObjectId, "file_hash": fileHash};
   }
 
   /// Copy model with modified properties.
@@ -357,9 +324,7 @@ final class InputPassportElementErrorSourceSelfie
   /// Properties:
   /// * [file_hash]: Current hash of the file containing the selfie
   @override
-  InputPassportElementErrorSourceSelfie copyWith({
-    String? fileHash,
-  }) =>
+  InputPassportElementErrorSourceSelfie copyWith({String? fileHash}) =>
       InputPassportElementErrorSourceSelfie(
         fileHash: fileHash ?? this.fileHash,
       );
@@ -397,18 +362,15 @@ final class InputPassportElementErrorSourceTranslationFile
 
   /// Parse from a json
   factory InputPassportElementErrorSourceTranslationFile.fromJson(
-          Map<String, dynamic> json) =>
-      InputPassportElementErrorSourceTranslationFile(
-        fileHash: json['file_hash'],
-      );
+    Map<String, dynamic> json,
+  ) => InputPassportElementErrorSourceTranslationFile(
+    fileHash: json['file_hash'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "file_hash": fileHash,
-    };
+    return {"@type": defaultObjectId, "file_hash": fileHash};
   }
 
   /// Copy model with modified properties.
@@ -416,9 +378,7 @@ final class InputPassportElementErrorSourceTranslationFile
   /// Properties:
   /// * [file_hash]: Current hash of the file containing the translation
   @override
-  InputPassportElementErrorSourceTranslationFile copyWith({
-    String? fileHash,
-  }) =>
+  InputPassportElementErrorSourceTranslationFile copyWith({String? fileHash}) =>
       InputPassportElementErrorSourceTranslationFile(
         fileHash: fileHash ?? this.fileHash,
       );
@@ -457,11 +417,12 @@ final class InputPassportElementErrorSourceTranslationFiles
 
   /// Parse from a json
   factory InputPassportElementErrorSourceTranslationFiles.fromJson(
-          Map<String, dynamic> json) =>
-      InputPassportElementErrorSourceTranslationFiles(
-        fileHashes: List<String>.from(
-            (json['file_hashes'] ?? []).map((item) => item).toList()),
-      );
+    Map<String, dynamic> json,
+  ) => InputPassportElementErrorSourceTranslationFiles(
+    fileHashes: List<String>.from(
+      (json['file_hashes'] ?? []).map((item) => item).toList(),
+    ),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -479,10 +440,9 @@ final class InputPassportElementErrorSourceTranslationFiles
   @override
   InputPassportElementErrorSourceTranslationFiles copyWith({
     List<String>? fileHashes,
-  }) =>
-      InputPassportElementErrorSourceTranslationFiles(
-        fileHashes: fileHashes ?? this.fileHashes,
-      );
+  }) => InputPassportElementErrorSourceTranslationFiles(
+    fileHashes: fileHashes ?? this.fileHashes,
+  );
 
   /// TDLib object type
   static const String defaultObjectId =
@@ -509,27 +469,20 @@ final class InputPassportElementErrorSourceFile
   /// The file contains an error. The error is considered resolved when the file changes.
   ///
   /// * [fileHash]: Current hash of the file which has the error.
-  const InputPassportElementErrorSourceFile({
-    required this.fileHash,
-  });
+  const InputPassportElementErrorSourceFile({required this.fileHash});
 
   /// Current hash of the file which has the error
   final String fileHash;
 
   /// Parse from a json
   factory InputPassportElementErrorSourceFile.fromJson(
-          Map<String, dynamic> json) =>
-      InputPassportElementErrorSourceFile(
-        fileHash: json['file_hash'],
-      );
+    Map<String, dynamic> json,
+  ) => InputPassportElementErrorSourceFile(fileHash: json['file_hash']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "file_hash": fileHash,
-    };
+    return {"@type": defaultObjectId, "file_hash": fileHash};
   }
 
   /// Copy model with modified properties.
@@ -537,12 +490,8 @@ final class InputPassportElementErrorSourceFile
   /// Properties:
   /// * [file_hash]: Current hash of the file which has the error
   @override
-  InputPassportElementErrorSourceFile copyWith({
-    String? fileHash,
-  }) =>
-      InputPassportElementErrorSourceFile(
-        fileHash: fileHash ?? this.fileHash,
-      );
+  InputPassportElementErrorSourceFile copyWith({String? fileHash}) =>
+      InputPassportElementErrorSourceFile(fileHash: fileHash ?? this.fileHash);
 
   /// TDLib object type
   static const String defaultObjectId = 'inputPassportElementErrorSourceFile';
@@ -568,20 +517,19 @@ final class InputPassportElementErrorSourceFiles
   /// The list of attached files contains an error. The error is considered resolved when the file list changes.
   ///
   /// * [fileHashes]: Current hashes of all attached files.
-  const InputPassportElementErrorSourceFiles({
-    required this.fileHashes,
-  });
+  const InputPassportElementErrorSourceFiles({required this.fileHashes});
 
   /// Current hashes of all attached files
   final List<String> fileHashes;
 
   /// Parse from a json
   factory InputPassportElementErrorSourceFiles.fromJson(
-          Map<String, dynamic> json) =>
-      InputPassportElementErrorSourceFiles(
-        fileHashes: List<String>.from(
-            (json['file_hashes'] ?? []).map((item) => item).toList()),
-      );
+    Map<String, dynamic> json,
+  ) => InputPassportElementErrorSourceFiles(
+    fileHashes: List<String>.from(
+      (json['file_hashes'] ?? []).map((item) => item).toList(),
+    ),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -597,9 +545,7 @@ final class InputPassportElementErrorSourceFiles
   /// Properties:
   /// * [file_hashes]: Current hashes of all attached files
   @override
-  InputPassportElementErrorSourceFiles copyWith({
-    List<String>? fileHashes,
-  }) =>
+  InputPassportElementErrorSourceFiles copyWith({List<String>? fileHashes}) =>
       InputPassportElementErrorSourceFiles(
         fileHashes: fileHashes ?? this.fileHashes,
       );

@@ -17,10 +17,7 @@ final class SetChatPermissions extends TdFunction {
   /// * [permissions]: New non-administrator members permissions in the chat.
   ///
   /// [Ok] is returned on completion.
-  const SetChatPermissions({
-    required this.chatId,
-    required this.permissions,
-  });
+  const SetChatPermissions({required this.chatId, required this.permissions});
 
   /// Chat identifier
   final int chatId;
@@ -44,10 +41,7 @@ final class SetChatPermissions extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [permissions]: New non-administrator members permissions in the chat
-  SetChatPermissions copyWith({
-    int? chatId,
-    ChatPermissions? permissions,
-  }) =>
+  SetChatPermissions copyWith({int? chatId, ChatPermissions? permissions}) =>
       SetChatPermissions(
         chatId: chatId ?? this.chatId,
         permissions: permissions ?? this.permissions,

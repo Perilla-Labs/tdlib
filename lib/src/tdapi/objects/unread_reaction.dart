@@ -32,10 +32,10 @@ final class UnreadReaction extends TdObject {
 
   /// Parse from a json
   factory UnreadReaction.fromJson(Map<String, dynamic> json) => UnreadReaction(
-        type: ReactionType.fromJson(json['type']),
-        senderId: MessageSender.fromJson(json['sender_id']),
-        isBig: json['is_big'],
-      );
+    type: ReactionType.fromJson(json['type']),
+    senderId: MessageSender.fromJson(json['sender_id']),
+    isBig: json['is_big'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -58,12 +58,11 @@ final class UnreadReaction extends TdObject {
     ReactionType? type,
     MessageSender? senderId,
     bool? isBig,
-  }) =>
-      UnreadReaction(
-        type: type ?? this.type,
-        senderId: senderId ?? this.senderId,
-        isBig: isBig ?? this.isBig,
-      );
+  }) => UnreadReaction(
+    type: type ?? this.type,
+    senderId: senderId ?? this.senderId,
+    isBig: isBig ?? this.isBig,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'unreadReaction';

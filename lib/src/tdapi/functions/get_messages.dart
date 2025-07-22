@@ -17,10 +17,7 @@ final class GetMessages extends TdFunction {
   /// * [messageIds]: Identifiers of the messages to get.
   ///
   /// [Messages] is returned on completion.
-  const GetMessages({
-    required this.chatId,
-    required this.messageIds,
-  });
+  const GetMessages({required this.chatId, required this.messageIds});
 
   /// Identifier of the chat the messages belong to
   final int chatId;
@@ -44,14 +41,10 @@ final class GetMessages extends TdFunction {
   /// Properties:
   /// * [chat_id]: Identifier of the chat the messages belong to
   /// * [message_ids]: Identifiers of the messages to get
-  GetMessages copyWith({
-    int? chatId,
-    List<int>? messageIds,
-  }) =>
-      GetMessages(
-        chatId: chatId ?? this.chatId,
-        messageIds: messageIds ?? this.messageIds,
-      );
+  GetMessages copyWith({int? chatId, List<int>? messageIds}) => GetMessages(
+    chatId: chatId ?? this.chatId,
+    messageIds: messageIds ?? this.messageIds,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getMessages';

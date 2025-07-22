@@ -11,11 +11,7 @@ final class ChatMessageSenders extends TdObject {
   /// Represents a list of message senders, which can be used to send messages in a chat.
   ///
   /// * [senders]: List of available message senders.
-  const ChatMessageSenders({
-    required this.senders,
-    this.extra,
-    this.clientId,
-  });
+  const ChatMessageSenders({required this.senders, this.extra, this.clientId});
 
   /// List of available message senders
   final List<ChatMessageSender> senders;
@@ -31,9 +27,11 @@ final class ChatMessageSenders extends TdObject {
   /// Parse from a json
   factory ChatMessageSenders.fromJson(Map<String, dynamic> json) =>
       ChatMessageSenders(
-        senders: List<ChatMessageSender>.from((json['senders'] ?? [])
-            .map((item) => ChatMessageSender.fromJson(item))
-            .toList()),
+        senders: List<ChatMessageSender>.from(
+          (json['senders'] ?? [])
+              .map((item) => ChatMessageSender.fromJson(item))
+              .toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -55,12 +53,11 @@ final class ChatMessageSenders extends TdObject {
     List<ChatMessageSender>? senders,
     dynamic extra,
     int? clientId,
-  }) =>
-      ChatMessageSenders(
-        senders: senders ?? this.senders,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => ChatMessageSenders(
+    senders: senders ?? this.senders,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatMessageSenders';

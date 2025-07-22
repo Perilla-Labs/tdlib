@@ -47,11 +47,10 @@ final class SendPassportAuthorizationForm extends TdFunction {
   SendPassportAuthorizationForm copyWith({
     int? authorizationFormId,
     List<PassportElementType>? types,
-  }) =>
-      SendPassportAuthorizationForm(
-        authorizationFormId: authorizationFormId ?? this.authorizationFormId,
-        types: types ?? this.types,
-      );
+  }) => SendPassportAuthorizationForm(
+    authorizationFormId: authorizationFormId ?? this.authorizationFormId,
+    types: types ?? this.types,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'sendPassportAuthorizationForm';

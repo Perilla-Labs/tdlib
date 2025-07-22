@@ -36,13 +36,15 @@ final class FormattedText extends TdObject {
 
   /// Parse from a json
   factory FormattedText.fromJson(Map<String, dynamic> json) => FormattedText(
-        text: json['text'],
-        entities: List<TextEntity>.from((json['entities'] ?? [])
-            .map((item) => TextEntity.fromJson(item))
-            .toList()),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    text: json['text'],
+    entities: List<TextEntity>.from(
+      (json['entities'] ?? [])
+          .map((item) => TextEntity.fromJson(item))
+          .toList(),
+    ),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -64,13 +66,12 @@ final class FormattedText extends TdObject {
     List<TextEntity>? entities,
     dynamic extra,
     int? clientId,
-  }) =>
-      FormattedText(
-        text: text ?? this.text,
-        entities: entities ?? this.entities,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => FormattedText(
+    text: text ?? this.text,
+    entities: entities ?? this.entities,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'formattedText';

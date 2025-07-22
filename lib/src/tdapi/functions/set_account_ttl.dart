@@ -15,9 +15,7 @@ final class SetAccountTtl extends TdFunction {
   /// * [ttl]: New account TTL.
   ///
   /// [Ok] is returned on completion.
-  const SetAccountTtl({
-    required this.ttl,
-  });
+  const SetAccountTtl({required this.ttl});
 
   /// New account TTL
   final AccountTtl ttl;
@@ -25,23 +23,15 @@ final class SetAccountTtl extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "ttl": ttl.toJson(),
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "ttl": ttl.toJson(), "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [ttl]: New account TTL
-  SetAccountTtl copyWith({
-    AccountTtl? ttl,
-  }) =>
-      SetAccountTtl(
-        ttl: ttl ?? this.ttl,
-      );
+  SetAccountTtl copyWith({AccountTtl? ttl}) =>
+      SetAccountTtl(ttl: ttl ?? this.ttl);
 
   /// TDLib object type
   static const String defaultObjectId = 'setAccountTtl';

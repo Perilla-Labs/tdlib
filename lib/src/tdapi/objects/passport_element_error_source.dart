@@ -78,15 +78,13 @@ final class PassportElementErrorSourceUnspecified
 
   /// Parse from a json
   factory PassportElementErrorSourceUnspecified.fromJson(
-          Map<String, dynamic> json) =>
-      const PassportElementErrorSourceUnspecified();
+    Map<String, dynamic> json,
+  ) => const PassportElementErrorSourceUnspecified();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -118,27 +116,20 @@ final class PassportElementErrorSourceDataField
   /// One of the data fields contains an error. The error will be considered resolved when the value of the field changes.
   ///
   /// * [fieldName]: Field name.
-  const PassportElementErrorSourceDataField({
-    required this.fieldName,
-  });
+  const PassportElementErrorSourceDataField({required this.fieldName});
 
   /// Field name
   final String fieldName;
 
   /// Parse from a json
   factory PassportElementErrorSourceDataField.fromJson(
-          Map<String, dynamic> json) =>
-      PassportElementErrorSourceDataField(
-        fieldName: json['field_name'],
-      );
+    Map<String, dynamic> json,
+  ) => PassportElementErrorSourceDataField(fieldName: json['field_name']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "field_name": fieldName,
-    };
+    return {"@type": defaultObjectId, "field_name": fieldName};
   }
 
   /// Copy model with modified properties.
@@ -146,9 +137,7 @@ final class PassportElementErrorSourceDataField
   /// Properties:
   /// * [field_name]: Field name
   @override
-  PassportElementErrorSourceDataField copyWith({
-    String? fieldName,
-  }) =>
+  PassportElementErrorSourceDataField copyWith({String? fieldName}) =>
       PassportElementErrorSourceDataField(
         fieldName: fieldName ?? this.fieldName,
       );
@@ -177,15 +166,13 @@ final class PassportElementErrorSourceFrontSide
 
   /// Parse from a json
   factory PassportElementErrorSourceFrontSide.fromJson(
-          Map<String, dynamic> json) =>
-      const PassportElementErrorSourceFrontSide();
+    Map<String, dynamic> json,
+  ) => const PassportElementErrorSourceFrontSide();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -217,15 +204,13 @@ final class PassportElementErrorSourceReverseSide
 
   /// Parse from a json
   factory PassportElementErrorSourceReverseSide.fromJson(
-          Map<String, dynamic> json) =>
-      const PassportElementErrorSourceReverseSide();
+    Map<String, dynamic> json,
+  ) => const PassportElementErrorSourceReverseSide();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -257,15 +242,13 @@ final class PassportElementErrorSourceSelfie
 
   /// Parse from a json
   factory PassportElementErrorSourceSelfie.fromJson(
-          Map<String, dynamic> json) =>
-      const PassportElementErrorSourceSelfie();
+    Map<String, dynamic> json,
+  ) => const PassportElementErrorSourceSelfie();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -297,27 +280,20 @@ final class PassportElementErrorSourceTranslationFile
   /// One of files with the translation of the document contains an error. The error will be considered resolved when the file changes.
   ///
   /// * [fileIndex]: Index of a file with the error.
-  const PassportElementErrorSourceTranslationFile({
-    required this.fileIndex,
-  });
+  const PassportElementErrorSourceTranslationFile({required this.fileIndex});
 
   /// Index of a file with the error
   final int fileIndex;
 
   /// Parse from a json
   factory PassportElementErrorSourceTranslationFile.fromJson(
-          Map<String, dynamic> json) =>
-      PassportElementErrorSourceTranslationFile(
-        fileIndex: json['file_index'],
-      );
+    Map<String, dynamic> json,
+  ) => PassportElementErrorSourceTranslationFile(fileIndex: json['file_index']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "file_index": fileIndex,
-    };
+    return {"@type": defaultObjectId, "file_index": fileIndex};
   }
 
   /// Copy model with modified properties.
@@ -325,9 +301,7 @@ final class PassportElementErrorSourceTranslationFile
   /// Properties:
   /// * [file_index]: Index of a file with the error
   @override
-  PassportElementErrorSourceTranslationFile copyWith({
-    int? fileIndex,
-  }) =>
+  PassportElementErrorSourceTranslationFile copyWith({int? fileIndex}) =>
       PassportElementErrorSourceTranslationFile(
         fileIndex: fileIndex ?? this.fileIndex,
       );
@@ -357,15 +331,13 @@ final class PassportElementErrorSourceTranslationFiles
 
   /// Parse from a json
   factory PassportElementErrorSourceTranslationFiles.fromJson(
-          Map<String, dynamic> json) =>
-      const PassportElementErrorSourceTranslationFiles();
+    Map<String, dynamic> json,
+  ) => const PassportElementErrorSourceTranslationFiles();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -397,26 +369,19 @@ final class PassportElementErrorSourceFile extends PassportElementErrorSource {
   /// The file contains an error. The error will be considered resolved when the file changes.
   ///
   /// * [fileIndex]: Index of a file with the error.
-  const PassportElementErrorSourceFile({
-    required this.fileIndex,
-  });
+  const PassportElementErrorSourceFile({required this.fileIndex});
 
   /// Index of a file with the error
   final int fileIndex;
 
   /// Parse from a json
   factory PassportElementErrorSourceFile.fromJson(Map<String, dynamic> json) =>
-      PassportElementErrorSourceFile(
-        fileIndex: json['file_index'],
-      );
+      PassportElementErrorSourceFile(fileIndex: json['file_index']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "file_index": fileIndex,
-    };
+    return {"@type": defaultObjectId, "file_index": fileIndex};
   }
 
   /// Copy model with modified properties.
@@ -424,12 +389,8 @@ final class PassportElementErrorSourceFile extends PassportElementErrorSource {
   /// Properties:
   /// * [file_index]: Index of a file with the error
   @override
-  PassportElementErrorSourceFile copyWith({
-    int? fileIndex,
-  }) =>
-      PassportElementErrorSourceFile(
-        fileIndex: fileIndex ?? this.fileIndex,
-      );
+  PassportElementErrorSourceFile copyWith({int? fileIndex}) =>
+      PassportElementErrorSourceFile(fileIndex: fileIndex ?? this.fileIndex);
 
   /// TDLib object type
   static const String defaultObjectId = 'passportElementErrorSourceFile';
@@ -459,9 +420,7 @@ final class PassportElementErrorSourceFiles extends PassportElementErrorSource {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.

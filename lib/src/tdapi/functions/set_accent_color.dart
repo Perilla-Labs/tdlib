@@ -44,10 +44,7 @@ final class SetAccentColor extends TdFunction {
   /// Properties:
   /// * [accent_color_id]: Identifier of the accent color to use
   /// * [background_custom_emoji_id]: Identifier of a custom emoji to be shown on the reply header and link preview background; 0 if none
-  SetAccentColor copyWith({
-    int? accentColorId,
-    int? backgroundCustomEmojiId,
-  }) =>
+  SetAccentColor copyWith({int? accentColorId, int? backgroundCustomEmojiId}) =>
       SetAccentColor(
         accentColorId: accentColorId ?? this.accentColorId,
         backgroundCustomEmojiId:

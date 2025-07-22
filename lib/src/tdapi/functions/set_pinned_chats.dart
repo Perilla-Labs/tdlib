@@ -17,10 +17,7 @@ final class SetPinnedChats extends TdFunction {
   /// * [chatIds]: The new list of pinned chats.
   ///
   /// [Ok] is returned on completion.
-  const SetPinnedChats({
-    required this.chatList,
-    required this.chatIds,
-  });
+  const SetPinnedChats({required this.chatList, required this.chatIds});
 
   /// Chat list in which to change the order of pinned chats
   final ChatList chatList;
@@ -44,10 +41,7 @@ final class SetPinnedChats extends TdFunction {
   /// Properties:
   /// * [chat_list]: Chat list in which to change the order of pinned chats
   /// * [chat_ids]: The new list of pinned chats
-  SetPinnedChats copyWith({
-    ChatList? chatList,
-    List<int>? chatIds,
-  }) =>
+  SetPinnedChats copyWith({ChatList? chatList, List<int>? chatIds}) =>
       SetPinnedChats(
         chatList: chatList ?? this.chatList,
         chatIds: chatIds ?? this.chatIds,

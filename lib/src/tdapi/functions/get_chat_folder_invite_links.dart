@@ -15,9 +15,7 @@ final class GetChatFolderInviteLinks extends TdFunction {
   /// * [chatFolderId]: Chat folder identifier.
   ///
   /// [ChatFolderInviteLinks] is returned on completion.
-  const GetChatFolderInviteLinks({
-    required this.chatFolderId,
-  });
+  const GetChatFolderInviteLinks({required this.chatFolderId});
 
   /// Chat folder identifier
   final int chatFolderId;
@@ -36,12 +34,8 @@ final class GetChatFolderInviteLinks extends TdFunction {
   ///
   /// Properties:
   /// * [chat_folder_id]: Chat folder identifier
-  GetChatFolderInviteLinks copyWith({
-    int? chatFolderId,
-  }) =>
-      GetChatFolderInviteLinks(
-        chatFolderId: chatFolderId ?? this.chatFolderId,
-      );
+  GetChatFolderInviteLinks copyWith({int? chatFolderId}) =>
+      GetChatFolderInviteLinks(chatFolderId: chatFolderId ?? this.chatFolderId);
 
   /// TDLib object type
   static const String defaultObjectId = 'getChatFolderInviteLinks';

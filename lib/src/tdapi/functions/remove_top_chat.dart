@@ -17,10 +17,7 @@ final class RemoveTopChat extends TdFunction {
   /// * [chatId]: Chat identifier.
   ///
   /// [Ok] is returned on completion.
-  const RemoveTopChat({
-    required this.category,
-    required this.chatId,
-  });
+  const RemoveTopChat({required this.category, required this.chatId});
 
   /// Category of frequently used chats
   final TopChatCategory category;
@@ -44,10 +41,7 @@ final class RemoveTopChat extends TdFunction {
   /// Properties:
   /// * [category]: Category of frequently used chats
   /// * [chat_id]: Chat identifier
-  RemoveTopChat copyWith({
-    TopChatCategory? category,
-    int? chatId,
-  }) =>
+  RemoveTopChat copyWith({TopChatCategory? category, int? chatId}) =>
       RemoveTopChat(
         category: category ?? this.category,
         chatId: chatId ?? this.chatId,

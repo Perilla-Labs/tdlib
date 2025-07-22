@@ -17,10 +17,7 @@ final class ParseTextEntities extends TdFunction {
   /// * [parseMode]: Text parse mode.
   ///
   /// [FormattedText] is returned on completion.
-  const ParseTextEntities({
-    required this.text,
-    required this.parseMode,
-  });
+  const ParseTextEntities({required this.text, required this.parseMode});
 
   /// The text to parse
   final String text;
@@ -44,10 +41,7 @@ final class ParseTextEntities extends TdFunction {
   /// Properties:
   /// * [text]: The text to parse
   /// * [parse_mode]: Text parse mode
-  ParseTextEntities copyWith({
-    String? text,
-    TextParseMode? parseMode,
-  }) =>
+  ParseTextEntities copyWith({String? text, TextParseMode? parseMode}) =>
       ParseTextEntities(
         text: text ?? this.text,
         parseMode: parseMode ?? this.parseMode,

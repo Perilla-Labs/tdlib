@@ -69,13 +69,12 @@ final class PremiumStatePaymentOption extends TdObject {
     bool? isCurrent,
     bool? isUpgrade,
     String? lastTransactionId,
-  }) =>
-      PremiumStatePaymentOption(
-        paymentOption: paymentOption ?? this.paymentOption,
-        isCurrent: isCurrent ?? this.isCurrent,
-        isUpgrade: isUpgrade ?? this.isUpgrade,
-        lastTransactionId: lastTransactionId ?? this.lastTransactionId,
-      );
+  }) => PremiumStatePaymentOption(
+    paymentOption: paymentOption ?? this.paymentOption,
+    isCurrent: isCurrent ?? this.isCurrent,
+    isUpgrade: isUpgrade ?? this.isUpgrade,
+    lastTransactionId: lastTransactionId ?? this.lastTransactionId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'premiumStatePaymentOption';

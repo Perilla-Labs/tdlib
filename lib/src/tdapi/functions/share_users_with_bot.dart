@@ -74,14 +74,13 @@ final class ShareUsersWithBot extends TdFunction {
     int? buttonId,
     List<int>? sharedUserIds,
     bool? onlyCheck,
-  }) =>
-      ShareUsersWithBot(
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        buttonId: buttonId ?? this.buttonId,
-        sharedUserIds: sharedUserIds ?? this.sharedUserIds,
-        onlyCheck: onlyCheck ?? this.onlyCheck,
-      );
+  }) => ShareUsersWithBot(
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    buttonId: buttonId ?? this.buttonId,
+    sharedUserIds: sharedUserIds ?? this.sharedUserIds,
+    onlyCheck: onlyCheck ?? this.onlyCheck,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'shareUsersWithBot';

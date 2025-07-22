@@ -17,10 +17,7 @@ final class SetChatTitle extends TdFunction {
   /// * [title]: New title of the chat; 1-128 characters.
   ///
   /// [Ok] is returned on completion.
-  const SetChatTitle({
-    required this.chatId,
-    required this.title,
-  });
+  const SetChatTitle({required this.chatId, required this.title});
 
   /// Chat identifier
   final int chatId;
@@ -44,14 +41,8 @@ final class SetChatTitle extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [title]: New title of the chat; 1-128 characters
-  SetChatTitle copyWith({
-    int? chatId,
-    String? title,
-  }) =>
-      SetChatTitle(
-        chatId: chatId ?? this.chatId,
-        title: title ?? this.title,
-      );
+  SetChatTitle copyWith({int? chatId, String? title}) =>
+      SetChatTitle(chatId: chatId ?? this.chatId, title: title ?? this.title);
 
   /// TDLib object type
   static const String defaultObjectId = 'setChatTitle';

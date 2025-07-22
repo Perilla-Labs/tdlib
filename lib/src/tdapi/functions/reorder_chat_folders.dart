@@ -47,11 +47,10 @@ final class ReorderChatFolders extends TdFunction {
   ReorderChatFolders copyWith({
     List<int>? chatFolderIds,
     int? mainChatListPosition,
-  }) =>
-      ReorderChatFolders(
-        chatFolderIds: chatFolderIds ?? this.chatFolderIds,
-        mainChatListPosition: mainChatListPosition ?? this.mainChatListPosition,
-      );
+  }) => ReorderChatFolders(
+    chatFolderIds: chatFolderIds ?? this.chatFolderIds,
+    mainChatListPosition: mainChatListPosition ?? this.mainChatListPosition,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'reorderChatFolders';

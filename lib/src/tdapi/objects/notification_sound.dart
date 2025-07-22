@@ -103,17 +103,16 @@ final class NotificationSound extends TdObject {
     File? sound,
     dynamic extra,
     int? clientId,
-  }) =>
-      NotificationSound(
-        id: id ?? this.id,
-        duration: duration ?? this.duration,
-        date: date ?? this.date,
-        title: title ?? this.title,
-        data: data ?? this.data,
-        sound: sound ?? this.sound,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => NotificationSound(
+    id: id ?? this.id,
+    duration: duration ?? this.duration,
+    date: date ?? this.date,
+    title: title ?? this.title,
+    data: data ?? this.data,
+    sound: sound ?? this.sound,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'notificationSound';

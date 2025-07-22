@@ -4,7 +4,7 @@ part of '../tdapi.dart';
 ///
 /// Contains basic information about a story.
 ///
-/// * [storyId]: Unique story identifier among stories of the given sender.
+/// * [storyId]: Unique story identifier among stories of the chat.
 /// * [date]: Point in time (Unix timestamp) when the story was published.
 /// * [isForCloseFriends]: True, if the story is available only to close friends.
 final class StoryInfo extends TdObject {
@@ -12,7 +12,7 @@ final class StoryInfo extends TdObject {
   ///
   /// Contains basic information about a story.
   ///
-  /// * [storyId]: Unique story identifier among stories of the given sender.
+  /// * [storyId]: Unique story identifier among stories of the chat.
   /// * [date]: Point in time (Unix timestamp) when the story was published.
   /// * [isForCloseFriends]: True, if the story is available only to close friends.
   const StoryInfo({
@@ -21,7 +21,7 @@ final class StoryInfo extends TdObject {
     required this.isForCloseFriends,
   });
 
-  /// Unique story identifier among stories of the given sender
+  /// Unique story identifier among stories of the chat
   final int storyId;
 
   /// Point in time (Unix timestamp) when the story was published
@@ -32,10 +32,10 @@ final class StoryInfo extends TdObject {
 
   /// Parse from a json
   factory StoryInfo.fromJson(Map<String, dynamic> json) => StoryInfo(
-        storyId: json['story_id'],
-        date: json['date'],
-        isForCloseFriends: json['is_for_close_friends'],
-      );
+    storyId: json['story_id'],
+    date: json['date'],
+    isForCloseFriends: json['is_for_close_friends'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -51,14 +51,10 @@ final class StoryInfo extends TdObject {
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [story_id]: Unique story identifier among stories of the given sender
+  /// * [story_id]: Unique story identifier among stories of the chat
   /// * [date]: Point in time (Unix timestamp) when the story was published
   /// * [is_for_close_friends]: True, if the story is available only to close friends
-  StoryInfo copyWith({
-    int? storyId,
-    int? date,
-    bool? isForCloseFriends,
-  }) =>
+  StoryInfo copyWith({int? storyId, int? date, bool? isForCloseFriends}) =>
       StoryInfo(
         storyId: storyId ?? this.storyId,
         date: date ?? this.date,

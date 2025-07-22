@@ -13,10 +13,7 @@ final class ChatLocation extends TdObject {
   ///
   /// * [location]: The location.
   /// * [address]: Location address; 1-64 characters, as defined by the chat owner.
-  const ChatLocation({
-    required this.location,
-    required this.address,
-  });
+  const ChatLocation({required this.location, required this.address});
 
   /// The location
   final Location location;
@@ -26,9 +23,9 @@ final class ChatLocation extends TdObject {
 
   /// Parse from a json
   factory ChatLocation.fromJson(Map<String, dynamic> json) => ChatLocation(
-        location: Location.fromJson(json['location']),
-        address: json['address'],
-      );
+    location: Location.fromJson(json['location']),
+    address: json['address'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -45,14 +42,10 @@ final class ChatLocation extends TdObject {
   /// Properties:
   /// * [location]: The location
   /// * [address]: Location address; 1-64 characters, as defined by the chat owner
-  ChatLocation copyWith({
-    Location? location,
-    String? address,
-  }) =>
-      ChatLocation(
-        location: location ?? this.location,
-        address: address ?? this.address,
-      );
+  ChatLocation copyWith({Location? location, String? address}) => ChatLocation(
+    location: location ?? this.location,
+    address: address ?? this.address,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatLocation';

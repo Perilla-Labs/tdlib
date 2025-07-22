@@ -17,10 +17,7 @@ final class SetPassportElementErrors extends TdFunction {
   /// * [errors]: The errors.
   ///
   /// [Ok] is returned on completion.
-  const SetPassportElementErrors({
-    required this.userId,
-    required this.errors,
-  });
+  const SetPassportElementErrors({required this.userId, required this.errors});
 
   /// User identifier
   final int userId;
@@ -47,11 +44,10 @@ final class SetPassportElementErrors extends TdFunction {
   SetPassportElementErrors copyWith({
     int? userId,
     List<InputPassportElementError>? errors,
-  }) =>
-      SetPassportElementErrors(
-        userId: userId ?? this.userId,
-        errors: errors ?? this.errors,
-      );
+  }) => SetPassportElementErrors(
+    userId: userId ?? this.userId,
+    errors: errors ?? this.errors,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setPassportElementErrors';

@@ -59,12 +59,11 @@ final class BusinessGreetingMessageSettings extends TdObject {
     int? shortcutId,
     BusinessRecipients? recipients,
     int? inactivityDays,
-  }) =>
-      BusinessGreetingMessageSettings(
-        shortcutId: shortcutId ?? this.shortcutId,
-        recipients: recipients ?? this.recipients,
-        inactivityDays: inactivityDays ?? this.inactivityDays,
-      );
+  }) => BusinessGreetingMessageSettings(
+    shortcutId: shortcutId ?? this.shortcutId,
+    recipients: recipients ?? this.recipients,
+    inactivityDays: inactivityDays ?? this.inactivityDays,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'businessGreetingMessageSettings';

@@ -15,9 +15,7 @@ final class SetLogStream extends TdFunction {
   /// * [logStream]: New log stream.
   ///
   /// [Ok] is returned on completion.
-  const SetLogStream({
-    required this.logStream,
-  });
+  const SetLogStream({required this.logStream});
 
   /// New log stream
   final LogStream logStream;
@@ -36,12 +34,8 @@ final class SetLogStream extends TdFunction {
   ///
   /// Properties:
   /// * [log_stream]: New log stream
-  SetLogStream copyWith({
-    LogStream? logStream,
-  }) =>
-      SetLogStream(
-        logStream: logStream ?? this.logStream,
-      );
+  SetLogStream copyWith({LogStream? logStream}) =>
+      SetLogStream(logStream: logStream ?? this.logStream);
 
   /// TDLib object type
   static const String defaultObjectId = 'setLogStream';

@@ -44,10 +44,7 @@ final class LoadGroupCallParticipants extends TdFunction {
   /// Properties:
   /// * [group_call_id]: Group call identifier. The group call must be previously received through getGroupCall and must be joined or being joined
   /// * [limit]: The maximum number of participants to load; up to 100
-  LoadGroupCallParticipants copyWith({
-    int? groupCallId,
-    int? limit,
-  }) =>
+  LoadGroupCallParticipants copyWith({int? groupCallId, int? limit}) =>
       LoadGroupCallParticipants(
         groupCallId: groupCallId ?? this.groupCallId,
         limit: limit ?? this.limit,

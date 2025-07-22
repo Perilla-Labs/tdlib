@@ -56,12 +56,11 @@ final class TranslateMessageText extends TdFunction {
     int? chatId,
     int? messageId,
     String? toLanguageCode,
-  }) =>
-      TranslateMessageText(
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        toLanguageCode: toLanguageCode ?? this.toLanguageCode,
-      );
+  }) => TranslateMessageText(
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    toLanguageCode: toLanguageCode ?? this.toLanguageCode,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'translateMessageText';

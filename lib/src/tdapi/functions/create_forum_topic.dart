@@ -56,12 +56,11 @@ final class CreateForumTopic extends TdFunction {
     int? chatId,
     String? name,
     ForumTopicIcon? icon,
-  }) =>
-      CreateForumTopic(
-        chatId: chatId ?? this.chatId,
-        name: name ?? this.name,
-        icon: icon ?? this.icon,
-      );
+  }) => CreateForumTopic(
+    chatId: chatId ?? this.chatId,
+    name: name ?? this.name,
+    icon: icon ?? this.icon,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'createForumTopic';

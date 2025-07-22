@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **GetChatMessageByDate** *(getChatMessageByDate)* - TDLib function
 ///
-/// Returns the last message sent in a chat no later than the specified date.
+/// Returns the last message sent in a chat no later than the specified date. Returns a 404 error if such message doesn't exist.
 ///
 /// * [chatId]: Chat identifier.
 /// * [date]: Point in time (Unix timestamp) relative to which to search for messages.
@@ -11,16 +11,13 @@ part of '../tdapi.dart';
 final class GetChatMessageByDate extends TdFunction {
   /// **GetChatMessageByDate** *(getChatMessageByDate)* - TDLib function
   ///
-  /// Returns the last message sent in a chat no later than the specified date.
+  /// Returns the last message sent in a chat no later than the specified date. Returns a 404 error if such message doesn't exist.
   ///
   /// * [chatId]: Chat identifier.
   /// * [date]: Point in time (Unix timestamp) relative to which to search for messages.
   ///
   /// [Message] is returned on completion.
-  const GetChatMessageByDate({
-    required this.chatId,
-    required this.date,
-  });
+  const GetChatMessageByDate({required this.chatId, required this.date});
 
   /// Chat identifier
   final int chatId;
@@ -44,10 +41,7 @@ final class GetChatMessageByDate extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [date]: Point in time (Unix timestamp) relative to which to search for messages
-  GetChatMessageByDate copyWith({
-    int? chatId,
-    int? date,
-  }) =>
+  GetChatMessageByDate copyWith({int? chatId, int? date}) =>
       GetChatMessageByDate(
         chatId: chatId ?? this.chatId,
         date: date ?? this.date,

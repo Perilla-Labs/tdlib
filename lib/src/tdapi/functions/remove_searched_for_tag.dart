@@ -15,9 +15,7 @@ final class RemoveSearchedForTag extends TdFunction {
   /// * [tag]: Hashtag or cashtag to delete.
   ///
   /// [Ok] is returned on completion.
-  const RemoveSearchedForTag({
-    required this.tag,
-  });
+  const RemoveSearchedForTag({required this.tag});
 
   /// Hashtag or cashtag to delete
   final String tag;
@@ -25,23 +23,15 @@ final class RemoveSearchedForTag extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "tag": tag,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "tag": tag, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [tag]: Hashtag or cashtag to delete
-  RemoveSearchedForTag copyWith({
-    String? tag,
-  }) =>
-      RemoveSearchedForTag(
-        tag: tag ?? this.tag,
-      );
+  RemoveSearchedForTag copyWith({String? tag}) =>
+      RemoveSearchedForTag(tag: tag ?? this.tag);
 
   /// TDLib object type
   static const String defaultObjectId = 'removeSearchedForTag';

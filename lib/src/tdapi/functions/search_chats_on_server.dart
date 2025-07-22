@@ -17,10 +17,7 @@ final class SearchChatsOnServer extends TdFunction {
   /// * [limit]: The maximum number of chats to be returned.
   ///
   /// [Chats] is returned on completion.
-  const SearchChatsOnServer({
-    required this.query,
-    required this.limit,
-  });
+  const SearchChatsOnServer({required this.query, required this.limit});
 
   /// Query to search for
   final String query;
@@ -44,10 +41,7 @@ final class SearchChatsOnServer extends TdFunction {
   /// Properties:
   /// * [query]: Query to search for
   /// * [limit]: The maximum number of chats to be returned
-  SearchChatsOnServer copyWith({
-    String? query,
-    int? limit,
-  }) =>
+  SearchChatsOnServer copyWith({String? query, int? limit}) =>
       SearchChatsOnServer(
         query: query ?? this.query,
         limit: limit ?? this.limit,

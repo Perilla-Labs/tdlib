@@ -56,12 +56,11 @@ final class ToggleForumTopicIsPinned extends TdFunction {
     int? chatId,
     int? messageThreadId,
     bool? isPinned,
-  }) =>
-      ToggleForumTopicIsPinned(
-        chatId: chatId ?? this.chatId,
-        messageThreadId: messageThreadId ?? this.messageThreadId,
-        isPinned: isPinned ?? this.isPinned,
-      );
+  }) => ToggleForumTopicIsPinned(
+    chatId: chatId ?? this.chatId,
+    messageThreadId: messageThreadId ?? this.messageThreadId,
+    isPinned: isPinned ?? this.isPinned,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'toggleForumTopicIsPinned';

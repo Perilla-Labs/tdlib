@@ -38,8 +38,9 @@ final class CreatedBasicGroupChat extends TdObject {
   factory CreatedBasicGroupChat.fromJson(Map<String, dynamic> json) =>
       CreatedBasicGroupChat(
         chatId: json['chat_id'],
-        failedToAddMembers:
-            FailedToAddMembers.fromJson(json['failed_to_add_members']),
+        failedToAddMembers: FailedToAddMembers.fromJson(
+          json['failed_to_add_members'],
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -64,13 +65,12 @@ final class CreatedBasicGroupChat extends TdObject {
     FailedToAddMembers? failedToAddMembers,
     dynamic extra,
     int? clientId,
-  }) =>
-      CreatedBasicGroupChat(
-        chatId: chatId ?? this.chatId,
-        failedToAddMembers: failedToAddMembers ?? this.failedToAddMembers,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => CreatedBasicGroupChat(
+    chatId: chatId ?? this.chatId,
+    failedToAddMembers: failedToAddMembers ?? this.failedToAddMembers,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'createdBasicGroupChat';

@@ -38,11 +38,11 @@ final class ChatEvent extends TdObject {
 
   /// Parse from a json
   factory ChatEvent.fromJson(Map<String, dynamic> json) => ChatEvent(
-        id: json['id'] is int ? json['id'] : int.parse(json['id']),
-        date: json['date'],
-        memberId: MessageSender.fromJson(json['member_id']),
-        action: ChatEventAction.fromJson(json['action']),
-      );
+    id: json['id'] is int ? json['id'] : int.parse(json['id']),
+    date: json['date'],
+    memberId: MessageSender.fromJson(json['member_id']),
+    action: ChatEventAction.fromJson(json['action']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -68,13 +68,12 @@ final class ChatEvent extends TdObject {
     int? date,
     MessageSender? memberId,
     ChatEventAction? action,
-  }) =>
-      ChatEvent(
-        id: id ?? this.id,
-        date: date ?? this.date,
-        memberId: memberId ?? this.memberId,
-        action: action ?? this.action,
-      );
+  }) => ChatEvent(
+    id: id ?? this.id,
+    date: date ?? this.date,
+    memberId: memberId ?? this.memberId,
+    action: action ?? this.action,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatEvent';

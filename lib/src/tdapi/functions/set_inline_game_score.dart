@@ -74,14 +74,13 @@ final class SetInlineGameScore extends TdFunction {
     int? userId,
     int? score,
     bool? force,
-  }) =>
-      SetInlineGameScore(
-        inlineMessageId: inlineMessageId ?? this.inlineMessageId,
-        editMessage: editMessage ?? this.editMessage,
-        userId: userId ?? this.userId,
-        score: score ?? this.score,
-        force: force ?? this.force,
-      );
+  }) => SetInlineGameScore(
+    inlineMessageId: inlineMessageId ?? this.inlineMessageId,
+    editMessage: editMessage ?? this.editMessage,
+    userId: userId ?? this.userId,
+    score: score ?? this.score,
+    force: force ?? this.force,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setInlineGameScore';

@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **RevokeGroupCallInviteLink** *(revokeGroupCallInviteLink)* - TDLib function
 ///
-/// Revokes invite link for a group call. Requires groupCall.can_be_managed group call flag.
+/// Revokes invite link for a group call. Requires groupCall.can_be_managed right for video chats or groupCall.is_owned otherwise.
 ///
 /// * [groupCallId]: Group call identifier.
 ///
@@ -10,14 +10,12 @@ part of '../tdapi.dart';
 final class RevokeGroupCallInviteLink extends TdFunction {
   /// **RevokeGroupCallInviteLink** *(revokeGroupCallInviteLink)* - TDLib function
   ///
-  /// Revokes invite link for a group call. Requires groupCall.can_be_managed group call flag.
+  /// Revokes invite link for a group call. Requires groupCall.can_be_managed right for video chats or groupCall.is_owned otherwise.
   ///
   /// * [groupCallId]: Group call identifier.
   ///
   /// [Ok] is returned on completion.
-  const RevokeGroupCallInviteLink({
-    required this.groupCallId,
-  });
+  const RevokeGroupCallInviteLink({required this.groupCallId});
 
   /// Group call identifier
   final int groupCallId;
@@ -36,12 +34,8 @@ final class RevokeGroupCallInviteLink extends TdFunction {
   ///
   /// Properties:
   /// * [group_call_id]: Group call identifier
-  RevokeGroupCallInviteLink copyWith({
-    int? groupCallId,
-  }) =>
-      RevokeGroupCallInviteLink(
-        groupCallId: groupCallId ?? this.groupCallId,
-      );
+  RevokeGroupCallInviteLink copyWith({int? groupCallId}) =>
+      RevokeGroupCallInviteLink(groupCallId: groupCallId ?? this.groupCallId);
 
   /// TDLib object type
   static const String defaultObjectId = 'revokeGroupCallInviteLink';

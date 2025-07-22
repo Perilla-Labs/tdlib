@@ -83,15 +83,14 @@ final class GetMapThumbnailFile extends TdFunction {
     int? height,
     int? scale,
     int? chatId,
-  }) =>
-      GetMapThumbnailFile(
-        location: location ?? this.location,
-        zoom: zoom ?? this.zoom,
-        width: width ?? this.width,
-        height: height ?? this.height,
-        scale: scale ?? this.scale,
-        chatId: chatId ?? this.chatId,
-      );
+  }) => GetMapThumbnailFile(
+    location: location ?? this.location,
+    zoom: zoom ?? this.zoom,
+    width: width ?? this.width,
+    height: height ?? this.height,
+    scale: scale ?? this.scale,
+    chatId: chatId ?? this.chatId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getMapThumbnailFile';

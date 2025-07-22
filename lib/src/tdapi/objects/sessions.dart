@@ -36,13 +36,13 @@ final class Sessions extends TdObject {
 
   /// Parse from a json
   factory Sessions.fromJson(Map<String, dynamic> json) => Sessions(
-        sessions: List<Session>.from((json['sessions'] ?? [])
-            .map((item) => Session.fromJson(item))
-            .toList()),
-        inactiveSessionTtlDays: json['inactive_session_ttl_days'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    sessions: List<Session>.from(
+      (json['sessions'] ?? []).map((item) => Session.fromJson(item)).toList(),
+    ),
+    inactiveSessionTtlDays: json['inactive_session_ttl_days'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -64,14 +64,13 @@ final class Sessions extends TdObject {
     int? inactiveSessionTtlDays,
     dynamic extra,
     int? clientId,
-  }) =>
-      Sessions(
-        sessions: sessions ?? this.sessions,
-        inactiveSessionTtlDays:
-            inactiveSessionTtlDays ?? this.inactiveSessionTtlDays,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => Sessions(
+    sessions: sessions ?? this.sessions,
+    inactiveSessionTtlDays:
+        inactiveSessionTtlDays ?? this.inactiveSessionTtlDays,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'sessions';

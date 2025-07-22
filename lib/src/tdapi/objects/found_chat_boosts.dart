@@ -44,9 +44,11 @@ final class FoundChatBoosts extends TdObject {
   factory FoundChatBoosts.fromJson(Map<String, dynamic> json) =>
       FoundChatBoosts(
         totalCount: json['total_count'],
-        boosts: List<ChatBoost>.from((json['boosts'] ?? [])
-            .map((item) => ChatBoost.fromJson(item))
-            .toList()),
+        boosts: List<ChatBoost>.from(
+          (json['boosts'] ?? [])
+              .map((item) => ChatBoost.fromJson(item))
+              .toList(),
+        ),
         nextOffset: json['next_offset'],
         extra: json['@extra'],
         clientId: json['@client_id'],
@@ -75,14 +77,13 @@ final class FoundChatBoosts extends TdObject {
     String? nextOffset,
     dynamic extra,
     int? clientId,
-  }) =>
-      FoundChatBoosts(
-        totalCount: totalCount ?? this.totalCount,
-        boosts: boosts ?? this.boosts,
-        nextOffset: nextOffset ?? this.nextOffset,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => FoundChatBoosts(
+    totalCount: totalCount ?? this.totalCount,
+    boosts: boosts ?? this.boosts,
+    nextOffset: nextOffset ?? this.nextOffset,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'foundChatBoosts';

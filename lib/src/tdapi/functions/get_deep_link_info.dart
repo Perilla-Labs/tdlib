@@ -15,9 +15,7 @@ final class GetDeepLinkInfo extends TdFunction {
   /// * [link]: The link.
   ///
   /// [DeepLinkInfo] is returned on completion.
-  const GetDeepLinkInfo({
-    required this.link,
-  });
+  const GetDeepLinkInfo({required this.link});
 
   /// The link
   final String link;
@@ -25,23 +23,15 @@ final class GetDeepLinkInfo extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "link": link,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "link": link, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [link]: The link
-  GetDeepLinkInfo copyWith({
-    String? link,
-  }) =>
-      GetDeepLinkInfo(
-        link: link ?? this.link,
-      );
+  GetDeepLinkInfo copyWith({String? link}) =>
+      GetDeepLinkInfo(link: link ?? this.link);
 
   /// TDLib object type
   static const String defaultObjectId = 'getDeepLinkInfo';

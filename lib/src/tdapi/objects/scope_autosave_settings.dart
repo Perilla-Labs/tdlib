@@ -59,12 +59,11 @@ final class ScopeAutosaveSettings extends TdObject {
     bool? autosavePhotos,
     bool? autosaveVideos,
     int? maxVideoFileSize,
-  }) =>
-      ScopeAutosaveSettings(
-        autosavePhotos: autosavePhotos ?? this.autosavePhotos,
-        autosaveVideos: autosaveVideos ?? this.autosaveVideos,
-        maxVideoFileSize: maxVideoFileSize ?? this.maxVideoFileSize,
-      );
+  }) => ScopeAutosaveSettings(
+    autosavePhotos: autosavePhotos ?? this.autosavePhotos,
+    autosaveVideos: autosaveVideos ?? this.autosaveVideos,
+    maxVideoFileSize: maxVideoFileSize ?? this.maxVideoFileSize,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'scopeAutosaveSettings';

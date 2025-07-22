@@ -47,11 +47,10 @@ final class GetLanguagePackStrings extends TdFunction {
   GetLanguagePackStrings copyWith({
     String? languagePackId,
     List<String>? keys,
-  }) =>
-      GetLanguagePackStrings(
-        languagePackId: languagePackId ?? this.languagePackId,
-        keys: keys ?? this.keys,
-      );
+  }) => GetLanguagePackStrings(
+    languagePackId: languagePackId ?? this.languagePackId,
+    keys: keys ?? this.keys,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getLanguagePackStrings';

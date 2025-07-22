@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **CanPurchaseFromStore** *(canPurchaseFromStore)* - TDLib function
 ///
-/// Checks whether an in-store purchase is possible. Must be called before any in-store purchase.
+/// Checks whether an in-store purchase is possible. Must be called before any in-store purchase. For official applications only.
 ///
 /// * [purpose]: Transaction purpose.
 ///
@@ -10,14 +10,12 @@ part of '../tdapi.dart';
 final class CanPurchaseFromStore extends TdFunction {
   /// **CanPurchaseFromStore** *(canPurchaseFromStore)* - TDLib function
   ///
-  /// Checks whether an in-store purchase is possible. Must be called before any in-store purchase.
+  /// Checks whether an in-store purchase is possible. Must be called before any in-store purchase. For official applications only.
   ///
   /// * [purpose]: Transaction purpose.
   ///
   /// [Ok] is returned on completion.
-  const CanPurchaseFromStore({
-    required this.purpose,
-  });
+  const CanPurchaseFromStore({required this.purpose});
 
   /// Transaction purpose
   final StorePaymentPurpose purpose;
@@ -36,12 +34,8 @@ final class CanPurchaseFromStore extends TdFunction {
   ///
   /// Properties:
   /// * [purpose]: Transaction purpose
-  CanPurchaseFromStore copyWith({
-    StorePaymentPurpose? purpose,
-  }) =>
-      CanPurchaseFromStore(
-        purpose: purpose ?? this.purpose,
-      );
+  CanPurchaseFromStore copyWith({StorePaymentPurpose? purpose}) =>
+      CanPurchaseFromStore(purpose: purpose ?? this.purpose);
 
   /// TDLib object type
   static const String defaultObjectId = 'canPurchaseFromStore';

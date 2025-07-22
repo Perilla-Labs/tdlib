@@ -65,13 +65,12 @@ final class SetBusinessMessageIsPinned extends TdFunction {
     int? chatId,
     int? messageId,
     bool? isPinned,
-  }) =>
-      SetBusinessMessageIsPinned(
-        businessConnectionId: businessConnectionId ?? this.businessConnectionId,
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        isPinned: isPinned ?? this.isPinned,
-      );
+  }) => SetBusinessMessageIsPinned(
+    businessConnectionId: businessConnectionId ?? this.businessConnectionId,
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    isPinned: isPinned ?? this.isPinned,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setBusinessMessageIsPinned';

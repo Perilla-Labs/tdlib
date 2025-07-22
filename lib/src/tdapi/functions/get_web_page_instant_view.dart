@@ -2,31 +2,28 @@ part of '../tdapi.dart';
 
 /// **GetWebPageInstantView** *(getWebPageInstantView)* - TDLib function
 ///
-/// Returns an instant view version of a web page if available. Returns a 404 error if the web page has no instant view page.
+/// Returns an instant view version of a web page if available. This is an offline method if only_local is true. Returns a 404 error if the web page has no instant view page.
 ///
 /// * [url]: The web page URL.
-/// * [forceFull]: Pass true to get full instant view for the web page.
+/// * [onlyLocal]: Pass true to get only locally available information without sending network requests.
 ///
 /// [WebPageInstantView] is returned on completion.
 final class GetWebPageInstantView extends TdFunction {
   /// **GetWebPageInstantView** *(getWebPageInstantView)* - TDLib function
   ///
-  /// Returns an instant view version of a web page if available. Returns a 404 error if the web page has no instant view page.
+  /// Returns an instant view version of a web page if available. This is an offline method if only_local is true. Returns a 404 error if the web page has no instant view page.
   ///
   /// * [url]: The web page URL.
-  /// * [forceFull]: Pass true to get full instant view for the web page.
+  /// * [onlyLocal]: Pass true to get only locally available information without sending network requests.
   ///
   /// [WebPageInstantView] is returned on completion.
-  const GetWebPageInstantView({
-    required this.url,
-    required this.forceFull,
-  });
+  const GetWebPageInstantView({required this.url, required this.onlyLocal});
 
   /// The web page URL
   final String url;
 
-  /// Pass true to get full instant view for the web page
-  final bool forceFull;
+  /// Pass true to get only locally available information without sending network requests
+  final bool onlyLocal;
 
   /// Convert model to TDLib JSON format
   @override
@@ -34,7 +31,7 @@ final class GetWebPageInstantView extends TdFunction {
     return {
       "@type": defaultObjectId,
       "url": url,
-      "force_full": forceFull,
+      "only_local": onlyLocal,
       "@extra": extra,
     };
   }
@@ -43,14 +40,11 @@ final class GetWebPageInstantView extends TdFunction {
   ///
   /// Properties:
   /// * [url]: The web page URL
-  /// * [force_full]: Pass true to get full instant view for the web page
-  GetWebPageInstantView copyWith({
-    String? url,
-    bool? forceFull,
-  }) =>
+  /// * [only_local]: Pass true to get only locally available information without sending network requests
+  GetWebPageInstantView copyWith({String? url, bool? onlyLocal}) =>
       GetWebPageInstantView(
         url: url ?? this.url,
-        forceFull: forceFull ?? this.forceFull,
+        onlyLocal: onlyLocal ?? this.onlyLocal,
       );
 
   /// TDLib object type

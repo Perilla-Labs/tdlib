@@ -11,11 +11,7 @@ final class TestVectorIntObject extends TdObject {
   /// A simple object containing a vector of objects that hold a number; for testing only.
   ///
   /// * [value]: Vector of objects.
-  const TestVectorIntObject({
-    required this.value,
-    this.extra,
-    this.clientId,
-  });
+  const TestVectorIntObject({required this.value, this.extra, this.clientId});
 
   /// Vector of objects
   final List<TestInt> value;
@@ -31,9 +27,9 @@ final class TestVectorIntObject extends TdObject {
   /// Parse from a json
   factory TestVectorIntObject.fromJson(Map<String, dynamic> json) =>
       TestVectorIntObject(
-        value: List<TestInt>.from((json['value'] ?? [])
-            .map((item) => TestInt.fromJson(item))
-            .toList()),
+        value: List<TestInt>.from(
+          (json['value'] ?? []).map((item) => TestInt.fromJson(item)).toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -55,12 +51,11 @@ final class TestVectorIntObject extends TdObject {
     List<TestInt>? value,
     dynamic extra,
     int? clientId,
-  }) =>
-      TestVectorIntObject(
-        value: value ?? this.value,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => TestVectorIntObject(
+    value: value ?? this.value,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'testVectorIntObject';

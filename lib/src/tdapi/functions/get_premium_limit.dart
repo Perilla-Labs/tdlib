@@ -15,9 +15,7 @@ final class GetPremiumLimit extends TdFunction {
   /// * [limitType]: Type of the limit.
   ///
   /// [PremiumLimit] is returned on completion.
-  const GetPremiumLimit({
-    required this.limitType,
-  });
+  const GetPremiumLimit({required this.limitType});
 
   /// Type of the limit
   final PremiumLimitType limitType;
@@ -36,12 +34,8 @@ final class GetPremiumLimit extends TdFunction {
   ///
   /// Properties:
   /// * [limit_type]: Type of the limit
-  GetPremiumLimit copyWith({
-    PremiumLimitType? limitType,
-  }) =>
-      GetPremiumLimit(
-        limitType: limitType ?? this.limitType,
-      );
+  GetPremiumLimit copyWith({PremiumLimitType? limitType}) =>
+      GetPremiumLimit(limitType: limitType ?? this.limitType);
 
   /// TDLib object type
   static const String defaultObjectId = 'getPremiumLimit';

@@ -44,10 +44,7 @@ final class RemoveFileFromDownloads extends TdFunction {
   /// Properties:
   /// * [file_id]: Identifier of the downloaded file
   /// * [delete_from_cache]: Pass true to delete the file from the TDLib file cache
-  RemoveFileFromDownloads copyWith({
-    int? fileId,
-    bool? deleteFromCache,
-  }) =>
+  RemoveFileFromDownloads copyWith({int? fileId, bool? deleteFromCache}) =>
       RemoveFileFromDownloads(
         fileId: fileId ?? this.fileId,
         deleteFromCache: deleteFromCache ?? this.deleteFromCache,

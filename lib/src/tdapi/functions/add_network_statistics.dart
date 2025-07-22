@@ -15,9 +15,7 @@ final class AddNetworkStatistics extends TdFunction {
   /// * [entry]: The network statistics entry with the data to be added to statistics.
   ///
   /// [Ok] is returned on completion.
-  const AddNetworkStatistics({
-    required this.entry,
-  });
+  const AddNetworkStatistics({required this.entry});
 
   /// The network statistics entry with the data to be added to statistics
   final NetworkStatisticsEntry entry;
@@ -25,23 +23,15 @@ final class AddNetworkStatistics extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "entry": entry.toJson(),
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "entry": entry.toJson(), "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [entry]: The network statistics entry with the data to be added to statistics
-  AddNetworkStatistics copyWith({
-    NetworkStatisticsEntry? entry,
-  }) =>
-      AddNetworkStatistics(
-        entry: entry ?? this.entry,
-      );
+  AddNetworkStatistics copyWith({NetworkStatisticsEntry? entry}) =>
+      AddNetworkStatistics(entry: entry ?? this.entry);
 
   /// TDLib object type
   static const String defaultObjectId = 'addNetworkStatistics';

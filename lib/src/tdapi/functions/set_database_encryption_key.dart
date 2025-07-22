@@ -15,9 +15,7 @@ final class SetDatabaseEncryptionKey extends TdFunction {
   /// * [newEncryptionKey]: New encryption key.
   ///
   /// [Ok] is returned on completion.
-  const SetDatabaseEncryptionKey({
-    required this.newEncryptionKey,
-  });
+  const SetDatabaseEncryptionKey({required this.newEncryptionKey});
 
   /// New encryption key
   final String newEncryptionKey;
@@ -36,9 +34,7 @@ final class SetDatabaseEncryptionKey extends TdFunction {
   ///
   /// Properties:
   /// * [new_encryption_key]: New encryption key
-  SetDatabaseEncryptionKey copyWith({
-    String? newEncryptionKey,
-  }) =>
+  SetDatabaseEncryptionKey copyWith({String? newEncryptionKey}) =>
       SetDatabaseEncryptionKey(
         newEncryptionKey: newEncryptionKey ?? this.newEncryptionKey,
       );

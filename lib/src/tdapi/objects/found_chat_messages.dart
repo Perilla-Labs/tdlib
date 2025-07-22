@@ -44,9 +44,11 @@ final class FoundChatMessages extends TdObject {
   factory FoundChatMessages.fromJson(Map<String, dynamic> json) =>
       FoundChatMessages(
         totalCount: json['total_count'],
-        messages: List<Message>.from((json['messages'] ?? [])
-            .map((item) => Message.fromJson(item))
-            .toList()),
+        messages: List<Message>.from(
+          (json['messages'] ?? [])
+              .map((item) => Message.fromJson(item))
+              .toList(),
+        ),
         nextFromMessageId: json['next_from_message_id'],
         extra: json['@extra'],
         clientId: json['@client_id'],
@@ -75,14 +77,13 @@ final class FoundChatMessages extends TdObject {
     int? nextFromMessageId,
     dynamic extra,
     int? clientId,
-  }) =>
-      FoundChatMessages(
-        totalCount: totalCount ?? this.totalCount,
-        messages: messages ?? this.messages,
-        nextFromMessageId: nextFromMessageId ?? this.nextFromMessageId,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => FoundChatMessages(
+    totalCount: totalCount ?? this.totalCount,
+    messages: messages ?? this.messages,
+    nextFromMessageId: nextFromMessageId ?? this.nextFromMessageId,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'foundChatMessages';

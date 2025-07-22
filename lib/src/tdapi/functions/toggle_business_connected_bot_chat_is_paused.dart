@@ -47,11 +47,10 @@ final class ToggleBusinessConnectedBotChatIsPaused extends TdFunction {
   ToggleBusinessConnectedBotChatIsPaused copyWith({
     int? chatId,
     bool? isPaused,
-  }) =>
-      ToggleBusinessConnectedBotChatIsPaused(
-        chatId: chatId ?? this.chatId,
-        isPaused: isPaused ?? this.isPaused,
-      );
+  }) => ToggleBusinessConnectedBotChatIsPaused(
+    chatId: chatId ?? this.chatId,
+    isPaused: isPaused ?? this.isPaused,
+  );
 
   /// TDLib object type
   static const String defaultObjectId =

@@ -47,11 +47,10 @@ final class SetCustomLanguagePackString extends TdFunction {
   SetCustomLanguagePackString copyWith({
     String? languagePackId,
     LanguagePackString? newString,
-  }) =>
-      SetCustomLanguagePackString(
-        languagePackId: languagePackId ?? this.languagePackId,
-        newString: newString ?? this.newString,
-      );
+  }) => SetCustomLanguagePackString(
+    languagePackId: languagePackId ?? this.languagePackId,
+    newString: newString ?? this.newString,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setCustomLanguagePackString';

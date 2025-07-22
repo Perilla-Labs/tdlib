@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **GetMessageProperties** *(getMessageProperties)* - TDLib function
 ///
-/// Returns properties of a message; this is an offline request.
+/// Returns properties of a message. This is an offline method.
 ///
 /// * [chatId]: Chat identifier.
 /// * [messageId]: Identifier of the message.
@@ -11,16 +11,13 @@ part of '../tdapi.dart';
 final class GetMessageProperties extends TdFunction {
   /// **GetMessageProperties** *(getMessageProperties)* - TDLib function
   ///
-  /// Returns properties of a message; this is an offline request.
+  /// Returns properties of a message. This is an offline method.
   ///
   /// * [chatId]: Chat identifier.
   /// * [messageId]: Identifier of the message.
   ///
   /// [MessageProperties] is returned on completion.
-  const GetMessageProperties({
-    required this.chatId,
-    required this.messageId,
-  });
+  const GetMessageProperties({required this.chatId, required this.messageId});
 
   /// Chat identifier
   final int chatId;
@@ -44,10 +41,7 @@ final class GetMessageProperties extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [message_id]: Identifier of the message
-  GetMessageProperties copyWith({
-    int? chatId,
-    int? messageId,
-  }) =>
+  GetMessageProperties copyWith({int? chatId, int? messageId}) =>
       GetMessageProperties(
         chatId: chatId ?? this.chatId,
         messageId: messageId ?? this.messageId,

@@ -69,13 +69,12 @@ final class LocationAddress extends TdObject {
     String? state,
     String? city,
     String? street,
-  }) =>
-      LocationAddress(
-        countryCode: countryCode ?? this.countryCode,
-        state: state ?? this.state,
-        city: city ?? this.city,
-        street: street ?? this.street,
-      );
+  }) => LocationAddress(
+    countryCode: countryCode ?? this.countryCode,
+    state: state ?? this.state,
+    city: city ?? this.city,
+    street: street ?? this.street,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'locationAddress';

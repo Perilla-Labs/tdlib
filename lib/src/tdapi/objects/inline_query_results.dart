@@ -55,9 +55,11 @@ final class InlineQueryResults extends TdObject {
         button: json['button'] == null
             ? null
             : InlineQueryResultsButton.fromJson(json['button']),
-        results: List<InlineQueryResult>.from((json['results'] ?? [])
-            .map((item) => InlineQueryResult.fromJson(item))
-            .toList()),
+        results: List<InlineQueryResult>.from(
+          (json['results'] ?? [])
+              .map((item) => InlineQueryResult.fromJson(item))
+              .toList(),
+        ),
         nextOffset: json['next_offset'],
         extra: json['@extra'],
         clientId: json['@client_id'],
@@ -89,15 +91,14 @@ final class InlineQueryResults extends TdObject {
     String? nextOffset,
     dynamic extra,
     int? clientId,
-  }) =>
-      InlineQueryResults(
-        inlineQueryId: inlineQueryId ?? this.inlineQueryId,
-        button: button ?? this.button,
-        results: results ?? this.results,
-        nextOffset: nextOffset ?? this.nextOffset,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => InlineQueryResults(
+    inlineQueryId: inlineQueryId ?? this.inlineQueryId,
+    button: button ?? this.button,
+    results: results ?? this.results,
+    nextOffset: nextOffset ?? this.nextOffset,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inlineQueryResults';

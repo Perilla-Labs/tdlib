@@ -15,9 +15,7 @@ final class SetPinnedSavedMessagesTopics extends TdFunction {
   /// * [savedMessagesTopicIds]: Identifiers of the new pinned Saved Messages topics.
   ///
   /// [Ok] is returned on completion.
-  const SetPinnedSavedMessagesTopics({
-    required this.savedMessagesTopicIds,
-  });
+  const SetPinnedSavedMessagesTopics({required this.savedMessagesTopicIds});
 
   /// Identifiers of the new pinned Saved Messages topics
   final List<int> savedMessagesTopicIds;
@@ -36,9 +34,7 @@ final class SetPinnedSavedMessagesTopics extends TdFunction {
   ///
   /// Properties:
   /// * [saved_messages_topic_ids]: Identifiers of the new pinned Saved Messages topics
-  SetPinnedSavedMessagesTopics copyWith({
-    List<int>? savedMessagesTopicIds,
-  }) =>
+  SetPinnedSavedMessagesTopics copyWith({List<int>? savedMessagesTopicIds}) =>
       SetPinnedSavedMessagesTopics(
         savedMessagesTopicIds:
             savedMessagesTopicIds ?? this.savedMessagesTopicIds,

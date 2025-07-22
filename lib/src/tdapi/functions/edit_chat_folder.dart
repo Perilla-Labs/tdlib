@@ -17,10 +17,7 @@ final class EditChatFolder extends TdFunction {
   /// * [folder]: The edited chat folder.
   ///
   /// [ChatFolderInfo] is returned on completion.
-  const EditChatFolder({
-    required this.chatFolderId,
-    required this.folder,
-  });
+  const EditChatFolder({required this.chatFolderId, required this.folder});
 
   /// Chat folder identifier
   final int chatFolderId;
@@ -44,10 +41,7 @@ final class EditChatFolder extends TdFunction {
   /// Properties:
   /// * [chat_folder_id]: Chat folder identifier
   /// * [folder]: The edited chat folder
-  EditChatFolder copyWith({
-    int? chatFolderId,
-    ChatFolder? folder,
-  }) =>
+  EditChatFolder copyWith({int? chatFolderId, ChatFolder? folder}) =>
       EditChatFolder(
         chatFolderId: chatFolderId ?? this.chatFolderId,
         folder: folder ?? this.folder,

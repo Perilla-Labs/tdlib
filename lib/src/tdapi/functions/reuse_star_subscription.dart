@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **ReuseStarSubscription** *(reuseStarSubscription)* - TDLib function
 ///
-/// Reuses an active subscription and joins the subscribed chat again.
+/// Reuses an active Telegram Star subscription to a channel chat and joins the chat again.
 ///
 /// * [subscriptionId]: Identifier of the subscription.
 ///
@@ -10,14 +10,12 @@ part of '../tdapi.dart';
 final class ReuseStarSubscription extends TdFunction {
   /// **ReuseStarSubscription** *(reuseStarSubscription)* - TDLib function
   ///
-  /// Reuses an active subscription and joins the subscribed chat again.
+  /// Reuses an active Telegram Star subscription to a channel chat and joins the chat again.
   ///
   /// * [subscriptionId]: Identifier of the subscription.
   ///
   /// [Ok] is returned on completion.
-  const ReuseStarSubscription({
-    required this.subscriptionId,
-  });
+  const ReuseStarSubscription({required this.subscriptionId});
 
   /// Identifier of the subscription
   final String subscriptionId;
@@ -36,9 +34,7 @@ final class ReuseStarSubscription extends TdFunction {
   ///
   /// Properties:
   /// * [subscription_id]: Identifier of the subscription
-  ReuseStarSubscription copyWith({
-    String? subscriptionId,
-  }) =>
+  ReuseStarSubscription copyWith({String? subscriptionId}) =>
       ReuseStarSubscription(
         subscriptionId: subscriptionId ?? this.subscriptionId,
       );

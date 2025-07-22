@@ -44,10 +44,7 @@ final class GetInlineGameHighScores extends TdFunction {
   /// Properties:
   /// * [inline_message_id]: Inline message identifier
   /// * [user_id]: User identifier
-  GetInlineGameHighScores copyWith({
-    String? inlineMessageId,
-    int? userId,
-  }) =>
+  GetInlineGameHighScores copyWith({String? inlineMessageId, int? userId}) =>
       GetInlineGameHighScores(
         inlineMessageId: inlineMessageId ?? this.inlineMessageId,
         userId: userId ?? this.userId,

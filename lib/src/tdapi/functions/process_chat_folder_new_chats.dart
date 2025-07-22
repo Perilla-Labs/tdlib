@@ -47,11 +47,10 @@ final class ProcessChatFolderNewChats extends TdFunction {
   ProcessChatFolderNewChats copyWith({
     int? chatFolderId,
     List<int>? addedChatIds,
-  }) =>
-      ProcessChatFolderNewChats(
-        chatFolderId: chatFolderId ?? this.chatFolderId,
-        addedChatIds: addedChatIds ?? this.addedChatIds,
-      );
+  }) => ProcessChatFolderNewChats(
+    chatFolderId: chatFolderId ?? this.chatFolderId,
+    addedChatIds: addedChatIds ?? this.addedChatIds,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'processChatFolderNewChats';

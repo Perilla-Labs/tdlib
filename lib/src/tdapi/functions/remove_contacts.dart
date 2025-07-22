@@ -15,9 +15,7 @@ final class RemoveContacts extends TdFunction {
   /// * [userIds]: Identifiers of users to be deleted.
   ///
   /// [Ok] is returned on completion.
-  const RemoveContacts({
-    required this.userIds,
-  });
+  const RemoveContacts({required this.userIds});
 
   /// Identifiers of users to be deleted
   final List<int> userIds;
@@ -36,12 +34,8 @@ final class RemoveContacts extends TdFunction {
   ///
   /// Properties:
   /// * [user_ids]: Identifiers of users to be deleted
-  RemoveContacts copyWith({
-    List<int>? userIds,
-  }) =>
-      RemoveContacts(
-        userIds: userIds ?? this.userIds,
-      );
+  RemoveContacts copyWith({List<int>? userIds}) =>
+      RemoveContacts(userIds: userIds ?? this.userIds);
 
   /// TDLib object type
   static const String defaultObjectId = 'removeContacts';

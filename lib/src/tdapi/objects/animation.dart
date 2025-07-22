@@ -68,20 +68,20 @@ final class Animation extends TdObject {
 
   /// Parse from a json
   factory Animation.fromJson(Map<String, dynamic> json) => Animation(
-        duration: json['duration'],
-        width: json['width'],
-        height: json['height'],
-        fileName: json['file_name'],
-        mimeType: json['mime_type'],
-        hasStickers: json['has_stickers'],
-        minithumbnail: json['minithumbnail'] == null
-            ? null
-            : Minithumbnail.fromJson(json['minithumbnail']),
-        thumbnail: json['thumbnail'] == null
-            ? null
-            : Thumbnail.fromJson(json['thumbnail']),
-        animation: File.fromJson(json['animation']),
-      );
+    duration: json['duration'],
+    width: json['width'],
+    height: json['height'],
+    fileName: json['file_name'],
+    mimeType: json['mime_type'],
+    hasStickers: json['has_stickers'],
+    minithumbnail: json['minithumbnail'] == null
+        ? null
+        : Minithumbnail.fromJson(json['minithumbnail']),
+    thumbnail: json['thumbnail'] == null
+        ? null
+        : Thumbnail.fromJson(json['thumbnail']),
+    animation: File.fromJson(json['animation']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -122,18 +122,17 @@ final class Animation extends TdObject {
     Minithumbnail? minithumbnail,
     Thumbnail? thumbnail,
     File? animation,
-  }) =>
-      Animation(
-        duration: duration ?? this.duration,
-        width: width ?? this.width,
-        height: height ?? this.height,
-        fileName: fileName ?? this.fileName,
-        mimeType: mimeType ?? this.mimeType,
-        hasStickers: hasStickers ?? this.hasStickers,
-        minithumbnail: minithumbnail ?? this.minithumbnail,
-        thumbnail: thumbnail ?? this.thumbnail,
-        animation: animation ?? this.animation,
-      );
+  }) => Animation(
+    duration: duration ?? this.duration,
+    width: width ?? this.width,
+    height: height ?? this.height,
+    fileName: fileName ?? this.fileName,
+    mimeType: mimeType ?? this.mimeType,
+    hasStickers: hasStickers ?? this.hasStickers,
+    minithumbnail: minithumbnail ?? this.minithumbnail,
+    thumbnail: thumbnail ?? this.thumbnail,
+    animation: animation ?? this.animation,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'animation';

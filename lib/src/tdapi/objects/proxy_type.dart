@@ -61,10 +61,7 @@ final class ProxyTypeSocks5 extends ProxyType {
   ///
   /// * [username]: Username for logging in; may be empty.
   /// * [password]: Password for logging in; may be empty.
-  const ProxyTypeSocks5({
-    required this.username,
-    required this.password,
-  });
+  const ProxyTypeSocks5({required this.username, required this.password});
 
   /// Username for logging in; may be empty
   final String username;
@@ -74,10 +71,7 @@ final class ProxyTypeSocks5 extends ProxyType {
 
   /// Parse from a json
   factory ProxyTypeSocks5.fromJson(Map<String, dynamic> json) =>
-      ProxyTypeSocks5(
-        username: json['username'],
-        password: json['password'],
-      );
+      ProxyTypeSocks5(username: json['username'], password: json['password']);
 
   /// Convert model to TDLib JSON format
   @override
@@ -95,10 +89,7 @@ final class ProxyTypeSocks5 extends ProxyType {
   /// * [username]: Username for logging in; may be empty
   /// * [password]: Password for logging in; may be empty
   @override
-  ProxyTypeSocks5 copyWith({
-    String? username,
-    String? password,
-  }) =>
+  ProxyTypeSocks5 copyWith({String? username, String? password}) =>
       ProxyTypeSocks5(
         username: username ?? this.username,
         password: password ?? this.password,
@@ -148,10 +139,10 @@ final class ProxyTypeHttp extends ProxyType {
 
   /// Parse from a json
   factory ProxyTypeHttp.fromJson(Map<String, dynamic> json) => ProxyTypeHttp(
-        username: json['username'],
-        password: json['password'],
-        httpOnly: json['http_only'],
-      );
+    username: json['username'],
+    password: json['password'],
+    httpOnly: json['http_only'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -175,12 +166,11 @@ final class ProxyTypeHttp extends ProxyType {
     String? username,
     String? password,
     bool? httpOnly,
-  }) =>
-      ProxyTypeHttp(
-        username: username ?? this.username,
-        password: password ?? this.password,
-        httpOnly: httpOnly ?? this.httpOnly,
-      );
+  }) => ProxyTypeHttp(
+    username: username ?? this.username,
+    password: password ?? this.password,
+    httpOnly: httpOnly ?? this.httpOnly,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'proxyTypeHttp';
@@ -205,26 +195,19 @@ final class ProxyTypeMtproto extends ProxyType {
   /// An MTProto proxy server.
   ///
   /// * [secret]: The proxy's secret in hexadecimal encoding.
-  const ProxyTypeMtproto({
-    required this.secret,
-  });
+  const ProxyTypeMtproto({required this.secret});
 
   /// The proxy's secret in hexadecimal encoding
   final String secret;
 
   /// Parse from a json
   factory ProxyTypeMtproto.fromJson(Map<String, dynamic> json) =>
-      ProxyTypeMtproto(
-        secret: json['secret'],
-      );
+      ProxyTypeMtproto(secret: json['secret']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "secret": secret,
-    };
+    return {"@type": defaultObjectId, "secret": secret};
   }
 
   /// Copy model with modified properties.
@@ -232,12 +215,8 @@ final class ProxyTypeMtproto extends ProxyType {
   /// Properties:
   /// * [secret]: The proxy's secret in hexadecimal encoding
   @override
-  ProxyTypeMtproto copyWith({
-    String? secret,
-  }) =>
-      ProxyTypeMtproto(
-        secret: secret ?? this.secret,
-      );
+  ProxyTypeMtproto copyWith({String? secret}) =>
+      ProxyTypeMtproto(secret: secret ?? this.secret);
 
   /// TDLib object type
   static const String defaultObjectId = 'proxyTypeMtproto';

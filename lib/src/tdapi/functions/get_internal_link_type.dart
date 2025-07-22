@@ -15,9 +15,7 @@ final class GetInternalLinkType extends TdFunction {
   /// * [link]: The link.
   ///
   /// [InternalLinkType] is returned on completion.
-  const GetInternalLinkType({
-    required this.link,
-  });
+  const GetInternalLinkType({required this.link});
 
   /// The link
   final String link;
@@ -25,23 +23,15 @@ final class GetInternalLinkType extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "link": link,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "link": link, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [link]: The link
-  GetInternalLinkType copyWith({
-    String? link,
-  }) =>
-      GetInternalLinkType(
-        link: link ?? this.link,
-      );
+  GetInternalLinkType copyWith({String? link}) =>
+      GetInternalLinkType(link: link ?? this.link);
 
   /// TDLib object type
   static const String defaultObjectId = 'getInternalLinkType';

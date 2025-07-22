@@ -15,9 +15,7 @@ final class SetReadDatePrivacySettings extends TdFunction {
   /// * [settings]: New settings.
   ///
   /// [Ok] is returned on completion.
-  const SetReadDatePrivacySettings({
-    required this.settings,
-  });
+  const SetReadDatePrivacySettings({required this.settings});
 
   /// New settings
   final ReadDatePrivacySettings settings;
@@ -36,12 +34,8 @@ final class SetReadDatePrivacySettings extends TdFunction {
   ///
   /// Properties:
   /// * [settings]: New settings
-  SetReadDatePrivacySettings copyWith({
-    ReadDatePrivacySettings? settings,
-  }) =>
-      SetReadDatePrivacySettings(
-        settings: settings ?? this.settings,
-      );
+  SetReadDatePrivacySettings copyWith({ReadDatePrivacySettings? settings}) =>
+      SetReadDatePrivacySettings(settings: settings ?? this.settings);
 
   /// TDLib object type
   static const String defaultObjectId = 'setReadDatePrivacySettings';

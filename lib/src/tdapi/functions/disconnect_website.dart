@@ -15,9 +15,7 @@ final class DisconnectWebsite extends TdFunction {
   /// * [websiteId]: Website identifier.
   ///
   /// [Ok] is returned on completion.
-  const DisconnectWebsite({
-    required this.websiteId,
-  });
+  const DisconnectWebsite({required this.websiteId});
 
   /// Website identifier
   final int websiteId;
@@ -25,23 +23,15 @@ final class DisconnectWebsite extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "website_id": websiteId,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "website_id": websiteId, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [website_id]: Website identifier
-  DisconnectWebsite copyWith({
-    int? websiteId,
-  }) =>
-      DisconnectWebsite(
-        websiteId: websiteId ?? this.websiteId,
-      );
+  DisconnectWebsite copyWith({int? websiteId}) =>
+      DisconnectWebsite(websiteId: websiteId ?? this.websiteId);
 
   /// TDLib object type
   static const String defaultObjectId = 'disconnectWebsite';

@@ -15,9 +15,7 @@ final class ReportPhoneNumberCodeMissing extends TdFunction {
   /// * [mobileNetworkCode]: Current mobile network code.
   ///
   /// [Ok] is returned on completion.
-  const ReportPhoneNumberCodeMissing({
-    required this.mobileNetworkCode,
-  });
+  const ReportPhoneNumberCodeMissing({required this.mobileNetworkCode});
 
   /// Current mobile network code
   final String mobileNetworkCode;
@@ -36,9 +34,7 @@ final class ReportPhoneNumberCodeMissing extends TdFunction {
   ///
   /// Properties:
   /// * [mobile_network_code]: Current mobile network code
-  ReportPhoneNumberCodeMissing copyWith({
-    String? mobileNetworkCode,
-  }) =>
+  ReportPhoneNumberCodeMissing copyWith({String? mobileNetworkCode}) =>
       ReportPhoneNumberCodeMissing(
         mobileNetworkCode: mobileNetworkCode ?? this.mobileNetworkCode,
       );

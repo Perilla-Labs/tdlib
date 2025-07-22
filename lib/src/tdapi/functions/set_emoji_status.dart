@@ -15,9 +15,7 @@ final class SetEmojiStatus extends TdFunction {
   /// * [emojiStatus]: New emoji status; pass null to switch to the default badge *(optional)*.
   ///
   /// [Ok] is returned on completion.
-  const SetEmojiStatus({
-    this.emojiStatus,
-  });
+  const SetEmojiStatus({this.emojiStatus});
 
   /// New emoji status; pass null to switch to the default badge
   final EmojiStatus? emojiStatus;
@@ -36,12 +34,8 @@ final class SetEmojiStatus extends TdFunction {
   ///
   /// Properties:
   /// * [emoji_status]: New emoji status; pass null to switch to the default badge
-  SetEmojiStatus copyWith({
-    EmojiStatus? emojiStatus,
-  }) =>
-      SetEmojiStatus(
-        emojiStatus: emojiStatus ?? this.emojiStatus,
-      );
+  SetEmojiStatus copyWith({EmojiStatus? emojiStatus}) =>
+      SetEmojiStatus(emojiStatus: emojiStatus ?? this.emojiStatus);
 
   /// TDLib object type
   static const String defaultObjectId = 'setEmojiStatus';

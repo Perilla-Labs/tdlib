@@ -44,10 +44,7 @@ final class SetQuickReplyShortcutName extends TdFunction {
   /// Properties:
   /// * [shortcut_id]: Unique identifier of the quick reply shortcut
   /// * [name]: New name for the shortcut. Use checkQuickReplyShortcutName to check its validness
-  SetQuickReplyShortcutName copyWith({
-    int? shortcutId,
-    String? name,
-  }) =>
+  SetQuickReplyShortcutName copyWith({int? shortcutId, String? name}) =>
       SetQuickReplyShortcutName(
         shortcutId: shortcutId ?? this.shortcutId,
         name: name ?? this.name,

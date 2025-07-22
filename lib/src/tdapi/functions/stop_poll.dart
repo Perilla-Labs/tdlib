@@ -52,11 +52,7 @@ final class StopPoll extends TdFunction {
   /// * [chat_id]: Identifier of the chat to which the poll belongs
   /// * [message_id]: Identifier of the message containing the poll. Use messageProperties.can_be_edited to check whether the poll can be stopped
   /// * [reply_markup]: The new message reply markup; pass null if none; for bots only
-  StopPoll copyWith({
-    int? chatId,
-    int? messageId,
-    ReplyMarkup? replyMarkup,
-  }) =>
+  StopPoll copyWith({int? chatId, int? messageId, ReplyMarkup? replyMarkup}) =>
       StopPoll(
         chatId: chatId ?? this.chatId,
         messageId: messageId ?? this.messageId,

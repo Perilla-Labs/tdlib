@@ -44,10 +44,7 @@ final class DeleteChatFolder extends TdFunction {
   /// Properties:
   /// * [chat_folder_id]: Chat folder identifier
   /// * [leave_chat_ids]: Identifiers of the chats to leave. The chats must be pinned or always included in the folder
-  DeleteChatFolder copyWith({
-    int? chatFolderId,
-    List<int>? leaveChatIds,
-  }) =>
+  DeleteChatFolder copyWith({int? chatFolderId, List<int>? leaveChatIds}) =>
       DeleteChatFolder(
         chatFolderId: chatFolderId ?? this.chatFolderId,
         leaveChatIds: leaveChatIds ?? this.leaveChatIds,

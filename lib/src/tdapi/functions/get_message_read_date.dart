@@ -17,10 +17,7 @@ final class GetMessageReadDate extends TdFunction {
   /// * [messageId]: Identifier of the message.
   ///
   /// [MessageReadDate] is returned on completion.
-  const GetMessageReadDate({
-    required this.chatId,
-    required this.messageId,
-  });
+  const GetMessageReadDate({required this.chatId, required this.messageId});
 
   /// Chat identifier
   final int chatId;
@@ -44,10 +41,7 @@ final class GetMessageReadDate extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [message_id]: Identifier of the message
-  GetMessageReadDate copyWith({
-    int? chatId,
-    int? messageId,
-  }) =>
+  GetMessageReadDate copyWith({int? chatId, int? messageId}) =>
       GetMessageReadDate(
         chatId: chatId ?? this.chatId,
         messageId: messageId ?? this.messageId,

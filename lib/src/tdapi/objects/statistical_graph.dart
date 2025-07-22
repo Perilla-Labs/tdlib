@@ -112,13 +112,12 @@ final class StatisticalGraphData extends StatisticalGraph {
     String? zoomToken,
     dynamic extra,
     int? clientId,
-  }) =>
-      StatisticalGraphData(
-        jsonData: jsonData ?? this.jsonData,
-        zoomToken: zoomToken ?? this.zoomToken,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => StatisticalGraphData(
+    jsonData: jsonData ?? this.jsonData,
+    zoomToken: zoomToken ?? this.zoomToken,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'statisticalGraphData';
@@ -143,11 +142,7 @@ final class StatisticalGraphAsync extends StatisticalGraph {
   /// The graph data to be asynchronously loaded through getStatisticalGraph.
   ///
   /// * [token]: The token to use for data loading.
-  const StatisticalGraphAsync({
-    required this.token,
-    this.extra,
-    this.clientId,
-  });
+  const StatisticalGraphAsync({required this.token, this.extra, this.clientId});
 
   /// The token to use for data loading
   final String token;
@@ -171,10 +166,7 @@ final class StatisticalGraphAsync extends StatisticalGraph {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "token": token,
-    };
+    return {"@type": defaultObjectId, "token": token};
   }
 
   /// Copy model with modified properties.
@@ -186,12 +178,11 @@ final class StatisticalGraphAsync extends StatisticalGraph {
     String? token,
     dynamic extra,
     int? clientId,
-  }) =>
-      StatisticalGraphAsync(
-        token: token ?? this.token,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => StatisticalGraphAsync(
+    token: token ?? this.token,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'statisticalGraphAsync';
@@ -244,10 +235,7 @@ final class StatisticalGraphError extends StatisticalGraph {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "error_message": errorMessage,
-    };
+    return {"@type": defaultObjectId, "error_message": errorMessage};
   }
 
   /// Copy model with modified properties.
@@ -259,12 +247,11 @@ final class StatisticalGraphError extends StatisticalGraph {
     String? errorMessage,
     dynamic extra,
     int? clientId,
-  }) =>
-      StatisticalGraphError(
-        errorMessage: errorMessage ?? this.errorMessage,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => StatisticalGraphError(
+    errorMessage: errorMessage ?? this.errorMessage,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'statisticalGraphError';

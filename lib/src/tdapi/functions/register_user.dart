@@ -56,12 +56,11 @@ final class RegisterUser extends TdFunction {
     String? firstName,
     String? lastName,
     bool? disableNotification,
-  }) =>
-      RegisterUser(
-        firstName: firstName ?? this.firstName,
-        lastName: lastName ?? this.lastName,
-        disableNotification: disableNotification ?? this.disableNotification,
-      );
+  }) => RegisterUser(
+    firstName: firstName ?? this.firstName,
+    lastName: lastName ?? this.lastName,
+    disableNotification: disableNotification ?? this.disableNotification,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'registerUser';

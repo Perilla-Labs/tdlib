@@ -56,12 +56,11 @@ final class ReportMessageReactions extends TdFunction {
     int? chatId,
     int? messageId,
     MessageSender? senderId,
-  }) =>
-      ReportMessageReactions(
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        senderId: senderId ?? this.senderId,
-      );
+  }) => ReportMessageReactions(
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    senderId: senderId ?? this.senderId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'reportMessageReactions';

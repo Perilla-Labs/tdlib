@@ -56,12 +56,11 @@ final class ToggleBotIsAddedToAttachmentMenu extends TdFunction {
     int? botUserId,
     bool? isAdded,
     bool? allowWriteAccess,
-  }) =>
-      ToggleBotIsAddedToAttachmentMenu(
-        botUserId: botUserId ?? this.botUserId,
-        isAdded: isAdded ?? this.isAdded,
-        allowWriteAccess: allowWriteAccess ?? this.allowWriteAccess,
-      );
+  }) => ToggleBotIsAddedToAttachmentMenu(
+    botUserId: botUserId ?? this.botUserId,
+    isAdded: isAdded ?? this.isAdded,
+    allowWriteAccess: allowWriteAccess ?? this.allowWriteAccess,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'toggleBotIsAddedToAttachmentMenu';

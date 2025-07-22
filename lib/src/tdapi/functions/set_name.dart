@@ -17,10 +17,7 @@ final class SetName extends TdFunction {
   /// * [lastName]: The new value of the optional last name for the current user; 0-64 characters.
   ///
   /// [Ok] is returned on completion.
-  const SetName({
-    required this.firstName,
-    required this.lastName,
-  });
+  const SetName({required this.firstName, required this.lastName});
 
   /// The new value of the first name for the current user; 1-64 characters
   final String firstName;
@@ -44,14 +41,10 @@ final class SetName extends TdFunction {
   /// Properties:
   /// * [first_name]: The new value of the first name for the current user; 1-64 characters
   /// * [last_name]: The new value of the optional last name for the current user; 0-64 characters
-  SetName copyWith({
-    String? firstName,
-    String? lastName,
-  }) =>
-      SetName(
-        firstName: firstName ?? this.firstName,
-        lastName: lastName ?? this.lastName,
-      );
+  SetName copyWith({String? firstName, String? lastName}) => SetName(
+    firstName: firstName ?? this.firstName,
+    lastName: lastName ?? this.lastName,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setName';

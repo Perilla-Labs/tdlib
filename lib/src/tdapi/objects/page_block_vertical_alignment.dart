@@ -64,9 +64,7 @@ final class PageBlockVerticalAlignmentTop extends PageBlockVerticalAlignment {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -98,15 +96,13 @@ final class PageBlockVerticalAlignmentMiddle
 
   /// Parse from a json
   factory PageBlockVerticalAlignmentMiddle.fromJson(
-          Map<String, dynamic> json) =>
-      const PageBlockVerticalAlignmentMiddle();
+    Map<String, dynamic> json,
+  ) => const PageBlockVerticalAlignmentMiddle();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -138,15 +134,13 @@ final class PageBlockVerticalAlignmentBottom
 
   /// Parse from a json
   factory PageBlockVerticalAlignmentBottom.fromJson(
-          Map<String, dynamic> json) =>
-      const PageBlockVerticalAlignmentBottom();
+    Map<String, dynamic> json,
+  ) => const PageBlockVerticalAlignmentBottom();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.

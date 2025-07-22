@@ -15,9 +15,7 @@ final class GetChatAdministrators extends TdFunction {
   /// * [chatId]: Chat identifier.
   ///
   /// [ChatAdministrators] is returned on completion.
-  const GetChatAdministrators({
-    required this.chatId,
-  });
+  const GetChatAdministrators({required this.chatId});
 
   /// Chat identifier
   final int chatId;
@@ -25,23 +23,15 @@ final class GetChatAdministrators extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "chat_id": chatId,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "chat_id": chatId, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [chat_id]: Chat identifier
-  GetChatAdministrators copyWith({
-    int? chatId,
-  }) =>
-      GetChatAdministrators(
-        chatId: chatId ?? this.chatId,
-      );
+  GetChatAdministrators copyWith({int? chatId}) =>
+      GetChatAdministrators(chatId: chatId ?? this.chatId);
 
   /// TDLib object type
   static const String defaultObjectId = 'getChatAdministrators';

@@ -15,9 +15,7 @@ final class GetPushReceiverId extends TdFunction {
   /// * [payload]: JSON-encoded push notification payload.
   ///
   /// [PushReceiverId] is returned on completion.
-  const GetPushReceiverId({
-    required this.payload,
-  });
+  const GetPushReceiverId({required this.payload});
 
   /// JSON-encoded push notification payload
   final String payload;
@@ -25,23 +23,15 @@ final class GetPushReceiverId extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "payload": payload,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "payload": payload, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [payload]: JSON-encoded push notification payload
-  GetPushReceiverId copyWith({
-    String? payload,
-  }) =>
-      GetPushReceiverId(
-        payload: payload ?? this.payload,
-      );
+  GetPushReceiverId copyWith({String? payload}) =>
+      GetPushReceiverId(payload: payload ?? this.payload);
 
   /// TDLib object type
   static const String defaultObjectId = 'getPushReceiverId';

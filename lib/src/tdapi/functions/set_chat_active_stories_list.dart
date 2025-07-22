@@ -44,10 +44,7 @@ final class SetChatActiveStoriesList extends TdFunction {
   /// Properties:
   /// * [chat_id]: Identifier of the chat that posted stories
   /// * [story_list]: New list for active stories posted by the chat
-  SetChatActiveStoriesList copyWith({
-    int? chatId,
-    StoryList? storyList,
-  }) =>
+  SetChatActiveStoriesList copyWith({int? chatId, StoryList? storyList}) =>
       SetChatActiveStoriesList(
         chatId: chatId ?? this.chatId,
         storyList: storyList ?? this.storyList,

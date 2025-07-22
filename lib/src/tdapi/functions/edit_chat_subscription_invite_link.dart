@@ -56,12 +56,11 @@ final class EditChatSubscriptionInviteLink extends TdFunction {
     int? chatId,
     String? inviteLink,
     String? name,
-  }) =>
-      EditChatSubscriptionInviteLink(
-        chatId: chatId ?? this.chatId,
-        inviteLink: inviteLink ?? this.inviteLink,
-        name: name ?? this.name,
-      );
+  }) => EditChatSubscriptionInviteLink(
+    chatId: chatId ?? this.chatId,
+    inviteLink: inviteLink ?? this.inviteLink,
+    name: name ?? this.name,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'editChatSubscriptionInviteLink';

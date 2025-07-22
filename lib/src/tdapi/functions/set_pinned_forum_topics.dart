@@ -44,10 +44,7 @@ final class SetPinnedForumTopics extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [message_thread_ids]: The new list of pinned forum topics
-  SetPinnedForumTopics copyWith({
-    int? chatId,
-    List<int>? messageThreadIds,
-  }) =>
+  SetPinnedForumTopics copyWith({int? chatId, List<int>? messageThreadIds}) =>
       SetPinnedForumTopics(
         chatId: chatId ?? this.chatId,
         messageThreadIds: messageThreadIds ?? this.messageThreadIds,

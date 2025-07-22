@@ -62,26 +62,19 @@ final class ChatTypePrivate extends ChatType {
   /// An ordinary chat with a user.
   ///
   /// * [userId]: User identifier.
-  const ChatTypePrivate({
-    required this.userId,
-  });
+  const ChatTypePrivate({required this.userId});
 
   /// User identifier
   final int userId;
 
   /// Parse from a json
   factory ChatTypePrivate.fromJson(Map<String, dynamic> json) =>
-      ChatTypePrivate(
-        userId: json['user_id'],
-      );
+      ChatTypePrivate(userId: json['user_id']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "user_id": userId,
-    };
+    return {"@type": defaultObjectId, "user_id": userId};
   }
 
   /// Copy model with modified properties.
@@ -89,12 +82,8 @@ final class ChatTypePrivate extends ChatType {
   /// Properties:
   /// * [user_id]: User identifier
   @override
-  ChatTypePrivate copyWith({
-    int? userId,
-  }) =>
-      ChatTypePrivate(
-        userId: userId ?? this.userId,
-      );
+  ChatTypePrivate copyWith({int? userId}) =>
+      ChatTypePrivate(userId: userId ?? this.userId);
 
   /// TDLib object type
   static const String defaultObjectId = 'chatTypePrivate';
@@ -119,26 +108,19 @@ final class ChatTypeBasicGroup extends ChatType {
   /// A basic group (a chat with 0-200 other users).
   ///
   /// * [basicGroupId]: Basic group identifier.
-  const ChatTypeBasicGroup({
-    required this.basicGroupId,
-  });
+  const ChatTypeBasicGroup({required this.basicGroupId});
 
   /// Basic group identifier
   final int basicGroupId;
 
   /// Parse from a json
   factory ChatTypeBasicGroup.fromJson(Map<String, dynamic> json) =>
-      ChatTypeBasicGroup(
-        basicGroupId: json['basic_group_id'],
-      );
+      ChatTypeBasicGroup(basicGroupId: json['basic_group_id']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "basic_group_id": basicGroupId,
-    };
+    return {"@type": defaultObjectId, "basic_group_id": basicGroupId};
   }
 
   /// Copy model with modified properties.
@@ -146,12 +128,8 @@ final class ChatTypeBasicGroup extends ChatType {
   /// Properties:
   /// * [basic_group_id]: Basic group identifier
   @override
-  ChatTypeBasicGroup copyWith({
-    int? basicGroupId,
-  }) =>
-      ChatTypeBasicGroup(
-        basicGroupId: basicGroupId ?? this.basicGroupId,
-      );
+  ChatTypeBasicGroup copyWith({int? basicGroupId}) =>
+      ChatTypeBasicGroup(basicGroupId: basicGroupId ?? this.basicGroupId);
 
   /// TDLib object type
   static const String defaultObjectId = 'chatTypeBasicGroup';
@@ -212,10 +190,7 @@ final class ChatTypeSupergroup extends ChatType {
   /// * [supergroup_id]: Supergroup or channel identifier
   /// * [is_channel]: True, if the supergroup is a channel
   @override
-  ChatTypeSupergroup copyWith({
-    int? supergroupId,
-    bool? isChannel,
-  }) =>
+  ChatTypeSupergroup copyWith({int? supergroupId, bool? isChannel}) =>
       ChatTypeSupergroup(
         supergroupId: supergroupId ?? this.supergroupId,
         isChannel: isChannel ?? this.isChannel,
@@ -246,10 +221,7 @@ final class ChatTypeSecret extends ChatType {
   ///
   /// * [secretChatId]: Secret chat identifier.
   /// * [userId]: User identifier of the other user in the secret chat.
-  const ChatTypeSecret({
-    required this.secretChatId,
-    required this.userId,
-  });
+  const ChatTypeSecret({required this.secretChatId, required this.userId});
 
   /// Secret chat identifier
   final int secretChatId;
@@ -259,9 +231,9 @@ final class ChatTypeSecret extends ChatType {
 
   /// Parse from a json
   factory ChatTypeSecret.fromJson(Map<String, dynamic> json) => ChatTypeSecret(
-        secretChatId: json['secret_chat_id'],
-        userId: json['user_id'],
-      );
+    secretChatId: json['secret_chat_id'],
+    userId: json['user_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -279,14 +251,10 @@ final class ChatTypeSecret extends ChatType {
   /// * [secret_chat_id]: Secret chat identifier
   /// * [user_id]: User identifier of the other user in the secret chat
   @override
-  ChatTypeSecret copyWith({
-    int? secretChatId,
-    int? userId,
-  }) =>
-      ChatTypeSecret(
-        secretChatId: secretChatId ?? this.secretChatId,
-        userId: userId ?? this.userId,
-      );
+  ChatTypeSecret copyWith({int? secretChatId, int? userId}) => ChatTypeSecret(
+    secretChatId: secretChatId ?? this.secretChatId,
+    userId: userId ?? this.userId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatTypeSecret';

@@ -27,8 +27,8 @@ final class SetDefaultChannelAdministratorRights extends TdFunction {
   Map<String, dynamic> toJson([dynamic extra]) {
     return {
       "@type": defaultObjectId,
-      "default_channel_administrator_rights":
-          defaultChannelAdministratorRights?.toJson(),
+      "default_channel_administrator_rights": defaultChannelAdministratorRights
+          ?.toJson(),
       "@extra": extra,
     };
   }
@@ -39,11 +39,11 @@ final class SetDefaultChannelAdministratorRights extends TdFunction {
   /// * [default_channel_administrator_rights]: Default administrator rights for adding the bot to channels; pass null to remove default rights
   SetDefaultChannelAdministratorRights copyWith({
     ChatAdministratorRights? defaultChannelAdministratorRights,
-  }) =>
-      SetDefaultChannelAdministratorRights(
-        defaultChannelAdministratorRights: defaultChannelAdministratorRights ??
-            this.defaultChannelAdministratorRights,
-      );
+  }) => SetDefaultChannelAdministratorRights(
+    defaultChannelAdministratorRights:
+        defaultChannelAdministratorRights ??
+        this.defaultChannelAdministratorRights,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setDefaultChannelAdministratorRights';

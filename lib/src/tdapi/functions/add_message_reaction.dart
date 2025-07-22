@@ -74,15 +74,13 @@ final class AddMessageReaction extends TdFunction {
     ReactionType? reactionType,
     bool? isBig,
     bool? updateRecentReactions,
-  }) =>
-      AddMessageReaction(
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        reactionType: reactionType ?? this.reactionType,
-        isBig: isBig ?? this.isBig,
-        updateRecentReactions:
-            updateRecentReactions ?? this.updateRecentReactions,
-      );
+  }) => AddMessageReaction(
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    reactionType: reactionType ?? this.reactionType,
+    isBig: isBig ?? this.isBig,
+    updateRecentReactions: updateRecentReactions ?? this.updateRecentReactions,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'addMessageReaction';

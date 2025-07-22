@@ -15,9 +15,7 @@ final class SearchBackground extends TdFunction {
   /// * [name]: The name of the background.
   ///
   /// [Background] is returned on completion.
-  const SearchBackground({
-    required this.name,
-  });
+  const SearchBackground({required this.name});
 
   /// The name of the background
   final String name;
@@ -25,23 +23,15 @@ final class SearchBackground extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "name": name,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "name": name, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [name]: The name of the background
-  SearchBackground copyWith({
-    String? name,
-  }) =>
-      SearchBackground(
-        name: name ?? this.name,
-      );
+  SearchBackground copyWith({String? name}) =>
+      SearchBackground(name: name ?? this.name);
 
   /// TDLib object type
   static const String defaultObjectId = 'searchBackground';

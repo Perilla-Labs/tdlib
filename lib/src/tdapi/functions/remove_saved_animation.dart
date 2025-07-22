@@ -15,9 +15,7 @@ final class RemoveSavedAnimation extends TdFunction {
   /// * [animation]: Animation file to be removed.
   ///
   /// [Ok] is returned on completion.
-  const RemoveSavedAnimation({
-    required this.animation,
-  });
+  const RemoveSavedAnimation({required this.animation});
 
   /// Animation file to be removed
   final InputFile animation;
@@ -36,12 +34,8 @@ final class RemoveSavedAnimation extends TdFunction {
   ///
   /// Properties:
   /// * [animation]: Animation file to be removed
-  RemoveSavedAnimation copyWith({
-    InputFile? animation,
-  }) =>
-      RemoveSavedAnimation(
-        animation: animation ?? this.animation,
-      );
+  RemoveSavedAnimation copyWith({InputFile? animation}) =>
+      RemoveSavedAnimation(animation: animation ?? this.animation);
 
   /// TDLib object type
   static const String defaultObjectId = 'removeSavedAnimation';

@@ -15,9 +15,7 @@ final class GetJsonValue extends TdFunction {
   /// * [json]: The JSON-serialized string.
   ///
   /// [JsonValue] is returned on completion.
-  const GetJsonValue({
-    required this.json,
-  });
+  const GetJsonValue({required this.json});
 
   /// The JSON-serialized string
   final String json;
@@ -25,23 +23,15 @@ final class GetJsonValue extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "json": json,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "json": json, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [json]: The JSON-serialized string
-  GetJsonValue copyWith({
-    String? json,
-  }) =>
-      GetJsonValue(
-        json: json ?? this.json,
-      );
+  GetJsonValue copyWith({String? json}) =>
+      GetJsonValue(json: json ?? this.json);
 
   /// TDLib object type
   static const String defaultObjectId = 'getJsonValue';

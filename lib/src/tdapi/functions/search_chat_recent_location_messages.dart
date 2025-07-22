@@ -44,10 +44,7 @@ final class SearchChatRecentLocationMessages extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [limit]: The maximum number of messages to be returned
-  SearchChatRecentLocationMessages copyWith({
-    int? chatId,
-    int? limit,
-  }) =>
+  SearchChatRecentLocationMessages copyWith({int? chatId, int? limit}) =>
       SearchChatRecentLocationMessages(
         chatId: chatId ?? this.chatId,
         limit: limit ?? this.limit,

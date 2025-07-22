@@ -11,11 +11,7 @@ final class BusinessMessages extends TdObject {
   /// Contains a list of messages from a business account as received by a bot.
   ///
   /// * [messages]: List of business messages.
-  const BusinessMessages({
-    required this.messages,
-    this.extra,
-    this.clientId,
-  });
+  const BusinessMessages({required this.messages, this.extra, this.clientId});
 
   /// List of business messages
   final List<BusinessMessage> messages;
@@ -31,9 +27,11 @@ final class BusinessMessages extends TdObject {
   /// Parse from a json
   factory BusinessMessages.fromJson(Map<String, dynamic> json) =>
       BusinessMessages(
-        messages: List<BusinessMessage>.from((json['messages'] ?? [])
-            .map((item) => BusinessMessage.fromJson(item))
-            .toList()),
+        messages: List<BusinessMessage>.from(
+          (json['messages'] ?? [])
+              .map((item) => BusinessMessage.fromJson(item))
+              .toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -55,12 +53,11 @@ final class BusinessMessages extends TdObject {
     List<BusinessMessage>? messages,
     dynamic extra,
     int? clientId,
-  }) =>
-      BusinessMessages(
-        messages: messages ?? this.messages,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => BusinessMessages(
+    messages: messages ?? this.messages,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'businessMessages';

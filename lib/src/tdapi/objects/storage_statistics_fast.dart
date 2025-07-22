@@ -93,17 +93,16 @@ final class StorageStatisticsFast extends TdObject {
     int? logSize,
     dynamic extra,
     int? clientId,
-  }) =>
-      StorageStatisticsFast(
-        filesSize: filesSize ?? this.filesSize,
-        fileCount: fileCount ?? this.fileCount,
-        databaseSize: databaseSize ?? this.databaseSize,
-        languagePackDatabaseSize:
-            languagePackDatabaseSize ?? this.languagePackDatabaseSize,
-        logSize: logSize ?? this.logSize,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => StorageStatisticsFast(
+    filesSize: filesSize ?? this.filesSize,
+    fileCount: fileCount ?? this.fileCount,
+    databaseSize: databaseSize ?? this.databaseSize,
+    languagePackDatabaseSize:
+        languagePackDatabaseSize ?? this.languagePackDatabaseSize,
+    logSize: logSize ?? this.logSize,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'storageStatisticsFast';

@@ -48,13 +48,13 @@ final class PaymentReceipt extends TdObject {
 
   /// Parse from a json
   factory PaymentReceipt.fromJson(Map<String, dynamic> json) => PaymentReceipt(
-        productInfo: ProductInfo.fromJson(json['product_info']),
-        date: json['date'],
-        sellerBotUserId: json['seller_bot_user_id'],
-        type: PaymentReceiptType.fromJson(json['type']),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    productInfo: ProductInfo.fromJson(json['product_info']),
+    date: json['date'],
+    sellerBotUserId: json['seller_bot_user_id'],
+    type: PaymentReceiptType.fromJson(json['type']),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -82,15 +82,14 @@ final class PaymentReceipt extends TdObject {
     PaymentReceiptType? type,
     dynamic extra,
     int? clientId,
-  }) =>
-      PaymentReceipt(
-        productInfo: productInfo ?? this.productInfo,
-        date: date ?? this.date,
-        sellerBotUserId: sellerBotUserId ?? this.sellerBotUserId,
-        type: type ?? this.type,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => PaymentReceipt(
+    productInfo: productInfo ?? this.productInfo,
+    date: date ?? this.date,
+    sellerBotUserId: sellerBotUserId ?? this.sellerBotUserId,
+    type: type ?? this.type,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'paymentReceipt';

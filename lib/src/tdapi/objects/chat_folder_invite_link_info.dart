@@ -45,9 +45,11 @@ final class ChatFolderInviteLinkInfo extends TdObject {
       ChatFolderInviteLinkInfo(
         chatFolderInfo: ChatFolderInfo.fromJson(json['chat_folder_info']),
         missingChatIds: List<int>.from(
-            (json['missing_chat_ids'] ?? []).map((item) => item).toList()),
+          (json['missing_chat_ids'] ?? []).map((item) => item).toList(),
+        ),
         addedChatIds: List<int>.from(
-            (json['added_chat_ids'] ?? []).map((item) => item).toList()),
+          (json['added_chat_ids'] ?? []).map((item) => item).toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -75,14 +77,13 @@ final class ChatFolderInviteLinkInfo extends TdObject {
     List<int>? addedChatIds,
     dynamic extra,
     int? clientId,
-  }) =>
-      ChatFolderInviteLinkInfo(
-        chatFolderInfo: chatFolderInfo ?? this.chatFolderInfo,
-        missingChatIds: missingChatIds ?? this.missingChatIds,
-        addedChatIds: addedChatIds ?? this.addedChatIds,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => ChatFolderInviteLinkInfo(
+    chatFolderInfo: chatFolderInfo ?? this.chatFolderInfo,
+    missingChatIds: missingChatIds ?? this.missingChatIds,
+    addedChatIds: addedChatIds ?? this.addedChatIds,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatFolderInviteLinkInfo';

@@ -17,10 +17,7 @@ final class CreatePrivateChat extends TdFunction {
   /// * [force]: Pass true to create the chat without a network request. In this case all information about the chat except its type, title and photo can be incorrect.
   ///
   /// [Chat] is returned on completion.
-  const CreatePrivateChat({
-    required this.userId,
-    required this.force,
-  });
+  const CreatePrivateChat({required this.userId, required this.force});
 
   /// User identifier
   final int userId;
@@ -44,14 +41,10 @@ final class CreatePrivateChat extends TdFunction {
   /// Properties:
   /// * [user_id]: User identifier
   /// * [force]: Pass true to create the chat without a network request. In this case all information about the chat except its type, title and photo can be incorrect
-  CreatePrivateChat copyWith({
-    int? userId,
-    bool? force,
-  }) =>
-      CreatePrivateChat(
-        userId: userId ?? this.userId,
-        force: force ?? this.force,
-      );
+  CreatePrivateChat copyWith({int? userId, bool? force}) => CreatePrivateChat(
+    userId: userId ?? this.userId,
+    force: force ?? this.force,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'createPrivateChat';

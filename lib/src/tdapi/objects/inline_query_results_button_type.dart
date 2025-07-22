@@ -57,27 +57,20 @@ final class InlineQueryResultsButtonTypeStartBot
   /// Describes the button that opens a private chat with the bot and sends a start message to the bot with the given parameter.
   ///
   /// * [parameter]: The parameter for the bot start message.
-  const InlineQueryResultsButtonTypeStartBot({
-    required this.parameter,
-  });
+  const InlineQueryResultsButtonTypeStartBot({required this.parameter});
 
   /// The parameter for the bot start message
   final String parameter;
 
   /// Parse from a json
   factory InlineQueryResultsButtonTypeStartBot.fromJson(
-          Map<String, dynamic> json) =>
-      InlineQueryResultsButtonTypeStartBot(
-        parameter: json['parameter'],
-      );
+    Map<String, dynamic> json,
+  ) => InlineQueryResultsButtonTypeStartBot(parameter: json['parameter']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "parameter": parameter,
-    };
+    return {"@type": defaultObjectId, "parameter": parameter};
   }
 
   /// Copy model with modified properties.
@@ -85,9 +78,7 @@ final class InlineQueryResultsButtonTypeStartBot
   /// Properties:
   /// * [parameter]: The parameter for the bot start message
   @override
-  InlineQueryResultsButtonTypeStartBot copyWith({
-    String? parameter,
-  }) =>
+  InlineQueryResultsButtonTypeStartBot copyWith({String? parameter}) =>
       InlineQueryResultsButtonTypeStartBot(
         parameter: parameter ?? this.parameter,
       );
@@ -116,27 +107,20 @@ final class InlineQueryResultsButtonTypeWebApp
   /// Describes the button that opens a Web App by calling getWebAppUrl.
   ///
   /// * [url]: An HTTP URL to pass to getWebAppUrl.
-  const InlineQueryResultsButtonTypeWebApp({
-    required this.url,
-  });
+  const InlineQueryResultsButtonTypeWebApp({required this.url});
 
   /// An HTTP URL to pass to getWebAppUrl
   final String url;
 
   /// Parse from a json
   factory InlineQueryResultsButtonTypeWebApp.fromJson(
-          Map<String, dynamic> json) =>
-      InlineQueryResultsButtonTypeWebApp(
-        url: json['url'],
-      );
+    Map<String, dynamic> json,
+  ) => InlineQueryResultsButtonTypeWebApp(url: json['url']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "url": url,
-    };
+    return {"@type": defaultObjectId, "url": url};
   }
 
   /// Copy model with modified properties.
@@ -144,12 +128,8 @@ final class InlineQueryResultsButtonTypeWebApp
   /// Properties:
   /// * [url]: An HTTP URL to pass to getWebAppUrl
   @override
-  InlineQueryResultsButtonTypeWebApp copyWith({
-    String? url,
-  }) =>
-      InlineQueryResultsButtonTypeWebApp(
-        url: url ?? this.url,
-      );
+  InlineQueryResultsButtonTypeWebApp copyWith({String? url}) =>
+      InlineQueryResultsButtonTypeWebApp(url: url ?? this.url);
 
   /// TDLib object type
   static const String defaultObjectId = 'inlineQueryResultsButtonTypeWebApp';

@@ -47,9 +47,10 @@ final class MessageReplyInfo extends TdObject {
       MessageReplyInfo(
         replyCount: json['reply_count'],
         recentReplierIds: List<MessageSender>.from(
-            (json['recent_replier_ids'] ?? [])
-                .map((item) => MessageSender.fromJson(item))
-                .toList()),
+          (json['recent_replier_ids'] ?? [])
+              .map((item) => MessageSender.fromJson(item))
+              .toList(),
+        ),
         lastReadInboxMessageId: json['last_read_inbox_message_id'],
         lastReadOutboxMessageId: json['last_read_outbox_message_id'],
         lastMessageId: json['last_message_id'],
@@ -82,16 +83,15 @@ final class MessageReplyInfo extends TdObject {
     int? lastReadInboxMessageId,
     int? lastReadOutboxMessageId,
     int? lastMessageId,
-  }) =>
-      MessageReplyInfo(
-        replyCount: replyCount ?? this.replyCount,
-        recentReplierIds: recentReplierIds ?? this.recentReplierIds,
-        lastReadInboxMessageId:
-            lastReadInboxMessageId ?? this.lastReadInboxMessageId,
-        lastReadOutboxMessageId:
-            lastReadOutboxMessageId ?? this.lastReadOutboxMessageId,
-        lastMessageId: lastMessageId ?? this.lastMessageId,
-      );
+  }) => MessageReplyInfo(
+    replyCount: replyCount ?? this.replyCount,
+    recentReplierIds: recentReplierIds ?? this.recentReplierIds,
+    lastReadInboxMessageId:
+        lastReadInboxMessageId ?? this.lastReadInboxMessageId,
+    lastReadOutboxMessageId:
+        lastReadOutboxMessageId ?? this.lastReadOutboxMessageId,
+    lastMessageId: lastMessageId ?? this.lastMessageId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageReplyInfo';

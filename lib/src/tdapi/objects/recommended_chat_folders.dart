@@ -32,9 +32,10 @@ final class RecommendedChatFolders extends TdObject {
   factory RecommendedChatFolders.fromJson(Map<String, dynamic> json) =>
       RecommendedChatFolders(
         chatFolders: List<RecommendedChatFolder>.from(
-            (json['chat_folders'] ?? [])
-                .map((item) => RecommendedChatFolder.fromJson(item))
-                .toList()),
+          (json['chat_folders'] ?? [])
+              .map((item) => RecommendedChatFolder.fromJson(item))
+              .toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -56,12 +57,11 @@ final class RecommendedChatFolders extends TdObject {
     List<RecommendedChatFolder>? chatFolders,
     dynamic extra,
     int? clientId,
-  }) =>
-      RecommendedChatFolders(
-        chatFolders: chatFolders ?? this.chatFolders,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => RecommendedChatFolders(
+    chatFolders: chatFolders ?? this.chatFolders,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'recommendedChatFolders';

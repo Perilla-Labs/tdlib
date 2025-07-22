@@ -44,10 +44,7 @@ final class ClickAnimatedEmojiMessage extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier of the message
   /// * [message_id]: Identifier of the clicked message
-  ClickAnimatedEmojiMessage copyWith({
-    int? chatId,
-    int? messageId,
-  }) =>
+  ClickAnimatedEmojiMessage copyWith({int? chatId, int? messageId}) =>
       ClickAnimatedEmojiMessage(
         chatId: chatId ?? this.chatId,
         messageId: messageId ?? this.messageId,

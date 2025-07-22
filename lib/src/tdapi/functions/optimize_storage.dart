@@ -110,19 +110,18 @@ final class OptimizeStorage extends TdFunction {
     List<int>? excludeChatIds,
     bool? returnDeletedFileStatistics,
     int? chatLimit,
-  }) =>
-      OptimizeStorage(
-        size: size ?? this.size,
-        ttl: ttl ?? this.ttl,
-        count: count ?? this.count,
-        immunityDelay: immunityDelay ?? this.immunityDelay,
-        fileTypes: fileTypes ?? this.fileTypes,
-        chatIds: chatIds ?? this.chatIds,
-        excludeChatIds: excludeChatIds ?? this.excludeChatIds,
-        returnDeletedFileStatistics:
-            returnDeletedFileStatistics ?? this.returnDeletedFileStatistics,
-        chatLimit: chatLimit ?? this.chatLimit,
-      );
+  }) => OptimizeStorage(
+    size: size ?? this.size,
+    ttl: ttl ?? this.ttl,
+    count: count ?? this.count,
+    immunityDelay: immunityDelay ?? this.immunityDelay,
+    fileTypes: fileTypes ?? this.fileTypes,
+    chatIds: chatIds ?? this.chatIds,
+    excludeChatIds: excludeChatIds ?? this.excludeChatIds,
+    returnDeletedFileStatistics:
+        returnDeletedFileStatistics ?? this.returnDeletedFileStatistics,
+    chatLimit: chatLimit ?? this.chatLimit,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'optimizeStorage';

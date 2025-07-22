@@ -65,13 +65,12 @@ final class BanChatMember extends TdFunction {
     MessageSender? memberId,
     int? bannedUntilDate,
     bool? revokeMessages,
-  }) =>
-      BanChatMember(
-        chatId: chatId ?? this.chatId,
-        memberId: memberId ?? this.memberId,
-        bannedUntilDate: bannedUntilDate ?? this.bannedUntilDate,
-        revokeMessages: revokeMessages ?? this.revokeMessages,
-      );
+  }) => BanChatMember(
+    chatId: chatId ?? this.chatId,
+    memberId: memberId ?? this.memberId,
+    bannedUntilDate: bannedUntilDate ?? this.bannedUntilDate,
+    revokeMessages: revokeMessages ?? this.revokeMessages,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'banChatMember';

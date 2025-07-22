@@ -15,9 +15,7 @@ final class TestCallVectorString extends TdFunction {
   /// * [x]: Vector of strings to return.
   ///
   /// [TestVectorString] is returned on completion.
-  const TestCallVectorString({
-    required this.x,
-  });
+  const TestCallVectorString({required this.x});
 
   /// Vector of strings to return
   final List<String> x;
@@ -36,12 +34,8 @@ final class TestCallVectorString extends TdFunction {
   ///
   /// Properties:
   /// * [x]: Vector of strings to return
-  TestCallVectorString copyWith({
-    List<String>? x,
-  }) =>
-      TestCallVectorString(
-        x: x ?? this.x,
-      );
+  TestCallVectorString copyWith({List<String>? x}) =>
+      TestCallVectorString(x: x ?? this.x);
 
   /// TDLib object type
   static const String defaultObjectId = 'testCallVectorString';

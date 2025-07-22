@@ -15,9 +15,7 @@ final class GetStoryAvailableReactions extends TdFunction {
   /// * [rowSize]: Number of reaction per row, 5-25.
   ///
   /// [AvailableReactions] is returned on completion.
-  const GetStoryAvailableReactions({
-    required this.rowSize,
-  });
+  const GetStoryAvailableReactions({required this.rowSize});
 
   /// Number of reaction per row, 5-25
   final int rowSize;
@@ -25,23 +23,15 @@ final class GetStoryAvailableReactions extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "row_size": rowSize,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "row_size": rowSize, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [row_size]: Number of reaction per row, 5-25
-  GetStoryAvailableReactions copyWith({
-    int? rowSize,
-  }) =>
-      GetStoryAvailableReactions(
-        rowSize: rowSize ?? this.rowSize,
-      );
+  GetStoryAvailableReactions copyWith({int? rowSize}) =>
+      GetStoryAvailableReactions(rowSize: rowSize ?? this.rowSize);
 
   /// TDLib object type
   static const String defaultObjectId = 'getStoryAvailableReactions';

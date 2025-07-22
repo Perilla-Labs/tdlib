@@ -17,10 +17,7 @@ final class GetChats extends TdFunction {
   /// * [limit]: The maximum number of chats to be returned.
   ///
   /// [Chats] is returned on completion.
-  const GetChats({
-    this.chatList,
-    required this.limit,
-  });
+  const GetChats({this.chatList, required this.limit});
 
   /// The chat list in which to return chats; pass null to get chats from the main chat list
   final ChatList? chatList;
@@ -44,14 +41,8 @@ final class GetChats extends TdFunction {
   /// Properties:
   /// * [chat_list]: The chat list in which to return chats; pass null to get chats from the main chat list
   /// * [limit]: The maximum number of chats to be returned
-  GetChats copyWith({
-    ChatList? chatList,
-    int? limit,
-  }) =>
-      GetChats(
-        chatList: chatList ?? this.chatList,
-        limit: limit ?? this.limit,
-      );
+  GetChats copyWith({ChatList? chatList, int? limit}) =>
+      GetChats(chatList: chatList ?? this.chatList, limit: limit ?? this.limit);
 
   /// TDLib object type
   static const String defaultObjectId = 'getChats';

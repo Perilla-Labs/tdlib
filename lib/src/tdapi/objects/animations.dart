@@ -11,11 +11,7 @@ final class Animations extends TdObject {
   /// Represents a list of animations.
   ///
   /// * [animations]: List of animations.
-  const Animations({
-    required this.animations,
-    this.extra,
-    this.clientId,
-  });
+  const Animations({required this.animations, this.extra, this.clientId});
 
   /// List of animations
   final List<Animation> animations;
@@ -30,12 +26,14 @@ final class Animations extends TdObject {
 
   /// Parse from a json
   factory Animations.fromJson(Map<String, dynamic> json) => Animations(
-        animations: List<Animation>.from((json['animations'] ?? [])
-            .map((item) => Animation.fromJson(item))
-            .toList()),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    animations: List<Animation>.from(
+      (json['animations'] ?? [])
+          .map((item) => Animation.fromJson(item))
+          .toList(),
+    ),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -54,12 +52,11 @@ final class Animations extends TdObject {
     List<Animation>? animations,
     dynamic extra,
     int? clientId,
-  }) =>
-      Animations(
-        animations: animations ?? this.animations,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => Animations(
+    animations: animations ?? this.animations,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'animations';

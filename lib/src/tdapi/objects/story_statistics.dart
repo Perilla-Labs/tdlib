@@ -37,10 +37,12 @@ final class StoryStatistics extends TdObject {
   /// Parse from a json
   factory StoryStatistics.fromJson(Map<String, dynamic> json) =>
       StoryStatistics(
-        storyInteractionGraph:
-            StatisticalGraph.fromJson(json['story_interaction_graph']),
-        storyReactionGraph:
-            StatisticalGraph.fromJson(json['story_reaction_graph']),
+        storyInteractionGraph: StatisticalGraph.fromJson(
+          json['story_interaction_graph'],
+        ),
+        storyReactionGraph: StatisticalGraph.fromJson(
+          json['story_reaction_graph'],
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -65,14 +67,12 @@ final class StoryStatistics extends TdObject {
     StatisticalGraph? storyReactionGraph,
     dynamic extra,
     int? clientId,
-  }) =>
-      StoryStatistics(
-        storyInteractionGraph:
-            storyInteractionGraph ?? this.storyInteractionGraph,
-        storyReactionGraph: storyReactionGraph ?? this.storyReactionGraph,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => StoryStatistics(
+    storyInteractionGraph: storyInteractionGraph ?? this.storyInteractionGraph,
+    storyReactionGraph: storyReactionGraph ?? this.storyReactionGraph,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'storyStatistics';

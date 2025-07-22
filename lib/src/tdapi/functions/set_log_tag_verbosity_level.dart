@@ -44,10 +44,7 @@ final class SetLogTagVerbosityLevel extends TdFunction {
   /// Properties:
   /// * [tag]: Logging tag to change verbosity level
   /// * [new_verbosity_level]: New verbosity level; 1-1024
-  SetLogTagVerbosityLevel copyWith({
-    String? tag,
-    int? newVerbosityLevel,
-  }) =>
+  SetLogTagVerbosityLevel copyWith({String? tag, int? newVerbosityLevel}) =>
       SetLogTagVerbosityLevel(
         tag: tag ?? this.tag,
         newVerbosityLevel: newVerbosityLevel ?? this.newVerbosityLevel,

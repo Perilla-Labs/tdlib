@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **EndGroupCall** *(endGroupCall)* - TDLib function
 ///
-/// Ends a group call. Requires groupCall.can_be_managed.
+/// Ends a group call. Requires groupCall.can_be_managed right for video chats or groupCall.is_owned otherwise.
 ///
 /// * [groupCallId]: Group call identifier.
 ///
@@ -10,14 +10,12 @@ part of '../tdapi.dart';
 final class EndGroupCall extends TdFunction {
   /// **EndGroupCall** *(endGroupCall)* - TDLib function
   ///
-  /// Ends a group call. Requires groupCall.can_be_managed.
+  /// Ends a group call. Requires groupCall.can_be_managed right for video chats or groupCall.is_owned otherwise.
   ///
   /// * [groupCallId]: Group call identifier.
   ///
   /// [Ok] is returned on completion.
-  const EndGroupCall({
-    required this.groupCallId,
-  });
+  const EndGroupCall({required this.groupCallId});
 
   /// Group call identifier
   final int groupCallId;
@@ -36,12 +34,8 @@ final class EndGroupCall extends TdFunction {
   ///
   /// Properties:
   /// * [group_call_id]: Group call identifier
-  EndGroupCall copyWith({
-    int? groupCallId,
-  }) =>
-      EndGroupCall(
-        groupCallId: groupCallId ?? this.groupCallId,
-      );
+  EndGroupCall copyWith({int? groupCallId}) =>
+      EndGroupCall(groupCallId: groupCallId ?? this.groupCallId);
 
   /// TDLib object type
   static const String defaultObjectId = 'endGroupCall';

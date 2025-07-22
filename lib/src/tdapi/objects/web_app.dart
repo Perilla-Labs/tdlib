@@ -44,14 +44,14 @@ final class WebApp extends TdObject {
 
   /// Parse from a json
   factory WebApp.fromJson(Map<String, dynamic> json) => WebApp(
-        shortName: json['short_name'],
-        title: json['title'],
-        description: json['description'],
-        photo: Photo.fromJson(json['photo']),
-        animation: json['animation'] == null
-            ? null
-            : Animation.fromJson(json['animation']),
-      );
+    shortName: json['short_name'],
+    title: json['title'],
+    description: json['description'],
+    photo: Photo.fromJson(json['photo']),
+    animation: json['animation'] == null
+        ? null
+        : Animation.fromJson(json['animation']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -80,14 +80,13 @@ final class WebApp extends TdObject {
     String? description,
     Photo? photo,
     Animation? animation,
-  }) =>
-      WebApp(
-        shortName: shortName ?? this.shortName,
-        title: title ?? this.title,
-        description: description ?? this.description,
-        photo: photo ?? this.photo,
-        animation: animation ?? this.animation,
-      );
+  }) => WebApp(
+    shortName: shortName ?? this.shortName,
+    title: title ?? this.title,
+    description: description ?? this.description,
+    photo: photo ?? this.photo,
+    animation: animation ?? this.animation,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'webApp';

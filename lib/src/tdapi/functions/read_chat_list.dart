@@ -15,9 +15,7 @@ final class ReadChatList extends TdFunction {
   /// * [chatList]: Chat list in which to mark all chats as read.
   ///
   /// [Ok] is returned on completion.
-  const ReadChatList({
-    required this.chatList,
-  });
+  const ReadChatList({required this.chatList});
 
   /// Chat list in which to mark all chats as read
   final ChatList chatList;
@@ -36,12 +34,8 @@ final class ReadChatList extends TdFunction {
   ///
   /// Properties:
   /// * [chat_list]: Chat list in which to mark all chats as read
-  ReadChatList copyWith({
-    ChatList? chatList,
-  }) =>
-      ReadChatList(
-        chatList: chatList ?? this.chatList,
-      );
+  ReadChatList copyWith({ChatList? chatList}) =>
+      ReadChatList(chatList: chatList ?? this.chatList);
 
   /// TDLib object type
   static const String defaultObjectId = 'readChatList';

@@ -15,9 +15,7 @@ final class GetBotMediaPreviews extends TdFunction {
   /// * [botUserId]: Identifier of the target bot. The bot must have the main Web App.
   ///
   /// [BotMediaPreviews] is returned on completion.
-  const GetBotMediaPreviews({
-    required this.botUserId,
-  });
+  const GetBotMediaPreviews({required this.botUserId});
 
   /// Identifier of the target bot. The bot must have the main Web App
   final int botUserId;
@@ -36,12 +34,8 @@ final class GetBotMediaPreviews extends TdFunction {
   ///
   /// Properties:
   /// * [bot_user_id]: Identifier of the target bot. The bot must have the main Web App
-  GetBotMediaPreviews copyWith({
-    int? botUserId,
-  }) =>
-      GetBotMediaPreviews(
-        botUserId: botUserId ?? this.botUserId,
-      );
+  GetBotMediaPreviews copyWith({int? botUserId}) =>
+      GetBotMediaPreviews(botUserId: botUserId ?? this.botUserId);
 
   /// TDLib object type
   static const String defaultObjectId = 'getBotMediaPreviews';

@@ -67,9 +67,7 @@ final class UserTypeRegular extends UserType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -104,9 +102,7 @@ final class UserTypeDeleted extends UserType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -199,17 +195,17 @@ final class UserTypeBot extends UserType {
 
   /// Parse from a json
   factory UserTypeBot.fromJson(Map<String, dynamic> json) => UserTypeBot(
-        canBeEdited: json['can_be_edited'],
-        canJoinGroups: json['can_join_groups'],
-        canReadAllGroupMessages: json['can_read_all_group_messages'],
-        hasMainWebApp: json['has_main_web_app'],
-        isInline: json['is_inline'],
-        inlineQueryPlaceholder: json['inline_query_placeholder'],
-        needLocation: json['need_location'],
-        canConnectToBusiness: json['can_connect_to_business'],
-        canBeAddedToAttachmentMenu: json['can_be_added_to_attachment_menu'],
-        activeUserCount: json['active_user_count'],
-      );
+    canBeEdited: json['can_be_edited'],
+    canJoinGroups: json['can_join_groups'],
+    canReadAllGroupMessages: json['can_read_all_group_messages'],
+    hasMainWebApp: json['has_main_web_app'],
+    isInline: json['is_inline'],
+    inlineQueryPlaceholder: json['inline_query_placeholder'],
+    needLocation: json['need_location'],
+    canConnectToBusiness: json['can_connect_to_business'],
+    canBeAddedToAttachmentMenu: json['can_be_added_to_attachment_menu'],
+    activeUserCount: json['active_user_count'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -254,22 +250,21 @@ final class UserTypeBot extends UserType {
     bool? canConnectToBusiness,
     bool? canBeAddedToAttachmentMenu,
     int? activeUserCount,
-  }) =>
-      UserTypeBot(
-        canBeEdited: canBeEdited ?? this.canBeEdited,
-        canJoinGroups: canJoinGroups ?? this.canJoinGroups,
-        canReadAllGroupMessages:
-            canReadAllGroupMessages ?? this.canReadAllGroupMessages,
-        hasMainWebApp: hasMainWebApp ?? this.hasMainWebApp,
-        isInline: isInline ?? this.isInline,
-        inlineQueryPlaceholder:
-            inlineQueryPlaceholder ?? this.inlineQueryPlaceholder,
-        needLocation: needLocation ?? this.needLocation,
-        canConnectToBusiness: canConnectToBusiness ?? this.canConnectToBusiness,
-        canBeAddedToAttachmentMenu:
-            canBeAddedToAttachmentMenu ?? this.canBeAddedToAttachmentMenu,
-        activeUserCount: activeUserCount ?? this.activeUserCount,
-      );
+  }) => UserTypeBot(
+    canBeEdited: canBeEdited ?? this.canBeEdited,
+    canJoinGroups: canJoinGroups ?? this.canJoinGroups,
+    canReadAllGroupMessages:
+        canReadAllGroupMessages ?? this.canReadAllGroupMessages,
+    hasMainWebApp: hasMainWebApp ?? this.hasMainWebApp,
+    isInline: isInline ?? this.isInline,
+    inlineQueryPlaceholder:
+        inlineQueryPlaceholder ?? this.inlineQueryPlaceholder,
+    needLocation: needLocation ?? this.needLocation,
+    canConnectToBusiness: canConnectToBusiness ?? this.canConnectToBusiness,
+    canBeAddedToAttachmentMenu:
+        canBeAddedToAttachmentMenu ?? this.canBeAddedToAttachmentMenu,
+    activeUserCount: activeUserCount ?? this.activeUserCount,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'userTypeBot';
@@ -299,9 +294,7 @@ final class UserTypeUnknown extends UserType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.

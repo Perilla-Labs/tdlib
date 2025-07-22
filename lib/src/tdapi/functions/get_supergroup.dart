@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **GetSupergroup** *(getSupergroup)* - TDLib function
 ///
-/// Returns information about a supergroup or a channel by its identifier. This is an offline request if the current user is not a bot.
+/// Returns information about a supergroup or a channel by its identifier. This is an offline method if the current user is not a bot.
 ///
 /// * [supergroupId]: Supergroup or channel identifier.
 ///
@@ -10,14 +10,12 @@ part of '../tdapi.dart';
 final class GetSupergroup extends TdFunction {
   /// **GetSupergroup** *(getSupergroup)* - TDLib function
   ///
-  /// Returns information about a supergroup or a channel by its identifier. This is an offline request if the current user is not a bot.
+  /// Returns information about a supergroup or a channel by its identifier. This is an offline method if the current user is not a bot.
   ///
   /// * [supergroupId]: Supergroup or channel identifier.
   ///
   /// [Supergroup] is returned on completion.
-  const GetSupergroup({
-    required this.supergroupId,
-  });
+  const GetSupergroup({required this.supergroupId});
 
   /// Supergroup or channel identifier
   final int supergroupId;
@@ -36,12 +34,8 @@ final class GetSupergroup extends TdFunction {
   ///
   /// Properties:
   /// * [supergroup_id]: Supergroup or channel identifier
-  GetSupergroup copyWith({
-    int? supergroupId,
-  }) =>
-      GetSupergroup(
-        supergroupId: supergroupId ?? this.supergroupId,
-      );
+  GetSupergroup copyWith({int? supergroupId}) =>
+      GetSupergroup(supergroupId: supergroupId ?? this.supergroupId);
 
   /// TDLib object type
   static const String defaultObjectId = 'getSupergroup';

@@ -39,10 +39,7 @@ final class DatabaseStatistics extends TdObject {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "statistics": statistics,
-    };
+    return {"@type": defaultObjectId, "statistics": statistics};
   }
 
   /// Copy model with modified properties.
@@ -53,12 +50,11 @@ final class DatabaseStatistics extends TdObject {
     String? statistics,
     dynamic extra,
     int? clientId,
-  }) =>
-      DatabaseStatistics(
-        statistics: statistics ?? this.statistics,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => DatabaseStatistics(
+    statistics: statistics ?? this.statistics,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'databaseStatistics';

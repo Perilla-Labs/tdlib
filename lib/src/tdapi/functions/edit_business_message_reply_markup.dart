@@ -65,13 +65,12 @@ final class EditBusinessMessageReplyMarkup extends TdFunction {
     int? chatId,
     int? messageId,
     ReplyMarkup? replyMarkup,
-  }) =>
-      EditBusinessMessageReplyMarkup(
-        businessConnectionId: businessConnectionId ?? this.businessConnectionId,
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        replyMarkup: replyMarkup ?? this.replyMarkup,
-      );
+  }) => EditBusinessMessageReplyMarkup(
+    businessConnectionId: businessConnectionId ?? this.businessConnectionId,
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    replyMarkup: replyMarkup ?? this.replyMarkup,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'editBusinessMessageReplyMarkup';

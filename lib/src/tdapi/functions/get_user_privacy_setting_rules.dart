@@ -15,9 +15,7 @@ final class GetUserPrivacySettingRules extends TdFunction {
   /// * [setting]: The privacy setting.
   ///
   /// [UserPrivacySettingRules] is returned on completion.
-  const GetUserPrivacySettingRules({
-    required this.setting,
-  });
+  const GetUserPrivacySettingRules({required this.setting});
 
   /// The privacy setting
   final UserPrivacySetting setting;
@@ -36,12 +34,8 @@ final class GetUserPrivacySettingRules extends TdFunction {
   ///
   /// Properties:
   /// * [setting]: The privacy setting
-  GetUserPrivacySettingRules copyWith({
-    UserPrivacySetting? setting,
-  }) =>
-      GetUserPrivacySettingRules(
-        setting: setting ?? this.setting,
-      );
+  GetUserPrivacySettingRules copyWith({UserPrivacySetting? setting}) =>
+      GetUserPrivacySettingRules(setting: setting ?? this.setting);
 
   /// TDLib object type
   static const String defaultObjectId = 'getUserPrivacySettingRules';

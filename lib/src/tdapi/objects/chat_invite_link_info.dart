@@ -16,9 +16,7 @@ part of '../tdapi.dart';
 /// * [subscriptionInfo]: Information about subscription plan that must be paid by the user to use the link; may be null if the link doesn't require subscription *(optional)*.
 /// * [createsJoinRequest]: True, if the link only creates join request.
 /// * [isPublic]: True, if the chat is a public supergroup or channel, i.e. it has a username or it is a location-based supergroup.
-/// * [isVerified]: True, if the chat is verified.
-/// * [isScam]: True, if many users reported this chat as a scam.
-/// * [isFake]: True, if many users reported this chat as a fake account.
+/// * [verificationStatus]: Information about verification status of the chat; may be null if none *(optional)*.
 final class ChatInviteLinkInfo extends TdObject {
   /// **ChatInviteLinkInfo** *(chatInviteLinkInfo)* - basic class
   ///
@@ -36,9 +34,7 @@ final class ChatInviteLinkInfo extends TdObject {
   /// * [subscriptionInfo]: Information about subscription plan that must be paid by the user to use the link; may be null if the link doesn't require subscription *(optional)*.
   /// * [createsJoinRequest]: True, if the link only creates join request.
   /// * [isPublic]: True, if the chat is a public supergroup or channel, i.e. it has a username or it is a location-based supergroup.
-  /// * [isVerified]: True, if the chat is verified.
-  /// * [isScam]: True, if many users reported this chat as a scam.
-  /// * [isFake]: True, if many users reported this chat as a fake account.
+  /// * [verificationStatus]: Information about verification status of the chat; may be null if none *(optional)*.
   const ChatInviteLinkInfo({
     required this.chatId,
     required this.accessibleFor,
@@ -52,9 +48,7 @@ final class ChatInviteLinkInfo extends TdObject {
     this.subscriptionInfo,
     required this.createsJoinRequest,
     required this.isPublic,
-    required this.isVerified,
-    required this.isScam,
-    required this.isFake,
+    this.verificationStatus,
     this.extra,
     this.clientId,
   });
@@ -95,14 +89,8 @@ final class ChatInviteLinkInfo extends TdObject {
   /// True, if the chat is a public supergroup or channel, i.e. it has a username or it is a location-based supergroup
   final bool isPublic;
 
-  /// True, if the chat is verified
-  final bool isVerified;
-
-  /// True, if many users reported this chat as a scam
-  final bool isScam;
-
-  /// True, if many users reported this chat as a fake account
-  final bool isFake;
+  /// Information about verification status of the chat; may be null if none
+  final VerificationStatus? verificationStatus;
 
   /// [extra] callback sign
   @override
@@ -132,9 +120,9 @@ final class ChatInviteLinkInfo extends TdObject {
         : ChatInviteLinkSubscriptionInfo.fromJson(json['subscription_info']),
     createsJoinRequest: json['creates_join_request'],
     isPublic: json['is_public'],
-    isVerified: json['is_verified'] ?? false,
-    isScam: json['is_scam'] ?? false,
-    isFake: json['is_fake'] ?? false,
+    verificationStatus: json['verification_status'] == null
+        ? null
+        : VerificationStatus.fromJson(json['verification_status']),
     extra: json['@extra'],
     clientId: json['@client_id'],
   );
@@ -156,9 +144,7 @@ final class ChatInviteLinkInfo extends TdObject {
       "subscription_info": subscriptionInfo?.toJson(),
       "creates_join_request": createsJoinRequest,
       "is_public": isPublic,
-      "is_verified": isVerified,
-      "is_scam": isScam,
-      "is_fake": isFake,
+      "verification_status": verificationStatus?.toJson(),
     };
   }
 
@@ -177,9 +163,7 @@ final class ChatInviteLinkInfo extends TdObject {
   /// * [subscription_info]: Information about subscription plan that must be paid by the user to use the link; may be null if the link doesn't require subscription
   /// * [creates_join_request]: True, if the link only creates join request
   /// * [is_public]: True, if the chat is a public supergroup or channel, i.e. it has a username or it is a location-based supergroup
-  /// * [is_verified]: True, if the chat is verified
-  /// * [is_scam]: True, if many users reported this chat as a scam
-  /// * [is_fake]: True, if many users reported this chat as a fake account
+  /// * [verification_status]: Information about verification status of the chat; may be null if none
   ChatInviteLinkInfo copyWith({
     int? chatId,
     int? accessibleFor,
@@ -193,9 +177,7 @@ final class ChatInviteLinkInfo extends TdObject {
     ChatInviteLinkSubscriptionInfo? subscriptionInfo,
     bool? createsJoinRequest,
     bool? isPublic,
-    bool? isVerified,
-    bool? isScam,
-    bool? isFake,
+    VerificationStatus? verificationStatus,
     dynamic extra,
     int? clientId,
   }) => ChatInviteLinkInfo(
@@ -211,9 +193,7 @@ final class ChatInviteLinkInfo extends TdObject {
     subscriptionInfo: subscriptionInfo ?? this.subscriptionInfo,
     createsJoinRequest: createsJoinRequest ?? this.createsJoinRequest,
     isPublic: isPublic ?? this.isPublic,
-    isVerified: isVerified ?? this.isVerified,
-    isScam: isScam ?? this.isScam,
-    isFake: isFake ?? this.isFake,
+    verificationStatus: verificationStatus ?? this.verificationStatus,
     extra: extra ?? this.extra,
     clientId: clientId ?? this.clientId,
   );

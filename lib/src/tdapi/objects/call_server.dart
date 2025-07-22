@@ -44,12 +44,12 @@ final class CallServer extends TdObject {
 
   /// Parse from a json
   factory CallServer.fromJson(Map<String, dynamic> json) => CallServer(
-        id: json['id'] is int ? json['id'] : int.parse(json['id']),
-        ipAddress: json['ip_address'],
-        ipv6Address: json['ipv6_address'],
-        port: json['port'],
-        type: CallServerType.fromJson(json['type']),
-      );
+    id: json['id'] is int ? json['id'] : int.parse(json['id']),
+    ipAddress: json['ip_address'],
+    ipv6Address: json['ipv6_address'],
+    port: json['port'],
+    type: CallServerType.fromJson(json['type']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -78,14 +78,13 @@ final class CallServer extends TdObject {
     String? ipv6Address,
     int? port,
     CallServerType? type,
-  }) =>
-      CallServer(
-        id: id ?? this.id,
-        ipAddress: ipAddress ?? this.ipAddress,
-        ipv6Address: ipv6Address ?? this.ipv6Address,
-        port: port ?? this.port,
-        type: type ?? this.type,
-      );
+  }) => CallServer(
+    id: id ?? this.id,
+    ipAddress: ipAddress ?? this.ipAddress,
+    ipv6Address: ipv6Address ?? this.ipv6Address,
+    port: port ?? this.port,
+    type: type ?? this.type,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'callServer';

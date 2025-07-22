@@ -15,9 +15,7 @@ final class DeleteSavedMessagesTopicHistory extends TdFunction {
   /// * [savedMessagesTopicId]: Identifier of Saved Messages topic which messages will be deleted.
   ///
   /// [Ok] is returned on completion.
-  const DeleteSavedMessagesTopicHistory({
-    required this.savedMessagesTopicId,
-  });
+  const DeleteSavedMessagesTopicHistory({required this.savedMessagesTopicId});
 
   /// Identifier of Saved Messages topic which messages will be deleted
   final int savedMessagesTopicId;
@@ -36,9 +34,7 @@ final class DeleteSavedMessagesTopicHistory extends TdFunction {
   ///
   /// Properties:
   /// * [saved_messages_topic_id]: Identifier of Saved Messages topic which messages will be deleted
-  DeleteSavedMessagesTopicHistory copyWith({
-    int? savedMessagesTopicId,
-  }) =>
+  DeleteSavedMessagesTopicHistory copyWith({int? savedMessagesTopicId}) =>
       DeleteSavedMessagesTopicHistory(
         savedMessagesTopicId: savedMessagesTopicId ?? this.savedMessagesTopicId,
       );

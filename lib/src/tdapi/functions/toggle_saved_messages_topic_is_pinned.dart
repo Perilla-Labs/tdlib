@@ -47,11 +47,10 @@ final class ToggleSavedMessagesTopicIsPinned extends TdFunction {
   ToggleSavedMessagesTopicIsPinned copyWith({
     int? savedMessagesTopicId,
     bool? isPinned,
-  }) =>
-      ToggleSavedMessagesTopicIsPinned(
-        savedMessagesTopicId: savedMessagesTopicId ?? this.savedMessagesTopicId,
-        isPinned: isPinned ?? this.isPinned,
-      );
+  }) => ToggleSavedMessagesTopicIsPinned(
+    savedMessagesTopicId: savedMessagesTopicId ?? this.savedMessagesTopicId,
+    isPinned: isPinned ?? this.isPinned,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'toggleSavedMessagesTopicIsPinned';

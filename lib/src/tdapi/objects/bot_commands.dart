@@ -36,13 +36,15 @@ final class BotCommands extends TdObject {
 
   /// Parse from a json
   factory BotCommands.fromJson(Map<String, dynamic> json) => BotCommands(
-        botUserId: json['bot_user_id'],
-        commands: List<BotCommand>.from((json['commands'] ?? [])
-            .map((item) => BotCommand.fromJson(item))
-            .toList()),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    botUserId: json['bot_user_id'],
+    commands: List<BotCommand>.from(
+      (json['commands'] ?? [])
+          .map((item) => BotCommand.fromJson(item))
+          .toList(),
+    ),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -64,13 +66,12 @@ final class BotCommands extends TdObject {
     List<BotCommand>? commands,
     dynamic extra,
     int? clientId,
-  }) =>
-      BotCommands(
-        botUserId: botUserId ?? this.botUserId,
-        commands: commands ?? this.commands,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => BotCommands(
+    botUserId: botUserId ?? this.botUserId,
+    commands: commands ?? this.commands,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'botCommands';

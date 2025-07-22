@@ -17,10 +17,7 @@ final class AddLogMessage extends TdFunction {
   /// * [text]: Text of a message to log.
   ///
   /// [Ok] is returned on completion.
-  const AddLogMessage({
-    required this.verbosityLevel,
-    required this.text,
-  });
+  const AddLogMessage({required this.verbosityLevel, required this.text});
 
   /// The minimum verbosity level needed for the message to be logged; 0-1023
   final int verbosityLevel;
@@ -44,14 +41,10 @@ final class AddLogMessage extends TdFunction {
   /// Properties:
   /// * [verbosity_level]: The minimum verbosity level needed for the message to be logged; 0-1023
   /// * [text]: Text of a message to log
-  AddLogMessage copyWith({
-    int? verbosityLevel,
-    String? text,
-  }) =>
-      AddLogMessage(
-        verbosityLevel: verbosityLevel ?? this.verbosityLevel,
-        text: text ?? this.text,
-      );
+  AddLogMessage copyWith({int? verbosityLevel, String? text}) => AddLogMessage(
+    verbosityLevel: verbosityLevel ?? this.verbosityLevel,
+    text: text ?? this.text,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'addLogMessage';

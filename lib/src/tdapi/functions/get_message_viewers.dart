@@ -17,10 +17,7 @@ final class GetMessageViewers extends TdFunction {
   /// * [messageId]: Identifier of the message.
   ///
   /// [MessageViewers] is returned on completion.
-  const GetMessageViewers({
-    required this.chatId,
-    required this.messageId,
-  });
+  const GetMessageViewers({required this.chatId, required this.messageId});
 
   /// Chat identifier
   final int chatId;
@@ -44,10 +41,7 @@ final class GetMessageViewers extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [message_id]: Identifier of the message
-  GetMessageViewers copyWith({
-    int? chatId,
-    int? messageId,
-  }) =>
+  GetMessageViewers copyWith({int? chatId, int? messageId}) =>
       GetMessageViewers(
         chatId: chatId ?? this.chatId,
         messageId: messageId ?? this.messageId,

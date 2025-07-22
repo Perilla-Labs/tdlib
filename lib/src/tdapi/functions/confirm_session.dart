@@ -15,9 +15,7 @@ final class ConfirmSession extends TdFunction {
   /// * [sessionId]: Session identifier.
   ///
   /// [Ok] is returned on completion.
-  const ConfirmSession({
-    required this.sessionId,
-  });
+  const ConfirmSession({required this.sessionId});
 
   /// Session identifier
   final int sessionId;
@@ -25,23 +23,15 @@ final class ConfirmSession extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "session_id": sessionId,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "session_id": sessionId, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [session_id]: Session identifier
-  ConfirmSession copyWith({
-    int? sessionId,
-  }) =>
-      ConfirmSession(
-        sessionId: sessionId ?? this.sessionId,
-      );
+  ConfirmSession copyWith({int? sessionId}) =>
+      ConfirmSession(sessionId: sessionId ?? this.sessionId);
 
   /// TDLib object type
   static const String defaultObjectId = 'confirmSession';

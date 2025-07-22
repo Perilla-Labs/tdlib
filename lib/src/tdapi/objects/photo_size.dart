@@ -44,13 +44,14 @@ final class PhotoSize extends TdObject {
 
   /// Parse from a json
   factory PhotoSize.fromJson(Map<String, dynamic> json) => PhotoSize(
-        type: json['type'],
-        photo: File.fromJson(json['photo']),
-        width: json['width'],
-        height: json['height'],
-        progressiveSizes: List<int>.from(
-            (json['progressive_sizes'] ?? []).map((item) => item).toList()),
-      );
+    type: json['type'],
+    photo: File.fromJson(json['photo']),
+    width: json['width'],
+    height: json['height'],
+    progressiveSizes: List<int>.from(
+      (json['progressive_sizes'] ?? []).map((item) => item).toList(),
+    ),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -79,14 +80,13 @@ final class PhotoSize extends TdObject {
     int? width,
     int? height,
     List<int>? progressiveSizes,
-  }) =>
-      PhotoSize(
-        type: type ?? this.type,
-        photo: photo ?? this.photo,
-        width: width ?? this.width,
-        height: height ?? this.height,
-        progressiveSizes: progressiveSizes ?? this.progressiveSizes,
-      );
+  }) => PhotoSize(
+    type: type ?? this.type,
+    photo: photo ?? this.photo,
+    width: width ?? this.width,
+    height: height ?? this.height,
+    progressiveSizes: progressiveSizes ?? this.progressiveSizes,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'photoSize';

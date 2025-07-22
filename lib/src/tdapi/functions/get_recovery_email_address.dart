@@ -15,9 +15,7 @@ final class GetRecoveryEmailAddress extends TdFunction {
   /// * [password]: The 2-step verification password for the current user.
   ///
   /// [RecoveryEmailAddress] is returned on completion.
-  const GetRecoveryEmailAddress({
-    required this.password,
-  });
+  const GetRecoveryEmailAddress({required this.password});
 
   /// The 2-step verification password for the current user
   final String password;
@@ -25,23 +23,15 @@ final class GetRecoveryEmailAddress extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "password": password,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "password": password, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [password]: The 2-step verification password for the current user
-  GetRecoveryEmailAddress copyWith({
-    String? password,
-  }) =>
-      GetRecoveryEmailAddress(
-        password: password ?? this.password,
-      );
+  GetRecoveryEmailAddress copyWith({String? password}) =>
+      GetRecoveryEmailAddress(password: password ?? this.password);
 
   /// TDLib object type
   static const String defaultObjectId = 'getRecoveryEmailAddress';

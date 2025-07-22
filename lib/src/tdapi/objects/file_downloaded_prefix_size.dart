@@ -39,10 +39,7 @@ final class FileDownloadedPrefixSize extends TdObject {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "size": size,
-    };
+    return {"@type": defaultObjectId, "size": size};
   }
 
   /// Copy model with modified properties.
@@ -53,12 +50,11 @@ final class FileDownloadedPrefixSize extends TdObject {
     int? size,
     dynamic extra,
     int? clientId,
-  }) =>
-      FileDownloadedPrefixSize(
-        size: size ?? this.size,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => FileDownloadedPrefixSize(
+    size: size ?? this.size,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'fileDownloadedPrefixSize';

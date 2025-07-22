@@ -36,13 +36,15 @@ final class MessageSenders extends TdObject {
 
   /// Parse from a json
   factory MessageSenders.fromJson(Map<String, dynamic> json) => MessageSenders(
-        totalCount: json['total_count'],
-        senders: List<MessageSender>.from((json['senders'] ?? [])
-            .map((item) => MessageSender.fromJson(item))
-            .toList()),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    totalCount: json['total_count'],
+    senders: List<MessageSender>.from(
+      (json['senders'] ?? [])
+          .map((item) => MessageSender.fromJson(item))
+          .toList(),
+    ),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -64,13 +66,12 @@ final class MessageSenders extends TdObject {
     List<MessageSender>? senders,
     dynamic extra,
     int? clientId,
-  }) =>
-      MessageSenders(
-        totalCount: totalCount ?? this.totalCount,
-        senders: senders ?? this.senders,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => MessageSenders(
+    totalCount: totalCount ?? this.totalCount,
+    senders: senders ?? this.senders,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageSenders';

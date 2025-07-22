@@ -47,11 +47,10 @@ final class AnswerPreCheckoutQuery extends TdFunction {
   AnswerPreCheckoutQuery copyWith({
     int? preCheckoutQueryId,
     String? errorMessage,
-  }) =>
-      AnswerPreCheckoutQuery(
-        preCheckoutQueryId: preCheckoutQueryId ?? this.preCheckoutQueryId,
-        errorMessage: errorMessage ?? this.errorMessage,
-      );
+  }) => AnswerPreCheckoutQuery(
+    preCheckoutQueryId: preCheckoutQueryId ?? this.preCheckoutQueryId,
+    errorMessage: errorMessage ?? this.errorMessage,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'answerPreCheckoutQuery';

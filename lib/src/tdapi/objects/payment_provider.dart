@@ -98,11 +98,10 @@ final class PaymentProviderSmartGlocal extends PaymentProvider {
   PaymentProviderSmartGlocal copyWith({
     String? publicToken,
     String? tokenizeUrl,
-  }) =>
-      PaymentProviderSmartGlocal(
-        publicToken: publicToken ?? this.publicToken,
-        tokenizeUrl: tokenizeUrl ?? this.tokenizeUrl,
-      );
+  }) => PaymentProviderSmartGlocal(
+    publicToken: publicToken ?? this.publicToken,
+    tokenizeUrl: tokenizeUrl ?? this.tokenizeUrl,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'paymentProviderSmartGlocal';
@@ -186,13 +185,12 @@ final class PaymentProviderStripe extends PaymentProvider {
     bool? needCountry,
     bool? needPostalCode,
     bool? needCardholderName,
-  }) =>
-      PaymentProviderStripe(
-        publishableKey: publishableKey ?? this.publishableKey,
-        needCountry: needCountry ?? this.needCountry,
-        needPostalCode: needPostalCode ?? this.needPostalCode,
-        needCardholderName: needCardholderName ?? this.needCardholderName,
-      );
+  }) => PaymentProviderStripe(
+    publishableKey: publishableKey ?? this.publishableKey,
+    needCountry: needCountry ?? this.needCountry,
+    needPostalCode: needPostalCode ?? this.needPostalCode,
+    needCardholderName: needCardholderName ?? this.needCardholderName,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'paymentProviderStripe';
@@ -217,26 +215,19 @@ final class PaymentProviderOther extends PaymentProvider {
   /// Some other payment provider, for which a web payment form must be shown.
   ///
   /// * [url]: Payment form URL.
-  const PaymentProviderOther({
-    required this.url,
-  });
+  const PaymentProviderOther({required this.url});
 
   /// Payment form URL
   final String url;
 
   /// Parse from a json
   factory PaymentProviderOther.fromJson(Map<String, dynamic> json) =>
-      PaymentProviderOther(
-        url: json['url'],
-      );
+      PaymentProviderOther(url: json['url']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "url": url,
-    };
+    return {"@type": defaultObjectId, "url": url};
   }
 
   /// Copy model with modified properties.
@@ -244,12 +235,8 @@ final class PaymentProviderOther extends PaymentProvider {
   /// Properties:
   /// * [url]: Payment form URL
   @override
-  PaymentProviderOther copyWith({
-    String? url,
-  }) =>
-      PaymentProviderOther(
-        url: url ?? this.url,
-      );
+  PaymentProviderOther copyWith({String? url}) =>
+      PaymentProviderOther(url: url ?? this.url);
 
   /// TDLib object type
   static const String defaultObjectId = 'paymentProviderOther';

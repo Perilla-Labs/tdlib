@@ -17,10 +17,7 @@ final class SendCustomRequest extends TdFunction {
   /// * [parameters]: JSON-serialized method parameters.
   ///
   /// [CustomRequestResult] is returned on completion.
-  const SendCustomRequest({
-    required this.method,
-    required this.parameters,
-  });
+  const SendCustomRequest({required this.method, required this.parameters});
 
   /// The method name
   final String method;
@@ -44,10 +41,7 @@ final class SendCustomRequest extends TdFunction {
   /// Properties:
   /// * [method]: The method name
   /// * [parameters]: JSON-serialized method parameters
-  SendCustomRequest copyWith({
-    String? method,
-    String? parameters,
-  }) =>
+  SendCustomRequest copyWith({String? method, String? parameters}) =>
       SendCustomRequest(
         method: method ?? this.method,
         parameters: parameters ?? this.parameters,

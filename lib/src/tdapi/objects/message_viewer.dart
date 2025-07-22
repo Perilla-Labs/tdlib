@@ -13,10 +13,7 @@ final class MessageViewer extends TdObject {
   ///
   /// * [userId]: User identifier of the viewer.
   /// * [viewDate]: Approximate point in time (Unix timestamp) when the message was viewed.
-  const MessageViewer({
-    required this.userId,
-    required this.viewDate,
-  });
+  const MessageViewer({required this.userId, required this.viewDate});
 
   /// User identifier of the viewer
   final int userId;
@@ -25,19 +22,13 @@ final class MessageViewer extends TdObject {
   final int viewDate;
 
   /// Parse from a json
-  factory MessageViewer.fromJson(Map<String, dynamic> json) => MessageViewer(
-        userId: json['user_id'],
-        viewDate: json['view_date'],
-      );
+  factory MessageViewer.fromJson(Map<String, dynamic> json) =>
+      MessageViewer(userId: json['user_id'], viewDate: json['view_date']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "user_id": userId,
-      "view_date": viewDate,
-    };
+    return {"@type": defaultObjectId, "user_id": userId, "view_date": viewDate};
   }
 
   /// Copy model with modified properties.
@@ -45,14 +36,10 @@ final class MessageViewer extends TdObject {
   /// Properties:
   /// * [user_id]: User identifier of the viewer
   /// * [view_date]: Approximate point in time (Unix timestamp) when the message was viewed
-  MessageViewer copyWith({
-    int? userId,
-    int? viewDate,
-  }) =>
-      MessageViewer(
-        userId: userId ?? this.userId,
-        viewDate: viewDate ?? this.viewDate,
-      );
+  MessageViewer copyWith({int? userId, int? viewDate}) => MessageViewer(
+    userId: userId ?? this.userId,
+    viewDate: viewDate ?? this.viewDate,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageViewer';

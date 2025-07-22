@@ -17,10 +17,7 @@ final class ToggleDownloadIsPaused extends TdFunction {
   /// * [isPaused]: Pass true if the download is paused.
   ///
   /// [Ok] is returned on completion.
-  const ToggleDownloadIsPaused({
-    required this.fileId,
-    required this.isPaused,
-  });
+  const ToggleDownloadIsPaused({required this.fileId, required this.isPaused});
 
   /// Identifier of the downloaded file
   final int fileId;
@@ -44,10 +41,7 @@ final class ToggleDownloadIsPaused extends TdFunction {
   /// Properties:
   /// * [file_id]: Identifier of the downloaded file
   /// * [is_paused]: Pass true if the download is paused
-  ToggleDownloadIsPaused copyWith({
-    int? fileId,
-    bool? isPaused,
-  }) =>
+  ToggleDownloadIsPaused copyWith({int? fileId, bool? isPaused}) =>
       ToggleDownloadIsPaused(
         fileId: fileId ?? this.fileId,
         isPaused: isPaused ?? this.isPaused,

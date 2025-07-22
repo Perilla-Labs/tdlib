@@ -44,10 +44,7 @@ final class SearchOutgoingDocumentMessages extends TdFunction {
   /// Properties:
   /// * [query]: Query to search for in document file name and message caption
   /// * [limit]: The maximum number of messages to be returned; up to 100
-  SearchOutgoingDocumentMessages copyWith({
-    String? query,
-    int? limit,
-  }) =>
+  SearchOutgoingDocumentMessages copyWith({String? query, int? limit}) =>
       SearchOutgoingDocumentMessages(
         query: query ?? this.query,
         limit: limit ?? this.limit,

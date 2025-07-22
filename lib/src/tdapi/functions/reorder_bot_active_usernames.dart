@@ -47,11 +47,10 @@ final class ReorderBotActiveUsernames extends TdFunction {
   ReorderBotActiveUsernames copyWith({
     int? botUserId,
     List<String>? usernames,
-  }) =>
-      ReorderBotActiveUsernames(
-        botUserId: botUserId ?? this.botUserId,
-        usernames: usernames ?? this.usernames,
-      );
+  }) => ReorderBotActiveUsernames(
+    botUserId: botUserId ?? this.botUserId,
+    usernames: usernames ?? this.usernames,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'reorderBotActiveUsernames';

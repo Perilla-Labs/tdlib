@@ -17,10 +17,7 @@ final class DeleteChatReplyMarkup extends TdFunction {
   /// * [messageId]: The message identifier of the used keyboard.
   ///
   /// [Ok] is returned on completion.
-  const DeleteChatReplyMarkup({
-    required this.chatId,
-    required this.messageId,
-  });
+  const DeleteChatReplyMarkup({required this.chatId, required this.messageId});
 
   /// Chat identifier
   final int chatId;
@@ -44,10 +41,7 @@ final class DeleteChatReplyMarkup extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [message_id]: The message identifier of the used keyboard
-  DeleteChatReplyMarkup copyWith({
-    int? chatId,
-    int? messageId,
-  }) =>
+  DeleteChatReplyMarkup copyWith({int? chatId, int? messageId}) =>
       DeleteChatReplyMarkup(
         chatId: chatId ?? this.chatId,
         messageId: messageId ?? this.messageId,

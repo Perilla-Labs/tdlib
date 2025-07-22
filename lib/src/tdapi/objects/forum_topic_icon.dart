@@ -13,10 +13,7 @@ final class ForumTopicIcon extends TdObject {
   ///
   /// * [color]: Color of the topic icon in RGB format.
   /// * [customEmojiId]: Unique identifier of the custom emoji shown on the topic icon; 0 if none.
-  const ForumTopicIcon({
-    required this.color,
-    required this.customEmojiId,
-  });
+  const ForumTopicIcon({required this.color, required this.customEmojiId});
 
   /// Color of the topic icon in RGB format
   final int color;
@@ -26,11 +23,11 @@ final class ForumTopicIcon extends TdObject {
 
   /// Parse from a json
   factory ForumTopicIcon.fromJson(Map<String, dynamic> json) => ForumTopicIcon(
-        color: json['color'],
-        customEmojiId: json['custom_emoji_id'] is int
-            ? json['custom_emoji_id']
-            : int.tryParse(json['custom_emoji_id'] ?? "") ?? 0,
-      );
+    color: json['color'],
+    customEmojiId: json['custom_emoji_id'] is int
+        ? json['custom_emoji_id']
+        : int.tryParse(json['custom_emoji_id'] ?? "") ?? 0,
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -47,14 +44,10 @@ final class ForumTopicIcon extends TdObject {
   /// Properties:
   /// * [color]: Color of the topic icon in RGB format
   /// * [custom_emoji_id]: Unique identifier of the custom emoji shown on the topic icon; 0 if none
-  ForumTopicIcon copyWith({
-    int? color,
-    int? customEmojiId,
-  }) =>
-      ForumTopicIcon(
-        color: color ?? this.color,
-        customEmojiId: customEmojiId ?? this.customEmojiId,
-      );
+  ForumTopicIcon copyWith({int? color, int? customEmojiId}) => ForumTopicIcon(
+    color: color ?? this.color,
+    customEmojiId: customEmojiId ?? this.customEmojiId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'forumTopicIcon';

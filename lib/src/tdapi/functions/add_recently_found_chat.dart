@@ -15,9 +15,7 @@ final class AddRecentlyFoundChat extends TdFunction {
   /// * [chatId]: Identifier of the chat to add.
   ///
   /// [Ok] is returned on completion.
-  const AddRecentlyFoundChat({
-    required this.chatId,
-  });
+  const AddRecentlyFoundChat({required this.chatId});
 
   /// Identifier of the chat to add
   final int chatId;
@@ -25,23 +23,15 @@ final class AddRecentlyFoundChat extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "chat_id": chatId,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "chat_id": chatId, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [chat_id]: Identifier of the chat to add
-  AddRecentlyFoundChat copyWith({
-    int? chatId,
-  }) =>
-      AddRecentlyFoundChat(
-        chatId: chatId ?? this.chatId,
-      );
+  AddRecentlyFoundChat copyWith({int? chatId}) =>
+      AddRecentlyFoundChat(chatId: chatId ?? this.chatId);
 
   /// TDLib object type
   static const String defaultObjectId = 'addRecentlyFoundChat';

@@ -169,24 +169,23 @@ final class ChatEventLogFilters extends TdObject {
     bool? videoChatChanges,
     bool? forumChanges,
     bool? subscriptionExtensions,
-  }) =>
-      ChatEventLogFilters(
-        messageEdits: messageEdits ?? this.messageEdits,
-        messageDeletions: messageDeletions ?? this.messageDeletions,
-        messagePins: messagePins ?? this.messagePins,
-        memberJoins: memberJoins ?? this.memberJoins,
-        memberLeaves: memberLeaves ?? this.memberLeaves,
-        memberInvites: memberInvites ?? this.memberInvites,
-        memberPromotions: memberPromotions ?? this.memberPromotions,
-        memberRestrictions: memberRestrictions ?? this.memberRestrictions,
-        infoChanges: infoChanges ?? this.infoChanges,
-        settingChanges: settingChanges ?? this.settingChanges,
-        inviteLinkChanges: inviteLinkChanges ?? this.inviteLinkChanges,
-        videoChatChanges: videoChatChanges ?? this.videoChatChanges,
-        forumChanges: forumChanges ?? this.forumChanges,
-        subscriptionExtensions:
-            subscriptionExtensions ?? this.subscriptionExtensions,
-      );
+  }) => ChatEventLogFilters(
+    messageEdits: messageEdits ?? this.messageEdits,
+    messageDeletions: messageDeletions ?? this.messageDeletions,
+    messagePins: messagePins ?? this.messagePins,
+    memberJoins: memberJoins ?? this.memberJoins,
+    memberLeaves: memberLeaves ?? this.memberLeaves,
+    memberInvites: memberInvites ?? this.memberInvites,
+    memberPromotions: memberPromotions ?? this.memberPromotions,
+    memberRestrictions: memberRestrictions ?? this.memberRestrictions,
+    infoChanges: infoChanges ?? this.infoChanges,
+    settingChanges: settingChanges ?? this.settingChanges,
+    inviteLinkChanges: inviteLinkChanges ?? this.inviteLinkChanges,
+    videoChatChanges: videoChatChanges ?? this.videoChatChanges,
+    forumChanges: forumChanges ?? this.forumChanges,
+    subscriptionExtensions:
+        subscriptionExtensions ?? this.subscriptionExtensions,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatEventLogFilters';

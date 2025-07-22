@@ -59,26 +59,19 @@ final class CallbackQueryPayloadData extends CallbackQueryPayload {
   /// The payload for a general callback button.
   ///
   /// * [data]: Data that was attached to the callback button.
-  const CallbackQueryPayloadData({
-    required this.data,
-  });
+  const CallbackQueryPayloadData({required this.data});
 
   /// Data that was attached to the callback button
   final String data;
 
   /// Parse from a json
   factory CallbackQueryPayloadData.fromJson(Map<String, dynamic> json) =>
-      CallbackQueryPayloadData(
-        data: json['data'],
-      );
+      CallbackQueryPayloadData(data: json['data']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "data": data,
-    };
+    return {"@type": defaultObjectId, "data": data};
   }
 
   /// Copy model with modified properties.
@@ -86,12 +79,8 @@ final class CallbackQueryPayloadData extends CallbackQueryPayload {
   /// Properties:
   /// * [data]: Data that was attached to the callback button
   @override
-  CallbackQueryPayloadData copyWith({
-    String? data,
-  }) =>
-      CallbackQueryPayloadData(
-        data: data ?? this.data,
-      );
+  CallbackQueryPayloadData copyWith({String? data}) =>
+      CallbackQueryPayloadData(data: data ?? this.data);
 
   /// TDLib object type
   static const String defaultObjectId = 'callbackQueryPayloadData';
@@ -131,20 +120,16 @@ final class CallbackQueryPayloadDataWithPassword extends CallbackQueryPayload {
 
   /// Parse from a json
   factory CallbackQueryPayloadDataWithPassword.fromJson(
-          Map<String, dynamic> json) =>
-      CallbackQueryPayloadDataWithPassword(
-        password: json['password'],
-        data: json['data'],
-      );
+    Map<String, dynamic> json,
+  ) => CallbackQueryPayloadDataWithPassword(
+    password: json['password'],
+    data: json['data'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "password": password,
-      "data": data,
-    };
+    return {"@type": defaultObjectId, "password": password, "data": data};
   }
 
   /// Copy model with modified properties.
@@ -156,11 +141,10 @@ final class CallbackQueryPayloadDataWithPassword extends CallbackQueryPayload {
   CallbackQueryPayloadDataWithPassword copyWith({
     String? password,
     String? data,
-  }) =>
-      CallbackQueryPayloadDataWithPassword(
-        password: password ?? this.password,
-        data: data ?? this.data,
-      );
+  }) => CallbackQueryPayloadDataWithPassword(
+    password: password ?? this.password,
+    data: data ?? this.data,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'callbackQueryPayloadDataWithPassword';
@@ -185,26 +169,19 @@ final class CallbackQueryPayloadGame extends CallbackQueryPayload {
   /// The payload for a game callback button.
   ///
   /// * [gameShortName]: A short name of the game that was attached to the callback button.
-  const CallbackQueryPayloadGame({
-    required this.gameShortName,
-  });
+  const CallbackQueryPayloadGame({required this.gameShortName});
 
   /// A short name of the game that was attached to the callback button
   final String gameShortName;
 
   /// Parse from a json
   factory CallbackQueryPayloadGame.fromJson(Map<String, dynamic> json) =>
-      CallbackQueryPayloadGame(
-        gameShortName: json['game_short_name'],
-      );
+      CallbackQueryPayloadGame(gameShortName: json['game_short_name']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "game_short_name": gameShortName,
-    };
+    return {"@type": defaultObjectId, "game_short_name": gameShortName};
   }
 
   /// Copy model with modified properties.
@@ -212,9 +189,7 @@ final class CallbackQueryPayloadGame extends CallbackQueryPayload {
   /// Properties:
   /// * [game_short_name]: A short name of the game that was attached to the callback button
   @override
-  CallbackQueryPayloadGame copyWith({
-    String? gameShortName,
-  }) =>
+  CallbackQueryPayloadGame copyWith({String? gameShortName}) =>
       CallbackQueryPayloadGame(
         gameShortName: gameShortName ?? this.gameShortName,
       );

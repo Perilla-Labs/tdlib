@@ -38,9 +38,11 @@ final class MessagePositions extends TdObject {
   factory MessagePositions.fromJson(Map<String, dynamic> json) =>
       MessagePositions(
         totalCount: json['total_count'],
-        positions: List<MessagePosition>.from((json['positions'] ?? [])
-            .map((item) => MessagePosition.fromJson(item))
-            .toList()),
+        positions: List<MessagePosition>.from(
+          (json['positions'] ?? [])
+              .map((item) => MessagePosition.fromJson(item))
+              .toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -65,13 +67,12 @@ final class MessagePositions extends TdObject {
     List<MessagePosition>? positions,
     dynamic extra,
     int? clientId,
-  }) =>
-      MessagePositions(
-        totalCount: totalCount ?? this.totalCount,
-        positions: positions ?? this.positions,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => MessagePositions(
+    totalCount: totalCount ?? this.totalCount,
+    positions: positions ?? this.positions,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messagePositions';

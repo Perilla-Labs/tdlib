@@ -47,11 +47,10 @@ final class ToggleGroupCallScreenSharingIsPaused extends TdFunction {
   ToggleGroupCallScreenSharingIsPaused copyWith({
     int? groupCallId,
     bool? isPaused,
-  }) =>
-      ToggleGroupCallScreenSharingIsPaused(
-        groupCallId: groupCallId ?? this.groupCallId,
-        isPaused: isPaused ?? this.isPaused,
-      );
+  }) => ToggleGroupCallScreenSharingIsPaused(
+    groupCallId: groupCallId ?? this.groupCallId,
+    isPaused: isPaused ?? this.isPaused,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'toggleGroupCallScreenSharingIsPaused';

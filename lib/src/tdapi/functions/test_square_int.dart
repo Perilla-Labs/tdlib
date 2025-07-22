@@ -15,9 +15,7 @@ final class TestSquareInt extends TdFunction {
   /// * [x]: Number to square.
   ///
   /// [TestInt] is returned on completion.
-  const TestSquareInt({
-    required this.x,
-  });
+  const TestSquareInt({required this.x});
 
   /// Number to square
   final int x;
@@ -25,23 +23,14 @@ final class TestSquareInt extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "x": x,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "x": x, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [x]: Number to square
-  TestSquareInt copyWith({
-    int? x,
-  }) =>
-      TestSquareInt(
-        x: x ?? this.x,
-      );
+  TestSquareInt copyWith({int? x}) => TestSquareInt(x: x ?? this.x);
 
   /// TDLib object type
   static const String defaultObjectId = 'testSquareInt';

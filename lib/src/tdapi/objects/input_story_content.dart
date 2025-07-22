@@ -2,11 +2,11 @@ part of '../tdapi.dart';
 
 /// **InputStoryContent** *(inputStoryContent)* - parent
 ///
-/// The content of a story to send.
+/// The content of a story to post.
 sealed class InputStoryContent extends TdObject {
   /// **InputStoryContent** *(inputStoryContent)* - parent
   ///
-  /// The content of a story to send.
+  /// The content of a story to post.
   const InputStoryContent();
 
   /// a InputStoryContent return type can be :
@@ -74,9 +74,8 @@ final class InputStoryContentPhoto extends InputStoryContent {
       InputStoryContentPhoto(
         photo: InputFile.fromJson(json['photo']),
         addedStickerFileIds: List<int>.from(
-            (json['added_sticker_file_ids'] ?? [])
-                .map((item) => item)
-                .toList()),
+          (json['added_sticker_file_ids'] ?? []).map((item) => item).toList(),
+        ),
       );
 
   /// Convert model to TDLib JSON format
@@ -98,11 +97,10 @@ final class InputStoryContentPhoto extends InputStoryContent {
   InputStoryContentPhoto copyWith({
     InputFile? photo,
     List<int>? addedStickerFileIds,
-  }) =>
-      InputStoryContentPhoto(
-        photo: photo ?? this.photo,
-        addedStickerFileIds: addedStickerFileIds ?? this.addedStickerFileIds,
-      );
+  }) => InputStoryContentPhoto(
+    photo: photo ?? this.photo,
+    addedStickerFileIds: addedStickerFileIds ?? this.addedStickerFileIds,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputStoryContentPhoto';
@@ -120,7 +118,7 @@ final class InputStoryContentPhoto extends InputStoryContent {
 ///
 /// A video story.
 ///
-/// * [video]: Video to be sent. The video size must be 720x1280. The video must be streamable and stored in MPEG4 format, after encoding with x265 codec and key frames added each second.
+/// * [video]: Video to be sent. The video size must be 720x1280. The video must be streamable and stored in MPEG4 format, after encoding with H.265 codec and key frames added each second.
 /// * [addedStickerFileIds]: File identifiers of the stickers added to the video, if applicable.
 /// * [duration]: Precise duration of the video, in seconds; 0-60.
 /// * [coverFrameTimestamp]: Timestamp of the frame, which will be used as video thumbnail.
@@ -130,7 +128,7 @@ final class InputStoryContentVideo extends InputStoryContent {
   ///
   /// A video story.
   ///
-  /// * [video]: Video to be sent. The video size must be 720x1280. The video must be streamable and stored in MPEG4 format, after encoding with x265 codec and key frames added each second.
+  /// * [video]: Video to be sent. The video size must be 720x1280. The video must be streamable and stored in MPEG4 format, after encoding with H.265 codec and key frames added each second.
   /// * [addedStickerFileIds]: File identifiers of the stickers added to the video, if applicable.
   /// * [duration]: Precise duration of the video, in seconds; 0-60.
   /// * [coverFrameTimestamp]: Timestamp of the frame, which will be used as video thumbnail.
@@ -143,7 +141,7 @@ final class InputStoryContentVideo extends InputStoryContent {
     required this.isAnimation,
   });
 
-  /// Video to be sent. The video size must be 720x1280. The video must be streamable and stored in MPEG4 format, after encoding with x265 codec and key frames added each second
+  /// Video to be sent. The video size must be 720x1280. The video must be streamable and stored in MPEG4 format, after encoding with H.265 codec and key frames added each second
   final InputFile video;
 
   /// File identifiers of the stickers added to the video, if applicable
@@ -163,9 +161,8 @@ final class InputStoryContentVideo extends InputStoryContent {
       InputStoryContentVideo(
         video: InputFile.fromJson(json['video']),
         addedStickerFileIds: List<int>.from(
-            (json['added_sticker_file_ids'] ?? [])
-                .map((item) => item)
-                .toList()),
+          (json['added_sticker_file_ids'] ?? []).map((item) => item).toList(),
+        ),
         duration: json['duration'],
         coverFrameTimestamp: json['cover_frame_timestamp'],
         isAnimation: json['is_animation'],
@@ -187,7 +184,7 @@ final class InputStoryContentVideo extends InputStoryContent {
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [video]: Video to be sent. The video size must be 720x1280. The video must be streamable and stored in MPEG4 format, after encoding with x265 codec and key frames added each second
+  /// * [video]: Video to be sent. The video size must be 720x1280. The video must be streamable and stored in MPEG4 format, after encoding with H.265 codec and key frames added each second
   /// * [added_sticker_file_ids]: File identifiers of the stickers added to the video, if applicable
   /// * [duration]: Precise duration of the video, in seconds; 0-60
   /// * [cover_frame_timestamp]: Timestamp of the frame, which will be used as video thumbnail
@@ -199,14 +196,13 @@ final class InputStoryContentVideo extends InputStoryContent {
     double? duration,
     double? coverFrameTimestamp,
     bool? isAnimation,
-  }) =>
-      InputStoryContentVideo(
-        video: video ?? this.video,
-        addedStickerFileIds: addedStickerFileIds ?? this.addedStickerFileIds,
-        duration: duration ?? this.duration,
-        coverFrameTimestamp: coverFrameTimestamp ?? this.coverFrameTimestamp,
-        isAnimation: isAnimation ?? this.isAnimation,
-      );
+  }) => InputStoryContentVideo(
+    video: video ?? this.video,
+    addedStickerFileIds: addedStickerFileIds ?? this.addedStickerFileIds,
+    duration: duration ?? this.duration,
+    coverFrameTimestamp: coverFrameTimestamp ?? this.coverFrameTimestamp,
+    isAnimation: isAnimation ?? this.isAnimation,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputStoryContentVideo';

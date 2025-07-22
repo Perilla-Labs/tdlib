@@ -56,26 +56,19 @@ final class GiveawayPrizePremium extends GiveawayPrize {
   /// The giveaway sends Telegram Premium subscriptions to the winners.
   ///
   /// * [monthCount]: Number of months the Telegram Premium subscription will be active after code activation.
-  const GiveawayPrizePremium({
-    required this.monthCount,
-  });
+  const GiveawayPrizePremium({required this.monthCount});
 
   /// Number of months the Telegram Premium subscription will be active after code activation
   final int monthCount;
 
   /// Parse from a json
   factory GiveawayPrizePremium.fromJson(Map<String, dynamic> json) =>
-      GiveawayPrizePremium(
-        monthCount: json['month_count'],
-      );
+      GiveawayPrizePremium(monthCount: json['month_count']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "month_count": monthCount,
-    };
+    return {"@type": defaultObjectId, "month_count": monthCount};
   }
 
   /// Copy model with modified properties.
@@ -83,12 +76,8 @@ final class GiveawayPrizePremium extends GiveawayPrize {
   /// Properties:
   /// * [month_count]: Number of months the Telegram Premium subscription will be active after code activation
   @override
-  GiveawayPrizePremium copyWith({
-    int? monthCount,
-  }) =>
-      GiveawayPrizePremium(
-        monthCount: monthCount ?? this.monthCount,
-      );
+  GiveawayPrizePremium copyWith({int? monthCount}) =>
+      GiveawayPrizePremium(monthCount: monthCount ?? this.monthCount);
 
   /// TDLib object type
   static const String defaultObjectId = 'giveawayPrizePremium';
@@ -113,26 +102,19 @@ final class GiveawayPrizeStars extends GiveawayPrize {
   /// The giveaway sends Telegram Stars to the winners.
   ///
   /// * [starCount]: Number of Telegram Stars that will be shared by all winners.
-  const GiveawayPrizeStars({
-    required this.starCount,
-  });
+  const GiveawayPrizeStars({required this.starCount});
 
   /// Number of Telegram Stars that will be shared by all winners
   final int starCount;
 
   /// Parse from a json
   factory GiveawayPrizeStars.fromJson(Map<String, dynamic> json) =>
-      GiveawayPrizeStars(
-        starCount: json['star_count'],
-      );
+      GiveawayPrizeStars(starCount: json['star_count']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "star_count": starCount,
-    };
+    return {"@type": defaultObjectId, "star_count": starCount};
   }
 
   /// Copy model with modified properties.
@@ -140,12 +122,8 @@ final class GiveawayPrizeStars extends GiveawayPrize {
   /// Properties:
   /// * [star_count]: Number of Telegram Stars that will be shared by all winners
   @override
-  GiveawayPrizeStars copyWith({
-    int? starCount,
-  }) =>
-      GiveawayPrizeStars(
-        starCount: starCount ?? this.starCount,
-      );
+  GiveawayPrizeStars copyWith({int? starCount}) =>
+      GiveawayPrizeStars(starCount: starCount ?? this.starCount);
 
   /// TDLib object type
   static const String defaultObjectId = 'giveawayPrizeStars';

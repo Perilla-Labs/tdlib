@@ -52,11 +52,7 @@ final class AddChatMember extends TdFunction {
   /// * [chat_id]: Chat identifier
   /// * [user_id]: Identifier of the user
   /// * [forward_limit]: The number of earlier messages from the chat to be forwarded to the new member; up to 100. Ignored for supergroups and channels, or if the added user is a bot
-  AddChatMember copyWith({
-    int? chatId,
-    int? userId,
-    int? forwardLimit,
-  }) =>
+  AddChatMember copyWith({int? chatId, int? userId, int? forwardLimit}) =>
       AddChatMember(
         chatId: chatId ?? this.chatId,
         userId: userId ?? this.userId,

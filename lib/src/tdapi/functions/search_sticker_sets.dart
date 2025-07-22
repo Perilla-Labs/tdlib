@@ -17,10 +17,7 @@ final class SearchStickerSets extends TdFunction {
   /// * [query]: Query to search for.
   ///
   /// [StickerSets] is returned on completion.
-  const SearchStickerSets({
-    required this.stickerType,
-    required this.query,
-  });
+  const SearchStickerSets({required this.stickerType, required this.query});
 
   /// Type of the sticker sets to return
   final StickerType stickerType;
@@ -44,10 +41,7 @@ final class SearchStickerSets extends TdFunction {
   /// Properties:
   /// * [sticker_type]: Type of the sticker sets to return
   /// * [query]: Query to search for
-  SearchStickerSets copyWith({
-    StickerType? stickerType,
-    String? query,
-  }) =>
+  SearchStickerSets copyWith({StickerType? stickerType, String? query}) =>
       SearchStickerSets(
         stickerType: stickerType ?? this.stickerType,
         query: query ?? this.query,

@@ -55,11 +55,7 @@ final class EncryptedCredentials extends TdObject {
   /// * [data]: The encrypted credentials
   /// * [hash]: The decrypted data hash
   /// * [secret]: Secret for data decryption, encrypted with the service's public key
-  EncryptedCredentials copyWith({
-    String? data,
-    String? hash,
-    String? secret,
-  }) =>
+  EncryptedCredentials copyWith({String? data, String? hash, String? secret}) =>
       EncryptedCredentials(
         data: data ?? this.data,
         hash: hash ?? this.hash,

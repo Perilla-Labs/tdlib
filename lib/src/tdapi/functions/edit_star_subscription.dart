@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **EditStarSubscription** *(editStarSubscription)* - TDLib function
 ///
-/// Cancels or reenables Telegram Star subscription to a channel.
+/// Cancels or re-enables Telegram Star subscription.
 ///
 /// * [subscriptionId]: Identifier of the subscription to change.
 /// * [isCanceled]: New value of is_canceled.
@@ -11,7 +11,7 @@ part of '../tdapi.dart';
 final class EditStarSubscription extends TdFunction {
   /// **EditStarSubscription** *(editStarSubscription)* - TDLib function
   ///
-  /// Cancels or reenables Telegram Star subscription to a channel.
+  /// Cancels or re-enables Telegram Star subscription.
   ///
   /// * [subscriptionId]: Identifier of the subscription to change.
   /// * [isCanceled]: New value of is_canceled.
@@ -44,10 +44,7 @@ final class EditStarSubscription extends TdFunction {
   /// Properties:
   /// * [subscription_id]: Identifier of the subscription to change
   /// * [is_canceled]: New value of is_canceled
-  EditStarSubscription copyWith({
-    String? subscriptionId,
-    bool? isCanceled,
-  }) =>
+  EditStarSubscription copyWith({String? subscriptionId, bool? isCanceled}) =>
       EditStarSubscription(
         subscriptionId: subscriptionId ?? this.subscriptionId,
         isCanceled: isCanceled ?? this.isCanceled,

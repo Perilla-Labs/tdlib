@@ -11,7 +11,6 @@ sealed class ChatActionBar extends TdObject {
 
   /// a ChatActionBar return type can be :
   /// * [ChatActionBarReportSpam]
-  /// * [ChatActionBarReportUnrelatedLocation]
   /// * [ChatActionBarInviteMembers]
   /// * [ChatActionBarReportAddBlock]
   /// * [ChatActionBarAddContact]
@@ -21,8 +20,6 @@ sealed class ChatActionBar extends TdObject {
     switch (json["@type"]) {
       case ChatActionBarReportSpam.defaultObjectId:
         return ChatActionBarReportSpam.fromJson(json);
-      case ChatActionBarReportUnrelatedLocation.defaultObjectId:
-        return ChatActionBarReportUnrelatedLocation.fromJson(json);
       case ChatActionBarInviteMembers.defaultObjectId:
         return ChatActionBarInviteMembers.fromJson(json);
       case ChatActionBarReportAddBlock.defaultObjectId:
@@ -62,35 +59,28 @@ sealed class ChatActionBar extends TdObject {
 
 /// **ChatActionBarReportSpam** *(chatActionBarReportSpam)* - child of ChatActionBar
 ///
-/// The chat can be reported as spam using the method reportChat with the reason reportReasonSpam. If the chat is a private chat with a user with an emoji status, then a notice about emoji status usage must be shown.
+/// The chat can be reported as spam using the method reportChat with an empty option_id and message_ids. If the chat is a private chat with a user with an emoji status, then a notice about emoji status usage must be shown.
 ///
 /// * [canUnarchive]: If true, the chat was automatically archived and can be moved back to the main chat list using addChatToList simultaneously with setting chat notification settings to default using setChatNotificationSettings.
 final class ChatActionBarReportSpam extends ChatActionBar {
   /// **ChatActionBarReportSpam** *(chatActionBarReportSpam)* - child of ChatActionBar
   ///
-  /// The chat can be reported as spam using the method reportChat with the reason reportReasonSpam. If the chat is a private chat with a user with an emoji status, then a notice about emoji status usage must be shown.
+  /// The chat can be reported as spam using the method reportChat with an empty option_id and message_ids. If the chat is a private chat with a user with an emoji status, then a notice about emoji status usage must be shown.
   ///
   /// * [canUnarchive]: If true, the chat was automatically archived and can be moved back to the main chat list using addChatToList simultaneously with setting chat notification settings to default using setChatNotificationSettings.
-  const ChatActionBarReportSpam({
-    required this.canUnarchive,
-  });
+  const ChatActionBarReportSpam({required this.canUnarchive});
 
   /// If true, the chat was automatically archived and can be moved back to the main chat list using addChatToList simultaneously with setting chat notification settings to default using setChatNotificationSettings
   final bool canUnarchive;
 
   /// Parse from a json
   factory ChatActionBarReportSpam.fromJson(Map<String, dynamic> json) =>
-      ChatActionBarReportSpam(
-        canUnarchive: json['can_unarchive'],
-      );
+      ChatActionBarReportSpam(canUnarchive: json['can_unarchive']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "can_unarchive": canUnarchive,
-    };
+    return {"@type": defaultObjectId, "can_unarchive": canUnarchive};
   }
 
   /// Copy model with modified properties.
@@ -98,54 +88,11 @@ final class ChatActionBarReportSpam extends ChatActionBar {
   /// Properties:
   /// * [can_unarchive]: If true, the chat was automatically archived and can be moved back to the main chat list using addChatToList simultaneously with setting chat notification settings to default using setChatNotificationSettings
   @override
-  ChatActionBarReportSpam copyWith({
-    bool? canUnarchive,
-  }) =>
-      ChatActionBarReportSpam(
-        canUnarchive: canUnarchive ?? this.canUnarchive,
-      );
+  ChatActionBarReportSpam copyWith({bool? canUnarchive}) =>
+      ChatActionBarReportSpam(canUnarchive: canUnarchive ?? this.canUnarchive);
 
   /// TDLib object type
   static const String defaultObjectId = 'chatActionBarReportSpam';
-
-  /// Convert model to TDLib JSON format, encoded into String.
-  @override
-  String toString() => jsonEncode(toJson());
-
-  /// TDLib object type for current class instance
-  @override
-  String get currentObjectId => defaultObjectId;
-}
-
-/// **ChatActionBarReportUnrelatedLocation** *(chatActionBarReportUnrelatedLocation)* - child of ChatActionBar
-///
-/// The chat is a location-based supergroup, which can be reported as having unrelated location using the method reportChat with the reason reportReasonUnrelatedLocation.
-final class ChatActionBarReportUnrelatedLocation extends ChatActionBar {
-  /// **ChatActionBarReportUnrelatedLocation** *(chatActionBarReportUnrelatedLocation)* - child of ChatActionBar
-  ///
-  /// The chat is a location-based supergroup, which can be reported as having unrelated location using the method reportChat with the reason reportReasonUnrelatedLocation.
-  const ChatActionBarReportUnrelatedLocation();
-
-  /// Parse from a json
-  factory ChatActionBarReportUnrelatedLocation.fromJson(
-          Map<String, dynamic> json) =>
-      const ChatActionBarReportUnrelatedLocation();
-
-  /// Convert model to TDLib JSON format
-  @override
-  Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
-  }
-
-  /// Copy instance with no modifications.
-  @override
-  ChatActionBarReportUnrelatedLocation copyWith() =>
-      const ChatActionBarReportUnrelatedLocation();
-
-  /// TDLib object type
-  static const String defaultObjectId = 'chatActionBarReportUnrelatedLocation';
 
   /// Convert model to TDLib JSON format, encoded into String.
   @override
@@ -172,9 +119,7 @@ final class ChatActionBarInviteMembers extends ChatActionBar {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -198,30 +143,32 @@ final class ChatActionBarInviteMembers extends ChatActionBar {
 /// The chat is a private or secret chat, which can be reported using the method reportChat, or the other user can be blocked using the method setMessageSenderBlockList,. or the other user can be added to the contact list using the method addContact. If the chat is a private chat with a user with an emoji status, then a notice about emoji status usage must be shown.
 ///
 /// * [canUnarchive]: If true, the chat was automatically archived and can be moved back to the main chat list using addChatToList simultaneously with setting chat notification settings to default using setChatNotificationSettings.
-/// * [distance]: If non-negative, the current user was found by the other user through searchChatsNearby and this is the distance between the users.
+/// * [accountInfo]: Basic information about the other user in the chat; may be null if unknown *(optional)*.
 final class ChatActionBarReportAddBlock extends ChatActionBar {
   /// **ChatActionBarReportAddBlock** *(chatActionBarReportAddBlock)* - child of ChatActionBar
   ///
   /// The chat is a private or secret chat, which can be reported using the method reportChat, or the other user can be blocked using the method setMessageSenderBlockList,. or the other user can be added to the contact list using the method addContact. If the chat is a private chat with a user with an emoji status, then a notice about emoji status usage must be shown.
   ///
   /// * [canUnarchive]: If true, the chat was automatically archived and can be moved back to the main chat list using addChatToList simultaneously with setting chat notification settings to default using setChatNotificationSettings.
-  /// * [distance]: If non-negative, the current user was found by the other user through searchChatsNearby and this is the distance between the users.
+  /// * [accountInfo]: Basic information about the other user in the chat; may be null if unknown *(optional)*.
   const ChatActionBarReportAddBlock({
     required this.canUnarchive,
-    required this.distance,
+    this.accountInfo,
   });
 
   /// If true, the chat was automatically archived and can be moved back to the main chat list using addChatToList simultaneously with setting chat notification settings to default using setChatNotificationSettings
   final bool canUnarchive;
 
-  /// If non-negative, the current user was found by the other user through searchChatsNearby and this is the distance between the users
-  final int distance;
+  /// Basic information about the other user in the chat; may be null if unknown
+  final AccountInfo? accountInfo;
 
   /// Parse from a json
   factory ChatActionBarReportAddBlock.fromJson(Map<String, dynamic> json) =>
       ChatActionBarReportAddBlock(
         canUnarchive: json['can_unarchive'],
-        distance: json['distance'],
+        accountInfo: json['account_info'] == null
+            ? null
+            : AccountInfo.fromJson(json['account_info']),
       );
 
   /// Convert model to TDLib JSON format
@@ -230,7 +177,7 @@ final class ChatActionBarReportAddBlock extends ChatActionBar {
     return {
       "@type": defaultObjectId,
       "can_unarchive": canUnarchive,
-      "distance": distance,
+      "account_info": accountInfo?.toJson(),
     };
   }
 
@@ -238,16 +185,15 @@ final class ChatActionBarReportAddBlock extends ChatActionBar {
   ///
   /// Properties:
   /// * [can_unarchive]: If true, the chat was automatically archived and can be moved back to the main chat list using addChatToList simultaneously with setting chat notification settings to default using setChatNotificationSettings
-  /// * [distance]: If non-negative, the current user was found by the other user through searchChatsNearby and this is the distance between the users
+  /// * [account_info]: Basic information about the other user in the chat; may be null if unknown
   @override
   ChatActionBarReportAddBlock copyWith({
     bool? canUnarchive,
-    int? distance,
-  }) =>
-      ChatActionBarReportAddBlock(
-        canUnarchive: canUnarchive ?? this.canUnarchive,
-        distance: distance ?? this.distance,
-      );
+    AccountInfo? accountInfo,
+  }) => ChatActionBarReportAddBlock(
+    canUnarchive: canUnarchive ?? this.canUnarchive,
+    accountInfo: accountInfo ?? this.accountInfo,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatActionBarReportAddBlock';
@@ -277,9 +223,7 @@ final class ChatActionBarAddContact extends ChatActionBar {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -314,9 +258,7 @@ final class ChatActionBarSharePhoneNumber extends ChatActionBar {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -396,12 +338,11 @@ final class ChatActionBarJoinRequest extends ChatActionBar {
     String? title,
     bool? isChannel,
     int? requestDate,
-  }) =>
-      ChatActionBarJoinRequest(
-        title: title ?? this.title,
-        isChannel: isChannel ?? this.isChannel,
-        requestDate: requestDate ?? this.requestDate,
-      );
+  }) => ChatActionBarJoinRequest(
+    title: title ?? this.title,
+    isChannel: isChannel ?? this.isChannel,
+    requestDate: requestDate ?? this.requestDate,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatActionBarJoinRequest';

@@ -44,10 +44,7 @@ final class SetSupergroupUsername extends TdFunction {
   /// Properties:
   /// * [supergroup_id]: Identifier of the supergroup or channel
   /// * [username]: New value of the username. Use an empty string to remove the username. The username can't be completely removed if there is another active or disabled username
-  SetSupergroupUsername copyWith({
-    int? supergroupId,
-    String? username,
-  }) =>
+  SetSupergroupUsername copyWith({int? supergroupId, String? username}) =>
       SetSupergroupUsername(
         supergroupId: supergroupId ?? this.supergroupId,
         username: username ?? this.username,

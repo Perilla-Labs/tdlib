@@ -15,9 +15,7 @@ final class CheckAuthenticationPassword extends TdFunction {
   /// * [password]: The 2-step verification password to check.
   ///
   /// [Ok] is returned on completion.
-  const CheckAuthenticationPassword({
-    required this.password,
-  });
+  const CheckAuthenticationPassword({required this.password});
 
   /// The 2-step verification password to check
   final String password;
@@ -25,23 +23,15 @@ final class CheckAuthenticationPassword extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "password": password,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "password": password, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [password]: The 2-step verification password to check
-  CheckAuthenticationPassword copyWith({
-    String? password,
-  }) =>
-      CheckAuthenticationPassword(
-        password: password ?? this.password,
-      );
+  CheckAuthenticationPassword copyWith({String? password}) =>
+      CheckAuthenticationPassword(password: password ?? this.password);
 
   /// TDLib object type
   static const String defaultObjectId = 'checkAuthenticationPassword';

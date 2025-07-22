@@ -15,9 +15,7 @@ final class CheckAuthenticationEmailCode extends TdFunction {
   /// * [code]: Email address authentication to check.
   ///
   /// [Ok] is returned on completion.
-  const CheckAuthenticationEmailCode({
-    required this.code,
-  });
+  const CheckAuthenticationEmailCode({required this.code});
 
   /// Email address authentication to check
   final EmailAddressAuthentication code;
@@ -25,23 +23,15 @@ final class CheckAuthenticationEmailCode extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "code": code.toJson(),
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "code": code.toJson(), "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [code]: Email address authentication to check
-  CheckAuthenticationEmailCode copyWith({
-    EmailAddressAuthentication? code,
-  }) =>
-      CheckAuthenticationEmailCode(
-        code: code ?? this.code,
-      );
+  CheckAuthenticationEmailCode copyWith({EmailAddressAuthentication? code}) =>
+      CheckAuthenticationEmailCode(code: code ?? this.code);
 
   /// TDLib object type
   static const String defaultObjectId = 'checkAuthenticationEmailCode';

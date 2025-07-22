@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **StartGroupCallRecording** *(startGroupCallRecording)* - TDLib function
 ///
-/// Starts recording of an active group call. Requires groupCall.can_be_managed group call flag.
+/// Starts recording of an active group call; for video chats only. Requires groupCall.can_be_managed right.
 ///
 /// * [groupCallId]: Group call identifier.
 /// * [title]: Group call recording title; 0-64 characters.
@@ -13,7 +13,7 @@ part of '../tdapi.dart';
 final class StartGroupCallRecording extends TdFunction {
   /// **StartGroupCallRecording** *(startGroupCallRecording)* - TDLib function
   ///
-  /// Starts recording of an active group call. Requires groupCall.can_be_managed group call flag.
+  /// Starts recording of an active group call; for video chats only. Requires groupCall.can_be_managed right.
   ///
   /// * [groupCallId]: Group call identifier.
   /// * [title]: Group call recording title; 0-64 characters.
@@ -65,14 +65,13 @@ final class StartGroupCallRecording extends TdFunction {
     String? title,
     bool? recordVideo,
     bool? usePortraitOrientation,
-  }) =>
-      StartGroupCallRecording(
-        groupCallId: groupCallId ?? this.groupCallId,
-        title: title ?? this.title,
-        recordVideo: recordVideo ?? this.recordVideo,
-        usePortraitOrientation:
-            usePortraitOrientation ?? this.usePortraitOrientation,
-      );
+  }) => StartGroupCallRecording(
+    groupCallId: groupCallId ?? this.groupCallId,
+    title: title ?? this.title,
+    recordVideo: recordVideo ?? this.recordVideo,
+    usePortraitOrientation:
+        usePortraitOrientation ?? this.usePortraitOrientation,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'startGroupCallRecording';

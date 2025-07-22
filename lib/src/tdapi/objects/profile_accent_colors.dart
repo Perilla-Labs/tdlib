@@ -34,11 +34,14 @@ final class ProfileAccentColors extends TdObject {
   factory ProfileAccentColors.fromJson(Map<String, dynamic> json) =>
       ProfileAccentColors(
         paletteColors: List<int>.from(
-            (json['palette_colors'] ?? []).map((item) => item).toList()),
+          (json['palette_colors'] ?? []).map((item) => item).toList(),
+        ),
         backgroundColors: List<int>.from(
-            (json['background_colors'] ?? []).map((item) => item).toList()),
+          (json['background_colors'] ?? []).map((item) => item).toList(),
+        ),
         storyColors: List<int>.from(
-            (json['story_colors'] ?? []).map((item) => item).toList()),
+          (json['story_colors'] ?? []).map((item) => item).toList(),
+        ),
       );
 
   /// Convert model to TDLib JSON format
@@ -62,12 +65,11 @@ final class ProfileAccentColors extends TdObject {
     List<int>? paletteColors,
     List<int>? backgroundColors,
     List<int>? storyColors,
-  }) =>
-      ProfileAccentColors(
-        paletteColors: paletteColors ?? this.paletteColors,
-        backgroundColors: backgroundColors ?? this.backgroundColors,
-        storyColors: storyColors ?? this.storyColors,
-      );
+  }) => ProfileAccentColors(
+    paletteColors: paletteColors ?? this.paletteColors,
+    backgroundColors: backgroundColors ?? this.backgroundColors,
+    storyColors: storyColors ?? this.storyColors,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'profileAccentColors';

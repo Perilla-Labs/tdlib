@@ -56,12 +56,11 @@ final class SetChatMemberStatus extends TdFunction {
     int? chatId,
     MessageSender? memberId,
     ChatMemberStatus? status,
-  }) =>
-      SetChatMemberStatus(
-        chatId: chatId ?? this.chatId,
-        memberId: memberId ?? this.memberId,
-        status: status ?? this.status,
-      );
+  }) => SetChatMemberStatus(
+    chatId: chatId ?? this.chatId,
+    memberId: memberId ?? this.memberId,
+    status: status ?? this.status,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setChatMemberStatus';

@@ -15,9 +15,7 @@ final class CheckQuickReplyShortcutName extends TdFunction {
   /// * [name]: The name of the shortcut; 1-32 characters.
   ///
   /// [Ok] is returned on completion.
-  const CheckQuickReplyShortcutName({
-    required this.name,
-  });
+  const CheckQuickReplyShortcutName({required this.name});
 
   /// The name of the shortcut; 1-32 characters
   final String name;
@@ -25,23 +23,15 @@ final class CheckQuickReplyShortcutName extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "name": name,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "name": name, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [name]: The name of the shortcut; 1-32 characters
-  CheckQuickReplyShortcutName copyWith({
-    String? name,
-  }) =>
-      CheckQuickReplyShortcutName(
-        name: name ?? this.name,
-      );
+  CheckQuickReplyShortcutName copyWith({String? name}) =>
+      CheckQuickReplyShortcutName(name: name ?? this.name);
 
   /// TDLib object type
   static const String defaultObjectId = 'checkQuickReplyShortcutName';

@@ -17,10 +17,7 @@ final class CancelDownloadFile extends TdFunction {
   /// * [onlyIfPending]: Pass true to stop downloading only if it hasn't been started, i.e. request hasn't been sent to server.
   ///
   /// [Ok] is returned on completion.
-  const CancelDownloadFile({
-    required this.fileId,
-    required this.onlyIfPending,
-  });
+  const CancelDownloadFile({required this.fileId, required this.onlyIfPending});
 
   /// Identifier of a file to stop downloading
   final int fileId;
@@ -44,10 +41,7 @@ final class CancelDownloadFile extends TdFunction {
   /// Properties:
   /// * [file_id]: Identifier of a file to stop downloading
   /// * [only_if_pending]: Pass true to stop downloading only if it hasn't been started, i.e. request hasn't been sent to server
-  CancelDownloadFile copyWith({
-    int? fileId,
-    bool? onlyIfPending,
-  }) =>
+  CancelDownloadFile copyWith({int? fileId, bool? onlyIfPending}) =>
       CancelDownloadFile(
         fileId: fileId ?? this.fileId,
         onlyIfPending: onlyIfPending ?? this.onlyIfPending,

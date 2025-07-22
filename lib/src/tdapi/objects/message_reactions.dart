@@ -39,13 +39,17 @@ final class MessageReactions extends TdObject {
   /// Parse from a json
   factory MessageReactions.fromJson(Map<String, dynamic> json) =>
       MessageReactions(
-        reactions: List<MessageReaction>.from((json['reactions'] ?? [])
-            .map((item) => MessageReaction.fromJson(item))
-            .toList()),
+        reactions: List<MessageReaction>.from(
+          (json['reactions'] ?? [])
+              .map((item) => MessageReaction.fromJson(item))
+              .toList(),
+        ),
         areTags: json['are_tags'],
-        paidReactors: List<PaidReactor>.from((json['paid_reactors'] ?? [])
-            .map((item) => PaidReactor.fromJson(item))
-            .toList()),
+        paidReactors: List<PaidReactor>.from(
+          (json['paid_reactors'] ?? [])
+              .map((item) => PaidReactor.fromJson(item))
+              .toList(),
+        ),
         canGetAddedReactions: json['can_get_added_reactions'],
       );
 
@@ -73,13 +77,12 @@ final class MessageReactions extends TdObject {
     bool? areTags,
     List<PaidReactor>? paidReactors,
     bool? canGetAddedReactions,
-  }) =>
-      MessageReactions(
-        reactions: reactions ?? this.reactions,
-        areTags: areTags ?? this.areTags,
-        paidReactors: paidReactors ?? this.paidReactors,
-        canGetAddedReactions: canGetAddedReactions ?? this.canGetAddedReactions,
-      );
+  }) => MessageReactions(
+    reactions: reactions ?? this.reactions,
+    areTags: areTags ?? this.areTags,
+    paidReactors: paidReactors ?? this.paidReactors,
+    canGetAddedReactions: canGetAddedReactions ?? this.canGetAddedReactions,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageReactions';

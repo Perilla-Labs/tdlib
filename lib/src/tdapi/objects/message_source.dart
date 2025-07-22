@@ -13,6 +13,7 @@ sealed class MessageSource extends TdObject {
   /// * [MessageSourceChatHistory]
   /// * [MessageSourceMessageThreadHistory]
   /// * [MessageSourceForumTopicHistory]
+  /// * [MessageSourceDirectMessagesChatTopicHistory]
   /// * [MessageSourceHistoryPreview]
   /// * [MessageSourceChatList]
   /// * [MessageSourceSearch]
@@ -28,6 +29,8 @@ sealed class MessageSource extends TdObject {
         return MessageSourceMessageThreadHistory.fromJson(json);
       case MessageSourceForumTopicHistory.defaultObjectId:
         return MessageSourceForumTopicHistory.fromJson(json);
+      case MessageSourceDirectMessagesChatTopicHistory.defaultObjectId:
+        return MessageSourceDirectMessagesChatTopicHistory.fromJson(json);
       case MessageSourceHistoryPreview.defaultObjectId:
         return MessageSourceHistoryPreview.fromJson(json);
       case MessageSourceChatList.defaultObjectId:
@@ -85,9 +88,7 @@ final class MessageSourceChatHistory extends MessageSource {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -108,24 +109,22 @@ final class MessageSourceChatHistory extends MessageSource {
 
 /// **MessageSourceMessageThreadHistory** *(messageSourceMessageThreadHistory)* - child of MessageSource
 ///
-/// The message is from a message thread history.
+/// The message is from history of a message thread.
 final class MessageSourceMessageThreadHistory extends MessageSource {
   /// **MessageSourceMessageThreadHistory** *(messageSourceMessageThreadHistory)* - child of MessageSource
   ///
-  /// The message is from a message thread history.
+  /// The message is from history of a message thread.
   const MessageSourceMessageThreadHistory();
 
   /// Parse from a json
   factory MessageSourceMessageThreadHistory.fromJson(
-          Map<String, dynamic> json) =>
-      const MessageSourceMessageThreadHistory();
+    Map<String, dynamic> json,
+  ) => const MessageSourceMessageThreadHistory();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -147,11 +146,11 @@ final class MessageSourceMessageThreadHistory extends MessageSource {
 
 /// **MessageSourceForumTopicHistory** *(messageSourceForumTopicHistory)* - child of MessageSource
 ///
-/// The message is from a forum topic history.
+/// The message is from history of a forum topic.
 final class MessageSourceForumTopicHistory extends MessageSource {
   /// **MessageSourceForumTopicHistory** *(messageSourceForumTopicHistory)* - child of MessageSource
   ///
-  /// The message is from a forum topic history.
+  /// The message is from history of a forum topic.
   const MessageSourceForumTopicHistory();
 
   /// Parse from a json
@@ -161,9 +160,7 @@ final class MessageSourceForumTopicHistory extends MessageSource {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -173,6 +170,44 @@ final class MessageSourceForumTopicHistory extends MessageSource {
 
   /// TDLib object type
   static const String defaultObjectId = 'messageSourceForumTopicHistory';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **MessageSourceDirectMessagesChatTopicHistory** *(messageSourceDirectMessagesChatTopicHistory)* - child of MessageSource
+///
+/// The message is from history of a topic in a channel direct messages chat administered by the current user.
+final class MessageSourceDirectMessagesChatTopicHistory extends MessageSource {
+  /// **MessageSourceDirectMessagesChatTopicHistory** *(messageSourceDirectMessagesChatTopicHistory)* - child of MessageSource
+  ///
+  /// The message is from history of a topic in a channel direct messages chat administered by the current user.
+  const MessageSourceDirectMessagesChatTopicHistory();
+
+  /// Parse from a json
+  factory MessageSourceDirectMessagesChatTopicHistory.fromJson(
+    Map<String, dynamic> json,
+  ) => const MessageSourceDirectMessagesChatTopicHistory();
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {"@type": defaultObjectId};
+  }
+
+  /// Copy instance with no modifications.
+  @override
+  MessageSourceDirectMessagesChatTopicHistory copyWith() =>
+      const MessageSourceDirectMessagesChatTopicHistory();
+
+  /// TDLib object type
+  static const String defaultObjectId =
+      'messageSourceDirectMessagesChatTopicHistory';
 
   /// Convert model to TDLib JSON format, encoded into String.
   @override
@@ -199,9 +234,7 @@ final class MessageSourceHistoryPreview extends MessageSource {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -236,9 +269,7 @@ final class MessageSourceChatList extends MessageSource {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -273,9 +304,7 @@ final class MessageSourceSearch extends MessageSource {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -310,9 +339,7 @@ final class MessageSourceChatEventLog extends MessageSource {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -347,9 +374,7 @@ final class MessageSourceNotification extends MessageSource {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -384,9 +409,7 @@ final class MessageSourceScreenshot extends MessageSource {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -421,9 +444,7 @@ final class MessageSourceOther extends MessageSource {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.

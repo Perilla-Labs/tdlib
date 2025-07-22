@@ -11,6 +11,7 @@ part of '../tdapi.dart';
 /// * [minChatThemeBackgroundBoostLevel]: The minimum boost level required to set a chat theme background as chat background.
 /// * [minCustomBackgroundBoostLevel]: The minimum boost level required to set custom chat background.
 /// * [minCustomEmojiStickerSetBoostLevel]: The minimum boost level required to set custom emoji sticker set for the chat; for supergroup chats only.
+/// * [minAutomaticTranslationBoostLevel]: The minimum boost level allowing to enable automatic translation of messages for non-Premium users; for channel chats only.
 /// * [minSpeechRecognitionBoostLevel]: The minimum boost level allowing to recognize speech in video note and voice note messages for non-Premium users; for supergroup chats only.
 /// * [minSponsoredMessageDisableBoostLevel]: The minimum boost level allowing to disable sponsored messages in the chat; for channel chats only.
 final class ChatBoostFeatures extends TdObject {
@@ -25,6 +26,7 @@ final class ChatBoostFeatures extends TdObject {
   /// * [minChatThemeBackgroundBoostLevel]: The minimum boost level required to set a chat theme background as chat background.
   /// * [minCustomBackgroundBoostLevel]: The minimum boost level required to set custom chat background.
   /// * [minCustomEmojiStickerSetBoostLevel]: The minimum boost level required to set custom emoji sticker set for the chat; for supergroup chats only.
+  /// * [minAutomaticTranslationBoostLevel]: The minimum boost level allowing to enable automatic translation of messages for non-Premium users; for channel chats only.
   /// * [minSpeechRecognitionBoostLevel]: The minimum boost level allowing to recognize speech in video note and voice note messages for non-Premium users; for supergroup chats only.
   /// * [minSponsoredMessageDisableBoostLevel]: The minimum boost level allowing to disable sponsored messages in the chat; for channel chats only.
   const ChatBoostFeatures({
@@ -35,6 +37,7 @@ final class ChatBoostFeatures extends TdObject {
     required this.minChatThemeBackgroundBoostLevel,
     required this.minCustomBackgroundBoostLevel,
     required this.minCustomEmojiStickerSetBoostLevel,
+    required this.minAutomaticTranslationBoostLevel,
     required this.minSpeechRecognitionBoostLevel,
     required this.minSponsoredMessageDisableBoostLevel,
     this.extra,
@@ -62,6 +65,9 @@ final class ChatBoostFeatures extends TdObject {
   /// The minimum boost level required to set custom emoji sticker set for the chat; for supergroup chats only
   final int minCustomEmojiStickerSetBoostLevel;
 
+  /// The minimum boost level allowing to enable automatic translation of messages for non-Premium users; for channel chats only
+  final int minAutomaticTranslationBoostLevel;
+
   /// The minimum boost level allowing to recognize speech in video note and voice note messages for non-Premium users; for supergroup chats only
   final int minSpeechRecognitionBoostLevel;
 
@@ -77,29 +83,32 @@ final class ChatBoostFeatures extends TdObject {
   final int? clientId;
 
   /// Parse from a json
-  factory ChatBoostFeatures.fromJson(Map<String, dynamic> json) =>
-      ChatBoostFeatures(
-        features: List<ChatBoostLevelFeatures>.from((json['features'] ?? [])
-            .map((item) => ChatBoostLevelFeatures.fromJson(item))
-            .toList()),
-        minProfileBackgroundCustomEmojiBoostLevel:
-            json['min_profile_background_custom_emoji_boost_level'],
-        minBackgroundCustomEmojiBoostLevel:
-            json['min_background_custom_emoji_boost_level'],
-        minEmojiStatusBoostLevel: json['min_emoji_status_boost_level'],
-        minChatThemeBackgroundBoostLevel:
-            json['min_chat_theme_background_boost_level'],
-        minCustomBackgroundBoostLevel:
-            json['min_custom_background_boost_level'],
-        minCustomEmojiStickerSetBoostLevel:
-            json['min_custom_emoji_sticker_set_boost_level'],
-        minSpeechRecognitionBoostLevel:
-            json['min_speech_recognition_boost_level'],
-        minSponsoredMessageDisableBoostLevel:
-            json['min_sponsored_message_disable_boost_level'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+  factory ChatBoostFeatures.fromJson(
+    Map<String, dynamic> json,
+  ) => ChatBoostFeatures(
+    features: List<ChatBoostLevelFeatures>.from(
+      (json['features'] ?? [])
+          .map((item) => ChatBoostLevelFeatures.fromJson(item))
+          .toList(),
+    ),
+    minProfileBackgroundCustomEmojiBoostLevel:
+        json['min_profile_background_custom_emoji_boost_level'],
+    minBackgroundCustomEmojiBoostLevel:
+        json['min_background_custom_emoji_boost_level'],
+    minEmojiStatusBoostLevel: json['min_emoji_status_boost_level'],
+    minChatThemeBackgroundBoostLevel:
+        json['min_chat_theme_background_boost_level'],
+    minCustomBackgroundBoostLevel: json['min_custom_background_boost_level'],
+    minCustomEmojiStickerSetBoostLevel:
+        json['min_custom_emoji_sticker_set_boost_level'],
+    minAutomaticTranslationBoostLevel:
+        json['min_automatic_translation_boost_level'],
+    minSpeechRecognitionBoostLevel: json['min_speech_recognition_boost_level'],
+    minSponsoredMessageDisableBoostLevel:
+        json['min_sponsored_message_disable_boost_level'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -116,6 +125,8 @@ final class ChatBoostFeatures extends TdObject {
       "min_custom_background_boost_level": minCustomBackgroundBoostLevel,
       "min_custom_emoji_sticker_set_boost_level":
           minCustomEmojiStickerSetBoostLevel,
+      "min_automatic_translation_boost_level":
+          minAutomaticTranslationBoostLevel,
       "min_speech_recognition_boost_level": minSpeechRecognitionBoostLevel,
       "min_sponsored_message_disable_boost_level":
           minSponsoredMessageDisableBoostLevel,
@@ -132,6 +143,7 @@ final class ChatBoostFeatures extends TdObject {
   /// * [min_chat_theme_background_boost_level]: The minimum boost level required to set a chat theme background as chat background
   /// * [min_custom_background_boost_level]: The minimum boost level required to set custom chat background
   /// * [min_custom_emoji_sticker_set_boost_level]: The minimum boost level required to set custom emoji sticker set for the chat; for supergroup chats only
+  /// * [min_automatic_translation_boost_level]: The minimum boost level allowing to enable automatic translation of messages for non-Premium users; for channel chats only
   /// * [min_speech_recognition_boost_level]: The minimum boost level allowing to recognize speech in video note and voice note messages for non-Premium users; for supergroup chats only
   /// * [min_sponsored_message_disable_boost_level]: The minimum boost level allowing to disable sponsored messages in the chat; for channel chats only
   ChatBoostFeatures copyWith({
@@ -142,36 +154,40 @@ final class ChatBoostFeatures extends TdObject {
     int? minChatThemeBackgroundBoostLevel,
     int? minCustomBackgroundBoostLevel,
     int? minCustomEmojiStickerSetBoostLevel,
+    int? minAutomaticTranslationBoostLevel,
     int? minSpeechRecognitionBoostLevel,
     int? minSponsoredMessageDisableBoostLevel,
     dynamic extra,
     int? clientId,
-  }) =>
-      ChatBoostFeatures(
-        features: features ?? this.features,
-        minProfileBackgroundCustomEmojiBoostLevel:
-            minProfileBackgroundCustomEmojiBoostLevel ??
-                this.minProfileBackgroundCustomEmojiBoostLevel,
-        minBackgroundCustomEmojiBoostLevel:
-            minBackgroundCustomEmojiBoostLevel ??
-                this.minBackgroundCustomEmojiBoostLevel,
-        minEmojiStatusBoostLevel:
-            minEmojiStatusBoostLevel ?? this.minEmojiStatusBoostLevel,
-        minChatThemeBackgroundBoostLevel: minChatThemeBackgroundBoostLevel ??
-            this.minChatThemeBackgroundBoostLevel,
-        minCustomBackgroundBoostLevel:
-            minCustomBackgroundBoostLevel ?? this.minCustomBackgroundBoostLevel,
-        minCustomEmojiStickerSetBoostLevel:
-            minCustomEmojiStickerSetBoostLevel ??
-                this.minCustomEmojiStickerSetBoostLevel,
-        minSpeechRecognitionBoostLevel: minSpeechRecognitionBoostLevel ??
-            this.minSpeechRecognitionBoostLevel,
-        minSponsoredMessageDisableBoostLevel:
-            minSponsoredMessageDisableBoostLevel ??
-                this.minSponsoredMessageDisableBoostLevel,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => ChatBoostFeatures(
+    features: features ?? this.features,
+    minProfileBackgroundCustomEmojiBoostLevel:
+        minProfileBackgroundCustomEmojiBoostLevel ??
+        this.minProfileBackgroundCustomEmojiBoostLevel,
+    minBackgroundCustomEmojiBoostLevel:
+        minBackgroundCustomEmojiBoostLevel ??
+        this.minBackgroundCustomEmojiBoostLevel,
+    minEmojiStatusBoostLevel:
+        minEmojiStatusBoostLevel ?? this.minEmojiStatusBoostLevel,
+    minChatThemeBackgroundBoostLevel:
+        minChatThemeBackgroundBoostLevel ??
+        this.minChatThemeBackgroundBoostLevel,
+    minCustomBackgroundBoostLevel:
+        minCustomBackgroundBoostLevel ?? this.minCustomBackgroundBoostLevel,
+    minCustomEmojiStickerSetBoostLevel:
+        minCustomEmojiStickerSetBoostLevel ??
+        this.minCustomEmojiStickerSetBoostLevel,
+    minAutomaticTranslationBoostLevel:
+        minAutomaticTranslationBoostLevel ??
+        this.minAutomaticTranslationBoostLevel,
+    minSpeechRecognitionBoostLevel:
+        minSpeechRecognitionBoostLevel ?? this.minSpeechRecognitionBoostLevel,
+    minSponsoredMessageDisableBoostLevel:
+        minSponsoredMessageDisableBoostLevel ??
+        this.minSponsoredMessageDisableBoostLevel,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatBoostFeatures';

@@ -89,19 +89,17 @@ final class InputPassportElementPersonalDetails extends InputPassportElement {
   /// A Telegram Passport element to be saved containing the user's personal details.
   ///
   /// * [personalDetails]: Personal details of the user.
-  const InputPassportElementPersonalDetails({
-    required this.personalDetails,
-  });
+  const InputPassportElementPersonalDetails({required this.personalDetails});
 
   /// Personal details of the user
   final PersonalDetails personalDetails;
 
   /// Parse from a json
   factory InputPassportElementPersonalDetails.fromJson(
-          Map<String, dynamic> json) =>
-      InputPassportElementPersonalDetails(
-        personalDetails: PersonalDetails.fromJson(json['personal_details']),
-      );
+    Map<String, dynamic> json,
+  ) => InputPassportElementPersonalDetails(
+    personalDetails: PersonalDetails.fromJson(json['personal_details']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -119,10 +117,9 @@ final class InputPassportElementPersonalDetails extends InputPassportElement {
   @override
   InputPassportElementPersonalDetails copyWith({
     PersonalDetails? personalDetails,
-  }) =>
-      InputPassportElementPersonalDetails(
-        personalDetails: personalDetails ?? this.personalDetails,
-      );
+  }) => InputPassportElementPersonalDetails(
+    personalDetails: personalDetails ?? this.personalDetails,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputPassportElementPersonalDetails';
@@ -147,9 +144,7 @@ final class InputPassportElementPassport extends InputPassportElement {
   /// A Telegram Passport element to be saved containing the user's passport.
   ///
   /// * [passport]: The passport to be saved.
-  const InputPassportElementPassport({
-    required this.passport,
-  });
+  const InputPassportElementPassport({required this.passport});
 
   /// The passport to be saved
   final InputIdentityDocument passport;
@@ -163,10 +158,7 @@ final class InputPassportElementPassport extends InputPassportElement {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "passport": passport.toJson(),
-    };
+    return {"@type": defaultObjectId, "passport": passport.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -174,12 +166,8 @@ final class InputPassportElementPassport extends InputPassportElement {
   /// Properties:
   /// * [passport]: The passport to be saved
   @override
-  InputPassportElementPassport copyWith({
-    InputIdentityDocument? passport,
-  }) =>
-      InputPassportElementPassport(
-        passport: passport ?? this.passport,
-      );
+  InputPassportElementPassport copyWith({InputIdentityDocument? passport}) =>
+      InputPassportElementPassport(passport: passport ?? this.passport);
 
   /// TDLib object type
   static const String defaultObjectId = 'inputPassportElementPassport';
@@ -204,27 +192,22 @@ final class InputPassportElementDriverLicense extends InputPassportElement {
   /// A Telegram Passport element to be saved containing the user's driver license.
   ///
   /// * [driverLicense]: The driver license to be saved.
-  const InputPassportElementDriverLicense({
-    required this.driverLicense,
-  });
+  const InputPassportElementDriverLicense({required this.driverLicense});
 
   /// The driver license to be saved
   final InputIdentityDocument driverLicense;
 
   /// Parse from a json
   factory InputPassportElementDriverLicense.fromJson(
-          Map<String, dynamic> json) =>
-      InputPassportElementDriverLicense(
-        driverLicense: InputIdentityDocument.fromJson(json['driver_license']),
-      );
+    Map<String, dynamic> json,
+  ) => InputPassportElementDriverLicense(
+    driverLicense: InputIdentityDocument.fromJson(json['driver_license']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "driver_license": driverLicense.toJson(),
-    };
+    return {"@type": defaultObjectId, "driver_license": driverLicense.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -234,10 +217,9 @@ final class InputPassportElementDriverLicense extends InputPassportElement {
   @override
   InputPassportElementDriverLicense copyWith({
     InputIdentityDocument? driverLicense,
-  }) =>
-      InputPassportElementDriverLicense(
-        driverLicense: driverLicense ?? this.driverLicense,
-      );
+  }) => InputPassportElementDriverLicense(
+    driverLicense: driverLicense ?? this.driverLicense,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputPassportElementDriverLicense';
@@ -262,27 +244,22 @@ final class InputPassportElementIdentityCard extends InputPassportElement {
   /// A Telegram Passport element to be saved containing the user's identity card.
   ///
   /// * [identityCard]: The identity card to be saved.
-  const InputPassportElementIdentityCard({
-    required this.identityCard,
-  });
+  const InputPassportElementIdentityCard({required this.identityCard});
 
   /// The identity card to be saved
   final InputIdentityDocument identityCard;
 
   /// Parse from a json
   factory InputPassportElementIdentityCard.fromJson(
-          Map<String, dynamic> json) =>
-      InputPassportElementIdentityCard(
-        identityCard: InputIdentityDocument.fromJson(json['identity_card']),
-      );
+    Map<String, dynamic> json,
+  ) => InputPassportElementIdentityCard(
+    identityCard: InputIdentityDocument.fromJson(json['identity_card']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "identity_card": identityCard.toJson(),
-    };
+    return {"@type": defaultObjectId, "identity_card": identityCard.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -292,10 +269,9 @@ final class InputPassportElementIdentityCard extends InputPassportElement {
   @override
   InputPassportElementIdentityCard copyWith({
     InputIdentityDocument? identityCard,
-  }) =>
-      InputPassportElementIdentityCard(
-        identityCard: identityCard ?? this.identityCard,
-      );
+  }) => InputPassportElementIdentityCard(
+    identityCard: identityCard ?? this.identityCard,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputPassportElementIdentityCard';
@@ -320,20 +296,17 @@ final class InputPassportElementInternalPassport extends InputPassportElement {
   /// A Telegram Passport element to be saved containing the user's internal passport.
   ///
   /// * [internalPassport]: The internal passport to be saved.
-  const InputPassportElementInternalPassport({
-    required this.internalPassport,
-  });
+  const InputPassportElementInternalPassport({required this.internalPassport});
 
   /// The internal passport to be saved
   final InputIdentityDocument internalPassport;
 
   /// Parse from a json
   factory InputPassportElementInternalPassport.fromJson(
-          Map<String, dynamic> json) =>
-      InputPassportElementInternalPassport(
-        internalPassport:
-            InputIdentityDocument.fromJson(json['internal_passport']),
-      );
+    Map<String, dynamic> json,
+  ) => InputPassportElementInternalPassport(
+    internalPassport: InputIdentityDocument.fromJson(json['internal_passport']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -351,10 +324,9 @@ final class InputPassportElementInternalPassport extends InputPassportElement {
   @override
   InputPassportElementInternalPassport copyWith({
     InputIdentityDocument? internalPassport,
-  }) =>
-      InputPassportElementInternalPassport(
-        internalPassport: internalPassport ?? this.internalPassport,
-      );
+  }) => InputPassportElementInternalPassport(
+    internalPassport: internalPassport ?? this.internalPassport,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputPassportElementInternalPassport';
@@ -379,26 +351,19 @@ final class InputPassportElementAddress extends InputPassportElement {
   /// A Telegram Passport element to be saved containing the user's address.
   ///
   /// * [address]: The address to be saved.
-  const InputPassportElementAddress({
-    required this.address,
-  });
+  const InputPassportElementAddress({required this.address});
 
   /// The address to be saved
   final Address address;
 
   /// Parse from a json
   factory InputPassportElementAddress.fromJson(Map<String, dynamic> json) =>
-      InputPassportElementAddress(
-        address: Address.fromJson(json['address']),
-      );
+      InputPassportElementAddress(address: Address.fromJson(json['address']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "address": address.toJson(),
-    };
+    return {"@type": defaultObjectId, "address": address.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -406,12 +371,8 @@ final class InputPassportElementAddress extends InputPassportElement {
   /// Properties:
   /// * [address]: The address to be saved
   @override
-  InputPassportElementAddress copyWith({
-    Address? address,
-  }) =>
-      InputPassportElementAddress(
-        address: address ?? this.address,
-      );
+  InputPassportElementAddress copyWith({Address? address}) =>
+      InputPassportElementAddress(address: address ?? this.address);
 
   /// TDLib object type
   static const String defaultObjectId = 'inputPassportElementAddress';
@@ -436,9 +397,7 @@ final class InputPassportElementUtilityBill extends InputPassportElement {
   /// A Telegram Passport element to be saved containing the user's utility bill.
   ///
   /// * [utilityBill]: The utility bill to be saved.
-  const InputPassportElementUtilityBill({
-    required this.utilityBill,
-  });
+  const InputPassportElementUtilityBill({required this.utilityBill});
 
   /// The utility bill to be saved
   final InputPersonalDocument utilityBill;
@@ -452,10 +411,7 @@ final class InputPassportElementUtilityBill extends InputPassportElement {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "utility_bill": utilityBill.toJson(),
-    };
+    return {"@type": defaultObjectId, "utility_bill": utilityBill.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -465,10 +421,9 @@ final class InputPassportElementUtilityBill extends InputPassportElement {
   @override
   InputPassportElementUtilityBill copyWith({
     InputPersonalDocument? utilityBill,
-  }) =>
-      InputPassportElementUtilityBill(
-        utilityBill: utilityBill ?? this.utilityBill,
-      );
+  }) => InputPassportElementUtilityBill(
+    utilityBill: utilityBill ?? this.utilityBill,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputPassportElementUtilityBill';
@@ -493,27 +448,22 @@ final class InputPassportElementBankStatement extends InputPassportElement {
   /// A Telegram Passport element to be saved containing the user's bank statement.
   ///
   /// * [bankStatement]: The bank statement to be saved.
-  const InputPassportElementBankStatement({
-    required this.bankStatement,
-  });
+  const InputPassportElementBankStatement({required this.bankStatement});
 
   /// The bank statement to be saved
   final InputPersonalDocument bankStatement;
 
   /// Parse from a json
   factory InputPassportElementBankStatement.fromJson(
-          Map<String, dynamic> json) =>
-      InputPassportElementBankStatement(
-        bankStatement: InputPersonalDocument.fromJson(json['bank_statement']),
-      );
+    Map<String, dynamic> json,
+  ) => InputPassportElementBankStatement(
+    bankStatement: InputPersonalDocument.fromJson(json['bank_statement']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "bank_statement": bankStatement.toJson(),
-    };
+    return {"@type": defaultObjectId, "bank_statement": bankStatement.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -523,10 +473,9 @@ final class InputPassportElementBankStatement extends InputPassportElement {
   @override
   InputPassportElementBankStatement copyWith({
     InputPersonalDocument? bankStatement,
-  }) =>
-      InputPassportElementBankStatement(
-        bankStatement: bankStatement ?? this.bankStatement,
-      );
+  }) => InputPassportElementBankStatement(
+    bankStatement: bankStatement ?? this.bankStatement,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputPassportElementBankStatement';
@@ -551,20 +500,17 @@ final class InputPassportElementRentalAgreement extends InputPassportElement {
   /// A Telegram Passport element to be saved containing the user's rental agreement.
   ///
   /// * [rentalAgreement]: The rental agreement to be saved.
-  const InputPassportElementRentalAgreement({
-    required this.rentalAgreement,
-  });
+  const InputPassportElementRentalAgreement({required this.rentalAgreement});
 
   /// The rental agreement to be saved
   final InputPersonalDocument rentalAgreement;
 
   /// Parse from a json
   factory InputPassportElementRentalAgreement.fromJson(
-          Map<String, dynamic> json) =>
-      InputPassportElementRentalAgreement(
-        rentalAgreement:
-            InputPersonalDocument.fromJson(json['rental_agreement']),
-      );
+    Map<String, dynamic> json,
+  ) => InputPassportElementRentalAgreement(
+    rentalAgreement: InputPersonalDocument.fromJson(json['rental_agreement']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -582,10 +528,9 @@ final class InputPassportElementRentalAgreement extends InputPassportElement {
   @override
   InputPassportElementRentalAgreement copyWith({
     InputPersonalDocument? rentalAgreement,
-  }) =>
-      InputPassportElementRentalAgreement(
-        rentalAgreement: rentalAgreement ?? this.rentalAgreement,
-      );
+  }) => InputPassportElementRentalAgreement(
+    rentalAgreement: rentalAgreement ?? this.rentalAgreement,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputPassportElementRentalAgreement';
@@ -620,11 +565,12 @@ final class InputPassportElementPassportRegistration
 
   /// Parse from a json
   factory InputPassportElementPassportRegistration.fromJson(
-          Map<String, dynamic> json) =>
-      InputPassportElementPassportRegistration(
-        passportRegistration:
-            InputPersonalDocument.fromJson(json['passport_registration']),
-      );
+    Map<String, dynamic> json,
+  ) => InputPassportElementPassportRegistration(
+    passportRegistration: InputPersonalDocument.fromJson(
+      json['passport_registration'],
+    ),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -642,10 +588,9 @@ final class InputPassportElementPassportRegistration
   @override
   InputPassportElementPassportRegistration copyWith({
     InputPersonalDocument? passportRegistration,
-  }) =>
-      InputPassportElementPassportRegistration(
-        passportRegistration: passportRegistration ?? this.passportRegistration,
-      );
+  }) => InputPassportElementPassportRegistration(
+    passportRegistration: passportRegistration ?? this.passportRegistration,
+  );
 
   /// TDLib object type
   static const String defaultObjectId =
@@ -681,11 +626,12 @@ final class InputPassportElementTemporaryRegistration
 
   /// Parse from a json
   factory InputPassportElementTemporaryRegistration.fromJson(
-          Map<String, dynamic> json) =>
-      InputPassportElementTemporaryRegistration(
-        temporaryRegistration:
-            InputPersonalDocument.fromJson(json['temporary_registration']),
-      );
+    Map<String, dynamic> json,
+  ) => InputPassportElementTemporaryRegistration(
+    temporaryRegistration: InputPersonalDocument.fromJson(
+      json['temporary_registration'],
+    ),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -703,11 +649,9 @@ final class InputPassportElementTemporaryRegistration
   @override
   InputPassportElementTemporaryRegistration copyWith({
     InputPersonalDocument? temporaryRegistration,
-  }) =>
-      InputPassportElementTemporaryRegistration(
-        temporaryRegistration:
-            temporaryRegistration ?? this.temporaryRegistration,
-      );
+  }) => InputPassportElementTemporaryRegistration(
+    temporaryRegistration: temporaryRegistration ?? this.temporaryRegistration,
+  );
 
   /// TDLib object type
   static const String defaultObjectId =
@@ -733,26 +677,19 @@ final class InputPassportElementPhoneNumber extends InputPassportElement {
   /// A Telegram Passport element to be saved containing the user's phone number.
   ///
   /// * [phoneNumber]: The phone number to be saved.
-  const InputPassportElementPhoneNumber({
-    required this.phoneNumber,
-  });
+  const InputPassportElementPhoneNumber({required this.phoneNumber});
 
   /// The phone number to be saved
   final String phoneNumber;
 
   /// Parse from a json
   factory InputPassportElementPhoneNumber.fromJson(Map<String, dynamic> json) =>
-      InputPassportElementPhoneNumber(
-        phoneNumber: json['phone_number'],
-      );
+      InputPassportElementPhoneNumber(phoneNumber: json['phone_number']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "phone_number": phoneNumber,
-    };
+    return {"@type": defaultObjectId, "phone_number": phoneNumber};
   }
 
   /// Copy model with modified properties.
@@ -760,9 +697,7 @@ final class InputPassportElementPhoneNumber extends InputPassportElement {
   /// Properties:
   /// * [phone_number]: The phone number to be saved
   @override
-  InputPassportElementPhoneNumber copyWith({
-    String? phoneNumber,
-  }) =>
+  InputPassportElementPhoneNumber copyWith({String? phoneNumber}) =>
       InputPassportElementPhoneNumber(
         phoneNumber: phoneNumber ?? this.phoneNumber,
       );
@@ -790,27 +725,20 @@ final class InputPassportElementEmailAddress extends InputPassportElement {
   /// A Telegram Passport element to be saved containing the user's email address.
   ///
   /// * [emailAddress]: The email address to be saved.
-  const InputPassportElementEmailAddress({
-    required this.emailAddress,
-  });
+  const InputPassportElementEmailAddress({required this.emailAddress});
 
   /// The email address to be saved
   final String emailAddress;
 
   /// Parse from a json
   factory InputPassportElementEmailAddress.fromJson(
-          Map<String, dynamic> json) =>
-      InputPassportElementEmailAddress(
-        emailAddress: json['email_address'],
-      );
+    Map<String, dynamic> json,
+  ) => InputPassportElementEmailAddress(emailAddress: json['email_address']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "email_address": emailAddress,
-    };
+    return {"@type": defaultObjectId, "email_address": emailAddress};
   }
 
   /// Copy model with modified properties.
@@ -818,9 +746,7 @@ final class InputPassportElementEmailAddress extends InputPassportElement {
   /// Properties:
   /// * [email_address]: The email address to be saved
   @override
-  InputPassportElementEmailAddress copyWith({
-    String? emailAddress,
-  }) =>
+  InputPassportElementEmailAddress copyWith({String? emailAddress}) =>
       InputPassportElementEmailAddress(
         emailAddress: emailAddress ?? this.emailAddress,
       );

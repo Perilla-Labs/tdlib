@@ -38,12 +38,11 @@ final class ChatPosition extends TdObject {
 
   /// Parse from a json
   factory ChatPosition.fromJson(Map<String, dynamic> json) => ChatPosition(
-        list: ChatList.fromJson(json['list']),
-        order: json['order'] is int ? json['order'] : int.parse(json['order']),
-        isPinned: json['is_pinned'],
-        source:
-            json['source'] == null ? null : ChatSource.fromJson(json['source']),
-      );
+    list: ChatList.fromJson(json['list']),
+    order: json['order'] is int ? json['order'] : int.parse(json['order']),
+    isPinned: json['is_pinned'],
+    source: json['source'] == null ? null : ChatSource.fromJson(json['source']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -69,13 +68,12 @@ final class ChatPosition extends TdObject {
     int? order,
     bool? isPinned,
     ChatSource? source,
-  }) =>
-      ChatPosition(
-        list: list ?? this.list,
-        order: order ?? this.order,
-        isPinned: isPinned ?? this.isPinned,
-        source: source ?? this.source,
-      );
+  }) => ChatPosition(
+    list: list ?? this.list,
+    order: order ?? this.order,
+    isPinned: isPinned ?? this.isPinned,
+    source: source ?? this.source,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatPosition';

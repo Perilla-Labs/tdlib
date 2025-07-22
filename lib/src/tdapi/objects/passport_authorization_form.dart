@@ -45,9 +45,10 @@ final class PassportAuthorizationForm extends TdObject {
       PassportAuthorizationForm(
         id: json['id'],
         requiredElements: List<PassportRequiredElement>.from(
-            (json['required_elements'] ?? [])
-                .map((item) => PassportRequiredElement.fromJson(item))
-                .toList()),
+          (json['required_elements'] ?? [])
+              .map((item) => PassportRequiredElement.fromJson(item))
+              .toList(),
+        ),
         privacyPolicyUrl: json['privacy_policy_url'],
         extra: json['@extra'],
         clientId: json['@client_id'],
@@ -76,14 +77,13 @@ final class PassportAuthorizationForm extends TdObject {
     String? privacyPolicyUrl,
     dynamic extra,
     int? clientId,
-  }) =>
-      PassportAuthorizationForm(
-        id: id ?? this.id,
-        requiredElements: requiredElements ?? this.requiredElements,
-        privacyPolicyUrl: privacyPolicyUrl ?? this.privacyPolicyUrl,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => PassportAuthorizationForm(
+    id: id ?? this.id,
+    requiredElements: requiredElements ?? this.requiredElements,
+    privacyPolicyUrl: privacyPolicyUrl ?? this.privacyPolicyUrl,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'passportAuthorizationForm';

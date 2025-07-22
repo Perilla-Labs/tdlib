@@ -60,15 +60,13 @@ final class BusinessAwayMessageScheduleAlways
 
   /// Parse from a json
   factory BusinessAwayMessageScheduleAlways.fromJson(
-          Map<String, dynamic> json) =>
-      const BusinessAwayMessageScheduleAlways();
+    Map<String, dynamic> json,
+  ) => const BusinessAwayMessageScheduleAlways();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -100,15 +98,13 @@ final class BusinessAwayMessageScheduleOutsideOfOpeningHours
 
   /// Parse from a json
   factory BusinessAwayMessageScheduleOutsideOfOpeningHours.fromJson(
-          Map<String, dynamic> json) =>
-      const BusinessAwayMessageScheduleOutsideOfOpeningHours();
+    Map<String, dynamic> json,
+  ) => const BusinessAwayMessageScheduleOutsideOfOpeningHours();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -156,11 +152,11 @@ final class BusinessAwayMessageScheduleCustom
 
   /// Parse from a json
   factory BusinessAwayMessageScheduleCustom.fromJson(
-          Map<String, dynamic> json) =>
-      BusinessAwayMessageScheduleCustom(
-        startDate: json['start_date'],
-        endDate: json['end_date'],
-      );
+    Map<String, dynamic> json,
+  ) => BusinessAwayMessageScheduleCustom(
+    startDate: json['start_date'],
+    endDate: json['end_date'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -178,10 +174,7 @@ final class BusinessAwayMessageScheduleCustom
   /// * [start_date]: Point in time (Unix timestamp) when the away messages will start to be sent
   /// * [end_date]: Point in time (Unix timestamp) when the away messages will stop to be sent
   @override
-  BusinessAwayMessageScheduleCustom copyWith({
-    int? startDate,
-    int? endDate,
-  }) =>
+  BusinessAwayMessageScheduleCustom copyWith({int? startDate, int? endDate}) =>
       BusinessAwayMessageScheduleCustom(
         startDate: startDate ?? this.startDate,
         endDate: endDate ?? this.endDate,

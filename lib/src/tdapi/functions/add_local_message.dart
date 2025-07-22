@@ -4,7 +4,7 @@ part of '../tdapi.dart';
 ///
 /// Adds a local message to a chat. The message is persistent across application restarts only if the message database is used. Returns the added message.
 ///
-/// * [chatId]: Target chat.
+/// * [chatId]: Target chat; channel direct messages chats aren't supported.
 /// * [senderId]: Identifier of the sender of the message.
 /// * [replyTo]: Information about the message or story to be replied; pass null if none *(optional)*.
 /// * [disableNotification]: Pass true to disable notification for the message.
@@ -16,7 +16,7 @@ final class AddLocalMessage extends TdFunction {
   ///
   /// Adds a local message to a chat. The message is persistent across application restarts only if the message database is used. Returns the added message.
   ///
-  /// * [chatId]: Target chat.
+  /// * [chatId]: Target chat; channel direct messages chats aren't supported.
   /// * [senderId]: Identifier of the sender of the message.
   /// * [replyTo]: Information about the message or story to be replied; pass null if none *(optional)*.
   /// * [disableNotification]: Pass true to disable notification for the message.
@@ -31,7 +31,7 @@ final class AddLocalMessage extends TdFunction {
     required this.inputMessageContent,
   });
 
-  /// Target chat
+  /// Target chat; channel direct messages chats aren't supported
   final int chatId;
 
   /// Identifier of the sender of the message
@@ -63,7 +63,7 @@ final class AddLocalMessage extends TdFunction {
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [chat_id]: Target chat
+  /// * [chat_id]: Target chat; channel direct messages chats aren't supported
   /// * [sender_id]: Identifier of the sender of the message
   /// * [reply_to]: Information about the message or story to be replied; pass null if none
   /// * [disable_notification]: Pass true to disable notification for the message
@@ -74,14 +74,13 @@ final class AddLocalMessage extends TdFunction {
     InputMessageReplyTo? replyTo,
     bool? disableNotification,
     InputMessageContent? inputMessageContent,
-  }) =>
-      AddLocalMessage(
-        chatId: chatId ?? this.chatId,
-        senderId: senderId ?? this.senderId,
-        replyTo: replyTo ?? this.replyTo,
-        disableNotification: disableNotification ?? this.disableNotification,
-        inputMessageContent: inputMessageContent ?? this.inputMessageContent,
-      );
+  }) => AddLocalMessage(
+    chatId: chatId ?? this.chatId,
+    senderId: senderId ?? this.senderId,
+    replyTo: replyTo ?? this.replyTo,
+    disableNotification: disableNotification ?? this.disableNotification,
+    inputMessageContent: inputMessageContent ?? this.inputMessageContent,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'addLocalMessage';

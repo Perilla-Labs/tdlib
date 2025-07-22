@@ -13,10 +13,7 @@ final class KeyboardButton extends TdObject {
   ///
   /// * [text]: Text of the button.
   /// * [type]: Type of the button.
-  const KeyboardButton({
-    required this.text,
-    required this.type,
-  });
+  const KeyboardButton({required this.text, required this.type});
 
   /// Text of the button
   final String text;
@@ -26,18 +23,14 @@ final class KeyboardButton extends TdObject {
 
   /// Parse from a json
   factory KeyboardButton.fromJson(Map<String, dynamic> json) => KeyboardButton(
-        text: json['text'],
-        type: KeyboardButtonType.fromJson(json['type']),
-      );
+    text: json['text'],
+    type: KeyboardButtonType.fromJson(json['type']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "text": text,
-      "type": type.toJson(),
-    };
+    return {"@type": defaultObjectId, "text": text, "type": type.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -45,14 +38,8 @@ final class KeyboardButton extends TdObject {
   /// Properties:
   /// * [text]: Text of the button
   /// * [type]: Type of the button
-  KeyboardButton copyWith({
-    String? text,
-    KeyboardButtonType? type,
-  }) =>
-      KeyboardButton(
-        text: text ?? this.text,
-        type: type ?? this.type,
-      );
+  KeyboardButton copyWith({String? text, KeyboardButtonType? type}) =>
+      KeyboardButton(text: text ?? this.text, type: type ?? this.type);
 
   /// TDLib object type
   static const String defaultObjectId = 'keyboardButton';

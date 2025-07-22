@@ -15,9 +15,7 @@ final class RemoveFavoriteSticker extends TdFunction {
   /// * [sticker]: Sticker file to delete from the list.
   ///
   /// [Ok] is returned on completion.
-  const RemoveFavoriteSticker({
-    required this.sticker,
-  });
+  const RemoveFavoriteSticker({required this.sticker});
 
   /// Sticker file to delete from the list
   final InputFile sticker;
@@ -36,12 +34,8 @@ final class RemoveFavoriteSticker extends TdFunction {
   ///
   /// Properties:
   /// * [sticker]: Sticker file to delete from the list
-  RemoveFavoriteSticker copyWith({
-    InputFile? sticker,
-  }) =>
-      RemoveFavoriteSticker(
-        sticker: sticker ?? this.sticker,
-      );
+  RemoveFavoriteSticker copyWith({InputFile? sticker}) =>
+      RemoveFavoriteSticker(sticker: sticker ?? this.sticker);
 
   /// TDLib object type
   static const String defaultObjectId = 'removeFavoriteSticker';

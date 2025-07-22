@@ -47,11 +47,10 @@ final class ReorderInstalledStickerSets extends TdFunction {
   ReorderInstalledStickerSets copyWith({
     StickerType? stickerType,
     List<int>? stickerSetIds,
-  }) =>
-      ReorderInstalledStickerSets(
-        stickerType: stickerType ?? this.stickerType,
-        stickerSetIds: stickerSetIds ?? this.stickerSetIds,
-      );
+  }) => ReorderInstalledStickerSets(
+    stickerType: stickerType ?? this.stickerType,
+    stickerSetIds: stickerSetIds ?? this.stickerSetIds,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'reorderInstalledStickerSets';

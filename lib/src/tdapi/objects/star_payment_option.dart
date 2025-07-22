@@ -79,14 +79,13 @@ final class StarPaymentOption extends TdObject {
     int? starCount,
     String? storeProductId,
     bool? isAdditional,
-  }) =>
-      StarPaymentOption(
-        currency: currency ?? this.currency,
-        amount: amount ?? this.amount,
-        starCount: starCount ?? this.starCount,
-        storeProductId: storeProductId ?? this.storeProductId,
-        isAdditional: isAdditional ?? this.isAdditional,
-      );
+  }) => StarPaymentOption(
+    currency: currency ?? this.currency,
+    amount: amount ?? this.amount,
+    starCount: starCount ?? this.starCount,
+    storeProductId: storeProductId ?? this.storeProductId,
+    isAdditional: isAdditional ?? this.isAdditional,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'starPaymentOption';

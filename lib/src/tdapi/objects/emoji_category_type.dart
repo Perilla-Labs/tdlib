@@ -67,9 +67,7 @@ final class EmojiCategoryTypeDefault extends EmojiCategoryType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -99,15 +97,13 @@ final class EmojiCategoryTypeRegularStickers extends EmojiCategoryType {
 
   /// Parse from a json
   factory EmojiCategoryTypeRegularStickers.fromJson(
-          Map<String, dynamic> json) =>
-      const EmojiCategoryTypeRegularStickers();
+    Map<String, dynamic> json,
+  ) => const EmojiCategoryTypeRegularStickers();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -143,9 +139,7 @@ final class EmojiCategoryTypeEmojiStatus extends EmojiCategoryType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -181,9 +175,7 @@ final class EmojiCategoryTypeChatPhoto extends EmojiCategoryType {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.

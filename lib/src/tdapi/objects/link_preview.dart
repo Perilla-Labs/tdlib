@@ -102,22 +102,22 @@ final class LinkPreview extends TdObject {
 
   /// Parse from a json
   factory LinkPreview.fromJson(Map<String, dynamic> json) => LinkPreview(
-        url: json['url'],
-        displayUrl: json['display_url'],
-        siteName: json['site_name'],
-        title: json['title'],
-        description: FormattedText.fromJson(json['description']),
-        author: json['author'],
-        type: LinkPreviewType.fromJson(json['type']),
-        hasLargeMedia: json['has_large_media'],
-        showLargeMedia: json['show_large_media'],
-        showMediaAboveDescription: json['show_media_above_description'],
-        skipConfirmation: json['skip_confirmation'],
-        showAboveText: json['show_above_text'],
-        instantViewVersion: json['instant_view_version'] ?? 0,
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    url: json['url'],
+    displayUrl: json['display_url'],
+    siteName: json['site_name'],
+    title: json['title'],
+    description: FormattedText.fromJson(json['description']),
+    author: json['author'],
+    type: LinkPreviewType.fromJson(json['type']),
+    hasLargeMedia: json['has_large_media'],
+    showLargeMedia: json['show_large_media'],
+    showMediaAboveDescription: json['show_media_above_description'],
+    skipConfirmation: json['skip_confirmation'],
+    showAboveText: json['show_above_text'],
+    instantViewVersion: json['instant_view_version'] ?? 0,
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -172,25 +172,24 @@ final class LinkPreview extends TdObject {
     int? instantViewVersion,
     dynamic extra,
     int? clientId,
-  }) =>
-      LinkPreview(
-        url: url ?? this.url,
-        displayUrl: displayUrl ?? this.displayUrl,
-        siteName: siteName ?? this.siteName,
-        title: title ?? this.title,
-        description: description ?? this.description,
-        author: author ?? this.author,
-        type: type ?? this.type,
-        hasLargeMedia: hasLargeMedia ?? this.hasLargeMedia,
-        showLargeMedia: showLargeMedia ?? this.showLargeMedia,
-        showMediaAboveDescription:
-            showMediaAboveDescription ?? this.showMediaAboveDescription,
-        skipConfirmation: skipConfirmation ?? this.skipConfirmation,
-        showAboveText: showAboveText ?? this.showAboveText,
-        instantViewVersion: instantViewVersion ?? this.instantViewVersion,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => LinkPreview(
+    url: url ?? this.url,
+    displayUrl: displayUrl ?? this.displayUrl,
+    siteName: siteName ?? this.siteName,
+    title: title ?? this.title,
+    description: description ?? this.description,
+    author: author ?? this.author,
+    type: type ?? this.type,
+    hasLargeMedia: hasLargeMedia ?? this.hasLargeMedia,
+    showLargeMedia: showLargeMedia ?? this.showLargeMedia,
+    showMediaAboveDescription:
+        showMediaAboveDescription ?? this.showMediaAboveDescription,
+    skipConfirmation: skipConfirmation ?? this.skipConfirmation,
+    showAboveText: showAboveText ?? this.showAboveText,
+    instantViewVersion: instantViewVersion ?? this.instantViewVersion,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'linkPreview';

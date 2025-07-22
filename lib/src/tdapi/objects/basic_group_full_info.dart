@@ -76,17 +76,21 @@ final class BasicGroupFullInfo extends TdObject {
         photo: json['photo'] == null ? null : ChatPhoto.fromJson(json['photo']),
         description: json['description'],
         creatorUserId: json['creator_user_id'],
-        members: List<ChatMember>.from((json['members'] ?? [])
-            .map((item) => ChatMember.fromJson(item))
-            .toList()),
+        members: List<ChatMember>.from(
+          (json['members'] ?? [])
+              .map((item) => ChatMember.fromJson(item))
+              .toList(),
+        ),
         canHideMembers: json['can_hide_members'],
         canToggleAggressiveAntiSpam: json['can_toggle_aggressive_anti_spam'],
         inviteLink: json['invite_link'] == null
             ? null
             : ChatInviteLink.fromJson(json['invite_link']),
-        botCommands: List<BotCommands>.from((json['bot_commands'] ?? [])
-            .map((item) => BotCommands.fromJson(item))
-            .toList()),
+        botCommands: List<BotCommands>.from(
+          (json['bot_commands'] ?? [])
+              .map((item) => BotCommands.fromJson(item))
+              .toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -129,20 +133,19 @@ final class BasicGroupFullInfo extends TdObject {
     List<BotCommands>? botCommands,
     dynamic extra,
     int? clientId,
-  }) =>
-      BasicGroupFullInfo(
-        photo: photo ?? this.photo,
-        description: description ?? this.description,
-        creatorUserId: creatorUserId ?? this.creatorUserId,
-        members: members ?? this.members,
-        canHideMembers: canHideMembers ?? this.canHideMembers,
-        canToggleAggressiveAntiSpam:
-            canToggleAggressiveAntiSpam ?? this.canToggleAggressiveAntiSpam,
-        inviteLink: inviteLink ?? this.inviteLink,
-        botCommands: botCommands ?? this.botCommands,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => BasicGroupFullInfo(
+    photo: photo ?? this.photo,
+    description: description ?? this.description,
+    creatorUserId: creatorUserId ?? this.creatorUserId,
+    members: members ?? this.members,
+    canHideMembers: canHideMembers ?? this.canHideMembers,
+    canToggleAggressiveAntiSpam:
+        canToggleAggressiveAntiSpam ?? this.canToggleAggressiveAntiSpam,
+    inviteLink: inviteLink ?? this.inviteLink,
+    botCommands: botCommands ?? this.botCommands,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'basicGroupFullInfo';

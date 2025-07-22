@@ -15,9 +15,7 @@ final class SetReactionNotificationSettings extends TdFunction {
   /// * [notificationSettings]: The new notification settings for reactions.
   ///
   /// [Ok] is returned on completion.
-  const SetReactionNotificationSettings({
-    required this.notificationSettings,
-  });
+  const SetReactionNotificationSettings({required this.notificationSettings});
 
   /// The new notification settings for reactions
   final ReactionNotificationSettings notificationSettings;
@@ -38,10 +36,9 @@ final class SetReactionNotificationSettings extends TdFunction {
   /// * [notification_settings]: The new notification settings for reactions
   SetReactionNotificationSettings copyWith({
     ReactionNotificationSettings? notificationSettings,
-  }) =>
-      SetReactionNotificationSettings(
-        notificationSettings: notificationSettings ?? this.notificationSettings,
-      );
+  }) => SetReactionNotificationSettings(
+    notificationSettings: notificationSettings ?? this.notificationSettings,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setReactionNotificationSettings';

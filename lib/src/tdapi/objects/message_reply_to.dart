@@ -54,7 +54,7 @@ sealed class MessageReplyTo extends TdObject {
 /// * [quote]: Chosen quote from the replied message; may be null if none *(optional)*.
 /// * [origin]: Information about origin of the message if the message was from another chat or topic; may be null for messages from the same chat *(optional)*.
 /// * [originSendDate]: Point in time (Unix timestamp) when the message was sent if the message was from another chat or topic; 0 for messages from the same chat.
-/// * [content]: Media content of the message if the message was from another chat or topic; may be null for messages from the same chat and messages without media.. Can be only one of the following types: messageAnimation, messageAudio, messageContact, messageDice, messageDocument, messageGame, messageGiveaway, messageGiveawayWinners,. messageInvoice, messageLocation, messagePaidMedia, messagePhoto, messagePoll, messageSticker, messageStory, messageText (for link preview), messageVenue, messageVideo,. messageVideoNote, or messageVoiceNote *(optional)*.
+/// * [content]: Media content of the message if the message was from another chat or topic; may be null for messages from the same chat and messages without media.. Can be only one of the following types: messageAnimation, messageAudio, messageChecklist, messageContact, messageDice, messageDocument, messageGame,. messageGiveaway, messageGiveawayWinners, messageInvoice, messageLocation, messagePaidMedia, messagePhoto, messagePoll, messageSticker, messageStory,. messageText (for link preview), messageVenue, messageVideo, messageVideoNote, or messageVoiceNote *(optional)*.
 final class MessageReplyToMessage extends MessageReplyTo {
   /// **MessageReplyToMessage** *(messageReplyToMessage)* - child of MessageReplyTo
   ///
@@ -65,7 +65,7 @@ final class MessageReplyToMessage extends MessageReplyTo {
   /// * [quote]: Chosen quote from the replied message; may be null if none *(optional)*.
   /// * [origin]: Information about origin of the message if the message was from another chat or topic; may be null for messages from the same chat *(optional)*.
   /// * [originSendDate]: Point in time (Unix timestamp) when the message was sent if the message was from another chat or topic; 0 for messages from the same chat.
-  /// * [content]: Media content of the message if the message was from another chat or topic; may be null for messages from the same chat and messages without media.. Can be only one of the following types: messageAnimation, messageAudio, messageContact, messageDice, messageDocument, messageGame, messageGiveaway, messageGiveawayWinners,. messageInvoice, messageLocation, messagePaidMedia, messagePhoto, messagePoll, messageSticker, messageStory, messageText (for link preview), messageVenue, messageVideo,. messageVideoNote, or messageVoiceNote *(optional)*.
+  /// * [content]: Media content of the message if the message was from another chat or topic; may be null for messages from the same chat and messages without media.. Can be only one of the following types: messageAnimation, messageAudio, messageChecklist, messageContact, messageDice, messageDocument, messageGame,. messageGiveaway, messageGiveawayWinners, messageInvoice, messageLocation, messagePaidMedia, messagePhoto, messagePoll, messageSticker, messageStory,. messageText (for link preview), messageVenue, messageVideo, messageVideoNote, or messageVoiceNote *(optional)*.
   const MessageReplyToMessage({
     required this.chatId,
     required this.messageId,
@@ -90,7 +90,7 @@ final class MessageReplyToMessage extends MessageReplyTo {
   /// Point in time (Unix timestamp) when the message was sent if the message was from another chat or topic; 0 for messages from the same chat
   final int originSendDate;
 
-  /// Media content of the message if the message was from another chat or topic; may be null for messages from the same chat and messages without media.. Can be only one of the following types: messageAnimation, messageAudio, messageContact, messageDice, messageDocument, messageGame, messageGiveaway, messageGiveawayWinners,. messageInvoice, messageLocation, messagePaidMedia, messagePhoto, messagePoll, messageSticker, messageStory, messageText (for link preview), messageVenue, messageVideo,. messageVideoNote, or messageVoiceNote
+  /// Media content of the message if the message was from another chat or topic; may be null for messages from the same chat and messages without media.. Can be only one of the following types: messageAnimation, messageAudio, messageChecklist, messageContact, messageDice, messageDocument, messageGame,. messageGiveaway, messageGiveawayWinners, messageInvoice, messageLocation, messagePaidMedia, messagePhoto, messagePoll, messageSticker, messageStory,. messageText (for link preview), messageVenue, messageVideo, messageVideoNote, or messageVoiceNote
   final MessageContent? content;
 
   /// Parse from a json
@@ -130,7 +130,7 @@ final class MessageReplyToMessage extends MessageReplyTo {
   /// * [quote]: Chosen quote from the replied message; may be null if none
   /// * [origin]: Information about origin of the message if the message was from another chat or topic; may be null for messages from the same chat
   /// * [origin_send_date]: Point in time (Unix timestamp) when the message was sent if the message was from another chat or topic; 0 for messages from the same chat
-  /// * [content]: Media content of the message if the message was from another chat or topic; may be null for messages from the same chat and messages without media.. Can be only one of the following types: messageAnimation, messageAudio, messageContact, messageDice, messageDocument, messageGame, messageGiveaway, messageGiveawayWinners,. messageInvoice, messageLocation, messagePaidMedia, messagePhoto, messagePoll, messageSticker, messageStory, messageText (for link preview), messageVenue, messageVideo,. messageVideoNote, or messageVoiceNote
+  /// * [content]: Media content of the message if the message was from another chat or topic; may be null for messages from the same chat and messages without media.. Can be only one of the following types: messageAnimation, messageAudio, messageChecklist, messageContact, messageDice, messageDocument, messageGame,. messageGiveaway, messageGiveawayWinners, messageInvoice, messageLocation, messagePaidMedia, messagePhoto, messagePoll, messageSticker, messageStory,. messageText (for link preview), messageVenue, messageVideo, messageVideoNote, or messageVoiceNote
   @override
   MessageReplyToMessage copyWith({
     int? chatId,
@@ -139,15 +139,14 @@ final class MessageReplyToMessage extends MessageReplyTo {
     MessageOrigin? origin,
     int? originSendDate,
     MessageContent? content,
-  }) =>
-      MessageReplyToMessage(
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        quote: quote ?? this.quote,
-        origin: origin ?? this.origin,
-        originSendDate: originSendDate ?? this.originSendDate,
-        content: content ?? this.content,
-      );
+  }) => MessageReplyToMessage(
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    quote: quote ?? this.quote,
+    origin: origin ?? this.origin,
+    originSendDate: originSendDate ?? this.originSendDate,
+    content: content ?? this.content,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageReplyToMessage';
@@ -165,22 +164,22 @@ final class MessageReplyToMessage extends MessageReplyTo {
 ///
 /// Describes a story replied by a given message.
 ///
-/// * [storySenderChatId]: The identifier of the sender of the story.
+/// * [storyPosterChatId]: The identifier of the poster of the story.
 /// * [storyId]: The identifier of the story.
 final class MessageReplyToStory extends MessageReplyTo {
   /// **MessageReplyToStory** *(messageReplyToStory)* - child of MessageReplyTo
   ///
   /// Describes a story replied by a given message.
   ///
-  /// * [storySenderChatId]: The identifier of the sender of the story.
+  /// * [storyPosterChatId]: The identifier of the poster of the story.
   /// * [storyId]: The identifier of the story.
   const MessageReplyToStory({
-    required this.storySenderChatId,
+    required this.storyPosterChatId,
     required this.storyId,
   });
 
-  /// The identifier of the sender of the story
-  final int storySenderChatId;
+  /// The identifier of the poster of the story
+  final int storyPosterChatId;
 
   /// The identifier of the story
   final int storyId;
@@ -188,7 +187,7 @@ final class MessageReplyToStory extends MessageReplyTo {
   /// Parse from a json
   factory MessageReplyToStory.fromJson(Map<String, dynamic> json) =>
       MessageReplyToStory(
-        storySenderChatId: json['story_sender_chat_id'],
+        storyPosterChatId: json['story_poster_chat_id'],
         storyId: json['story_id'],
       );
 
@@ -197,7 +196,7 @@ final class MessageReplyToStory extends MessageReplyTo {
   Map<String, dynamic> toJson() {
     return {
       "@type": defaultObjectId,
-      "story_sender_chat_id": storySenderChatId,
+      "story_poster_chat_id": storyPosterChatId,
       "story_id": storyId,
     };
   }
@@ -205,15 +204,12 @@ final class MessageReplyToStory extends MessageReplyTo {
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [story_sender_chat_id]: The identifier of the sender of the story
+  /// * [story_poster_chat_id]: The identifier of the poster of the story
   /// * [story_id]: The identifier of the story
   @override
-  MessageReplyToStory copyWith({
-    int? storySenderChatId,
-    int? storyId,
-  }) =>
+  MessageReplyToStory copyWith({int? storyPosterChatId, int? storyId}) =>
       MessageReplyToStory(
-        storySenderChatId: storySenderChatId ?? this.storySenderChatId,
+        storyPosterChatId: storyPosterChatId ?? this.storyPosterChatId,
         storyId: storyId ?? this.storyId,
       );
 

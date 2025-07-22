@@ -15,9 +15,7 @@ final class RemoveProxy extends TdFunction {
   /// * [proxyId]: Proxy identifier.
   ///
   /// [Ok] is returned on completion.
-  const RemoveProxy({
-    required this.proxyId,
-  });
+  const RemoveProxy({required this.proxyId});
 
   /// Proxy identifier
   final int proxyId;
@@ -25,23 +23,15 @@ final class RemoveProxy extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "proxy_id": proxyId,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "proxy_id": proxyId, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [proxy_id]: Proxy identifier
-  RemoveProxy copyWith({
-    int? proxyId,
-  }) =>
-      RemoveProxy(
-        proxyId: proxyId ?? this.proxyId,
-      );
+  RemoveProxy copyWith({int? proxyId}) =>
+      RemoveProxy(proxyId: proxyId ?? this.proxyId);
 
   /// TDLib object type
   static const String defaultObjectId = 'removeProxy';

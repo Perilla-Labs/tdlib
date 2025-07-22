@@ -44,10 +44,7 @@ final class ToggleUsernameIsActive extends TdFunction {
   /// Properties:
   /// * [username]: The username to change
   /// * [is_active]: Pass true to activate the username; pass false to disable it
-  ToggleUsernameIsActive copyWith({
-    String? username,
-    bool? isActive,
-  }) =>
+  ToggleUsernameIsActive copyWith({String? username, bool? isActive}) =>
       ToggleUsernameIsActive(
         username: username ?? this.username,
         isActive: isActive ?? this.isActive,

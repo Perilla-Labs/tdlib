@@ -56,12 +56,11 @@ final class EditMessageReplyMarkup extends TdFunction {
     int? chatId,
     int? messageId,
     ReplyMarkup? replyMarkup,
-  }) =>
-      EditMessageReplyMarkup(
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        replyMarkup: replyMarkup ?? this.replyMarkup,
-      );
+  }) => EditMessageReplyMarkup(
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    replyMarkup: replyMarkup ?? this.replyMarkup,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'editMessageReplyMarkup';

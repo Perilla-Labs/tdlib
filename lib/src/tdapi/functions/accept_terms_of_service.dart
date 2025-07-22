@@ -15,9 +15,7 @@ final class AcceptTermsOfService extends TdFunction {
   /// * [termsOfServiceId]: Terms of service identifier.
   ///
   /// [Ok] is returned on completion.
-  const AcceptTermsOfService({
-    required this.termsOfServiceId,
-  });
+  const AcceptTermsOfService({required this.termsOfServiceId});
 
   /// Terms of service identifier
   final String termsOfServiceId;
@@ -36,9 +34,7 @@ final class AcceptTermsOfService extends TdFunction {
   ///
   /// Properties:
   /// * [terms_of_service_id]: Terms of service identifier
-  AcceptTermsOfService copyWith({
-    String? termsOfServiceId,
-  }) =>
+  AcceptTermsOfService copyWith({String? termsOfServiceId}) =>
       AcceptTermsOfService(
         termsOfServiceId: termsOfServiceId ?? this.termsOfServiceId,
       );

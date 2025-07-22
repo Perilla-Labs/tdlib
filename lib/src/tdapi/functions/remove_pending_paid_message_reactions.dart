@@ -44,10 +44,7 @@ final class RemovePendingPaidMessageReactions extends TdFunction {
   /// Properties:
   /// * [chat_id]: Identifier of the chat to which the message belongs
   /// * [message_id]: Identifier of the message
-  RemovePendingPaidMessageReactions copyWith({
-    int? chatId,
-    int? messageId,
-  }) =>
+  RemovePendingPaidMessageReactions copyWith({int? chatId, int? messageId}) =>
       RemovePendingPaidMessageReactions(
         chatId: chatId ?? this.chatId,
         messageId: messageId ?? this.messageId,

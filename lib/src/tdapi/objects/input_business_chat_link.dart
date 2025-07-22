@@ -13,10 +13,7 @@ final class InputBusinessChatLink extends TdObject {
   ///
   /// * [text]: Message draft text that will be added to the input field.
   /// * [title]: Link title.
-  const InputBusinessChatLink({
-    required this.text,
-    required this.title,
-  });
+  const InputBusinessChatLink({required this.text, required this.title});
 
   /// Message draft text that will be added to the input field
   final FormattedText text;
@@ -34,11 +31,7 @@ final class InputBusinessChatLink extends TdObject {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "text": text.toJson(),
-      "title": title,
-    };
+    return {"@type": defaultObjectId, "text": text.toJson(), "title": title};
   }
 
   /// Copy model with modified properties.
@@ -46,10 +39,7 @@ final class InputBusinessChatLink extends TdObject {
   /// Properties:
   /// * [text]: Message draft text that will be added to the input field
   /// * [title]: Link title
-  InputBusinessChatLink copyWith({
-    FormattedText? text,
-    String? title,
-  }) =>
+  InputBusinessChatLink copyWith({FormattedText? text, String? title}) =>
       InputBusinessChatLink(
         text: text ?? this.text,
         title: title ?? this.title,

@@ -117,13 +117,12 @@ final class NetworkStatisticsEntryFile extends NetworkStatisticsEntry {
     NetworkType? networkType,
     int? sentBytes,
     int? receivedBytes,
-  }) =>
-      NetworkStatisticsEntryFile(
-        fileType: fileType ?? this.fileType,
-        networkType: networkType ?? this.networkType,
-        sentBytes: sentBytes ?? this.sentBytes,
-        receivedBytes: receivedBytes ?? this.receivedBytes,
-      );
+  }) => NetworkStatisticsEntryFile(
+    fileType: fileType ?? this.fileType,
+    networkType: networkType ?? this.networkType,
+    sentBytes: sentBytes ?? this.sentBytes,
+    receivedBytes: receivedBytes ?? this.receivedBytes,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'networkStatisticsEntryFile';
@@ -207,13 +206,12 @@ final class NetworkStatisticsEntryCall extends NetworkStatisticsEntry {
     int? sentBytes,
     int? receivedBytes,
     double? duration,
-  }) =>
-      NetworkStatisticsEntryCall(
-        networkType: networkType ?? this.networkType,
-        sentBytes: sentBytes ?? this.sentBytes,
-        receivedBytes: receivedBytes ?? this.receivedBytes,
-        duration: duration ?? this.duration,
-      );
+  }) => NetworkStatisticsEntryCall(
+    networkType: networkType ?? this.networkType,
+    sentBytes: sentBytes ?? this.sentBytes,
+    receivedBytes: receivedBytes ?? this.receivedBytes,
+    duration: duration ?? this.duration,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'networkStatisticsEntryCall';

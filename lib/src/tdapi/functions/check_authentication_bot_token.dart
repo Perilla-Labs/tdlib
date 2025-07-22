@@ -15,9 +15,7 @@ final class CheckAuthenticationBotToken extends TdFunction {
   /// * [token]: The bot token.
   ///
   /// [Ok] is returned on completion.
-  const CheckAuthenticationBotToken({
-    required this.token,
-  });
+  const CheckAuthenticationBotToken({required this.token});
 
   /// The bot token
   final String token;
@@ -25,23 +23,15 @@ final class CheckAuthenticationBotToken extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "token": token,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "token": token, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [token]: The bot token
-  CheckAuthenticationBotToken copyWith({
-    String? token,
-  }) =>
-      CheckAuthenticationBotToken(
-        token: token ?? this.token,
-      );
+  CheckAuthenticationBotToken copyWith({String? token}) =>
+      CheckAuthenticationBotToken(token: token ?? this.token);
 
   /// TDLib object type
   static const String defaultObjectId = 'checkAuthenticationBotToken';

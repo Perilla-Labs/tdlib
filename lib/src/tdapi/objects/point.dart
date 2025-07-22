@@ -13,10 +13,7 @@ final class Point extends TdObject {
   ///
   /// * [x]: The point's first coordinate.
   /// * [y]: The point's second coordinate.
-  const Point({
-    required this.x,
-    required this.y,
-  });
+  const Point({required this.x, required this.y});
 
   /// The point's first coordinate
   final double x;
@@ -25,19 +22,13 @@ final class Point extends TdObject {
   final double y;
 
   /// Parse from a json
-  factory Point.fromJson(Map<String, dynamic> json) => Point(
-        x: json['x'],
-        y: json['y'],
-      );
+  factory Point.fromJson(Map<String, dynamic> json) =>
+      Point(x: json['x'], y: json['y']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "x": x,
-      "y": y,
-    };
+    return {"@type": defaultObjectId, "x": x, "y": y};
   }
 
   /// Copy model with modified properties.
@@ -45,14 +36,8 @@ final class Point extends TdObject {
   /// Properties:
   /// * [x]: The point's first coordinate
   /// * [y]: The point's second coordinate
-  Point copyWith({
-    double? x,
-    double? y,
-  }) =>
-      Point(
-        x: x ?? this.x,
-        y: y ?? this.y,
-      );
+  Point copyWith({double? x, double? y}) =>
+      Point(x: x ?? this.x, y: y ?? this.y);
 
   /// TDLib object type
   static const String defaultObjectId = 'point';

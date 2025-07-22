@@ -43,12 +43,16 @@ final class PremiumFeatures extends TdObject {
   /// Parse from a json
   factory PremiumFeatures.fromJson(Map<String, dynamic> json) =>
       PremiumFeatures(
-        features: List<PremiumFeature>.from((json['features'] ?? [])
-            .map((item) => PremiumFeature.fromJson(item))
-            .toList()),
-        limits: List<PremiumLimit>.from((json['limits'] ?? [])
-            .map((item) => PremiumLimit.fromJson(item))
-            .toList()),
+        features: List<PremiumFeature>.from(
+          (json['features'] ?? [])
+              .map((item) => PremiumFeature.fromJson(item))
+              .toList(),
+        ),
+        limits: List<PremiumLimit>.from(
+          (json['limits'] ?? [])
+              .map((item) => PremiumLimit.fromJson(item))
+              .toList(),
+        ),
         paymentLink: json['payment_link'] == null
             ? null
             : InternalLinkType.fromJson(json['payment_link']),
@@ -79,14 +83,13 @@ final class PremiumFeatures extends TdObject {
     InternalLinkType? paymentLink,
     dynamic extra,
     int? clientId,
-  }) =>
-      PremiumFeatures(
-        features: features ?? this.features,
-        limits: limits ?? this.limits,
-        paymentLink: paymentLink ?? this.paymentLink,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => PremiumFeatures(
+    features: features ?? this.features,
+    limits: limits ?? this.limits,
+    paymentLink: paymentLink ?? this.paymentLink,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'premiumFeatures';

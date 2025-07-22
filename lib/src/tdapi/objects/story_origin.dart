@@ -47,21 +47,18 @@ sealed class StoryOrigin extends TdObject {
 
 /// **StoryOriginPublicStory** *(storyOriginPublicStory)* - child of StoryOrigin
 ///
-/// The original story was a public story with known sender.
+/// The original story was a public story that was posted by a known chat.
 ///
 /// * [chatId]: Identifier of the chat that posted original story.
 /// * [storyId]: Story identifier of the original story.
 final class StoryOriginPublicStory extends StoryOrigin {
   /// **StoryOriginPublicStory** *(storyOriginPublicStory)* - child of StoryOrigin
   ///
-  /// The original story was a public story with known sender.
+  /// The original story was a public story that was posted by a known chat.
   ///
   /// * [chatId]: Identifier of the chat that posted original story.
   /// * [storyId]: Story identifier of the original story.
-  const StoryOriginPublicStory({
-    required this.chatId,
-    required this.storyId,
-  });
+  const StoryOriginPublicStory({required this.chatId, required this.storyId});
 
   /// Identifier of the chat that posted original story
   final int chatId;
@@ -79,11 +76,7 @@ final class StoryOriginPublicStory extends StoryOrigin {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "chat_id": chatId,
-      "story_id": storyId,
-    };
+    return {"@type": defaultObjectId, "chat_id": chatId, "story_id": storyId};
   }
 
   /// Copy model with modified properties.
@@ -92,10 +85,7 @@ final class StoryOriginPublicStory extends StoryOrigin {
   /// * [chat_id]: Identifier of the chat that posted original story
   /// * [story_id]: Story identifier of the original story
   @override
-  StoryOriginPublicStory copyWith({
-    int? chatId,
-    int? storyId,
-  }) =>
+  StoryOriginPublicStory copyWith({int? chatId, int? storyId}) =>
       StoryOriginPublicStory(
         chatId: chatId ?? this.chatId,
         storyId: storyId ?? this.storyId,
@@ -115,48 +105,37 @@ final class StoryOriginPublicStory extends StoryOrigin {
 
 /// **StoryOriginHiddenUser** *(storyOriginHiddenUser)* - child of StoryOrigin
 ///
-/// The original story was sent by an unknown user.
+/// The original story was posted by an unknown user.
 ///
-/// * [senderName]: Name of the story sender.
+/// * [posterName]: Name of the user or the chat that posted the story.
 final class StoryOriginHiddenUser extends StoryOrigin {
   /// **StoryOriginHiddenUser** *(storyOriginHiddenUser)* - child of StoryOrigin
   ///
-  /// The original story was sent by an unknown user.
+  /// The original story was posted by an unknown user.
   ///
-  /// * [senderName]: Name of the story sender.
-  const StoryOriginHiddenUser({
-    required this.senderName,
-  });
+  /// * [posterName]: Name of the user or the chat that posted the story.
+  const StoryOriginHiddenUser({required this.posterName});
 
-  /// Name of the story sender
-  final String senderName;
+  /// Name of the user or the chat that posted the story
+  final String posterName;
 
   /// Parse from a json
   factory StoryOriginHiddenUser.fromJson(Map<String, dynamic> json) =>
-      StoryOriginHiddenUser(
-        senderName: json['sender_name'],
-      );
+      StoryOriginHiddenUser(posterName: json['poster_name']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "sender_name": senderName,
-    };
+    return {"@type": defaultObjectId, "poster_name": posterName};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [sender_name]: Name of the story sender
+  /// * [poster_name]: Name of the user or the chat that posted the story
   @override
-  StoryOriginHiddenUser copyWith({
-    String? senderName,
-  }) =>
-      StoryOriginHiddenUser(
-        senderName: senderName ?? this.senderName,
-      );
+  StoryOriginHiddenUser copyWith({String? posterName}) =>
+      StoryOriginHiddenUser(posterName: posterName ?? this.posterName);
 
   /// TDLib object type
   static const String defaultObjectId = 'storyOriginHiddenUser';

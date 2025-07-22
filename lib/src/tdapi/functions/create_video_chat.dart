@@ -6,8 +6,8 @@ part of '../tdapi.dart';
 ///
 /// * [chatId]: Identifier of a chat in which the video chat will be created.
 /// * [title]: Group call title; if empty, chat title will be used.
-/// * [startDate]: Point in time (Unix timestamp) when the group call is supposed to be started by an administrator; 0 to start the video chat immediately. The date must be at least 10 seconds and at most 8 days in the future.
-/// * [isRtmpStream]: Pass true to create an RTMP stream instead of an ordinary video chat; requires owner privileges.
+/// * [startDate]: Point in time (Unix timestamp) when the group call is expected to be started by an administrator; 0 to start the video chat immediately. The date must be at least 10 seconds and at most 8 days in the future.
+/// * [isRtmpStream]: Pass true to create an RTMP stream instead of an ordinary video chat.
 ///
 /// [GroupCallId] is returned on completion.
 final class CreateVideoChat extends TdFunction {
@@ -17,8 +17,8 @@ final class CreateVideoChat extends TdFunction {
   ///
   /// * [chatId]: Identifier of a chat in which the video chat will be created.
   /// * [title]: Group call title; if empty, chat title will be used.
-  /// * [startDate]: Point in time (Unix timestamp) when the group call is supposed to be started by an administrator; 0 to start the video chat immediately. The date must be at least 10 seconds and at most 8 days in the future.
-  /// * [isRtmpStream]: Pass true to create an RTMP stream instead of an ordinary video chat; requires owner privileges.
+  /// * [startDate]: Point in time (Unix timestamp) when the group call is expected to be started by an administrator; 0 to start the video chat immediately. The date must be at least 10 seconds and at most 8 days in the future.
+  /// * [isRtmpStream]: Pass true to create an RTMP stream instead of an ordinary video chat.
   ///
   /// [GroupCallId] is returned on completion.
   const CreateVideoChat({
@@ -34,10 +34,10 @@ final class CreateVideoChat extends TdFunction {
   /// Group call title; if empty, chat title will be used
   final String title;
 
-  /// Point in time (Unix timestamp) when the group call is supposed to be started by an administrator; 0 to start the video chat immediately. The date must be at least 10 seconds and at most 8 days in the future
+  /// Point in time (Unix timestamp) when the group call is expected to be started by an administrator; 0 to start the video chat immediately. The date must be at least 10 seconds and at most 8 days in the future
   final int startDate;
 
-  /// Pass true to create an RTMP stream instead of an ordinary video chat; requires owner privileges
+  /// Pass true to create an RTMP stream instead of an ordinary video chat
   final bool isRtmpStream;
 
   /// Convert model to TDLib JSON format
@@ -58,20 +58,19 @@ final class CreateVideoChat extends TdFunction {
   /// Properties:
   /// * [chat_id]: Identifier of a chat in which the video chat will be created
   /// * [title]: Group call title; if empty, chat title will be used
-  /// * [start_date]: Point in time (Unix timestamp) when the group call is supposed to be started by an administrator; 0 to start the video chat immediately. The date must be at least 10 seconds and at most 8 days in the future
-  /// * [is_rtmp_stream]: Pass true to create an RTMP stream instead of an ordinary video chat; requires owner privileges
+  /// * [start_date]: Point in time (Unix timestamp) when the group call is expected to be started by an administrator; 0 to start the video chat immediately. The date must be at least 10 seconds and at most 8 days in the future
+  /// * [is_rtmp_stream]: Pass true to create an RTMP stream instead of an ordinary video chat
   CreateVideoChat copyWith({
     int? chatId,
     String? title,
     int? startDate,
     bool? isRtmpStream,
-  }) =>
-      CreateVideoChat(
-        chatId: chatId ?? this.chatId,
-        title: title ?? this.title,
-        startDate: startDate ?? this.startDate,
-        isRtmpStream: isRtmpStream ?? this.isRtmpStream,
-      );
+  }) => CreateVideoChat(
+    chatId: chatId ?? this.chatId,
+    title: title ?? this.title,
+    startDate: startDate ?? this.startDate,
+    isRtmpStream: isRtmpStream ?? this.isRtmpStream,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'createVideoChat';

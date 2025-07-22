@@ -12,13 +12,12 @@ part of '../tdapi.dart';
 /// * [isOutgoing]: True, if the message is outgoing.
 /// * [isPinned]: True, if the message is pinned.
 /// * [isFromOffline]: True, if the message was sent because of a scheduled action by the message sender, for example, as away, or greeting service message.
-/// * [canBeSaved]: True, if content of the message can be saved locally or copied.
+/// * [canBeSaved]: True, if content of the message can be saved locally.
 /// * [hasTimestampedMedia]: True, if media timestamp entities refers to a media in this message as opposed to a media in the replied message.
 /// * [isChannelPost]: True, if the message is a channel post. All messages to channels are channel posts, all other messages are not channel posts.
-/// * [isTopicMessage]: True, if the message is a forum topic message.
 /// * [containsUnreadMention]: True, if the message contains an unread mention for the current user.
-/// * [date]: Point in time (Unix timestamp) when the message was sent.
-/// * [editDate]: Point in time (Unix timestamp) when the message was last edited.
+/// * [date]: Point in time (Unix timestamp) when the message was sent; 0 for scheduled messages.
+/// * [editDate]: Point in time (Unix timestamp) when the message was last edited; 0 for scheduled messages.
 /// * [forwardInfo]: Information about the initial message sender; may be null if none or unknown *(optional)*.
 /// * [importInfo]: Information about the initial message for messages created with importMessages; may be null if the message isn't imported *(optional)*.
 /// * [interactionInfo]: Information about interactions with the message; may be null if none *(optional)*.
@@ -26,13 +25,14 @@ part of '../tdapi.dart';
 /// * [factCheck]: Information about fact-check added to the message; may be null if none *(optional)*.
 /// * [replyTo]: Information about the message or the story this message is replying to; may be null if none *(optional)*.
 /// * [messageThreadId]: If non-zero, the identifier of the message thread the message belongs to; unique within the chat to which the message belongs.
-/// * [savedMessagesTopicId]: Identifier of the Saved Messages topic for the message; 0 for messages not from Saved Messages.
+/// * [topicId]: Identifier of the topic within the chat to which the message belongs; may be null if none *(optional)*.
 /// * [selfDestructType]: The message's self-destruct type; may be null if none *(optional)*.
 /// * [selfDestructIn]: Time left before the message self-destruct timer expires, in seconds; 0 if self-destruction isn't scheduled yet.
 /// * [autoDeleteIn]: Time left before the message will be automatically deleted by message_auto_delete_time setting of the chat, in seconds; 0 if never.
 /// * [viaBotUserId]: If non-zero, the user identifier of the inline bot through which this message was sent.
 /// * [senderBusinessBotUserId]: If non-zero, the user identifier of the business bot that sent this message.
 /// * [senderBoostCount]: Number of times the sender of the message boosted the supergroup at the time the message was sent; 0 if none or unknown. For messages sent by the current user, supergroupFullInfo.my_boost_count must be used instead.
+/// * [paidMessageStarCount]: The number of Telegram Stars the sender paid to send the message.
 /// * [authorSignature]: For channel posts and anonymous group messages, optional author signature.
 /// * [mediaAlbumId]: Unique identifier of an album this message belongs to; 0 if none. Only audios, documents, photos and videos can be grouped together in albums.
 /// * [effectId]: Unique identifier of the effect added to the message; 0 if none.
@@ -53,13 +53,12 @@ final class Message extends TdObject {
   /// * [isOutgoing]: True, if the message is outgoing.
   /// * [isPinned]: True, if the message is pinned.
   /// * [isFromOffline]: True, if the message was sent because of a scheduled action by the message sender, for example, as away, or greeting service message.
-  /// * [canBeSaved]: True, if content of the message can be saved locally or copied.
+  /// * [canBeSaved]: True, if content of the message can be saved locally.
   /// * [hasTimestampedMedia]: True, if media timestamp entities refers to a media in this message as opposed to a media in the replied message.
   /// * [isChannelPost]: True, if the message is a channel post. All messages to channels are channel posts, all other messages are not channel posts.
-  /// * [isTopicMessage]: True, if the message is a forum topic message.
   /// * [containsUnreadMention]: True, if the message contains an unread mention for the current user.
-  /// * [date]: Point in time (Unix timestamp) when the message was sent.
-  /// * [editDate]: Point in time (Unix timestamp) when the message was last edited.
+  /// * [date]: Point in time (Unix timestamp) when the message was sent; 0 for scheduled messages.
+  /// * [editDate]: Point in time (Unix timestamp) when the message was last edited; 0 for scheduled messages.
   /// * [forwardInfo]: Information about the initial message sender; may be null if none or unknown *(optional)*.
   /// * [importInfo]: Information about the initial message for messages created with importMessages; may be null if the message isn't imported *(optional)*.
   /// * [interactionInfo]: Information about interactions with the message; may be null if none *(optional)*.
@@ -67,13 +66,14 @@ final class Message extends TdObject {
   /// * [factCheck]: Information about fact-check added to the message; may be null if none *(optional)*.
   /// * [replyTo]: Information about the message or the story this message is replying to; may be null if none *(optional)*.
   /// * [messageThreadId]: If non-zero, the identifier of the message thread the message belongs to; unique within the chat to which the message belongs.
-  /// * [savedMessagesTopicId]: Identifier of the Saved Messages topic for the message; 0 for messages not from Saved Messages.
+  /// * [topicId]: Identifier of the topic within the chat to which the message belongs; may be null if none *(optional)*.
   /// * [selfDestructType]: The message's self-destruct type; may be null if none *(optional)*.
   /// * [selfDestructIn]: Time left before the message self-destruct timer expires, in seconds; 0 if self-destruction isn't scheduled yet.
   /// * [autoDeleteIn]: Time left before the message will be automatically deleted by message_auto_delete_time setting of the chat, in seconds; 0 if never.
   /// * [viaBotUserId]: If non-zero, the user identifier of the inline bot through which this message was sent.
   /// * [senderBusinessBotUserId]: If non-zero, the user identifier of the business bot that sent this message.
   /// * [senderBoostCount]: Number of times the sender of the message boosted the supergroup at the time the message was sent; 0 if none or unknown. For messages sent by the current user, supergroupFullInfo.my_boost_count must be used instead.
+  /// * [paidMessageStarCount]: The number of Telegram Stars the sender paid to send the message.
   /// * [authorSignature]: For channel posts and anonymous group messages, optional author signature.
   /// * [mediaAlbumId]: Unique identifier of an album this message belongs to; 0 if none. Only audios, documents, photos and videos can be grouped together in albums.
   /// * [effectId]: Unique identifier of the effect added to the message; 0 if none.
@@ -93,7 +93,6 @@ final class Message extends TdObject {
     required this.canBeSaved,
     required this.hasTimestampedMedia,
     required this.isChannelPost,
-    required this.isTopicMessage,
     required this.containsUnreadMention,
     required this.date,
     required this.editDate,
@@ -104,13 +103,14 @@ final class Message extends TdObject {
     this.factCheck,
     this.replyTo,
     required this.messageThreadId,
-    this.savedMessagesTopicId,
+    this.topicId,
     this.selfDestructType,
     required this.selfDestructIn,
     required this.autoDeleteIn,
     required this.viaBotUserId,
     required this.senderBusinessBotUserId,
     required this.senderBoostCount,
+    required this.paidMessageStarCount,
     required this.authorSignature,
     required this.mediaAlbumId,
     required this.effectId,
@@ -146,7 +146,7 @@ final class Message extends TdObject {
   /// True, if the message was sent because of a scheduled action by the message sender, for example, as away, or greeting service message
   final bool isFromOffline;
 
-  /// True, if content of the message can be saved locally or copied
+  /// True, if content of the message can be saved locally
   final bool canBeSaved;
 
   /// True, if media timestamp entities refers to a media in this message as opposed to a media in the replied message
@@ -155,16 +155,13 @@ final class Message extends TdObject {
   /// True, if the message is a channel post. All messages to channels are channel posts, all other messages are not channel posts
   final bool isChannelPost;
 
-  /// True, if the message is a forum topic message
-  final bool isTopicMessage;
-
   /// True, if the message contains an unread mention for the current user
   final bool containsUnreadMention;
 
-  /// Point in time (Unix timestamp) when the message was sent
+  /// Point in time (Unix timestamp) when the message was sent; 0 for scheduled messages
   final int date;
 
-  /// Point in time (Unix timestamp) when the message was last edited
+  /// Point in time (Unix timestamp) when the message was last edited; 0 for scheduled messages
   final int editDate;
 
   /// Information about the initial message sender; may be null if none or unknown
@@ -188,8 +185,8 @@ final class Message extends TdObject {
   /// If non-zero, the identifier of the message thread the message belongs to; unique within the chat to which the message belongs
   final int messageThreadId;
 
-  /// Identifier of the Saved Messages topic for the message; 0 for messages not from Saved Messages
-  final int? savedMessagesTopicId;
+  /// Identifier of the topic within the chat to which the message belongs; may be null if none
+  final MessageTopic? topicId;
 
   /// The message's self-destruct type; may be null if none
   final MessageSelfDestructType? selfDestructType;
@@ -208,6 +205,9 @@ final class Message extends TdObject {
 
   /// Number of times the sender of the message boosted the supergroup at the time the message was sent; 0 if none or unknown. For messages sent by the current user, supergroupFullInfo.my_boost_count must be used instead
   final int senderBoostCount;
+
+  /// The number of Telegram Stars the sender paid to send the message
+  final int paidMessageStarCount;
 
   /// For channel posts and anonymous group messages, optional author signature
   final String authorSignature;
@@ -255,7 +255,6 @@ final class Message extends TdObject {
     canBeSaved: json['can_be_saved'],
     hasTimestampedMedia: json['has_timestamped_media'],
     isChannelPost: json['is_channel_post'],
-    isTopicMessage: json['is_topic_message'] ?? false,
     containsUnreadMention: json['contains_unread_mention'],
     date: json['date'],
     editDate: json['edit_date'],
@@ -280,7 +279,9 @@ final class Message extends TdObject {
         ? null
         : MessageReplyTo.fromJson(json['reply_to']),
     messageThreadId: json['message_thread_id'],
-    savedMessagesTopicId: json['saved_messages_topic_id'],
+    topicId: json['topic_id'] == null
+        ? null
+        : MessageTopic.fromJson(json['topic_id']),
     selfDestructType: json['self_destruct_type'] == null
         ? null
         : MessageSelfDestructType.fromJson(json['self_destruct_type']),
@@ -289,6 +290,7 @@ final class Message extends TdObject {
     viaBotUserId: json['via_bot_user_id'],
     senderBusinessBotUserId: json['sender_business_bot_user_id'],
     senderBoostCount: json['sender_boost_count'] ?? 0,
+    paidMessageStarCount: json['paid_message_star_count'],
     authorSignature: json['author_signature'],
     mediaAlbumId: json['media_album_id'] is int
         ? json['media_album_id']
@@ -322,7 +324,6 @@ final class Message extends TdObject {
       "can_be_saved": canBeSaved,
       "has_timestamped_media": hasTimestampedMedia,
       "is_channel_post": isChannelPost,
-      "is_topic_message": isTopicMessage,
       "contains_unread_mention": containsUnreadMention,
       "date": date,
       "edit_date": editDate,
@@ -333,13 +334,14 @@ final class Message extends TdObject {
       "fact_check": factCheck?.toJson(),
       "reply_to": replyTo?.toJson(),
       "message_thread_id": messageThreadId,
-      "saved_messages_topic_id": savedMessagesTopicId,
+      "topic_id": topicId?.toJson(),
       "self_destruct_type": selfDestructType?.toJson(),
       "self_destruct_in": selfDestructIn,
       "auto_delete_in": autoDeleteIn,
       "via_bot_user_id": viaBotUserId,
       "sender_business_bot_user_id": senderBusinessBotUserId,
       "sender_boost_count": senderBoostCount,
+      "paid_message_star_count": paidMessageStarCount,
       "author_signature": authorSignature,
       "media_album_id": mediaAlbumId,
       "effect_id": effectId,
@@ -361,13 +363,12 @@ final class Message extends TdObject {
   /// * [is_outgoing]: True, if the message is outgoing
   /// * [is_pinned]: True, if the message is pinned
   /// * [is_from_offline]: True, if the message was sent because of a scheduled action by the message sender, for example, as away, or greeting service message
-  /// * [can_be_saved]: True, if content of the message can be saved locally or copied
+  /// * [can_be_saved]: True, if content of the message can be saved locally
   /// * [has_timestamped_media]: True, if media timestamp entities refers to a media in this message as opposed to a media in the replied message
   /// * [is_channel_post]: True, if the message is a channel post. All messages to channels are channel posts, all other messages are not channel posts
-  /// * [is_topic_message]: True, if the message is a forum topic message
   /// * [contains_unread_mention]: True, if the message contains an unread mention for the current user
-  /// * [date]: Point in time (Unix timestamp) when the message was sent
-  /// * [edit_date]: Point in time (Unix timestamp) when the message was last edited
+  /// * [date]: Point in time (Unix timestamp) when the message was sent; 0 for scheduled messages
+  /// * [edit_date]: Point in time (Unix timestamp) when the message was last edited; 0 for scheduled messages
   /// * [forward_info]: Information about the initial message sender; may be null if none or unknown
   /// * [import_info]: Information about the initial message for messages created with importMessages; may be null if the message isn't imported
   /// * [interaction_info]: Information about interactions with the message; may be null if none
@@ -375,13 +376,14 @@ final class Message extends TdObject {
   /// * [fact_check]: Information about fact-check added to the message; may be null if none
   /// * [reply_to]: Information about the message or the story this message is replying to; may be null if none
   /// * [message_thread_id]: If non-zero, the identifier of the message thread the message belongs to; unique within the chat to which the message belongs
-  /// * [saved_messages_topic_id]: Identifier of the Saved Messages topic for the message; 0 for messages not from Saved Messages
+  /// * [topic_id]: Identifier of the topic within the chat to which the message belongs; may be null if none
   /// * [self_destruct_type]: The message's self-destruct type; may be null if none
   /// * [self_destruct_in]: Time left before the message self-destruct timer expires, in seconds; 0 if self-destruction isn't scheduled yet
   /// * [auto_delete_in]: Time left before the message will be automatically deleted by message_auto_delete_time setting of the chat, in seconds; 0 if never
   /// * [via_bot_user_id]: If non-zero, the user identifier of the inline bot through which this message was sent
   /// * [sender_business_bot_user_id]: If non-zero, the user identifier of the business bot that sent this message
   /// * [sender_boost_count]: Number of times the sender of the message boosted the supergroup at the time the message was sent; 0 if none or unknown. For messages sent by the current user, supergroupFullInfo.my_boost_count must be used instead
+  /// * [paid_message_star_count]: The number of Telegram Stars the sender paid to send the message
   /// * [author_signature]: For channel posts and anonymous group messages, optional author signature
   /// * [media_album_id]: Unique identifier of an album this message belongs to; 0 if none. Only audios, documents, photos and videos can be grouped together in albums
   /// * [effect_id]: Unique identifier of the effect added to the message; 0 if none
@@ -401,7 +403,6 @@ final class Message extends TdObject {
     bool? canBeSaved,
     bool? hasTimestampedMedia,
     bool? isChannelPost,
-    bool? isTopicMessage,
     bool? containsUnreadMention,
     int? date,
     int? editDate,
@@ -412,13 +413,14 @@ final class Message extends TdObject {
     FactCheck? factCheck,
     MessageReplyTo? replyTo,
     int? messageThreadId,
-    int? savedMessagesTopicId,
+    MessageTopic? topicId,
     MessageSelfDestructType? selfDestructType,
     double? selfDestructIn,
     double? autoDeleteIn,
     int? viaBotUserId,
     int? senderBusinessBotUserId,
     int? senderBoostCount,
+    int? paidMessageStarCount,
     String? authorSignature,
     int? mediaAlbumId,
     int? effectId,
@@ -440,7 +442,6 @@ final class Message extends TdObject {
     canBeSaved: canBeSaved ?? this.canBeSaved,
     hasTimestampedMedia: hasTimestampedMedia ?? this.hasTimestampedMedia,
     isChannelPost: isChannelPost ?? this.isChannelPost,
-    isTopicMessage: isTopicMessage ?? this.isTopicMessage,
     containsUnreadMention: containsUnreadMention ?? this.containsUnreadMention,
     date: date ?? this.date,
     editDate: editDate ?? this.editDate,
@@ -451,7 +452,7 @@ final class Message extends TdObject {
     factCheck: factCheck ?? this.factCheck,
     replyTo: replyTo ?? this.replyTo,
     messageThreadId: messageThreadId ?? this.messageThreadId,
-    savedMessagesTopicId: savedMessagesTopicId ?? this.savedMessagesTopicId,
+    topicId: topicId ?? this.topicId,
     selfDestructType: selfDestructType ?? this.selfDestructType,
     selfDestructIn: selfDestructIn ?? this.selfDestructIn,
     autoDeleteIn: autoDeleteIn ?? this.autoDeleteIn,
@@ -459,6 +460,7 @@ final class Message extends TdObject {
     senderBusinessBotUserId:
         senderBusinessBotUserId ?? this.senderBusinessBotUserId,
     senderBoostCount: senderBoostCount ?? this.senderBoostCount,
+    paidMessageStarCount: paidMessageStarCount ?? this.paidMessageStarCount,
     authorSignature: authorSignature ?? this.authorSignature,
     mediaAlbumId: mediaAlbumId ?? this.mediaAlbumId,
     effectId: effectId ?? this.effectId,

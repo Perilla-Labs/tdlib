@@ -44,16 +44,16 @@ final class Document extends TdObject {
 
   /// Parse from a json
   factory Document.fromJson(Map<String, dynamic> json) => Document(
-        fileName: json['file_name'],
-        mimeType: json['mime_type'],
-        minithumbnail: json['minithumbnail'] == null
-            ? null
-            : Minithumbnail.fromJson(json['minithumbnail']),
-        thumbnail: json['thumbnail'] == null
-            ? null
-            : Thumbnail.fromJson(json['thumbnail']),
-        document: File.fromJson(json['document']),
-      );
+    fileName: json['file_name'],
+    mimeType: json['mime_type'],
+    minithumbnail: json['minithumbnail'] == null
+        ? null
+        : Minithumbnail.fromJson(json['minithumbnail']),
+    thumbnail: json['thumbnail'] == null
+        ? null
+        : Thumbnail.fromJson(json['thumbnail']),
+    document: File.fromJson(json['document']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -82,14 +82,13 @@ final class Document extends TdObject {
     Minithumbnail? minithumbnail,
     Thumbnail? thumbnail,
     File? document,
-  }) =>
-      Document(
-        fileName: fileName ?? this.fileName,
-        mimeType: mimeType ?? this.mimeType,
-        minithumbnail: minithumbnail ?? this.minithumbnail,
-        thumbnail: thumbnail ?? this.thumbnail,
-        document: document ?? this.document,
-      );
+  }) => Document(
+    fileName: fileName ?? this.fileName,
+    mimeType: mimeType ?? this.mimeType,
+    minithumbnail: minithumbnail ?? this.minithumbnail,
+    thumbnail: thumbnail ?? this.thumbnail,
+    document: document ?? this.document,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'document';

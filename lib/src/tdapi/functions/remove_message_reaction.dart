@@ -56,12 +56,11 @@ final class RemoveMessageReaction extends TdFunction {
     int? chatId,
     int? messageId,
     ReactionType? reactionType,
-  }) =>
-      RemoveMessageReaction(
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        reactionType: reactionType ?? this.reactionType,
-      );
+  }) => RemoveMessageReaction(
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    reactionType: reactionType ?? this.reactionType,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'removeMessageReaction';

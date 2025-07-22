@@ -47,11 +47,10 @@ final class DeleteChatFolderInviteLink extends TdFunction {
   DeleteChatFolderInviteLink copyWith({
     int? chatFolderId,
     String? inviteLink,
-  }) =>
-      DeleteChatFolderInviteLink(
-        chatFolderId: chatFolderId ?? this.chatFolderId,
-        inviteLink: inviteLink ?? this.inviteLink,
-      );
+  }) => DeleteChatFolderInviteLink(
+    chatFolderId: chatFolderId ?? this.chatFolderId,
+    inviteLink: inviteLink ?? this.inviteLink,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'deleteChatFolderInviteLink';

@@ -52,11 +52,7 @@ final class GetStoryStatistics extends TdFunction {
   /// * [chat_id]: Chat identifier
   /// * [story_id]: Story identifier
   /// * [is_dark]: Pass true if a dark theme is used by the application
-  GetStoryStatistics copyWith({
-    int? chatId,
-    int? storyId,
-    bool? isDark,
-  }) =>
+  GetStoryStatistics copyWith({int? chatId, int? storyId, bool? isDark}) =>
       GetStoryStatistics(
         chatId: chatId ?? this.chatId,
         storyId: storyId ?? this.storyId,

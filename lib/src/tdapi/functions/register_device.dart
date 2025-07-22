@@ -17,10 +17,7 @@ final class RegisterDevice extends TdFunction {
   /// * [otherUserIds]: List of user identifiers of other users currently using the application.
   ///
   /// [PushReceiverId] is returned on completion.
-  const RegisterDevice({
-    required this.deviceToken,
-    required this.otherUserIds,
-  });
+  const RegisterDevice({required this.deviceToken, required this.otherUserIds});
 
   /// Device token
   final DeviceToken deviceToken;
@@ -47,11 +44,10 @@ final class RegisterDevice extends TdFunction {
   RegisterDevice copyWith({
     DeviceToken? deviceToken,
     List<int>? otherUserIds,
-  }) =>
-      RegisterDevice(
-        deviceToken: deviceToken ?? this.deviceToken,
-        otherUserIds: otherUserIds ?? this.otherUserIds,
-      );
+  }) => RegisterDevice(
+    deviceToken: deviceToken ?? this.deviceToken,
+    otherUserIds: otherUserIds ?? this.otherUserIds,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'registerDevice';

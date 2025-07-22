@@ -17,10 +17,7 @@ final class GetInternalLink extends TdFunction {
   /// * [isHttp]: Pass true to create an HTTPS link (only available for some link types); pass false to create a tg: link.
   ///
   /// [HttpUrl] is returned on completion.
-  const GetInternalLink({
-    required this.type,
-    required this.isHttp,
-  });
+  const GetInternalLink({required this.type, required this.isHttp});
 
   /// Expected type of the link
   final InternalLinkType type;
@@ -44,14 +41,8 @@ final class GetInternalLink extends TdFunction {
   /// Properties:
   /// * [type]: Expected type of the link
   /// * [is_http]: Pass true to create an HTTPS link (only available for some link types); pass false to create a tg: link
-  GetInternalLink copyWith({
-    InternalLinkType? type,
-    bool? isHttp,
-  }) =>
-      GetInternalLink(
-        type: type ?? this.type,
-        isHttp: isHttp ?? this.isHttp,
-      );
+  GetInternalLink copyWith({InternalLinkType? type, bool? isHttp}) =>
+      GetInternalLink(type: type ?? this.type, isHttp: isHttp ?? this.isHttp);
 
   /// TDLib object type
   static const String defaultObjectId = 'getInternalLink';

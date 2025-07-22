@@ -5,33 +5,33 @@ part of '../tdapi.dart';
 /// Represents a transaction changing the amount of owned Telegram Stars.
 ///
 /// * [id]: Unique identifier of the transaction.
-/// * [starCount]: The amount of added owned Telegram Stars; negative for outgoing transactions.
+/// * [starAmount]: The amount of added owned Telegram Stars; negative for outgoing transactions.
 /// * [isRefund]: True, if the transaction is a refund of a previous transaction.
 /// * [date]: Point in time (Unix timestamp) when the transaction was completed.
-/// * [partner]: Source of the incoming transaction, or its recipient for outgoing transactions.
+/// * [type]: Type of the transaction.
 final class StarTransaction extends TdObject {
   /// **StarTransaction** *(starTransaction)* - basic class
   ///
   /// Represents a transaction changing the amount of owned Telegram Stars.
   ///
   /// * [id]: Unique identifier of the transaction.
-  /// * [starCount]: The amount of added owned Telegram Stars; negative for outgoing transactions.
+  /// * [starAmount]: The amount of added owned Telegram Stars; negative for outgoing transactions.
   /// * [isRefund]: True, if the transaction is a refund of a previous transaction.
   /// * [date]: Point in time (Unix timestamp) when the transaction was completed.
-  /// * [partner]: Source of the incoming transaction, or its recipient for outgoing transactions.
+  /// * [type]: Type of the transaction.
   const StarTransaction({
     required this.id,
-    required this.starCount,
+    required this.starAmount,
     required this.isRefund,
     required this.date,
-    required this.partner,
+    required this.type,
   });
 
   /// Unique identifier of the transaction
   final String id;
 
   /// The amount of added owned Telegram Stars; negative for outgoing transactions
-  final int starCount;
+  final StarAmount starAmount;
 
   /// True, if the transaction is a refund of a previous transaction
   final bool isRefund;
@@ -39,17 +39,17 @@ final class StarTransaction extends TdObject {
   /// Point in time (Unix timestamp) when the transaction was completed
   final int date;
 
-  /// Source of the incoming transaction, or its recipient for outgoing transactions
-  final StarTransactionPartner partner;
+  /// Type of the transaction
+  final StarTransactionType type;
 
   /// Parse from a json
   factory StarTransaction.fromJson(Map<String, dynamic> json) =>
       StarTransaction(
         id: json['id'],
-        starCount: json['star_count'],
+        starAmount: StarAmount.fromJson(json['star_amount']),
         isRefund: json['is_refund'],
         date: json['date'],
-        partner: StarTransactionPartner.fromJson(json['partner']),
+        type: StarTransactionType.fromJson(json['type']),
       );
 
   /// Convert model to TDLib JSON format
@@ -58,10 +58,10 @@ final class StarTransaction extends TdObject {
     return {
       "@type": defaultObjectId,
       "id": id,
-      "star_count": starCount,
+      "star_amount": starAmount.toJson(),
       "is_refund": isRefund,
       "date": date,
-      "partner": partner.toJson(),
+      "type": type.toJson(),
     };
   }
 
@@ -69,24 +69,23 @@ final class StarTransaction extends TdObject {
   ///
   /// Properties:
   /// * [id]: Unique identifier of the transaction
-  /// * [star_count]: The amount of added owned Telegram Stars; negative for outgoing transactions
+  /// * [star_amount]: The amount of added owned Telegram Stars; negative for outgoing transactions
   /// * [is_refund]: True, if the transaction is a refund of a previous transaction
   /// * [date]: Point in time (Unix timestamp) when the transaction was completed
-  /// * [partner]: Source of the incoming transaction, or its recipient for outgoing transactions
+  /// * [type]: Type of the transaction
   StarTransaction copyWith({
     String? id,
-    int? starCount,
+    StarAmount? starAmount,
     bool? isRefund,
     int? date,
-    StarTransactionPartner? partner,
-  }) =>
-      StarTransaction(
-        id: id ?? this.id,
-        starCount: starCount ?? this.starCount,
-        isRefund: isRefund ?? this.isRefund,
-        date: date ?? this.date,
-        partner: partner ?? this.partner,
-      );
+    StarTransactionType? type,
+  }) => StarTransaction(
+    id: id ?? this.id,
+    starAmount: starAmount ?? this.starAmount,
+    isRefund: isRefund ?? this.isRefund,
+    date: date ?? this.date,
+    type: type ?? this.type,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'starTransaction';

@@ -9,7 +9,7 @@ part of '../tdapi.dart';
 /// * [fromChatId]: Identifier of the chat from which to forward messages.
 /// * [messageIds]: Identifiers of the messages to forward. Message identifiers must be in a strictly increasing order. At most 100 messages can be forwarded simultaneously. A message can be forwarded only if messageProperties.can_be_forwarded.
 /// * [options]: Options to be used to send the messages; pass null to use default options *(optional)*.
-/// * [sendCopy]: Pass true to copy content of the messages without reference to the original sender. Always true if the messages are forwarded to a secret chat or are local.
+/// * [sendCopy]: Pass true to copy content of the messages without reference to the original sender. Always true if the messages are forwarded to a secret chat or are local.. Use messageProperties.can_be_copied and messageProperties.can_be_copied_to_secret_chat to check whether the message is suitable.
 /// * [removeCaption]: Pass true to remove media captions of message copies. Ignored if send_copy is false.
 ///
 /// [Messages] is returned on completion.
@@ -23,7 +23,7 @@ final class ForwardMessages extends TdFunction {
   /// * [fromChatId]: Identifier of the chat from which to forward messages.
   /// * [messageIds]: Identifiers of the messages to forward. Message identifiers must be in a strictly increasing order. At most 100 messages can be forwarded simultaneously. A message can be forwarded only if messageProperties.can_be_forwarded.
   /// * [options]: Options to be used to send the messages; pass null to use default options *(optional)*.
-  /// * [sendCopy]: Pass true to copy content of the messages without reference to the original sender. Always true if the messages are forwarded to a secret chat or are local.
+  /// * [sendCopy]: Pass true to copy content of the messages without reference to the original sender. Always true if the messages are forwarded to a secret chat or are local.. Use messageProperties.can_be_copied and messageProperties.can_be_copied_to_secret_chat to check whether the message is suitable.
   /// * [removeCaption]: Pass true to remove media captions of message copies. Ignored if send_copy is false.
   ///
   /// [Messages] is returned on completion.
@@ -52,7 +52,7 @@ final class ForwardMessages extends TdFunction {
   /// Options to be used to send the messages; pass null to use default options
   final MessageSendOptions? options;
 
-  /// Pass true to copy content of the messages without reference to the original sender. Always true if the messages are forwarded to a secret chat or are local
+  /// Pass true to copy content of the messages without reference to the original sender. Always true if the messages are forwarded to a secret chat or are local.. Use messageProperties.can_be_copied and messageProperties.can_be_copied_to_secret_chat to check whether the message is suitable
   final bool sendCopy;
 
   /// Pass true to remove media captions of message copies. Ignored if send_copy is false
@@ -82,7 +82,7 @@ final class ForwardMessages extends TdFunction {
   /// * [from_chat_id]: Identifier of the chat from which to forward messages
   /// * [message_ids]: Identifiers of the messages to forward. Message identifiers must be in a strictly increasing order. At most 100 messages can be forwarded simultaneously. A message can be forwarded only if messageProperties.can_be_forwarded
   /// * [options]: Options to be used to send the messages; pass null to use default options
-  /// * [send_copy]: Pass true to copy content of the messages without reference to the original sender. Always true if the messages are forwarded to a secret chat or are local
+  /// * [send_copy]: Pass true to copy content of the messages without reference to the original sender. Always true if the messages are forwarded to a secret chat or are local.. Use messageProperties.can_be_copied and messageProperties.can_be_copied_to_secret_chat to check whether the message is suitable
   /// * [remove_caption]: Pass true to remove media captions of message copies. Ignored if send_copy is false
   ForwardMessages copyWith({
     int? chatId,
@@ -92,16 +92,15 @@ final class ForwardMessages extends TdFunction {
     MessageSendOptions? options,
     bool? sendCopy,
     bool? removeCaption,
-  }) =>
-      ForwardMessages(
-        chatId: chatId ?? this.chatId,
-        messageThreadId: messageThreadId ?? this.messageThreadId,
-        fromChatId: fromChatId ?? this.fromChatId,
-        messageIds: messageIds ?? this.messageIds,
-        options: options ?? this.options,
-        sendCopy: sendCopy ?? this.sendCopy,
-        removeCaption: removeCaption ?? this.removeCaption,
-      );
+  }) => ForwardMessages(
+    chatId: chatId ?? this.chatId,
+    messageThreadId: messageThreadId ?? this.messageThreadId,
+    fromChatId: fromChatId ?? this.fromChatId,
+    messageIds: messageIds ?? this.messageIds,
+    options: options ?? this.options,
+    sendCopy: sendCopy ?? this.sendCopy,
+    removeCaption: removeCaption ?? this.removeCaption,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'forwardMessages';

@@ -74,14 +74,13 @@ final class GetInlineQueryResults extends TdFunction {
     Location? userLocation,
     String? query,
     String? offset,
-  }) =>
-      GetInlineQueryResults(
-        botUserId: botUserId ?? this.botUserId,
-        chatId: chatId ?? this.chatId,
-        userLocation: userLocation ?? this.userLocation,
-        query: query ?? this.query,
-        offset: offset ?? this.offset,
-      );
+  }) => GetInlineQueryResults(
+    botUserId: botUserId ?? this.botUserId,
+    chatId: chatId ?? this.chatId,
+    userLocation: userLocation ?? this.userLocation,
+    query: query ?? this.query,
+    offset: offset ?? this.offset,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getInlineQueryResults';

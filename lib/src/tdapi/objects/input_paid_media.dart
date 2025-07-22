@@ -50,18 +50,17 @@ final class InputPaidMedia extends TdObject {
 
   /// Parse from a json
   factory InputPaidMedia.fromJson(Map<String, dynamic> json) => InputPaidMedia(
-        type: InputPaidMediaType.fromJson(json['type']),
-        media: InputFile.fromJson(json['media']),
-        thumbnail: json['thumbnail'] == null
-            ? null
-            : InputThumbnail.fromJson(json['thumbnail']),
-        addedStickerFileIds: List<int>.from(
-            (json['added_sticker_file_ids'] ?? [])
-                .map((item) => item)
-                .toList()),
-        width: json['width'],
-        height: json['height'],
-      );
+    type: InputPaidMediaType.fromJson(json['type']),
+    media: InputFile.fromJson(json['media']),
+    thumbnail: json['thumbnail'] == null
+        ? null
+        : InputThumbnail.fromJson(json['thumbnail']),
+    addedStickerFileIds: List<int>.from(
+      (json['added_sticker_file_ids'] ?? []).map((item) => item).toList(),
+    ),
+    width: json['width'],
+    height: json['height'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -93,15 +92,14 @@ final class InputPaidMedia extends TdObject {
     List<int>? addedStickerFileIds,
     int? width,
     int? height,
-  }) =>
-      InputPaidMedia(
-        type: type ?? this.type,
-        media: media ?? this.media,
-        thumbnail: thumbnail ?? this.thumbnail,
-        addedStickerFileIds: addedStickerFileIds ?? this.addedStickerFileIds,
-        width: width ?? this.width,
-        height: height ?? this.height,
-      );
+  }) => InputPaidMedia(
+    type: type ?? this.type,
+    media: media ?? this.media,
+    thumbnail: thumbnail ?? this.thumbnail,
+    addedStickerFileIds: addedStickerFileIds ?? this.addedStickerFileIds,
+    width: width ?? this.width,
+    height: height ?? this.height,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputPaidMedia';

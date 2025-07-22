@@ -15,9 +15,7 @@ final class ToggleAllDownloadsArePaused extends TdFunction {
   /// * [arePaused]: Pass true to pause all downloads; pass false to unpause them.
   ///
   /// [Ok] is returned on completion.
-  const ToggleAllDownloadsArePaused({
-    required this.arePaused,
-  });
+  const ToggleAllDownloadsArePaused({required this.arePaused});
 
   /// Pass true to pause all downloads; pass false to unpause them
   final bool arePaused;
@@ -25,23 +23,15 @@ final class ToggleAllDownloadsArePaused extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "are_paused": arePaused,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "are_paused": arePaused, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [are_paused]: Pass true to pause all downloads; pass false to unpause them
-  ToggleAllDownloadsArePaused copyWith({
-    bool? arePaused,
-  }) =>
-      ToggleAllDownloadsArePaused(
-        arePaused: arePaused ?? this.arePaused,
-      );
+  ToggleAllDownloadsArePaused copyWith({bool? arePaused}) =>
+      ToggleAllDownloadsArePaused(arePaused: arePaused ?? this.arePaused);
 
   /// TDLib object type
   static const String defaultObjectId = 'toggleAllDownloadsArePaused';

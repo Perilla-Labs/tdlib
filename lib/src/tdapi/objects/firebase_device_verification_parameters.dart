@@ -13,7 +13,8 @@ sealed class FirebaseDeviceVerificationParameters extends TdObject {
   /// * [FirebaseDeviceVerificationParametersSafetyNet]
   /// * [FirebaseDeviceVerificationParametersPlayIntegrity]
   factory FirebaseDeviceVerificationParameters.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     switch (json["@type"]) {
       case FirebaseDeviceVerificationParametersSafetyNet.defaultObjectId:
         return FirebaseDeviceVerificationParametersSafetyNet.fromJson(json);
@@ -58,27 +59,20 @@ final class FirebaseDeviceVerificationParametersSafetyNet
   /// Device verification must be performed with the SafetyNet Attestation API.
   ///
   /// * [nonce]: Nonce to pass to the SafetyNet Attestation API.
-  const FirebaseDeviceVerificationParametersSafetyNet({
-    required this.nonce,
-  });
+  const FirebaseDeviceVerificationParametersSafetyNet({required this.nonce});
 
   /// Nonce to pass to the SafetyNet Attestation API
   final String nonce;
 
   /// Parse from a json
   factory FirebaseDeviceVerificationParametersSafetyNet.fromJson(
-          Map<String, dynamic> json) =>
-      FirebaseDeviceVerificationParametersSafetyNet(
-        nonce: json['nonce'],
-      );
+    Map<String, dynamic> json,
+  ) => FirebaseDeviceVerificationParametersSafetyNet(nonce: json['nonce']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "nonce": nonce,
-    };
+    return {"@type": defaultObjectId, "nonce": nonce};
   }
 
   /// Copy model with modified properties.
@@ -86,12 +80,8 @@ final class FirebaseDeviceVerificationParametersSafetyNet
   /// Properties:
   /// * [nonce]: Nonce to pass to the SafetyNet Attestation API
   @override
-  FirebaseDeviceVerificationParametersSafetyNet copyWith({
-    String? nonce,
-  }) =>
-      FirebaseDeviceVerificationParametersSafetyNet(
-        nonce: nonce ?? this.nonce,
-      );
+  FirebaseDeviceVerificationParametersSafetyNet copyWith({String? nonce}) =>
+      FirebaseDeviceVerificationParametersSafetyNet(nonce: nonce ?? this.nonce);
 
   /// TDLib object type
   static const String defaultObjectId =
@@ -133,13 +123,13 @@ final class FirebaseDeviceVerificationParametersPlayIntegrity
 
   /// Parse from a json
   factory FirebaseDeviceVerificationParametersPlayIntegrity.fromJson(
-          Map<String, dynamic> json) =>
-      FirebaseDeviceVerificationParametersPlayIntegrity(
-        nonce: json['nonce'],
-        cloudProjectNumber: json['cloud_project_number'] is int
-            ? json['cloud_project_number']
-            : int.parse(json['cloud_project_number']),
-      );
+    Map<String, dynamic> json,
+  ) => FirebaseDeviceVerificationParametersPlayIntegrity(
+    nonce: json['nonce'],
+    cloudProjectNumber: json['cloud_project_number'] is int
+        ? json['cloud_project_number']
+        : int.parse(json['cloud_project_number']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -160,11 +150,10 @@ final class FirebaseDeviceVerificationParametersPlayIntegrity
   FirebaseDeviceVerificationParametersPlayIntegrity copyWith({
     String? nonce,
     int? cloudProjectNumber,
-  }) =>
-      FirebaseDeviceVerificationParametersPlayIntegrity(
-        nonce: nonce ?? this.nonce,
-        cloudProjectNumber: cloudProjectNumber ?? this.cloudProjectNumber,
-      );
+  }) => FirebaseDeviceVerificationParametersPlayIntegrity(
+    nonce: nonce ?? this.nonce,
+    cloudProjectNumber: cloudProjectNumber ?? this.cloudProjectNumber,
+  );
 
   /// TDLib object type
   static const String defaultObjectId =

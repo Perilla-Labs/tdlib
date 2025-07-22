@@ -15,9 +15,7 @@ final class SetArchiveChatListSettings extends TdFunction {
   /// * [settings]: New settings.
   ///
   /// [Ok] is returned on completion.
-  const SetArchiveChatListSettings({
-    required this.settings,
-  });
+  const SetArchiveChatListSettings({required this.settings});
 
   /// New settings
   final ArchiveChatListSettings settings;
@@ -36,12 +34,8 @@ final class SetArchiveChatListSettings extends TdFunction {
   ///
   /// Properties:
   /// * [settings]: New settings
-  SetArchiveChatListSettings copyWith({
-    ArchiveChatListSettings? settings,
-  }) =>
-      SetArchiveChatListSettings(
-        settings: settings ?? this.settings,
-      );
+  SetArchiveChatListSettings copyWith({ArchiveChatListSettings? settings}) =>
+      SetArchiveChatListSettings(settings: settings ?? this.settings);
 
   /// TDLib object type
   static const String defaultObjectId = 'setArchiveChatListSettings';

@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **GetChatBoostLevelFeatures** *(getChatBoostLevelFeatures)* - TDLib function
 ///
-/// Returns the list of features available on the specific chat boost level; this is an offline request.
+/// Returns the list of features available on the specific chat boost level. This is an offline method.
 ///
 /// * [isChannel]: Pass true to get the list of features for channels; pass false to get the list of features for supergroups.
 /// * [level]: Chat boost level.
@@ -11,7 +11,7 @@ part of '../tdapi.dart';
 final class GetChatBoostLevelFeatures extends TdFunction {
   /// **GetChatBoostLevelFeatures** *(getChatBoostLevelFeatures)* - TDLib function
   ///
-  /// Returns the list of features available on the specific chat boost level; this is an offline request.
+  /// Returns the list of features available on the specific chat boost level. This is an offline method.
   ///
   /// * [isChannel]: Pass true to get the list of features for channels; pass false to get the list of features for supergroups.
   /// * [level]: Chat boost level.
@@ -44,10 +44,7 @@ final class GetChatBoostLevelFeatures extends TdFunction {
   /// Properties:
   /// * [is_channel]: Pass true to get the list of features for channels; pass false to get the list of features for supergroups
   /// * [level]: Chat boost level
-  GetChatBoostLevelFeatures copyWith({
-    bool? isChannel,
-    int? level,
-  }) =>
+  GetChatBoostLevelFeatures copyWith({bool? isChannel, int? level}) =>
       GetChatBoostLevelFeatures(
         isChannel: isChannel ?? this.isChannel,
         level: level ?? this.level,

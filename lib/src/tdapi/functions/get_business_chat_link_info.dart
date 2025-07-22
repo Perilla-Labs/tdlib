@@ -15,9 +15,7 @@ final class GetBusinessChatLinkInfo extends TdFunction {
   /// * [linkName]: Name of the link.
   ///
   /// [BusinessChatLinkInfo] is returned on completion.
-  const GetBusinessChatLinkInfo({
-    required this.linkName,
-  });
+  const GetBusinessChatLinkInfo({required this.linkName});
 
   /// Name of the link
   final String linkName;
@@ -25,23 +23,15 @@ final class GetBusinessChatLinkInfo extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "link_name": linkName,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "link_name": linkName, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [link_name]: Name of the link
-  GetBusinessChatLinkInfo copyWith({
-    String? linkName,
-  }) =>
-      GetBusinessChatLinkInfo(
-        linkName: linkName ?? this.linkName,
-      );
+  GetBusinessChatLinkInfo copyWith({String? linkName}) =>
+      GetBusinessChatLinkInfo(linkName: linkName ?? this.linkName);
 
   /// TDLib object type
   static const String defaultObjectId = 'getBusinessChatLinkInfo';

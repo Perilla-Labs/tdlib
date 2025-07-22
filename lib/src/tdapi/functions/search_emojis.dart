@@ -17,10 +17,7 @@ final class SearchEmojis extends TdFunction {
   /// * [inputLanguageCodes]: List of possible IETF language tags of the user's input language; may be empty if unknown.
   ///
   /// [EmojiKeywords] is returned on completion.
-  const SearchEmojis({
-    required this.text,
-    required this.inputLanguageCodes,
-  });
+  const SearchEmojis({required this.text, required this.inputLanguageCodes});
 
   /// Text to search for
   final String text;
@@ -44,10 +41,7 @@ final class SearchEmojis extends TdFunction {
   /// Properties:
   /// * [text]: Text to search for
   /// * [input_language_codes]: List of possible IETF language tags of the user's input language; may be empty if unknown
-  SearchEmojis copyWith({
-    String? text,
-    List<String>? inputLanguageCodes,
-  }) =>
+  SearchEmojis copyWith({String? text, List<String>? inputLanguageCodes}) =>
       SearchEmojis(
         text: text ?? this.text,
         inputLanguageCodes: inputLanguageCodes ?? this.inputLanguageCodes,

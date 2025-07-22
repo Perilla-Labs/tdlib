@@ -11,11 +11,7 @@ final class GroupCallId extends TdObject {
   /// Contains the group call identifier.
   ///
   /// * [id]: Group call identifier.
-  const GroupCallId({
-    required this.id,
-    this.extra,
-    this.clientId,
-  });
+  const GroupCallId({required this.id, this.extra, this.clientId});
 
   /// Group call identifier
   final int id;
@@ -30,34 +26,26 @@ final class GroupCallId extends TdObject {
 
   /// Parse from a json
   factory GroupCallId.fromJson(Map<String, dynamic> json) => GroupCallId(
-        id: json['id'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    id: json['id'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "id": id,
-    };
+    return {"@type": defaultObjectId, "id": id};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [id]: Group call identifier
-  GroupCallId copyWith({
-    int? id,
-    dynamic extra,
-    int? clientId,
-  }) =>
-      GroupCallId(
-        id: id ?? this.id,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  GroupCallId copyWith({int? id, dynamic extra, int? clientId}) => GroupCallId(
+    id: id ?? this.id,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'groupCallId';

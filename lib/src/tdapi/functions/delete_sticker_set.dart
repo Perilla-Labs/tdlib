@@ -15,9 +15,7 @@ final class DeleteStickerSet extends TdFunction {
   /// * [name]: Sticker set name. The sticker set must be owned by the current user.
   ///
   /// [Ok] is returned on completion.
-  const DeleteStickerSet({
-    required this.name,
-  });
+  const DeleteStickerSet({required this.name});
 
   /// Sticker set name. The sticker set must be owned by the current user
   final String name;
@@ -25,23 +23,15 @@ final class DeleteStickerSet extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "name": name,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "name": name, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [name]: Sticker set name. The sticker set must be owned by the current user
-  DeleteStickerSet copyWith({
-    String? name,
-  }) =>
-      DeleteStickerSet(
-        name: name ?? this.name,
-      );
+  DeleteStickerSet copyWith({String? name}) =>
+      DeleteStickerSet(name: name ?? this.name);
 
   /// TDLib object type
   static const String defaultObjectId = 'deleteStickerSet';

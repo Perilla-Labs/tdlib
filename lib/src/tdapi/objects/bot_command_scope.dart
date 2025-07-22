@@ -76,9 +76,7 @@ final class BotCommandScopeDefault extends BotCommandScope {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -113,9 +111,7 @@ final class BotCommandScopeAllPrivateChats extends BotCommandScope {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -151,9 +147,7 @@ final class BotCommandScopeAllGroupChats extends BotCommandScope {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -184,15 +178,13 @@ final class BotCommandScopeAllChatAdministrators extends BotCommandScope {
 
   /// Parse from a json
   factory BotCommandScopeAllChatAdministrators.fromJson(
-          Map<String, dynamic> json) =>
-      const BotCommandScopeAllChatAdministrators();
+    Map<String, dynamic> json,
+  ) => const BotCommandScopeAllChatAdministrators();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -223,26 +215,19 @@ final class BotCommandScopeChat extends BotCommandScope {
   /// A scope covering all members of a chat.
   ///
   /// * [chatId]: Chat identifier.
-  const BotCommandScopeChat({
-    required this.chatId,
-  });
+  const BotCommandScopeChat({required this.chatId});
 
   /// Chat identifier
   final int chatId;
 
   /// Parse from a json
   factory BotCommandScopeChat.fromJson(Map<String, dynamic> json) =>
-      BotCommandScopeChat(
-        chatId: json['chat_id'],
-      );
+      BotCommandScopeChat(chatId: json['chat_id']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "chat_id": chatId,
-    };
+    return {"@type": defaultObjectId, "chat_id": chatId};
   }
 
   /// Copy model with modified properties.
@@ -250,12 +235,8 @@ final class BotCommandScopeChat extends BotCommandScope {
   /// Properties:
   /// * [chat_id]: Chat identifier
   @override
-  BotCommandScopeChat copyWith({
-    int? chatId,
-  }) =>
-      BotCommandScopeChat(
-        chatId: chatId ?? this.chatId,
-      );
+  BotCommandScopeChat copyWith({int? chatId}) =>
+      BotCommandScopeChat(chatId: chatId ?? this.chatId);
 
   /// TDLib object type
   static const String defaultObjectId = 'botCommandScopeChat';
@@ -280,27 +261,20 @@ final class BotCommandScopeChatAdministrators extends BotCommandScope {
   /// A scope covering all administrators of a chat.
   ///
   /// * [chatId]: Chat identifier.
-  const BotCommandScopeChatAdministrators({
-    required this.chatId,
-  });
+  const BotCommandScopeChatAdministrators({required this.chatId});
 
   /// Chat identifier
   final int chatId;
 
   /// Parse from a json
   factory BotCommandScopeChatAdministrators.fromJson(
-          Map<String, dynamic> json) =>
-      BotCommandScopeChatAdministrators(
-        chatId: json['chat_id'],
-      );
+    Map<String, dynamic> json,
+  ) => BotCommandScopeChatAdministrators(chatId: json['chat_id']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "chat_id": chatId,
-    };
+    return {"@type": defaultObjectId, "chat_id": chatId};
   }
 
   /// Copy model with modified properties.
@@ -308,12 +282,8 @@ final class BotCommandScopeChatAdministrators extends BotCommandScope {
   /// Properties:
   /// * [chat_id]: Chat identifier
   @override
-  BotCommandScopeChatAdministrators copyWith({
-    int? chatId,
-  }) =>
-      BotCommandScopeChatAdministrators(
-        chatId: chatId ?? this.chatId,
-      );
+  BotCommandScopeChatAdministrators copyWith({int? chatId}) =>
+      BotCommandScopeChatAdministrators(chatId: chatId ?? this.chatId);
 
   /// TDLib object type
   static const String defaultObjectId = 'botCommandScopeChatAdministrators';
@@ -340,10 +310,7 @@ final class BotCommandScopeChatMember extends BotCommandScope {
   ///
   /// * [chatId]: Chat identifier.
   /// * [userId]: User identifier.
-  const BotCommandScopeChatMember({
-    required this.chatId,
-    required this.userId,
-  });
+  const BotCommandScopeChatMember({required this.chatId, required this.userId});
 
   /// Chat identifier
   final int chatId;
@@ -361,11 +328,7 @@ final class BotCommandScopeChatMember extends BotCommandScope {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "chat_id": chatId,
-      "user_id": userId,
-    };
+    return {"@type": defaultObjectId, "chat_id": chatId, "user_id": userId};
   }
 
   /// Copy model with modified properties.
@@ -374,10 +337,7 @@ final class BotCommandScopeChatMember extends BotCommandScope {
   /// * [chat_id]: Chat identifier
   /// * [user_id]: User identifier
   @override
-  BotCommandScopeChatMember copyWith({
-    int? chatId,
-    int? userId,
-  }) =>
+  BotCommandScopeChatMember copyWith({int? chatId, int? userId}) =>
       BotCommandScopeChatMember(
         chatId: chatId ?? this.chatId,
         userId: userId ?? this.userId,

@@ -47,11 +47,10 @@ final class ToggleSupergroupJoinByRequest extends TdFunction {
   ToggleSupergroupJoinByRequest copyWith({
     int? supergroupId,
     bool? joinByRequest,
-  }) =>
-      ToggleSupergroupJoinByRequest(
-        supergroupId: supergroupId ?? this.supergroupId,
-        joinByRequest: joinByRequest ?? this.joinByRequest,
-      );
+  }) => ToggleSupergroupJoinByRequest(
+    supergroupId: supergroupId ?? this.supergroupId,
+    joinByRequest: joinByRequest ?? this.joinByRequest,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'toggleSupergroupJoinByRequest';

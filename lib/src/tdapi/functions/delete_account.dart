@@ -17,10 +17,7 @@ final class DeleteAccount extends TdFunction {
   /// * [password]: The 2-step verification password of the current user. If the current user isn't authorized, then an empty string can be passed and account deletion can be canceled within one week.
   ///
   /// [Ok] is returned on completion.
-  const DeleteAccount({
-    required this.reason,
-    required this.password,
-  });
+  const DeleteAccount({required this.reason, required this.password});
 
   /// The reason why the account was deleted; optional
   final String reason;
@@ -44,14 +41,10 @@ final class DeleteAccount extends TdFunction {
   /// Properties:
   /// * [reason]: The reason why the account was deleted; optional
   /// * [password]: The 2-step verification password of the current user. If the current user isn't authorized, then an empty string can be passed and account deletion can be canceled within one week
-  DeleteAccount copyWith({
-    String? reason,
-    String? password,
-  }) =>
-      DeleteAccount(
-        reason: reason ?? this.reason,
-        password: password ?? this.password,
-      );
+  DeleteAccount copyWith({String? reason, String? password}) => DeleteAccount(
+    reason: reason ?? this.reason,
+    password: password ?? this.password,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'deleteAccount';

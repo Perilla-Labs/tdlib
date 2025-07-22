@@ -44,10 +44,7 @@ final class ToggleChatViewAsTopics extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [view_as_topics]: New value of view_as_topics
-  ToggleChatViewAsTopics copyWith({
-    int? chatId,
-    bool? viewAsTopics,
-  }) =>
+  ToggleChatViewAsTopics copyWith({int? chatId, bool? viewAsTopics}) =>
       ToggleChatViewAsTopics(
         chatId: chatId ?? this.chatId,
         viewAsTopics: viewAsTopics ?? this.viewAsTopics,

@@ -52,11 +52,7 @@ final class SendWebAppData extends TdFunction {
   /// * [bot_user_id]: Identifier of the target bot
   /// * [button_text]: Text of the keyboardButtonTypeWebApp button, which opened the Web App
   /// * [data]: The data
-  SendWebAppData copyWith({
-    int? botUserId,
-    String? buttonText,
-    String? data,
-  }) =>
+  SendWebAppData copyWith({int? botUserId, String? buttonText, String? data}) =>
       SendWebAppData(
         botUserId: botUserId ?? this.botUserId,
         buttonText: buttonText ?? this.buttonText,

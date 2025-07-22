@@ -65,13 +65,12 @@ final class ReportChatPhoto extends TdFunction {
     int? fileId,
     ReportReason? reason,
     String? text,
-  }) =>
-      ReportChatPhoto(
-        chatId: chatId ?? this.chatId,
-        fileId: fileId ?? this.fileId,
-        reason: reason ?? this.reason,
-        text: text ?? this.text,
-      );
+  }) => ReportChatPhoto(
+    chatId: chatId ?? this.chatId,
+    fileId: fileId ?? this.fileId,
+    reason: reason ?? this.reason,
+    text: text ?? this.text,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'reportChatPhoto';

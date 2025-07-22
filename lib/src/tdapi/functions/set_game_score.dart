@@ -83,15 +83,14 @@ final class SetGameScore extends TdFunction {
     int? userId,
     int? score,
     bool? force,
-  }) =>
-      SetGameScore(
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        editMessage: editMessage ?? this.editMessage,
-        userId: userId ?? this.userId,
-        score: score ?? this.score,
-        force: force ?? this.force,
-      );
+  }) => SetGameScore(
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    editMessage: editMessage ?? this.editMessage,
+    userId: userId ?? this.userId,
+    score: score ?? this.score,
+    force: force ?? this.force,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setGameScore';

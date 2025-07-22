@@ -47,11 +47,10 @@ final class ToggleSessionCanAcceptCalls extends TdFunction {
   ToggleSessionCanAcceptCalls copyWith({
     int? sessionId,
     bool? canAcceptCalls,
-  }) =>
-      ToggleSessionCanAcceptCalls(
-        sessionId: sessionId ?? this.sessionId,
-        canAcceptCalls: canAcceptCalls ?? this.canAcceptCalls,
-      );
+  }) => ToggleSessionCanAcceptCalls(
+    sessionId: sessionId ?? this.sessionId,
+    canAcceptCalls: canAcceptCalls ?? this.canAcceptCalls,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'toggleSessionCanAcceptCalls';

@@ -62,9 +62,7 @@ final class StoryPrivacySettingsEveryone extends StoryPrivacySettings {
   /// The story can be viewed by everyone.
   ///
   /// * [exceptUserIds]: Identifiers of the users that can't see the story; always unknown and empty for non-owned stories.
-  const StoryPrivacySettingsEveryone({
-    required this.exceptUserIds,
-  });
+  const StoryPrivacySettingsEveryone({required this.exceptUserIds});
 
   /// Identifiers of the users that can't see the story; always unknown and empty for non-owned stories
   final List<int> exceptUserIds;
@@ -73,7 +71,8 @@ final class StoryPrivacySettingsEveryone extends StoryPrivacySettings {
   factory StoryPrivacySettingsEveryone.fromJson(Map<String, dynamic> json) =>
       StoryPrivacySettingsEveryone(
         exceptUserIds: List<int>.from(
-            (json['except_user_ids'] ?? []).map((item) => item).toList()),
+          (json['except_user_ids'] ?? []).map((item) => item).toList(),
+        ),
       );
 
   /// Convert model to TDLib JSON format
@@ -90,9 +89,7 @@ final class StoryPrivacySettingsEveryone extends StoryPrivacySettings {
   /// Properties:
   /// * [except_user_ids]: Identifiers of the users that can't see the story; always unknown and empty for non-owned stories
   @override
-  StoryPrivacySettingsEveryone copyWith({
-    List<int>? exceptUserIds,
-  }) =>
+  StoryPrivacySettingsEveryone copyWith({List<int>? exceptUserIds}) =>
       StoryPrivacySettingsEveryone(
         exceptUserIds: exceptUserIds ?? this.exceptUserIds,
       );
@@ -120,9 +117,7 @@ final class StoryPrivacySettingsContacts extends StoryPrivacySettings {
   /// The story can be viewed by all contacts except chosen users.
   ///
   /// * [exceptUserIds]: User identifiers of the contacts that can't see the story; always unknown and empty for non-owned stories.
-  const StoryPrivacySettingsContacts({
-    required this.exceptUserIds,
-  });
+  const StoryPrivacySettingsContacts({required this.exceptUserIds});
 
   /// User identifiers of the contacts that can't see the story; always unknown and empty for non-owned stories
   final List<int> exceptUserIds;
@@ -131,7 +126,8 @@ final class StoryPrivacySettingsContacts extends StoryPrivacySettings {
   factory StoryPrivacySettingsContacts.fromJson(Map<String, dynamic> json) =>
       StoryPrivacySettingsContacts(
         exceptUserIds: List<int>.from(
-            (json['except_user_ids'] ?? []).map((item) => item).toList()),
+          (json['except_user_ids'] ?? []).map((item) => item).toList(),
+        ),
       );
 
   /// Convert model to TDLib JSON format
@@ -148,9 +144,7 @@ final class StoryPrivacySettingsContacts extends StoryPrivacySettings {
   /// Properties:
   /// * [except_user_ids]: User identifiers of the contacts that can't see the story; always unknown and empty for non-owned stories
   @override
-  StoryPrivacySettingsContacts copyWith({
-    List<int>? exceptUserIds,
-  }) =>
+  StoryPrivacySettingsContacts copyWith({List<int>? exceptUserIds}) =>
       StoryPrivacySettingsContacts(
         exceptUserIds: exceptUserIds ?? this.exceptUserIds,
       );
@@ -178,15 +172,13 @@ final class StoryPrivacySettingsCloseFriends extends StoryPrivacySettings {
 
   /// Parse from a json
   factory StoryPrivacySettingsCloseFriends.fromJson(
-          Map<String, dynamic> json) =>
-      const StoryPrivacySettingsCloseFriends();
+    Map<String, dynamic> json,
+  ) => const StoryPrivacySettingsCloseFriends();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -217,20 +209,19 @@ final class StoryPrivacySettingsSelectedUsers extends StoryPrivacySettings {
   /// The story can be viewed by certain specified users.
   ///
   /// * [userIds]: Identifiers of the users; always unknown and empty for non-owned stories.
-  const StoryPrivacySettingsSelectedUsers({
-    required this.userIds,
-  });
+  const StoryPrivacySettingsSelectedUsers({required this.userIds});
 
   /// Identifiers of the users; always unknown and empty for non-owned stories
   final List<int> userIds;
 
   /// Parse from a json
   factory StoryPrivacySettingsSelectedUsers.fromJson(
-          Map<String, dynamic> json) =>
-      StoryPrivacySettingsSelectedUsers(
-        userIds: List<int>.from(
-            (json['user_ids'] ?? []).map((item) => item).toList()),
-      );
+    Map<String, dynamic> json,
+  ) => StoryPrivacySettingsSelectedUsers(
+    userIds: List<int>.from(
+      (json['user_ids'] ?? []).map((item) => item).toList(),
+    ),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -246,12 +237,8 @@ final class StoryPrivacySettingsSelectedUsers extends StoryPrivacySettings {
   /// Properties:
   /// * [user_ids]: Identifiers of the users; always unknown and empty for non-owned stories
   @override
-  StoryPrivacySettingsSelectedUsers copyWith({
-    List<int>? userIds,
-  }) =>
-      StoryPrivacySettingsSelectedUsers(
-        userIds: userIds ?? this.userIds,
-      );
+  StoryPrivacySettingsSelectedUsers copyWith({List<int>? userIds}) =>
+      StoryPrivacySettingsSelectedUsers(userIds: userIds ?? this.userIds);
 
   /// TDLib object type
   static const String defaultObjectId = 'storyPrivacySettingsSelectedUsers';

@@ -15,9 +15,7 @@ final class DisableAllSupergroupUsernames extends TdFunction {
   /// * [supergroupId]: Identifier of the supergroup or channel.
   ///
   /// [Ok] is returned on completion.
-  const DisableAllSupergroupUsernames({
-    required this.supergroupId,
-  });
+  const DisableAllSupergroupUsernames({required this.supergroupId});
 
   /// Identifier of the supergroup or channel
   final int supergroupId;
@@ -36,9 +34,7 @@ final class DisableAllSupergroupUsernames extends TdFunction {
   ///
   /// Properties:
   /// * [supergroup_id]: Identifier of the supergroup or channel
-  DisableAllSupergroupUsernames copyWith({
-    int? supergroupId,
-  }) =>
+  DisableAllSupergroupUsernames copyWith({int? supergroupId}) =>
       DisableAllSupergroupUsernames(
         supergroupId: supergroupId ?? this.supergroupId,
       );

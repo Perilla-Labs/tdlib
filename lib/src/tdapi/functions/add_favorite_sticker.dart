@@ -15,9 +15,7 @@ final class AddFavoriteSticker extends TdFunction {
   /// * [sticker]: Sticker file to add.
   ///
   /// [Ok] is returned on completion.
-  const AddFavoriteSticker({
-    required this.sticker,
-  });
+  const AddFavoriteSticker({required this.sticker});
 
   /// Sticker file to add
   final InputFile sticker;
@@ -36,12 +34,8 @@ final class AddFavoriteSticker extends TdFunction {
   ///
   /// Properties:
   /// * [sticker]: Sticker file to add
-  AddFavoriteSticker copyWith({
-    InputFile? sticker,
-  }) =>
-      AddFavoriteSticker(
-        sticker: sticker ?? this.sticker,
-      );
+  AddFavoriteSticker copyWith({InputFile? sticker}) =>
+      AddFavoriteSticker(sticker: sticker ?? this.sticker);
 
   /// TDLib object type
   static const String defaultObjectId = 'addFavoriteSticker';

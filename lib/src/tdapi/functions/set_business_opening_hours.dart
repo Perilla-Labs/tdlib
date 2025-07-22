@@ -15,9 +15,7 @@ final class SetBusinessOpeningHours extends TdFunction {
   /// * [openingHours]: The new opening hours of the business; pass null to remove the opening hours; up to 28 time intervals can be specified *(optional)*.
   ///
   /// [Ok] is returned on completion.
-  const SetBusinessOpeningHours({
-    this.openingHours,
-  });
+  const SetBusinessOpeningHours({this.openingHours});
 
   /// The new opening hours of the business; pass null to remove the opening hours; up to 28 time intervals can be specified
   final BusinessOpeningHours? openingHours;
@@ -36,12 +34,8 @@ final class SetBusinessOpeningHours extends TdFunction {
   ///
   /// Properties:
   /// * [opening_hours]: The new opening hours of the business; pass null to remove the opening hours; up to 28 time intervals can be specified
-  SetBusinessOpeningHours copyWith({
-    BusinessOpeningHours? openingHours,
-  }) =>
-      SetBusinessOpeningHours(
-        openingHours: openingHours ?? this.openingHours,
-      );
+  SetBusinessOpeningHours copyWith({BusinessOpeningHours? openingHours}) =>
+      SetBusinessOpeningHours(openingHours: openingHours ?? this.openingHours);
 
   /// TDLib object type
   static const String defaultObjectId = 'setBusinessOpeningHours';

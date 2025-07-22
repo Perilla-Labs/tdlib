@@ -56,12 +56,11 @@ final class ToggleGroupCallParticipantIsMuted extends TdFunction {
     int? groupCallId,
     MessageSender? participantId,
     bool? isMuted,
-  }) =>
-      ToggleGroupCallParticipantIsMuted(
-        groupCallId: groupCallId ?? this.groupCallId,
-        participantId: participantId ?? this.participantId,
-        isMuted: isMuted ?? this.isMuted,
-      );
+  }) => ToggleGroupCallParticipantIsMuted(
+    groupCallId: groupCallId ?? this.groupCallId,
+    participantId: participantId ?? this.participantId,
+    isMuted: isMuted ?? this.isMuted,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'toggleGroupCallParticipantIsMuted';

@@ -65,13 +65,12 @@ final class LaunchPrepaidGiveaway extends TdFunction {
     GiveawayParameters? parameters,
     int? winnerCount,
     int? starCount,
-  }) =>
-      LaunchPrepaidGiveaway(
-        giveawayId: giveawayId ?? this.giveawayId,
-        parameters: parameters ?? this.parameters,
-        winnerCount: winnerCount ?? this.winnerCount,
-        starCount: starCount ?? this.starCount,
-      );
+  }) => LaunchPrepaidGiveaway(
+    giveawayId: giveawayId ?? this.giveawayId,
+    parameters: parameters ?? this.parameters,
+    winnerCount: winnerCount ?? this.winnerCount,
+    starCount: starCount ?? this.starCount,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'launchPrepaidGiveaway';

@@ -117,12 +117,11 @@ final class ChatMemberStatusCreator extends ChatMemberStatus {
     String? customTitle,
     bool? isAnonymous,
     bool? isMember,
-  }) =>
-      ChatMemberStatusCreator(
-        customTitle: customTitle ?? this.customTitle,
-        isAnonymous: isAnonymous ?? this.isAnonymous,
-        isMember: isMember ?? this.isMember,
-      );
+  }) => ChatMemberStatusCreator(
+    customTitle: customTitle ?? this.customTitle,
+    isAnonymous: isAnonymous ?? this.isAnonymous,
+    isMember: isMember ?? this.isMember,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatMemberStatusCreator';
@@ -196,12 +195,11 @@ final class ChatMemberStatusAdministrator extends ChatMemberStatus {
     String? customTitle,
     bool? canBeEdited,
     ChatAdministratorRights? rights,
-  }) =>
-      ChatMemberStatusAdministrator(
-        customTitle: customTitle ?? this.customTitle,
-        canBeEdited: canBeEdited ?? this.canBeEdited,
-        rights: rights ?? this.rights,
-      );
+  }) => ChatMemberStatusAdministrator(
+    customTitle: customTitle ?? this.customTitle,
+    canBeEdited: canBeEdited ?? this.canBeEdited,
+    rights: rights ?? this.rights,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatMemberStatusAdministrator';
@@ -226,26 +224,19 @@ final class ChatMemberStatusMember extends ChatMemberStatus {
   /// The user is a member of the chat, without any additional privileges or restrictions.
   ///
   /// * [memberUntilDate]: Point in time (Unix timestamp) when the user will be removed from the chat because of the expired subscription; 0 if never. Ignored in setChatMemberStatus.
-  const ChatMemberStatusMember({
-    required this.memberUntilDate,
-  });
+  const ChatMemberStatusMember({required this.memberUntilDate});
 
   /// Point in time (Unix timestamp) when the user will be removed from the chat because of the expired subscription; 0 if never. Ignored in setChatMemberStatus
   final int memberUntilDate;
 
   /// Parse from a json
   factory ChatMemberStatusMember.fromJson(Map<String, dynamic> json) =>
-      ChatMemberStatusMember(
-        memberUntilDate: json['member_until_date'],
-      );
+      ChatMemberStatusMember(memberUntilDate: json['member_until_date']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "member_until_date": memberUntilDate,
-    };
+    return {"@type": defaultObjectId, "member_until_date": memberUntilDate};
   }
 
   /// Copy model with modified properties.
@@ -253,9 +244,7 @@ final class ChatMemberStatusMember extends ChatMemberStatus {
   /// Properties:
   /// * [member_until_date]: Point in time (Unix timestamp) when the user will be removed from the chat because of the expired subscription; 0 if never. Ignored in setChatMemberStatus
   @override
-  ChatMemberStatusMember copyWith({
-    int? memberUntilDate,
-  }) =>
+  ChatMemberStatusMember copyWith({int? memberUntilDate}) =>
       ChatMemberStatusMember(
         memberUntilDate: memberUntilDate ?? this.memberUntilDate,
       );
@@ -332,12 +321,11 @@ final class ChatMemberStatusRestricted extends ChatMemberStatus {
     bool? isMember,
     int? restrictedUntilDate,
     ChatPermissions? permissions,
-  }) =>
-      ChatMemberStatusRestricted(
-        isMember: isMember ?? this.isMember,
-        restrictedUntilDate: restrictedUntilDate ?? this.restrictedUntilDate,
-        permissions: permissions ?? this.permissions,
-      );
+  }) => ChatMemberStatusRestricted(
+    isMember: isMember ?? this.isMember,
+    restrictedUntilDate: restrictedUntilDate ?? this.restrictedUntilDate,
+    permissions: permissions ?? this.permissions,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatMemberStatusRestricted';
@@ -367,9 +355,7 @@ final class ChatMemberStatusLeft extends ChatMemberStatus {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -399,26 +385,19 @@ final class ChatMemberStatusBanned extends ChatMemberStatus {
   /// The user or the chat was banned (and hence is not a member of the chat). Implies the user can't return to the chat, view messages, or be used as a participant identifier to join a video chat of the chat.
   ///
   /// * [bannedUntilDate]: Point in time (Unix timestamp) when the user will be unbanned; 0 if never. If the user is banned for more than 366 days or for less than 30 seconds from the current time, the user is considered to be banned forever. Always 0 in basic groups.
-  const ChatMemberStatusBanned({
-    required this.bannedUntilDate,
-  });
+  const ChatMemberStatusBanned({required this.bannedUntilDate});
 
   /// Point in time (Unix timestamp) when the user will be unbanned; 0 if never. If the user is banned for more than 366 days or for less than 30 seconds from the current time, the user is considered to be banned forever. Always 0 in basic groups
   final int bannedUntilDate;
 
   /// Parse from a json
   factory ChatMemberStatusBanned.fromJson(Map<String, dynamic> json) =>
-      ChatMemberStatusBanned(
-        bannedUntilDate: json['banned_until_date'],
-      );
+      ChatMemberStatusBanned(bannedUntilDate: json['banned_until_date']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "banned_until_date": bannedUntilDate,
-    };
+    return {"@type": defaultObjectId, "banned_until_date": bannedUntilDate};
   }
 
   /// Copy model with modified properties.
@@ -426,9 +405,7 @@ final class ChatMemberStatusBanned extends ChatMemberStatus {
   /// Properties:
   /// * [banned_until_date]: Point in time (Unix timestamp) when the user will be unbanned; 0 if never. If the user is banned for more than 366 days or for less than 30 seconds from the current time, the user is considered to be banned forever. Always 0 in basic groups
   @override
-  ChatMemberStatusBanned copyWith({
-    int? bannedUntilDate,
-  }) =>
+  ChatMemberStatusBanned copyWith({int? bannedUntilDate}) =>
       ChatMemberStatusBanned(
         bannedUntilDate: bannedUntilDate ?? this.bannedUntilDate,
       );

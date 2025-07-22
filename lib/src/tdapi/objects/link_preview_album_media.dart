@@ -56,26 +56,19 @@ final class LinkPreviewAlbumMediaPhoto extends LinkPreviewAlbumMedia {
   /// The media is a photo.
   ///
   /// * [photo]: Photo description.
-  const LinkPreviewAlbumMediaPhoto({
-    required this.photo,
-  });
+  const LinkPreviewAlbumMediaPhoto({required this.photo});
 
   /// Photo description
   final Photo photo;
 
   /// Parse from a json
   factory LinkPreviewAlbumMediaPhoto.fromJson(Map<String, dynamic> json) =>
-      LinkPreviewAlbumMediaPhoto(
-        photo: Photo.fromJson(json['photo']),
-      );
+      LinkPreviewAlbumMediaPhoto(photo: Photo.fromJson(json['photo']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "photo": photo.toJson(),
-    };
+    return {"@type": defaultObjectId, "photo": photo.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -83,12 +76,8 @@ final class LinkPreviewAlbumMediaPhoto extends LinkPreviewAlbumMedia {
   /// Properties:
   /// * [photo]: Photo description
   @override
-  LinkPreviewAlbumMediaPhoto copyWith({
-    Photo? photo,
-  }) =>
-      LinkPreviewAlbumMediaPhoto(
-        photo: photo ?? this.photo,
-      );
+  LinkPreviewAlbumMediaPhoto copyWith({Photo? photo}) =>
+      LinkPreviewAlbumMediaPhoto(photo: photo ?? this.photo);
 
   /// TDLib object type
   static const String defaultObjectId = 'linkPreviewAlbumMediaPhoto';
@@ -113,26 +102,19 @@ final class LinkPreviewAlbumMediaVideo extends LinkPreviewAlbumMedia {
   /// The media is a video.
   ///
   /// * [video]: Video description.
-  const LinkPreviewAlbumMediaVideo({
-    required this.video,
-  });
+  const LinkPreviewAlbumMediaVideo({required this.video});
 
   /// Video description
   final Video video;
 
   /// Parse from a json
   factory LinkPreviewAlbumMediaVideo.fromJson(Map<String, dynamic> json) =>
-      LinkPreviewAlbumMediaVideo(
-        video: Video.fromJson(json['video']),
-      );
+      LinkPreviewAlbumMediaVideo(video: Video.fromJson(json['video']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "video": video.toJson(),
-    };
+    return {"@type": defaultObjectId, "video": video.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -140,12 +122,8 @@ final class LinkPreviewAlbumMediaVideo extends LinkPreviewAlbumMedia {
   /// Properties:
   /// * [video]: Video description
   @override
-  LinkPreviewAlbumMediaVideo copyWith({
-    Video? video,
-  }) =>
-      LinkPreviewAlbumMediaVideo(
-        video: video ?? this.video,
-      );
+  LinkPreviewAlbumMediaVideo copyWith({Video? video}) =>
+      LinkPreviewAlbumMediaVideo(video: video ?? this.video);
 
   /// TDLib object type
   static const String defaultObjectId = 'linkPreviewAlbumMediaVideo';

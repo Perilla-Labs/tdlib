@@ -42,15 +42,16 @@ final class Stories extends TdObject {
 
   /// Parse from a json
   factory Stories.fromJson(Map<String, dynamic> json) => Stories(
-        totalCount: json['total_count'],
-        stories: List<Story>.from((json['stories'] ?? [])
-            .map((item) => Story.fromJson(item))
-            .toList()),
-        pinnedStoryIds: List<int>.from(
-            (json['pinned_story_ids'] ?? []).map((item) => item).toList()),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    totalCount: json['total_count'],
+    stories: List<Story>.from(
+      (json['stories'] ?? []).map((item) => Story.fromJson(item)).toList(),
+    ),
+    pinnedStoryIds: List<int>.from(
+      (json['pinned_story_ids'] ?? []).map((item) => item).toList(),
+    ),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -75,14 +76,13 @@ final class Stories extends TdObject {
     List<int>? pinnedStoryIds,
     dynamic extra,
     int? clientId,
-  }) =>
-      Stories(
-        totalCount: totalCount ?? this.totalCount,
-        stories: stories ?? this.stories,
-        pinnedStoryIds: pinnedStoryIds ?? this.pinnedStoryIds,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => Stories(
+    totalCount: totalCount ?? this.totalCount,
+    stories: stories ?? this.stories,
+    pinnedStoryIds: pinnedStoryIds ?? this.pinnedStoryIds,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'stories';

@@ -15,9 +15,7 @@ final class GetBankCardInfo extends TdFunction {
   /// * [bankCardNumber]: The bank card number.
   ///
   /// [BankCardInfo] is returned on completion.
-  const GetBankCardInfo({
-    required this.bankCardNumber,
-  });
+  const GetBankCardInfo({required this.bankCardNumber});
 
   /// The bank card number
   final String bankCardNumber;
@@ -36,12 +34,8 @@ final class GetBankCardInfo extends TdFunction {
   ///
   /// Properties:
   /// * [bank_card_number]: The bank card number
-  GetBankCardInfo copyWith({
-    String? bankCardNumber,
-  }) =>
-      GetBankCardInfo(
-        bankCardNumber: bankCardNumber ?? this.bankCardNumber,
-      );
+  GetBankCardInfo copyWith({String? bankCardNumber}) =>
+      GetBankCardInfo(bankCardNumber: bankCardNumber ?? this.bankCardNumber);
 
   /// TDLib object type
   static const String defaultObjectId = 'getBankCardInfo';

@@ -21,8 +21,10 @@ sealed class SuggestedAction extends TdObject {
   /// * [SuggestedActionSubscribeToAnnualPremium]
   /// * [SuggestedActionGiftPremiumForChristmas]
   /// * [SuggestedActionSetBirthdate]
+  /// * [SuggestedActionSetProfilePhoto]
   /// * [SuggestedActionExtendPremium]
   /// * [SuggestedActionExtendStarSubscriptions]
+  /// * [SuggestedActionCustom]
   factory SuggestedAction.fromJson(Map<String, dynamic> json) {
     switch (json["@type"]) {
       case SuggestedActionEnableArchiveAndMuteNewChats.defaultObjectId:
@@ -47,10 +49,14 @@ sealed class SuggestedAction extends TdObject {
         return SuggestedActionGiftPremiumForChristmas.fromJson(json);
       case SuggestedActionSetBirthdate.defaultObjectId:
         return SuggestedActionSetBirthdate.fromJson(json);
+      case SuggestedActionSetProfilePhoto.defaultObjectId:
+        return SuggestedActionSetProfilePhoto.fromJson(json);
       case SuggestedActionExtendPremium.defaultObjectId:
         return SuggestedActionExtendPremium.fromJson(json);
       case SuggestedActionExtendStarSubscriptions.defaultObjectId:
         return SuggestedActionExtendStarSubscriptions.fromJson(json);
+      case SuggestedActionCustom.defaultObjectId:
+        return SuggestedActionCustom.fromJson(json);
       default:
         throw FormatException(
           "Unknown object ${json["@type"]} (expected child of SuggestedAction)",
@@ -90,15 +96,13 @@ final class SuggestedActionEnableArchiveAndMuteNewChats
 
   /// Parse from a json
   factory SuggestedActionEnableArchiveAndMuteNewChats.fromJson(
-          Map<String, dynamic> json) =>
-      const SuggestedActionEnableArchiveAndMuteNewChats();
+    Map<String, dynamic> json,
+  ) => const SuggestedActionEnableArchiveAndMuteNewChats();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -135,9 +139,7 @@ final class SuggestedActionCheckPassword extends SuggestedAction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -173,9 +175,7 @@ final class SuggestedActionCheckPhoneNumber extends SuggestedAction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -211,9 +211,7 @@ final class SuggestedActionViewChecksHint extends SuggestedAction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -244,27 +242,22 @@ final class SuggestedActionConvertToBroadcastGroup extends SuggestedAction {
   /// Suggests the user to convert specified supergroup to a broadcast group.
   ///
   /// * [supergroupId]: Supergroup identifier.
-  const SuggestedActionConvertToBroadcastGroup({
-    required this.supergroupId,
-  });
+  const SuggestedActionConvertToBroadcastGroup({required this.supergroupId});
 
   /// Supergroup identifier
   final int supergroupId;
 
   /// Parse from a json
   factory SuggestedActionConvertToBroadcastGroup.fromJson(
-          Map<String, dynamic> json) =>
-      SuggestedActionConvertToBroadcastGroup(
-        supergroupId: json['supergroup_id'],
-      );
+    Map<String, dynamic> json,
+  ) => SuggestedActionConvertToBroadcastGroup(
+    supergroupId: json['supergroup_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "supergroup_id": supergroupId,
-    };
+    return {"@type": defaultObjectId, "supergroup_id": supergroupId};
   }
 
   /// Copy model with modified properties.
@@ -272,9 +265,7 @@ final class SuggestedActionConvertToBroadcastGroup extends SuggestedAction {
   /// Properties:
   /// * [supergroup_id]: Supergroup identifier
   @override
-  SuggestedActionConvertToBroadcastGroup copyWith({
-    int? supergroupId,
-  }) =>
+  SuggestedActionConvertToBroadcastGroup copyWith({int? supergroupId}) =>
       SuggestedActionConvertToBroadcastGroup(
         supergroupId: supergroupId ?? this.supergroupId,
       );
@@ -303,9 +294,7 @@ final class SuggestedActionSetPassword extends SuggestedAction {
   /// Suggests the user to set a 2-step verification password to be able to log in again.
   ///
   /// * [authorizationDelay]: The number of days to pass between consecutive authorizations if the user declines to set password; if 0, then the user is advised to set the password for security reasons.
-  const SuggestedActionSetPassword({
-    required this.authorizationDelay,
-  });
+  const SuggestedActionSetPassword({required this.authorizationDelay});
 
   /// The number of days to pass between consecutive authorizations if the user declines to set password; if 0, then the user is advised to set the password for security reasons
   final int authorizationDelay;
@@ -330,9 +319,7 @@ final class SuggestedActionSetPassword extends SuggestedAction {
   /// Properties:
   /// * [authorization_delay]: The number of days to pass between consecutive authorizations if the user declines to set password; if 0, then the user is advised to set the password for security reasons
   @override
-  SuggestedActionSetPassword copyWith({
-    int? authorizationDelay,
-  }) =>
+  SuggestedActionSetPassword copyWith({int? authorizationDelay}) =>
       SuggestedActionSetPassword(
         authorizationDelay: authorizationDelay ?? this.authorizationDelay,
       );
@@ -365,9 +352,7 @@ final class SuggestedActionUpgradePremium extends SuggestedAction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -403,9 +388,7 @@ final class SuggestedActionRestorePremium extends SuggestedAction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -436,15 +419,13 @@ final class SuggestedActionSubscribeToAnnualPremium extends SuggestedAction {
 
   /// Parse from a json
   factory SuggestedActionSubscribeToAnnualPremium.fromJson(
-          Map<String, dynamic> json) =>
-      const SuggestedActionSubscribeToAnnualPremium();
+    Map<String, dynamic> json,
+  ) => const SuggestedActionSubscribeToAnnualPremium();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -476,15 +457,13 @@ final class SuggestedActionGiftPremiumForChristmas extends SuggestedAction {
 
   /// Parse from a json
   factory SuggestedActionGiftPremiumForChristmas.fromJson(
-          Map<String, dynamic> json) =>
-      const SuggestedActionGiftPremiumForChristmas();
+    Map<String, dynamic> json,
+  ) => const SuggestedActionGiftPremiumForChristmas();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -521,9 +500,7 @@ final class SuggestedActionSetBirthdate extends SuggestedAction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -532,6 +509,42 @@ final class SuggestedActionSetBirthdate extends SuggestedAction {
 
   /// TDLib object type
   static const String defaultObjectId = 'suggestedActionSetBirthdate';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **SuggestedActionSetProfilePhoto** *(suggestedActionSetProfilePhoto)* - child of SuggestedAction
+///
+/// Suggests the user to set profile photo.
+final class SuggestedActionSetProfilePhoto extends SuggestedAction {
+  /// **SuggestedActionSetProfilePhoto** *(suggestedActionSetProfilePhoto)* - child of SuggestedAction
+  ///
+  /// Suggests the user to set profile photo.
+  const SuggestedActionSetProfilePhoto();
+
+  /// Parse from a json
+  factory SuggestedActionSetProfilePhoto.fromJson(Map<String, dynamic> json) =>
+      const SuggestedActionSetProfilePhoto();
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {"@type": defaultObjectId};
+  }
+
+  /// Copy instance with no modifications.
+  @override
+  SuggestedActionSetProfilePhoto copyWith() =>
+      const SuggestedActionSetProfilePhoto();
+
+  /// TDLib object type
+  static const String defaultObjectId = 'suggestedActionSetProfilePhoto';
 
   /// Convert model to TDLib JSON format, encoded into String.
   @override
@@ -582,11 +595,10 @@ final class SuggestedActionExtendPremium extends SuggestedAction {
   @override
   SuggestedActionExtendPremium copyWith({
     String? managePremiumSubscriptionUrl,
-  }) =>
-      SuggestedActionExtendPremium(
-        managePremiumSubscriptionUrl:
-            managePremiumSubscriptionUrl ?? this.managePremiumSubscriptionUrl,
-      );
+  }) => SuggestedActionExtendPremium(
+    managePremiumSubscriptionUrl:
+        managePremiumSubscriptionUrl ?? this.managePremiumSubscriptionUrl,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'suggestedActionExtendPremium';
@@ -611,15 +623,13 @@ final class SuggestedActionExtendStarSubscriptions extends SuggestedAction {
 
   /// Parse from a json
   factory SuggestedActionExtendStarSubscriptions.fromJson(
-          Map<String, dynamic> json) =>
-      const SuggestedActionExtendStarSubscriptions();
+    Map<String, dynamic> json,
+  ) => const SuggestedActionExtendStarSubscriptions();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -630,6 +640,95 @@ final class SuggestedActionExtendStarSubscriptions extends SuggestedAction {
   /// TDLib object type
   static const String defaultObjectId =
       'suggestedActionExtendStarSubscriptions';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **SuggestedActionCustom** *(suggestedActionCustom)* - child of SuggestedAction
+///
+/// A custom suggestion to be shown at the top of the chat list.
+///
+/// * [name]: Unique name of the suggestion.
+/// * [title]: Title of the suggestion.
+/// * [description]: Description of the suggestion.
+/// * [url]: The link to open when the suggestion is clicked.
+final class SuggestedActionCustom extends SuggestedAction {
+  /// **SuggestedActionCustom** *(suggestedActionCustom)* - child of SuggestedAction
+  ///
+  /// A custom suggestion to be shown at the top of the chat list.
+  ///
+  /// * [name]: Unique name of the suggestion.
+  /// * [title]: Title of the suggestion.
+  /// * [description]: Description of the suggestion.
+  /// * [url]: The link to open when the suggestion is clicked.
+  const SuggestedActionCustom({
+    required this.name,
+    required this.title,
+    required this.description,
+    required this.url,
+  });
+
+  /// Unique name of the suggestion
+  final String name;
+
+  /// Title of the suggestion
+  final FormattedText title;
+
+  /// Description of the suggestion
+  final FormattedText description;
+
+  /// The link to open when the suggestion is clicked
+  final String url;
+
+  /// Parse from a json
+  factory SuggestedActionCustom.fromJson(Map<String, dynamic> json) =>
+      SuggestedActionCustom(
+        name: json['name'],
+        title: FormattedText.fromJson(json['title']),
+        description: FormattedText.fromJson(json['description']),
+        url: json['url'],
+      );
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      "@type": defaultObjectId,
+      "name": name,
+      "title": title.toJson(),
+      "description": description.toJson(),
+      "url": url,
+    };
+  }
+
+  /// Copy model with modified properties.
+  ///
+  /// Properties:
+  /// * [name]: Unique name of the suggestion
+  /// * [title]: Title of the suggestion
+  /// * [description]: Description of the suggestion
+  /// * [url]: The link to open when the suggestion is clicked
+  @override
+  SuggestedActionCustom copyWith({
+    String? name,
+    FormattedText? title,
+    FormattedText? description,
+    String? url,
+  }) => SuggestedActionCustom(
+    name: name ?? this.name,
+    title: title ?? this.title,
+    description: description ?? this.description,
+    url: url ?? this.url,
+  );
+
+  /// TDLib object type
+  static const String defaultObjectId = 'suggestedActionCustom';
 
   /// Convert model to TDLib JSON format, encoded into String.
   @override

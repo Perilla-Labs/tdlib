@@ -38,13 +38,13 @@ final class ChatStatisticsAdministratorActionsInfo extends TdObject {
 
   /// Parse from a json
   factory ChatStatisticsAdministratorActionsInfo.fromJson(
-          Map<String, dynamic> json) =>
-      ChatStatisticsAdministratorActionsInfo(
-        userId: json['user_id'],
-        deletedMessageCount: json['deleted_message_count'],
-        bannedUserCount: json['banned_user_count'],
-        restrictedUserCount: json['restricted_user_count'],
-      );
+    Map<String, dynamic> json,
+  ) => ChatStatisticsAdministratorActionsInfo(
+    userId: json['user_id'],
+    deletedMessageCount: json['deleted_message_count'],
+    bannedUserCount: json['banned_user_count'],
+    restrictedUserCount: json['restricted_user_count'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -70,13 +70,12 @@ final class ChatStatisticsAdministratorActionsInfo extends TdObject {
     int? deletedMessageCount,
     int? bannedUserCount,
     int? restrictedUserCount,
-  }) =>
-      ChatStatisticsAdministratorActionsInfo(
-        userId: userId ?? this.userId,
-        deletedMessageCount: deletedMessageCount ?? this.deletedMessageCount,
-        bannedUserCount: bannedUserCount ?? this.bannedUserCount,
-        restrictedUserCount: restrictedUserCount ?? this.restrictedUserCount,
-      );
+  }) => ChatStatisticsAdministratorActionsInfo(
+    userId: userId ?? this.userId,
+    deletedMessageCount: deletedMessageCount ?? this.deletedMessageCount,
+    bannedUserCount: bannedUserCount ?? this.bannedUserCount,
+    restrictedUserCount: restrictedUserCount ?? this.restrictedUserCount,
+  );
 
   /// TDLib object type
   static const String defaultObjectId =

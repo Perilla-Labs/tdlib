@@ -15,9 +15,7 @@ final class ReorderQuickReplyShortcuts extends TdFunction {
   /// * [shortcutIds]: The new order of quick reply shortcuts.
   ///
   /// [Ok] is returned on completion.
-  const ReorderQuickReplyShortcuts({
-    required this.shortcutIds,
-  });
+  const ReorderQuickReplyShortcuts({required this.shortcutIds});
 
   /// The new order of quick reply shortcuts
   final List<int> shortcutIds;
@@ -36,12 +34,8 @@ final class ReorderQuickReplyShortcuts extends TdFunction {
   ///
   /// Properties:
   /// * [shortcut_ids]: The new order of quick reply shortcuts
-  ReorderQuickReplyShortcuts copyWith({
-    List<int>? shortcutIds,
-  }) =>
-      ReorderQuickReplyShortcuts(
-        shortcutIds: shortcutIds ?? this.shortcutIds,
-      );
+  ReorderQuickReplyShortcuts copyWith({List<int>? shortcutIds}) =>
+      ReorderQuickReplyShortcuts(shortcutIds: shortcutIds ?? this.shortcutIds);
 
   /// TDLib object type
   static const String defaultObjectId = 'reorderQuickReplyShortcuts';

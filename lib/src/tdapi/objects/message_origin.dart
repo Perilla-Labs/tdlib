@@ -62,26 +62,19 @@ final class MessageOriginUser extends MessageOrigin {
   /// The message was originally sent by a known user.
   ///
   /// * [senderUserId]: Identifier of the user that originally sent the message.
-  const MessageOriginUser({
-    required this.senderUserId,
-  });
+  const MessageOriginUser({required this.senderUserId});
 
   /// Identifier of the user that originally sent the message
   final int senderUserId;
 
   /// Parse from a json
   factory MessageOriginUser.fromJson(Map<String, dynamic> json) =>
-      MessageOriginUser(
-        senderUserId: json['sender_user_id'],
-      );
+      MessageOriginUser(senderUserId: json['sender_user_id']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "sender_user_id": senderUserId,
-    };
+    return {"@type": defaultObjectId, "sender_user_id": senderUserId};
   }
 
   /// Copy model with modified properties.
@@ -89,12 +82,8 @@ final class MessageOriginUser extends MessageOrigin {
   /// Properties:
   /// * [sender_user_id]: Identifier of the user that originally sent the message
   @override
-  MessageOriginUser copyWith({
-    int? senderUserId,
-  }) =>
-      MessageOriginUser(
-        senderUserId: senderUserId ?? this.senderUserId,
-      );
+  MessageOriginUser copyWith({int? senderUserId}) =>
+      MessageOriginUser(senderUserId: senderUserId ?? this.senderUserId);
 
   /// TDLib object type
   static const String defaultObjectId = 'messageOriginUser';
@@ -119,26 +108,19 @@ final class MessageOriginHiddenUser extends MessageOrigin {
   /// The message was originally sent by a user, which is hidden by their privacy settings.
   ///
   /// * [senderName]: Name of the sender.
-  const MessageOriginHiddenUser({
-    required this.senderName,
-  });
+  const MessageOriginHiddenUser({required this.senderName});
 
   /// Name of the sender
   final String senderName;
 
   /// Parse from a json
   factory MessageOriginHiddenUser.fromJson(Map<String, dynamic> json) =>
-      MessageOriginHiddenUser(
-        senderName: json['sender_name'],
-      );
+      MessageOriginHiddenUser(senderName: json['sender_name']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "sender_name": senderName,
-    };
+    return {"@type": defaultObjectId, "sender_name": senderName};
   }
 
   /// Copy model with modified properties.
@@ -146,12 +128,8 @@ final class MessageOriginHiddenUser extends MessageOrigin {
   /// Properties:
   /// * [sender_name]: Name of the sender
   @override
-  MessageOriginHiddenUser copyWith({
-    String? senderName,
-  }) =>
-      MessageOriginHiddenUser(
-        senderName: senderName ?? this.senderName,
-      );
+  MessageOriginHiddenUser copyWith({String? senderName}) =>
+      MessageOriginHiddenUser(senderName: senderName ?? this.senderName);
 
   /// TDLib object type
   static const String defaultObjectId = 'messageOriginHiddenUser';
@@ -212,10 +190,7 @@ final class MessageOriginChat extends MessageOrigin {
   /// * [sender_chat_id]: Identifier of the chat that originally sent the message
   /// * [author_signature]: For messages originally sent by an anonymous chat administrator, original message author signature
   @override
-  MessageOriginChat copyWith({
-    int? senderChatId,
-    String? authorSignature,
-  }) =>
+  MessageOriginChat copyWith({int? senderChatId, String? authorSignature}) =>
       MessageOriginChat(
         senderChatId: senderChatId ?? this.senderChatId,
         authorSignature: authorSignature ?? this.authorSignature,
@@ -293,12 +268,11 @@ final class MessageOriginChannel extends MessageOrigin {
     int? chatId,
     int? messageId,
     String? authorSignature,
-  }) =>
-      MessageOriginChannel(
-        chatId: chatId ?? this.chatId,
-        messageId: messageId ?? this.messageId,
-        authorSignature: authorSignature ?? this.authorSignature,
-      );
+  }) => MessageOriginChannel(
+    chatId: chatId ?? this.chatId,
+    messageId: messageId ?? this.messageId,
+    authorSignature: authorSignature ?? this.authorSignature,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageOriginChannel';

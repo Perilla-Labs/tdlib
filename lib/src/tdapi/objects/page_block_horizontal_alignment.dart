@@ -60,15 +60,13 @@ final class PageBlockHorizontalAlignmentLeft
 
   /// Parse from a json
   factory PageBlockHorizontalAlignmentLeft.fromJson(
-          Map<String, dynamic> json) =>
-      const PageBlockHorizontalAlignmentLeft();
+    Map<String, dynamic> json,
+  ) => const PageBlockHorizontalAlignmentLeft();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -100,15 +98,13 @@ final class PageBlockHorizontalAlignmentCenter
 
   /// Parse from a json
   factory PageBlockHorizontalAlignmentCenter.fromJson(
-          Map<String, dynamic> json) =>
-      const PageBlockHorizontalAlignmentCenter();
+    Map<String, dynamic> json,
+  ) => const PageBlockHorizontalAlignmentCenter();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -140,15 +136,13 @@ final class PageBlockHorizontalAlignmentRight
 
   /// Parse from a json
   factory PageBlockHorizontalAlignmentRight.fromJson(
-          Map<String, dynamic> json) =>
-      const PageBlockHorizontalAlignmentRight();
+    Map<String, dynamic> json,
+  ) => const PageBlockHorizontalAlignmentRight();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.

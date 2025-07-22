@@ -106,9 +106,7 @@ final class SearchMessagesFilterEmpty extends SearchMessagesFilter {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -143,9 +141,7 @@ final class SearchMessagesFilterAnimation extends SearchMessagesFilter {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -181,9 +177,7 @@ final class SearchMessagesFilterAudio extends SearchMessagesFilter {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -218,9 +212,7 @@ final class SearchMessagesFilterDocument extends SearchMessagesFilter {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -256,9 +248,7 @@ final class SearchMessagesFilterPhoto extends SearchMessagesFilter {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -293,9 +283,7 @@ final class SearchMessagesFilterVideo extends SearchMessagesFilter {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -330,9 +318,7 @@ final class SearchMessagesFilterVoiceNote extends SearchMessagesFilter {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -363,15 +349,13 @@ final class SearchMessagesFilterPhotoAndVideo extends SearchMessagesFilter {
 
   /// Parse from a json
   factory SearchMessagesFilterPhotoAndVideo.fromJson(
-          Map<String, dynamic> json) =>
-      const SearchMessagesFilterPhotoAndVideo();
+    Map<String, dynamic> json,
+  ) => const SearchMessagesFilterPhotoAndVideo();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -407,9 +391,7 @@ final class SearchMessagesFilterUrl extends SearchMessagesFilter {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -444,9 +426,7 @@ final class SearchMessagesFilterChatPhoto extends SearchMessagesFilter {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -482,9 +462,7 @@ final class SearchMessagesFilterVideoNote extends SearchMessagesFilter {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -515,15 +493,13 @@ final class SearchMessagesFilterVoiceAndVideoNote extends SearchMessagesFilter {
 
   /// Parse from a json
   factory SearchMessagesFilterVoiceAndVideoNote.fromJson(
-          Map<String, dynamic> json) =>
-      const SearchMessagesFilterVoiceAndVideoNote();
+    Map<String, dynamic> json,
+  ) => const SearchMessagesFilterVoiceAndVideoNote();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -559,9 +535,7 @@ final class SearchMessagesFilterMention extends SearchMessagesFilter {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -591,15 +565,13 @@ final class SearchMessagesFilterUnreadMention extends SearchMessagesFilter {
 
   /// Parse from a json
   factory SearchMessagesFilterUnreadMention.fromJson(
-          Map<String, dynamic> json) =>
-      const SearchMessagesFilterUnreadMention();
+    Map<String, dynamic> json,
+  ) => const SearchMessagesFilterUnreadMention();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -630,15 +602,13 @@ final class SearchMessagesFilterUnreadReaction extends SearchMessagesFilter {
 
   /// Parse from a json
   factory SearchMessagesFilterUnreadReaction.fromJson(
-          Map<String, dynamic> json) =>
-      const SearchMessagesFilterUnreadReaction();
+    Map<String, dynamic> json,
+  ) => const SearchMessagesFilterUnreadReaction();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -669,15 +639,13 @@ final class SearchMessagesFilterFailedToSend extends SearchMessagesFilter {
 
   /// Parse from a json
   factory SearchMessagesFilterFailedToSend.fromJson(
-          Map<String, dynamic> json) =>
-      const SearchMessagesFilterFailedToSend();
+    Map<String, dynamic> json,
+  ) => const SearchMessagesFilterFailedToSend();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -713,9 +681,7 @@ final class SearchMessagesFilterPinned extends SearchMessagesFilter {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.

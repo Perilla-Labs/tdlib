@@ -56,15 +56,13 @@ final class StarTransactionDirectionIncoming extends StarTransactionDirection {
 
   /// Parse from a json
   factory StarTransactionDirectionIncoming.fromJson(
-          Map<String, dynamic> json) =>
-      const StarTransactionDirectionIncoming();
+    Map<String, dynamic> json,
+  ) => const StarTransactionDirectionIncoming();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -95,15 +93,13 @@ final class StarTransactionDirectionOutgoing extends StarTransactionDirection {
 
   /// Parse from a json
   factory StarTransactionDirectionOutgoing.fromJson(
-          Map<String, dynamic> json) =>
-      const StarTransactionDirectionOutgoing();
+    Map<String, dynamic> json,
+  ) => const StarTransactionDirectionOutgoing();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.

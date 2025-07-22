@@ -85,15 +85,14 @@ final class PhoneNumberInfo extends TdObject {
     bool? isAnonymous,
     dynamic extra,
     int? clientId,
-  }) =>
-      PhoneNumberInfo(
-        country: country ?? this.country,
-        countryCallingCode: countryCallingCode ?? this.countryCallingCode,
-        formattedPhoneNumber: formattedPhoneNumber ?? this.formattedPhoneNumber,
-        isAnonymous: isAnonymous ?? this.isAnonymous,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => PhoneNumberInfo(
+    country: country ?? this.country,
+    countryCallingCode: countryCallingCode ?? this.countryCallingCode,
+    formattedPhoneNumber: formattedPhoneNumber ?? this.formattedPhoneNumber,
+    isAnonymous: isAnonymous ?? this.isAnonymous,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'phoneNumberInfo';

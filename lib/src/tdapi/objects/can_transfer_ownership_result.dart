@@ -58,10 +58,7 @@ final class CanTransferOwnershipResultOk extends CanTransferOwnershipResult {
   /// **CanTransferOwnershipResultOk** *(canTransferOwnershipResultOk)* - child of CanTransferOwnershipResult
   ///
   /// The session can be used.
-  const CanTransferOwnershipResultOk({
-    this.extra,
-    this.clientId,
-  });
+  const CanTransferOwnershipResultOk({this.extra, this.clientId});
 
   /// [extra] callback sign
   @override
@@ -81,17 +78,12 @@ final class CanTransferOwnershipResultOk extends CanTransferOwnershipResult {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
   @override
-  CanTransferOwnershipResultOk copyWith({
-    dynamic extra,
-    int? clientId,
-  }) =>
+  CanTransferOwnershipResultOk copyWith({dynamic extra, int? clientId}) =>
       CanTransferOwnershipResultOk(
         extra: extra ?? this.extra,
         clientId: clientId ?? this.clientId,
@@ -117,10 +109,7 @@ final class CanTransferOwnershipResultPasswordNeeded
   /// **CanTransferOwnershipResultPasswordNeeded** *(canTransferOwnershipResultPasswordNeeded)* - child of CanTransferOwnershipResult
   ///
   /// The 2-step verification needs to be enabled first.
-  const CanTransferOwnershipResultPasswordNeeded({
-    this.extra,
-    this.clientId,
-  });
+  const CanTransferOwnershipResultPasswordNeeded({this.extra, this.clientId});
 
   /// [extra] callback sign
   @override
@@ -132,18 +121,16 @@ final class CanTransferOwnershipResultPasswordNeeded
 
   /// Parse from a json
   factory CanTransferOwnershipResultPasswordNeeded.fromJson(
-          Map<String, dynamic> json) =>
-      CanTransferOwnershipResultPasswordNeeded(
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    Map<String, dynamic> json,
+  ) => CanTransferOwnershipResultPasswordNeeded(
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -151,11 +138,10 @@ final class CanTransferOwnershipResultPasswordNeeded
   CanTransferOwnershipResultPasswordNeeded copyWith({
     dynamic extra,
     int? clientId,
-  }) =>
-      CanTransferOwnershipResultPasswordNeeded(
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => CanTransferOwnershipResultPasswordNeeded(
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId =
@@ -201,20 +187,17 @@ final class CanTransferOwnershipResultPasswordTooFresh
 
   /// Parse from a json
   factory CanTransferOwnershipResultPasswordTooFresh.fromJson(
-          Map<String, dynamic> json) =>
-      CanTransferOwnershipResultPasswordTooFresh(
-        retryAfter: json['retry_after'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    Map<String, dynamic> json,
+  ) => CanTransferOwnershipResultPasswordTooFresh(
+    retryAfter: json['retry_after'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "retry_after": retryAfter,
-    };
+    return {"@type": defaultObjectId, "retry_after": retryAfter};
   }
 
   /// Copy model with modified properties.
@@ -226,12 +209,11 @@ final class CanTransferOwnershipResultPasswordTooFresh
     int? retryAfter,
     dynamic extra,
     int? clientId,
-  }) =>
-      CanTransferOwnershipResultPasswordTooFresh(
-        retryAfter: retryAfter ?? this.retryAfter,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => CanTransferOwnershipResultPasswordTooFresh(
+    retryAfter: retryAfter ?? this.retryAfter,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId =
@@ -277,20 +259,17 @@ final class CanTransferOwnershipResultSessionTooFresh
 
   /// Parse from a json
   factory CanTransferOwnershipResultSessionTooFresh.fromJson(
-          Map<String, dynamic> json) =>
-      CanTransferOwnershipResultSessionTooFresh(
-        retryAfter: json['retry_after'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    Map<String, dynamic> json,
+  ) => CanTransferOwnershipResultSessionTooFresh(
+    retryAfter: json['retry_after'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "retry_after": retryAfter,
-    };
+    return {"@type": defaultObjectId, "retry_after": retryAfter};
   }
 
   /// Copy model with modified properties.
@@ -302,12 +281,11 @@ final class CanTransferOwnershipResultSessionTooFresh
     int? retryAfter,
     dynamic extra,
     int? clientId,
-  }) =>
-      CanTransferOwnershipResultSessionTooFresh(
-        retryAfter: retryAfter ?? this.retryAfter,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => CanTransferOwnershipResultSessionTooFresh(
+    retryAfter: retryAfter ?? this.retryAfter,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId =

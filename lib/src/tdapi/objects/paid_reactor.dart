@@ -6,7 +6,7 @@ part of '../tdapi.dart';
 ///
 /// * [senderId]: Identifier of the user or chat that added the reactions; may be null for anonymous reactors that aren't the current user *(optional)*.
 /// * [starCount]: Number of Telegram Stars added.
-/// * [isTop]: True, if the reactor is one of the most active reactors; can be false if the reactor is the current user.
+/// * [isTop]: True, if the reactor is one of the most active reactors; may be false if the reactor is the current user.
 /// * [isMe]: True, if the paid reaction was added by the current user.
 /// * [isAnonymous]: True, if the reactor is anonymous.
 final class PaidReactor extends TdObject {
@@ -16,7 +16,7 @@ final class PaidReactor extends TdObject {
   ///
   /// * [senderId]: Identifier of the user or chat that added the reactions; may be null for anonymous reactors that aren't the current user *(optional)*.
   /// * [starCount]: Number of Telegram Stars added.
-  /// * [isTop]: True, if the reactor is one of the most active reactors; can be false if the reactor is the current user.
+  /// * [isTop]: True, if the reactor is one of the most active reactors; may be false if the reactor is the current user.
   /// * [isMe]: True, if the paid reaction was added by the current user.
   /// * [isAnonymous]: True, if the reactor is anonymous.
   const PaidReactor({
@@ -33,7 +33,7 @@ final class PaidReactor extends TdObject {
   /// Number of Telegram Stars added
   final int starCount;
 
-  /// True, if the reactor is one of the most active reactors; can be false if the reactor is the current user
+  /// True, if the reactor is one of the most active reactors; may be false if the reactor is the current user
   final bool isTop;
 
   /// True, if the paid reaction was added by the current user
@@ -44,14 +44,14 @@ final class PaidReactor extends TdObject {
 
   /// Parse from a json
   factory PaidReactor.fromJson(Map<String, dynamic> json) => PaidReactor(
-        senderId: json['sender_id'] == null
-            ? null
-            : MessageSender.fromJson(json['sender_id']),
-        starCount: json['star_count'],
-        isTop: json['is_top'],
-        isMe: json['is_me'],
-        isAnonymous: json['is_anonymous'],
-      );
+    senderId: json['sender_id'] == null
+        ? null
+        : MessageSender.fromJson(json['sender_id']),
+    starCount: json['star_count'],
+    isTop: json['is_top'],
+    isMe: json['is_me'],
+    isAnonymous: json['is_anonymous'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -71,7 +71,7 @@ final class PaidReactor extends TdObject {
   /// Properties:
   /// * [sender_id]: Identifier of the user or chat that added the reactions; may be null for anonymous reactors that aren't the current user
   /// * [star_count]: Number of Telegram Stars added
-  /// * [is_top]: True, if the reactor is one of the most active reactors; can be false if the reactor is the current user
+  /// * [is_top]: True, if the reactor is one of the most active reactors; may be false if the reactor is the current user
   /// * [is_me]: True, if the paid reaction was added by the current user
   /// * [is_anonymous]: True, if the reactor is anonymous
   PaidReactor copyWith({
@@ -80,14 +80,13 @@ final class PaidReactor extends TdObject {
     bool? isTop,
     bool? isMe,
     bool? isAnonymous,
-  }) =>
-      PaidReactor(
-        senderId: senderId ?? this.senderId,
-        starCount: starCount ?? this.starCount,
-        isTop: isTop ?? this.isTop,
-        isMe: isMe ?? this.isMe,
-        isAnonymous: isAnonymous ?? this.isAnonymous,
-      );
+  }) => PaidReactor(
+    senderId: senderId ?? this.senderId,
+    starCount: starCount ?? this.starCount,
+    isTop: isTop ?? this.isTop,
+    isMe: isMe ?? this.isMe,
+    isAnonymous: isAnonymous ?? this.isAnonymous,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'paidReactor';

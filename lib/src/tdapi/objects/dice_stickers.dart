@@ -56,26 +56,19 @@ final class DiceStickersRegular extends DiceStickers {
   /// A regular animated sticker.
   ///
   /// * [sticker]: The animated sticker with the dice animation.
-  const DiceStickersRegular({
-    required this.sticker,
-  });
+  const DiceStickersRegular({required this.sticker});
 
   /// The animated sticker with the dice animation
   final Sticker sticker;
 
   /// Parse from a json
   factory DiceStickersRegular.fromJson(Map<String, dynamic> json) =>
-      DiceStickersRegular(
-        sticker: Sticker.fromJson(json['sticker']),
-      );
+      DiceStickersRegular(sticker: Sticker.fromJson(json['sticker']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "sticker": sticker.toJson(),
-    };
+    return {"@type": defaultObjectId, "sticker": sticker.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -83,12 +76,8 @@ final class DiceStickersRegular extends DiceStickers {
   /// Properties:
   /// * [sticker]: The animated sticker with the dice animation
   @override
-  DiceStickersRegular copyWith({
-    Sticker? sticker,
-  }) =>
-      DiceStickersRegular(
-        sticker: sticker ?? this.sticker,
-      );
+  DiceStickersRegular copyWith({Sticker? sticker}) =>
+      DiceStickersRegular(sticker: sticker ?? this.sticker);
 
   /// TDLib object type
   static const String defaultObjectId = 'diceStickersRegular';
@@ -182,14 +171,13 @@ final class DiceStickersSlotMachine extends DiceStickers {
     Sticker? leftReel,
     Sticker? centerReel,
     Sticker? rightReel,
-  }) =>
-      DiceStickersSlotMachine(
-        background: background ?? this.background,
-        lever: lever ?? this.lever,
-        leftReel: leftReel ?? this.leftReel,
-        centerReel: centerReel ?? this.centerReel,
-        rightReel: rightReel ?? this.rightReel,
-      );
+  }) => DiceStickersSlotMachine(
+    background: background ?? this.background,
+    lever: lever ?? this.lever,
+    leftReel: leftReel ?? this.leftReel,
+    centerReel: centerReel ?? this.centerReel,
+    rightReel: rightReel ?? this.rightReel,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'diceStickersSlotMachine';

@@ -59,11 +59,14 @@ final class InputIdentityDocument extends TdObject {
         reverseSide: json['reverse_side'] == null
             ? null
             : InputFile.fromJson(json['reverse_side']),
-        selfie:
-            json['selfie'] == null ? null : InputFile.fromJson(json['selfie']),
-        translation: List<InputFile>.from((json['translation'] ?? [])
-            .map((item) => InputFile.fromJson(item))
-            .toList()),
+        selfie: json['selfie'] == null
+            ? null
+            : InputFile.fromJson(json['selfie']),
+        translation: List<InputFile>.from(
+          (json['translation'] ?? [])
+              .map((item) => InputFile.fromJson(item))
+              .toList(),
+        ),
       );
 
   /// Convert model to TDLib JSON format
@@ -96,15 +99,14 @@ final class InputIdentityDocument extends TdObject {
     InputFile? reverseSide,
     InputFile? selfie,
     List<InputFile>? translation,
-  }) =>
-      InputIdentityDocument(
-        number: number ?? this.number,
-        expirationDate: expirationDate ?? this.expirationDate,
-        frontSide: frontSide ?? this.frontSide,
-        reverseSide: reverseSide ?? this.reverseSide,
-        selfie: selfie ?? this.selfie,
-        translation: translation ?? this.translation,
-      );
+  }) => InputIdentityDocument(
+    number: number ?? this.number,
+    expirationDate: expirationDate ?? this.expirationDate,
+    frontSide: frontSide ?? this.frontSide,
+    reverseSide: reverseSide ?? this.reverseSide,
+    selfie: selfie ?? this.selfie,
+    translation: translation ?? this.translation,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputIdentityDocument';

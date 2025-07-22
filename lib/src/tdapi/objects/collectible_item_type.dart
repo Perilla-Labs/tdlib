@@ -56,26 +56,19 @@ final class CollectibleItemTypeUsername extends CollectibleItemType {
   /// A username.
   ///
   /// * [username]: The username.
-  const CollectibleItemTypeUsername({
-    required this.username,
-  });
+  const CollectibleItemTypeUsername({required this.username});
 
   /// The username
   final String username;
 
   /// Parse from a json
   factory CollectibleItemTypeUsername.fromJson(Map<String, dynamic> json) =>
-      CollectibleItemTypeUsername(
-        username: json['username'],
-      );
+      CollectibleItemTypeUsername(username: json['username']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "username": username,
-    };
+    return {"@type": defaultObjectId, "username": username};
   }
 
   /// Copy model with modified properties.
@@ -83,12 +76,8 @@ final class CollectibleItemTypeUsername extends CollectibleItemType {
   /// Properties:
   /// * [username]: The username
   @override
-  CollectibleItemTypeUsername copyWith({
-    String? username,
-  }) =>
-      CollectibleItemTypeUsername(
-        username: username ?? this.username,
-      );
+  CollectibleItemTypeUsername copyWith({String? username}) =>
+      CollectibleItemTypeUsername(username: username ?? this.username);
 
   /// TDLib object type
   static const String defaultObjectId = 'collectibleItemTypeUsername';
@@ -113,26 +102,19 @@ final class CollectibleItemTypePhoneNumber extends CollectibleItemType {
   /// A phone number.
   ///
   /// * [phoneNumber]: The phone number.
-  const CollectibleItemTypePhoneNumber({
-    required this.phoneNumber,
-  });
+  const CollectibleItemTypePhoneNumber({required this.phoneNumber});
 
   /// The phone number
   final String phoneNumber;
 
   /// Parse from a json
   factory CollectibleItemTypePhoneNumber.fromJson(Map<String, dynamic> json) =>
-      CollectibleItemTypePhoneNumber(
-        phoneNumber: json['phone_number'],
-      );
+      CollectibleItemTypePhoneNumber(phoneNumber: json['phone_number']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "phone_number": phoneNumber,
-    };
+    return {"@type": defaultObjectId, "phone_number": phoneNumber};
   }
 
   /// Copy model with modified properties.
@@ -140,9 +122,7 @@ final class CollectibleItemTypePhoneNumber extends CollectibleItemType {
   /// Properties:
   /// * [phone_number]: The phone number
   @override
-  CollectibleItemTypePhoneNumber copyWith({
-    String? phoneNumber,
-  }) =>
+  CollectibleItemTypePhoneNumber copyWith({String? phoneNumber}) =>
       CollectibleItemTypePhoneNumber(
         phoneNumber: phoneNumber ?? this.phoneNumber,
       );

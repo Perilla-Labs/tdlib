@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **EditInlineMessageMedia** *(editInlineMessageMedia)* - TDLib function
 ///
-/// Edits the content of a message with an animation, an audio, a document, a photo or a video in an inline message sent via a bot; for bots only.
+/// Edits the media content of a message with a text, an animation, an audio, a document, a photo or a video in an inline message sent via a bot; for bots only.
 ///
 /// * [inlineMessageId]: Inline message identifier.
 /// * [replyMarkup]: The new message reply markup; pass null if none; for bots only *(optional)*.
@@ -12,7 +12,7 @@ part of '../tdapi.dart';
 final class EditInlineMessageMedia extends TdFunction {
   /// **EditInlineMessageMedia** *(editInlineMessageMedia)* - TDLib function
   ///
-  /// Edits the content of a message with an animation, an audio, a document, a photo or a video in an inline message sent via a bot; for bots only.
+  /// Edits the media content of a message with a text, an animation, an audio, a document, a photo or a video in an inline message sent via a bot; for bots only.
   ///
   /// * [inlineMessageId]: Inline message identifier.
   /// * [replyMarkup]: The new message reply markup; pass null if none; for bots only *(optional)*.
@@ -56,12 +56,11 @@ final class EditInlineMessageMedia extends TdFunction {
     String? inlineMessageId,
     ReplyMarkup? replyMarkup,
     InputMessageContent? inputMessageContent,
-  }) =>
-      EditInlineMessageMedia(
-        inlineMessageId: inlineMessageId ?? this.inlineMessageId,
-        replyMarkup: replyMarkup ?? this.replyMarkup,
-        inputMessageContent: inputMessageContent ?? this.inputMessageContent,
-      );
+  }) => EditInlineMessageMedia(
+    inlineMessageId: inlineMessageId ?? this.inlineMessageId,
+    replyMarkup: replyMarkup ?? this.replyMarkup,
+    inputMessageContent: inputMessageContent ?? this.inputMessageContent,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'editInlineMessageMedia';

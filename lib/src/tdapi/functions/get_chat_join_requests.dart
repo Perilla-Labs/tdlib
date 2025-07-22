@@ -74,14 +74,13 @@ final class GetChatJoinRequests extends TdFunction {
     String? query,
     ChatJoinRequest? offsetRequest,
     int? limit,
-  }) =>
-      GetChatJoinRequests(
-        chatId: chatId ?? this.chatId,
-        inviteLink: inviteLink ?? this.inviteLink,
-        query: query ?? this.query,
-        offsetRequest: offsetRequest ?? this.offsetRequest,
-        limit: limit ?? this.limit,
-      );
+  }) => GetChatJoinRequests(
+    chatId: chatId ?? this.chatId,
+    inviteLink: inviteLink ?? this.inviteLink,
+    query: query ?? this.query,
+    offsetRequest: offsetRequest ?? this.offsetRequest,
+    limit: limit ?? this.limit,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getChatJoinRequests';

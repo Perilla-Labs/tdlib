@@ -59,13 +59,12 @@ final class ChatInviteLinkCount extends TdObject {
     int? userId,
     int? inviteLinkCount,
     int? revokedInviteLinkCount,
-  }) =>
-      ChatInviteLinkCount(
-        userId: userId ?? this.userId,
-        inviteLinkCount: inviteLinkCount ?? this.inviteLinkCount,
-        revokedInviteLinkCount:
-            revokedInviteLinkCount ?? this.revokedInviteLinkCount,
-      );
+  }) => ChatInviteLinkCount(
+    userId: userId ?? this.userId,
+    inviteLinkCount: inviteLinkCount ?? this.inviteLinkCount,
+    revokedInviteLinkCount:
+        revokedInviteLinkCount ?? this.revokedInviteLinkCount,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatInviteLinkCount';

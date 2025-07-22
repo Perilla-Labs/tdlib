@@ -15,9 +15,7 @@ final class GetBusinessFeatures extends TdFunction {
   /// * [source]: Source of the request; pass null if the method is called from settings or some non-standard source *(optional)*.
   ///
   /// [BusinessFeatures] is returned on completion.
-  const GetBusinessFeatures({
-    this.source,
-  });
+  const GetBusinessFeatures({this.source});
 
   /// Source of the request; pass null if the method is called from settings or some non-standard source
   final BusinessFeature? source;
@@ -36,12 +34,8 @@ final class GetBusinessFeatures extends TdFunction {
   ///
   /// Properties:
   /// * [source]: Source of the request; pass null if the method is called from settings or some non-standard source
-  GetBusinessFeatures copyWith({
-    BusinessFeature? source,
-  }) =>
-      GetBusinessFeatures(
-        source: source ?? this.source,
-      );
+  GetBusinessFeatures copyWith({BusinessFeature? source}) =>
+      GetBusinessFeatures(source: source ?? this.source);
 
   /// TDLib object type
   static const String defaultObjectId = 'getBusinessFeatures';

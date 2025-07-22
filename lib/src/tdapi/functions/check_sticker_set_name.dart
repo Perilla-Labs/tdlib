@@ -15,9 +15,7 @@ final class CheckStickerSetName extends TdFunction {
   /// * [name]: Name to be checked.
   ///
   /// [CheckStickerSetNameResult] is returned on completion.
-  const CheckStickerSetName({
-    required this.name,
-  });
+  const CheckStickerSetName({required this.name});
 
   /// Name to be checked
   final String name;
@@ -25,23 +23,15 @@ final class CheckStickerSetName extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "name": name,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "name": name, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [name]: Name to be checked
-  CheckStickerSetName copyWith({
-    String? name,
-  }) =>
-      CheckStickerSetName(
-        name: name ?? this.name,
-      );
+  CheckStickerSetName copyWith({String? name}) =>
+      CheckStickerSetName(name: name ?? this.name);
 
   /// TDLib object type
   static const String defaultObjectId = 'checkStickerSetName';

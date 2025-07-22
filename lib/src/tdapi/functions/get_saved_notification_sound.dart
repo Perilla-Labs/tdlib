@@ -15,9 +15,7 @@ final class GetSavedNotificationSound extends TdFunction {
   /// * [notificationSoundId]: Identifier of the notification sound.
   ///
   /// [NotificationSounds] is returned on completion.
-  const GetSavedNotificationSound({
-    required this.notificationSoundId,
-  });
+  const GetSavedNotificationSound({required this.notificationSoundId});
 
   /// Identifier of the notification sound
   final int notificationSoundId;
@@ -36,9 +34,7 @@ final class GetSavedNotificationSound extends TdFunction {
   ///
   /// Properties:
   /// * [notification_sound_id]: Identifier of the notification sound
-  GetSavedNotificationSound copyWith({
-    int? notificationSoundId,
-  }) =>
+  GetSavedNotificationSound copyWith({int? notificationSoundId}) =>
       GetSavedNotificationSound(
         notificationSoundId: notificationSoundId ?? this.notificationSoundId,
       );

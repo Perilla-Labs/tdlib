@@ -71,14 +71,13 @@ final class MessageForwardInfo extends TdObject {
     int? date,
     ForwardSource? source,
     String? publicServiceAnnouncementType,
-  }) =>
-      MessageForwardInfo(
-        origin: origin ?? this.origin,
-        date: date ?? this.date,
-        source: source ?? this.source,
-        publicServiceAnnouncementType:
-            publicServiceAnnouncementType ?? this.publicServiceAnnouncementType,
-      );
+  }) => MessageForwardInfo(
+    origin: origin ?? this.origin,
+    date: date ?? this.date,
+    source: source ?? this.source,
+    publicServiceAnnouncementType:
+        publicServiceAnnouncementType ?? this.publicServiceAnnouncementType,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageForwardInfo';

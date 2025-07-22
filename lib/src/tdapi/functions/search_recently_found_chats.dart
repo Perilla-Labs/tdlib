@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **SearchRecentlyFoundChats** *(searchRecentlyFoundChats)* - TDLib function
 ///
-/// Searches for the specified query in the title and username of up to 50 recently found chats; this is an offline request.
+/// Searches for the specified query in the title and username of up to 50 recently found chats. This is an offline method.
 ///
 /// * [query]: Query to search for.
 /// * [limit]: The maximum number of chats to be returned.
@@ -11,16 +11,13 @@ part of '../tdapi.dart';
 final class SearchRecentlyFoundChats extends TdFunction {
   /// **SearchRecentlyFoundChats** *(searchRecentlyFoundChats)* - TDLib function
   ///
-  /// Searches for the specified query in the title and username of up to 50 recently found chats; this is an offline request.
+  /// Searches for the specified query in the title and username of up to 50 recently found chats. This is an offline method.
   ///
   /// * [query]: Query to search for.
   /// * [limit]: The maximum number of chats to be returned.
   ///
   /// [Chats] is returned on completion.
-  const SearchRecentlyFoundChats({
-    required this.query,
-    required this.limit,
-  });
+  const SearchRecentlyFoundChats({required this.query, required this.limit});
 
   /// Query to search for
   final String query;
@@ -44,10 +41,7 @@ final class SearchRecentlyFoundChats extends TdFunction {
   /// Properties:
   /// * [query]: Query to search for
   /// * [limit]: The maximum number of chats to be returned
-  SearchRecentlyFoundChats copyWith({
-    String? query,
-    int? limit,
-  }) =>
+  SearchRecentlyFoundChats copyWith({String? query, int? limit}) =>
       SearchRecentlyFoundChats(
         query: query ?? this.query,
         limit: limit ?? this.limit,

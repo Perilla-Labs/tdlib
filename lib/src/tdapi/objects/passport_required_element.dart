@@ -11,9 +11,7 @@ final class PassportRequiredElement extends TdObject {
   /// Contains a description of the required Telegram Passport element that was requested by a service.
   ///
   /// * [suitableElements]: List of Telegram Passport elements any of which is enough to provide.
-  const PassportRequiredElement({
-    required this.suitableElements,
-  });
+  const PassportRequiredElement({required this.suitableElements});
 
   /// List of Telegram Passport elements any of which is enough to provide
   final List<PassportSuitableElement> suitableElements;
@@ -22,9 +20,10 @@ final class PassportRequiredElement extends TdObject {
   factory PassportRequiredElement.fromJson(Map<String, dynamic> json) =>
       PassportRequiredElement(
         suitableElements: List<PassportSuitableElement>.from(
-            (json['suitable_elements'] ?? [])
-                .map((item) => PassportSuitableElement.fromJson(item))
-                .toList()),
+          (json['suitable_elements'] ?? [])
+              .map((item) => PassportSuitableElement.fromJson(item))
+              .toList(),
+        ),
       );
 
   /// Convert model to TDLib JSON format
@@ -42,10 +41,9 @@ final class PassportRequiredElement extends TdObject {
   /// * [suitable_elements]: List of Telegram Passport elements any of which is enough to provide
   PassportRequiredElement copyWith({
     List<PassportSuitableElement>? suitableElements,
-  }) =>
-      PassportRequiredElement(
-        suitableElements: suitableElements ?? this.suitableElements,
-      );
+  }) => PassportRequiredElement(
+    suitableElements: suitableElements ?? this.suitableElements,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'passportRequiredElement';

@@ -4,7 +4,7 @@ part of '../tdapi.dart';
 ///
 /// Returns a story.
 ///
-/// * [storySenderChatId]: Identifier of the chat that posted the story.
+/// * [storyPosterChatId]: Identifier of the chat that posted the story.
 /// * [storyId]: Story identifier.
 /// * [onlyLocal]: Pass true to get only locally available information without sending network requests.
 ///
@@ -14,19 +14,19 @@ final class GetStory extends TdFunction {
   ///
   /// Returns a story.
   ///
-  /// * [storySenderChatId]: Identifier of the chat that posted the story.
+  /// * [storyPosterChatId]: Identifier of the chat that posted the story.
   /// * [storyId]: Story identifier.
   /// * [onlyLocal]: Pass true to get only locally available information without sending network requests.
   ///
   /// [Story] is returned on completion.
   const GetStory({
-    required this.storySenderChatId,
+    required this.storyPosterChatId,
     required this.storyId,
     required this.onlyLocal,
   });
 
   /// Identifier of the chat that posted the story
-  final int storySenderChatId;
+  final int storyPosterChatId;
 
   /// Story identifier
   final int storyId;
@@ -39,7 +39,7 @@ final class GetStory extends TdFunction {
   Map<String, dynamic> toJson([dynamic extra]) {
     return {
       "@type": defaultObjectId,
-      "story_sender_chat_id": storySenderChatId,
+      "story_poster_chat_id": storyPosterChatId,
       "story_id": storyId,
       "only_local": onlyLocal,
       "@extra": extra,
@@ -49,16 +49,12 @@ final class GetStory extends TdFunction {
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [story_sender_chat_id]: Identifier of the chat that posted the story
+  /// * [story_poster_chat_id]: Identifier of the chat that posted the story
   /// * [story_id]: Story identifier
   /// * [only_local]: Pass true to get only locally available information without sending network requests
-  GetStory copyWith({
-    int? storySenderChatId,
-    int? storyId,
-    bool? onlyLocal,
-  }) =>
+  GetStory copyWith({int? storyPosterChatId, int? storyId, bool? onlyLocal}) =>
       GetStory(
-        storySenderChatId: storySenderChatId ?? this.storySenderChatId,
+        storyPosterChatId: storyPosterChatId ?? this.storyPosterChatId,
         storyId: storyId ?? this.storyId,
         onlyLocal: onlyLocal ?? this.onlyLocal,
       );

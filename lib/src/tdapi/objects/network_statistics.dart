@@ -38,9 +38,11 @@ final class NetworkStatistics extends TdObject {
   factory NetworkStatistics.fromJson(Map<String, dynamic> json) =>
       NetworkStatistics(
         sinceDate: json['since_date'],
-        entries: List<NetworkStatisticsEntry>.from((json['entries'] ?? [])
-            .map((item) => NetworkStatisticsEntry.fromJson(item))
-            .toList()),
+        entries: List<NetworkStatisticsEntry>.from(
+          (json['entries'] ?? [])
+              .map((item) => NetworkStatisticsEntry.fromJson(item))
+              .toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -65,13 +67,12 @@ final class NetworkStatistics extends TdObject {
     List<NetworkStatisticsEntry>? entries,
     dynamic extra,
     int? clientId,
-  }) =>
-      NetworkStatistics(
-        sinceDate: sinceDate ?? this.sinceDate,
-        entries: entries ?? this.entries,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => NetworkStatistics(
+    sinceDate: sinceDate ?? this.sinceDate,
+    entries: entries ?? this.entries,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'networkStatistics';

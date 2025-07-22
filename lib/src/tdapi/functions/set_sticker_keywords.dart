@@ -17,10 +17,7 @@ final class SetStickerKeywords extends TdFunction {
   /// * [keywords]: List of up to 20 keywords with total length up to 64 characters, which can be used to find the sticker.
   ///
   /// [Ok] is returned on completion.
-  const SetStickerKeywords({
-    required this.sticker,
-    required this.keywords,
-  });
+  const SetStickerKeywords({required this.sticker, required this.keywords});
 
   /// Sticker
   final InputFile sticker;
@@ -44,10 +41,7 @@ final class SetStickerKeywords extends TdFunction {
   /// Properties:
   /// * [sticker]: Sticker
   /// * [keywords]: List of up to 20 keywords with total length up to 64 characters, which can be used to find the sticker
-  SetStickerKeywords copyWith({
-    InputFile? sticker,
-    List<String>? keywords,
-  }) =>
+  SetStickerKeywords copyWith({InputFile? sticker, List<String>? keywords}) =>
       SetStickerKeywords(
         sticker: sticker ?? this.sticker,
         keywords: keywords ?? this.keywords,

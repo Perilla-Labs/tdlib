@@ -56,13 +56,12 @@ final class SetChatAccentColor extends TdFunction {
     int? chatId,
     int? accentColorId,
     int? backgroundCustomEmojiId,
-  }) =>
-      SetChatAccentColor(
-        chatId: chatId ?? this.chatId,
-        accentColorId: accentColorId ?? this.accentColorId,
-        backgroundCustomEmojiId:
-            backgroundCustomEmojiId ?? this.backgroundCustomEmojiId,
-      );
+  }) => SetChatAccentColor(
+    chatId: chatId ?? this.chatId,
+    accentColorId: accentColorId ?? this.accentColorId,
+    backgroundCustomEmojiId:
+        backgroundCustomEmojiId ?? this.backgroundCustomEmojiId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setChatAccentColor';

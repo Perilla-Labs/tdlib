@@ -52,11 +52,7 @@ final class GetStatisticalGraph extends TdFunction {
   /// * [chat_id]: Chat identifier
   /// * [token]: The token for graph loading
   /// * [x]: X-value for zoomed in graph or 0 otherwise
-  GetStatisticalGraph copyWith({
-    int? chatId,
-    String? token,
-    int? x,
-  }) =>
+  GetStatisticalGraph copyWith({int? chatId, String? token, int? x}) =>
       GetStatisticalGraph(
         chatId: chatId ?? this.chatId,
         token: token ?? this.token,

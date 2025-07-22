@@ -32,9 +32,10 @@ final class NotificationSounds extends TdObject {
   factory NotificationSounds.fromJson(Map<String, dynamic> json) =>
       NotificationSounds(
         notificationSounds: List<NotificationSound>.from(
-            (json['notification_sounds'] ?? [])
-                .map((item) => NotificationSound.fromJson(item))
-                .toList()),
+          (json['notification_sounds'] ?? [])
+              .map((item) => NotificationSound.fromJson(item))
+              .toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -56,12 +57,11 @@ final class NotificationSounds extends TdObject {
     List<NotificationSound>? notificationSounds,
     dynamic extra,
     int? clientId,
-  }) =>
-      NotificationSounds(
-        notificationSounds: notificationSounds ?? this.notificationSounds,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => NotificationSounds(
+    notificationSounds: notificationSounds ?? this.notificationSounds,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'notificationSounds';

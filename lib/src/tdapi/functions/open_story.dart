@@ -4,7 +4,7 @@ part of '../tdapi.dart';
 ///
 /// Informs TDLib that a story is opened and is being viewed by the user.
 ///
-/// * [storySenderChatId]: The identifier of the sender of the opened story.
+/// * [storyPosterChatId]: The identifier of the chat that posted the opened story.
 /// * [storyId]: The identifier of the story.
 ///
 /// [Ok] is returned on completion.
@@ -13,17 +13,14 @@ final class OpenStory extends TdFunction {
   ///
   /// Informs TDLib that a story is opened and is being viewed by the user.
   ///
-  /// * [storySenderChatId]: The identifier of the sender of the opened story.
+  /// * [storyPosterChatId]: The identifier of the chat that posted the opened story.
   /// * [storyId]: The identifier of the story.
   ///
   /// [Ok] is returned on completion.
-  const OpenStory({
-    required this.storySenderChatId,
-    required this.storyId,
-  });
+  const OpenStory({required this.storyPosterChatId, required this.storyId});
 
-  /// The identifier of the sender of the opened story
-  final int storySenderChatId;
+  /// The identifier of the chat that posted the opened story
+  final int storyPosterChatId;
 
   /// The identifier of the story
   final int storyId;
@@ -33,7 +30,7 @@ final class OpenStory extends TdFunction {
   Map<String, dynamic> toJson([dynamic extra]) {
     return {
       "@type": defaultObjectId,
-      "story_sender_chat_id": storySenderChatId,
+      "story_poster_chat_id": storyPosterChatId,
       "story_id": storyId,
       "@extra": extra,
     };
@@ -42,16 +39,12 @@ final class OpenStory extends TdFunction {
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [story_sender_chat_id]: The identifier of the sender of the opened story
+  /// * [story_poster_chat_id]: The identifier of the chat that posted the opened story
   /// * [story_id]: The identifier of the story
-  OpenStory copyWith({
-    int? storySenderChatId,
-    int? storyId,
-  }) =>
-      OpenStory(
-        storySenderChatId: storySenderChatId ?? this.storySenderChatId,
-        storyId: storyId ?? this.storyId,
-      );
+  OpenStory copyWith({int? storyPosterChatId, int? storyId}) => OpenStory(
+    storyPosterChatId: storyPosterChatId ?? this.storyPosterChatId,
+    storyId: storyId ?? this.storyId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'openStory';

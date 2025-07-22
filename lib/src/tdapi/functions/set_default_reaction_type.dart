@@ -15,9 +15,7 @@ final class SetDefaultReactionType extends TdFunction {
   /// * [reactionType]: New type of the default reaction. The paid reaction can't be set as default.
   ///
   /// [Ok] is returned on completion.
-  const SetDefaultReactionType({
-    required this.reactionType,
-  });
+  const SetDefaultReactionType({required this.reactionType});
 
   /// New type of the default reaction. The paid reaction can't be set as default
   final ReactionType reactionType;
@@ -36,12 +34,8 @@ final class SetDefaultReactionType extends TdFunction {
   ///
   /// Properties:
   /// * [reaction_type]: New type of the default reaction. The paid reaction can't be set as default
-  SetDefaultReactionType copyWith({
-    ReactionType? reactionType,
-  }) =>
-      SetDefaultReactionType(
-        reactionType: reactionType ?? this.reactionType,
-      );
+  SetDefaultReactionType copyWith({ReactionType? reactionType}) =>
+      SetDefaultReactionType(reactionType: reactionType ?? this.reactionType);
 
   /// TDLib object type
   static const String defaultObjectId = 'setDefaultReactionType';

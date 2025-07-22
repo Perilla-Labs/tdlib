@@ -32,10 +32,10 @@ final class TextEntity extends TdObject {
 
   /// Parse from a json
   factory TextEntity.fromJson(Map<String, dynamic> json) => TextEntity(
-        offset: json['offset'],
-        length: json['length'],
-        type: TextEntityType.fromJson(json['type']),
-      );
+    offset: json['offset'],
+    length: json['length'],
+    type: TextEntityType.fromJson(json['type']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -54,11 +54,7 @@ final class TextEntity extends TdObject {
   /// * [offset]: Offset of the entity, in UTF-16 code units
   /// * [length]: Length of the entity, in UTF-16 code units
   /// * [type]: Type of the entity
-  TextEntity copyWith({
-    int? offset,
-    int? length,
-    TextEntityType? type,
-  }) =>
+  TextEntity copyWith({int? offset, int? length, TextEntityType? type}) =>
       TextEntity(
         offset: offset ?? this.offset,
         length: length ?? this.length,

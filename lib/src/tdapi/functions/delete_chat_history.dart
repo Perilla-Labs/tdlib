@@ -56,12 +56,11 @@ final class DeleteChatHistory extends TdFunction {
     int? chatId,
     bool? removeFromChatList,
     bool? revoke,
-  }) =>
-      DeleteChatHistory(
-        chatId: chatId ?? this.chatId,
-        removeFromChatList: removeFromChatList ?? this.removeFromChatList,
-        revoke: revoke ?? this.revoke,
-      );
+  }) => DeleteChatHistory(
+    chatId: chatId ?? this.chatId,
+    removeFromChatList: removeFromChatList ?? this.removeFromChatList,
+    revoke: revoke ?? this.revoke,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'deleteChatHistory';

@@ -132,7 +132,8 @@ final class GroupCallParticipant extends TdObject {
         screenSharingVideoInfo: json['screen_sharing_video_info'] == null
             ? null
             : GroupCallParticipantVideoInfo.fromJson(
-                json['screen_sharing_video_info']),
+                json['screen_sharing_video_info'],
+              ),
         bio: json['bio'],
         isCurrentUser: json['is_current_user'],
         isSpeaking: json['is_speaking'],
@@ -214,34 +215,31 @@ final class GroupCallParticipant extends TdObject {
     bool? canUnmuteSelf,
     int? volumeLevel,
     String? order,
-  }) =>
-      GroupCallParticipant(
-        participantId: participantId ?? this.participantId,
-        audioSourceId: audioSourceId ?? this.audioSourceId,
-        screenSharingAudioSourceId:
-            screenSharingAudioSourceId ?? this.screenSharingAudioSourceId,
-        videoInfo: videoInfo ?? this.videoInfo,
-        screenSharingVideoInfo:
-            screenSharingVideoInfo ?? this.screenSharingVideoInfo,
-        bio: bio ?? this.bio,
-        isCurrentUser: isCurrentUser ?? this.isCurrentUser,
-        isSpeaking: isSpeaking ?? this.isSpeaking,
-        isHandRaised: isHandRaised ?? this.isHandRaised,
-        canBeMutedForAllUsers:
-            canBeMutedForAllUsers ?? this.canBeMutedForAllUsers,
-        canBeUnmutedForAllUsers:
-            canBeUnmutedForAllUsers ?? this.canBeUnmutedForAllUsers,
-        canBeMutedForCurrentUser:
-            canBeMutedForCurrentUser ?? this.canBeMutedForCurrentUser,
-        canBeUnmutedForCurrentUser:
-            canBeUnmutedForCurrentUser ?? this.canBeUnmutedForCurrentUser,
-        isMutedForAllUsers: isMutedForAllUsers ?? this.isMutedForAllUsers,
-        isMutedForCurrentUser:
-            isMutedForCurrentUser ?? this.isMutedForCurrentUser,
-        canUnmuteSelf: canUnmuteSelf ?? this.canUnmuteSelf,
-        volumeLevel: volumeLevel ?? this.volumeLevel,
-        order: order ?? this.order,
-      );
+  }) => GroupCallParticipant(
+    participantId: participantId ?? this.participantId,
+    audioSourceId: audioSourceId ?? this.audioSourceId,
+    screenSharingAudioSourceId:
+        screenSharingAudioSourceId ?? this.screenSharingAudioSourceId,
+    videoInfo: videoInfo ?? this.videoInfo,
+    screenSharingVideoInfo:
+        screenSharingVideoInfo ?? this.screenSharingVideoInfo,
+    bio: bio ?? this.bio,
+    isCurrentUser: isCurrentUser ?? this.isCurrentUser,
+    isSpeaking: isSpeaking ?? this.isSpeaking,
+    isHandRaised: isHandRaised ?? this.isHandRaised,
+    canBeMutedForAllUsers: canBeMutedForAllUsers ?? this.canBeMutedForAllUsers,
+    canBeUnmutedForAllUsers:
+        canBeUnmutedForAllUsers ?? this.canBeUnmutedForAllUsers,
+    canBeMutedForCurrentUser:
+        canBeMutedForCurrentUser ?? this.canBeMutedForCurrentUser,
+    canBeUnmutedForCurrentUser:
+        canBeUnmutedForCurrentUser ?? this.canBeUnmutedForCurrentUser,
+    isMutedForAllUsers: isMutedForAllUsers ?? this.isMutedForAllUsers,
+    isMutedForCurrentUser: isMutedForCurrentUser ?? this.isMutedForCurrentUser,
+    canUnmuteSelf: canUnmuteSelf ?? this.canUnmuteSelf,
+    volumeLevel: volumeLevel ?? this.volumeLevel,
+    order: order ?? this.order,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'groupCallParticipant';

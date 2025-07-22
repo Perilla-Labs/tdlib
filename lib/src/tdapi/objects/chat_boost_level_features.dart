@@ -16,6 +16,7 @@ part of '../tdapi.dart';
 /// * [chatThemeBackgroundCount]: Number of chat theme backgrounds that can be set as chat background.
 /// * [canSetCustomBackground]: True, if custom background can be set in the chat for all users.
 /// * [canSetCustomEmojiStickerSet]: True, if custom emoji sticker set can be set for the chat.
+/// * [canEnableAutomaticTranslation]: True, if automatic translation of messages can be enabled in the chat.
 /// * [canRecognizeSpeech]: True, if speech recognition can be used for video note and voice note messages by all users.
 /// * [canDisableSponsoredMessages]: True, if sponsored messages can be disabled in the chat.
 final class ChatBoostLevelFeatures extends TdObject {
@@ -35,6 +36,7 @@ final class ChatBoostLevelFeatures extends TdObject {
   /// * [chatThemeBackgroundCount]: Number of chat theme backgrounds that can be set as chat background.
   /// * [canSetCustomBackground]: True, if custom background can be set in the chat for all users.
   /// * [canSetCustomEmojiStickerSet]: True, if custom emoji sticker set can be set for the chat.
+  /// * [canEnableAutomaticTranslation]: True, if automatic translation of messages can be enabled in the chat.
   /// * [canRecognizeSpeech]: True, if speech recognition can be used for video note and voice note messages by all users.
   /// * [canDisableSponsoredMessages]: True, if sponsored messages can be disabled in the chat.
   const ChatBoostLevelFeatures({
@@ -50,6 +52,7 @@ final class ChatBoostLevelFeatures extends TdObject {
     required this.chatThemeBackgroundCount,
     required this.canSetCustomBackground,
     required this.canSetCustomEmojiStickerSet,
+    required this.canEnableAutomaticTranslation,
     required this.canRecognizeSpeech,
     required this.canDisableSponsoredMessages,
     this.extra,
@@ -92,6 +95,9 @@ final class ChatBoostLevelFeatures extends TdObject {
   /// True, if custom emoji sticker set can be set for the chat
   final bool canSetCustomEmojiStickerSet;
 
+  /// True, if automatic translation of messages can be enabled in the chat
+  final bool canEnableAutomaticTranslation;
+
   /// True, if speech recognition can be used for video note and voice note messages by all users
   final bool canRecognizeSpeech;
 
@@ -122,6 +128,7 @@ final class ChatBoostLevelFeatures extends TdObject {
         chatThemeBackgroundCount: json['chat_theme_background_count'],
         canSetCustomBackground: json['can_set_custom_background'],
         canSetCustomEmojiStickerSet: json['can_set_custom_emoji_sticker_set'],
+        canEnableAutomaticTranslation: json['can_enable_automatic_translation'],
         canRecognizeSpeech: json['can_recognize_speech'],
         canDisableSponsoredMessages: json['can_disable_sponsored_messages'],
         extra: json['@extra'],
@@ -146,6 +153,7 @@ final class ChatBoostLevelFeatures extends TdObject {
       "chat_theme_background_count": chatThemeBackgroundCount,
       "can_set_custom_background": canSetCustomBackground,
       "can_set_custom_emoji_sticker_set": canSetCustomEmojiStickerSet,
+      "can_enable_automatic_translation": canEnableAutomaticTranslation,
       "can_recognize_speech": canRecognizeSpeech,
       "can_disable_sponsored_messages": canDisableSponsoredMessages,
     };
@@ -166,6 +174,7 @@ final class ChatBoostLevelFeatures extends TdObject {
   /// * [chat_theme_background_count]: Number of chat theme backgrounds that can be set as chat background
   /// * [can_set_custom_background]: True, if custom background can be set in the chat for all users
   /// * [can_set_custom_emoji_sticker_set]: True, if custom emoji sticker set can be set for the chat
+  /// * [can_enable_automatic_translation]: True, if automatic translation of messages can be enabled in the chat
   /// * [can_recognize_speech]: True, if speech recognition can be used for video note and voice note messages by all users
   /// * [can_disable_sponsored_messages]: True, if sponsored messages can be disabled in the chat
   ChatBoostLevelFeatures copyWith({
@@ -181,38 +190,40 @@ final class ChatBoostLevelFeatures extends TdObject {
     int? chatThemeBackgroundCount,
     bool? canSetCustomBackground,
     bool? canSetCustomEmojiStickerSet,
+    bool? canEnableAutomaticTranslation,
     bool? canRecognizeSpeech,
     bool? canDisableSponsoredMessages,
     dynamic extra,
     int? clientId,
-  }) =>
-      ChatBoostLevelFeatures(
-        level: level ?? this.level,
-        storyPerDayCount: storyPerDayCount ?? this.storyPerDayCount,
-        customEmojiReactionCount:
-            customEmojiReactionCount ?? this.customEmojiReactionCount,
-        titleColorCount: titleColorCount ?? this.titleColorCount,
-        profileAccentColorCount:
-            profileAccentColorCount ?? this.profileAccentColorCount,
-        canSetProfileBackgroundCustomEmoji:
-            canSetProfileBackgroundCustomEmoji ??
-                this.canSetProfileBackgroundCustomEmoji,
-        accentColorCount: accentColorCount ?? this.accentColorCount,
-        canSetBackgroundCustomEmoji:
-            canSetBackgroundCustomEmoji ?? this.canSetBackgroundCustomEmoji,
-        canSetEmojiStatus: canSetEmojiStatus ?? this.canSetEmojiStatus,
-        chatThemeBackgroundCount:
-            chatThemeBackgroundCount ?? this.chatThemeBackgroundCount,
-        canSetCustomBackground:
-            canSetCustomBackground ?? this.canSetCustomBackground,
-        canSetCustomEmojiStickerSet:
-            canSetCustomEmojiStickerSet ?? this.canSetCustomEmojiStickerSet,
-        canRecognizeSpeech: canRecognizeSpeech ?? this.canRecognizeSpeech,
-        canDisableSponsoredMessages:
-            canDisableSponsoredMessages ?? this.canDisableSponsoredMessages,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => ChatBoostLevelFeatures(
+    level: level ?? this.level,
+    storyPerDayCount: storyPerDayCount ?? this.storyPerDayCount,
+    customEmojiReactionCount:
+        customEmojiReactionCount ?? this.customEmojiReactionCount,
+    titleColorCount: titleColorCount ?? this.titleColorCount,
+    profileAccentColorCount:
+        profileAccentColorCount ?? this.profileAccentColorCount,
+    canSetProfileBackgroundCustomEmoji:
+        canSetProfileBackgroundCustomEmoji ??
+        this.canSetProfileBackgroundCustomEmoji,
+    accentColorCount: accentColorCount ?? this.accentColorCount,
+    canSetBackgroundCustomEmoji:
+        canSetBackgroundCustomEmoji ?? this.canSetBackgroundCustomEmoji,
+    canSetEmojiStatus: canSetEmojiStatus ?? this.canSetEmojiStatus,
+    chatThemeBackgroundCount:
+        chatThemeBackgroundCount ?? this.chatThemeBackgroundCount,
+    canSetCustomBackground:
+        canSetCustomBackground ?? this.canSetCustomBackground,
+    canSetCustomEmojiStickerSet:
+        canSetCustomEmojiStickerSet ?? this.canSetCustomEmojiStickerSet,
+    canEnableAutomaticTranslation:
+        canEnableAutomaticTranslation ?? this.canEnableAutomaticTranslation,
+    canRecognizeSpeech: canRecognizeSpeech ?? this.canRecognizeSpeech,
+    canDisableSponsoredMessages:
+        canDisableSponsoredMessages ?? this.canDisableSponsoredMessages,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatBoostLevelFeatures';

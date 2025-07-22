@@ -61,23 +61,28 @@ final class AvailableReactions extends TdObject {
   /// Parse from a json
   factory AvailableReactions.fromJson(Map<String, dynamic> json) =>
       AvailableReactions(
-        topReactions: List<AvailableReaction>.from((json['top_reactions'] ?? [])
-            .map((item) => AvailableReaction.fromJson(item))
-            .toList()),
+        topReactions: List<AvailableReaction>.from(
+          (json['top_reactions'] ?? [])
+              .map((item) => AvailableReaction.fromJson(item))
+              .toList(),
+        ),
         recentReactions: List<AvailableReaction>.from(
-            (json['recent_reactions'] ?? [])
-                .map((item) => AvailableReaction.fromJson(item))
-                .toList()),
+          (json['recent_reactions'] ?? [])
+              .map((item) => AvailableReaction.fromJson(item))
+              .toList(),
+        ),
         popularReactions: List<AvailableReaction>.from(
-            (json['popular_reactions'] ?? [])
-                .map((item) => AvailableReaction.fromJson(item))
-                .toList()),
+          (json['popular_reactions'] ?? [])
+              .map((item) => AvailableReaction.fromJson(item))
+              .toList(),
+        ),
         allowCustomEmoji: json['allow_custom_emoji'],
         areTags: json['are_tags'],
         unavailabilityReason: json['unavailability_reason'] == null
             ? null
             : ReactionUnavailabilityReason.fromJson(
-                json['unavailability_reason']),
+                json['unavailability_reason'],
+              ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -114,17 +119,16 @@ final class AvailableReactions extends TdObject {
     ReactionUnavailabilityReason? unavailabilityReason,
     dynamic extra,
     int? clientId,
-  }) =>
-      AvailableReactions(
-        topReactions: topReactions ?? this.topReactions,
-        recentReactions: recentReactions ?? this.recentReactions,
-        popularReactions: popularReactions ?? this.popularReactions,
-        allowCustomEmoji: allowCustomEmoji ?? this.allowCustomEmoji,
-        areTags: areTags ?? this.areTags,
-        unavailabilityReason: unavailabilityReason ?? this.unavailabilityReason,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => AvailableReactions(
+    topReactions: topReactions ?? this.topReactions,
+    recentReactions: recentReactions ?? this.recentReactions,
+    popularReactions: popularReactions ?? this.popularReactions,
+    allowCustomEmoji: allowCustomEmoji ?? this.allowCustomEmoji,
+    areTags: areTags ?? this.areTags,
+    unavailabilityReason: unavailabilityReason ?? this.unavailabilityReason,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'availableReactions';

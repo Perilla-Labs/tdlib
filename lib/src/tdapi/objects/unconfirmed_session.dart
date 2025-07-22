@@ -69,13 +69,12 @@ final class UnconfirmedSession extends TdObject {
     int? logInDate,
     String? deviceModel,
     String? location,
-  }) =>
-      UnconfirmedSession(
-        id: id ?? this.id,
-        logInDate: logInDate ?? this.logInDate,
-        deviceModel: deviceModel ?? this.deviceModel,
-        location: location ?? this.location,
-      );
+  }) => UnconfirmedSession(
+    id: id ?? this.id,
+    logInDate: logInDate ?? this.logInDate,
+    deviceModel: deviceModel ?? this.deviceModel,
+    location: location ?? this.location,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'unconfirmedSession';

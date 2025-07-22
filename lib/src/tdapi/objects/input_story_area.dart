@@ -13,10 +13,7 @@ final class InputStoryArea extends TdObject {
   ///
   /// * [position]: Position of the area.
   /// * [type]: Type of the area.
-  const InputStoryArea({
-    required this.position,
-    required this.type,
-  });
+  const InputStoryArea({required this.position, required this.type});
 
   /// Position of the area
   final StoryAreaPosition position;
@@ -26,9 +23,9 @@ final class InputStoryArea extends TdObject {
 
   /// Parse from a json
   factory InputStoryArea.fromJson(Map<String, dynamic> json) => InputStoryArea(
-        position: StoryAreaPosition.fromJson(json['position']),
-        type: InputStoryAreaType.fromJson(json['type']),
-      );
+    position: StoryAreaPosition.fromJson(json['position']),
+    type: InputStoryAreaType.fromJson(json['type']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -48,11 +45,10 @@ final class InputStoryArea extends TdObject {
   InputStoryArea copyWith({
     StoryAreaPosition? position,
     InputStoryAreaType? type,
-  }) =>
-      InputStoryArea(
-        position: position ?? this.position,
-        type: type ?? this.type,
-      );
+  }) => InputStoryArea(
+    position: position ?? this.position,
+    type: type ?? this.type,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputStoryArea';

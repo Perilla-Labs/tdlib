@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **GetSecretChat** *(getSecretChat)* - TDLib function
 ///
-/// Returns information about a secret chat by its identifier. This is an offline request.
+/// Returns information about a secret chat by its identifier. This is an offline method.
 ///
 /// * [secretChatId]: Secret chat identifier.
 ///
@@ -10,14 +10,12 @@ part of '../tdapi.dart';
 final class GetSecretChat extends TdFunction {
   /// **GetSecretChat** *(getSecretChat)* - TDLib function
   ///
-  /// Returns information about a secret chat by its identifier. This is an offline request.
+  /// Returns information about a secret chat by its identifier. This is an offline method.
   ///
   /// * [secretChatId]: Secret chat identifier.
   ///
   /// [SecretChat] is returned on completion.
-  const GetSecretChat({
-    required this.secretChatId,
-  });
+  const GetSecretChat({required this.secretChatId});
 
   /// Secret chat identifier
   final int secretChatId;
@@ -36,12 +34,8 @@ final class GetSecretChat extends TdFunction {
   ///
   /// Properties:
   /// * [secret_chat_id]: Secret chat identifier
-  GetSecretChat copyWith({
-    int? secretChatId,
-  }) =>
-      GetSecretChat(
-        secretChatId: secretChatId ?? this.secretChatId,
-      );
+  GetSecretChat copyWith({int? secretChatId}) =>
+      GetSecretChat(secretChatId: secretChatId ?? this.secretChatId);
 
   /// TDLib object type
   static const String defaultObjectId = 'getSecretChat';

@@ -56,12 +56,11 @@ final class AnswerShippingQuery extends TdFunction {
     int? shippingQueryId,
     List<ShippingOption>? shippingOptions,
     String? errorMessage,
-  }) =>
-      AnswerShippingQuery(
-        shippingQueryId: shippingQueryId ?? this.shippingQueryId,
-        shippingOptions: shippingOptions ?? this.shippingOptions,
-        errorMessage: errorMessage ?? this.errorMessage,
-      );
+  }) => AnswerShippingQuery(
+    shippingQueryId: shippingQueryId ?? this.shippingQueryId,
+    shippingOptions: shippingOptions ?? this.shippingOptions,
+    errorMessage: errorMessage ?? this.errorMessage,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'answerShippingQuery';

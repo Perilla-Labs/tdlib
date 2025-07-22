@@ -56,12 +56,11 @@ final class StartGroupCallScreenSharing extends TdFunction {
     int? groupCallId,
     int? audioSourceId,
     String? payload,
-  }) =>
-      StartGroupCallScreenSharing(
-        groupCallId: groupCallId ?? this.groupCallId,
-        audioSourceId: audioSourceId ?? this.audioSourceId,
-        payload: payload ?? this.payload,
-      );
+  }) => StartGroupCallScreenSharing(
+    groupCallId: groupCallId ?? this.groupCallId,
+    audioSourceId: audioSourceId ?? this.audioSourceId,
+    payload: payload ?? this.payload,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'startGroupCallScreenSharing';

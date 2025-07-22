@@ -13,10 +13,7 @@ final class PageBlockCaption extends TdObject {
   ///
   /// * [text]: Content of the caption.
   /// * [credit]: Block credit (like HTML tag <cite>).
-  const PageBlockCaption({
-    required this.text,
-    required this.credit,
-  });
+  const PageBlockCaption({required this.text, required this.credit});
 
   /// Content of the caption
   final RichText text;
@@ -46,14 +43,8 @@ final class PageBlockCaption extends TdObject {
   /// Properties:
   /// * [text]: Content of the caption
   /// * [credit]: Block credit (like HTML tag <cite>)
-  PageBlockCaption copyWith({
-    RichText? text,
-    RichText? credit,
-  }) =>
-      PageBlockCaption(
-        text: text ?? this.text,
-        credit: credit ?? this.credit,
-      );
+  PageBlockCaption copyWith({RichText? text, RichText? credit}) =>
+      PageBlockCaption(text: text ?? this.text, credit: credit ?? this.credit);
 
   /// TDLib object type
   static const String defaultObjectId = 'pageBlockCaption';

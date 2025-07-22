@@ -17,10 +17,7 @@ final class SetStickerMaskPosition extends TdFunction {
   /// * [maskPosition]: Position where the mask is placed; pass null to remove mask position *(optional)*.
   ///
   /// [Ok] is returned on completion.
-  const SetStickerMaskPosition({
-    required this.sticker,
-    this.maskPosition,
-  });
+  const SetStickerMaskPosition({required this.sticker, this.maskPosition});
 
   /// Sticker
   final InputFile sticker;
@@ -47,11 +44,10 @@ final class SetStickerMaskPosition extends TdFunction {
   SetStickerMaskPosition copyWith({
     InputFile? sticker,
     MaskPosition? maskPosition,
-  }) =>
-      SetStickerMaskPosition(
-        sticker: sticker ?? this.sticker,
-        maskPosition: maskPosition ?? this.maskPosition,
-      );
+  }) => SetStickerMaskPosition(
+    sticker: sticker ?? this.sticker,
+    maskPosition: maskPosition ?? this.maskPosition,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setStickerMaskPosition';

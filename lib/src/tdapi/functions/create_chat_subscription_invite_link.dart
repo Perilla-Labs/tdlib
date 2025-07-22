@@ -56,12 +56,11 @@ final class CreateChatSubscriptionInviteLink extends TdFunction {
     int? chatId,
     String? name,
     StarSubscriptionPricing? subscriptionPricing,
-  }) =>
-      CreateChatSubscriptionInviteLink(
-        chatId: chatId ?? this.chatId,
-        name: name ?? this.name,
-        subscriptionPricing: subscriptionPricing ?? this.subscriptionPricing,
-      );
+  }) => CreateChatSubscriptionInviteLink(
+    chatId: chatId ?? this.chatId,
+    name: name ?? this.name,
+    subscriptionPricing: subscriptionPricing ?? this.subscriptionPricing,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'createChatSubscriptionInviteLink';

@@ -2,18 +2,16 @@ part of '../tdapi.dart';
 
 /// **ClosedVectorPath** *(closedVectorPath)* - basic class
 ///
-/// Represents a closed vector path. The path begins at the end point of the last command.
+/// Represents a closed vector path. The path begins at the end point of the last command. The coordinate system origin is in the upper-left corner.
 ///
 /// * [commands]: List of vector path commands.
 final class ClosedVectorPath extends TdObject {
   /// **ClosedVectorPath** *(closedVectorPath)* - basic class
   ///
-  /// Represents a closed vector path. The path begins at the end point of the last command.
+  /// Represents a closed vector path. The path begins at the end point of the last command. The coordinate system origin is in the upper-left corner.
   ///
   /// * [commands]: List of vector path commands.
-  const ClosedVectorPath({
-    required this.commands,
-  });
+  const ClosedVectorPath({required this.commands});
 
   /// List of vector path commands
   final List<VectorPathCommand> commands;
@@ -21,9 +19,11 @@ final class ClosedVectorPath extends TdObject {
   /// Parse from a json
   factory ClosedVectorPath.fromJson(Map<String, dynamic> json) =>
       ClosedVectorPath(
-        commands: List<VectorPathCommand>.from((json['commands'] ?? [])
-            .map((item) => VectorPathCommand.fromJson(item))
-            .toList()),
+        commands: List<VectorPathCommand>.from(
+          (json['commands'] ?? [])
+              .map((item) => VectorPathCommand.fromJson(item))
+              .toList(),
+        ),
       );
 
   /// Convert model to TDLib JSON format
@@ -39,12 +39,8 @@ final class ClosedVectorPath extends TdObject {
   ///
   /// Properties:
   /// * [commands]: List of vector path commands
-  ClosedVectorPath copyWith({
-    List<VectorPathCommand>? commands,
-  }) =>
-      ClosedVectorPath(
-        commands: commands ?? this.commands,
-      );
+  ClosedVectorPath copyWith({List<VectorPathCommand>? commands}) =>
+      ClosedVectorPath(commands: commands ?? this.commands);
 
   /// TDLib object type
   static const String defaultObjectId = 'closedVectorPath';

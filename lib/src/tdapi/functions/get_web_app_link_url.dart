@@ -8,9 +8,8 @@ part of '../tdapi.dart';
 /// * [botUserId]: Identifier of the target bot.
 /// * [webAppShortName]: Short name of the Web App.
 /// * [startParameter]: Start parameter from internalLinkTypeWebApp.
-/// * [theme]: Preferred Web App theme; pass null to use the default theme *(optional)*.
-/// * [applicationName]: Short name of the current application; 0-64 English letters, digits, and underscores.
 /// * [allowWriteAccess]: Pass true if the current user allowed the bot to send them messages.
+/// * [parameters]: Parameters to use to open the Web App.
 ///
 /// [HttpUrl] is returned on completion.
 final class GetWebAppLinkUrl extends TdFunction {
@@ -22,9 +21,8 @@ final class GetWebAppLinkUrl extends TdFunction {
   /// * [botUserId]: Identifier of the target bot.
   /// * [webAppShortName]: Short name of the Web App.
   /// * [startParameter]: Start parameter from internalLinkTypeWebApp.
-  /// * [theme]: Preferred Web App theme; pass null to use the default theme *(optional)*.
-  /// * [applicationName]: Short name of the current application; 0-64 English letters, digits, and underscores.
   /// * [allowWriteAccess]: Pass true if the current user allowed the bot to send them messages.
+  /// * [parameters]: Parameters to use to open the Web App.
   ///
   /// [HttpUrl] is returned on completion.
   const GetWebAppLinkUrl({
@@ -32,9 +30,8 @@ final class GetWebAppLinkUrl extends TdFunction {
     required this.botUserId,
     required this.webAppShortName,
     required this.startParameter,
-    this.theme,
-    required this.applicationName,
     required this.allowWriteAccess,
+    required this.parameters,
   });
 
   /// Identifier of the chat in which the link was clicked; pass 0 if none
@@ -49,14 +46,11 @@ final class GetWebAppLinkUrl extends TdFunction {
   /// Start parameter from internalLinkTypeWebApp
   final String startParameter;
 
-  /// Preferred Web App theme; pass null to use the default theme
-  final ThemeParameters? theme;
-
-  /// Short name of the current application; 0-64 English letters, digits, and underscores
-  final String applicationName;
-
   /// Pass true if the current user allowed the bot to send them messages
   final bool allowWriteAccess;
+
+  /// Parameters to use to open the Web App
+  final WebAppOpenParameters parameters;
 
   /// Convert model to TDLib JSON format
   @override
@@ -67,9 +61,8 @@ final class GetWebAppLinkUrl extends TdFunction {
       "bot_user_id": botUserId,
       "web_app_short_name": webAppShortName,
       "start_parameter": startParameter,
-      "theme": theme?.toJson(),
-      "application_name": applicationName,
       "allow_write_access": allowWriteAccess,
+      "parameters": parameters.toJson(),
       "@extra": extra,
     };
   }
@@ -81,27 +74,23 @@ final class GetWebAppLinkUrl extends TdFunction {
   /// * [bot_user_id]: Identifier of the target bot
   /// * [web_app_short_name]: Short name of the Web App
   /// * [start_parameter]: Start parameter from internalLinkTypeWebApp
-  /// * [theme]: Preferred Web App theme; pass null to use the default theme
-  /// * [application_name]: Short name of the current application; 0-64 English letters, digits, and underscores
   /// * [allow_write_access]: Pass true if the current user allowed the bot to send them messages
+  /// * [parameters]: Parameters to use to open the Web App
   GetWebAppLinkUrl copyWith({
     int? chatId,
     int? botUserId,
     String? webAppShortName,
     String? startParameter,
-    ThemeParameters? theme,
-    String? applicationName,
     bool? allowWriteAccess,
-  }) =>
-      GetWebAppLinkUrl(
-        chatId: chatId ?? this.chatId,
-        botUserId: botUserId ?? this.botUserId,
-        webAppShortName: webAppShortName ?? this.webAppShortName,
-        startParameter: startParameter ?? this.startParameter,
-        theme: theme ?? this.theme,
-        applicationName: applicationName ?? this.applicationName,
-        allowWriteAccess: allowWriteAccess ?? this.allowWriteAccess,
-      );
+    WebAppOpenParameters? parameters,
+  }) => GetWebAppLinkUrl(
+    chatId: chatId ?? this.chatId,
+    botUserId: botUserId ?? this.botUserId,
+    webAppShortName: webAppShortName ?? this.webAppShortName,
+    startParameter: startParameter ?? this.startParameter,
+    allowWriteAccess: allowWriteAccess ?? this.allowWriteAccess,
+    parameters: parameters ?? this.parameters,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getWebAppLinkUrl';

@@ -15,9 +15,7 @@ final class CheckEmailAddressVerificationCode extends TdFunction {
   /// * [code]: Verification code to check.
   ///
   /// [Ok] is returned on completion.
-  const CheckEmailAddressVerificationCode({
-    required this.code,
-  });
+  const CheckEmailAddressVerificationCode({required this.code});
 
   /// Verification code to check
   final String code;
@@ -25,23 +23,15 @@ final class CheckEmailAddressVerificationCode extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "code": code,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "code": code, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [code]: Verification code to check
-  CheckEmailAddressVerificationCode copyWith({
-    String? code,
-  }) =>
-      CheckEmailAddressVerificationCode(
-        code: code ?? this.code,
-      );
+  CheckEmailAddressVerificationCode copyWith({String? code}) =>
+      CheckEmailAddressVerificationCode(code: code ?? this.code);
 
   /// TDLib object type
   static const String defaultObjectId = 'checkEmailAddressVerificationCode';

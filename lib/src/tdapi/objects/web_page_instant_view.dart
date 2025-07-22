@@ -61,9 +61,11 @@ final class WebPageInstantView extends TdObject {
   /// Parse from a json
   factory WebPageInstantView.fromJson(Map<String, dynamic> json) =>
       WebPageInstantView(
-        pageBlocks: List<PageBlock>.from((json['page_blocks'] ?? [])
-            .map((item) => PageBlock.fromJson(item))
-            .toList()),
+        pageBlocks: List<PageBlock>.from(
+          (json['page_blocks'] ?? [])
+              .map((item) => PageBlock.fromJson(item))
+              .toList(),
+        ),
         viewCount: json['view_count'],
         version: json['version'],
         isRtl: json['is_rtl'],
@@ -105,17 +107,16 @@ final class WebPageInstantView extends TdObject {
     InternalLinkType? feedbackLink,
     dynamic extra,
     int? clientId,
-  }) =>
-      WebPageInstantView(
-        pageBlocks: pageBlocks ?? this.pageBlocks,
-        viewCount: viewCount ?? this.viewCount,
-        version: version ?? this.version,
-        isRtl: isRtl ?? this.isRtl,
-        isFull: isFull ?? this.isFull,
-        feedbackLink: feedbackLink ?? this.feedbackLink,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => WebPageInstantView(
+    pageBlocks: pageBlocks ?? this.pageBlocks,
+    viewCount: viewCount ?? this.viewCount,
+    version: version ?? this.version,
+    isRtl: isRtl ?? this.isRtl,
+    isFull: isFull ?? this.isFull,
+    feedbackLink: feedbackLink ?? this.feedbackLink,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'webPageInstantView';

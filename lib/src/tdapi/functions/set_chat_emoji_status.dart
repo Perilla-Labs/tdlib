@@ -17,10 +17,7 @@ final class SetChatEmojiStatus extends TdFunction {
   /// * [emojiStatus]: New emoji status; pass null to remove emoji status *(optional)*.
   ///
   /// [Ok] is returned on completion.
-  const SetChatEmojiStatus({
-    required this.chatId,
-    this.emojiStatus,
-  });
+  const SetChatEmojiStatus({required this.chatId, this.emojiStatus});
 
   /// Chat identifier
   final int chatId;
@@ -44,10 +41,7 @@ final class SetChatEmojiStatus extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [emoji_status]: New emoji status; pass null to remove emoji status
-  SetChatEmojiStatus copyWith({
-    int? chatId,
-    EmojiStatus? emojiStatus,
-  }) =>
+  SetChatEmojiStatus copyWith({int? chatId, EmojiStatus? emojiStatus}) =>
       SetChatEmojiStatus(
         chatId: chatId ?? this.chatId,
         emojiStatus: emojiStatus ?? this.emojiStatus,

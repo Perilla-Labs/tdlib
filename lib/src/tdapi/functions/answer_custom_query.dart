@@ -17,10 +17,7 @@ final class AnswerCustomQuery extends TdFunction {
   /// * [data]: JSON-serialized answer to the query.
   ///
   /// [Ok] is returned on completion.
-  const AnswerCustomQuery({
-    required this.customQueryId,
-    required this.data,
-  });
+  const AnswerCustomQuery({required this.customQueryId, required this.data});
 
   /// Identifier of a custom query
   final int customQueryId;
@@ -44,10 +41,7 @@ final class AnswerCustomQuery extends TdFunction {
   /// Properties:
   /// * [custom_query_id]: Identifier of a custom query
   /// * [data]: JSON-serialized answer to the query
-  AnswerCustomQuery copyWith({
-    int? customQueryId,
-    String? data,
-  }) =>
+  AnswerCustomQuery copyWith({int? customQueryId, String? data}) =>
       AnswerCustomQuery(
         customQueryId: customQueryId ?? this.customQueryId,
         data: data ?? this.data,

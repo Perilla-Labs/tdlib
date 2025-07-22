@@ -64,9 +64,7 @@ final class ReactionNotificationSourceNone extends ReactionNotificationSource {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -98,15 +96,13 @@ final class ReactionNotificationSourceContacts
 
   /// Parse from a json
   factory ReactionNotificationSourceContacts.fromJson(
-          Map<String, dynamic> json) =>
-      const ReactionNotificationSourceContacts();
+    Map<String, dynamic> json,
+  ) => const ReactionNotificationSourceContacts();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -142,9 +138,7 @@ final class ReactionNotificationSourceAll extends ReactionNotificationSource {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.

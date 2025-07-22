@@ -44,10 +44,7 @@ final class GetStarSubscriptions extends TdFunction {
   /// Properties:
   /// * [only_expiring]: Pass true to receive only expiring subscriptions for which there are no enough Telegram Stars to extend
   /// * [offset]: Offset of the first subscription to return as received from the previous request; use empty string to get the first chunk of results
-  GetStarSubscriptions copyWith({
-    bool? onlyExpiring,
-    String? offset,
-  }) =>
+  GetStarSubscriptions copyWith({bool? onlyExpiring, String? offset}) =>
       GetStarSubscriptions(
         onlyExpiring: onlyExpiring ?? this.onlyExpiring,
         offset: offset ?? this.offset,

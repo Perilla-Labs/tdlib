@@ -17,10 +17,7 @@ final class AddChatMembers extends TdFunction {
   /// * [userIds]: Identifiers of the users to be added to the chat. The maximum number of added users is 20 for supergroups and 100 for channels.
   ///
   /// [FailedToAddMembers] is returned on completion.
-  const AddChatMembers({
-    required this.chatId,
-    required this.userIds,
-  });
+  const AddChatMembers({required this.chatId, required this.userIds});
 
   /// Chat identifier
   final int chatId;
@@ -44,14 +41,10 @@ final class AddChatMembers extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [user_ids]: Identifiers of the users to be added to the chat. The maximum number of added users is 20 for supergroups and 100 for channels
-  AddChatMembers copyWith({
-    int? chatId,
-    List<int>? userIds,
-  }) =>
-      AddChatMembers(
-        chatId: chatId ?? this.chatId,
-        userIds: userIds ?? this.userIds,
-      );
+  AddChatMembers copyWith({int? chatId, List<int>? userIds}) => AddChatMembers(
+    chatId: chatId ?? this.chatId,
+    userIds: userIds ?? this.userIds,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'addChatMembers';

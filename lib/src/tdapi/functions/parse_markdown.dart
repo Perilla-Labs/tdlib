@@ -15,9 +15,7 @@ final class ParseMarkdown extends TdFunction {
   /// * [text]: The text to parse. For example, "__italic__.
   ///
   /// [FormattedText] is returned on completion.
-  const ParseMarkdown({
-    required this.text,
-  });
+  const ParseMarkdown({required this.text});
 
   /// The text to parse. For example, "__italic__
   final FormattedText text;
@@ -25,23 +23,15 @@ final class ParseMarkdown extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "text": text.toJson(),
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "text": text.toJson(), "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [text]: The text to parse. For example, "__italic__
-  ParseMarkdown copyWith({
-    FormattedText? text,
-  }) =>
-      ParseMarkdown(
-        text: text ?? this.text,
-      );
+  ParseMarkdown copyWith({FormattedText? text}) =>
+      ParseMarkdown(text: text ?? this.text);
 
   /// TDLib object type
   static const String defaultObjectId = 'parseMarkdown';

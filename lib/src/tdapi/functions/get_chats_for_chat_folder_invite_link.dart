@@ -15,9 +15,7 @@ final class GetChatsForChatFolderInviteLink extends TdFunction {
   /// * [chatFolderId]: Chat folder identifier.
   ///
   /// [Chats] is returned on completion.
-  const GetChatsForChatFolderInviteLink({
-    required this.chatFolderId,
-  });
+  const GetChatsForChatFolderInviteLink({required this.chatFolderId});
 
   /// Chat folder identifier
   final int chatFolderId;
@@ -36,9 +34,7 @@ final class GetChatsForChatFolderInviteLink extends TdFunction {
   ///
   /// Properties:
   /// * [chat_folder_id]: Chat folder identifier
-  GetChatsForChatFolderInviteLink copyWith({
-    int? chatFolderId,
-  }) =>
+  GetChatsForChatFolderInviteLink copyWith({int? chatFolderId}) =>
       GetChatsForChatFolderInviteLink(
         chatFolderId: chatFolderId ?? this.chatFolderId,
       );

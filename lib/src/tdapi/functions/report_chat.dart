@@ -5,39 +5,39 @@ part of '../tdapi.dart';
 /// Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, or if chat.can_be_reported.
 ///
 /// * [chatId]: Chat identifier.
-/// * [messageIds]: Identifiers of reported messages; may be empty to report the whole chat. Use messageProperties.can_be_reported to check whether the message can be reported.
-/// * [reason]: The reason for reporting the chat.
-/// * [text]: Additional report details; 0-1024 characters.
+/// * [optionId]: Option identifier chosen by the user; leave empty for the initial request.
+/// * [messageIds]: Identifiers of reported messages. Use messageProperties.can_report_chat to check whether the message can be reported.
+/// * [text]: Additional report details if asked by the server; 0-1024 characters; leave empty for the initial request.
 ///
-/// [Ok] is returned on completion.
+/// [ReportChatResult] is returned on completion.
 final class ReportChat extends TdFunction {
   /// **ReportChat** *(reportChat)* - TDLib function
   ///
   /// Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, or if chat.can_be_reported.
   ///
   /// * [chatId]: Chat identifier.
-  /// * [messageIds]: Identifiers of reported messages; may be empty to report the whole chat. Use messageProperties.can_be_reported to check whether the message can be reported.
-  /// * [reason]: The reason for reporting the chat.
-  /// * [text]: Additional report details; 0-1024 characters.
+  /// * [optionId]: Option identifier chosen by the user; leave empty for the initial request.
+  /// * [messageIds]: Identifiers of reported messages. Use messageProperties.can_report_chat to check whether the message can be reported.
+  /// * [text]: Additional report details if asked by the server; 0-1024 characters; leave empty for the initial request.
   ///
-  /// [Ok] is returned on completion.
+  /// [ReportChatResult] is returned on completion.
   const ReportChat({
     required this.chatId,
+    required this.optionId,
     required this.messageIds,
-    required this.reason,
     required this.text,
   });
 
   /// Chat identifier
   final int chatId;
 
-  /// Identifiers of reported messages; may be empty to report the whole chat. Use messageProperties.can_be_reported to check whether the message can be reported
+  /// Option identifier chosen by the user; leave empty for the initial request
+  final String optionId;
+
+  /// Identifiers of reported messages. Use messageProperties.can_report_chat to check whether the message can be reported
   final List<int> messageIds;
 
-  /// The reason for reporting the chat
-  final ReportReason reason;
-
-  /// Additional report details; 0-1024 characters
+  /// Additional report details if asked by the server; 0-1024 characters; leave empty for the initial request
   final String text;
 
   /// Convert model to TDLib JSON format
@@ -46,8 +46,8 @@ final class ReportChat extends TdFunction {
     return {
       "@type": defaultObjectId,
       "chat_id": chatId,
+      "option_id": optionId,
       "message_ids": messageIds.map((i) => i).toList(),
-      "reason": reason.toJson(),
       "text": text,
       "@extra": extra,
     };
@@ -57,21 +57,20 @@ final class ReportChat extends TdFunction {
   ///
   /// Properties:
   /// * [chat_id]: Chat identifier
-  /// * [message_ids]: Identifiers of reported messages; may be empty to report the whole chat. Use messageProperties.can_be_reported to check whether the message can be reported
-  /// * [reason]: The reason for reporting the chat
-  /// * [text]: Additional report details; 0-1024 characters
+  /// * [option_id]: Option identifier chosen by the user; leave empty for the initial request
+  /// * [message_ids]: Identifiers of reported messages. Use messageProperties.can_report_chat to check whether the message can be reported
+  /// * [text]: Additional report details if asked by the server; 0-1024 characters; leave empty for the initial request
   ReportChat copyWith({
     int? chatId,
+    String? optionId,
     List<int>? messageIds,
-    ReportReason? reason,
     String? text,
-  }) =>
-      ReportChat(
-        chatId: chatId ?? this.chatId,
-        messageIds: messageIds ?? this.messageIds,
-        reason: reason ?? this.reason,
-        text: text ?? this.text,
-      );
+  }) => ReportChat(
+    chatId: chatId ?? this.chatId,
+    optionId: optionId ?? this.optionId,
+    messageIds: messageIds ?? this.messageIds,
+    text: text ?? this.text,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'reportChat';

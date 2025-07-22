@@ -56,12 +56,11 @@ final class ValidateOrderInfo extends TdFunction {
     InputInvoice? inputInvoice,
     OrderInfo? orderInfo,
     bool? allowSave,
-  }) =>
-      ValidateOrderInfo(
-        inputInvoice: inputInvoice ?? this.inputInvoice,
-        orderInfo: orderInfo ?? this.orderInfo,
-        allowSave: allowSave ?? this.allowSave,
-      );
+  }) => ValidateOrderInfo(
+    inputInvoice: inputInvoice ?? this.inputInvoice,
+    orderInfo: orderInfo ?? this.orderInfo,
+    allowSave: allowSave ?? this.allowSave,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'validateOrderInfo';

@@ -17,10 +17,7 @@ final class SendCallSignalingData extends TdFunction {
   /// * [data]: The data.
   ///
   /// [Ok] is returned on completion.
-  const SendCallSignalingData({
-    required this.callId,
-    required this.data,
-  });
+  const SendCallSignalingData({required this.callId, required this.data});
 
   /// Call identifier
   final int callId;
@@ -44,10 +41,7 @@ final class SendCallSignalingData extends TdFunction {
   /// Properties:
   /// * [call_id]: Call identifier
   /// * [data]: The data
-  SendCallSignalingData copyWith({
-    int? callId,
-    String? data,
-  }) =>
+  SendCallSignalingData copyWith({int? callId, String? data}) =>
       SendCallSignalingData(
         callId: callId ?? this.callId,
         data: data ?? this.data,

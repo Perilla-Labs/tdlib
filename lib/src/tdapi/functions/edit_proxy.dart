@@ -74,14 +74,13 @@ final class EditProxy extends TdFunction {
     int? port,
     bool? enable,
     ProxyType? type,
-  }) =>
-      EditProxy(
-        proxyId: proxyId ?? this.proxyId,
-        server: server ?? this.server,
-        port: port ?? this.port,
-        enable: enable ?? this.enable,
-        type: type ?? this.type,
-      );
+  }) => EditProxy(
+    proxyId: proxyId ?? this.proxyId,
+    server: server ?? this.server,
+    port: port ?? this.port,
+    enable: enable ?? this.enable,
+    type: type ?? this.type,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'editProxy';

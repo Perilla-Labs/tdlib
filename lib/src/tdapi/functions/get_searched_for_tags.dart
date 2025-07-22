@@ -17,10 +17,7 @@ final class GetSearchedForTags extends TdFunction {
   /// * [limit]: The maximum number of items to be returned.
   ///
   /// [Hashtags] is returned on completion.
-  const GetSearchedForTags({
-    required this.tagPrefix,
-    required this.limit,
-  });
+  const GetSearchedForTags({required this.tagPrefix, required this.limit});
 
   /// Prefix of hashtags or cashtags to return
   final String tagPrefix;
@@ -44,10 +41,7 @@ final class GetSearchedForTags extends TdFunction {
   /// Properties:
   /// * [tag_prefix]: Prefix of hashtags or cashtags to return
   /// * [limit]: The maximum number of items to be returned
-  GetSearchedForTags copyWith({
-    String? tagPrefix,
-    int? limit,
-  }) =>
+  GetSearchedForTags copyWith({String? tagPrefix, int? limit}) =>
       GetSearchedForTags(
         tagPrefix: tagPrefix ?? this.tagPrefix,
         limit: limit ?? this.limit,

@@ -17,10 +17,7 @@ final class GetBotName extends TdFunction {
   /// * [languageCode]: A two-letter ISO 639-1 language code or an empty string.
   ///
   /// [Text] is returned on completion.
-  const GetBotName({
-    required this.botUserId,
-    required this.languageCode,
-  });
+  const GetBotName({required this.botUserId, required this.languageCode});
 
   /// Identifier of the target bot
   final int botUserId;
@@ -44,14 +41,10 @@ final class GetBotName extends TdFunction {
   /// Properties:
   /// * [bot_user_id]: Identifier of the target bot
   /// * [language_code]: A two-letter ISO 639-1 language code or an empty string
-  GetBotName copyWith({
-    int? botUserId,
-    String? languageCode,
-  }) =>
-      GetBotName(
-        botUserId: botUserId ?? this.botUserId,
-        languageCode: languageCode ?? this.languageCode,
-      );
+  GetBotName copyWith({int? botUserId, String? languageCode}) => GetBotName(
+    botUserId: botUserId ?? this.botUserId,
+    languageCode: languageCode ?? this.languageCode,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getBotName';

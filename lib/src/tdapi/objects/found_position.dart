@@ -11,11 +11,7 @@ final class FoundPosition extends TdObject {
   /// Contains 0-based match position.
   ///
   /// * [position]: The position of the match.
-  const FoundPosition({
-    required this.position,
-    this.extra,
-    this.clientId,
-  });
+  const FoundPosition({required this.position, this.extra, this.clientId});
 
   /// The position of the match
   final int position;
@@ -30,29 +26,22 @@ final class FoundPosition extends TdObject {
 
   /// Parse from a json
   factory FoundPosition.fromJson(Map<String, dynamic> json) => FoundPosition(
-        position: json['position'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    position: json['position'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "position": position,
-    };
+    return {"@type": defaultObjectId, "position": position};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [position]: The position of the match
-  FoundPosition copyWith({
-    int? position,
-    dynamic extra,
-    int? clientId,
-  }) =>
+  FoundPosition copyWith({int? position, dynamic extra, int? clientId}) =>
       FoundPosition(
         position: position ?? this.position,
         extra: extra ?? this.extra,

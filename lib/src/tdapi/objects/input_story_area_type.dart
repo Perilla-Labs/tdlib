@@ -17,6 +17,7 @@ sealed class InputStoryAreaType extends TdObject {
   /// * [InputStoryAreaTypeMessage]
   /// * [InputStoryAreaTypeLink]
   /// * [InputStoryAreaTypeWeather]
+  /// * [InputStoryAreaTypeUpgradedGift]
   factory InputStoryAreaType.fromJson(Map<String, dynamic> json) {
     switch (json["@type"]) {
       case InputStoryAreaTypeLocation.defaultObjectId:
@@ -33,6 +34,8 @@ sealed class InputStoryAreaType extends TdObject {
         return InputStoryAreaTypeLink.fromJson(json);
       case InputStoryAreaTypeWeather.defaultObjectId:
         return InputStoryAreaTypeWeather.fromJson(json);
+      case InputStoryAreaTypeUpgradedGift.defaultObjectId:
+        return InputStoryAreaTypeUpgradedGift.fromJson(json);
       default:
         throw FormatException(
           "Unknown object ${json["@type"]} (expected child of InputStoryAreaType)",
@@ -73,10 +76,7 @@ final class InputStoryAreaTypeLocation extends InputStoryAreaType {
   ///
   /// * [location]: The location.
   /// * [address]: Address of the location; pass null if unknown *(optional)*.
-  const InputStoryAreaTypeLocation({
-    required this.location,
-    this.address,
-  });
+  const InputStoryAreaTypeLocation({required this.location, this.address});
 
   /// The location
   final Location location;
@@ -112,11 +112,10 @@ final class InputStoryAreaTypeLocation extends InputStoryAreaType {
   InputStoryAreaTypeLocation copyWith({
     Location? location,
     LocationAddress? address,
-  }) =>
-      InputStoryAreaTypeLocation(
-        location: location ?? this.location,
-        address: address ?? this.address,
-      );
+  }) => InputStoryAreaTypeLocation(
+    location: location ?? this.location,
+    address: address ?? this.address,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputStoryAreaTypeLocation';
@@ -179,10 +178,7 @@ final class InputStoryAreaTypeFoundVenue extends InputStoryAreaType {
   /// * [query_id]: Identifier of the inline query, used to found the venue
   /// * [result_id]: Identifier of the inline query result
   @override
-  InputStoryAreaTypeFoundVenue copyWith({
-    int? queryId,
-    String? resultId,
-  }) =>
+  InputStoryAreaTypeFoundVenue copyWith({int? queryId, String? resultId}) =>
       InputStoryAreaTypeFoundVenue(
         queryId: queryId ?? this.queryId,
         resultId: resultId ?? this.resultId,
@@ -250,11 +246,10 @@ final class InputStoryAreaTypePreviousVenue extends InputStoryAreaType {
   InputStoryAreaTypePreviousVenue copyWith({
     String? venueProvider,
     String? venueId,
-  }) =>
-      InputStoryAreaTypePreviousVenue(
-        venueProvider: venueProvider ?? this.venueProvider,
-        venueId: venueId ?? this.venueId,
-      );
+  }) => InputStoryAreaTypePreviousVenue(
+    venueProvider: venueProvider ?? this.venueProvider,
+    venueId: venueId ?? this.venueId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputStoryAreaTypePreviousVenue';
@@ -300,12 +295,12 @@ final class InputStoryAreaTypeSuggestedReaction extends InputStoryAreaType {
 
   /// Parse from a json
   factory InputStoryAreaTypeSuggestedReaction.fromJson(
-          Map<String, dynamic> json) =>
-      InputStoryAreaTypeSuggestedReaction(
-        reactionType: ReactionType.fromJson(json['reaction_type']),
-        isDark: json['is_dark'],
-        isFlipped: json['is_flipped'],
-      );
+    Map<String, dynamic> json,
+  ) => InputStoryAreaTypeSuggestedReaction(
+    reactionType: ReactionType.fromJson(json['reaction_type']),
+    isDark: json['is_dark'],
+    isFlipped: json['is_flipped'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -329,12 +324,11 @@ final class InputStoryAreaTypeSuggestedReaction extends InputStoryAreaType {
     ReactionType? reactionType,
     bool? isDark,
     bool? isFlipped,
-  }) =>
-      InputStoryAreaTypeSuggestedReaction(
-        reactionType: reactionType ?? this.reactionType,
-        isDark: isDark ?? this.isDark,
-        isFlipped: isFlipped ?? this.isFlipped,
-      );
+  }) => InputStoryAreaTypeSuggestedReaction(
+    reactionType: reactionType ?? this.reactionType,
+    isDark: isDark ?? this.isDark,
+    isFlipped: isFlipped ?? this.isFlipped,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputStoryAreaTypeSuggestedReaction';
@@ -395,10 +389,7 @@ final class InputStoryAreaTypeMessage extends InputStoryAreaType {
   /// * [chat_id]: Identifier of the chat with the message. Currently, the chat must be a supergroup or a channel chat
   /// * [message_id]: Identifier of the message. Use messageProperties.can_be_shared_in_story to check whether the message is suitable
   @override
-  InputStoryAreaTypeMessage copyWith({
-    int? chatId,
-    int? messageId,
-  }) =>
+  InputStoryAreaTypeMessage copyWith({int? chatId, int? messageId}) =>
       InputStoryAreaTypeMessage(
         chatId: chatId ?? this.chatId,
         messageId: messageId ?? this.messageId,
@@ -427,26 +418,19 @@ final class InputStoryAreaTypeLink extends InputStoryAreaType {
   /// An area pointing to a HTTP or tg:// link.
   ///
   /// * [url]: HTTP or tg:// URL to be opened when the area is clicked.
-  const InputStoryAreaTypeLink({
-    required this.url,
-  });
+  const InputStoryAreaTypeLink({required this.url});
 
   /// HTTP or tg:// URL to be opened when the area is clicked
   final String url;
 
   /// Parse from a json
   factory InputStoryAreaTypeLink.fromJson(Map<String, dynamic> json) =>
-      InputStoryAreaTypeLink(
-        url: json['url'],
-      );
+      InputStoryAreaTypeLink(url: json['url']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "url": url,
-    };
+    return {"@type": defaultObjectId, "url": url};
   }
 
   /// Copy model with modified properties.
@@ -454,12 +438,8 @@ final class InputStoryAreaTypeLink extends InputStoryAreaType {
   /// Properties:
   /// * [url]: HTTP or tg:// URL to be opened when the area is clicked
   @override
-  InputStoryAreaTypeLink copyWith({
-    String? url,
-  }) =>
-      InputStoryAreaTypeLink(
-        url: url ?? this.url,
-      );
+  InputStoryAreaTypeLink copyWith({String? url}) =>
+      InputStoryAreaTypeLink(url: url ?? this.url);
 
   /// TDLib object type
   static const String defaultObjectId = 'inputStoryAreaTypeLink';
@@ -533,15 +513,60 @@ final class InputStoryAreaTypeWeather extends InputStoryAreaType {
     double? temperature,
     String? emoji,
     int? backgroundColor,
-  }) =>
-      InputStoryAreaTypeWeather(
-        temperature: temperature ?? this.temperature,
-        emoji: emoji ?? this.emoji,
-        backgroundColor: backgroundColor ?? this.backgroundColor,
-      );
+  }) => InputStoryAreaTypeWeather(
+    temperature: temperature ?? this.temperature,
+    emoji: emoji ?? this.emoji,
+    backgroundColor: backgroundColor ?? this.backgroundColor,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputStoryAreaTypeWeather';
+
+  /// Convert model to TDLib JSON format, encoded into String.
+  @override
+  String toString() => jsonEncode(toJson());
+
+  /// TDLib object type for current class instance
+  @override
+  String get currentObjectId => defaultObjectId;
+}
+
+/// **InputStoryAreaTypeUpgradedGift** *(inputStoryAreaTypeUpgradedGift)* - child of InputStoryAreaType
+///
+/// An area with an upgraded gift.
+///
+/// * [giftName]: Unique name of the upgraded gift.
+final class InputStoryAreaTypeUpgradedGift extends InputStoryAreaType {
+  /// **InputStoryAreaTypeUpgradedGift** *(inputStoryAreaTypeUpgradedGift)* - child of InputStoryAreaType
+  ///
+  /// An area with an upgraded gift.
+  ///
+  /// * [giftName]: Unique name of the upgraded gift.
+  const InputStoryAreaTypeUpgradedGift({required this.giftName});
+
+  /// Unique name of the upgraded gift
+  final String giftName;
+
+  /// Parse from a json
+  factory InputStoryAreaTypeUpgradedGift.fromJson(Map<String, dynamic> json) =>
+      InputStoryAreaTypeUpgradedGift(giftName: json['gift_name']);
+
+  /// Convert model to TDLib JSON format
+  @override
+  Map<String, dynamic> toJson() {
+    return {"@type": defaultObjectId, "gift_name": giftName};
+  }
+
+  /// Copy model with modified properties.
+  ///
+  /// Properties:
+  /// * [gift_name]: Unique name of the upgraded gift
+  @override
+  InputStoryAreaTypeUpgradedGift copyWith({String? giftName}) =>
+      InputStoryAreaTypeUpgradedGift(giftName: giftName ?? this.giftName);
+
+  /// TDLib object type
+  static const String defaultObjectId = 'inputStoryAreaTypeUpgradedGift';
 
   /// Convert model to TDLib JSON format, encoded into String.
   @override

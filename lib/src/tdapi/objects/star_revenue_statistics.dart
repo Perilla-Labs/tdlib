@@ -43,8 +43,9 @@ final class StarRevenueStatistics extends TdObject {
   /// Parse from a json
   factory StarRevenueStatistics.fromJson(Map<String, dynamic> json) =>
       StarRevenueStatistics(
-        revenueByDayGraph:
-            StatisticalGraph.fromJson(json['revenue_by_day_graph']),
+        revenueByDayGraph: StatisticalGraph.fromJson(
+          json['revenue_by_day_graph'],
+        ),
         status: StarRevenueStatus.fromJson(json['status']),
         usdRate: json['usd_rate'],
         extra: json['@extra'],
@@ -74,14 +75,13 @@ final class StarRevenueStatistics extends TdObject {
     double? usdRate,
     dynamic extra,
     int? clientId,
-  }) =>
-      StarRevenueStatistics(
-        revenueByDayGraph: revenueByDayGraph ?? this.revenueByDayGraph,
-        status: status ?? this.status,
-        usdRate: usdRate ?? this.usdRate,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => StarRevenueStatistics(
+    revenueByDayGraph: revenueByDayGraph ?? this.revenueByDayGraph,
+    status: status ?? this.status,
+    usdRate: usdRate ?? this.usdRate,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'starRevenueStatistics';

@@ -38,16 +38,15 @@ final class DraftMessage extends TdObject {
 
   /// Parse from a json
   factory DraftMessage.fromJson(Map<String, dynamic> json) => DraftMessage(
-        replyTo: json['reply_to'] == null
-            ? null
-            : InputMessageReplyTo.fromJson(json['reply_to']),
-        date: json['date'],
-        inputMessageText:
-            InputMessageContent.fromJson(json['input_message_text']),
-        effectId: json['effect_id'] is int
-            ? json['effect_id']
-            : int.tryParse(json['effect_id'] ?? "") ?? 0,
-      );
+    replyTo: json['reply_to'] == null
+        ? null
+        : InputMessageReplyTo.fromJson(json['reply_to']),
+    date: json['date'],
+    inputMessageText: InputMessageContent.fromJson(json['input_message_text']),
+    effectId: json['effect_id'] is int
+        ? json['effect_id']
+        : int.tryParse(json['effect_id'] ?? "") ?? 0,
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -73,13 +72,12 @@ final class DraftMessage extends TdObject {
     int? date,
     InputMessageContent? inputMessageText,
     int? effectId,
-  }) =>
-      DraftMessage(
-        replyTo: replyTo ?? this.replyTo,
-        date: date ?? this.date,
-        inputMessageText: inputMessageText ?? this.inputMessageText,
-        effectId: effectId ?? this.effectId,
-      );
+  }) => DraftMessage(
+    replyTo: replyTo ?? this.replyTo,
+    date: date ?? this.date,
+    inputMessageText: inputMessageText ?? this.inputMessageText,
+    effectId: effectId ?? this.effectId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'draftMessage';

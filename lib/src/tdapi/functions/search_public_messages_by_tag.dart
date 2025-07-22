@@ -56,12 +56,11 @@ final class SearchPublicMessagesByTag extends TdFunction {
     String? tag,
     String? offset,
     int? limit,
-  }) =>
-      SearchPublicMessagesByTag(
-        tag: tag ?? this.tag,
-        offset: offset ?? this.offset,
-        limit: limit ?? this.limit,
-      );
+  }) => SearchPublicMessagesByTag(
+    tag: tag ?? this.tag,
+    offset: offset ?? this.offset,
+    limit: limit ?? this.limit,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'searchPublicMessagesByTag';

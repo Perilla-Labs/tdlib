@@ -15,9 +15,7 @@ final class GetFileMimeType extends TdFunction {
   /// * [fileName]: The name of the file or path to the file.
   ///
   /// [Text] is returned on completion.
-  const GetFileMimeType({
-    required this.fileName,
-  });
+  const GetFileMimeType({required this.fileName});
 
   /// The name of the file or path to the file
   final String fileName;
@@ -25,23 +23,15 @@ final class GetFileMimeType extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "file_name": fileName,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "file_name": fileName, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [file_name]: The name of the file or path to the file
-  GetFileMimeType copyWith({
-    String? fileName,
-  }) =>
-      GetFileMimeType(
-        fileName: fileName ?? this.fileName,
-      );
+  GetFileMimeType copyWith({String? fileName}) =>
+      GetFileMimeType(fileName: fileName ?? this.fileName);
 
   /// TDLib object type
   static const String defaultObjectId = 'getFileMimeType';

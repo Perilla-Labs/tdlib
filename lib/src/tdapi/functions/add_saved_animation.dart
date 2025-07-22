@@ -15,9 +15,7 @@ final class AddSavedAnimation extends TdFunction {
   /// * [animation]: The animation file to be added. Only animations known to the server (i.e., successfully sent via a message) can be added to the list.
   ///
   /// [Ok] is returned on completion.
-  const AddSavedAnimation({
-    required this.animation,
-  });
+  const AddSavedAnimation({required this.animation});
 
   /// The animation file to be added. Only animations known to the server (i.e., successfully sent via a message) can be added to the list
   final InputFile animation;
@@ -36,12 +34,8 @@ final class AddSavedAnimation extends TdFunction {
   ///
   /// Properties:
   /// * [animation]: The animation file to be added. Only animations known to the server (i.e., successfully sent via a message) can be added to the list
-  AddSavedAnimation copyWith({
-    InputFile? animation,
-  }) =>
-      AddSavedAnimation(
-        animation: animation ?? this.animation,
-      );
+  AddSavedAnimation copyWith({InputFile? animation}) =>
+      AddSavedAnimation(animation: animation ?? this.animation);
 
   /// TDLib object type
   static const String defaultObjectId = 'addSavedAnimation';

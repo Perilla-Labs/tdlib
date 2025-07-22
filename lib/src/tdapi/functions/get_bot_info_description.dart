@@ -44,10 +44,7 @@ final class GetBotInfoDescription extends TdFunction {
   /// Properties:
   /// * [bot_user_id]: Identifier of the target bot
   /// * [language_code]: A two-letter ISO 639-1 language code or an empty string
-  GetBotInfoDescription copyWith({
-    int? botUserId,
-    String? languageCode,
-  }) =>
+  GetBotInfoDescription copyWith({int? botUserId, String? languageCode}) =>
       GetBotInfoDescription(
         botUserId: botUserId ?? this.botUserId,
         languageCode: languageCode ?? this.languageCode,

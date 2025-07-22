@@ -61,9 +61,7 @@ final class ResendCodeReasonUserRequest extends ResendCodeReason {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -86,44 +84,35 @@ final class ResendCodeReasonUserRequest extends ResendCodeReason {
 ///
 /// The code is re-sent, because device verification has failed.
 ///
-/// * [errorMessage]: Cause of the verification failure, for example, PLAY_SERVICES_NOT_AVAILABLE, APNS_RECEIVE_TIMEOUT, or APNS_INIT_FAILED.
+/// * [errorMessage]: Cause of the verification failure, for example, "PLAY_SERVICES_NOT_AVAILABLE", "APNS_RECEIVE_TIMEOUT", or "APNS_INIT_FAILED".
 final class ResendCodeReasonVerificationFailed extends ResendCodeReason {
   /// **ResendCodeReasonVerificationFailed** *(resendCodeReasonVerificationFailed)* - child of ResendCodeReason
   ///
   /// The code is re-sent, because device verification has failed.
   ///
-  /// * [errorMessage]: Cause of the verification failure, for example, PLAY_SERVICES_NOT_AVAILABLE, APNS_RECEIVE_TIMEOUT, or APNS_INIT_FAILED.
-  const ResendCodeReasonVerificationFailed({
-    required this.errorMessage,
-  });
+  /// * [errorMessage]: Cause of the verification failure, for example, "PLAY_SERVICES_NOT_AVAILABLE", "APNS_RECEIVE_TIMEOUT", or "APNS_INIT_FAILED".
+  const ResendCodeReasonVerificationFailed({required this.errorMessage});
 
-  /// Cause of the verification failure, for example, PLAY_SERVICES_NOT_AVAILABLE, APNS_RECEIVE_TIMEOUT, or APNS_INIT_FAILED
+  /// Cause of the verification failure, for example, "PLAY_SERVICES_NOT_AVAILABLE", "APNS_RECEIVE_TIMEOUT", or "APNS_INIT_FAILED"
   final String errorMessage;
 
   /// Parse from a json
   factory ResendCodeReasonVerificationFailed.fromJson(
-          Map<String, dynamic> json) =>
-      ResendCodeReasonVerificationFailed(
-        errorMessage: json['error_message'],
-      );
+    Map<String, dynamic> json,
+  ) => ResendCodeReasonVerificationFailed(errorMessage: json['error_message']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "error_message": errorMessage,
-    };
+    return {"@type": defaultObjectId, "error_message": errorMessage};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [error_message]: Cause of the verification failure, for example, PLAY_SERVICES_NOT_AVAILABLE, APNS_RECEIVE_TIMEOUT, or APNS_INIT_FAILED
+  /// * [error_message]: Cause of the verification failure, for example, "PLAY_SERVICES_NOT_AVAILABLE", "APNS_RECEIVE_TIMEOUT", or "APNS_INIT_FAILED"
   @override
-  ResendCodeReasonVerificationFailed copyWith({
-    String? errorMessage,
-  }) =>
+  ResendCodeReasonVerificationFailed copyWith({String? errorMessage}) =>
       ResendCodeReasonVerificationFailed(
         errorMessage: errorMessage ?? this.errorMessage,
       );

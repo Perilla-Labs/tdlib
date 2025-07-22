@@ -15,9 +15,7 @@ final class TestCallVectorInt extends TdFunction {
   /// * [x]: Vector of numbers to return.
   ///
   /// [TestVectorInt] is returned on completion.
-  const TestCallVectorInt({
-    required this.x,
-  });
+  const TestCallVectorInt({required this.x});
 
   /// Vector of numbers to return
   final List<int> x;
@@ -36,12 +34,8 @@ final class TestCallVectorInt extends TdFunction {
   ///
   /// Properties:
   /// * [x]: Vector of numbers to return
-  TestCallVectorInt copyWith({
-    List<int>? x,
-  }) =>
-      TestCallVectorInt(
-        x: x ?? this.x,
-      );
+  TestCallVectorInt copyWith({List<int>? x}) =>
+      TestCallVectorInt(x: x ?? this.x);
 
   /// TDLib object type
   static const String defaultObjectId = 'testCallVectorInt';

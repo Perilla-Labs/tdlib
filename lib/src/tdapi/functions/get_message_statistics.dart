@@ -52,11 +52,7 @@ final class GetMessageStatistics extends TdFunction {
   /// * [chat_id]: Chat identifier
   /// * [message_id]: Message identifier
   /// * [is_dark]: Pass true if a dark theme is used by the application
-  GetMessageStatistics copyWith({
-    int? chatId,
-    int? messageId,
-    bool? isDark,
-  }) =>
+  GetMessageStatistics copyWith({int? chatId, int? messageId, bool? isDark}) =>
       GetMessageStatistics(
         chatId: chatId ?? this.chatId,
         messageId: messageId ?? this.messageId,

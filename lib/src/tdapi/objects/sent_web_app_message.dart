@@ -39,10 +39,7 @@ final class SentWebAppMessage extends TdObject {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "inline_message_id": inlineMessageId,
-    };
+    return {"@type": defaultObjectId, "inline_message_id": inlineMessageId};
   }
 
   /// Copy model with modified properties.
@@ -53,12 +50,11 @@ final class SentWebAppMessage extends TdObject {
     String? inlineMessageId,
     dynamic extra,
     int? clientId,
-  }) =>
-      SentWebAppMessage(
-        inlineMessageId: inlineMessageId ?? this.inlineMessageId,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => SentWebAppMessage(
+    inlineMessageId: inlineMessageId ?? this.inlineMessageId,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'sentWebAppMessage';

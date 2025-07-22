@@ -15,9 +15,7 @@ final class GetMessageImportConfirmationText extends TdFunction {
   /// * [chatId]: Identifier of a chat to which the messages will be imported. It must be an identifier of a private chat with a mutual contact or an identifier of a supergroup chat with can_change_info member right.
   ///
   /// [Text] is returned on completion.
-  const GetMessageImportConfirmationText({
-    required this.chatId,
-  });
+  const GetMessageImportConfirmationText({required this.chatId});
 
   /// Identifier of a chat to which the messages will be imported. It must be an identifier of a private chat with a mutual contact or an identifier of a supergroup chat with can_change_info member right
   final int chatId;
@@ -25,23 +23,15 @@ final class GetMessageImportConfirmationText extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "chat_id": chatId,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "chat_id": chatId, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [chat_id]: Identifier of a chat to which the messages will be imported. It must be an identifier of a private chat with a mutual contact or an identifier of a supergroup chat with can_change_info member right
-  GetMessageImportConfirmationText copyWith({
-    int? chatId,
-  }) =>
-      GetMessageImportConfirmationText(
-        chatId: chatId ?? this.chatId,
-      );
+  GetMessageImportConfirmationText copyWith({int? chatId}) =>
+      GetMessageImportConfirmationText(chatId: chatId ?? this.chatId);
 
   /// TDLib object type
   static const String defaultObjectId = 'getMessageImportConfirmationText';

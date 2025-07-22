@@ -123,13 +123,12 @@ final class PaidMediaPreview extends PaidMedia {
     int? height,
     int? duration,
     Minithumbnail? minithumbnail,
-  }) =>
-      PaidMediaPreview(
-        width: width ?? this.width,
-        height: height ?? this.height,
-        duration: duration ?? this.duration,
-        minithumbnail: minithumbnail ?? this.minithumbnail,
-      );
+  }) => PaidMediaPreview(
+    width: width ?? this.width,
+    height: height ?? this.height,
+    duration: duration ?? this.duration,
+    minithumbnail: minithumbnail ?? this.minithumbnail,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'paidMediaPreview';
@@ -154,25 +153,19 @@ final class PaidMediaPhoto extends PaidMedia {
   /// The media is a photo.
   ///
   /// * [photo]: The photo.
-  const PaidMediaPhoto({
-    required this.photo,
-  });
+  const PaidMediaPhoto({required this.photo});
 
   /// The photo
   final Photo photo;
 
   /// Parse from a json
-  factory PaidMediaPhoto.fromJson(Map<String, dynamic> json) => PaidMediaPhoto(
-        photo: Photo.fromJson(json['photo']),
-      );
+  factory PaidMediaPhoto.fromJson(Map<String, dynamic> json) =>
+      PaidMediaPhoto(photo: Photo.fromJson(json['photo']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "photo": photo.toJson(),
-    };
+    return {"@type": defaultObjectId, "photo": photo.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -180,12 +173,8 @@ final class PaidMediaPhoto extends PaidMedia {
   /// Properties:
   /// * [photo]: The photo
   @override
-  PaidMediaPhoto copyWith({
-    Photo? photo,
-  }) =>
-      PaidMediaPhoto(
-        photo: photo ?? this.photo,
-      );
+  PaidMediaPhoto copyWith({Photo? photo}) =>
+      PaidMediaPhoto(photo: photo ?? this.photo);
 
   /// TDLib object type
   static const String defaultObjectId = 'paidMediaPhoto';
@@ -204,23 +193,37 @@ final class PaidMediaPhoto extends PaidMedia {
 /// The media is a video.
 ///
 /// * [video]: The video.
+/// * [cover]: Cover of the video; may be null if none *(optional)*.
+/// * [startTimestamp]: Timestamp from which the video playing must start, in seconds.
 final class PaidMediaVideo extends PaidMedia {
   /// **PaidMediaVideo** *(paidMediaVideo)* - child of PaidMedia
   ///
   /// The media is a video.
   ///
   /// * [video]: The video.
+  /// * [cover]: Cover of the video; may be null if none *(optional)*.
+  /// * [startTimestamp]: Timestamp from which the video playing must start, in seconds.
   const PaidMediaVideo({
     required this.video,
+    this.cover,
+    required this.startTimestamp,
   });
 
   /// The video
   final Video video;
 
+  /// Cover of the video; may be null if none
+  final Photo? cover;
+
+  /// Timestamp from which the video playing must start, in seconds
+  final int startTimestamp;
+
   /// Parse from a json
   factory PaidMediaVideo.fromJson(Map<String, dynamic> json) => PaidMediaVideo(
-        video: Video.fromJson(json['video']),
-      );
+    video: Video.fromJson(json['video']),
+    cover: json['cover'] == null ? null : Photo.fromJson(json['cover']),
+    startTimestamp: json['start_timestamp'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -228,6 +231,8 @@ final class PaidMediaVideo extends PaidMedia {
     return {
       "@type": defaultObjectId,
       "video": video.toJson(),
+      "cover": cover?.toJson(),
+      "start_timestamp": startTimestamp,
     };
   }
 
@@ -235,12 +240,14 @@ final class PaidMediaVideo extends PaidMedia {
   ///
   /// Properties:
   /// * [video]: The video
+  /// * [cover]: Cover of the video; may be null if none
+  /// * [start_timestamp]: Timestamp from which the video playing must start, in seconds
   @override
-  PaidMediaVideo copyWith({
-    Video? video,
-  }) =>
+  PaidMediaVideo copyWith({Video? video, Photo? cover, int? startTimestamp}) =>
       PaidMediaVideo(
         video: video ?? this.video,
+        cover: cover ?? this.cover,
+        startTimestamp: startTimestamp ?? this.startTimestamp,
       );
 
   /// TDLib object type
@@ -271,9 +278,7 @@ final class PaidMediaUnsupported extends PaidMedia {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.

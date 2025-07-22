@@ -36,20 +36,16 @@ final class UserLink extends TdObject {
 
   /// Parse from a json
   factory UserLink.fromJson(Map<String, dynamic> json) => UserLink(
-        url: json['url'],
-        expiresIn: json['expires_in'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    url: json['url'],
+    expiresIn: json['expires_in'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "url": url,
-      "expires_in": expiresIn,
-    };
+    return {"@type": defaultObjectId, "url": url, "expires_in": expiresIn};
   }
 
   /// Copy model with modified properties.
@@ -62,13 +58,12 @@ final class UserLink extends TdObject {
     int? expiresIn,
     dynamic extra,
     int? clientId,
-  }) =>
-      UserLink(
-        url: url ?? this.url,
-        expiresIn: expiresIn ?? this.expiresIn,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => UserLink(
+    url: url ?? this.url,
+    expiresIn: expiresIn ?? this.expiresIn,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'userLink';

@@ -70,10 +70,7 @@ final class CallStatePending extends CallState {
   ///
   /// * [isCreated]: True, if the call has already been created by the server.
   /// * [isReceived]: True, if the call has already been received by the other party.
-  const CallStatePending({
-    required this.isCreated,
-    required this.isReceived,
-  });
+  const CallStatePending({required this.isCreated, required this.isReceived});
 
   /// True, if the call has already been created by the server
   final bool isCreated;
@@ -104,10 +101,7 @@ final class CallStatePending extends CallState {
   /// * [is_created]: True, if the call has already been created by the server
   /// * [is_received]: True, if the call has already been received by the other party
   @override
-  CallStatePending copyWith({
-    bool? isCreated,
-    bool? isReceived,
-  }) =>
+  CallStatePending copyWith({bool? isCreated, bool? isReceived}) =>
       CallStatePending(
         isCreated: isCreated ?? this.isCreated,
         isReceived: isReceived ?? this.isReceived,
@@ -141,9 +135,7 @@ final class CallStateExchangingKeys extends CallState {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -172,6 +164,7 @@ final class CallStateExchangingKeys extends CallState {
 /// * [encryptionKey]: Call encryption key.
 /// * [emojis]: Encryption key fingerprint represented as 4 emoji.
 /// * [allowP2p]: True, if peer-to-peer connection is allowed by users privacy settings.
+/// * [isGroupCallSupported]: True, if the other party supports upgrading of the call to a group call.
 /// * [customParameters]: Custom JSON-encoded call parameters to be passed to tgcalls.
 final class CallStateReady extends CallState {
   /// **CallStateReady** *(callStateReady)* - child of CallState
@@ -184,6 +177,7 @@ final class CallStateReady extends CallState {
   /// * [encryptionKey]: Call encryption key.
   /// * [emojis]: Encryption key fingerprint represented as 4 emoji.
   /// * [allowP2p]: True, if peer-to-peer connection is allowed by users privacy settings.
+  /// * [isGroupCallSupported]: True, if the other party supports upgrading of the call to a group call.
   /// * [customParameters]: Custom JSON-encoded call parameters to be passed to tgcalls.
   const CallStateReady({
     required this.protocol,
@@ -192,6 +186,7 @@ final class CallStateReady extends CallState {
     required this.encryptionKey,
     required this.emojis,
     required this.allowP2p,
+    required this.isGroupCallSupported,
     required this.customParameters,
   });
 
@@ -213,22 +208,27 @@ final class CallStateReady extends CallState {
   /// True, if peer-to-peer connection is allowed by users privacy settings
   final bool allowP2p;
 
+  /// True, if the other party supports upgrading of the call to a group call
+  final bool isGroupCallSupported;
+
   /// Custom JSON-encoded call parameters to be passed to tgcalls
   final String customParameters;
 
   /// Parse from a json
   factory CallStateReady.fromJson(Map<String, dynamic> json) => CallStateReady(
-        protocol: CallProtocol.fromJson(json['protocol']),
-        servers: List<CallServer>.from((json['servers'] ?? [])
-            .map((item) => CallServer.fromJson(item))
-            .toList()),
-        config: json['config'],
-        encryptionKey: json['encryption_key'],
-        emojis: List<String>.from(
-            (json['emojis'] ?? []).map((item) => item).toList()),
-        allowP2p: json['allow_p2p'],
-        customParameters: json['custom_parameters'],
-      );
+    protocol: CallProtocol.fromJson(json['protocol']),
+    servers: List<CallServer>.from(
+      (json['servers'] ?? []).map((item) => CallServer.fromJson(item)).toList(),
+    ),
+    config: json['config'],
+    encryptionKey: json['encryption_key'],
+    emojis: List<String>.from(
+      (json['emojis'] ?? []).map((item) => item).toList(),
+    ),
+    allowP2p: json['allow_p2p'],
+    isGroupCallSupported: json['is_group_call_supported'],
+    customParameters: json['custom_parameters'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -241,6 +241,7 @@ final class CallStateReady extends CallState {
       "encryption_key": encryptionKey,
       "emojis": emojis.map((i) => i).toList(),
       "allow_p2p": allowP2p,
+      "is_group_call_supported": isGroupCallSupported,
       "custom_parameters": customParameters,
     };
   }
@@ -254,6 +255,7 @@ final class CallStateReady extends CallState {
   /// * [encryption_key]: Call encryption key
   /// * [emojis]: Encryption key fingerprint represented as 4 emoji
   /// * [allow_p2p]: True, if peer-to-peer connection is allowed by users privacy settings
+  /// * [is_group_call_supported]: True, if the other party supports upgrading of the call to a group call
   /// * [custom_parameters]: Custom JSON-encoded call parameters to be passed to tgcalls
   @override
   CallStateReady copyWith({
@@ -263,17 +265,18 @@ final class CallStateReady extends CallState {
     String? encryptionKey,
     List<String>? emojis,
     bool? allowP2p,
+    bool? isGroupCallSupported,
     String? customParameters,
-  }) =>
-      CallStateReady(
-        protocol: protocol ?? this.protocol,
-        servers: servers ?? this.servers,
-        config: config ?? this.config,
-        encryptionKey: encryptionKey ?? this.encryptionKey,
-        emojis: emojis ?? this.emojis,
-        allowP2p: allowP2p ?? this.allowP2p,
-        customParameters: customParameters ?? this.customParameters,
-      );
+  }) => CallStateReady(
+    protocol: protocol ?? this.protocol,
+    servers: servers ?? this.servers,
+    config: config ?? this.config,
+    encryptionKey: encryptionKey ?? this.encryptionKey,
+    emojis: emojis ?? this.emojis,
+    allowP2p: allowP2p ?? this.allowP2p,
+    isGroupCallSupported: isGroupCallSupported ?? this.isGroupCallSupported,
+    customParameters: customParameters ?? this.customParameters,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'callStateReady';
@@ -303,9 +306,7 @@ final class CallStateHangingUp extends CallState {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -394,13 +395,12 @@ final class CallStateDiscarded extends CallState {
     bool? needRating,
     bool? needDebugInformation,
     bool? needLog,
-  }) =>
-      CallStateDiscarded(
-        reason: reason ?? this.reason,
-        needRating: needRating ?? this.needRating,
-        needDebugInformation: needDebugInformation ?? this.needDebugInformation,
-        needLog: needLog ?? this.needLog,
-      );
+  }) => CallStateDiscarded(
+    reason: reason ?? this.reason,
+    needRating: needRating ?? this.needRating,
+    needDebugInformation: needDebugInformation ?? this.needDebugInformation,
+    needLog: needLog ?? this.needLog,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'callStateDiscarded';
@@ -425,25 +425,19 @@ final class CallStateError extends CallState {
   /// The call has ended with an error.
   ///
   /// * [error]: Error. An error with the code 4005000 will be returned if an outgoing call is missed because of an expired timeout.
-  const CallStateError({
-    required this.error,
-  });
+  const CallStateError({required this.error});
 
   /// Error. An error with the code 4005000 will be returned if an outgoing call is missed because of an expired timeout
   final TdError error;
 
   /// Parse from a json
-  factory CallStateError.fromJson(Map<String, dynamic> json) => CallStateError(
-        error: TdError.fromJson(json['error']),
-      );
+  factory CallStateError.fromJson(Map<String, dynamic> json) =>
+      CallStateError(error: TdError.fromJson(json['error']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "error": error.toJson(),
-    };
+    return {"@type": defaultObjectId, "error": error.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -451,12 +445,8 @@ final class CallStateError extends CallState {
   /// Properties:
   /// * [error]: Error. An error with the code 4005000 will be returned if an outgoing call is missed because of an expired timeout
   @override
-  CallStateError copyWith({
-    TdError? error,
-  }) =>
-      CallStateError(
-        error: error ?? this.error,
-      );
+  CallStateError copyWith({TdError? error}) =>
+      CallStateError(error: error ?? this.error);
 
   /// TDLib object type
   static const String defaultObjectId = 'callStateError';

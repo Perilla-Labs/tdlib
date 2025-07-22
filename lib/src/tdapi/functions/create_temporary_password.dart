@@ -44,10 +44,7 @@ final class CreateTemporaryPassword extends TdFunction {
   /// Properties:
   /// * [password]: The 2-step verification password of the current user
   /// * [valid_for]: Time during which the temporary password will be valid, in seconds; must be between 60 and 86400
-  CreateTemporaryPassword copyWith({
-    String? password,
-    int? validFor,
-  }) =>
+  CreateTemporaryPassword copyWith({String? password, int? validFor}) =>
       CreateTemporaryPassword(
         password: password ?? this.password,
         validFor: validFor ?? this.validFor,

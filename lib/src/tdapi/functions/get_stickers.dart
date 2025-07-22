@@ -65,13 +65,12 @@ final class GetStickers extends TdFunction {
     String? query,
     int? limit,
     int? chatId,
-  }) =>
-      GetStickers(
-        stickerType: stickerType ?? this.stickerType,
-        query: query ?? this.query,
-        limit: limit ?? this.limit,
-        chatId: chatId ?? this.chatId,
-      );
+  }) => GetStickers(
+    stickerType: stickerType ?? this.stickerType,
+    query: query ?? this.query,
+    limit: limit ?? this.limit,
+    chatId: chatId ?? this.chatId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getStickers';

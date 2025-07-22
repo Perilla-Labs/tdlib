@@ -17,10 +17,7 @@ final class SetUserSupportInfo extends TdFunction {
   /// * [message]: New information message.
   ///
   /// [UserSupportInfo] is returned on completion.
-  const SetUserSupportInfo({
-    required this.userId,
-    required this.message,
-  });
+  const SetUserSupportInfo({required this.userId, required this.message});
 
   /// User identifier
   final int userId;
@@ -44,10 +41,7 @@ final class SetUserSupportInfo extends TdFunction {
   /// Properties:
   /// * [user_id]: User identifier
   /// * [message]: New information message
-  SetUserSupportInfo copyWith({
-    int? userId,
-    FormattedText? message,
-  }) =>
+  SetUserSupportInfo copyWith({int? userId, FormattedText? message}) =>
       SetUserSupportInfo(
         userId: userId ?? this.userId,
         message: message ?? this.message,

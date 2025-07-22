@@ -47,12 +47,11 @@ final class ToggleSupergroupCanHaveSponsoredMessages extends TdFunction {
   ToggleSupergroupCanHaveSponsoredMessages copyWith({
     int? supergroupId,
     bool? canHaveSponsoredMessages,
-  }) =>
-      ToggleSupergroupCanHaveSponsoredMessages(
-        supergroupId: supergroupId ?? this.supergroupId,
-        canHaveSponsoredMessages:
-            canHaveSponsoredMessages ?? this.canHaveSponsoredMessages,
-      );
+  }) => ToggleSupergroupCanHaveSponsoredMessages(
+    supergroupId: supergroupId ?? this.supergroupId,
+    canHaveSponsoredMessages:
+        canHaveSponsoredMessages ?? this.canHaveSponsoredMessages,
+  );
 
   /// TDLib object type
   static const String defaultObjectId =

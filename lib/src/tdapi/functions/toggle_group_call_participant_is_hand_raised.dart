@@ -2,21 +2,21 @@ part of '../tdapi.dart';
 
 /// **ToggleGroupCallParticipantIsHandRaised** *(toggleGroupCallParticipantIsHandRaised)* - TDLib function
 ///
-/// Toggles whether a group call participant hand is rased.
+/// Toggles whether a group call participant hand is rased; for video chats only.
 ///
 /// * [groupCallId]: Group call identifier.
 /// * [participantId]: Participant identifier.
-/// * [isHandRaised]: Pass true if the user's hand needs to be raised. Only self hand can be raised. Requires groupCall.can_be_managed group call flag to lower other's hand.
+/// * [isHandRaised]: Pass true if the user's hand needs to be raised. Only self hand can be raised. Requires groupCall.can_be_managed right to lower other's hand.
 ///
 /// [Ok] is returned on completion.
 final class ToggleGroupCallParticipantIsHandRaised extends TdFunction {
   /// **ToggleGroupCallParticipantIsHandRaised** *(toggleGroupCallParticipantIsHandRaised)* - TDLib function
   ///
-  /// Toggles whether a group call participant hand is rased.
+  /// Toggles whether a group call participant hand is rased; for video chats only.
   ///
   /// * [groupCallId]: Group call identifier.
   /// * [participantId]: Participant identifier.
-  /// * [isHandRaised]: Pass true if the user's hand needs to be raised. Only self hand can be raised. Requires groupCall.can_be_managed group call flag to lower other's hand.
+  /// * [isHandRaised]: Pass true if the user's hand needs to be raised. Only self hand can be raised. Requires groupCall.can_be_managed right to lower other's hand.
   ///
   /// [Ok] is returned on completion.
   const ToggleGroupCallParticipantIsHandRaised({
@@ -31,7 +31,7 @@ final class ToggleGroupCallParticipantIsHandRaised extends TdFunction {
   /// Participant identifier
   final MessageSender participantId;
 
-  /// Pass true if the user's hand needs to be raised. Only self hand can be raised. Requires groupCall.can_be_managed group call flag to lower other's hand
+  /// Pass true if the user's hand needs to be raised. Only self hand can be raised. Requires groupCall.can_be_managed right to lower other's hand
   final bool isHandRaised;
 
   /// Convert model to TDLib JSON format
@@ -51,17 +51,16 @@ final class ToggleGroupCallParticipantIsHandRaised extends TdFunction {
   /// Properties:
   /// * [group_call_id]: Group call identifier
   /// * [participant_id]: Participant identifier
-  /// * [is_hand_raised]: Pass true if the user's hand needs to be raised. Only self hand can be raised. Requires groupCall.can_be_managed group call flag to lower other's hand
+  /// * [is_hand_raised]: Pass true if the user's hand needs to be raised. Only self hand can be raised. Requires groupCall.can_be_managed right to lower other's hand
   ToggleGroupCallParticipantIsHandRaised copyWith({
     int? groupCallId,
     MessageSender? participantId,
     bool? isHandRaised,
-  }) =>
-      ToggleGroupCallParticipantIsHandRaised(
-        groupCallId: groupCallId ?? this.groupCallId,
-        participantId: participantId ?? this.participantId,
-        isHandRaised: isHandRaised ?? this.isHandRaised,
-      );
+  }) => ToggleGroupCallParticipantIsHandRaised(
+    groupCallId: groupCallId ?? this.groupCallId,
+    participantId: participantId ?? this.participantId,
+    isHandRaised: isHandRaised ?? this.isHandRaised,
+  );
 
   /// TDLib object type
   static const String defaultObjectId =

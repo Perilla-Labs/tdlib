@@ -32,9 +32,10 @@ final class FailedToAddMembers extends TdObject {
   factory FailedToAddMembers.fromJson(Map<String, dynamic> json) =>
       FailedToAddMembers(
         failedToAddMembers: List<FailedToAddMember>.from(
-            (json['failed_to_add_members'] ?? [])
-                .map((item) => FailedToAddMember.fromJson(item))
-                .toList()),
+          (json['failed_to_add_members'] ?? [])
+              .map((item) => FailedToAddMember.fromJson(item))
+              .toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -44,8 +45,9 @@ final class FailedToAddMembers extends TdObject {
   Map<String, dynamic> toJson() {
     return {
       "@type": defaultObjectId,
-      "failed_to_add_members":
-          failedToAddMembers.map((i) => i.toJson()).toList(),
+      "failed_to_add_members": failedToAddMembers
+          .map((i) => i.toJson())
+          .toList(),
     };
   }
 
@@ -57,12 +59,11 @@ final class FailedToAddMembers extends TdObject {
     List<FailedToAddMember>? failedToAddMembers,
     dynamic extra,
     int? clientId,
-  }) =>
-      FailedToAddMembers(
-        failedToAddMembers: failedToAddMembers ?? this.failedToAddMembers,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => FailedToAddMembers(
+    failedToAddMembers: failedToAddMembers ?? this.failedToAddMembers,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'failedToAddMembers';

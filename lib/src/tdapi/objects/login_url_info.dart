@@ -109,13 +109,12 @@ final class LoginUrlInfoOpen extends LoginUrlInfo {
     bool? skipConfirmation,
     dynamic extra,
     int? clientId,
-  }) =>
-      LoginUrlInfoOpen(
-        url: url ?? this.url,
-        skipConfirmation: skipConfirmation ?? this.skipConfirmation,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => LoginUrlInfoOpen(
+    url: url ?? this.url,
+    skipConfirmation: skipConfirmation ?? this.skipConfirmation,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'loginUrlInfoOpen';
@@ -213,15 +212,14 @@ final class LoginUrlInfoRequestConfirmation extends LoginUrlInfo {
     bool? requestWriteAccess,
     dynamic extra,
     int? clientId,
-  }) =>
-      LoginUrlInfoRequestConfirmation(
-        url: url ?? this.url,
-        domain: domain ?? this.domain,
-        botUserId: botUserId ?? this.botUserId,
-        requestWriteAccess: requestWriteAccess ?? this.requestWriteAccess,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => LoginUrlInfoRequestConfirmation(
+    url: url ?? this.url,
+    domain: domain ?? this.domain,
+    botUserId: botUserId ?? this.botUserId,
+    requestWriteAccess: requestWriteAccess ?? this.requestWriteAccess,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'loginUrlInfoRequestConfirmation';

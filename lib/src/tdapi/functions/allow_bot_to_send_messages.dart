@@ -15,9 +15,7 @@ final class AllowBotToSendMessages extends TdFunction {
   /// * [botUserId]: Identifier of the target bot.
   ///
   /// [Ok] is returned on completion.
-  const AllowBotToSendMessages({
-    required this.botUserId,
-  });
+  const AllowBotToSendMessages({required this.botUserId});
 
   /// Identifier of the target bot
   final int botUserId;
@@ -36,12 +34,8 @@ final class AllowBotToSendMessages extends TdFunction {
   ///
   /// Properties:
   /// * [bot_user_id]: Identifier of the target bot
-  AllowBotToSendMessages copyWith({
-    int? botUserId,
-  }) =>
-      AllowBotToSendMessages(
-        botUserId: botUserId ?? this.botUserId,
-      );
+  AllowBotToSendMessages copyWith({int? botUserId}) =>
+      AllowBotToSendMessages(botUserId: botUserId ?? this.botUserId);
 
   /// TDLib object type
   static const String defaultObjectId = 'allowBotToSendMessages';

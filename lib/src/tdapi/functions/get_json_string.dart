@@ -15,9 +15,7 @@ final class GetJsonString extends TdFunction {
   /// * [jsonValue]: The JsonValue object.
   ///
   /// [Text] is returned on completion.
-  const GetJsonString({
-    required this.jsonValue,
-  });
+  const GetJsonString({required this.jsonValue});
 
   /// The JsonValue object
   final JsonValue jsonValue;
@@ -36,12 +34,8 @@ final class GetJsonString extends TdFunction {
   ///
   /// Properties:
   /// * [json_value]: The JsonValue object
-  GetJsonString copyWith({
-    JsonValue? jsonValue,
-  }) =>
-      GetJsonString(
-        jsonValue: jsonValue ?? this.jsonValue,
-      );
+  GetJsonString copyWith({JsonValue? jsonValue}) =>
+      GetJsonString(jsonValue: jsonValue ?? this.jsonValue);
 
   /// TDLib object type
   static const String defaultObjectId = 'getJsonString';

@@ -73,9 +73,7 @@ final class UserStatusEmpty extends UserStatus {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
@@ -105,26 +103,19 @@ final class UserStatusOnline extends UserStatus {
   /// The user is online.
   ///
   /// * [expires]: Point in time (Unix timestamp) when the user's online status will expire.
-  const UserStatusOnline({
-    required this.expires,
-  });
+  const UserStatusOnline({required this.expires});
 
   /// Point in time (Unix timestamp) when the user's online status will expire
   final int expires;
 
   /// Parse from a json
   factory UserStatusOnline.fromJson(Map<String, dynamic> json) =>
-      UserStatusOnline(
-        expires: json['expires'],
-      );
+      UserStatusOnline(expires: json['expires']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "expires": expires,
-    };
+    return {"@type": defaultObjectId, "expires": expires};
   }
 
   /// Copy model with modified properties.
@@ -132,12 +123,8 @@ final class UserStatusOnline extends UserStatus {
   /// Properties:
   /// * [expires]: Point in time (Unix timestamp) when the user's online status will expire
   @override
-  UserStatusOnline copyWith({
-    int? expires,
-  }) =>
-      UserStatusOnline(
-        expires: expires ?? this.expires,
-      );
+  UserStatusOnline copyWith({int? expires}) =>
+      UserStatusOnline(expires: expires ?? this.expires);
 
   /// TDLib object type
   static const String defaultObjectId = 'userStatusOnline';
@@ -162,26 +149,19 @@ final class UserStatusOffline extends UserStatus {
   /// The user is offline.
   ///
   /// * [wasOnline]: Point in time (Unix timestamp) when the user was last online.
-  const UserStatusOffline({
-    required this.wasOnline,
-  });
+  const UserStatusOffline({required this.wasOnline});
 
   /// Point in time (Unix timestamp) when the user was last online
   final int wasOnline;
 
   /// Parse from a json
   factory UserStatusOffline.fromJson(Map<String, dynamic> json) =>
-      UserStatusOffline(
-        wasOnline: json['was_online'],
-      );
+      UserStatusOffline(wasOnline: json['was_online']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "was_online": wasOnline,
-    };
+    return {"@type": defaultObjectId, "was_online": wasOnline};
   }
 
   /// Copy model with modified properties.
@@ -189,12 +169,8 @@ final class UserStatusOffline extends UserStatus {
   /// Properties:
   /// * [was_online]: Point in time (Unix timestamp) when the user was last online
   @override
-  UserStatusOffline copyWith({
-    int? wasOnline,
-  }) =>
-      UserStatusOffline(
-        wasOnline: wasOnline ?? this.wasOnline,
-      );
+  UserStatusOffline copyWith({int? wasOnline}) =>
+      UserStatusOffline(wasOnline: wasOnline ?? this.wasOnline);
 
   /// TDLib object type
   static const String defaultObjectId = 'userStatusOffline';
@@ -219,18 +195,14 @@ final class UserStatusRecently extends UserStatus {
   /// The user was online recently.
   ///
   /// * [byMyPrivacySettings]: Exact user's status is hidden because the current user enabled userPrivacySettingShowStatus privacy setting for the user and has no Telegram Premium.
-  const UserStatusRecently({
-    required this.byMyPrivacySettings,
-  });
+  const UserStatusRecently({required this.byMyPrivacySettings});
 
   /// Exact user's status is hidden because the current user enabled userPrivacySettingShowStatus privacy setting for the user and has no Telegram Premium
   final bool byMyPrivacySettings;
 
   /// Parse from a json
   factory UserStatusRecently.fromJson(Map<String, dynamic> json) =>
-      UserStatusRecently(
-        byMyPrivacySettings: json['by_my_privacy_settings'],
-      );
+      UserStatusRecently(byMyPrivacySettings: json['by_my_privacy_settings']);
 
   /// Convert model to TDLib JSON format
   @override
@@ -246,9 +218,7 @@ final class UserStatusRecently extends UserStatus {
   /// Properties:
   /// * [by_my_privacy_settings]: Exact user's status is hidden because the current user enabled userPrivacySettingShowStatus privacy setting for the user and has no Telegram Premium
   @override
-  UserStatusRecently copyWith({
-    bool? byMyPrivacySettings,
-  }) =>
+  UserStatusRecently copyWith({bool? byMyPrivacySettings}) =>
       UserStatusRecently(
         byMyPrivacySettings: byMyPrivacySettings ?? this.byMyPrivacySettings,
       );
@@ -276,18 +246,14 @@ final class UserStatusLastWeek extends UserStatus {
   /// The user is offline, but was online last week.
   ///
   /// * [byMyPrivacySettings]: Exact user's status is hidden because the current user enabled userPrivacySettingShowStatus privacy setting for the user and has no Telegram Premium.
-  const UserStatusLastWeek({
-    required this.byMyPrivacySettings,
-  });
+  const UserStatusLastWeek({required this.byMyPrivacySettings});
 
   /// Exact user's status is hidden because the current user enabled userPrivacySettingShowStatus privacy setting for the user and has no Telegram Premium
   final bool byMyPrivacySettings;
 
   /// Parse from a json
   factory UserStatusLastWeek.fromJson(Map<String, dynamic> json) =>
-      UserStatusLastWeek(
-        byMyPrivacySettings: json['by_my_privacy_settings'],
-      );
+      UserStatusLastWeek(byMyPrivacySettings: json['by_my_privacy_settings']);
 
   /// Convert model to TDLib JSON format
   @override
@@ -303,9 +269,7 @@ final class UserStatusLastWeek extends UserStatus {
   /// Properties:
   /// * [by_my_privacy_settings]: Exact user's status is hidden because the current user enabled userPrivacySettingShowStatus privacy setting for the user and has no Telegram Premium
   @override
-  UserStatusLastWeek copyWith({
-    bool? byMyPrivacySettings,
-  }) =>
+  UserStatusLastWeek copyWith({bool? byMyPrivacySettings}) =>
       UserStatusLastWeek(
         byMyPrivacySettings: byMyPrivacySettings ?? this.byMyPrivacySettings,
       );
@@ -333,18 +297,14 @@ final class UserStatusLastMonth extends UserStatus {
   /// The user is offline, but was online last month.
   ///
   /// * [byMyPrivacySettings]: Exact user's status is hidden because the current user enabled userPrivacySettingShowStatus privacy setting for the user and has no Telegram Premium.
-  const UserStatusLastMonth({
-    required this.byMyPrivacySettings,
-  });
+  const UserStatusLastMonth({required this.byMyPrivacySettings});
 
   /// Exact user's status is hidden because the current user enabled userPrivacySettingShowStatus privacy setting for the user and has no Telegram Premium
   final bool byMyPrivacySettings;
 
   /// Parse from a json
   factory UserStatusLastMonth.fromJson(Map<String, dynamic> json) =>
-      UserStatusLastMonth(
-        byMyPrivacySettings: json['by_my_privacy_settings'],
-      );
+      UserStatusLastMonth(byMyPrivacySettings: json['by_my_privacy_settings']);
 
   /// Convert model to TDLib JSON format
   @override
@@ -360,9 +320,7 @@ final class UserStatusLastMonth extends UserStatus {
   /// Properties:
   /// * [by_my_privacy_settings]: Exact user's status is hidden because the current user enabled userPrivacySettingShowStatus privacy setting for the user and has no Telegram Premium
   @override
-  UserStatusLastMonth copyWith({
-    bool? byMyPrivacySettings,
-  }) =>
+  UserStatusLastMonth copyWith({bool? byMyPrivacySettings}) =>
       UserStatusLastMonth(
         byMyPrivacySettings: byMyPrivacySettings ?? this.byMyPrivacySettings,
       );

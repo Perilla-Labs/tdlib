@@ -55,10 +55,7 @@ final class ResetPasswordResultOk extends ResetPasswordResult {
   /// **ResetPasswordResultOk** *(resetPasswordResultOk)* - child of ResetPasswordResult
   ///
   /// The password was reset.
-  const ResetPasswordResultOk({
-    this.extra,
-    this.clientId,
-  });
+  const ResetPasswordResultOk({this.extra, this.clientId});
 
   /// [extra] callback sign
   @override
@@ -78,17 +75,12 @@ final class ResetPasswordResultOk extends ResetPasswordResult {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.
   @override
-  ResetPasswordResultOk copyWith({
-    dynamic extra,
-    int? clientId,
-  }) =>
+  ResetPasswordResultOk copyWith({dynamic extra, int? clientId}) =>
       ResetPasswordResultOk(
         extra: extra ?? this.extra,
         clientId: clientId ?? this.clientId,
@@ -145,10 +137,7 @@ final class ResetPasswordResultPending extends ResetPasswordResult {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "pending_reset_date": pendingResetDate,
-    };
+    return {"@type": defaultObjectId, "pending_reset_date": pendingResetDate};
   }
 
   /// Copy model with modified properties.
@@ -160,12 +149,11 @@ final class ResetPasswordResultPending extends ResetPasswordResult {
     int? pendingResetDate,
     dynamic extra,
     int? clientId,
-  }) =>
-      ResetPasswordResultPending(
-        pendingResetDate: pendingResetDate ?? this.pendingResetDate,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => ResetPasswordResultPending(
+    pendingResetDate: pendingResetDate ?? this.pendingResetDate,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'resetPasswordResultPending';
@@ -218,10 +206,7 @@ final class ResetPasswordResultDeclined extends ResetPasswordResult {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "retry_date": retryDate,
-    };
+    return {"@type": defaultObjectId, "retry_date": retryDate};
   }
 
   /// Copy model with modified properties.
@@ -233,12 +218,11 @@ final class ResetPasswordResultDeclined extends ResetPasswordResult {
     int? retryDate,
     dynamic extra,
     int? clientId,
-  }) =>
-      ResetPasswordResultDeclined(
-        retryDate: retryDate ?? this.retryDate,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => ResetPasswordResultDeclined(
+    retryDate: retryDate ?? this.retryDate,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'resetPasswordResultDeclined';

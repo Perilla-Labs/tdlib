@@ -44,15 +44,16 @@ final class InputSticker extends TdObject {
 
   /// Parse from a json
   factory InputSticker.fromJson(Map<String, dynamic> json) => InputSticker(
-        sticker: InputFile.fromJson(json['sticker']),
-        format: StickerFormat.fromJson(json['format']),
-        emojis: json['emojis'],
-        maskPosition: json['mask_position'] == null
-            ? null
-            : MaskPosition.fromJson(json['mask_position']),
-        keywords: List<String>.from(
-            (json['keywords'] ?? []).map((item) => item).toList()),
-      );
+    sticker: InputFile.fromJson(json['sticker']),
+    format: StickerFormat.fromJson(json['format']),
+    emojis: json['emojis'],
+    maskPosition: json['mask_position'] == null
+        ? null
+        : MaskPosition.fromJson(json['mask_position']),
+    keywords: List<String>.from(
+      (json['keywords'] ?? []).map((item) => item).toList(),
+    ),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -81,14 +82,13 @@ final class InputSticker extends TdObject {
     String? emojis,
     MaskPosition? maskPosition,
     List<String>? keywords,
-  }) =>
-      InputSticker(
-        sticker: sticker ?? this.sticker,
-        format: format ?? this.format,
-        emojis: emojis ?? this.emojis,
-        maskPosition: maskPosition ?? this.maskPosition,
-        keywords: keywords ?? this.keywords,
-      );
+  }) => InputSticker(
+    sticker: sticker ?? this.sticker,
+    format: format ?? this.format,
+    emojis: emojis ?? this.emojis,
+    maskPosition: maskPosition ?? this.maskPosition,
+    keywords: keywords ?? this.keywords,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'inputSticker';

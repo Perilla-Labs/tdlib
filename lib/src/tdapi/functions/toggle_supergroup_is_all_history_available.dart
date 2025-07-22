@@ -47,12 +47,10 @@ final class ToggleSupergroupIsAllHistoryAvailable extends TdFunction {
   ToggleSupergroupIsAllHistoryAvailable copyWith({
     int? supergroupId,
     bool? isAllHistoryAvailable,
-  }) =>
-      ToggleSupergroupIsAllHistoryAvailable(
-        supergroupId: supergroupId ?? this.supergroupId,
-        isAllHistoryAvailable:
-            isAllHistoryAvailable ?? this.isAllHistoryAvailable,
-      );
+  }) => ToggleSupergroupIsAllHistoryAvailable(
+    supergroupId: supergroupId ?? this.supergroupId,
+    isAllHistoryAvailable: isAllHistoryAvailable ?? this.isAllHistoryAvailable,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'toggleSupergroupIsAllHistoryAvailable';

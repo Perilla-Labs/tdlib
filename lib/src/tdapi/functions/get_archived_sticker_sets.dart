@@ -56,12 +56,11 @@ final class GetArchivedStickerSets extends TdFunction {
     StickerType? stickerType,
     int? offsetStickerSetId,
     int? limit,
-  }) =>
-      GetArchivedStickerSets(
-        stickerType: stickerType ?? this.stickerType,
-        offsetStickerSetId: offsetStickerSetId ?? this.offsetStickerSetId,
-        limit: limit ?? this.limit,
-      );
+  }) => GetArchivedStickerSets(
+    stickerType: stickerType ?? this.stickerType,
+    offsetStickerSetId: offsetStickerSetId ?? this.offsetStickerSetId,
+    limit: limit ?? this.limit,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getArchivedStickerSets';

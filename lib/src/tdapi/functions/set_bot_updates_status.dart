@@ -47,11 +47,10 @@ final class SetBotUpdatesStatus extends TdFunction {
   SetBotUpdatesStatus copyWith({
     int? pendingUpdateCount,
     String? errorMessage,
-  }) =>
-      SetBotUpdatesStatus(
-        pendingUpdateCount: pendingUpdateCount ?? this.pendingUpdateCount,
-        errorMessage: errorMessage ?? this.errorMessage,
-      );
+  }) => SetBotUpdatesStatus(
+    pendingUpdateCount: pendingUpdateCount ?? this.pendingUpdateCount,
+    errorMessage: errorMessage ?? this.errorMessage,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setBotUpdatesStatus';

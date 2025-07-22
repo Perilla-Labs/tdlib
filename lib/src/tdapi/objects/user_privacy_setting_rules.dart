@@ -31,9 +31,11 @@ final class UserPrivacySettingRules extends TdObject {
   /// Parse from a json
   factory UserPrivacySettingRules.fromJson(Map<String, dynamic> json) =>
       UserPrivacySettingRules(
-        rules: List<UserPrivacySettingRule>.from((json['rules'] ?? [])
-            .map((item) => UserPrivacySettingRule.fromJson(item))
-            .toList()),
+        rules: List<UserPrivacySettingRule>.from(
+          (json['rules'] ?? [])
+              .map((item) => UserPrivacySettingRule.fromJson(item))
+              .toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -55,12 +57,11 @@ final class UserPrivacySettingRules extends TdObject {
     List<UserPrivacySettingRule>? rules,
     dynamic extra,
     int? clientId,
-  }) =>
-      UserPrivacySettingRules(
-        rules: rules ?? this.rules,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => UserPrivacySettingRules(
+    rules: rules ?? this.rules,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'userPrivacySettingRules';

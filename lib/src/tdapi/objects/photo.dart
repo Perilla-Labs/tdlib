@@ -32,14 +32,14 @@ final class Photo extends TdObject {
 
   /// Parse from a json
   factory Photo.fromJson(Map<String, dynamic> json) => Photo(
-        hasStickers: json['has_stickers'],
-        minithumbnail: json['minithumbnail'] == null
-            ? null
-            : Minithumbnail.fromJson(json['minithumbnail']),
-        sizes: List<PhotoSize>.from((json['sizes'] ?? [])
-            .map((item) => PhotoSize.fromJson(item))
-            .toList()),
-      );
+    hasStickers: json['has_stickers'],
+    minithumbnail: json['minithumbnail'] == null
+        ? null
+        : Minithumbnail.fromJson(json['minithumbnail']),
+    sizes: List<PhotoSize>.from(
+      (json['sizes'] ?? []).map((item) => PhotoSize.fromJson(item)).toList(),
+    ),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -62,12 +62,11 @@ final class Photo extends TdObject {
     bool? hasStickers,
     Minithumbnail? minithumbnail,
     List<PhotoSize>? sizes,
-  }) =>
-      Photo(
-        hasStickers: hasStickers ?? this.hasStickers,
-        minithumbnail: minithumbnail ?? this.minithumbnail,
-        sizes: sizes ?? this.sizes,
-      );
+  }) => Photo(
+    hasStickers: hasStickers ?? this.hasStickers,
+    minithumbnail: minithumbnail ?? this.minithumbnail,
+    sizes: sizes ?? this.sizes,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'photo';

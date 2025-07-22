@@ -39,10 +39,7 @@ final class ReadDatePrivacySettings extends TdObject {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "show_read_date": showReadDate,
-    };
+    return {"@type": defaultObjectId, "show_read_date": showReadDate};
   }
 
   /// Copy model with modified properties.
@@ -53,12 +50,11 @@ final class ReadDatePrivacySettings extends TdObject {
     bool? showReadDate,
     dynamic extra,
     int? clientId,
-  }) =>
-      ReadDatePrivacySettings(
-        showReadDate: showReadDate ?? this.showReadDate,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => ReadDatePrivacySettings(
+    showReadDate: showReadDate ?? this.showReadDate,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'readDatePrivacySettings';

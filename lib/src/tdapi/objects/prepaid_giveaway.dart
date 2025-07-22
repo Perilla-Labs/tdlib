@@ -79,14 +79,13 @@ final class PrepaidGiveaway extends TdObject {
     GiveawayPrize? prize,
     int? boostCount,
     int? paymentDate,
-  }) =>
-      PrepaidGiveaway(
-        id: id ?? this.id,
-        winnerCount: winnerCount ?? this.winnerCount,
-        prize: prize ?? this.prize,
-        boostCount: boostCount ?? this.boostCount,
-        paymentDate: paymentDate ?? this.paymentDate,
-      );
+  }) => PrepaidGiveaway(
+    id: id ?? this.id,
+    winnerCount: winnerCount ?? this.winnerCount,
+    prize: prize ?? this.prize,
+    boostCount: boostCount ?? this.boostCount,
+    paymentDate: paymentDate ?? this.paymentDate,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'prepaidGiveaway';

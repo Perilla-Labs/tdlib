@@ -17,10 +17,7 @@ final class GetChatStatistics extends TdFunction {
   /// * [isDark]: Pass true if a dark theme is used by the application.
   ///
   /// [ChatStatistics] is returned on completion.
-  const GetChatStatistics({
-    required this.chatId,
-    required this.isDark,
-  });
+  const GetChatStatistics({required this.chatId, required this.isDark});
 
   /// Chat identifier
   final int chatId;
@@ -44,14 +41,10 @@ final class GetChatStatistics extends TdFunction {
   /// Properties:
   /// * [chat_id]: Chat identifier
   /// * [is_dark]: Pass true if a dark theme is used by the application
-  GetChatStatistics copyWith({
-    int? chatId,
-    bool? isDark,
-  }) =>
-      GetChatStatistics(
-        chatId: chatId ?? this.chatId,
-        isDark: isDark ?? this.isDark,
-      );
+  GetChatStatistics copyWith({int? chatId, bool? isDark}) => GetChatStatistics(
+    chatId: chatId ?? this.chatId,
+    isDark: isDark ?? this.isDark,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getChatStatistics';

@@ -56,26 +56,19 @@ final class VectorPathCommandLine extends VectorPathCommand {
   /// A straight line to a given point.
   ///
   /// * [endPoint]: The end point of the straight line.
-  const VectorPathCommandLine({
-    required this.endPoint,
-  });
+  const VectorPathCommandLine({required this.endPoint});
 
   /// The end point of the straight line
   final Point endPoint;
 
   /// Parse from a json
   factory VectorPathCommandLine.fromJson(Map<String, dynamic> json) =>
-      VectorPathCommandLine(
-        endPoint: Point.fromJson(json['end_point']),
-      );
+      VectorPathCommandLine(endPoint: Point.fromJson(json['end_point']));
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "end_point": endPoint.toJson(),
-    };
+    return {"@type": defaultObjectId, "end_point": endPoint.toJson()};
   }
 
   /// Copy model with modified properties.
@@ -83,12 +76,8 @@ final class VectorPathCommandLine extends VectorPathCommand {
   /// Properties:
   /// * [end_point]: The end point of the straight line
   @override
-  VectorPathCommandLine copyWith({
-    Point? endPoint,
-  }) =>
-      VectorPathCommandLine(
-        endPoint: endPoint ?? this.endPoint,
-      );
+  VectorPathCommandLine copyWith({Point? endPoint}) =>
+      VectorPathCommandLine(endPoint: endPoint ?? this.endPoint);
 
   /// TDLib object type
   static const String defaultObjectId = 'vectorPathCommandLine';
@@ -113,15 +102,13 @@ final class VectorPathCommandCubicBezierCurve extends VectorPathCommand {
 
   /// Parse from a json
   factory VectorPathCommandCubicBezierCurve.fromJson(
-          Map<String, dynamic> json) =>
-      const VectorPathCommandCubicBezierCurve();
+    Map<String, dynamic> json,
+  ) => const VectorPathCommandCubicBezierCurve();
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-    };
+    return {"@type": defaultObjectId};
   }
 
   /// Copy instance with no modifications.

@@ -5,7 +5,7 @@ part of '../tdapi.dart';
 /// Changes privacy settings of a story. The method can be called only for stories posted on behalf of the current user and if story.can_be_edited == true.
 ///
 /// * [storyId]: Identifier of the story.
-/// * [privacySettings]: The new privacy settigs for the story.
+/// * [privacySettings]: The new privacy settings for the story.
 ///
 /// [Ok] is returned on completion.
 final class SetStoryPrivacySettings extends TdFunction {
@@ -14,7 +14,7 @@ final class SetStoryPrivacySettings extends TdFunction {
   /// Changes privacy settings of a story. The method can be called only for stories posted on behalf of the current user and if story.can_be_edited == true.
   ///
   /// * [storyId]: Identifier of the story.
-  /// * [privacySettings]: The new privacy settigs for the story.
+  /// * [privacySettings]: The new privacy settings for the story.
   ///
   /// [Ok] is returned on completion.
   const SetStoryPrivacySettings({
@@ -25,7 +25,7 @@ final class SetStoryPrivacySettings extends TdFunction {
   /// Identifier of the story
   final int storyId;
 
-  /// The new privacy settigs for the story
+  /// The new privacy settings for the story
   final StoryPrivacySettings privacySettings;
 
   /// Convert model to TDLib JSON format
@@ -43,15 +43,14 @@ final class SetStoryPrivacySettings extends TdFunction {
   ///
   /// Properties:
   /// * [story_id]: Identifier of the story
-  /// * [privacy_settings]: The new privacy settigs for the story
+  /// * [privacy_settings]: The new privacy settings for the story
   SetStoryPrivacySettings copyWith({
     int? storyId,
     StoryPrivacySettings? privacySettings,
-  }) =>
-      SetStoryPrivacySettings(
-        storyId: storyId ?? this.storyId,
-        privacySettings: privacySettings ?? this.privacySettings,
-      );
+  }) => SetStoryPrivacySettings(
+    storyId: storyId ?? this.storyId,
+    privacySettings: privacySettings ?? this.privacySettings,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'setStoryPrivacySettings';

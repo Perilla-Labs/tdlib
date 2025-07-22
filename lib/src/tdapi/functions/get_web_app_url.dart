@@ -4,10 +4,9 @@ part of '../tdapi.dart';
 ///
 /// Returns an HTTPS URL of a Web App to open from the side menu, a keyboardButtonTypeWebApp button, or an inlineQueryResultsButtonTypeWebApp button.
 ///
-/// * [botUserId]: Identifier of the target bot.
+/// * [botUserId]: Identifier of the target bot. If the bot is restricted for the current user, then show an error instead of calling the method.
 /// * [url]: The URL from a keyboardButtonTypeWebApp button, inlineQueryResultsButtonTypeWebApp button, or an empty string when the bot is opened from the side menu.
-/// * [theme]: Preferred Web App theme; pass null to use the default theme *(optional)*.
-/// * [applicationName]: Short name of the current application; 0-64 English letters, digits, and underscores.
+/// * [parameters]: Parameters to use to open the Web App.
 ///
 /// [HttpUrl] is returned on completion.
 final class GetWebAppUrl extends TdFunction {
@@ -15,30 +14,25 @@ final class GetWebAppUrl extends TdFunction {
   ///
   /// Returns an HTTPS URL of a Web App to open from the side menu, a keyboardButtonTypeWebApp button, or an inlineQueryResultsButtonTypeWebApp button.
   ///
-  /// * [botUserId]: Identifier of the target bot.
+  /// * [botUserId]: Identifier of the target bot. If the bot is restricted for the current user, then show an error instead of calling the method.
   /// * [url]: The URL from a keyboardButtonTypeWebApp button, inlineQueryResultsButtonTypeWebApp button, or an empty string when the bot is opened from the side menu.
-  /// * [theme]: Preferred Web App theme; pass null to use the default theme *(optional)*.
-  /// * [applicationName]: Short name of the current application; 0-64 English letters, digits, and underscores.
+  /// * [parameters]: Parameters to use to open the Web App.
   ///
   /// [HttpUrl] is returned on completion.
   const GetWebAppUrl({
     required this.botUserId,
     required this.url,
-    this.theme,
-    required this.applicationName,
+    required this.parameters,
   });
 
-  /// Identifier of the target bot
+  /// Identifier of the target bot. If the bot is restricted for the current user, then show an error instead of calling the method
   final int botUserId;
 
   /// The URL from a keyboardButtonTypeWebApp button, inlineQueryResultsButtonTypeWebApp button, or an empty string when the bot is opened from the side menu
   final String url;
 
-  /// Preferred Web App theme; pass null to use the default theme
-  final ThemeParameters? theme;
-
-  /// Short name of the current application; 0-64 English letters, digits, and underscores
-  final String applicationName;
+  /// Parameters to use to open the Web App
+  final WebAppOpenParameters parameters;
 
   /// Convert model to TDLib JSON format
   @override
@@ -47,8 +41,7 @@ final class GetWebAppUrl extends TdFunction {
       "@type": defaultObjectId,
       "bot_user_id": botUserId,
       "url": url,
-      "theme": theme?.toJson(),
-      "application_name": applicationName,
+      "parameters": parameters.toJson(),
       "@extra": extra,
     };
   }
@@ -56,22 +49,18 @@ final class GetWebAppUrl extends TdFunction {
   /// Copy model with modified properties.
   ///
   /// Properties:
-  /// * [bot_user_id]: Identifier of the target bot
+  /// * [bot_user_id]: Identifier of the target bot. If the bot is restricted for the current user, then show an error instead of calling the method
   /// * [url]: The URL from a keyboardButtonTypeWebApp button, inlineQueryResultsButtonTypeWebApp button, or an empty string when the bot is opened from the side menu
-  /// * [theme]: Preferred Web App theme; pass null to use the default theme
-  /// * [application_name]: Short name of the current application; 0-64 English letters, digits, and underscores
+  /// * [parameters]: Parameters to use to open the Web App
   GetWebAppUrl copyWith({
     int? botUserId,
     String? url,
-    ThemeParameters? theme,
-    String? applicationName,
-  }) =>
-      GetWebAppUrl(
-        botUserId: botUserId ?? this.botUserId,
-        url: url ?? this.url,
-        theme: theme ?? this.theme,
-        applicationName: applicationName ?? this.applicationName,
-      );
+    WebAppOpenParameters? parameters,
+  }) => GetWebAppUrl(
+    botUserId: botUserId ?? this.botUserId,
+    url: url ?? this.url,
+    parameters: parameters ?? this.parameters,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getWebAppUrl';

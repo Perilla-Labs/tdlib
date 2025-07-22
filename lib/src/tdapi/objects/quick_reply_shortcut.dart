@@ -69,13 +69,12 @@ final class QuickReplyShortcut extends TdObject {
     String? name,
     QuickReplyMessage? firstMessage,
     int? messageCount,
-  }) =>
-      QuickReplyShortcut(
-        id: id ?? this.id,
-        name: name ?? this.name,
-        firstMessage: firstMessage ?? this.firstMessage,
-        messageCount: messageCount ?? this.messageCount,
-      );
+  }) => QuickReplyShortcut(
+    id: id ?? this.id,
+    name: name ?? this.name,
+    firstMessage: firstMessage ?? this.firstMessage,
+    messageCount: messageCount ?? this.messageCount,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'quickReplyShortcut';

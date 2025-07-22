@@ -15,9 +15,7 @@ final class GetInstalledBackgrounds extends TdFunction {
   /// * [forDarkTheme]: Pass true to order returned backgrounds for a dark theme.
   ///
   /// [Backgrounds] is returned on completion.
-  const GetInstalledBackgrounds({
-    required this.forDarkTheme,
-  });
+  const GetInstalledBackgrounds({required this.forDarkTheme});
 
   /// Pass true to order returned backgrounds for a dark theme
   final bool forDarkTheme;
@@ -36,12 +34,8 @@ final class GetInstalledBackgrounds extends TdFunction {
   ///
   /// Properties:
   /// * [for_dark_theme]: Pass true to order returned backgrounds for a dark theme
-  GetInstalledBackgrounds copyWith({
-    bool? forDarkTheme,
-  }) =>
-      GetInstalledBackgrounds(
-        forDarkTheme: forDarkTheme ?? this.forDarkTheme,
-      );
+  GetInstalledBackgrounds copyWith({bool? forDarkTheme}) =>
+      GetInstalledBackgrounds(forDarkTheme: forDarkTheme ?? this.forDarkTheme);
 
   /// TDLib object type
   static const String defaultObjectId = 'getInstalledBackgrounds';

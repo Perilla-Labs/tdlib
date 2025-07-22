@@ -44,10 +44,7 @@ final class CommitPendingPaidMessageReactions extends TdFunction {
   /// Properties:
   /// * [chat_id]: Identifier of the chat to which the message belongs
   /// * [message_id]: Identifier of the message
-  CommitPendingPaidMessageReactions copyWith({
-    int? chatId,
-    int? messageId,
-  }) =>
+  CommitPendingPaidMessageReactions copyWith({int? chatId, int? messageId}) =>
       CommitPendingPaidMessageReactions(
         chatId: chatId ?? this.chatId,
         messageId: messageId ?? this.messageId,

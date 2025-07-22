@@ -38,9 +38,11 @@ final class ImportedContacts extends TdObject {
   factory ImportedContacts.fromJson(Map<String, dynamic> json) =>
       ImportedContacts(
         userIds: List<int>.from(
-            (json['user_ids'] ?? []).map((item) => item).toList()),
+          (json['user_ids'] ?? []).map((item) => item).toList(),
+        ),
         importerCount: List<int>.from(
-            (json['importer_count'] ?? []).map((item) => item).toList()),
+          (json['importer_count'] ?? []).map((item) => item).toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -65,13 +67,12 @@ final class ImportedContacts extends TdObject {
     List<int>? importerCount,
     dynamic extra,
     int? clientId,
-  }) =>
-      ImportedContacts(
-        userIds: userIds ?? this.userIds,
-        importerCount: importerCount ?? this.importerCount,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => ImportedContacts(
+    userIds: userIds ?? this.userIds,
+    importerCount: importerCount ?? this.importerCount,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'importedContacts';

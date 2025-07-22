@@ -11,11 +11,7 @@ final class ChatEvents extends TdObject {
   /// Contains a list of chat events.
   ///
   /// * [events]: List of events.
-  const ChatEvents({
-    required this.events,
-    this.extra,
-    this.clientId,
-  });
+  const ChatEvents({required this.events, this.extra, this.clientId});
 
   /// List of events
   final List<ChatEvent> events;
@@ -30,12 +26,12 @@ final class ChatEvents extends TdObject {
 
   /// Parse from a json
   factory ChatEvents.fromJson(Map<String, dynamic> json) => ChatEvents(
-        events: List<ChatEvent>.from((json['events'] ?? [])
-            .map((item) => ChatEvent.fromJson(item))
-            .toList()),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    events: List<ChatEvent>.from(
+      (json['events'] ?? []).map((item) => ChatEvent.fromJson(item)).toList(),
+    ),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -54,12 +50,11 @@ final class ChatEvents extends TdObject {
     List<ChatEvent>? events,
     dynamic extra,
     int? clientId,
-  }) =>
-      ChatEvents(
-        events: events ?? this.events,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => ChatEvents(
+    events: events ?? this.events,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatEvents';

@@ -67,9 +67,11 @@ final class MessageThreadInfo extends TdObject {
             ? null
             : MessageReplyInfo.fromJson(json['reply_info']),
         unreadMessageCount: json['unread_message_count'],
-        messages: List<Message>.from((json['messages'] ?? [])
-            .map((item) => Message.fromJson(item))
-            .toList()),
+        messages: List<Message>.from(
+          (json['messages'] ?? [])
+              .map((item) => Message.fromJson(item))
+              .toList(),
+        ),
         draftMessage: json['draft_message'] == null
             ? null
             : DraftMessage.fromJson(json['draft_message']),
@@ -109,17 +111,16 @@ final class MessageThreadInfo extends TdObject {
     DraftMessage? draftMessage,
     dynamic extra,
     int? clientId,
-  }) =>
-      MessageThreadInfo(
-        chatId: chatId ?? this.chatId,
-        messageThreadId: messageThreadId ?? this.messageThreadId,
-        replyInfo: replyInfo ?? this.replyInfo,
-        unreadMessageCount: unreadMessageCount ?? this.unreadMessageCount,
-        messages: messages ?? this.messages,
-        draftMessage: draftMessage ?? this.draftMessage,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => MessageThreadInfo(
+    chatId: chatId ?? this.chatId,
+    messageThreadId: messageThreadId ?? this.messageThreadId,
+    replyInfo: replyInfo ?? this.replyInfo,
+    unreadMessageCount: unreadMessageCount ?? this.unreadMessageCount,
+    messages: messages ?? this.messages,
+    draftMessage: draftMessage ?? this.draftMessage,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messageThreadInfo';

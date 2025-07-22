@@ -61,12 +61,11 @@ final class ChatRevenueTransaction extends TdObject {
     String? cryptocurrency,
     int? cryptocurrencyAmount,
     ChatRevenueTransactionType? type,
-  }) =>
-      ChatRevenueTransaction(
-        cryptocurrency: cryptocurrency ?? this.cryptocurrency,
-        cryptocurrencyAmount: cryptocurrencyAmount ?? this.cryptocurrencyAmount,
-        type: type ?? this.type,
-      );
+  }) => ChatRevenueTransaction(
+    cryptocurrency: cryptocurrency ?? this.cryptocurrency,
+    cryptocurrencyAmount: cryptocurrencyAmount ?? this.cryptocurrencyAmount,
+    type: type ?? this.type,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatRevenueTransaction';

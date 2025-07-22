@@ -11,11 +11,7 @@ final class EmojiCategories extends TdObject {
   /// Represents a list of emoji categories.
   ///
   /// * [categories]: List of categories.
-  const EmojiCategories({
-    required this.categories,
-    this.extra,
-    this.clientId,
-  });
+  const EmojiCategories({required this.categories, this.extra, this.clientId});
 
   /// List of categories
   final List<EmojiCategory> categories;
@@ -31,9 +27,11 @@ final class EmojiCategories extends TdObject {
   /// Parse from a json
   factory EmojiCategories.fromJson(Map<String, dynamic> json) =>
       EmojiCategories(
-        categories: List<EmojiCategory>.from((json['categories'] ?? [])
-            .map((item) => EmojiCategory.fromJson(item))
-            .toList()),
+        categories: List<EmojiCategory>.from(
+          (json['categories'] ?? [])
+              .map((item) => EmojiCategory.fromJson(item))
+              .toList(),
+        ),
         extra: json['@extra'],
         clientId: json['@client_id'],
       );
@@ -55,12 +53,11 @@ final class EmojiCategories extends TdObject {
     List<EmojiCategory>? categories,
     dynamic extra,
     int? clientId,
-  }) =>
-      EmojiCategories(
-        categories: categories ?? this.categories,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => EmojiCategories(
+    categories: categories ?? this.categories,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'emojiCategories';

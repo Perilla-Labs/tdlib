@@ -38,11 +38,11 @@ final class SharedChat extends TdObject {
 
   /// Parse from a json
   factory SharedChat.fromJson(Map<String, dynamic> json) => SharedChat(
-        chatId: json['chat_id'],
-        title: json['title'],
-        username: json['username'],
-        photo: json['photo'] == null ? null : Photo.fromJson(json['photo']),
-      );
+    chatId: json['chat_id'],
+    title: json['title'],
+    username: json['username'],
+    photo: json['photo'] == null ? null : Photo.fromJson(json['photo']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -68,13 +68,12 @@ final class SharedChat extends TdObject {
     String? title,
     String? username,
     Photo? photo,
-  }) =>
-      SharedChat(
-        chatId: chatId ?? this.chatId,
-        title: title ?? this.title,
-        username: username ?? this.username,
-        photo: photo ?? this.photo,
-      );
+  }) => SharedChat(
+    chatId: chatId ?? this.chatId,
+    title: title ?? this.title,
+    username: username ?? this.username,
+    photo: photo ?? this.photo,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'sharedChat';

@@ -48,15 +48,15 @@ final class OrderInfo extends TdObject {
 
   /// Parse from a json
   factory OrderInfo.fromJson(Map<String, dynamic> json) => OrderInfo(
-        name: json['name'],
-        phoneNumber: json['phone_number'],
-        emailAddress: json['email_address'],
-        shippingAddress: json['shipping_address'] == null
-            ? null
-            : Address.fromJson(json['shipping_address']),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    name: json['name'],
+    phoneNumber: json['phone_number'],
+    emailAddress: json['email_address'],
+    shippingAddress: json['shipping_address'] == null
+        ? null
+        : Address.fromJson(json['shipping_address']),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -84,15 +84,14 @@ final class OrderInfo extends TdObject {
     Address? shippingAddress,
     dynamic extra,
     int? clientId,
-  }) =>
-      OrderInfo(
-        name: name ?? this.name,
-        phoneNumber: phoneNumber ?? this.phoneNumber,
-        emailAddress: emailAddress ?? this.emailAddress,
-        shippingAddress: shippingAddress ?? this.shippingAddress,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => OrderInfo(
+    name: name ?? this.name,
+    phoneNumber: phoneNumber ?? this.phoneNumber,
+    emailAddress: emailAddress ?? this.emailAddress,
+    shippingAddress: shippingAddress ?? this.shippingAddress,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'orderInfo';

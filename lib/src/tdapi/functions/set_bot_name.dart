@@ -52,11 +52,7 @@ final class SetBotName extends TdFunction {
   /// * [bot_user_id]: Identifier of the target bot
   /// * [language_code]: A two-letter ISO 639-1 language code. If empty, the name will be shown to all users for whose languages there is no dedicated name
   /// * [name]: New bot's name on the specified language; 0-64 characters; must be non-empty if language code is empty
-  SetBotName copyWith({
-    int? botUserId,
-    String? languageCode,
-    String? name,
-  }) =>
+  SetBotName copyWith({int? botUserId, String? languageCode, String? name}) =>
       SetBotName(
         botUserId: botUserId ?? this.botUserId,
         languageCode: languageCode ?? this.languageCode,

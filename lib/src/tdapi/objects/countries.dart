@@ -11,11 +11,7 @@ final class Countries extends TdObject {
   /// Contains information about countries.
   ///
   /// * [countries]: The list of countries.
-  const Countries({
-    required this.countries,
-    this.extra,
-    this.clientId,
-  });
+  const Countries({required this.countries, this.extra, this.clientId});
 
   /// The list of countries
   final List<CountryInfo> countries;
@@ -30,12 +26,14 @@ final class Countries extends TdObject {
 
   /// Parse from a json
   factory Countries.fromJson(Map<String, dynamic> json) => Countries(
-        countries: List<CountryInfo>.from((json['countries'] ?? [])
-            .map((item) => CountryInfo.fromJson(item))
-            .toList()),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    countries: List<CountryInfo>.from(
+      (json['countries'] ?? [])
+          .map((item) => CountryInfo.fromJson(item))
+          .toList(),
+    ),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -54,12 +52,11 @@ final class Countries extends TdObject {
     List<CountryInfo>? countries,
     dynamic extra,
     int? clientId,
-  }) =>
-      Countries(
-        countries: countries ?? this.countries,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => Countries(
+    countries: countries ?? this.countries,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'countries';

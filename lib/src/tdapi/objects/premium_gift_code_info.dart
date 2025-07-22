@@ -115,18 +115,17 @@ final class PremiumGiftCodeInfo extends TdObject {
     int? useDate,
     dynamic extra,
     int? clientId,
-  }) =>
-      PremiumGiftCodeInfo(
-        creatorId: creatorId ?? this.creatorId,
-        creationDate: creationDate ?? this.creationDate,
-        isFromGiveaway: isFromGiveaway ?? this.isFromGiveaway,
-        giveawayMessageId: giveawayMessageId ?? this.giveawayMessageId,
-        monthCount: monthCount ?? this.monthCount,
-        userId: userId ?? this.userId,
-        useDate: useDate ?? this.useDate,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => PremiumGiftCodeInfo(
+    creatorId: creatorId ?? this.creatorId,
+    creationDate: creationDate ?? this.creationDate,
+    isFromGiveaway: isFromGiveaway ?? this.isFromGiveaway,
+    giveawayMessageId: giveawayMessageId ?? this.giveawayMessageId,
+    monthCount: monthCount ?? this.monthCount,
+    userId: userId ?? this.userId,
+    useDate: useDate ?? this.useDate,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'premiumGiftCodeInfo';

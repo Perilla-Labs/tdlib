@@ -17,10 +17,7 @@ final class AcceptCall extends TdFunction {
   /// * [protocol]: The call protocols supported by the application.
   ///
   /// [Ok] is returned on completion.
-  const AcceptCall({
-    required this.callId,
-    required this.protocol,
-  });
+  const AcceptCall({required this.callId, required this.protocol});
 
   /// Call identifier
   final int callId;
@@ -44,14 +41,10 @@ final class AcceptCall extends TdFunction {
   /// Properties:
   /// * [call_id]: Call identifier
   /// * [protocol]: The call protocols supported by the application
-  AcceptCall copyWith({
-    int? callId,
-    CallProtocol? protocol,
-  }) =>
-      AcceptCall(
-        callId: callId ?? this.callId,
-        protocol: protocol ?? this.protocol,
-      );
+  AcceptCall copyWith({int? callId, CallProtocol? protocol}) => AcceptCall(
+    callId: callId ?? this.callId,
+    protocol: protocol ?? this.protocol,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'acceptCall';

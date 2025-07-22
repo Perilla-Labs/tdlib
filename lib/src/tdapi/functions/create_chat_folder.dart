@@ -15,9 +15,7 @@ final class CreateChatFolder extends TdFunction {
   /// * [folder]: The new chat folder.
   ///
   /// [ChatFolderInfo] is returned on completion.
-  const CreateChatFolder({
-    required this.folder,
-  });
+  const CreateChatFolder({required this.folder});
 
   /// The new chat folder
   final ChatFolder folder;
@@ -36,12 +34,8 @@ final class CreateChatFolder extends TdFunction {
   ///
   /// Properties:
   /// * [folder]: The new chat folder
-  CreateChatFolder copyWith({
-    ChatFolder? folder,
-  }) =>
-      CreateChatFolder(
-        folder: folder ?? this.folder,
-      );
+  CreateChatFolder copyWith({ChatFolder? folder}) =>
+      CreateChatFolder(folder: folder ?? this.folder);
 
   /// TDLib object type
   static const String defaultObjectId = 'createChatFolder';

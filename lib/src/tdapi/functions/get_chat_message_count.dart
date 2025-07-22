@@ -2,40 +2,40 @@ part of '../tdapi.dart';
 
 /// **GetChatMessageCount** *(getChatMessageCount)* - TDLib function
 ///
-/// Returns approximate number of messages of the specified type in the chat.
+/// Returns approximate number of messages of the specified type in the chat or its topic.
 ///
 /// * [chatId]: Identifier of the chat in which to count messages.
+/// * [topicId]: Pass topic identifier to get number of messages only in specific topic; pass null to get number of messages in all topics *(optional)*.
 /// * [filter]: Filter for message content; searchMessagesFilterEmpty is unsupported in this function.
-/// * [savedMessagesTopicId]: If not 0, only messages in the specified Saved Messages topic will be counted; pass 0 to count all messages, or for chats other than Saved Messages.
 /// * [returnLocal]: Pass true to get the number of messages without sending network requests, or -1 if the number of messages is unknown locally.
 ///
 /// [Count] is returned on completion.
 final class GetChatMessageCount extends TdFunction {
   /// **GetChatMessageCount** *(getChatMessageCount)* - TDLib function
   ///
-  /// Returns approximate number of messages of the specified type in the chat.
+  /// Returns approximate number of messages of the specified type in the chat or its topic.
   ///
   /// * [chatId]: Identifier of the chat in which to count messages.
+  /// * [topicId]: Pass topic identifier to get number of messages only in specific topic; pass null to get number of messages in all topics *(optional)*.
   /// * [filter]: Filter for message content; searchMessagesFilterEmpty is unsupported in this function.
-  /// * [savedMessagesTopicId]: If not 0, only messages in the specified Saved Messages topic will be counted; pass 0 to count all messages, or for chats other than Saved Messages.
   /// * [returnLocal]: Pass true to get the number of messages without sending network requests, or -1 if the number of messages is unknown locally.
   ///
   /// [Count] is returned on completion.
   const GetChatMessageCount({
     required this.chatId,
+    this.topicId,
     required this.filter,
-    required this.savedMessagesTopicId,
     required this.returnLocal,
   });
 
   /// Identifier of the chat in which to count messages
   final int chatId;
 
+  /// Pass topic identifier to get number of messages only in specific topic; pass null to get number of messages in all topics
+  final MessageTopic? topicId;
+
   /// Filter for message content; searchMessagesFilterEmpty is unsupported in this function
   final SearchMessagesFilter filter;
-
-  /// If not 0, only messages in the specified Saved Messages topic will be counted; pass 0 to count all messages, or for chats other than Saved Messages
-  final int savedMessagesTopicId;
 
   /// Pass true to get the number of messages without sending network requests, or -1 if the number of messages is unknown locally
   final bool returnLocal;
@@ -46,8 +46,8 @@ final class GetChatMessageCount extends TdFunction {
     return {
       "@type": defaultObjectId,
       "chat_id": chatId,
+      "topic_id": topicId?.toJson(),
       "filter": filter.toJson(),
-      "saved_messages_topic_id": savedMessagesTopicId,
       "return_local": returnLocal,
       "@extra": extra,
     };
@@ -57,21 +57,20 @@ final class GetChatMessageCount extends TdFunction {
   ///
   /// Properties:
   /// * [chat_id]: Identifier of the chat in which to count messages
+  /// * [topic_id]: Pass topic identifier to get number of messages only in specific topic; pass null to get number of messages in all topics
   /// * [filter]: Filter for message content; searchMessagesFilterEmpty is unsupported in this function
-  /// * [saved_messages_topic_id]: If not 0, only messages in the specified Saved Messages topic will be counted; pass 0 to count all messages, or for chats other than Saved Messages
   /// * [return_local]: Pass true to get the number of messages without sending network requests, or -1 if the number of messages is unknown locally
   GetChatMessageCount copyWith({
     int? chatId,
+    MessageTopic? topicId,
     SearchMessagesFilter? filter,
-    int? savedMessagesTopicId,
     bool? returnLocal,
-  }) =>
-      GetChatMessageCount(
-        chatId: chatId ?? this.chatId,
-        filter: filter ?? this.filter,
-        savedMessagesTopicId: savedMessagesTopicId ?? this.savedMessagesTopicId,
-        returnLocal: returnLocal ?? this.returnLocal,
-      );
+  }) => GetChatMessageCount(
+    chatId: chatId ?? this.chatId,
+    topicId: topicId ?? this.topicId,
+    filter: filter ?? this.filter,
+    returnLocal: returnLocal ?? this.returnLocal,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getChatMessageCount';

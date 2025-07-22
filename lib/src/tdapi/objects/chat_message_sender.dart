@@ -13,10 +13,7 @@ final class ChatMessageSender extends TdObject {
   ///
   /// * [sender]: The message sender.
   /// * [needsPremium]: True, if Telegram Premium is needed to use the message sender.
-  const ChatMessageSender({
-    required this.sender,
-    required this.needsPremium,
-  });
+  const ChatMessageSender({required this.sender, required this.needsPremium});
 
   /// The message sender
   final MessageSender sender;
@@ -46,10 +43,7 @@ final class ChatMessageSender extends TdObject {
   /// Properties:
   /// * [sender]: The message sender
   /// * [needs_premium]: True, if Telegram Premium is needed to use the message sender
-  ChatMessageSender copyWith({
-    MessageSender? sender,
-    bool? needsPremium,
-  }) =>
+  ChatMessageSender copyWith({MessageSender? sender, bool? needsPremium}) =>
       ChatMessageSender(
         sender: sender ?? this.sender,
         needsPremium: needsPremium ?? this.needsPremium,

@@ -15,9 +15,7 @@ final class DeleteFile extends TdFunction {
   /// * [fileId]: Identifier of the file to delete.
   ///
   /// [Ok] is returned on completion.
-  const DeleteFile({
-    required this.fileId,
-  });
+  const DeleteFile({required this.fileId});
 
   /// Identifier of the file to delete
   final int fileId;
@@ -25,23 +23,15 @@ final class DeleteFile extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "file_id": fileId,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "file_id": fileId, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [file_id]: Identifier of the file to delete
-  DeleteFile copyWith({
-    int? fileId,
-  }) =>
-      DeleteFile(
-        fileId: fileId ?? this.fileId,
-      );
+  DeleteFile copyWith({int? fileId}) =>
+      DeleteFile(fileId: fileId ?? this.fileId);
 
   /// TDLib object type
   static const String defaultObjectId = 'deleteFile';

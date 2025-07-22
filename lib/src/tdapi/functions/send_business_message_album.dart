@@ -69,8 +69,9 @@ final class SendBusinessMessageAlbum extends TdFunction {
       "disable_notification": disableNotification,
       "protect_content": protectContent,
       "effect_id": effectId,
-      "input_message_contents":
-          inputMessageContents.map((i) => i.toJson()).toList(),
+      "input_message_contents": inputMessageContents
+          .map((i) => i.toJson())
+          .toList(),
       "@extra": extra,
     };
   }
@@ -93,16 +94,15 @@ final class SendBusinessMessageAlbum extends TdFunction {
     bool? protectContent,
     int? effectId,
     List<InputMessageContent>? inputMessageContents,
-  }) =>
-      SendBusinessMessageAlbum(
-        businessConnectionId: businessConnectionId ?? this.businessConnectionId,
-        chatId: chatId ?? this.chatId,
-        replyTo: replyTo ?? this.replyTo,
-        disableNotification: disableNotification ?? this.disableNotification,
-        protectContent: protectContent ?? this.protectContent,
-        effectId: effectId ?? this.effectId,
-        inputMessageContents: inputMessageContents ?? this.inputMessageContents,
-      );
+  }) => SendBusinessMessageAlbum(
+    businessConnectionId: businessConnectionId ?? this.businessConnectionId,
+    chatId: chatId ?? this.chatId,
+    replyTo: replyTo ?? this.replyTo,
+    disableNotification: disableNotification ?? this.disableNotification,
+    protectContent: protectContent ?? this.protectContent,
+    effectId: effectId ?? this.effectId,
+    inputMessageContents: inputMessageContents ?? this.inputMessageContents,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'sendBusinessMessageAlbum';

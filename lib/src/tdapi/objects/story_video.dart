@@ -2,7 +2,7 @@ part of '../tdapi.dart';
 
 /// **StoryVideo** *(storyVideo)* - basic class
 ///
-/// Describes a video file sent in a story.
+/// Describes a video file posted as a story.
 ///
 /// * [duration]: Duration of the video, in seconds.
 /// * [width]: Video width.
@@ -11,13 +11,13 @@ part of '../tdapi.dart';
 /// * [isAnimation]: True, if the video has no sound.
 /// * [minithumbnail]: Video minithumbnail; may be null *(optional)*.
 /// * [thumbnail]: Video thumbnail in JPEG or MPEG4 format; may be null *(optional)*.
-/// * [preloadPrefixSize]: Size of file prefix, which is supposed to be preloaded, in bytes.
+/// * [preloadPrefixSize]: Size of file prefix, which is expected to be preloaded, in bytes.
 /// * [coverFrameTimestamp]: Timestamp of the frame used as video thumbnail.
 /// * [video]: File containing the video.
 final class StoryVideo extends TdObject {
   /// **StoryVideo** *(storyVideo)* - basic class
   ///
-  /// Describes a video file sent in a story.
+  /// Describes a video file posted as a story.
   ///
   /// * [duration]: Duration of the video, in seconds.
   /// * [width]: Video width.
@@ -26,7 +26,7 @@ final class StoryVideo extends TdObject {
   /// * [isAnimation]: True, if the video has no sound.
   /// * [minithumbnail]: Video minithumbnail; may be null *(optional)*.
   /// * [thumbnail]: Video thumbnail in JPEG or MPEG4 format; may be null *(optional)*.
-  /// * [preloadPrefixSize]: Size of file prefix, which is supposed to be preloaded, in bytes.
+  /// * [preloadPrefixSize]: Size of file prefix, which is expected to be preloaded, in bytes.
   /// * [coverFrameTimestamp]: Timestamp of the frame used as video thumbnail.
   /// * [video]: File containing the video.
   const StoryVideo({
@@ -63,7 +63,7 @@ final class StoryVideo extends TdObject {
   /// Video thumbnail in JPEG or MPEG4 format; may be null
   final Thumbnail? thumbnail;
 
-  /// Size of file prefix, which is supposed to be preloaded, in bytes
+  /// Size of file prefix, which is expected to be preloaded, in bytes
   final int preloadPrefixSize;
 
   /// Timestamp of the frame used as video thumbnail
@@ -74,21 +74,21 @@ final class StoryVideo extends TdObject {
 
   /// Parse from a json
   factory StoryVideo.fromJson(Map<String, dynamic> json) => StoryVideo(
-        duration: json['duration'],
-        width: json['width'],
-        height: json['height'],
-        hasStickers: json['has_stickers'],
-        isAnimation: json['is_animation'],
-        minithumbnail: json['minithumbnail'] == null
-            ? null
-            : Minithumbnail.fromJson(json['minithumbnail']),
-        thumbnail: json['thumbnail'] == null
-            ? null
-            : Thumbnail.fromJson(json['thumbnail']),
-        preloadPrefixSize: json['preload_prefix_size'],
-        coverFrameTimestamp: json['cover_frame_timestamp'],
-        video: File.fromJson(json['video']),
-      );
+    duration: json['duration'],
+    width: json['width'],
+    height: json['height'],
+    hasStickers: json['has_stickers'],
+    isAnimation: json['is_animation'],
+    minithumbnail: json['minithumbnail'] == null
+        ? null
+        : Minithumbnail.fromJson(json['minithumbnail']),
+    thumbnail: json['thumbnail'] == null
+        ? null
+        : Thumbnail.fromJson(json['thumbnail']),
+    preloadPrefixSize: json['preload_prefix_size'],
+    coverFrameTimestamp: json['cover_frame_timestamp'],
+    video: File.fromJson(json['video']),
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -118,7 +118,7 @@ final class StoryVideo extends TdObject {
   /// * [is_animation]: True, if the video has no sound
   /// * [minithumbnail]: Video minithumbnail; may be null
   /// * [thumbnail]: Video thumbnail in JPEG or MPEG4 format; may be null
-  /// * [preload_prefix_size]: Size of file prefix, which is supposed to be preloaded, in bytes
+  /// * [preload_prefix_size]: Size of file prefix, which is expected to be preloaded, in bytes
   /// * [cover_frame_timestamp]: Timestamp of the frame used as video thumbnail
   /// * [video]: File containing the video
   StoryVideo copyWith({
@@ -132,19 +132,18 @@ final class StoryVideo extends TdObject {
     int? preloadPrefixSize,
     double? coverFrameTimestamp,
     File? video,
-  }) =>
-      StoryVideo(
-        duration: duration ?? this.duration,
-        width: width ?? this.width,
-        height: height ?? this.height,
-        hasStickers: hasStickers ?? this.hasStickers,
-        isAnimation: isAnimation ?? this.isAnimation,
-        minithumbnail: minithumbnail ?? this.minithumbnail,
-        thumbnail: thumbnail ?? this.thumbnail,
-        preloadPrefixSize: preloadPrefixSize ?? this.preloadPrefixSize,
-        coverFrameTimestamp: coverFrameTimestamp ?? this.coverFrameTimestamp,
-        video: video ?? this.video,
-      );
+  }) => StoryVideo(
+    duration: duration ?? this.duration,
+    width: width ?? this.width,
+    height: height ?? this.height,
+    hasStickers: hasStickers ?? this.hasStickers,
+    isAnimation: isAnimation ?? this.isAnimation,
+    minithumbnail: minithumbnail ?? this.minithumbnail,
+    thumbnail: thumbnail ?? this.thumbnail,
+    preloadPrefixSize: preloadPrefixSize ?? this.preloadPrefixSize,
+    coverFrameTimestamp: coverFrameTimestamp ?? this.coverFrameTimestamp,
+    video: video ?? this.video,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'storyVideo';

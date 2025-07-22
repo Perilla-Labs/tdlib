@@ -17,10 +17,7 @@ final class CanSendMessageToUser extends TdFunction {
   /// * [onlyLocal]: Pass true to get only locally available information without sending network requests.
   ///
   /// [CanSendMessageToUserResult] is returned on completion.
-  const CanSendMessageToUser({
-    required this.userId,
-    required this.onlyLocal,
-  });
+  const CanSendMessageToUser({required this.userId, required this.onlyLocal});
 
   /// Identifier of the other user
   final int userId;
@@ -44,10 +41,7 @@ final class CanSendMessageToUser extends TdFunction {
   /// Properties:
   /// * [user_id]: Identifier of the other user
   /// * [only_local]: Pass true to get only locally available information without sending network requests
-  CanSendMessageToUser copyWith({
-    int? userId,
-    bool? onlyLocal,
-  }) =>
+  CanSendMessageToUser copyWith({int? userId, bool? onlyLocal}) =>
       CanSendMessageToUser(
         userId: userId ?? this.userId,
         onlyLocal: onlyLocal ?? this.onlyLocal,

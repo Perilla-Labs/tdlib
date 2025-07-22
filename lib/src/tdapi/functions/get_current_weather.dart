@@ -15,9 +15,7 @@ final class GetCurrentWeather extends TdFunction {
   /// * [location]: The location.
   ///
   /// [CurrentWeather] is returned on completion.
-  const GetCurrentWeather({
-    required this.location,
-  });
+  const GetCurrentWeather({required this.location});
 
   /// The location
   final Location location;
@@ -36,12 +34,8 @@ final class GetCurrentWeather extends TdFunction {
   ///
   /// Properties:
   /// * [location]: The location
-  GetCurrentWeather copyWith({
-    Location? location,
-  }) =>
-      GetCurrentWeather(
-        location: location ?? this.location,
-      );
+  GetCurrentWeather copyWith({Location? location}) =>
+      GetCurrentWeather(location: location ?? this.location);
 
   /// TDLib object type
   static const String defaultObjectId = 'getCurrentWeather';

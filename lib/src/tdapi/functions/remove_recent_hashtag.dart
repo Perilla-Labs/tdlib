@@ -15,9 +15,7 @@ final class RemoveRecentHashtag extends TdFunction {
   /// * [hashtag]: Hashtag to delete.
   ///
   /// [Ok] is returned on completion.
-  const RemoveRecentHashtag({
-    required this.hashtag,
-  });
+  const RemoveRecentHashtag({required this.hashtag});
 
   /// Hashtag to delete
   final String hashtag;
@@ -25,23 +23,15 @@ final class RemoveRecentHashtag extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "hashtag": hashtag,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "hashtag": hashtag, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [hashtag]: Hashtag to delete
-  RemoveRecentHashtag copyWith({
-    String? hashtag,
-  }) =>
-      RemoveRecentHashtag(
-        hashtag: hashtag ?? this.hashtag,
-      );
+  RemoveRecentHashtag copyWith({String? hashtag}) =>
+      RemoveRecentHashtag(hashtag: hashtag ?? this.hashtag);
 
   /// TDLib object type
   static const String defaultObjectId = 'removeRecentHashtag';

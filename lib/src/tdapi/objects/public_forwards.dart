@@ -42,14 +42,16 @@ final class PublicForwards extends TdObject {
 
   /// Parse from a json
   factory PublicForwards.fromJson(Map<String, dynamic> json) => PublicForwards(
-        totalCount: json['total_count'],
-        forwards: List<PublicForward>.from((json['forwards'] ?? [])
-            .map((item) => PublicForward.fromJson(item))
-            .toList()),
-        nextOffset: json['next_offset'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    totalCount: json['total_count'],
+    forwards: List<PublicForward>.from(
+      (json['forwards'] ?? [])
+          .map((item) => PublicForward.fromJson(item))
+          .toList(),
+    ),
+    nextOffset: json['next_offset'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -74,14 +76,13 @@ final class PublicForwards extends TdObject {
     String? nextOffset,
     dynamic extra,
     int? clientId,
-  }) =>
-      PublicForwards(
-        totalCount: totalCount ?? this.totalCount,
-        forwards: forwards ?? this.forwards,
-        nextOffset: nextOffset ?? this.nextOffset,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => PublicForwards(
+    totalCount: totalCount ?? this.totalCount,
+    forwards: forwards ?? this.forwards,
+    nextOffset: nextOffset ?? this.nextOffset,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'publicForwards';

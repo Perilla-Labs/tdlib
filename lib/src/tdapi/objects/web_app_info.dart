@@ -36,22 +36,18 @@ final class WebAppInfo extends TdObject {
 
   /// Parse from a json
   factory WebAppInfo.fromJson(Map<String, dynamic> json) => WebAppInfo(
-        launchId: json['launch_id'] is int
-            ? json['launch_id']
-            : int.parse(json['launch_id']),
-        url: json['url'],
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    launchId: json['launch_id'] is int
+        ? json['launch_id']
+        : int.parse(json['launch_id']),
+    url: json['url'],
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "launch_id": launchId,
-      "url": url,
-    };
+    return {"@type": defaultObjectId, "launch_id": launchId, "url": url};
   }
 
   /// Copy model with modified properties.
@@ -64,13 +60,12 @@ final class WebAppInfo extends TdObject {
     String? url,
     dynamic extra,
     int? clientId,
-  }) =>
-      WebAppInfo(
-        launchId: launchId ?? this.launchId,
-        url: url ?? this.url,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => WebAppInfo(
+    launchId: launchId ?? this.launchId,
+    url: url ?? this.url,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'webAppInfo';

@@ -56,12 +56,11 @@ final class AddStickerToSet extends TdFunction {
     int? userId,
     String? name,
     InputSticker? sticker,
-  }) =>
-      AddStickerToSet(
-        userId: userId ?? this.userId,
-        name: name ?? this.name,
-        sticker: sticker ?? this.sticker,
-      );
+  }) => AddStickerToSet(
+    userId: userId ?? this.userId,
+    name: name ?? this.name,
+    sticker: sticker ?? this.sticker,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'addStickerToSet';

@@ -13,10 +13,7 @@ final class BankCardActionOpenUrl extends TdObject {
   ///
   /// * [text]: Action text.
   /// * [url]: The URL to be opened.
-  const BankCardActionOpenUrl({
-    required this.text,
-    required this.url,
-  });
+  const BankCardActionOpenUrl({required this.text, required this.url});
 
   /// Action text
   final String text;
@@ -26,19 +23,12 @@ final class BankCardActionOpenUrl extends TdObject {
 
   /// Parse from a json
   factory BankCardActionOpenUrl.fromJson(Map<String, dynamic> json) =>
-      BankCardActionOpenUrl(
-        text: json['text'],
-        url: json['url'],
-      );
+      BankCardActionOpenUrl(text: json['text'], url: json['url']);
 
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson() {
-    return {
-      "@type": defaultObjectId,
-      "text": text,
-      "url": url,
-    };
+    return {"@type": defaultObjectId, "text": text, "url": url};
   }
 
   /// Copy model with modified properties.
@@ -46,14 +36,8 @@ final class BankCardActionOpenUrl extends TdObject {
   /// Properties:
   /// * [text]: Action text
   /// * [url]: The URL to be opened
-  BankCardActionOpenUrl copyWith({
-    String? text,
-    String? url,
-  }) =>
-      BankCardActionOpenUrl(
-        text: text ?? this.text,
-        url: url ?? this.url,
-      );
+  BankCardActionOpenUrl copyWith({String? text, String? url}) =>
+      BankCardActionOpenUrl(text: text ?? this.text, url: url ?? this.url);
 
   /// TDLib object type
   static const String defaultObjectId = 'bankCardActionOpenUrl';

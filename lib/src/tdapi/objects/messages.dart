@@ -36,13 +36,13 @@ final class Messages extends TdObject {
 
   /// Parse from a json
   factory Messages.fromJson(Map<String, dynamic> json) => Messages(
-        totalCount: json['total_count'],
-        messages: List<Message>.from((json['messages'] ?? [])
-            .map((item) => Message.fromJson(item))
-            .toList()),
-        extra: json['@extra'],
-        clientId: json['@client_id'],
-      );
+    totalCount: json['total_count'],
+    messages: List<Message>.from(
+      (json['messages'] ?? []).map((item) => Message.fromJson(item)).toList(),
+    ),
+    extra: json['@extra'],
+    clientId: json['@client_id'],
+  );
 
   /// Convert model to TDLib JSON format
   @override
@@ -64,13 +64,12 @@ final class Messages extends TdObject {
     List<Message>? messages,
     dynamic extra,
     int? clientId,
-  }) =>
-      Messages(
-        totalCount: totalCount ?? this.totalCount,
-        messages: messages ?? this.messages,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => Messages(
+    totalCount: totalCount ?? this.totalCount,
+    messages: messages ?? this.messages,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'messages';

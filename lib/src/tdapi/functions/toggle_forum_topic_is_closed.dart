@@ -56,12 +56,11 @@ final class ToggleForumTopicIsClosed extends TdFunction {
     int? chatId,
     int? messageThreadId,
     bool? isClosed,
-  }) =>
-      ToggleForumTopicIsClosed(
-        chatId: chatId ?? this.chatId,
-        messageThreadId: messageThreadId ?? this.messageThreadId,
-        isClosed: isClosed ?? this.isClosed,
-      );
+  }) => ToggleForumTopicIsClosed(
+    chatId: chatId ?? this.chatId,
+    messageThreadId: messageThreadId ?? this.messageThreadId,
+    isClosed: isClosed ?? this.isClosed,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'toggleForumTopicIsClosed';

@@ -15,9 +15,7 @@ final class GetStarGiftPaymentOptions extends TdFunction {
   /// * [userId]: Identifier of the user that will receive Telegram Stars; pass 0 to get options for an unspecified user.
   ///
   /// [StarPaymentOptions] is returned on completion.
-  const GetStarGiftPaymentOptions({
-    required this.userId,
-  });
+  const GetStarGiftPaymentOptions({required this.userId});
 
   /// Identifier of the user that will receive Telegram Stars; pass 0 to get options for an unspecified user
   final int userId;
@@ -25,23 +23,15 @@ final class GetStarGiftPaymentOptions extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "user_id": userId,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "user_id": userId, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [user_id]: Identifier of the user that will receive Telegram Stars; pass 0 to get options for an unspecified user
-  GetStarGiftPaymentOptions copyWith({
-    int? userId,
-  }) =>
-      GetStarGiftPaymentOptions(
-        userId: userId ?? this.userId,
-      );
+  GetStarGiftPaymentOptions copyWith({int? userId}) =>
+      GetStarGiftPaymentOptions(userId: userId ?? this.userId);
 
   /// TDLib object type
   static const String defaultObjectId = 'getStarGiftPaymentOptions';

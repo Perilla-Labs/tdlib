@@ -13,10 +13,7 @@ final class PageBlockListItem extends TdObject {
   ///
   /// * [label]: Item label.
   /// * [pageBlocks]: Item blocks.
-  const PageBlockListItem({
-    required this.label,
-    required this.pageBlocks,
-  });
+  const PageBlockListItem({required this.label, required this.pageBlocks});
 
   /// Item label
   final String label;
@@ -28,9 +25,11 @@ final class PageBlockListItem extends TdObject {
   factory PageBlockListItem.fromJson(Map<String, dynamic> json) =>
       PageBlockListItem(
         label: json['label'],
-        pageBlocks: List<PageBlock>.from((json['page_blocks'] ?? [])
-            .map((item) => PageBlock.fromJson(item))
-            .toList()),
+        pageBlocks: List<PageBlock>.from(
+          (json['page_blocks'] ?? [])
+              .map((item) => PageBlock.fromJson(item))
+              .toList(),
+        ),
       );
 
   /// Convert model to TDLib JSON format
@@ -48,10 +47,7 @@ final class PageBlockListItem extends TdObject {
   /// Properties:
   /// * [label]: Item label
   /// * [page_blocks]: Item blocks
-  PageBlockListItem copyWith({
-    String? label,
-    List<PageBlock>? pageBlocks,
-  }) =>
+  PageBlockListItem copyWith({String? label, List<PageBlock>? pageBlocks}) =>
       PageBlockListItem(
         label: label ?? this.label,
         pageBlocks: pageBlocks ?? this.pageBlocks,

@@ -92,17 +92,15 @@ final class CreateNewSupergroupChat extends TdFunction {
     ChatLocation? location,
     int? messageAutoDeleteTime,
     bool? forImport,
-  }) =>
-      CreateNewSupergroupChat(
-        title: title ?? this.title,
-        isForum: isForum ?? this.isForum,
-        isChannel: isChannel ?? this.isChannel,
-        description: description ?? this.description,
-        location: location ?? this.location,
-        messageAutoDeleteTime:
-            messageAutoDeleteTime ?? this.messageAutoDeleteTime,
-        forImport: forImport ?? this.forImport,
-      );
+  }) => CreateNewSupergroupChat(
+    title: title ?? this.title,
+    isForum: isForum ?? this.isForum,
+    isChannel: isChannel ?? this.isChannel,
+    description: description ?? this.description,
+    location: location ?? this.location,
+    messageAutoDeleteTime: messageAutoDeleteTime ?? this.messageAutoDeleteTime,
+    forImport: forImport ?? this.forImport,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'createNewSupergroupChat';

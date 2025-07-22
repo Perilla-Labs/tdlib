@@ -56,12 +56,11 @@ final class TransferChatOwnership extends TdFunction {
     int? chatId,
     int? userId,
     String? password,
-  }) =>
-      TransferChatOwnership(
-        chatId: chatId ?? this.chatId,
-        userId: userId ?? this.userId,
-        password: password ?? this.password,
-      );
+  }) => TransferChatOwnership(
+    chatId: chatId ?? this.chatId,
+    userId: userId ?? this.userId,
+    password: password ?? this.password,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'transferChatOwnership';

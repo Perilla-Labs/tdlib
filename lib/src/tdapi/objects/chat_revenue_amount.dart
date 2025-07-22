@@ -85,14 +85,13 @@ final class ChatRevenueAmount extends TdObject {
     int? balanceAmount,
     int? availableAmount,
     bool? withdrawalEnabled,
-  }) =>
-      ChatRevenueAmount(
-        cryptocurrency: cryptocurrency ?? this.cryptocurrency,
-        totalAmount: totalAmount ?? this.totalAmount,
-        balanceAmount: balanceAmount ?? this.balanceAmount,
-        availableAmount: availableAmount ?? this.availableAmount,
-        withdrawalEnabled: withdrawalEnabled ?? this.withdrawalEnabled,
-      );
+  }) => ChatRevenueAmount(
+    cryptocurrency: cryptocurrency ?? this.cryptocurrency,
+    totalAmount: totalAmount ?? this.totalAmount,
+    balanceAmount: balanceAmount ?? this.balanceAmount,
+    availableAmount: availableAmount ?? this.availableAmount,
+    withdrawalEnabled: withdrawalEnabled ?? this.withdrawalEnabled,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'chatRevenueAmount';

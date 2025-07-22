@@ -15,9 +15,7 @@ final class GetFileExtension extends TdFunction {
   /// * [mimeType]: The MIME type of the file.
   ///
   /// [Text] is returned on completion.
-  const GetFileExtension({
-    required this.mimeType,
-  });
+  const GetFileExtension({required this.mimeType});
 
   /// The MIME type of the file
   final String mimeType;
@@ -25,23 +23,15 @@ final class GetFileExtension extends TdFunction {
   /// Convert model to TDLib JSON format
   @override
   Map<String, dynamic> toJson([dynamic extra]) {
-    return {
-      "@type": defaultObjectId,
-      "mime_type": mimeType,
-      "@extra": extra,
-    };
+    return {"@type": defaultObjectId, "mime_type": mimeType, "@extra": extra};
   }
 
   /// Copy model with modified properties.
   ///
   /// Properties:
   /// * [mime_type]: The MIME type of the file
-  GetFileExtension copyWith({
-    String? mimeType,
-  }) =>
-      GetFileExtension(
-        mimeType: mimeType ?? this.mimeType,
-      );
+  GetFileExtension copyWith({String? mimeType}) =>
+      GetFileExtension(mimeType: mimeType ?? this.mimeType);
 
   /// TDLib object type
   static const String defaultObjectId = 'getFileExtension';

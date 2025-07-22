@@ -5,10 +5,9 @@ part of '../tdapi.dart';
 /// Returns information needed to open the main Web App of a bot.
 ///
 /// * [chatId]: Identifier of the chat in which the Web App is opened; pass 0 if none.
-/// * [botUserId]: Identifier of the target bot.
+/// * [botUserId]: Identifier of the target bot. If the bot is restricted for the current user, then show an error instead of calling the method.
 /// * [startParameter]: Start parameter from internalLinkTypeMainWebApp.
-/// * [theme]: Preferred Web App theme; pass null to use the default theme *(optional)*.
-/// * [applicationName]: Short name of the current application; 0-64 English letters, digits, and underscores.
+/// * [parameters]: Parameters to use to open the Web App.
 ///
 /// [MainWebApp] is returned on completion.
 final class GetMainWebApp extends TdFunction {
@@ -17,34 +16,29 @@ final class GetMainWebApp extends TdFunction {
   /// Returns information needed to open the main Web App of a bot.
   ///
   /// * [chatId]: Identifier of the chat in which the Web App is opened; pass 0 if none.
-  /// * [botUserId]: Identifier of the target bot.
+  /// * [botUserId]: Identifier of the target bot. If the bot is restricted for the current user, then show an error instead of calling the method.
   /// * [startParameter]: Start parameter from internalLinkTypeMainWebApp.
-  /// * [theme]: Preferred Web App theme; pass null to use the default theme *(optional)*.
-  /// * [applicationName]: Short name of the current application; 0-64 English letters, digits, and underscores.
+  /// * [parameters]: Parameters to use to open the Web App.
   ///
   /// [MainWebApp] is returned on completion.
   const GetMainWebApp({
     required this.chatId,
     required this.botUserId,
     required this.startParameter,
-    this.theme,
-    required this.applicationName,
+    required this.parameters,
   });
 
   /// Identifier of the chat in which the Web App is opened; pass 0 if none
   final int chatId;
 
-  /// Identifier of the target bot
+  /// Identifier of the target bot. If the bot is restricted for the current user, then show an error instead of calling the method
   final int botUserId;
 
   /// Start parameter from internalLinkTypeMainWebApp
   final String startParameter;
 
-  /// Preferred Web App theme; pass null to use the default theme
-  final ThemeParameters? theme;
-
-  /// Short name of the current application; 0-64 English letters, digits, and underscores
-  final String applicationName;
+  /// Parameters to use to open the Web App
+  final WebAppOpenParameters parameters;
 
   /// Convert model to TDLib JSON format
   @override
@@ -54,8 +48,7 @@ final class GetMainWebApp extends TdFunction {
       "chat_id": chatId,
       "bot_user_id": botUserId,
       "start_parameter": startParameter,
-      "theme": theme?.toJson(),
-      "application_name": applicationName,
+      "parameters": parameters.toJson(),
       "@extra": extra,
     };
   }
@@ -64,24 +57,20 @@ final class GetMainWebApp extends TdFunction {
   ///
   /// Properties:
   /// * [chat_id]: Identifier of the chat in which the Web App is opened; pass 0 if none
-  /// * [bot_user_id]: Identifier of the target bot
+  /// * [bot_user_id]: Identifier of the target bot. If the bot is restricted for the current user, then show an error instead of calling the method
   /// * [start_parameter]: Start parameter from internalLinkTypeMainWebApp
-  /// * [theme]: Preferred Web App theme; pass null to use the default theme
-  /// * [application_name]: Short name of the current application; 0-64 English letters, digits, and underscores
+  /// * [parameters]: Parameters to use to open the Web App
   GetMainWebApp copyWith({
     int? chatId,
     int? botUserId,
     String? startParameter,
-    ThemeParameters? theme,
-    String? applicationName,
-  }) =>
-      GetMainWebApp(
-        chatId: chatId ?? this.chatId,
-        botUserId: botUserId ?? this.botUserId,
-        startParameter: startParameter ?? this.startParameter,
-        theme: theme ?? this.theme,
-        applicationName: applicationName ?? this.applicationName,
-      );
+    WebAppOpenParameters? parameters,
+  }) => GetMainWebApp(
+    chatId: chatId ?? this.chatId,
+    botUserId: botUserId ?? this.botUserId,
+    startParameter: startParameter ?? this.startParameter,
+    parameters: parameters ?? this.parameters,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'getMainWebApp';

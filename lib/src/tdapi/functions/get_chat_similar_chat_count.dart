@@ -44,10 +44,7 @@ final class GetChatSimilarChatCount extends TdFunction {
   /// Properties:
   /// * [chat_id]: Identifier of the target chat; must be an identifier of a channel chat
   /// * [return_local]: Pass true to get the number of chats without sending network requests, or -1 if the number of chats is unknown locally
-  GetChatSimilarChatCount copyWith({
-    int? chatId,
-    bool? returnLocal,
-  }) =>
+  GetChatSimilarChatCount copyWith({int? chatId, bool? returnLocal}) =>
       GetChatSimilarChatCount(
         chatId: chatId ?? this.chatId,
         returnLocal: returnLocal ?? this.returnLocal,
