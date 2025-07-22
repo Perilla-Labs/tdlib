@@ -127,7 +127,7 @@ final class ChatNotificationSettings extends TdObject {
             : int.parse(json['story_sound_id']),
         useDefaultShowStorySender:
             json['use_default_show_story_sender'] ?? true,
-        showStorySender: json['show_story_sender'],
+        showStorySender: json['show_story_sender'] ?? true,
         useDefaultDisablePinnedMessageNotifications:
             json['use_default_disable_pinned_message_notifications'],
         disablePinnedMessageNotifications:

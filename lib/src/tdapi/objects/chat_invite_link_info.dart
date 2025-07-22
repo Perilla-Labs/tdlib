@@ -133,8 +133,8 @@ final class ChatInviteLinkInfo extends TdObject {
     createsJoinRequest: json['creates_join_request'],
     isPublic: json['is_public'],
     isVerified: json['is_verified'] ?? false,
-    isScam: json['is_scam'],
-    isFake: json['is_fake'],
+    isScam: json['is_scam'] ?? false,
+    isFake: json['is_fake'] ?? false,
     extra: json['@extra'],
     clientId: json['@client_id'],
   );

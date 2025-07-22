@@ -89,7 +89,7 @@ final class ScopeNotificationSettings extends TdObject {
         storySoundId: json['story_sound_id'] is int
             ? json['story_sound_id']
             : int.parse(json['story_sound_id']),
-        showStorySender: json['show_story_sender'],
+        showStorySender: json['show_story_sender'] ?? true,
         disablePinnedMessageNotifications:
             json['disable_pinned_message_notifications'],
         disableMentionNotifications: json['disable_mention_notifications'],
@@ -138,23 +138,22 @@ final class ScopeNotificationSettings extends TdObject {
     bool? disableMentionNotifications,
     dynamic extra,
     int? clientId,
-  }) =>
-      ScopeNotificationSettings(
-        muteFor: muteFor ?? this.muteFor,
-        soundId: soundId ?? this.soundId,
-        showPreview: showPreview ?? this.showPreview,
-        useDefaultMuteStories:
-            useDefaultMuteStories ?? this.useDefaultMuteStories,
-        muteStories: muteStories ?? this.muteStories,
-        storySoundId: storySoundId ?? this.storySoundId,
-        showStorySender: showStorySender ?? this.showStorySender,
-        disablePinnedMessageNotifications: disablePinnedMessageNotifications ??
-            this.disablePinnedMessageNotifications,
-        disableMentionNotifications:
-            disableMentionNotifications ?? this.disableMentionNotifications,
-        extra: extra ?? this.extra,
-        clientId: clientId ?? this.clientId,
-      );
+  }) => ScopeNotificationSettings(
+    muteFor: muteFor ?? this.muteFor,
+    soundId: soundId ?? this.soundId,
+    showPreview: showPreview ?? this.showPreview,
+    useDefaultMuteStories: useDefaultMuteStories ?? this.useDefaultMuteStories,
+    muteStories: muteStories ?? this.muteStories,
+    storySoundId: storySoundId ?? this.storySoundId,
+    showStorySender: showStorySender ?? this.showStorySender,
+    disablePinnedMessageNotifications:
+        disablePinnedMessageNotifications ??
+        this.disablePinnedMessageNotifications,
+    disableMentionNotifications:
+        disableMentionNotifications ?? this.disableMentionNotifications,
+    extra: extra ?? this.extra,
+    clientId: clientId ?? this.clientId,
+  );
 
   /// TDLib object type
   static const String defaultObjectId = 'scopeNotificationSettings';

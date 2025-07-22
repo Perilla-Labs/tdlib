@@ -104,7 +104,7 @@ final class Message extends TdObject {
     this.factCheck,
     this.replyTo,
     required this.messageThreadId,
-    required this.savedMessagesTopicId,
+    this.savedMessagesTopicId,
     this.selfDestructType,
     required this.selfDestructIn,
     required this.autoDeleteIn,
@@ -189,7 +189,7 @@ final class Message extends TdObject {
   final int messageThreadId;
 
   /// Identifier of the Saved Messages topic for the message; 0 for messages not from Saved Messages
-  final int savedMessagesTopicId;
+  final int? savedMessagesTopicId;
 
   /// The message's self-destruct type; may be null if none
   final MessageSelfDestructType? selfDestructType;
